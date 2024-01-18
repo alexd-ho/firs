@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+
+    <h2 class="govuk-heading-l">
+      Research round 1
+    </h2>
+  
+    <p class="govuk-body">We are testing the eligibility journey for public registrants.</p>
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          More about this research
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+            <ul class="govuk-list govuk-list--bullet">
+          <li><a href="#" class="govuk-link">Research plan</a></li>
+          <li><a href="#" class="govuk-link">Discussion guide</a></li>
+          <li><a href="#" class="govuk-link">Research analysis</a></li>
+        </ul>
+        <h3 class="govuk-heading-m">
+          Research aims
+        </h3>
+        <ol class="govuk-list govuk-list--number">
+          <li>What are users' needs, frustrations and concerns - do they align with our discovery personas?</li>
+          <li>How will users become aware of FIRS without an information notice or personal search?.</li>
+          <li>Are users confident that the service is for them or not and how asy was it for them to know?</li>
+          <li>Does the eligibility form give a clear answer on next steps and is the length of time it takes to complete acceptable?</li>
+        </ol>
+      </div>
+    </details>
+
+    
+    <ol class="govuk-prototype-kit-task-list">
+      <li>
+        <h2 class="govuk-prototype-kit-task-list__section">
+          <span class="govuk-prototype-kit-task-list__section-number">1. </span> User journeys
+        </h2>
+        <ul class="govuk-prototype-kit-task-list__items">
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="foreign-influence-registration-scheme" aria-describedby="eligibility-status">
+                Guidance page
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey govuk-prototype-kit-task-list__tag" id="list-convictions-status">Not tested</strong>
+          </li>
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="#" aria-describedby="read-declaration-status">
+                Start page
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey govuk-prototype-kit-task-list__tag" id="list-convictions-status">Not tested</strong>
+          </li>
+          <li class="govuk-prototype-kit-task-list__item">
+            <span class="govuk-prototype-kit-task-list__task-name">
+              <a href="#" aria-describedby="read-declaration-status">
+                Check eligibility
+              </a>
+            </span>
+            <strong class="govuk-tag govuk-tag--grey govuk-prototype-kit-task-list__tag" id="list-convictions-status">Not tested</strong>
+          </li>
+        </ul>
+     
+    </ol>
+    
+    
+  
+    <!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->
+  </div>
+</div>
+
+{% endblock %}
