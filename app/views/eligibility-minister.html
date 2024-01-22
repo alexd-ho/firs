@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <form class="form" action="/minister-answer" method="post">
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "minister",
+        value: data['minister'],
+        fieldset: {
+          legend: {
+            text: "Have you been asked or instructed to carry out an activity that could influence a decision made by a Minister or Government department?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+      
+      {% from "govuk/components/details/macro.njk" import govukDetails %}
+  
+  
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What is an activity?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>An activity can be any:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>private communication such as an email, letter or meeting</li>
+              <li>public communication such as an article or publication</li>
+              <li>offer of money, goods or services to an individual or entity in the UK</li>
+            </ul>
+  
+          </div>
+        </details>
+        
+      </form>
+
+  </div>
+</div>
+
+{% endblock %}

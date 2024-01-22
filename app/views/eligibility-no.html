@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        You may not need to register on FIRS
+      </h1>
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+    
+        {% if (data['arrangement'] == "No") %}
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body">Based on your answers, you may not have to register on FIRS because:</p>
+          <ul class="govuk-body">
+            <li>you haven't made an arrangement with a foreign government, sovereign, or head of state
+            </li>
+          </ul>
+    
+    {% elseif (data['direction'] == "No") %}
+    
+    <div class="govuk-inset-text">
+      <p class="govuk-body">Based on your answers, you may not have to register on FIRS because:</p>
+      <ul class="govuk-body">
+        <li>you haven't received a specific instruction or request as part of your arrangement
+        </li>
+      </ul>
+
+      {% elseif (data['member'] == "No") %}
+    
+    <div class="govuk-inset-text">
+      <p class="govuk-body">Based on your answers, you may not have to register on FIRS because:</p>
+      <ul class="govuk-body">
+        <li>you haven't been asked or instructed to carry out an activity to influence UK politics
+        </li>
+      </ul>
+    
+    {% endif %}
+
+    
+        </div>
+        
+        
+        
+              <h2 class="govuk-heading-m">
+                If you made a mistake
+              </h2>
+        
+              <p class="govuk-body-m">
+                Make sure you have the correct information and <a href="eligibility-arrangement" class="govuk-link">start again</a>.
+              </p>
+        
+        
+              <h2 class="govuk-heading-m">
+                If your answers are correct
+              </h2>
+        
+              <p class="govuk-body-m">
+                You can <a href="#" class="govuk-link">continue to register on FIRS</a> if you think you need to based on your arrangement or activities.
+              </p>
+        
+        
+              <h2 class="govuk-heading-m">
+                If you'd like to discuss an arrangement or activity
+              </h2>
+        
+              <p class="govuk-body-m">
+                Contact the <a href="#" class="govuk-link">FIRS Case Management Team</a>.
+              </p>
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

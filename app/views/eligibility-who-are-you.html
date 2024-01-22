@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/who-answer" method="post">
+
+        {{ govukRadios({
+          name: "who",
+          value: data['who'],
+          fieldset: {
+            legend: {
+              text: "Who are you?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Government",
+              text: "A member of a foreign government, sovereign, or head of state"
+            },
+            {
+              value: "Diplomat",
+              text: "A diplomat or spouse, partner or family member of a diplomat"
+            },
+            {
+              value: "News",
+              text: "A recognised news publisher"
+            },
+            {
+              value: "Lawyer",
+              text: "A lawyer or solicitor "
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "None",
+              text: "None of these"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

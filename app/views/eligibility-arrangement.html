@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/arrangement-answer" method="post">
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "arrangement",
+          value: data['arrangement'],
+          fieldset: {
+            legend: {
+              text: "Have you made an arrangement with a foreign government, sovereign, or head of state?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This includes part of a foreign government, a local government authority, an elected political party, or an employee or member of any of these."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{{ govukDetails({
+  summaryText: "What is an arrangement?",
+  text: "An arrangement can be any type of formal or informal agreement."
+}) }}
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

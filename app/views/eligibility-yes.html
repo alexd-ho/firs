@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
+
+
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        You must register your arrangement on FIRS 
+      </h1>
+
+      <p class="govuk-body-m">
+        Based on your answers you must register this arrangement on FIRS.
+      </p>
+
+      <p class="govuk-body-m">
+        You must register a new arrangement within 10 days, starting from the day the arrangement is made and before any activities are carried out.
+      </p>
+
+      <form class="form" action="#" method="post">
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue to registration"
+          }) }}
+        
+          <a class="govuk-link" href="foreign-influence-registration-scheme">Cancel</a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
