@@ -11,12 +11,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/arrangement-answer" method="post">
+      <form class="form" action="/party-answer" method="post">
 
         {{ govukRadios({
           classes: "govuk-radios--inline",
-          name: "arrangement",
-          value: data['arrangement'],
+          name: "party",
+          value: data['party'],
           fieldset: {
             legend: {
               text: "Are the UK a party to the arrangement?",
@@ -52,7 +52,7 @@
   </summary>
   <div class="govuk-details__text">
     <p>Arrangements do not need to be registered when the United Kingdom is a party to that arrangement. This includes arrangements where the UK Government, a department of the UK Government, a UK government official, or any person acting on behalf of the Crown is a party.</p>
-    <p>This exemption includes the following scenarios:</p>
+    <p>For example:</p>
     <ul class="govuk-list govuk-list--bullet">
       <li>Where an entity or individual who would otherwise be required to register has signed a contract with a UK government department, and the activities being carried out are related to that contract</li>
       <li>Where the UK Government has invited or authorised an individual or organisation, who would otherwise be required to register, to participate in certain activities</li>

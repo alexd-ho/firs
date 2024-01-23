@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        This page is not ready to test
+      </h1>
+
+      <form class="form" action="eligibility-party" method="post">
+
+        <p>
+          Return to previous screen.
+        </p>
+
+        {{ govukButton({
+          text: "Go back"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

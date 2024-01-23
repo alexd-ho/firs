@@ -22,9 +22,19 @@ router.post('/arrangement-answer', function(request, response) {
 
     var who = request.session.data['arrangement']
     if (who == "Yes"){
-        response.redirect("eligibility-direction")
+        response.redirect("eligibility-party")
     } else {
         response.redirect("/eligibility-no")
+    }
+})
+
+router.post('/party-answer', function(request, response) {
+
+    var who = request.session.data['party']
+    if (who == "Yes"){
+        response.redirect("eligibility-party-yes")
+    } else {
+        response.redirect("/eligibility-direction")
     }
 })
 
