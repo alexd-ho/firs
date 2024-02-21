@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "FIRS Account",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Your registrations",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Security"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  {% endblock %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Your registrations
+      </h1>
+
+      <p>
+        You must <a href="what-is-your-name">complete your profile</a> before you can register an arrangement.
+      </p>
+      <div class="govuk-!-padding-bottom-5"></div>
+
+
+
+      <form action="/confirmation" method="post" novalidate>
+
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Add registration",
+          disabled: true
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

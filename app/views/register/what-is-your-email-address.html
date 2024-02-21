@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "FIRS Account",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Your registrations"
+        
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Security"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  {% endblock %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    
+
+      <form class="form" action="/register/what-is-your-phone-number" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        <h1 class="govuk-heading-l">
+          Your contact email address
+        </h1>
+        <p class="govuk-body">
+          We need an email address in case we need to contact you about your registrations. </p>
+          <p>We'll also use it to send you confirmation when you submit a registration.
+        </p>
+       
+        <p>The email address you used to create your account is:</p>
+        <div class="govuk-inset-text">
+          <strong>
+            {{ data['emailAddress'] }}
+        </strong>
+        </div>
+
+        <form action="/form-handler" method="post" novalidate>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  Do you want to use this as your contact email address?
+                </h1>
+              </legend>
+             
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                  <label class="govuk-label govuk-radios__label" for="contact">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                 
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                  <label class="govuk-label govuk-radios__label" for="contact-2">
+                    No
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-phone">
+                      Enter contact email address
+                    </label>
+                    <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
+                  </div>
+                </div>
+               
+              </div>
+            </fieldset>
+          </div>
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
