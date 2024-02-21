@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "FIRS Account",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Your registrations"
+        
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Security"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  {% endblock %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    
+
+      <form class="form" action="/register/what-is-your-address" method="post">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "What is your full name?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          id: "your-name",
+          name: "yourName"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

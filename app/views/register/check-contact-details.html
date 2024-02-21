@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "FIRS Account",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Your registrations"
+        
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Security"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  {% endblock %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-l">Check your personal details before updating</h1>
+    <h2 class="govuk-heading-m">Personal details</h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>{{ data['yourName'] }}</p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+        </dd>
+      </div>
+     
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>{{ data['addressLine1'] }}<br>{{ data['addressLine2'] }}<br>{{ data['addressLine3'] }}<br>{{ data['addressTown'] }}<br>{{ data['country'] }}<br>{{ data['addressPostcode'] }}</.p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p>{{data['phoneNumber']}}</p>
+          <p>{{data['emailAddress']}}</p>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+        </dd>
+      </div>
+    </dl>
+    
+   
+    <form action="/form-handler" method="post" novalidate>
+      <input type="hidden" name="answers-checked" value="true">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

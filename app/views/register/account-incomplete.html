@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% block header %}
+{{ govukHeader({
+    homepageUrl: "#",
+    serviceName: "FIRS Account",
+    serviceUrl: "#",
+    navigation: [
+      {
+        href: "#",
+        text: "Your registrations",
+        active: true
+      },
+      {
+        href: "#",
+        text: "Profile"
+      },
+      {
+        href: "#",
+        text: "Security"
+      },
+      {
+        href: "#",
+        text: "Sign out"
+      }
+    ]
+  }) }}
+  {% endblock %}
+
+{% block pageTitle %}
+  Task list template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Your account
+      </h1>
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            Your progress has been saved
+          </h3>
+          <p class="govuk-body">You can see and complete your profile and then start a registration below or you can <a class="govuk-notification-banner__link" href="#">sign out</a>.</p>
+        <p>Last saved: 10:27am on 22 February 2024</p>
+       
+                </div>
+      </div>
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 2 sections.</p>
+
+      <ol class="govuk-prototype-kit-task-list">
+        <li>
+          <h2 class="govuk-prototype-kit-task-list__section">
+            <span class="govuk-prototype-kit-task-list__section-number">1. </span> Your profile
+          </h2>
+          <ul class="govuk-prototype-kit-task-list__items">
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a href="#" aria-describedby="eligibility-status">
+                  Sign-in details
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-prototype-kit-task-list__tag" id="eligibility-status">Completed</strong>
+            </li>
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a href="/register/what-is-your-name" aria-describedby="read-declaration-status">
+                  <A:tel></A:tel><Abbr></Abbr>Personal details
+                </a>
+              </span>
+
+             
+
+              <strong class="govuk-tag govuk-tag--grey govuk-prototype-kit-task-list__tag" id="list-convictions-status">Not started</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="govuk-prototype-kit-task-list__section">
+            <span class="govuk-prototype-kit-task-list__section-number">2. </span> Register an arrangement
+          </h2>
+          <ul class="govuk-prototype-kit-task-list__items">
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                <a href="#" aria-describedby="company-information-status">
+                  Prove identity of the person in the arrangment
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey govuk-prototype-kit-task-list__tag" id="list-convictions-status">Not started</strong>
+            </li>
+            <li class="govuk-prototype-kit-task-list__item">
+              <span class="govuk-prototype-kit-task-list__task-name">
+                Start registration
+              </span>
+              <strong class="govuk-tag govuk-tag--grey govuk-prototype-kit-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+            </li>
+            
+          </ul>
+        </li>
+
+        
+      </ol>
+    </div>
+  </div>
+
+{% endblock %}

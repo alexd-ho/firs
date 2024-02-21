@@ -87,3 +87,13 @@ router.post('/member-answer', function(request, response) {
         response.redirect("/eligibility-no")
     }
 })
+
+router.post('/myself-answer', function(request, response) {
+
+    var who = request.session.data['myselfSomeone']
+    if (who == "someone-else"){
+        response.redirect("/register/account-contact-legal")
+    } else {
+        response.redirect("/register/register-myself")
+    }
+})

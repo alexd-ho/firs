@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+          
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+          <h1 class="govuk-heading-l">
+            Check your phone
+          </h1>
+
+          <form class="form" action="/path/of/next/page" method="post">
+    
+          
+
+            <div class="govuk-inset-text">
+              <p>
+                We have sent a code to:
+                <strong>
+                  {{ data['phoneNumber'] }}
+              </strong>
+            </p>
+          </div>
+        
+          
+          <p>
+            It might take a few minutes to arrive. The code will expire after 2 hours.
+          </p>
+    
+
+<div class="govuk-form-group">
+  <label class="govuk-label" for="security-code">
+    Enter the 6 digit security code
+  </label>
+
+<input class="govuk-input govuk-input--width-5" id="security-code" name="securityCode" type="text">
+
+</div>
+
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Problems with the code?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>We can <a href="#">send the code again</a> or you can <a href="#">use a different phone number</a>.</p>
+    <p><a href="#">Get a code another way</a></p>
+  </div>
+</details>
+    
+        </form></div>
+      </div>
+  
+
+<button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+
+      
+
+
+{% endblock %}

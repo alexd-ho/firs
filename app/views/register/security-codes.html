@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "signIn",
+        fieldset: {
+          legend: {
+            text: "Choose how to get security codes",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "To finish creating your account, choose a way to prove it's you when you sign in."
+        },
+  items: [
+    {
+      value: "text",
+      text: "Text message"
+      
+    
+    },
+    {
+      value: "authenticator",
+      text: "Authenticator app for smartphone, tablet or computer"
+      
+  }
+  ]
+}) }}
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What is an authenticator app?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>
+    An authenticator app creates a security code that helps confirm it's you when you sign in.
+    </p>
+    <p>You can use an authenticator app on your smartphone, tablet or desktop computer. Download an authenticator app for your smartphone or tablet from your app store or search onlinefor an authenticator app for your computer.</p>
+  </div>
+</details>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

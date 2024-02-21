@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/myself-answer" method="post">
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "myselfSomeone",
+        value: data['myselfSomeone'],
+        fieldset: {
+          legend: {
+            text: "Are you registering the arrangement for yourself or someone else?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+  items: [
+    {
+      value: "myself",
+      text: "I'm registering for myself",
+      hint: {
+        text: "You are the person who has been directed by a foreign power, or a listed person or entity."
+    }
+    },
+    {
+      value: "someone-else",
+      text: "I'm registering an arrangement for someone else"
+      
+  }
+  ]
+}) }}
+      
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

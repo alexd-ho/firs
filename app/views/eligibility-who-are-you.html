@@ -1,15 +1,18 @@
 {% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
+
+
+
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Serice name",
+  serviceUrl: "#"
 }) }}
 {% endblock %}
+
 
 {% block content %}
 
