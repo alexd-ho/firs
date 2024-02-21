@@ -97,3 +97,13 @@ router.post('/myself-answer', function(request, response) {
         response.redirect("/register/register-myself")
     }
 })
+
+router.post('/security-answer', function(request, response) {
+
+    var who = request.session.data['securityCodes']
+    if (who == "text"){
+        response.redirect("/register/enter-phone")
+    } else {
+        response.redirect("/register/authenticator-app")
+    }
+})

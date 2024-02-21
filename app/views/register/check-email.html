@@ -16,12 +16,14 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/register/security-codes" method="post">
     
           <h1 class="govuk-heading-l">
             Check your email
           </h1>
 
-          <form class="form" action="/register/enter-phone" method="post">
+         
     
           
 
@@ -66,16 +68,14 @@
   </div>
 </details>
     
-        </form></div>
-      </div>
-  
 
-<button type="submit" class="govuk-button" data-module="govuk-button">
-  Continue
-</button>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
 
+      </form>
 
-      
-
+    </div>
+  </div>
 
 {% endblock %}
