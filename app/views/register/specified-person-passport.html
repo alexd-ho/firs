@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/register/specified-person-number-type" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-heading-l">Their passport details</h1>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="account-number">
+              Passport number
+            </label>
+            <div id="account-number-hint" class="govuk-hint">
+              The passport number may include letters
+            </div>
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="account-number" name="accountNumber" type="text" spellcheck="false" aria-describedby="account-number-hint" inputmode="numeric">
+          </div>
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Does the passport have an expiry date?
+            </h1>
+          </legend>
+         
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="passportExpiry" name="passportExpiry" type="radio" value="passportExpiryYes data-aria-controls="conditional-contact">
+              <label class="govuk-label govuk-radios__label" for="passportExpiry">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="passportExpiry-2" name="passportExpiry" type="radio" value="passportExpiryNo" data-aria-controls="conditional-contact">
+              <label class="govuk-label govuk-radios__label" for="passportExpiry-2">
+                No
+              </label>
+            </div>
+            <div class="govuk-!-padding-bottom-5"></div>
+            <div class="govuk-form-group">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  Upload an image of the passport
+                </h1>
+              </legend>
+              <label class="govuk-label" for="file-upload-1">
+                Upload a file
+              </label>
+              <div id="account-number-hint" class="govuk-hint">
+                The selected file must be a JPG, BMP, PNG, TIF or PDF.
+              </div>
+              <input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+            </div>
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Help with passport image
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                The image must clearly show the photograph of the person and the passport details.
+              </div>
+            </details>
+          
+        <div class="govuk-!-padding-bottom-5"></div>
+
+      
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
