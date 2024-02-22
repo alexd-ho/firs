@@ -24,25 +24,20 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="/register/specified-person-former-name" method="post">
 
-      {% from "govuk/components/input/macro.njk" import govukInput %}
+      <form class="form" action="/register/arrangement-question-list" method="post">
 
-      {{ govukInput({
-        label: {
-          text: "What is their full name?",
-          classes: "govuk-label--l",
-          isPageHeading: true
-        },
-        hint: {
-          text: "This will be published on the Public Register"
-        },
-        id: "event-name",
-        name: "eventName"
-      }) }}
+    
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="event-name">
+              What is their email address?
+            </label>
+          </h1>
+          <input class="govuk-input" id="event-name" name="eventName" type="text">
+        </div>
 
-
-      
+     
 
         {{ govukButton({
           text: "Save and continue"

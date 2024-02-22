@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/register/specified-person-address" method="post">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="event-name">
+              What is their National Insurance Number?
+            </label>
+          </h1>
+          
+            <label class="govuk-label" for="national-insurance-number">
+              National Insurance number
+            </label>
+            <div id="national-insurance-number-hint" class="govuk-hint">
+              It's on their National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.
+            </div>
+            <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="national-insurance-number" name="nationalInsuranceNumber" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint">
+          </div>
+        <div class="govuk-!-padding-bottom-5"></div>
+
+       
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
