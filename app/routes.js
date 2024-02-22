@@ -107,3 +107,13 @@ router.post('/security-answer', function(request, response) {
         response.redirect("/register/authenticator-app")
     }
 })
+
+router.post('/who-are-you-answer', function(request, response) {
+
+    var who = request.session.data['whoAreYouRegistering']
+    if (who == "individual"){
+        response.redirect("/register/specified-person")
+    } else {
+        response.redirect("#")
+    }
+})

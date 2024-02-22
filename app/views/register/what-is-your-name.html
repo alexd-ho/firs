@@ -6,37 +6,50 @@
     serviceName: "FIRS Account",
     serviceUrl: "#",
     navigation: [
-      {
-        href: "#",
-        text: "Your registrations"
-        
-      },
-      {
-        href: "#",
-        text: "Profile"
-      },
-      {
-        href: "#",
-        text: "Security"
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
-  {% endblock %}
+    {
+      href: "your-registrations-new",
+      text: "Your registrations"
+    },
+    {
+      href: "#",
+      text: "Profile",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Security"
+    },
+    {
+      href: "#",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+
 {% endblock %}
+
+
+
+
 
 {% block content %}
 

@@ -24,18 +24,28 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/register/specified-person-former-name" method="post">
 
-      <h1 class="govuk-heading-l">
-You've created your FIRS account      </h1>
+      {% from "govuk/components/input/macro.njk" import govukInput %}
 
-      <form class="form" action="/register/your-registrations-new" method="post">
+      {{ govukInput({
+        label: {
+          text: "What is their full name?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Include any middle names."
+        },
+        id: "event-name",
+        name: "eventName"
+      }) }}
 
-        <p>
-          You can now save your progress.
-        </p>
+
+      
 
         {{ govukButton({
-          text: "Continue"
+          text: "Save and continue"
         }) }}
 
       </form>

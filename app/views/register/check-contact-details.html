@@ -6,36 +6,45 @@
     serviceName: "FIRS Account",
     serviceUrl: "#",
     navigation: [
-      {
-        href: "#",
-        text: "Your registrations"
-        
-      },
-      {
-        href: "#",
-        text: "Profile"
-      },
-      {
-        href: "#",
-        text: "Security"
-      },
-      {
-        href: "#",
-        text: "Sign out"
-      }
-    ]
-  }) }}
-  {% endblock %}
+    {
+      href: "your-registrations-new",
+      text: "Your registrations"
+    },
+    {
+      href: "#",
+      text: "Profile",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Security"
+    },
+    {
+      href: "#",
+      text: "Sign out"
+    }
+  ]
+}) }}
+{% endblock %}
 
 {% block pageTitle %}
   Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
 {% endblock %}
 
 {% block content %}
@@ -94,10 +103,10 @@
     </dl>
     
    
-    <form action="/register/profile" method="post" novalidate>
+    <form action="/register/your-registrations-add" method="post" novalidate>
       <input type="hidden" name="answers-checked" value="true">
       <button type="submit" class="govuk-button" data-module="govuk-button">
-        Confirm
+        Save and continue
       </button>
     </form>
   </div>
