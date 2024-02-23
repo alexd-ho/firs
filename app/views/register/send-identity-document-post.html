@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+       Send your identity document by post
+      </h1>
+
+      <form class="form" action="#" method="post">
+
+        <p>
+          The app is free. If you use it, it is unlikely that you will need to send us your identity document by post.
+        </p>
+
+        <h2 class="govuk-heading-m">
+          What you'll need to do next
+         </h2>
+       
+         <ul class="govuk-list govuk-list--number">
+           <li>Enter your identity document details.</li>
+           <li>Upload a recent digital photo of yourself.</li>
+           <li>Complete the rest of your application.</li>
+           <li>Send your identity document by post.</li>
+          </ul>
+          <p>We will tell you where to send your identity document after you register.</p>
+
+          <h2 class="govuk-heading-m">
+            Returning your identity document
+           </h2>
+           <p>After we check your document, we will return it by Royal Mail Signed For 2nd Class delivery.</p>
+          
+           
+           
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+        <h2 class="govuk-heading-m">
+          I will prove my identity in another way
+         </h2>
+         <p><a href="/register/use-app">I want to use the app</a>.</p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

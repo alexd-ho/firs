@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How you prove your identity
+      </h1>
+
+      <form class="form" action="/register/check-identity-document" method="post">
+
+        <p>
+          To help us confirm your identity and nationality, we need to check your identity document.</p>
+        <p>You can:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>use the 'GOV.UK ID Check' iPhone app or Android app on your phone or someone else's</li>
+          <li>enter your document details online and send your identity document by post</li>
+        </ul>
+
+        <p>If you send your identity document by post, we will return it by Royal Mail Signed For 2nd Class delivery.</p>
+        
+        <h2 class="govuk-heading-m">After your identity document has been checked</h2>
+          <p>Using details from your identity document, we will create your Foreign Influence Registration Scheme (FIRS) account and send you a code to access it.</p>
+        <p>You will need to sign in to complete your registration.</p>
+        <p>You can complete your registration on a computer or any device.</p>
+    
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

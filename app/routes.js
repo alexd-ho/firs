@@ -101,10 +101,10 @@ router.post('/myself-answer', function(request, response) {
 router.post('/security-answer', function(request, response) {
 
     var who = request.session.data['securityCodes']
-    if (who == "text"){
-        response.redirect("/register/enter-phone")
-    } else {
+    if (who == "authenticator"){
         response.redirect("/register/authenticator-app")
+    } else {
+        response.redirect("/register/enter-phone")
     }
 })
 
@@ -115,5 +115,25 @@ router.post('/who-are-you-answer', function(request, response) {
         response.redirect("/register/specified-person")
     } else {
         response.redirect("#")
+    }
+})
+
+router.post('/prove-yes-or-no-answer', function(request, response) {
+
+    var who = request.session.data['proveIdentity']
+    if (who == "yes"){
+        response.redirect("/register/prove-your-identity")
+    } else {
+        response.redirect("register/account-create")
+    }
+})
+
+router.post('/check-identity-document-answer', function(request, response) {
+
+    var who = request.session.data['checkDoc']
+    if (who == "onlinePost"){
+        response.redirect("/register/send-identity-document-post")
+    } else {
+        response.redirect("register/use-app")
     }
 })

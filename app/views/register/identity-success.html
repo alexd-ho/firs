@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    
+
+      <form class="form" action="/register/your-registrations-add" method="post">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            You successfully proved your identity
+          </h1>
+         
+        </div>
+        <p>You can now register arrangements on the Foreign Influence Registration Scheme (FIRS). </p>
+        <p>Sign in to your GOV.UK One Login account to continue your registration.</p>
+
+        {{ govukButton({
+          text: "Sign in and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+       Using the 'GOV.UK ID Check' app
+      </h1>
+
+      <form class="form" action="/register/identity-skip" method="post">
+
+        <p>
+          The app is free. If you use it, it is unlikely that you will need to send us your identity document by post.
+        </p>
+
+        <h2 class="govuk-heading-m">
+          What you'll need
+         </h2>
+         <p>You can use the app on:</p>
+         
+         <ul class="govuk-list govuk-list--bullet">
+           <li>an Android phone</li>
+           <li>an iPhone 7 or newer</li>
+          </ul>
+          <p>If you need to, you can use someone else's phone.</p>
+
+          <h2 class="govuk-heading-m">
+            If you use a national identity card
+           </h2>
+           <p>To use the app, your national identity card must have a biometric chip.</p>
+           <p>If it has a chip, it will have this symbol on it:</p>
+           <p>If your card does not have a biometric chip, you can use the app but you must send us your card by post after you register.</p>
+           
+           <h2 class="govuk-heading-m">
+            Phones that can use the app
+           </h2>
+           <p>Your phone must have NFC to read the biometric chip in your identity document.</p>
+           <p>The phone normally has NFC if you can use it to make contactless payments. You can check the phone's settings to see if it has NFC.</p>
+           <p>If your phone does not have NFC, you can use the app but you must send us your identity document by post after you register.</p>
+
+           <h2 class="govuk-heading-m">
+            How it works
+           </h2>
+           <p>The app proves your identity by checking if you have a genuine document that belongs to you. It:</p>
+           
+           <ul class="govuk-list govuk-list--bullet">
+             <li>scans the details on your document and adds this information to your registration</li>
+             <li>scans your face to check the document belongs to you</li>
+             <li>takes a digital photo of you</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">
+              After you use the app
+             </h2>
+             <p>You must complete the rest of your registration separately online as the app will only check your identity.</p>
+             <p>After you have finished using the app we will send you an email that tells you how to complete your registration.</p>
+
+             <h2 class="govuk-heading-m">
+              Security
+             </h2>
+             <p>The app sends us your information securely. No information is stored on the app or on your phone after you close the app.</p>
+             <h2 class="govuk-heading-m">
+              Get the iPhone app
+             </h2>
+             <p>Download the free GOV.UK ID Check app on the App Store.</p>
+             <h2 class="govuk-heading-m">
+              Get the Android app
+             </h2>
+             <p>Download the free GOV.UK ID Check app on Google Play.</p>
+
+             <h2 class="govuk-heading-m">
+              I will prove my identity in another way
+             </h2>
+             <p><a href="/register/send-identity-document-post">I want to send my identity document by post</a>.</p>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
