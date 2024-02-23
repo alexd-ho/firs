@@ -29,9 +29,15 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              {% if (data['myselfSomeone'] == "myself") %}
+              <h1 class="govuk-fieldset__heading">
+                Which number will you use as proof of your identity and right to work?
+              </h1>
+              {% else %}
               <h1 class="govuk-fieldset__heading">
                 Which number will you use as proof of their identity and right to work?
               </h1>
+              {% endif %}
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">

@@ -26,6 +26,28 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="/register/specified-person-country" method="post">
 
+        {% if (data['myselfSomeone'] == "myself") %}
+
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "specified-person-dob",
+          namePrefix: "dob",
+          fieldset: {
+            legend: {
+              text: "What is your date of birth?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Your year of birth will be published on the Public Register."
+          }
+        }) }}
+
+        {% else %}
+
+
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {{ govukDateInput({
@@ -42,6 +64,8 @@
             text: "The year of birth will be published on the Public Register."
           }
         }) }}
+
+        {% endif %}
 
         {{ govukButton({
           text: "Save and continue"

@@ -30,11 +30,17 @@
     
         <div class="govuk-form-group">
           <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--l" for="event-name">
+            {% if (data['myselfSomeone'] == "myself") %}
+            <label class="govuk-label govuk-label--l" for="specified-person-email">
+              What is your email address?
+            </label>
+            {% else %}
+            <label class="govuk-label govuk-label--l" for="specified-person-email">
               What is their email address?
             </label>
+            {% endif %}
           </h1>
-          <input class="govuk-input" id="event-name" name="eventName" type="text">
+          <input class="govuk-input" id="specified-person-email" name="specifiedPersonEmail" type="text">
         </div>
 
      

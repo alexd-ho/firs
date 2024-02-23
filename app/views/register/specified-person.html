@@ -26,20 +26,47 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="/register/specified-person-former-name" method="post">
 
-      {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% if (data['myselfSomeone'] == "myself") %}
 
-      {{ govukInput({
-        label: {
-          text: "What is their full name?",
-          classes: "govuk-label--l",
-          isPageHeading: true
-        },
-        hint: {
-          text: "This will be published on the Public Register"
-        },
-        id: "event-name",
-        name: "eventName"
-      }) }}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "What is your full name?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "This will be published on the Public Register"
+          },
+          id: "full-name",
+          name: "fullName"
+        }) }}
+    
+    {% else %}
+    
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {{ govukInput({
+      label: {
+        text: "What is their full name?",
+        classes: "govuk-label--l",
+        isPageHeading: true
+      },
+      hint: {
+        text: "This will be published on the Public Register"
+      },
+      id: "full-name",
+      name: "fullName"
+    }) }}
+    
+    {% endif %}
+
+
+
+
+
+      
 
 
       

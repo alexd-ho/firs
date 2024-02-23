@@ -26,6 +26,8 @@
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="/register/specified-person-dob" method="post">
 
+        {% if (data['myselfSomeone'] == "myself") %}
+
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
@@ -53,6 +55,36 @@
           ]
         }) }}
       
+        {% else %}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "changedName",
+          fieldset: {
+            legend: {
+              text: "Do you have any former names?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, a maiden name or any other name you were previously known by."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {% endif %}
 
         {{ govukButton({
           text: "Save and continue"

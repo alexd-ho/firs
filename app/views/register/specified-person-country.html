@@ -30,15 +30,29 @@
 
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
+          {% if (data['myselfSomeone'] == "myself") %}
           <label class="govuk-label govuk-label--l" for="event-name">
-            What is their country of nationality?
+            What is your country of nationality?
           </label>
         </h1>
         <div id="event-name-hint" class="govuk-hint">
-          Enter the nationality shown on their passport, their national identity card or their biometric residence card or permit.
+          Enter the nationality shown on your passport, national identity card, or biometric residence card or permit.
           
-         <br> <br>If they have EEA or Swiss nationality, use this.
+         <br> <br>If you have EEA or Swiss nationality, use this.
         </div>
+        {% else %}
+        
+        <label class="govuk-label govuk-label--l" for="event-name">
+          What is their country of nationality?
+        </label>
+      </h1>
+      <div id="event-name-hint" class="govuk-hint">
+        Enter the nationality shown on their passport, national identity card, or biometric residence card or permit.
+        
+       <br> <br>If they have EEA or Swiss nationality, use this.
+      </div>
+      {% endif %}
+
         <input class="govuk-input" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
       </div>
       
