@@ -94,7 +94,7 @@ router.post('/myself-answer', function(request, response) {
     if (who == "someone-else"){
         response.redirect("/register/account-contact-legal")
     } else {
-        response.redirect("/register/register-myself")
+        response.redirect("/register/prove-yes-no")
     }
 })
 
