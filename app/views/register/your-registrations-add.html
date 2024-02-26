@@ -44,7 +44,7 @@
 
       
 
-      <form action="/register/type-of-registration" method="post" novalidate>
+      <form action="/register/specified-person" method="post" novalidate>
 
         {% from "govuk/components/button/macro.njk" import govukButton %}
 
@@ -56,4 +56,23 @@
 
     </div>
   </div>
+{% endblock %}
+
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "/manage-prototype/clear-data",
+          text: "Clear data"
+        },
+        {
+          href: "/register/prove-yes-no",
+          text: "Prove identity"
+       
+        }
+      ]
+    }
+  }) }}
 {% endblock %}
