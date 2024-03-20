@@ -1,0 +1,57 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/public/public-nature" method="post">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the public communication</span>
+                    <label class="govuk-label govuk-label--l" for="publicAudience">
+            Who are the intended audience for the public communication?
+          </label>
+          
+        </h1>
+       
+        <textarea class="govuk-textarea" id="public-audience" name="publicAudience" rows="3" aria-describedby="public-audience-hint"></textarea>
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

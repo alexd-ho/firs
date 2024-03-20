@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">About the activities</span>
+      <h1 class="govuk-heading-l">
+        How often will the activities take place during this period?
+      </h1>
+
+      <form class="form" action="/activity/activity-check" method="post">
+
+  
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="contact">
+              Daily
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="contact">
+              Weekly
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="contact">
+              Monthly
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="contact">
+              A one-off activity
+            </label>
+          </div>
+          <div class="govuk-radios__divider">or</div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+            <label class="govuk-label govuk-radios__label" for="contact">
+              A different period of time
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-email">
+                Expected frequency
+              </label>
+              <div id="event-name-hint" class="govuk-hint">
+                For example, the activities will take place every 3 to 4 weeks during the period.
+              </div>
+              <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contactByEmail" type="email" spellcheck="false" autocomplete="email">
+            </div>
+          </div>
+          
+        </div>
+      </fieldset>
+    </div>
+  </div>
+       
+          <div class="govuk-!-padding-bottom-5"></div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

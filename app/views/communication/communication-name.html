@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/communication/communication-category" method="post">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the communication</span>
+          {% if (data['activityStarted'] == "no") %}
+          <label class="govuk-label govuk-label--l" for="communicationName">
+            Who will receive the communication?
+          </label>
+          {% else %}
+          <label class="govuk-label govuk-label--l" for="communicationName">
+            Who received the communication?
+          </label>
+          {% endif %}
+        </h1>
+        <div id="email-hint" class="govuk-hint">
+          For example, the full name of person who will receive a letter, or take part in a conversation.
+        </div>
+        <input class="govuk-input" id="communicationName" name="communicationName" type="text">
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">About the activities</span>
+      <h1 class="govuk-heading-l">
+        Which type of political influence activity are you registering as part of this arrangement?
+      </h1>
+
+      <form class="form" action="/activity/activity-industry" method="post">
+
+  
+
+        <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="activityKnown" name="activityKnown" type="radio" value="Private communication">
+            <label class="govuk-label govuk-radios__label" for="activityStarted">
+              Private communication
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              For example, lobbying, sending an email or letter, or having a private conversation.
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="activityKnown" name="activityKnown" type="radio" value="Public communication">
+            <label class="govuk-label govuk-radios__label" for="activityKnown">
+              Public communication
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              For example, social media content, poster, leaflet, or published article.
+            </div>
+          </div>
+          
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="activityKnown" name="activityKnown" type="radio" value="Money, goods or services">
+            <label class="govuk-label govuk-radios__label" for="activityKnown">
+              Distribution of money, goods or services
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              For example, the offer of money, goods or services to an individual or entity in the UK.
+            </div>
+          </div>
+        
+          </div>
+       
+          <div class="govuk-!-padding-bottom-5"></div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

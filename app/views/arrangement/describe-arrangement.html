@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/arrangement/foreign-power-name" method="post" novalidate>
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the arrangement</span>
+          <label class="govuk-label govuk-label--l" for="howArrangement">
+            How was the arrangement made?
+          </label>
+        </h1>
+        <div id="describe-arrangement-hint" class="govuk-hint">
+          For example, an agreement which was initially discussed verbally, or an agreement that was formalised in writing via email.
+        </div>
+        <textarea class="govuk-textarea" id="describe-arrangement" name="describeArrangement" rows="5" aria-describedby="describe-arrangement-hint"></textarea>
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

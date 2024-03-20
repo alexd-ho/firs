@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Registration complete",
+        html: "Your reference number<br><strong>HDJ2123F</strong>"
+      }) }}
+
+      <p>
+        We have sent you a confirmation email.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        We'll check the details of your registration.
+      </p>
+
+      <p>
+        We'll contact you either to confirm your registration, or to ask for more information.
+      </p>
+      <p>
+        If you have requested an exemption from the Public Register we'll contact you to discuss your request.
+      </p>
+      <p>
+        <body data-module="edge">
+        <a href="#">
+          What did you think of this service?
+        </a></body> (takes 30 seconds)
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

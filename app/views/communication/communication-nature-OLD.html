@@ -1,0 +1,135 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/communication/communication-purpose" method="post">
+
+      <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="nature-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        How will you communicate with the person?
+      </h1>
+    </legend>
+    <div id="nature-hint" class="govuk-hint">
+      Select all options that are relevant to you.
+    </div>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="nature" name="nature" type="checkbox" value="Email" data-aria-controls="conditional-nature">
+        <label class="govuk-label govuk-checkboxes__label" for="nature">
+          Email
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-nature">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nature-by-email">
+            Give details (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="nature-by-email" name="natureByEmail" type="email" spellcheck="false" autocomplete="email">
+        </div>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="nature-2" name="nature-2" type="checkbox" value="Phone call" data-aria-controls="conditional-nature-2">
+        <label class="govuk-label govuk-checkboxes__label" for="nature-2">
+          Phone call
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-nature-2">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nature-by-phone">
+            Give details (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="nature-by-phone" name="natureByPhone" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="nature-3" name="nature-3" type="checkbox" value="Text message" data-aria-controls="conditional-nature-3">
+        <label class="govuk-label govuk-checkboxes__label" for="nature-3">
+          Text message
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-nature-3">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nature-by-text">
+            Give details (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="nature-by-text" name="natureByText" type="tel" autocomplete="tel">
+        </div>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="nature-4" name="nature-4" type="checkbox" value="Meeting" data-aria-controls="conditional-nature-4">
+        <label class="govuk-label govuk-checkboxes__label" for="nature-4">
+          Meeting
+        </label>
+        <div id="nationality-item-hint" class="govuk-hint govuk-checkboxes__hint">
+          including in-person, or remotely using a device
+        </div>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-nature-4">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nature-by-email">
+            Give details (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="nature-by-meeting" name="natureByMeeting" type="email">
+        </div>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="nature-5" name="nature-5" type="checkbox" value="Letter" data-aria-controls="conditional-nature-5">
+        <label class="govuk-label govuk-checkboxes__label" for="nature-5">
+          Letter
+        </label>
+      </div>
+      <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-nature-5">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nature-by-letter">
+            Give details (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="nature-by-letter" name="natureByLetter" type="email">
+        </div>
+      </div>
+
+
+    </div>
+  </fieldset>
+</div>
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

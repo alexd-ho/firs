@@ -1,0 +1,136 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before sending your application
+      </h1>
+
+      <h2 class="govuk-heading-m">Public communication details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Form of public communication"
+            },
+            value: {
+              text: data['production'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Role or job title"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Intended audience"
+            },
+            value: {
+              text: data['publicAudience']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Intended audience"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Type of public communication"
+            },
+            value: {
+              text: data['publicnature'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Type of public communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Purpose of public communication"
+            },
+            value: {
+              text: data['publicPurpose'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Purpose of public communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Outcome of public communication"
+            },
+            value: {
+              text: data['publicOutcome'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Outcome of public communication"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Now send your registration
+      </h2>
+
+      <p>
+        By submitting this registration you are confirming that, to the best of your knowledge, the details you are providing are correct.
+      </p>
+
+      <form action="/confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

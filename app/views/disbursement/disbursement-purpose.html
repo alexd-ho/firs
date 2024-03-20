@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/disbursement/disbursement-outcome" method="post">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the money, goods, or services</span>
+          <label class="govuk-label govuk-label--l" for="communicationPurpose">
+            Why are you offering money, goods or services to this person?
+          </label>
+        </h1>
+        <div id="communication-purpose-hint" class="govuk-hint">
+          We need to know the reason for this offer. For example . 
+        </div>
+        <textarea class="govuk-textarea" id="communication-purpose" name="communicationPurpose" rows="3" aria-describedby="communication-purpose-hint"></textarea>
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

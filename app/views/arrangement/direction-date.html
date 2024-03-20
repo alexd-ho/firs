@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/arrangement/arrangement-check" method="post" novalidate>
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the arrangement</span>
+          <label class="govuk-label govuk-label--l" for="arrangementDate">
+            When was the arrangement made?
+          </label>
+        </h1>
+        <div id="email-hint" class="govuk-hint">
+          For example, 27 3 2024
+        </div>
+        <div class="govuk-date-input" id="arrangement-date">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="arrangement-date-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="arrangement-date-day" name="arrangementDateDay" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="arrangement-date-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="arrangement-date-month" name="arrangementDateMonth" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="arrangement-date-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="arrangement-date-year" name="arrangementDateYear" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+    </div>
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with the arrangment date
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        We need to know the date that the foreign power gave direction to carry out the arrangement. <strong>This is not the date that any activities will take place</strong>.
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}
