@@ -28,7 +28,7 @@
               text: "Form of public communication"
             },
             value: {
-              text: data['production'] 
+              text: data['productionOrPublication'] 
             },
             actions: {
               items: [
@@ -115,18 +115,12 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">
-        Now send your registration
-      </h2>
+     
 
-      <p>
-        By submitting this registration you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
-
-      <form action="/confirmation" method="post" novalidate>
+      <form action="/declaration" method="post" novalidate>
 
         {{ govukButton({
-          text: "Accept and send"
+          text: "Save and continue"
         }) }}
 
       </form>

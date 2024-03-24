@@ -20,11 +20,11 @@
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
       {{ govukCheckboxes({
-        name: "nature",
+        name: "disbursementNature",
         values: data['dispursementNature'],
         fieldset: {
           legend: {
-            html: '<span class="govuk-caption-l">About the money, goods or services</span>What type of goods or service will be distributed?', 
+            html: '<span class="govuk-caption-l">About the money, goods or services</span>What is being offered as part of this arrangement?', 
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
             
@@ -35,33 +35,28 @@
         },
         items: [
           {
-            value: "Thing1",
-            text: "Thing 1"
+            value: "Money",
+            text: "Money"
           },
           {
-            value: "Thing2",
-            text: "Thing 2"
-          },
-          {
-            value: "Thing3",
-            text: "Thing 3"
-          },
-          {
-            value: "Thing4",
-            text: "Thing 4",
+            value: "Goods",
+            text: "Goods",
             hint: {
-              text: "Including an example"
+              text: "For example, a product or physical item "
             }
           },
           {
-            value: "Thing5",
-            text: "Thing 5"
+            value: "Service",
+            text: "Service",
+            hint: {
+              text: "For example, doing work for someone "
+            }
           }
         ]
       }) }}
 
         {{ govukButton({
-          text: "Continue"
+          text: "Save and continue"
         }) }}
 
       </form>

@@ -137,3 +137,25 @@ router.post('/check-identity-document-answer', function(request, response) {
         response.redirect("register/use-app")
     }
 })
+
+router.post('/activity-known-answer', function(request, response) {
+
+    var who = request.session.data['activityKnown']
+    if (who == "no"){
+        response.redirect("/activity/activity-frequency")
+    } else {
+        response.redirect("activity/activity-end")
+    }
+})
+
+router.post('/activity-type-answer', function(request, response) {
+
+    var who = request.session.data['activityType']
+    if (who == "Private"){
+        response.redirect("communication/communication-name")
+    } else if (who == "Public"){
+        response.redirect("public/public-publication")
+    } else {
+        response.redirect("disbursement/disbursement-nature")
+    }
+})

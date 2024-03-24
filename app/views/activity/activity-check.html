@@ -14,6 +14,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form action="/activity-type-answer" method="post">
 
       <h1 class="govuk-heading-xl">
         Check your answers before continuing your registration
@@ -23,55 +24,55 @@
 
       {{ govukSummaryList({
         rows: [
-          {
-            key: {
-              text: "Type of activity"
-            },
-            value: {
-              text: data['activityKnown']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Type of activity"
-                }
-              ]
-            }
+        {
+          key: {
+            text: "Type of activities"
+          },
+          value: {
+            text: data['activityType']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Type of political influence activities"
+              }
+            ]
           }
-          ,
-          {
-            key: {
-              text: "Industry"
-            },
-            value: {
-              text: data['industry'] 
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Industry the activities relate to"
-                }
-              ]
-            }
+        }
+        ,
+        {
+          key: {
+            text: "Industry"
+          },
+          value: {
+            text: data['industry']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Industry the activities relate to"
+              }
+            ]
           }
-          ,
-          {
+        }
+        ,  
+        {
             key: {
               text: "Name of those carrying out activities"
             },
             value: {
-              text: data['activitiesName'] 
+              text: data['activitiesName']              
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Name of people carrying out activities"
+                  visuallyHiddenText: "Name of those carrying out the activities"
                 }
               ]
             }
@@ -79,7 +80,7 @@
           ,
           {
             key: {
-              text: "Activities started"
+              text: "Have activities started?"
             },
             value: {
               text: data['activityStarted'] 
@@ -89,7 +90,7 @@
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Have the activities already started?"
+                  visuallyHiddenText: "Have activities already started as part of this arrangement?"
                 }
               ]
             }
@@ -97,17 +98,17 @@
           ,
           {
             key: {
-              text: "Start date"
+              text: "Activities start date"
             },
             value: {
-              text: data['communicationPurpos'] 
+              text: data['activityDate'] 
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Date activity started"
+                  visuallyHiddenText: "Date activities started"
                 }
               ]
             }
@@ -115,17 +116,17 @@
           ,
           {
             key: {
-              text: "End date known"
+              text: "Is end date known?"
             },
             value: {
-              text: data['communicationPurpos'] 
+              text: data['activityKnown'] 
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Is the activity end date known?"
+                  visuallyHiddenText: "Do you know when the activities will end?"
                 }
               ]
             }
@@ -133,7 +134,7 @@
           ,
           {
             key: {
-              text: "Activity end date"
+              text: "Activities end date"
             },
             value: {
               text: data['activityEnd'] 
@@ -143,7 +144,7 @@
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Date activity ended"
+                  visuallyHiddenText: "Date activites end"
                 }
               ]
             }
@@ -151,25 +152,26 @@
           ,
           {
             key: {
-              text: "Activity frequency"
+              text: "Activities frequency"
             },
             value: {
-              text: data['activityFrequency'] 
+              text: data['often']
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Activity frequency"
+                  visuallyHiddenText: "Frequency of activities"
                 }
               ]
             }
           }
+          
         ]
       }) }}
 
-      <form action="/activity/activity-type" method="post" novalidate>
+      
 
         {{ govukButton({
           text: "Save and continue"

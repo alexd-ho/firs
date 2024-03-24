@@ -25,83 +25,34 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/activity/activity-known" method="post" novalidate>
-      <div class="govuk-form-group">
-        <h1 class="govuk-label-wrapper">
-          <span class="govuk-caption-l">About the activities</span>
-         
+    <form action="/activity/activity-known" method="post">
 
-          {% if (data['activityStarted'] == "yes") %}
 
-          <label class="govuk-label govuk-label--l" for="activityDate">
-            When did the activities start?
-          </label>
-       
+{{ govukDateInput({
+  id: 'activityDate',
+  namePrefix: "[activityDate]",
 
-        {% else %}
 
-        <label class="govuk-label govuk-label--l" for="activityDate">
-          When will the activities start?
-        </label>
-      
-
-        {% endif %}
-      </h1>
-
-        <div id="email-hint" class="govuk-hint">
-          For example, 27 3 2024
-        </div>
-        <div class="govuk-date-input" id="passport-issued">
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                Day
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
-            </div>
-          </div>
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                Month
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-            </div>
-          </div>
-          <div class="govuk-date-input__item">
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                Year
-              </label>
-              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-            </div>
-          </div>
-        </div>
-    </div>
+  fieldset: {
+    legend: {
+      html: '<span class ="govuk-caption-l">About the activities</span>When did the activities start?'
+      if (data['activityStarted'] == "yes")
+      else "When will the activities start?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2007"
+  }
+}) }}
  
-
-  
-
 
 
       {{ govukButton({
-        text: "Continue"
+        text: "Save and continue"
       }) }}
 
     </form>
-
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Help with the activities start date
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        We need to know the date that any activity related to the arrangement first took place.</p> <p>This is not the date that the foreign power gave direction to carry out the arrangement.</p>
-      </div>
-    </details>
-
-  </div>
-</div>
 
 {% endblock %}
