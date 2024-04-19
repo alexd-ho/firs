@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         <form class="form" action="/activity/activity-name" method="post">
+
+  
+  <span class="govuk-caption-l">About the activities</span>
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="industry">
+      About the foreign power
+    </label>
+  </h1>
+
+  <div class="govuk-form-group">
+    <label class="govuk-label govuk-label--m" for="passport-number">
+      Name of country
+    </label>
+
+  <div id="industry-hint" class="govuk-hint">
+    For example, Education or Science and Technology
+  </div>
+  <select class="govuk-select" id="industry" name="industry"
+    data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+    <option value="" selected disabled>Select an option</option>
+    <option value="Agriculture">Agriculture and wildlife</option>
+    <option value="Business">Business and trade</option>
+    <option value="Crime">Crime and justice</option>
+    <option value="Defense">Defense and security</option>
+    <option value="Economy">Economy and Finance</option>
+    <option value="Education">Education</option>
+    <option value="Energy">Energy and environment</option>
+    <option value="Food">Food</option>
+    <option value="Foreign">Foreign Affairs, Diplomacy & Overseas Aid</option>
+    <option value="Health">Health and Social Care</option>
+    <option value="Housing">Housing and Communities</option>
+    <option value="Human">Human rights</option>
+    <option value="Immigration">Immigration and Asylum</option>
+    <option value="Language">Language and Culture</option>
+    <option value="Law">Law Enforcement and Policing</option>
+    <option value="Science">Science and Technology</option>
+    <option value="Sport">Sport</option>
+    <option value="Tourism">Tourism</option>
+    <option value="Transport">Transport</option>
+    <option value="Work">Work and pensions</option>
+      </select>
+      </fieldset>
+    </div>
+  </div>
+  </div>
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    Expiry date
+  </legend>
+  <div id="expiry-hint" class="govuk-hint">
+    For example, 31 3 1980
+  </div>
+       
+          <div class="govuk-!-padding-bottom-5"></div>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

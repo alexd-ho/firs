@@ -1,0 +1,97 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/foreign-power-A",
+         text: "Go to Version A"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         <form class="form" action="/alternates/foreign-power-Cb" method="post">
+
+  
+  <span class="govuk-caption-l">About the arrangement</span>
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="industry">
+      Which country does the foreign power represent?
+    </label>
+  </h1>
+
+
+  <select class="govuk-select" id="industry" name="industry"
+    data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+    <option value="" selected disabled>Select an option</option>
+    <option value="Tourism">A made up country</option>
+    <option value="Agriculture">Afghanistan</option>
+    <option value="Business">Aland Islands</option>
+    <option value="Crime">Albania</option>
+    <option value="Defense">Alderney</option>
+    <option value="Economy">Algeria</option>
+    <option value="Education">American Samoa</option>
+    <option value="Energy">Andorra</option>
+    <option value="Food">Angola</option>
+    <option value="Foreign">Anguilla</option>
+    <option value="Health">Antartica</option>
+    <option value="Housing">Antigua and Barbuda</option>
+    <option value="Human">Argentina</option>
+    <option value="Immigration">Armenia</option>
+    <option value="Language">Aruba</option>
+    <option value="Law">Australia</option>
+    <option value="Science">Austria</option>
+    <option value="Sport">Azerbaijan</option>
+         </select>
+      </fieldset>
+    </div>
+  </div>
+
+       
+          <div class="govuk-!-padding-bottom-5"></div>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

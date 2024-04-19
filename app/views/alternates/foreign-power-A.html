@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/foreign-power-Ca",
+         text: "Go to Version B"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="#" method="post" novalidate>
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the arrangement</span>
+          <label class="govuk-label govuk-label--l" for="foreignPowerNAme">
+            What is the name of the foreign power?
+          </label>
+        </h1>
+        <div id="email-hint" class="govuk-hint">
+          For example, Governing Party of country X.
+        </div>
+        <input class="govuk-input" id="foreign-power-name" name="foreignPowerName" type="text">
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          What is a foreign power?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity.
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

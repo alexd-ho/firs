@@ -1,0 +1,141 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/foreign-power-A",
+         text: "Go to Version A"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+
+      <form class="form" action="/alternates/foreign-power-Cc" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        
+        
+        
+        {% set differentHtml %}
+        {{ govukInput({
+          id: "different-period",
+          name: "differentPeriod",
+          type: "text",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Expected frequency"
+          },
+          hint: {
+            text: "For example, the activities will take place every 3 to 4 weeks during the period."
+          }
+        }) }}
+        {% endset -%}
+        
+        {{ govukRadios({
+          name: "often",
+          fieldset: {
+            legend: {
+              html: '<span class ="govuk-caption-l">About the arrangement</span>How would you describe the foreign power that you are in the arrangement with?',
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+          {
+            value: "diplomat",
+            text: "Diplomat",
+            conditional: {
+              html: emailHtml
+            }
+          },  
+          {
+              value: "government",
+              text: "Government of country",
+              conditional: {
+                html: emailHtml
+              }
+            },
+            {
+              value: "head",
+              text: "Head of state",
+              conditional: {
+                html: emailHtml
+              }
+            },
+            {
+              value: "local",
+              text: "Local authority",
+              conditional: {
+                html: phoneHtml
+              }
+            },
+            {
+              value: "sovereign",
+              text: "Sovereign",
+              conditional: {
+                html: phoneHtml
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of these",
+              conditional: {
+                html: differentHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/foreign-power-A",
+         text: "Go to Version A"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         <form class="form" action="/alternates/foreign-power-Cb" method="post">
+
+  
+  <span class="govuk-caption-l">About the arrangement</span>
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="industry">
+      What is the name of the department the diplomat works in?
+    </label>
+  </h1>
+  <div id="changedName-hint" class="govuk-hint">
+    For example, Ministy of Foreign Affairs.
+  </div>
+  <input class="govuk-input" id="dilpomat-department" name="diplomatDepartment" type="text">
+
+  
+    </div>
+  </div>
+
+       
+          <div class="govuk-!-padding-bottom-5"></div>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

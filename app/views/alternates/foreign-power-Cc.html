@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/foreign-power-A",
+         text: "Go to Version A"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+
+      <form class="form" action="/alternates/foreign-power-Cd" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        
+        
+        
+        {% set differentHtml %}
+        {{ govukInput({
+          id: "different-period",
+          name: "differentPeriod",
+          type: "text",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Expected frequency"
+          },
+          hint: {
+            text: "For example, the activities will take place every 3 to 4 weeks during the period."
+          }
+        }) }}
+        {% endset -%}
+        
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          name: "officeName",
+          fieldset: {
+            legend: {
+              html: '<span class ="govuk-caption-l">About the arrangement</span>Do you know the name of the department the diplomat works in?',
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "This includes an office, bureau or division, like Ministry of Foreign Affairs."
+          },
+          items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: emailHtml
+            }
+          },  
+          {
+              value: "no",
+              text: "No",
+              conditional: {
+                html: emailHtml
+              }
+            
+            }
+          ]
+          
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
