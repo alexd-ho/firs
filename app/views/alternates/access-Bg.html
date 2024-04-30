@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/access-A",
+         text: "Go to Version A"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Registering an arrangement for a registered company
+      </h1>
+
+      <form class="form" action="#" method="post">
+
+        <p>
+          To register this arrangment you'll need:
+
+          <ul class="govuk-list govuk-list--bullet">
+
+            <li>the company name, any trading names, registered address, company number and date and country of incorporation</li>
+            <li>your name and contact details</li>
+            <li>the name and email address of a senior responsible officer in the company</li>
+          </ul>
+          
+          <h2 class="govuk-heading-m">
+            Proof of identity
+            </h2>
+
+            <p>As part of this registration, we'll ask you for the name and email address of a senior officer in the company. This is so they can prove their identity for security reasons.</p>
+
+            <p>A senior officer is someone who has authority to make decisions on behalf of the company, such as a Chief Executive Officer (CEO), or managing director.</p>
+            
+              <p>We'll send them details explaining how to prove their identity using GOV.UK One Login. You won't need to do anything else.</p>
+                     
+              <p>We'll let you know once they have proven their identity and your registration has been processed.</p>
+            
+
+
+          
+
+          <form action="/form-handler" method="post" novalidate>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                  Do you want to continue with this registration?
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="interviewNeeds" name="interviewNeeds" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="interviewNeeds">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="interviewNeeds-2" name="interviewNeeds" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="interviewNeeds-2">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+           
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

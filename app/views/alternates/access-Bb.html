@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Terms of registering an arrangement for someone else
+      </h1>
+
+      <form class="form" action="/alternates/access-Bc" method="post">
+
+        <p>
+          By registering an arrangment on behalf of someone else you'll need to:
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>confirm the information you give is correct</li>
+            <li>agree for us to contact you about the registration</li>
+            <li>give your contact details so that we can contact you about a registration should we need to</li>
+            <li>give any additional information related to a registration if we need it</li>
+              <li>read the <a href="https://bills.parliament.uk/publications/48582/documents/2477#page=77">terms and conditions</a></li>
+          </ul>
+          </p>
+
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              You could be prosecuted if you deliberately give untrue or misleading information, or if you fail to give information we request as part of a registration.
+            </strong>
+          </div>
+
+        {{ govukButton({
+          text: "Agree and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

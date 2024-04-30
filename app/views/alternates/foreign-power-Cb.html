@@ -53,20 +53,7 @@
         
         
         
-        {% set differentHtml %}
-        {{ govukInput({
-          id: "different-period",
-          name: "differentPeriod",
-          type: "text",
-          classes: "govuk-!-width-one-third",
-          label: {
-            text: "Expected frequency"
-          },
-          hint: {
-            text: "For example, the activities will take place every 3 to 4 weeks during the period."
-          }
-        }) }}
-        {% endset -%}
+        {
         
         {{ govukRadios({
           name: "often",
@@ -121,10 +108,9 @@
             },
             {
               value: "none",
-              text: "None of these",
-              conditional: {
-                html: differentHtml
-              }
+              text: "None of these"
+              
+              
             }
           ]
         }) }}

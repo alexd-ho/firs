@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/arrangement-A",
+         text: "Go to Version A"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="/communication/communication-purpose" method="post">
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      {{ govukCheckboxes({
+        name: "nature",
+        values: data['nature'],
+        fieldset: {
+          legend: {
+            html: '<span class="govuk-caption-l">About the arrangement</span> How was the arrangement made?', 
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+            
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "Email",
+            text: "Email"
+          },
+          {
+            value: "Phone call",
+            text: "Phone call"
+          },
+          {
+            value: "Text message",
+            text: "Text message",
+            hint: {
+              text: "Including messaging services, like Whatsapp"
+            }
+          },
+          {
+            value: "Meeting",
+            text: "Meeting",
+            hint: {
+              text: "Including in-person, or remote using technology"
+            }
+          },
+          {
+            value: "Social",
+            text: "Social media"
+           
+          },
+          {
+            value: "Letter",
+            text: "Letter"
+          }
+        ]
+      }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
