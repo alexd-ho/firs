@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">About the activities</span>
+      <h1 class="govuk-heading-l">Which types of political influence activity must be registered as part of this arrangement?</h1>
+
+      <div>
+
+        <p>We will ask you about each of these three types of activity, in turn. For each type of activity, you can add multiple instances of that activities.</p>
+
+        <h2 class="govuk-heading-m">Private communication</h2>
+        <p>For example, lobbying, sending an email or letter, or having a private conversation.</p>
+
+        <h2 class="govuk-heading-m">Public communication</h2>
+        <p>For example, social media content, poster, leaflet, or published article.</p>
+
+        <h2 class="govuk-heading-m">Distribution of money, goods or services</h2>
+        <p>For example, the offer of money, goods or services to an individual or entity in the UK.</p>
+
+        <form action="activity-type-public-start" method="post" novalidate>
+
+          {{ govukButton({
+            text: "Start Activities"
+          }) }}
+  
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

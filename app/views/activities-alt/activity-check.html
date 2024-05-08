@@ -1,0 +1,184 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form action="/activity-type-answer" method="post">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before continuing your registration
+      </h1>
+
+      <h2 class="govuk-heading-m">Activity details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Type of activities"
+          },
+          value: {
+            text: data['activityType']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Type of political influence activities"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Industry"
+          },
+          value: {
+            text: data['industry']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Industry the activities relate to"
+              }
+            ]
+          }
+        }
+        ,  
+        {
+            key: {
+              text: "Name of those carrying out activities"
+            },
+            value: {
+              text: data['activitiesName']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Name of those carrying out the activities"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Have activities started?"
+            },
+            value: {
+              text: data['activityStarted'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Have activities already started as part of this arrangement?"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Activities start date"
+            },
+            value: {
+              text: data['activityDate'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Date activities started"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Is end date known?"
+            },
+            value: {
+              text: data['activityKnown'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Do you know when the activities will end?"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Activities end date"
+            },
+            value: {
+              text: data['activityEnd'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Date activites end"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Activities frequency"
+            },
+            value: {
+              text: data['often']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Frequency of activities"
+                }
+              ]
+            }
+          }
+          
+        ]
+      }) }}
+
+      
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

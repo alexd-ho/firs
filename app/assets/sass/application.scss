@@ -4,3 +4,16 @@
 // 
 
 // Add extra styles here
+
+#js-activity-wrapper  {
+    > .govuk-fieldset {
+        padding: 20px;
+        background: #f3f2f1;
+        box-shadow: -2px 0 0 #929191;
+        > .govuk-fieldset__legend {
+            margin-bottom: 50px;
+            bottom: -40px;
+            position: relative;
+        }
+    }
+}

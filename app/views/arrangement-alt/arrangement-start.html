@@ -1,0 +1,202 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+  {% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Government",
+        href: "#"
+      },
+      {
+        text: "National security",
+        href: "https://www.gov.uk/government/national-security"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      Foreign Influence Registration Scheme (FIRS)
+    </h1>     
+         
+    <aside class="govuk-prototype-kit-common-templates-mainstream-guide-contents-list" role="complementary">
+      <nav class="govuk-prototype-kit-common-templates-contents-list" aria-label="Pages in this guide" role="navigation">
+        <h2 class="govuk-prototype-kit-common-templates-contents-list__title">
+          Contents
+        </h2>
+        <ol class="govuk-prototype-kit-common-templates-contents-list__list">
+          <li  class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed govuk-prototype-kit-common-templates-contents-list__list-item--active" data-module="edge">
+            <a href="#">  
+            Overview
+            </a>
+          </li>
+          <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed" data-module="edge">
+            <a href="#">
+            Check if you need to register
+            </a>
+          </li>
+          <li aria-current="true" class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed">
+          
+              How to register
+            </a>
+          </li>
+                      <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed" data-module="edge">
+            <a href="#">
+              After you have registered
+            </a>
+          </li>
+              </li>
+              <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed" data-module="edge">
+                <a href="#">
+                  What we publish on the Public Register
+                </a>
+              </li>
+          <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed" data-module="edge">
+            <a href="#">
+              If you receive an information notice
+            </a>
+          </li>
+        </li>
+        <li class="govuk-prototype-kit-common-templates-contents-list__list-item govuk-prototype-kit-common-templates-contents-list__list-item--dashed" data-module="edge">
+          <a href="#">
+            If you fail to register
+          </a>
+          </li>
+          
+        </ol>
+      </nav>
+    </aside>
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-body">
+    
+    <h2 class="govuk-heading-m">
+      How to register
+    </h2>
+    
+<p data-module="edge"><a href="#">Check if you need to register</a> before you start.</p>
+
+<p>You can register online or using a paper form. It's quicker to register online.</p>
+<p>Registration is free.</p>
+<p>You'll need to register each arrangement separately. You'll be able to update the details of any activities after you have registered. </p>
+
+<h3 class="govuk-heading-s">
+  Register online
+</h3>
+<p>You'll need:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity
+  <li>details of the arrangement</li>
+  <li>details of the activities that will be carried out as part of the arrangement</li>
+  <li>details of the individuals who will carry out the activities</li>
+  <li>the start and end dates of the activities</li>
+  <li>your address and contact details (if you are registering on behalf of someone else you'll need their details)</li>  
+</ul>
+<p>
+  <div class="govuk-!-padding-top-3">
+<a href="foreign-power-name" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+  Start now
+  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+  </svg></a>
+</div>
+</p>
+<h3 class="govuk-heading-s">
+Other ways to register
+</h3>
+<p>If you cannot register online you can:</p>
+<ul class="govuk-list govuk-list--bullet" data-module="edge">
+  <li><a href="#">download and print a paper form</a></li>
+  <li>phone the FIRS Case Management Team and ask for a form to be posted to you - allow 7 days for the form to arrive</li>
+</ul>
+<p>Return your completed form by post.</p>
+
+<nav class="govuk-prototype-kit-common-templates-pagination" role="navigation" aria-label="Pagination">
+
+    {{ govukPagination({
+      previous: {
+        labelText: "Check if you need to register",
+        href: "#"
+      },
+      next: {
+        labelText: "After you have registered",
+        href: "#"
+      }
+    }) }}
+
+    <p data-module="edge">
+      <a href="#">
+        View a printable version of the whole guide
+      </a>
+    </p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+
+    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+      <h2 class="govuk-heading-m" id="subsection-title">
+        Related content
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="govuk-list govuk-!-font-size-16" data-module="edge">
+          <li>
+            <a href="#">
+              Draft guidance on the Foreign Influence Registration Scheme 
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Foreign Influence Registration Scheme factsheet
+            </a>
+          </li>
+          
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+
+</main>
+</div>
+
+
+
+
+
+  </div>
+</div>
+
+
+{% endblock %}

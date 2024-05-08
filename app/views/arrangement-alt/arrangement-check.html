@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before continuing your registration
+      </h1>
+
+      <h2 class="govuk-heading-m">Arrangement details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+         
+          {
+            key: {
+              text: "Name of foreign power"
+            },
+            value: {
+              text: data['foreignPowerName'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Name of foreign power"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Date of arrangement"
+            },
+            value: {
+              text: data['arrangementDate'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "Date of arrangement"
+                }
+              ]
+            }
+          }
+          
+        ]
+      }) }}
+
+      <form action="/activities-alt/activity-types" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
