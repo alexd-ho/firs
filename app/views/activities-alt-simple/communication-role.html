@@ -25,7 +25,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/communication/communication-nature" method="post">
+    <form action="communication-nature" method="post">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
           <span class="govuk-caption-l">About the private communication</span>
@@ -37,7 +37,7 @@
         <div id="email-hint" class="govuk-hint">
           For example, senior official responsible for policy area in the Treasury.
         </div>
-        <input class="govuk-input" id="communication-role" name="communicationRole" type="text">
+        <input class="govuk-input" id="communication-role" name="communicationRole" type="text" value="{{data['communicationRole']}}">
       </div>
     
  

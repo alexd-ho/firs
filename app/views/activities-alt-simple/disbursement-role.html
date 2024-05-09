@@ -25,11 +25,11 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/communication/communication-nature" method="post">
+    <form action="disbursement-email" method="post">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
-          <span class="govuk-caption-l">About the private communication</span>
-            <label class="govuk-label govuk-label--l" for="communicationRole">
+          <span class="govuk-caption-l">About the money, goods, or services</span>
+            <label class="govuk-label govuk-label--l" for="disbursementRole">
             What is their role or job title?
           </label>
          
@@ -37,7 +37,7 @@
         <div id="email-hint" class="govuk-hint">
           For example, senior official responsible for policy area in the Treasury.
         </div>
-        <input class="govuk-input" id="communication-role" name="communicationRole" type="text">
+        <input class="govuk-input" id="disbursement-role" name="disbursementRole" type="text" value="{{data['disbursementRole']}}">
       </div>
     
  
@@ -47,7 +47,7 @@
 
 
       {{ govukButton({
-        text: "Continue"
+        text: "Save and continue"
       }) }}
 
     </form>

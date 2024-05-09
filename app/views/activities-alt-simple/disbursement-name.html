@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="disbursement-role" method="post">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the money, goods or services</span>
+          {% if (data['activityStarted'] == "no") %}
+          <label class="govuk-label govuk-label--l" for="disbursementName">
+            Who will receive the money, goods or services?
+          </label>
+          {% else %}
+          <label class="govuk-label govuk-label--l" for="disbursementName">
+            Who received the money, goods or services?
+          </label>
+          {% endif %}
+        </h1>
+        {% if (data['activityStarted'] == "no") %}
+        <div id="email-hint" class="govuk-hint">
+          For example, the full name of person who will receive the money, goods or services.
+        </div>
+        {% else %}
+        <div id="email-hint" class="govuk-hint">
+          For example, the full name of person who received the money, goods or services.
+        </div>
+        {% endif %}
+        <input class="govuk-input" id="disbursementName" name="disbursementName" type="text" value="{{data['disbursementName']}}">
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -5,47 +5,74 @@
 {% endblock %}
 
 {% block beforeContent %}
-
-{{ govukPhaseBanner({
-  tag: {
-    text: "Prototype"
-  },
-  html: 'This is a not a live service and is for testing only.'
-}) }}
-
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
+      <form action="/activity-type-answer" method="post">
 
       <h1 class="govuk-heading-xl">
-        Check your answers before sending your registration
+        Check your answers before continuing your registration
       </h1>
 
-      <h2 class="govuk-heading-m">Private communication details</h2>
+      <h2 class="govuk-heading-m">Activity details</h2>
 
       {{ govukSummaryList({
         rows: [
-          {
+        {
+          key: {
+            text: "Type of activities"
+          },
+          value: {
+            text: data['activityType']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Type of political influence activities"
+              }
+            ]
+          }
+        }
+        ,
+        {
+          key: {
+            text: "Industry"
+          },
+          value: {
+            text: data['industry']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Industry the activities relate to"
+              }
+            ]
+          }
+        }
+        ,  
+        {
             key: {
-              text: "Name of recipient"
+              text: "Name of those carrying out activities"
             },
             value: {
-              text: data['communicationName']              
+              text: data['activitiesName']              
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Name of recipient"
+                  visuallyHiddenText: "Name of those carrying out the activities"
                 }
               ]
             }
@@ -53,17 +80,17 @@
           ,
           {
             key: {
-              text: "Category"
+              text: "Have activities started?"
             },
             value: {
-              text: data['communicationCategory'] 
+              text: data['activityStarted'] 
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Category of recipient"
+                  visuallyHiddenText: "Have activities already started as part of this arrangement?"
                 }
               ]
             }
@@ -71,17 +98,17 @@
           ,
           {
             key: {
-              text: "Role or job title"
+              text: "Activities start date"
             },
             value: {
-              text: data['communicationRole'] 
+              text: data['activityDate'] 
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Role or job title of recipient"
+                  visuallyHiddenText: "Date activities started"
                 }
               ]
             }
@@ -89,17 +116,17 @@
           ,
           {
             key: {
-              text: "Type of communication"
+              text: "Is end date known?"
             },
             value: {
-              text: data['nature'] 
+              text: data['activityKnown'] 
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Type of communication"
+                  visuallyHiddenText: "Do you know when the activities will end?"
                 }
               ]
             }
@@ -107,17 +134,17 @@
           ,
           {
             key: {
-              text: "Purpose of communication"
+              text: "Activities end date"
             },
             value: {
-              text: data['communicationPurpose'] 
+              text: data['activityEnd'] 
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Purpose of communication"
+                  visuallyHiddenText: "Date activites end"
                 }
               ]
             }
@@ -125,27 +152,26 @@
           ,
           {
             key: {
-              text: "Outcome of communication"
+              text: "Activities frequency"
             },
             value: {
-              text: data['communicationOutcome'] 
+              text: data['often']
             },
             actions: {
               items: [
                 {
                   href: "#",
                   text: "Change",
-                  visuallyHiddenText: "Outcome of communication"
+                  visuallyHiddenText: "Frequency of activities"
                 }
               ]
             }
           }
+          
         ]
       }) }}
 
-    
-
-      <form action="/declaration" method="post" novalidate>
+      
 
         {{ govukButton({
           text: "Save and continue"

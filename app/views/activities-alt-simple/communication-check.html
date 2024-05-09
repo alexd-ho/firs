@@ -43,7 +43,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "communication-name",
                   text: "Change",
                   visuallyHiddenText: "Name of recipient"
                 }
@@ -61,7 +61,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "communication-category",
                   text: "Change",
                   visuallyHiddenText: "Category of recipient"
                 }
@@ -79,7 +79,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "communication-role",
                   text: "Change",
                   visuallyHiddenText: "Role or job title of recipient"
                 }
@@ -97,7 +97,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "communication-nature",
                   text: "Change",
                   visuallyHiddenText: "Type of communication"
                 }
@@ -115,7 +115,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "communication-purpose",
                   text: "Change",
                   visuallyHiddenText: "Purpose of communication"
                 }
@@ -133,7 +133,7 @@
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "communication-outcome",
                   text: "Change",
                   visuallyHiddenText: "Outcome of communication"
                 }
@@ -143,15 +143,23 @@
         ]
       }) }}
 
-    
+      {% if (data['journey'] == 'complete') %}
+      <form action="/arrangement-alt-simple/arrangement-overview?communication-check=completed" method="post" novalidate>
 
-      <form action="/declaration" method="post" novalidate>
+        {{ govukButton({
+          text: "Save and return to overview"
+        }) }}
+
+      </form>
+      {% else %}
+      <form action="/activities/activity-check-public?communication-check=completed" method="post" novalidate>
 
         {{ govukButton({
           text: "Save and continue"
         }) }}
 
       </form>
+      {% endif %}
 
     </div>
   </div>

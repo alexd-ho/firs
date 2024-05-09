@@ -25,19 +25,18 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/communication/communication-nature" method="post">
+    <form action="/activity/activity-start" method="post" novalidate>
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
-          <span class="govuk-caption-l">About the private communication</span>
-            <label class="govuk-label govuk-label--l" for="communicationRole">
-            What is their role or job title?
+          <span class="govuk-caption-l">About the activities</span>
+          <label class="govuk-label govuk-label--l" for="foreignPowerNAme">
+            Who will carry out the activities in the arrangement?
           </label>
-         
         </h1>
         <div id="email-hint" class="govuk-hint">
-          For example, senior official responsible for policy area in the Treasury.
+          If there is more than one person use a comma to separate their names.
         </div>
-        <input class="govuk-input" id="communication-role" name="communicationRole" type="text">
+        <input class="govuk-input" id="activitiesName" name="activitiesName" type="text" autocomplete="activities-name">
       </div>
     
  
@@ -47,12 +46,12 @@
 
 
       {{ govukButton({
-        text: "Continue"
+        text: "Save and continue"
       }) }}
 
     </form>
 
-
+  
   </div>
 </div>
 

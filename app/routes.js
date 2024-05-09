@@ -159,3 +159,43 @@ router.post('/activity-type-answer', function(request, response) {
         response.redirect("disbursement/disbursement-nature")
     }
 })
+
+// ALTERNATE USER JOURNEY FOR 3 ACTIVITIES
+
+router.post('/activities/activity-check-private', function(request, response) {
+
+    var type = request.session.data['activityTypes']
+    if (type.includes("Private")){
+        response.redirect("/activities-alt-simple/communication-name")
+    } else if (type.includes("Public"))  {
+        response.redirect("/activities-alt-simple/public-publication")
+    } else if (type.includes("Money"))  {
+        response.redirect("/activities-alt-simple/disbursement-nature")
+    } else {
+        response.redirect("/arrangement-alt-simple/arrangement-overview")
+    }
+})
+
+router.post('/activities/activity-check-public', function(request, response) {
+
+    var type = request.session.data['activityTypes']
+    if (type.includes("Public"))  {
+        response.redirect("/activities-alt-simple/public-publication")
+    } else if (type.includes("Money"))  {
+        response.redirect("/activities-alt-simple/disbursement-nature")
+    } else {
+        response.redirect("/arrangement-alt-simple/arrangement-overview")
+    }
+})
+
+router.post('/activities/activity-check-money', function(request, response) {
+
+    var type = request.session.data['activityTypes']
+    if (type.includes("Money"))  {
+        response.redirect("/activities-alt-simple/disbursement-nature")
+    } else {
+        response.redirect("/arrangement-alt-simple/arrangement-overview")
+    }
+
+})
+

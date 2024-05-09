@@ -26,26 +26,26 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-xl">
-        Check your answers before sending your registration
+        Check your answers before sending your application
       </h1>
 
-      <h2 class="govuk-heading-m">Private communication details</h2>
+      <h2 class="govuk-heading-m">Public communication details</h2>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Name of recipient"
+              text: "Form of public communication"
             },
             value: {
-              text: data['communicationName']              
+              text: data['productionOrPublication'] 
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "public-publication",
                   text: "Change",
-                  visuallyHiddenText: "Name of recipient"
+                  visuallyHiddenText: "Role or job title"
                 }
               ]
             }
@@ -53,17 +53,17 @@
           ,
           {
             key: {
-              text: "Category"
+              text: "Intended audience"
             },
             value: {
-              text: data['communicationCategory'] 
+              text: data['publicAudience']              
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "public-audience",
                   text: "Change",
-                  visuallyHiddenText: "Category of recipient"
+                  visuallyHiddenText: "Intended audience"
                 }
               ]
             }
@@ -71,17 +71,17 @@
           ,
           {
             key: {
-              text: "Role or job title"
+              text: "Type of public communication"
             },
             value: {
-              text: data['communicationRole'] 
+              text: data['publicnature'] 
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "public-nature",
                   text: "Change",
-                  visuallyHiddenText: "Role or job title of recipient"
+                  visuallyHiddenText: "Type of public communication"
                 }
               ]
             }
@@ -89,17 +89,17 @@
           ,
           {
             key: {
-              text: "Type of communication"
+              text: "Purpose of public communication"
             },
             value: {
-              text: data['nature'] 
+              text: data['publicPurpose'] 
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "public-purpose",
                   text: "Change",
-                  visuallyHiddenText: "Type of communication"
+                  visuallyHiddenText: "Purpose of public communication"
                 }
               ]
             }
@@ -107,35 +107,17 @@
           ,
           {
             key: {
-              text: "Purpose of communication"
+              text: "Outcome of public communication"
             },
             value: {
-              text: data['communicationPurpose'] 
+              text: data['publicOutcome'] 
             },
             actions: {
               items: [
                 {
-                  href: "#",
+                  href: "public-outcome",
                   text: "Change",
-                  visuallyHiddenText: "Purpose of communication"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Outcome of communication"
-            },
-            value: {
-              text: data['communicationOutcome'] 
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Change",
-                  visuallyHiddenText: "Outcome of communication"
+                  visuallyHiddenText: "Outcome of public communication"
                 }
               ]
             }
@@ -143,15 +125,25 @@
         ]
       }) }}
 
-    
+     
+      {% if (data['journey'] == 'complete') %}
+      <form action="/arrangement-alt-simple/arrangement-overview?public-check=completed" method="post" novalidate>
 
-      <form action="/declaration" method="post" novalidate>
+        {{ govukButton({
+          text: "Save and return to overview"
+        }) }}
+
+      </form>
+      {% else %}
+      <form action="/activities/activity-check-money?public-check=completed" method="post" novalidate>
 
         {{ govukButton({
           text: "Save and continue"
         }) }}
 
       </form>
+      {% endif %}
+
 
     </div>
   </div>

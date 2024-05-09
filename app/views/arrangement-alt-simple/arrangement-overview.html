@@ -1,0 +1,182 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop-">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before continuing your registration
+      </h1>
+
+      <h2 class="govuk-heading-m">Arrangement details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Form of arrangement"
+            },
+            value: {
+              text: data['describeArrangement']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "describe-arrangement",
+                  text: "Change",
+                  visuallyHiddenText: "How the arrangement was made"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Name of foreign power"
+            },
+            value: {
+              text: data['foreignPowerName'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "foreign-power-name",
+                  text: "Change",
+                  visuallyHiddenText: "Name of foreign power"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Date of arrangement"
+            },
+            value: {
+              text: data['arrangementDate'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "direction-date",
+                  text: "Change",
+                  visuallyHiddenText: "Date of arrangement"
+                }
+              ]
+            }
+          }
+          
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Activities details</h2>
+
+      <dl class="govuk-summary-list">
+
+  
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Private communication
+            </dt>
+            <!-- <dd class="govuk-summary-list__value">
+              {% if data['activityTypes'].includes('Private') %} {{data['communicationName']}}{% endif %}
+            </dd> -->
+            
+            <dd class="govuk-summary-list__value">
+              {% if data['activityTypes'].includes('Private') %}
+              {% if (data['communication-check'] == 'completed')%}<strong class="govuk-tag govuk-tag--green">Completed</strong>  
+              {% else %}<strong class="govuk-tag govuk-tag--red">Incomplete</strong>{% endif %}              
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey">No activity declared</strong> 
+              {% endif %}
+            </dd>
+            
+            <dd class="govuk-summary-list__actions">
+              {% if data['activityTypes'].includes('Private') %}
+              {% if (data['communication-check'] == 'completed')%}<a class="govuk-link" href="/activities-alt-simple/communication-name?communication-check=open&journey=complete">Change<span class="govuk-visually-hidden"> How the arrangement was made</span></a>  
+              {% else %}<a class="govuk-link" href="/activities-alt-simple/communication-name?communication-check=open&journey=complete">Complete<span class="govuk-visually-hidden"> How the arrangement was made</span></a>{% endif %}              
+              {% else %}
+              <a class="govuk-link" href="/activities-alt-simple/activity-types?communication-check=open">Change<span class="govuk-visually-hidden"> How the arrangement was made</span></a>
+              {% endif %}
+            </dd>
+        </div>
+          
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Public communication
+            </dt>
+            <!-- <dd class="govuk-summary-list__value">
+              {% if data['activityTypes'].includes('Public') %} {{data['publicnature']}}{% endif %}
+            </dd> -->
+            
+            <dd class="govuk-summary-list__value">
+              {% if data['activityTypes'].includes('Public') %}
+              {% if (data['public-check'] == 'completed')%}<strong class="govuk-tag govuk-tag--green">Completed</strong>  
+              {% else %}<strong class="govuk-tag govuk-tag--red">Incomplete</strong>{% endif %}              
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey">No activity declared</strong> 
+              {% endif %}
+            </dd>
+            
+            <dd class="govuk-summary-list__actions">
+              {% if data['activityTypes'].includes('Public') %}
+              {% if (data['public-check'] == 'completed')%}<a class="govuk-link" href="/activities-alt-simple/public-publication?public-check=open&journey=complete">Change<span class="govuk-visually-hidden"> How the arrangement was made</span></a>  
+              {% else %}<a class="govuk-link" href="/activities-alt-simple/public-publication?public-check=open&journey=complete">Complete<span class="govuk-visually-hidden"> How the arrangement was made</span></a>{% endif %}              
+              {% else %}
+              <a class="govuk-link" href="/activities-alt-simple/activity-types?public-check=open">Change<span class="govuk-visually-hidden"> How the arrangement was made</span></a>
+              {% endif %}
+
+            </dd>
+        </div>
+          
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Disbursements activity
+            </dt>
+            <!-- <dd class="govuk-summary-list__value">
+              {% if data['activityTypes'].includes('Money') %} {{data['communicationName']}}{% endif %}
+            </dd> -->
+            
+            <dd class="govuk-summary-list__value">
+              {% if data['activityTypes'].includes('Money') %}
+              {% if (data['disbursement-check'] == 'completed')%}<strong class="govuk-tag govuk-tag--green">Completed</strong>  
+              {% else %}<strong class="govuk-tag govuk-tag--red">Incomplete</strong>{% endif %}              
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey">No activity declared</strong> 
+              {% endif %}
+            </dd>
+            
+            <dd class="govuk-summary-list__actions">
+              {% if data['activityTypes'].includes('Money') %}
+              <a class="govuk-link" href="/activities-alt-simple/disbursement-nature?disbursment-check=open&journey=complete">Change<span class="govuk-visually-hidden"> How the arrangement was made</span></a>
+              {% else %}
+              <a class="govuk-link" href="/activities-alt-simple/activity-types?disbursment-check=open">Change<span class="govuk-visually-hidden"> How the arrangement was made</span></a>
+              {% endif %}
+            </dd>
+        </div>
+      
+      </dl>
+
+
+      <form action="declaration" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,604 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="/activity/activity-name" method="post" id="public-activities">
+
+            
+            <span class="govuk-caption-l">About the activities</span>
+
+            <div id="js-activity-wrapper">
+
+                <fieldset class="govuk-fieldset ">
+
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Public communication - activity 1
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-!-padding-bottom-5">
+
+                        <div class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--m" for="industry0">
+                                Which industry do the activities relate to?
+                            </label>
+                        </div>
+                    
+                        <div id="industry-hint" class="govuk-hint">
+                            For example, Education or Science and Technology
+                        </div>  
+                        <select class="govuk-select" id="industry0" name="industry[0]"
+                            data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+                            <option value="" selected disabled>Select an option</option>
+                            <option value="Agriculture">Agriculture and wildlife</option>
+                            <option value="Business">Business and trade</option>
+                            <option value="Crime">Crime and justice</option>
+                            <option value="Defense">Defense and security</option>
+                            <option value="Economy">Economy and Finance</option>
+                            <option value="Education">Education</option>
+                            <option value="Energy">Energy and environment</option>
+                            <option value="Food">Food</option>
+                            <option value="Foreign">Foreign Affairs, Diplomacy & Overseas Aid</option>
+                            <option value="Health">Health and Social Care</option>
+                            <option value="Housing">Housing and Communities</option>
+                            <option value="Human">Human rights</option>
+                            <option value="Immigration">Immigration and Asylum</option>
+                            <option value="Language">Language and Culture</option>
+                            <option value="Law">Law Enforcement and Policing</option>
+                            <option value="Science">Science and Technology</option>
+                            <option value="Sport">Sport</option>
+                            <option value="Tourism">Tourism</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Work">Work and pensions</option>
+                        </select>
+
+                    </div>
+
+                    <div class="govuk-!-padding-bottom-5">
+
+                        <div class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--m" for="activitiesName0">
+                                Who will carry out the activities in the arrangement?
+                            </label>
+                        </div>
+                    
+                        <div id="email-hint" class="govuk-hint">
+                            If there is more than one person use a comma to separate their names.
+                        </div> 
+
+                        <input class="govuk-input" id="activitiesName0" name="activitiesName[0]" type="text" autocomplete="activities-name">
+                    
+                    </div>
+
+                                        
+
+                    <div class="govuk-!-padding-bottom-5">
+
+                        <div class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--m" for="activityStarted">
+                                Have any activities already started as part of this arrangement?
+                            </label>
+                        </div>
+                
+                        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="activityStarted" name="activityStarted" type="radio" value="yes">
+                                <label class="govuk-label govuk-radios__label" for="activityStarted">
+                                Yes
+                                </label>
+                            </div>
+                            <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="activityStarted" name="activityStarted" type="radio" value="no">
+                                <label class="govuk-label govuk-radios__label" for="activityStarted">
+                                No
+                                </label>
+                            </div>
+                        </div>
+                    
+                    </div>
+
+                    <div class="govuk-!-padding-bottom-5">
+
+
+                        {{ govukDateInput({
+                            id: 'activityDate',
+                            namePrefix: "[activityDate]",
+                        
+                        
+                            fieldset: {
+                            legend: {
+                                html: 'When did the activities start?'
+                                if (data['activityStarted'] == "yes")
+                                else "When will the activities start?",
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--m"
+                            }
+                            },
+                            hint: {
+                            text: "For example, 27 3 2007"
+                            }
+                        }) }}
+
+                    </div>
+
+                    <div class="govuk-!-padding-bottom-5">
+
+                        
+                        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+                        {{ govukRadios({
+                            name: "activityKnown",
+                            fieldset: {
+                            legend: {
+                                html: 'Do you know when the activities will end?',
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--m"
+                            }
+                            },
+                            items: [
+                            {
+                                value: "yes",
+                                text: "Yes"
+                            },
+                            {
+                                value: "no",
+                                text: "No"
+                            },
+                            {
+                                divider: "or"
+                            },
+                            {
+                                value: "already",
+                                text: "They have already ended"
+                            }
+                            ]
+                        }) }}
+
+                        
+                    </div>
+
+                    <div class="govuk-!-padding-bottom-5">
+
+                                            
+                        {{ govukDateInput({
+                            id: 'activityEnd',
+                            namePrefix: "[activityEnd]",
+                        
+                        
+                            fieldset: {
+                            legend: {
+                                html: 'When will the activities end?'
+                                if (data['activityKnown'] == "yes")
+                                else "When did the activities end?",
+                                isPageHeading: true,
+                                classes: "govuk-fieldset__legend--m"
+                            }
+                            },
+                            hint: {
+                            text: "For example, 27 3 2007"
+                            }
+                        }) }}
+                    </div>
+
+                    <div class="govuk-!-padding-bottom-5">
+
+                        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                        {% from "govuk/components/input/macro.njk" import govukInput %}
+                        
+                        
+                        
+                        {% set differentHtml %}
+                        {{ govukInput({
+                        id: "different-period",
+                        name: "differentPeriod",
+                        type: "text",
+                        classes: "govuk-!-width-one-third",
+                        label: {
+                            text: "Expected frequency"
+                        },
+                        hint: {
+                            text: "For example, the activities will take place every 3 to 4 weeks during the period."
+                        }
+                        }) }}
+                        {% endset -%}
+                        
+                        {{ govukRadios({
+                        name: "often",
+                        fieldset: {
+                            legend: {
+                            html: 'How often will the activities take place during this period?',
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        hint: {
+                            text: "Select one option."
+                        },
+                        items: [
+                            {
+                            value: "daily",
+                            text: "Daily",
+                            conditional: {
+                                html: emailHtml
+                            }
+                            },
+                            {
+                            value: "weekly",
+                            text: "Weekly",
+                            conditional: {
+                                html: emailHtml
+                            }
+                            },
+                            {
+                            value: "monthly",
+                            text: "Monthly",
+                            conditional: {
+                                html: phoneHtml
+                            }
+                            },
+                            {
+                            value: "A one-off activity",
+                            text: "A one-off activity",
+                            conditional: {
+                                html: phoneHtml
+                            }
+                            },
+                            {
+                            divider: "or"
+                            },
+                            {
+                            value: "different",
+                            text: "A different period of time",
+                            conditional: {
+                                html: differentHtml
+                            }
+                            }
+                        ]
+                        }) }}
+                
+
+                    </div>
+
+
+
+                </fieldset>
+            
+            </div>
+
+            <div id="add-another-button"  class="govuk-!-padding-top-5">
+                <button type="button" type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="add-another-button">
+                  Add another Public activity
+                </button>
+            </div>
+
+         
+
+            <div class="govuk-!-padding-top-5">
+            
+                {{ govukButton({
+                text: "Save and continue"
+                }) }}
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script>
+
+function addNew() {
+
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+
+      var s = stringToHTML(`
+      
+      <fieldset class="govuk-fieldset ">
+
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+        Public communication - activity ${newNameId}
+    </h1>
+</legend>
+
+<div class="govuk-!-padding-bottom-5">
+
+    <div class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="industry${newNameId}">
+            Which industry do the activities relate to?
+        </label>
+    </div>
+
+    <div id="industry-hint" class="govuk-hint">
+        For example, Education or Science and Technology
+    </div>  
+    <select class="govuk-select" id="industry${newNameId}" name="industry[${newNameId}]"
+        data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+        <option value="" selected disabled>Select an option</option>
+        <option value="Agriculture">Agriculture and wildlife</option>
+        <option value="Business">Business and trade</option>
+        <option value="Crime">Crime and justice</option>
+        <option value="Defense">Defense and security</option>
+        <option value="Economy">Economy and Finance</option>
+        <option value="Education">Education</option>
+        <option value="Energy">Energy and environment</option>
+        <option value="Food">Food</option>
+        <option value="Foreign">Foreign Affairs, Diplomacy & Overseas Aid</option>
+        <option value="Health">Health and Social Care</option>
+        <option value="Housing">Housing and Communities</option>
+        <option value="Human">Human rights</option>
+        <option value="Immigration">Immigration and Asylum</option>
+        <option value="Language">Language and Culture</option>
+        <option value="Law">Law Enforcement and Policing</option>
+        <option value="Science">Science and Technology</option>
+        <option value="Sport">Sport</option>
+        <option value="Tourism">Tourism</option>
+        <option value="Transport">Transport</option>
+        <option value="Work">Work and pensions</option>
+    </select>
+
+</div>
+
+<div class="govuk-!-padding-bottom-5">
+
+    <div class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="activitiesName0${newNameId}">
+            Who will carry out the activities in the arrangement?
+        </label>
+    </div>
+
+    <div id="email-hint" class="govuk-hint">
+        If there is more than one person use a comma to separate their names.
+    </div> 
+
+    <input class="govuk-input" id="activitiesName${newNameId}" name="activitiesName[${newNameId}]" type="text" autocomplete="activities-name">
+
+</div>
+
+                    
+
+<div class="govuk-!-padding-bottom-5">
+
+    <div class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="activityStarted">
+            Have any activities already started as part of this arrangement?
+        </label>
+    </div>
+
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="activityStarted" name="activityStarted" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="activityStarted">
+            Yes
+            </label>
+        </div>
+        <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="activityStarted" name="activityStarted" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="activityStarted">
+            No
+            </label>
+        </div>
+    </div>
+
+</div>
+
+<div class="govuk-!-padding-bottom-5">
+
+
+    {{ govukDateInput({
+        id: 'activityDate',
+        namePrefix: "[activityDate]",
+      
+      
+        fieldset: {
+          legend: {
+            html: 'When did the activities start?'
+            if (data['activityStarted'] == "yes")
+            else "When will the activities start?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2007"
+        }
+      }) }}
+
+</div>
+
+<div class="govuk-!-padding-bottom-5">
+
+      
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+        name: "activityKnown",
+        fieldset: {
+        legend: {
+            html: 'Do you know when the activities will end?',
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+        }
+        },
+        items: [
+        {
+            value: "yes",
+            text: "Yes"
+        },
+        {
+            value: "no",
+            text: "No"
+        },
+        {
+            divider: "or"
+        },
+        {
+            value: "already",
+            text: "They have already ended"
+        }
+        ]
+    }) }}
+
+    
+</div>
+
+<div class="govuk-!-padding-bottom-5">
+
+                        
+    {{ govukDateInput({
+        id: 'activityEnd',
+        namePrefix: "[activityEnd]",
+    
+    
+        fieldset: {
+        legend: {
+            html: 'When will the activities end?'
+            if (data['activityKnown'] == "yes")
+            else "When did the activities end?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+        }
+        },
+        hint: {
+        text: "For example, 27 3 2007"
+        }
+    }) }}
+</div>
+
+<div class="govuk-!-padding-bottom-5">
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    
+    
+    
+    {% set differentHtml %}
+    {{ govukInput({
+      id: "different-period",
+      name: "differentPeriod",
+      type: "text",
+      classes: "govuk-!-width-one-third",
+      label: {
+        text: "Expected frequency"
+      },
+      hint: {
+        text: "For example, the activities will take place every 3 to 4 weeks during the period."
+      }
+    }) }}
+    {% endset -%}
+    
+    {{ govukRadios({
+      name: "often",
+      fieldset: {
+        legend: {
+          html: 'How often will the activities take place during this period?',
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select one option."
+      },
+      items: [
+        {
+          value: "daily",
+          text: "Daily",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "weekly",
+          text: "Weekly",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "monthly",
+          text: "Monthly",
+          conditional: {
+            html: phoneHtml
+          }
+        },
+        {
+          value: "A one-off activity",
+          text: "A one-off activity",
+          conditional: {
+            html: phoneHtml
+          }
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "different",
+          text: "A different period of time",
+          conditional: {
+            html: differentHtml
+          }
+        }
+      ]
+    }) }}
+
+
+</div>
+
+
+
+</fieldset>
+
+      `);
+
+      names.appendChild(s);
+      document.getElementById("industry"+newNameId).focus();
+      newNameId++;
+    };
+    
+};
+
+
+window.onload = function() {
+    addNew();
+};
+
+</script>
+
+{% endblock %}
+
+

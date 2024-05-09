@@ -25,19 +25,17 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="/communication/communication-nature" method="post">
+    <form action="public-nature" method="post">
       <div class="govuk-form-group">
         <h1 class="govuk-label-wrapper">
-          <span class="govuk-caption-l">About the private communication</span>
-            <label class="govuk-label govuk-label--l" for="communicationRole">
-            What is their role or job title?
+          <span class="govuk-caption-l">About the public communication</span>
+                    <label class="govuk-label govuk-label--l" for="publicAudience">
+            Who are the intended audience for the public communication?
           </label>
-         
+          
         </h1>
-        <div id="email-hint" class="govuk-hint">
-          For example, senior official responsible for policy area in the Treasury.
-        </div>
-        <input class="govuk-input" id="communication-role" name="communicationRole" type="text">
+       
+        <textarea class="govuk-textarea" id="public-audience" name="publicAudience" rows="3" aria-describedby="public-audience-hint">{{data['publicAudience']}}</textarea>
       </div>
     
  
@@ -47,7 +45,7 @@
 
 
       {{ govukButton({
-        text: "Continue"
+        text: "Save and continue"
       }) }}
 
     </form>

@@ -24,16 +24,16 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="/communication/communication-purpose" method="post">
+      <form class="form" action="disbursement-value" method="post">
 
       {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
       {{ govukCheckboxes({
-        name: "nature",
-        values: data['nature'],
+        name: "disbursementNature",
+        values: data['dispursementNature'],
         fieldset: {
           legend: {
-            html: '<span class="govuk-caption-l">About the private communication</span> How will you communicate with the person?', 
+            html: '<span class="govuk-caption-l">About the money, goods or services</span>What is being offered as part of this arrangement?', 
             classes: "govuk-fieldset__legend--l",
             isPageHeading: true
             
@@ -44,33 +44,28 @@
         },
         items: [
           {
-            value: "Email",
-            text: "Email"
+            value: "Money",
+            text: "Money"
           },
           {
-            value: "Phone call",
-            text: "Phone call"
-          },
-          {
-            value: "Text message",
-            text: "Text message"
-          },
-          {
-            value: "Meeting",
-            text: "Meeting",
+            value: "Goods",
+            text: "Goods",
             hint: {
-              text: "Including in-person, or remote using technology"
+              text: "For example, a product or physical item "
             }
           },
           {
-            value: "Letter",
-            text: "Letter"
+            value: "Service",
+            text: "Service",
+            hint: {
+              text: "For example, doing work for someone "
+            }
           }
         ]
       }) }}
 
         {{ govukButton({
-          text: "Continue"
+          text: "Save and continue"
         }) }}
 
       </form>
