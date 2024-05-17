@@ -12,6 +12,23 @@
   </div>
 {% endblock %}
 
+
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "arrangement-overview-static",
+         text: "Overview with 4 activities (static)"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+
 {% block content %}
 
 {% if (data['arrangementDate']) %}
@@ -540,7 +557,11 @@
 
       </div>
 
+      <p><a href=""></a></p>
+
 
     </div>
   </div>
 {% endblock %}
+
+
