@@ -38,6 +38,14 @@
     font-size: 1.1875rem;
     line-height: 1.3157894737;
     font-weight: 700;
+    > span:before {
+        content: "Show"
+    }
+    .show-more & {
+        > span:before {
+            content: "Hide"
+        }
+    }
 }
 
 .govuk-accordion-nav__chevron {
