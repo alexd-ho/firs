@@ -1,0 +1,74 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="communication-purpose" method="post">
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      {{ govukCheckboxes({
+        name: "nature",
+        values: data['nature'],
+        fieldset: {
+          legend: {
+            html: '<span class="govuk-caption-l">About the private communication</span> How will you communicate with the person?', 
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+            
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "Email",
+            text: "Email"
+          },
+          {
+            value: "Phone call",
+            text: "Phone call"
+          },
+          {
+            value: "Text message",
+            text: "Text message"
+          },
+          {
+            value: "Meeting",
+            text: "Meeting",
+            hint: {
+              text: "Including in-person, or remote using technology"
+            }
+          },
+          {
+            value: "Letter",
+            text: "Letter"
+          }
+        ]
+      }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

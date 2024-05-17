@@ -6,13 +6,6 @@
 
 {% block beforeContent %}
 
-{{ govukPhaseBanner({
-  tag: {
-    text: "Prototype"
-  },
-  html: 'This is a not a live service and is for testing only.'
-}) }}
-
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -41,7 +34,7 @@
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="specifiedNumber" name="specifiedPassport" type="radio" value="nino">
+                <input class="govuk-radios__input" id="specifiedNumber" name="specifiedNumber" type="radio" value="nino">
                 <label class="govuk-label govuk-radios__label" for="specifiedNumber">
                   UK national insurance number
                 </label>

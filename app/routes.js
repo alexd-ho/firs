@@ -199,3 +199,42 @@ router.post('/activities/activity-check-money', function(request, response) {
 
 })
 
+// ALTERNATE USER JOURNEY TWO
+
+router.post('/alternate-route-2/activity-check-private', function(request, response) {
+
+    var type = request.session.data['activityTypes']
+    if (type.includes("Private")){
+        response.redirect("/alternate-route-2/communication-name")
+    } else if (type.includes("Public"))  {
+        response.redirect("/alternate-route-2/public-publication")
+    } else if (type.includes("Money"))  {
+        response.redirect("/alternate-route-2/disbursement-nature")
+    } else {
+        response.redirect("/alternate-route-2/arrangement-overview")
+    }
+})
+
+router.post('/alternate-route-2/activity-check-public', function(request, response) {
+
+    var type = request.session.data['activityTypes']
+    if (type.includes("Public"))  {
+        response.redirect("/alternate-route-2/public-publication")
+    } else if (type.includes("Money"))  {
+        response.redirect("/alternate-route-2/disbursement-nature")
+    } else {
+        response.redirect("/alternate-route-2/arrangement-overview")
+    }
+})
+
+router.post('/alternate-route-2/activity-check-money', function(request, response) {
+
+    var type = request.session.data['activityTypes']
+    if (type.includes("Money"))  {
+        response.redirect("/alternate-route-2/disbursement-nature")
+    } else {
+        response.redirect("/alternate-route-2/arrangement-overview")
+    }
+
+})
+

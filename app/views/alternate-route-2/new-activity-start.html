@@ -1,0 +1,100 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">About the activities</span>
+
+      <div>
+
+        <form class="form" action="activity-check-private" method="post">
+
+          {{ govukRadios({
+            name: "activityTypes",
+            fieldset: {
+              legend: {
+                text: "Which type of political influence are you registering as part of this activity?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply. We will ask you about each of these three types of activity next. "
+            },
+            items: [
+              {
+                value: "Private",
+                text: "Private communication",
+                hint: {
+                  text: "For example, lobbying, sending an email or letter, or having a private conversation"
+                }
+              },
+              {
+                value: "Public",
+                text: "Public communication",
+                hint: {
+                  text: "For example, social media content, poster, leaflet, or published article"
+                }
+              },
+              {
+                value: "Money",
+                text: "Distribution of money, goods or services",
+                hint: {
+                  text: "For example, the offer of money, goods or services to an individual or entity in the UK"
+                }
+              }
+            ]
+          }) }}
+
+          
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+  
+        </form>
+
+        <!-- <p>
+          {{ data['activityTypes'] }}
+        </p> -->
+  
+      </div>
+      
+    </div>
+  </div>
+
+{% endblock %}

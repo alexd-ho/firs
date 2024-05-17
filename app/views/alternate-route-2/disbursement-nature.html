@@ -1,0 +1,69 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="disbursement-value" method="post">
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      {{ govukCheckboxes({
+        name: "disbursementNature",
+        values: data['dispursementNature'],
+        fieldset: {
+          legend: {
+            html: '<span class="govuk-caption-l">About the money, goods or services</span>What is being offered as part of this arrangement?', 
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+            
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "Money",
+            text: "Money"
+          },
+          {
+            value: "Goods",
+            text: "Goods",
+            hint: {
+              text: "For example, a product or physical item "
+            }
+          },
+          {
+            value: "Service",
+            text: "Service",
+            hint: {
+              text: "For example, doing work for someone "
+            }
+          }
+        ]
+      }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

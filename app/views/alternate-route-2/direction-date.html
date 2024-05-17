@@ -1,0 +1,67 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="arrangement-check" method="post" novalidate>
+      
+  
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+{{ govukDateInput({
+  id: 'arrangementDate',
+  namePrefix: "[arrangementDate]",
+  data: "data['arrangementDate']",
+  fieldset: {
+    legend: {
+      text: "When was the arrangement made?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "For example, 27 3 2007"
+  }
+}) }}
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with the arrangment date
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        We need to know the date that the foreign power gave direction to carry out the arrangement. <strong>This is not the date that any activities will take place</strong>.
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

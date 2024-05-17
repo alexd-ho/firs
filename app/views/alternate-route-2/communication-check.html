@@ -1,0 +1,150 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before saving this activity
+      </h1>
+      <p>You will be able to amend this activity later</p>
+
+      <h2 class="govuk-heading-m">Private communication details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name of recipient"
+            },
+            value: {
+              text: data['communicationName']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-name",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Category"
+            },
+            value: {
+              text: data['communicationCategory'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-category",
+                  text: "Change",
+                  visuallyHiddenText: "Category of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Role or job title"
+            },
+            value: {
+              text: data['communicationRole'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-role",
+                  text: "Change",
+                  visuallyHiddenText: "Role or job title of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Type of communication"
+            },
+            value: {
+              text: data['nature'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-nature",
+                  text: "Change",
+                  visuallyHiddenText: "Type of communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Purpose of communication"
+            },
+            value: {
+              text: data['communicationPurpose'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-purpose",
+                  text: "Change",
+                  visuallyHiddenText: "Purpose of communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Outcome of communication"
+            },
+            value: {
+              text: data['communicationOutcome'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-outcome",
+                  text: "Change",
+                  visuallyHiddenText: "Outcome of communication"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+
+        <a href="arrangement-overview?has-private-activity=yes" class="govuk-button ">Save and continue</a>
+
+        <a href="new-activity-start" class="govuk-button govuk-button--secondary">Add another activity</a>
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

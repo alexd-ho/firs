@@ -1,0 +1,105 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="disbursement-purpose" method="post">
+
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+{% call govukFieldset({
+  name: "disbursementAddress",
+  values: data['disbursementAddress'],
+  legend: {
+    html: '<span class="govuk-caption-l">About the money, goods or services</span>What is their address?', 
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+ 
+  }
+}) %}
+
+
+  {{ govukInput({
+    label: {
+      text: "Address line 1"
+    },
+    id: "disbursementaddress-line-1",
+    name: "disbursementAddressLine1",
+    autocomplete: "address-line1"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)"
+    },
+    id: "disbursementaddress-line-2",
+    name: "disbursementAddressLine2",
+    autocomplete: "address-line2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 3 (optional)"
+    },
+    id: "disbursementaddress-line-3",
+    name: "disbursementAddressLine3",
+    autocomplete: "address-line3"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Town or city"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "disbursementaddress-town",
+    name: "disbursementAddressTown",
+    autocomplete: "address-level2"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Country"
+    },
+    id: "disbursementcountry",
+    name: "disbursementCountry",
+    autocomplete: "country"
+  }) }}
+
+  {{ govukInput({
+    label: {
+      text: "Postcode"
+    },
+    classes: "govuk-input--width-10",
+    id: "disbursementaddress-postcode",
+    name: "disbursementAddressPostcode",
+    autocomplete: "postal-code"
+  }) }}
+
+{% endcall %}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

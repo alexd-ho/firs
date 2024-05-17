@@ -1,0 +1,546 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block beforeMain %}
+  <div>
+     <p>Example text</p>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+{% if (data['arrangementDate']) %}
+{% set arrDate = data['arrangementDate'] %}
+{% set arrDateGds = arrDate[0]+' '+ arrDate[1] | monthName("truncate") +' '+arrDate[2]  %}
+{% else %}
+{% set arrDateGds = '' %}
+{% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop-">
+      <script>
+        console.log('DATE: {{arrDateFormat}}')
+      </script>
+      <h1 class="govuk-heading-xl"> 
+        Check your answers before continuing your registration
+      </h1>
+
+
+      <h2 class="govuk-heading-m">Arrangement details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Name of foreign power"
+          },
+          value: {
+            text: data['foreignPowerName'] 
+          },
+          actions: {
+            items: [
+              {
+                href: "foreign-power-name",
+                text: "Change",
+                visuallyHiddenText: "Name of foreign power"
+              }
+            ]
+          }
+        }
+        ,
+        {
+            key: {
+              text: "Form of arrangement"
+            },
+            value: {
+              text: data['describeArrangement']             
+            },
+            actions: {
+              items: [
+                {
+                  href: "describe-arrangement",
+                  text: "Change",
+                  visuallyHiddenText: "How the arrangement was made"
+                }
+              ]
+            }
+          },          
+          {
+            key: {
+              text: "Date of arrangement"
+            },
+            value: {
+              text: arrDateGds 
+            },
+            actions: {
+              items: [
+                {
+                  href: "direction-date",
+                  text: "Change",
+                  visuallyHiddenText: "Date of arrangement"
+                }
+              ]
+            }
+          }
+          
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Activities details</h2>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+      
+      {% if data['activityTypes'] %}
+
+      {% if (data['has-private-activity'] == 'yes') %}
+      {{ govukSummaryList({
+        card: {
+          title: {
+            html: "Private Communication: " + data['communicationName']
+          },
+          actions: {
+            items: [
+              {
+                href: "arrangement-overview?has-private-activity=no",
+                text: "Delete activity",
+                visuallyHiddenText: "for Private Communication: " + data['communicationName']
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Name of recipient"
+            },
+            value: {
+              text: data['communicationName']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-name",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Category"
+            },
+            value: {
+              text: data['communicationCategory'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-category",
+                  text: "Change",
+                  visuallyHiddenText: "Category of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Role or job title"
+            },
+            value: {
+              text: data['communicationRole'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-role",
+                  text: "Change",
+                  visuallyHiddenText: "Role or job title of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Type of communication"
+            },
+            value: {
+              text: data['nature'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-nature",
+                  text: "Change",
+                  visuallyHiddenText: "Type of communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Purpose of communication"
+            },
+            value: {
+              text: data['communicationPurpose'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-purpose",
+                  text: "Change",
+                  visuallyHiddenText: "Purpose of communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Outcome of communication"
+            },
+            value: {
+              text: data['communicationOutcome'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-outcome",
+                  text: "Change",
+                  visuallyHiddenText: "Outcome of communication"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {% endif %}
+
+
+      {% if (data['has-public-activity'] == 'yes') %}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            html: "Public Communication: " + data['productionOrPublication'] + " - " + data['publicAudience']
+          },
+          actions: {
+            items: [
+              {
+                href: "arrangement-overview?has-public-activity=no",
+                text: "Delete activity",
+                visuallyHiddenText: "for Public Communication: " + data['publicAudience']
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Form of public communication"
+            },
+            value: {
+              text: data['productionOrPublication'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "public-publication",
+                  text: "Change",
+                  visuallyHiddenText: "Role or job title"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Intended audience"
+            },
+            value: {
+              text: data['publicAudience']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "public-audience",
+                  text: "Change",
+                  visuallyHiddenText: "Intended audience"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Type of public communication"
+            },
+            value: {
+              text: data['publicnature'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "public-nature",
+                  text: "Change",
+                  visuallyHiddenText: "Type of public communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Purpose of public communication"
+            },
+            value: {
+              text: data['publicPurpose'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "public-purpose",
+                  text: "Change",
+                  visuallyHiddenText: "Purpose of public communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Outcome of public communication"
+            },
+            value: {
+              text: data['publicOutcome'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "public-outcome",
+                  text: "Change",
+                  visuallyHiddenText: "Outcome of public communication"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {% endif %}
+
+      {% if (data['has-money-activity'] == 'yes') %}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            html: "Disbursements of " + data['disbursementNature'] +", to a value of £" + data['disbursementValue']
+          },
+          actions: {
+            items: [
+              {
+                href: "arrangement-overview?has-money-activity=no",
+                text: "Delete activity",
+                visuallyHiddenText: "for Disbursements of" + data['disbursement-nature']
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Type of money, goods or services"
+            },
+            value: {
+              text: data['disbursementNature'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-nature",
+                  text: "Change",
+                  visuallyHiddenText: "Type of money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Total value"
+            },
+            value: {
+              text: '£' + data['disbursementValue']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-value",
+                  text: "Change",
+                  visuallyHiddenText: "Total value of money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Name of recipient"
+            },
+            value: {
+              text: data['disbursementName'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-name",
+                  text: "Change",
+                  visuallyHiddenText: "Name of person receiving money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Role or job title"
+            },
+            value: {
+              text: data['disbursementRole'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-role",
+                  text: "Change",
+                  visuallyHiddenText: "Role or job title of person receiving money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data['disbursementEmail'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-email",
+                  text: "Change",
+                  visuallyHiddenText: "Email address of person receiving money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Telephone number"
+            },
+            value: {
+              text: data['disbursementPhone'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-phone-number",
+                  text: "Change",
+                  visuallyHiddenText: "Telephone number of person receiving money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              text: data['disbursementAddressLine1']+', '+data['disbursementAddressLine2']+', '+data['disbursementAddressTown']+', '+data['disbursementAddressPostcode'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-address",
+                  text: "Change",
+                  visuallyHiddenText: "Address of person receiving money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Purpose of offer"
+            },
+            value: {
+              text: data['disbursementPurpose'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-purpose",
+                  text: "Change",
+                  visuallyHiddenText: "Purpose of offering money, goods or services"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Outcome of offer"
+            },
+            value: {
+              text: data['disbursementOutcome'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "disbursement-outcome",
+                  text: "Change",
+                  visuallyHiddenText: "Expected outcome of the offer of money, goods or services"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+      {% endif %}
+
+      {% else %}
+
+      <p>No activities registered.</p>
+
+      {% endif %}
+
+    
+
+      <div class="govuk-button-group">
+
+        <a href="declaration" class="govuk-button ">Save and continue</a>
+
+        <a href="new-activity-start" class="govuk-button govuk-button--secondary">Add another activity</a>
+
+      </div>
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="public-purpose" method="post">
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      {{ govukCheckboxes({
+        name: "publicnature",
+        values: data['publicnature'],
+        fieldset: {
+          legend: {
+          html: '<span class="govuk-caption-l">About the public communication</span> Which type of public communication will be made?', 
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "Newspaper or magazine publication",
+            text: "Newspaper or magazine publication",
+            hint: {
+              text: "Including online content."
+            }
+          },
+          {
+            value: "Poster,leaflet or billboard advertisement",
+            text: "Poster, leaflet or billboard advertisement"
+          },
+          {
+            value: "Public speaking event",
+            text: "Public speaking event",
+            hint: {
+              text: "Including a conference, seminar, or public interview."
+            }
+          },
+          {
+            value: "Radio",
+            text: "Radio",
+            hint: {
+              text: "Including an advertisement, programme, or interview."
+            }
+          },
+          {
+            value: "Social media post",
+            text: "Social media post"
+          },
+          {
+            value: "Television",
+            text: "Television",
+            hint: {
+              text: "Including an advertisement, programme, or interview."
+            }
+          },
+          {
+            value: "Website",
+            text: "Website"
+          }
+        ]
+      }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
