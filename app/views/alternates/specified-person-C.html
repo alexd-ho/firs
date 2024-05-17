@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Prototype"
+  },
+  html: 'This is a not a live service and is for testing only.'
+}) }}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/alternates/specified-person-A",
+         text: "Go to Version A"
+       },
+       {
+        href: "/alternates/specified-person-B",
+        text: "Go to Version B"
+      },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Information we will show on the public register
+      </h1>
+
+      <form class="form" action="/alternates/specified-person-Cb" method="post">
+
+        <p>
+          The information you provide in the next section will be shown on the public register unless it:
+       
+              
+         <ul class="govuk-list govuk-list--bullet" data-module="edge">
+
+          <li>puts you or someone else's safety at risk</li>
+          <li>puts UK national security at risk</li>
+          <li>contains details that could harm a business or industry</li>
+        </ul>
+      </p>
+      <p>The public register helps to inform the public about foreign influence in the UK.</p>
+
+
+        <p>After each question in this section we will ask if you have any concerns about the information you have provided.</p>
+        <p>If you do have concerns we will ask you to give details and provide supporting evidence.</p>
+<p>We will contact you about your concerns once you submit your registration.</p> 
+<div class="govuk-inset-text">
+  We will not show any information on the public register before we have contacted you about your concerns.
+</div>
+
+      
+       
+  
+
+     
+        <div class="govuk-!-padding-bottom-5"></div>
+
+
+
+        {{ govukButton({
+          text: "Agree and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
