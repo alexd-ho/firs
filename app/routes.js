@@ -352,7 +352,7 @@ router.post('/beta/activities/public/activity-anyone-else-route', function(reque
 
     var whoElse = request.session.data['activityAnyoneElse-public']
     if (whoElse == "no"){
-        response.redirect("/beta/activities/public/public-name")
+        response.redirect("/beta/activities/public/public-publication")
     } else {
         response.redirect("/beta/activities/public/activity-who-else")
     }
@@ -403,7 +403,7 @@ router.post('/beta/activities/disbursement/activity-anyone-else-route', function
 
     var whoElse = request.session.data['activityAnyoneElse-disbursement']
     if (whoElse == "no"){
-        response.redirect("/beta/activities/disbursement/disbursement-name")
+        response.redirect("/beta/activities/disbursement/disbursement-nature")
     } else {
         response.redirect("/beta/activities/disbursement/activity-who-else")
     }
