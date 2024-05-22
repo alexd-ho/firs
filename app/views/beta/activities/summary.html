@@ -1,0 +1,726 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "arrangement-overview",
+         text: "Overview page (dynamic)"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+<script>
+  $('.js-show-more').on('click', function() {
+    $(this).parent().parent().parent().parent().parent().toggleClass('show-more');
+    return false;
+  })
+</script>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+{% if (data['arrangementDate']) %}
+{% set arrDate = data['arrangementDate'] %}
+{% set arrDateGds = arrDate[0]+' '+ arrDate[1] | monthName("truncate") +' '+arrDate[2]  %}
+{% else %}
+{% set arrDateGds = '' %}
+{% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop-">
+      <script>
+        console.log('DATE: {{arrDateFormat}}')
+      </script>
+      <h1 class="govuk-heading-xl"> 
+        All registered activities
+      </h1>
+
+
+      <h2 class="govuk-heading-m">Arrangement summary</h2>
+      <dl class="govuk-summary-list">
+
+  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name of foreign power
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Country X
+          </dd>
+          
+          <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="foreign-power-name">Change<span class="govuk-visually-hidden"> Name of foreign power</span></a>
+            
+          </dd>
+          
+        </div>
+        
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of arrangement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 Aug 2023
+          </dd>
+          
+          <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="direction-date">Change<span class="govuk-visually-hidden"> Date of arrangement</span></a>
+            
+          </dd>
+          
+        </div>
+        
+      
+      </dl>
+
+      <h2 class="govuk-heading-m">Activities details</h2>
+
+      <div class="govuk-summary-card is-collapsable">
+        <div class="govuk-summary-card__title-wrapper">
+        
+          <h2 class="govuk-summary-card__title">
+            Public Communication: Production - People Group
+          </h2>
+        
+        
+          
+          <div class="govuk-summary-card__actions">
+            <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item">
+              <button class="govuk-link js-show-more"><span></span> details <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></button>
+            </li>
+            <li class="govuk-summary-list__actions-list-item">
+              <a class="govuk-link" href="arrangement-overview?has-public-activity=no">Delete activity<span class="govuk-visually-hidden"> for Public Communication:  (Public Communication: undefined - )</span></a>
+            </li>
+          </ul>
+          </div>
+          
+        
+        </div>
+      
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Form of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Production
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-publication">Change<span class="govuk-visually-hidden"> Role or job title (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Intended audience
+              </dt>
+              <dd class="govuk-summary-list__value">
+                People Group
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-audience">Change<span class="govuk-visually-hidden"> Intended audience (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Newspaper or magazine publication,Poster,leaflet or billboard advertisement,Radio,Social media post
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-nature">Change<span class="govuk-visually-hidden"> Type of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Purpose of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To communicate stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-purpose">Change<span class="govuk-visually-hidden"> Purpose of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                A meal with the Prime Minister
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-outcome">Change<span class="govuk-visually-hidden"> Outcome of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card is-collapsable">
+        <div class="govuk-summary-card__title-wrapper">
+        
+          <h2 class="govuk-summary-card__title">
+            Disbursements of Money, to a value of £1000
+          </h2>
+        
+        
+          
+          <div class="govuk-summary-card__actions">
+            <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item">
+              <button class="govuk-link js-show-more"><span></span> details <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></button>
+            </li>
+            <li class="govuk-summary-list__actions-list-item">
+              <a class="govuk-link" href="arrangement-overview?has-public-activity=no">Delete activity<span class="govuk-visually-hidden"> for Public Communication:  (Public Communication: undefined - )</span></a>
+            </li>
+          </ul>
+          </div>
+          
+        
+        </div>
+      
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of money, goods or services
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Money
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-nature">Change<span class="govuk-visually-hidden"> Type of money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Total value
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £1000
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-value">Change<span class="govuk-visually-hidden"> Total value of money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name of recipient
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Persons Name
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-name">Change<span class="govuk-visually-hidden"> Name of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Role or job title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Senior official responsible for policy area in the Education
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-role">Change<span class="govuk-visually-hidden"> Role or job title of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                name@domain.com
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-email">Change<span class="govuk-visually-hidden"> Email address of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Telephone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                +31 234567 890
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-phone-number">Change<span class="govuk-visually-hidden"> Telephone number of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Vulcan House - Iron, 6 Millsands, Sheffield, S3 8NU
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-address">Change<span class="govuk-visually-hidden"> Address of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Purpose of offer
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To get stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-purpose">Change<span class="govuk-visually-hidden"> Purpose of offering money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome of offer
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To do stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-outcome">Change<span class="govuk-visually-hidden"> Expected outcome of the offer of money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+          </dl>
+        </div>
+      </div>
+
+
+      <div class="govuk-summary-card is-collapsable">
+        <div class="govuk-summary-card__title-wrapper">
+        
+          <h2 class="govuk-summary-card__title">
+            Private Communication: Persons name
+          </h2>
+        
+        
+          
+          <div class="govuk-summary-card__actions">
+            <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item">
+              <button class="govuk-link js-show-more"><span></span> details <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></button>
+            </li>
+            <li class="govuk-summary-list__actions-list-item">
+              <a class="govuk-link" href="arrangement-overview?has-public-activity=no">Delete activity<span class="govuk-visually-hidden"> for Public Communication:  (Public Communication: undefined - )</span></a>
+            </li>
+          </ul>
+          </div>
+          
+        
+        </div>
+      
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name of recipient
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Persons name
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="communication-name">Change<span class="govuk-visually-hidden"> Name of recipient (Private Communication: Persons name)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Category
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Minister
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="communication-category">Change<span class="govuk-visually-hidden"> Category of recipient (Private Communication: Persons name)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Role or job title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                senior official responsible for policy area in the Treasury
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="communication-role">Change<span class="govuk-visually-hidden"> Role or job title of recipient (Private Communication: Persons name)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Email,Phone call,Text message,Letter
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="communication-nature">Change<span class="govuk-visually-hidden"> Type of communication (Private Communication: Persons name)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Purpose of communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To get stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="communication-purpose">Change<span class="govuk-visually-hidden"> Purpose of communication (Private Communication: Persons name)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome of communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To do stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="communication-outcome">Change<span class="govuk-visually-hidden"> Outcome of communication (Private Communication: Persons name)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+          </dl>
+        </div>
+      </div>
+
+
+      
+
+      <div class="govuk-summary-card is-collapsable">
+        <div class="govuk-summary-card__title-wrapper">
+        
+          <h2 class="govuk-summary-card__title">
+            Disbursements of Money,Goods, to a value of £20000
+          </h2>
+        
+        
+          
+          <div class="govuk-summary-card__actions">
+            <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item">
+              <button class="govuk-link js-show-more"><span></span> details <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></button>
+            </li>
+            <li class="govuk-summary-list__actions-list-item">
+              <a class="govuk-link" href="arrangement-overview?has-public-activity=no">Delete activity<span class="govuk-visually-hidden"> for Public Communication:  (Public Communication: undefined - )</span></a>
+            </li>
+          </ul>
+          </div>
+          
+        
+        </div>
+      
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of money, goods or services
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Money,Goods
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-nature">Change<span class="govuk-visually-hidden"> Type of money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Total value
+              </dt>
+              <dd class="govuk-summary-list__value">
+                £20000
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-value">Change<span class="govuk-visually-hidden"> Total value of money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name of recipient
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Persons Name
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-name">Change<span class="govuk-visually-hidden"> Name of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Role or job title
+              </dt>
+              <dd class="govuk-summary-list__value">
+                senior official responsible for policy area in the Treasury
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-role">Change<span class="govuk-visually-hidden"> Role or job title of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                name@domain.com
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-email">Change<span class="govuk-visually-hidden"> Email address of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Telephone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                +31 234567 890
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-phone-number">Change<span class="govuk-visually-hidden"> Telephone number of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Vulcan House - Steel, 6 Millsands, Sheffield, S3 8NU
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-address">Change<span class="govuk-visually-hidden"> Address of person receiving money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Purpose of offer
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To get stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-purpose">Change<span class="govuk-visually-hidden"> Purpose of offering money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome of offer
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To do stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="disbursement-outcome">Change<span class="govuk-visually-hidden"> Expected outcome of the offer of money, goods or services (Disbursements of Money,Goods, to a value of £20000)</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+          </dl>
+        </div>
+      </div>
+
+
+      <div class="govuk-button-group">
+
+        <a href="declaration" class="govuk-button ">Save and continue</a>
+
+        <a href="/beta/activities/new" class="govuk-button govuk-button--secondary">Add another activity</a>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<!--
+      <span class="govuk-caption-l">About the arrangement</span>
+      <h1 class="govuk-heading-l">
+        {% if (data['activityStarted-public'] == "yes") %}
+        When did the activity start?
+        {% else %}
+        Are you registering an activity for a specified entity?
+        {% endif %}
+      </h1> -->
+
+    <form action="arrangement-stream-1" method="post">
+
+      
+      {{ govukRadios({
+        name: "arrangement-stream-1",
+        value: data['arrangement-stream-1'],
+        fieldset: {
+        legend: {
+          html: '<span class="govuk-caption-l">About the arrangement</span> Are you registering an activity for a specified entity?', 
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+    <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a specified entity?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          TBC
+        </div>
+      </details>
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -251,6 +251,19 @@ router.post('/alternate-route-2/activity-check-money', function(request, respons
 
 // })
 
+// ARRANGEMENT
+
+router.post('/beta/arrangement/arrangement-stream-1', function(request, response) {
+
+    var q1 = request.session.data['arrangement-stream-1']
+    if (q1 == "yes"){
+        response.redirect("/beta/arrangement/stream-1-entities")
+    } else {
+        response.redirect("/beta/arrangement/stream-2")
+    }
+})
+
+
   
 // PRIVATE
 
