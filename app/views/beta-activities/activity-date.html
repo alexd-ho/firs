@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">{{ activityStatus }}
+      {% if (data['activity-stream'] == 'communication') %}
+      <span class="govuk-caption-l">About the private communication</span>
+      {% elseif (data['activity-stream'] == 'public') %}
+      <span class="govuk-caption-l">About the public communication</span>
+      {% elseif (data['activity-stream'] == 'disbursement') %}
+      <span class="govuk-caption-l">About the distribution of money, goods, or services</span>
+      {% else %}
+      <span class="govuk-caption-l">About the activities</span>
+      {% endif %}
+      <h1 class="govuk-heading-l">
+        {% if (activityStarted == "yes") %}
+        When did the activities start?
+        {% else %}When will the activities start?{% endif %}
+
+      </h1>
+
+    <form action="/beta-activities/activity-known" method="post">
+
+
+      {{ govukDateInput({
+        id: 'activityDate',
+        namePrefix: "activityDate-" + data['activity-stream'],
+
+        fieldset: {
+          legend: {
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2007"
+        }
+      }) }}
+ 
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if (data['activity-stream'] == 'communication') %}
+      <span class="govuk-caption-l">About the private communication</span>
+      {% elseif (data['activity-stream'] == 'public') %}
+      <span class="govuk-caption-l">About the public communication</span>
+      {% elseif (data['activity-stream'] == 'disbursement') %}
+      <span class="govuk-caption-l">About the distribution of money, goods, or services</span>
+      {% else %}
+      <span class="govuk-caption-l">About the activities</span>
+      {% endif %}
+      <h1 class="govuk-heading-l">
+        Has the activity already started?
+      </h1>
+
+      <form class="form" action="activity-date" method="post">
+
+  
+
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="activityStarted-yes" name="activityStarted-{{data['activity-stream']}}" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="activityStarted-yes">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="activityStarted-no" name="activityStarted-{{data['activity-stream']}}" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="activityStarted-no">
+              No
+            </label>
+          </div>
+          </div>
+       
+          <div class="govuk-!-padding-bottom-5"></div>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/beta-activities/activity-start" method="post" novalidate>
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the activities</span>
+          <label class="govuk-label govuk-label--l" for="foreignPowerNAme">
+            Who will carry out the activities in the arrangement?
+          </label>
+        </h1>
+        <div id="email-hint" class="govuk-hint">
+          If there is more than one person use a comma to separate their names.
+        </div>
+        <input class="govuk-input" id="activitiesName-{{data['activity-stream']}}" name="activitiesName-{{data['activity-stream']}}" type="text" autocomplete="activities-name" value="">
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+  
+  </div>
+</div>
+
+{% endblock %}

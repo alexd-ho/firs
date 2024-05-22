@@ -1,0 +1,78 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">About the activities</h1>
+
+      <div>
+
+        <p>Each activity belongs to one of three types of activity. You will need to register each and every activity.</p>
+  
+        <div class="govuk-inset-text">
+          <h2 class="govuk-heading-m">Private communication</h2>
+          <p>For example, lobbying, sending an email or letter, or having a private conversation.</p>
+        </div>
+
+        <div class="govuk-inset-text">
+        <h2 class="govuk-heading-m">Public communication</h2>
+        <p>For example, social media content, poster, leaflet, or published article.</p>
+        </div>
+
+        <div class="govuk-inset-text">
+        <h2 class="govuk-heading-m">Distribution of money, goods or services</h2>
+        <p>For example, the offer of money, goods or services to an individual or entity in the UK.</p>
+        </div>
+
+        <div class="govuk-!-padding-top-3">
+          <a href="new-activity-start" draggable="false" class="govuk-button" data-module="govuk-button">
+            Create new activity</a>
+            <a href="arrangement-overview"  class="govuk-button govuk-button--secondary">Skip to the end</a>
+          </div>
+          
+        <!-- <p>
+          {{ data['activityTypes'] }}
+        </p> -->
+  
+      </div>
+      
+    </div>
+  </div>
+
+{% endblock %}

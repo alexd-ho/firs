@@ -1,0 +1,52 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="activity-industry?activity-stream=disbursement" method="post">
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <span class="govuk-caption-l">About the money, goods or services</span>
+          <label class="govuk-label govuk-label--l" for="disbursementOutcome">
+            What outcome do you expect from your offer?
+          </label>
+        </h1>
+        <div id="disbursement-outcome-hint" class="govuk-hint">
+          We need to know what you think should happen as a result of this offer. For example, that sanctions are imposed against x entity. 
+        </div>
+        <textarea class="govuk-textarea" id="disbursement-outcome" name="disbursementOutcome" rows="3" aria-describedby="disbursement-outcome-hint">{{data['disbursementOutcome']}}</textarea>
+      </div>
+    
+ 
+
+  
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

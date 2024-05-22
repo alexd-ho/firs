@@ -1,0 +1,52 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      {% if (data['activity-stream'] == 'communication') %}
+      <span class="govuk-caption-l">About the private communication</span>
+      {% elseif (data['activity-stream'] == 'public') %}
+      <span class="govuk-caption-l">About the public communication</span>
+      {% elseif (data['activity-stream'] == 'disbursement') %}
+      <span class="govuk-caption-l">About the distribution of money, goods, or services</span>
+      {% else %}
+      <span class="govuk-caption-l">About the activities</span>
+      {% endif %}
+      <h1 class="govuk-heading-l"><!-- communication -->
+        Who will be involved in conducting the activity?
+      </h1>
+      <div id="often-communication-hint" class="govuk-hint">
+        The full name of the person or entity.
+      </div>
+
+      
+      <form action="/beta/activities/{{data['activity-stream']}}/activity-other-person-role" method="post">
+        <div class="govuk-form-group">
+          <input class="govuk-input" id="activityWhoElse-{{data['activity-stream']}}" name="activityWhoElse-{{data['activity-stream']}}" type="text" value="{{data['activityWhoElse-public']}}">
+        </div>
+    
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

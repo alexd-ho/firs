@@ -1,0 +1,53 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      {% if (data['activity-stream'] == 'communication') %}
+      <span class="govuk-caption-l">About the private communication</span>
+      {% elseif (data['activity-stream'] == 'public') %}
+      <span class="govuk-caption-l">About the public communication</span>
+      {% elseif (data['activity-stream'] == 'disbursement') %}
+      <span class="govuk-caption-l">About the distribution of money, goods, or services</span>
+      {% else %}
+      <span class="govuk-caption-l">About the activities</span>
+      {% endif %}
+      <h1 class="govuk-heading-l"><!-- communication -->
+        What is your relationship with any person or entity involved in conducting the activity?
+      </h1>
+<!--       <div id="often-communication-hint" class="govuk-hint">
+        The role should relate a responsibility within the activity.
+      </div> -->
+
+      
+      <form action="/beta/activities/{{data['activity-stream']}}/disbursement-nature" method="post">
+        <div class="govuk-form-group">
+          <textarea class="govuk-textarea" id="activityOtherPersonRelationship-{{data['activity-stream']}}" name="activityOtherPersonRelationship-{{data['activity-stream']}}" rows="3" aria-describedby="role-disbursement-hint">{{data['activityOtherPersonRelationship-disbursement']}}</textarea>
+
+        </div>
+    
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

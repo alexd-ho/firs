@@ -1,0 +1,78 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {% if (data['activity-stream'] == 'communication') %}
+      <span class="govuk-caption-l">About the private communication</span>
+      {% elseif (data['activity-stream'] == 'public') %}
+      <span class="govuk-caption-l">About the public communication</span>
+      {% elseif (data['activity-stream'] == 'disbursement') %}
+      <span class="govuk-caption-l">About the distribution of money, goods, or services</span>
+      {% else %}
+      <span class="govuk-caption-l">About the activities</span>
+      {% endif %}
+      <h1 class="govuk-heading-l">
+        {% if (data['activityKnown-disbursement'] == "already") %}
+        When did the activities end?{% else %}
+        When will the activities end?{% endif %}
+      </h1>
+        <div id="email-hint" class="govuk-hint">
+          For example, 27 3 2007
+        </div>
+
+
+      <form action="activity-frequency" method="post">
+
+
+      {{ govukDateInput({
+        id: 'activityEnd',
+        namePrefix: "activityEnd-" + data['activity-stream'],
+
+
+        fieldset: {
+          legend: {
+          }
+        }
+      }) }}
+ 
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Help with the activities end date
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        We need to know the date you expect the activities related to the arrangement will end.</p> <p>You can give an estimate if you do not know the exact date.</p>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

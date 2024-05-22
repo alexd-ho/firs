@@ -1,0 +1,118 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      {% if (data['activity-stream'] == 'communication') %}
+      <span class="govuk-caption-l">About the private communication</span>
+      {% elseif (data['activity-stream'] == 'public') %}
+      <span class="govuk-caption-l">About the public communication</span>
+      {% elseif (data['activity-stream'] == 'disbursement') %}
+      <span class="govuk-caption-l">About the distribution of money, goods, or services</span>
+      {% else %}
+      <span class="govuk-caption-l">About the activities</span>
+      {% endif %}
+      <h1 class="govuk-heading-l"><!-- public -->
+        {% if (data['activity-ended'] == "yes") %}
+        How often did the activities take place during this period?{% else %}
+        How often will the activities take place during this period?{% endif %}
+
+      </h1>
+      <div id="often-public-hint" class="govuk-hint">
+        Select one option.
+      </div>
+
+      <form class="form" action="/beta/activities/{{data['activity-stream']}}/activity-who" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        
+        
+        
+        {% set differentHtml %}
+        {{ govukInput({
+          id: "different-period",
+          name: "differentPeriod-{{data['activity-stream']}}",
+          type: "text",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Expected frequency"
+          },
+          hint: {
+            text: "For example, the activities will take place every 3 to 4 weeks during the period."
+          }
+        }) }}
+        {% endset -%}
+        
+        {{ govukRadios({
+          name: "often-" + data['activity-stream'],
+          fieldset: {
+            legend: {
+            }
+          },
+          items: [
+            {
+              value: "daily",
+              text: "Daily",
+              conditional: {
+                html: emailHtml
+              }
+            },
+            {
+              value: "weekly",
+              text: "Weekly",
+              conditional: {
+                html: emailHtml
+              }
+            },
+            {
+              value: "monthly",
+              text: "Monthly",
+              conditional: {
+                html: phoneHtml
+              }
+            },
+            {
+              value: "A one-off activity",
+              text: "A one-off activity",
+              conditional: {
+                html: phoneHtml
+              }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "different",
+              text: "A different period of time",
+              conditional: {
+                html: differentHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

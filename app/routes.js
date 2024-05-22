@@ -238,3 +238,176 @@ router.post('/alternate-route-2/activity-check-money', function(request, respons
 
 })
 
+// BETA
+
+// router.use((req, res, next) => {
+//   const log = {
+//     method: req.method,
+//     url: req.originalUrl, //URL of page
+//     data: req.session.data //all data held
+//   }
+//   console.log(JSON.stringify(log, null, 2)) // show all data as a dump in terminal
+//   next() // continue to next action
+
+// })
+
+  
+// PRIVATE
+
+router.post('/beta/activities/start', function(request, response) {
+
+    var type = request.session.data['activityTypes']
+    if (type.includes("communication")){
+        response.redirect("/beta/activities/communication/activity-industry?activity-stream=communication")
+    } else if (type.includes("public"))  {
+        response.redirect("/beta/activities/public/activity-industry?activity-stream=public")
+    } else if (type.includes("disbursement"))  {
+        response.redirect("/beta/activities/disbursement/activity-industry?activity-stream=disbursement")
+    } else if (type.includes("other"))  {
+        response.redirect("/beta/activities/other/start?activity-stream=other")
+    } else {
+        response.redirect("/beta/activities/overview")
+    }
+})
+
+
+// Do you know when the activity will end? Yes/No/Already
+router.post('/beta/activities/communication/activity-end-answer', function(request, response) {
+
+    var end = request.session.data['activityKnown-communication']
+    if (end == "no"){
+        response.redirect("/beta/activities/communication/activity-frequency?activity-ended=no")
+    } else if (end == "yes")  {
+        response.redirect("/beta/activities/communication/activity-end?activity-ended=no")
+    } else {
+        response.redirect("/beta/activities/communication/activity-end?activity-ended=yes")
+    }
+})
+
+
+// Will you be conducting the activity? Yes/No
+router.post('/beta/activities/communication/activity-you-route', function(request, response) {
+
+    var you = request.session.data['activityWho-communication']
+    if (you == "yes"){
+        response.redirect("/beta/activities/communication/activity-anyone-else")
+    } else {
+        response.redirect("/beta/activities/communication/activity-who-else")
+    }
+})
+
+// Will anyone else be involved in conducting the activity? Yes/No
+router.post('/beta/activities/communication/activity-anyone-else-route', function(request, response) {
+
+    var whoElse = request.session.data['activityAnyoneElse-communication']
+    if (whoElse == "no"){
+        response.redirect("/beta/activities/communication/communication-name")
+    } else {
+        response.redirect("/beta/activities/communication/activity-who-else")
+    }
+})
+
+
+// PUBLIC 
+
+router.post('/beta/activities/public/activity-end-answer', function(request, response) {
+
+    var end = request.session.data['activityKnown-public']
+    if (end == "no"){
+        response.redirect("/beta/activities/public/activity-frequency?activity-ended=no")
+    } else if (end == "yes")  {
+        response.redirect("/beta/activities/public/activity-end?activity-ended=no")
+    } else {
+        response.redirect("/beta/activities/public/activity-end?activity-ended=yes")
+    }
+})
+
+// Do you know when the activity will end? Yes/No/Already
+router.post('/beta/activities/public/activity-end-answer', function(request, response) {
+
+    var end = request.session.data['activityKnown-public']
+    if (end == "no"){
+        response.redirect("/beta/activities/public/activity-frequency?activity-ended=no")
+    } else if (end == "yes")  {
+        response.redirect("/beta/activities/public/activity-end?activity-ended=no")
+    } else {
+        response.redirect("/beta/activities/public/activity-end?activity-ended=yes")
+    }
+})
+
+
+// Will you be conducting the activity? Yes/No
+router.post('/beta/activities/public/activity-you-route', function(request, response) {
+
+    var you = request.session.data['activityWho-public']
+    if (you == "yes"){
+        response.redirect("/beta/activities/public/activity-anyone-else")
+    } else {
+        response.redirect("/beta/activities/public/activity-who-else")
+    }
+})
+
+// Will anyone else be involved in conducting the activity? Yes/No
+router.post('/beta/activities/public/activity-anyone-else-route', function(request, response) {
+
+    var whoElse = request.session.data['activityAnyoneElse-public']
+    if (whoElse == "no"){
+        response.redirect("/beta/activities/public/public-name")
+    } else {
+        response.redirect("/beta/activities/public/activity-who-else")
+    }
+})
+
+
+// MONEY
+
+router.post('/beta/activities/disbursement/activity-end-answer', function(request, response) {
+
+    var end = request.session.data['activityKnown-disbursement']
+    if (end == "no"){
+        response.redirect("/beta/activities/disbursement/activity-frequency?activity-ended=no")
+    } else if (end == "yes")  {
+        response.redirect("/beta/activities/disbursement/activity-end?activity-ended=no")
+    } else {
+        response.redirect("/beta/activities/disbursement/activity-end?activity-ended=yes")
+    }
+})
+
+// Do you know when the activity will end? Yes/No/Already
+router.post('/beta/activities/disbursement/activity-end-answer', function(request, response) {
+
+    var end = request.session.data['activityKnown-disbursement']
+    if (end == "no"){
+        response.redirect("/beta/activities/disbursement/activity-frequency?activity-ended=no")
+    } else if (end == "yes")  {
+        response.redirect("/beta/activities/disbursement/activity-end?activity-ended=no")
+    } else {
+        response.redirect("/beta/activities/disbursement/activity-end?activity-ended=yes")
+    }
+})
+
+
+// Will you be conducting the activity? Yes/No
+router.post('/beta/activities/disbursement/activity-you-route', function(request, response) {
+
+    var you = request.session.data['activityWho-disbursement']
+    if (you == "yes"){
+        response.redirect("/beta/activities/disbursement/activity-anyone-else")
+    } else {
+        response.redirect("/beta/activities/disbursement/activity-who-else")
+    }
+})
+
+// Will anyone else be involved in conducting the activity? Yes/No
+router.post('/beta/activities/disbursement/activity-anyone-else-route', function(request, response) {
+
+    var whoElse = request.session.data['activityAnyoneElse-disbursement']
+    if (whoElse == "no"){
+        response.redirect("/beta/activities/disbursement/disbursement-name")
+    } else {
+        response.redirect("/beta/activities/disbursement/activity-who-else")
+    }
+})
+
+
+

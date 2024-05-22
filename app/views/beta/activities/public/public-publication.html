@@ -1,0 +1,57 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="public-audience" method="post">
+      
+      
+      {{ govukRadios({
+        name: "productionOrPublication",
+        value: data['productionOrPublication'],
+        fieldset: {
+        legend: {
+          html: '<span class="govuk-caption-l">About the public communication</span> Does the public communication involve production or publication?', 
+          classes: "govuk-fieldset__legend--l",
+          isPageHeading: true
+          }
+        },
+        items: [
+          {
+            value: "Production",
+            text: "Production"
+          },
+          {
+            value: "Publication",
+            text: "Publication"
+          }
+        ]
+      }) }}
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+  </div>
+</div>
+
+{% endblock %}
