@@ -253,13 +253,45 @@ router.post('/alternate-route-2/activity-check-money', function(request, respons
 
 // ARRANGEMENT
 
+//// Stream 1
 router.post('/beta/arrangement/arrangement-stream-1', function(request, response) {
 
-    var q1 = request.session.data['arrangement-stream-1']
-    if (q1 == "yes"){
-        response.redirect("/beta/arrangement/stream-1-entities")
+    var s1 = request.session.data['arrangement-stream-1']
+    if (s1 == "yes"){
+        response.redirect("/beta/arrangement/stream-1-entities?arrangement-tier=enhanced")
     } else {
         response.redirect("/beta/arrangement/stream-2")
+    }
+})
+
+//// Stream 2
+router.post('/beta/arrangement/arrangement-stream-2', function(request, response) {
+
+    var s2 = request.session.data['arrangement-stream-2']
+    if (s2 == "yes"){
+        response.redirect("/beta/arrangement/stream-2-foreign-power-question")
+    } else {
+        response.redirect("/beta/arrangement/stream-3")
+    }
+})
+router.post('/beta/arrangement/stream-2-foreign-power-route', function(request, response) {
+
+    var s2 = request.session.data['arrangement-stream-2-question']
+    if (s2 == "yes"){
+        response.redirect("/beta/arrangement/stream-2-foreign-power-name?arrangement-tier=enhanced")
+    } else {
+        response.redirect("/beta/arrangement/stream-2-foreign-power-name?arrangement-tier=political")
+    }
+})
+
+//// Stream 3
+router.post('/beta/arrangement/arrangement-stream-3', function(request, response) {
+
+    var s3 = request.session.data['arrangement-stream-3']
+    if (s3 == "yes"){
+        response.redirect("/beta/arrangement/stream-3-entities?arrangement-tier=enhanced")
+    } else {
+        response.redirect("/beta/arrangement/stream-3-foreign-power-name?arrangement-tier=political")
     }
 })
 

@@ -1,0 +1,86 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <span class="govuk-caption-l">About the arrangement</span>
+      <h1 class="govuk-heading-l">
+        Check your answers before saving this arrangement
+      </h1> 
+
+    <form action="/beta/activities/new" method="post">
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Are you registering an activity for a specified entity?"
+            },
+            value: {
+              text: data['arrangement-stream-1']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "start",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Which of the following specified entities are you registering for?"
+            },
+            value: {
+              text: data['specified-entities']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "specified-entities-list",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+        ]
+      })   }}
+
+
+      <div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Save and add activity"
+        }) }}
+
+        <a href="overview" class="govuk-button govuk-button--secondary">Save and return to arrangements</a>
+
+      </div>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<!--
+      <span class="govuk-caption-l">About the arrangement</span>
+      <h1 class="govuk-heading-l">
+        {% if (data['activityStarted-public'] == "yes") %}
+        When did the activity start?
+        {% else %}
+        Are you registering an activity for a specified entity?
+        {% endif %}
+      </h1> -->
+
+    <form action="stream-1-check" method="post">
+
+      {{ govukCheckboxes({
+        name: "specified-entities",
+        values: data['specified-entities'],
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            html: '<span class="govuk-caption-l">About the arrangement</span>Which of the following specified entities are you registering for?', 
+            text: "Which of the following specified entities are you registering for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "Entity One",
+            text: "Entity One"
+          },
+          {
+            value: "Entity Two",
+            text: "Entity Two"
+          },
+          {
+            value: "Entity Three",
+            text: "Entity Three"
+          },
+          {
+            value: "Entity Four",
+            text: "Entity Four"
+          },
+          {
+            value: "Entity Five",
+            text: "Entity Five"
+          },
+          {
+            value: "Entity Six",
+            text: "Entity Six"
+          },
+          {
+            value: "Entity Seven",
+            text: "Entity Seven"
+          },
+          {
+            value: "Entity Eight",
+            text: "Entity Eight"
+          },
+          {
+            value: "Entity Nine",
+            text: "Entity Nine"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

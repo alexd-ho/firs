@@ -28,15 +28,15 @@
         {% endif %}
       </h1> -->
 
-    <form action="arrangement-stream-1" method="post">
+    <form action="arrangement-stream-2" method="post">
 
       
       {{ govukRadios({
-        name: "arrangement-stream-1",
-        value: data['arrangement-stream-1'],
+        name: "arrangement-stream-2",
+        value: data['arrangement-stream-2'],
         fieldset: {
         legend: {
-          html: '<span class="govuk-caption-l">About the arrangement</span> Are you registering an activity for a specified entity?', 
+          html: '<span class="govuk-caption-l">About the arrangement</span> Are you registering an activity for a foreign power carried out under a misrepresentation?', 
           classes: "govuk-fieldset__legend--l",
           isPageHeading: true
           }
@@ -63,11 +63,11 @@
     <details class="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            What is a specified entity?
+            What is a misrepresentation?
           </span>
         </summary>
         <div class="govuk-details__text">
-          TBC
+          A misrepresentation means providing false or misleading information about the activities or intentions.
         </div>
       </details>
 

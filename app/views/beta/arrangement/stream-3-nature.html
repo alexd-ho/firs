@@ -1,0 +1,91 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<!--
+      <span class="govuk-caption-l">About the arrangement</span>
+      <h1 class="govuk-heading-l">
+        {% if (data['activityStarted-public'] == "yes") %}
+        When did the activity start?
+        {% else %}
+        Are you registering an activity for a specified entity?
+        {% endif %}
+      </h1> -->
+
+    <form action="stream-3-date" method="post">
+
+        {% set differentHtml %}
+        {{ govukTextarea({
+          id: "nature3-other",
+          name: "nature3-other",
+          type: "text",
+          classes: "govuk-!-width-two-thirds",
+          value: data['nature3-other'],
+          label: {
+            text: "Other Nature or form of arrangement"
+          }
+        }) }}
+        {% endset -%}
+
+
+      {{ govukCheckboxes({
+        name: "stream-3-nature",
+        values: data['stream-3-nature'],
+        fieldset: {
+          legend: {
+            html: '<span class="govuk-caption-l">About the arrangement</span>What is the nature and form of the arrangement?', 
+            text: "Which of the following specified entities are you registering for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "Contract",
+            text: "Contract"
+          },
+          {
+            value: "Verbal agreement",
+            text: "Verbal agreement"
+          },
+          {
+            value: "Other",
+            text: "Other",
+            conditional: {
+              html: differentHtml
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

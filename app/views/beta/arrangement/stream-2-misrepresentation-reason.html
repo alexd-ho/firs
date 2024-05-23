@@ -1,0 +1,59 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="stream-2-check" method="post" novalidate>
+
+      <span class="govuk-caption-l">About the arrangement</span>
+
+      {{ govukTextarea({
+        label: {
+          text: "What is the reason and purpose for which the misrepresentation will be made?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        id: "stream-2-misrepresentation-reason",
+        name: "stream-2-misrepresentation-time-reason",
+        value: data['stream-2-misrepresentation-time-reason']
+      }) }}
+
+
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+<!--      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is a foreign power?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity.
+        </div>
+      </details> -->
+
+  
+  </div>
+</div>
+
+{% endblock %}

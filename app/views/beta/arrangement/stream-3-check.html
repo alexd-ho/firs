@@ -1,0 +1,170 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <span class="govuk-caption-l">About the arrangement</span>
+      <h1 class="govuk-heading-l">
+        Check your answers before saving this arrangement
+      </h1> 
+
+    <form action="/beta/activities/new" method="post">
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Are you registering an activity for a specified entity?"
+            },
+            value: {
+              text: data['arrangement-stream-1']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "start",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Are you registering an activity for a foreign power carried out under a misrepresentation?"
+            },
+            value: {
+              text: data['arrangement-stream-2']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Are you registering an arrangement with one of the following specified entities?"
+            },
+            value: {
+              text: data['arrangement-stream-3']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-3",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },          
+          {
+            key: {
+              text: "Which of these specified entities is the arrangement with?"
+            },
+            value: {
+              text: data['stream-3-entities']   or "n/a"             
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-3-entities",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the name of the foreign power the arrangement is made for?"
+            },
+            value: {
+              text: data['stream-3-foreign-power-name'] or "n/a"             
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-3-foreign-power-name",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the nature and form of the arrangement?"
+            },
+            value: {
+              text: data['stream-3-nature'] + ' ' +data['nature3-other']
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-3-nature",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "When was arrangement made?"
+            },
+            value: {
+              text: data['stream-3-date-day']+" "+data['stream-3-date-month']|monthName('truncate') +" "+data['stream-3-date-year']
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-3-date",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+        ]
+      })   }}
+
+      <div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Save and add activity"
+        }) }}
+
+        <a href="overview" class="govuk-button govuk-button--secondary">Save and return to arrangements</a>
+
+      </div>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

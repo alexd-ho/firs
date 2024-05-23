@@ -1,0 +1,204 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+      <span class="govuk-caption-l">About the arrangement</span>
+      <h1 class="govuk-heading-l">
+        Check your answers before saving this arrangement
+      </h1> 
+
+    <form action="/beta/activities/new" method="post">
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Are you registering an activity for a specified entity?"
+            },
+            value: {
+              text: data['arrangement-stream-1']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "start",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Are you registering an activity for a foreign power carried out under a misrepresentation?"
+            },
+            value: {
+              text: data['arrangement-stream-2']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Is the misrepresentation being made for one of the foreign powers listed here?"
+            },
+            value: {
+              text: data['arrangement-stream-2-question']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2-foreign-power-question",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the name of the foreign power for whom you work?"
+            },
+            value: {
+              text: data['stream-2-foreign-power-name']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2-foreign-power-name",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "How will the misrepresentation be made?"
+            },
+            value: {
+              text: data['stream-2-misrepresentation-how']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2-misrepresentation-how",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "How would you describe the persons to whom the misrepresentation be made?"
+            },
+            value: {
+              text: data['stream-2-misrepresentation-person']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2-misrepresentation-person",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What identity will you adopt?"
+            },
+            value: {
+              text: data['stream-2-misrepresentation-identity']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2-misrepresentation-identity",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Over what period of time will the misrepresentation be made?"
+            },
+            value: {
+              text: data['stream-2-misrepresentation-time-period']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2-misrepresentation-time-period",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is the reason and purpose for which the misrepresentation will be made?"
+            },
+            value: {
+              text: data['stream-2-misrepresentation-reason']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "stream-2-misrepresentation-reason",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+        ]
+      })   }}
+
+      <div class="govuk-button-group">
+
+        {{ govukButton({
+          text: "Save and add activity"
+        }) }}
+
+        <a href="overview" class="govuk-button govuk-button--secondary">Save and return to arrangements</a>
+
+      </div>
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

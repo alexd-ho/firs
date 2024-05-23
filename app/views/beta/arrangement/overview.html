@@ -1,0 +1,299 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block footer %}
+
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+
+<script>
+  $('.js-show-more').on('click', function() {
+    $(this).parent().parent().parent().parent().parent().toggleClass('show-more');
+    return false;
+  })
+</script>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+{% if (data['arrangementDate']) %}
+{% set arrDate = data['arrangementDate'] %}
+{% set arrDateGds = arrDate[0]+' '+ arrDate[1] | monthName("truncate") +' '+arrDate[2]  %}
+{% else %}
+{% set arrDateGds = '' %}
+{% endif %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <script>
+        console.log('DATE: {{arrDateFormat}}')
+      </script>
+      <h1 class="govuk-heading-xl"> 
+        All registered arrangements
+      </h1>
+
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+
+
+      <!-- <h2 class="govuk-heading-m">arrangements details</h2> -->
+
+      <div class="govuk-summary-card is-collapsable">
+        <div class="govuk-summary-card__title-wrapper">
+        
+          <h2 class="govuk-summary-card__title">
+              Spain
+          </h2>
+        
+        
+          
+          <div class="govuk-summary-card__actions">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                {{ govukTag({ text: "Political Tier"}) }}
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <button class="govuk-link js-show-more"><span></span> activities (2) <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></button>
+              </li>
+
+              <li class="govuk-summary-list__actions-list-item">
+                <a href="#" class="govuk-link">Update <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></a>
+              </li>
+
+          </ul>
+          </div>
+          
+        
+        </div>
+      
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Form of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Production
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-publication">Change<span class="govuk-visually-hidden"> Role or job title (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Intended audience
+              </dt>
+              <dd class="govuk-summary-list__value">
+                People Group
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-audience">Change<span class="govuk-visually-hidden"> Intended audience (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Newspaper or magazine publication,Poster,leaflet or billboard advertisement,Radio,Social media post
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-nature">Change<span class="govuk-visually-hidden"> Type of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Purpose of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To communicate stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-purpose">Change<span class="govuk-visually-hidden"> Purpose of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                A meal with the Prime Minister
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-outcome">Change<span class="govuk-visually-hidden"> Outcome of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+          </dl>
+        </div>
+      </div>
+
+
+      <div class="govuk-summary-card is-collapsable">
+        <div class="govuk-summary-card__title-wrapper">
+        
+          <h2 class="govuk-summary-card__title">
+              Iran
+          </h2>
+        
+        
+          
+          <div class="govuk-summary-card__actions">
+            <ul class="govuk-summary-list__actions-list">
+            <li class="govuk-summary-list__actions-list-item">
+              {{ govukTag({ text: "Enhanced Tier", classes: "govuk-tag--red"}) }}
+            </li>
+                        <li class="govuk-summary-list__actions-list-item">
+              <button class="govuk-link js-show-more"><span></span> activities (4) <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></button>
+            </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a href="#" class="govuk-link">Update <!--<span class="govuk-accordion-nav__chevron govuk-accordion-nav__chevron--down"></span>--></a>
+              </li>
+
+          </ul>
+          </div>
+          
+        
+        </div>
+      
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Form of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Production
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-publication">Change<span class="govuk-visually-hidden"> Role or job title (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Intended audience
+              </dt>
+              <dd class="govuk-summary-list__value">
+                People Group
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-audience">Change<span class="govuk-visually-hidden"> Intended audience (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Newspaper or magazine publication,Poster,leaflet or billboard advertisement,Radio,Social media post
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-nature">Change<span class="govuk-visually-hidden"> Type of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Purpose of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                To communicate stuff
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-purpose">Change<span class="govuk-visually-hidden"> Purpose of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome of public communication
+              </dt>
+              <dd class="govuk-summary-list__value">
+                A meal with the Prime Minister
+              </dd>
+              
+              <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="public-outcome">Change<span class="govuk-visually-hidden"> Outcome of public communication (Public Communication: undefined - )</span></a>
+                
+              </dd>
+              
+            </div>
+            
+          
+          </dl>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+
+        <a href="/beta/activities/new" class="govuk-button ">Add an activity</a>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+{% endblock %}
