@@ -456,3 +456,31 @@ router.post('/beta/activities/disbursement/activity-anyone-else-route', function
 
 
 
+//// ADD ANOTHER ACTIVITY PEOPLE
+router.post('/beta/activities/person/activity-person-check', function(request, response) {
+
+    var who = request.session.data['activity-person-check']
+
+    if (who.includes("me")){
+        response.redirect("/beta/activities/person/activity-person-role")
+    } else if (who.includes("organisation")) {
+        response.redirect("/beta/activities/person/activity-person-role")
+    } else {
+        response.redirect("/beta/activities/person/activity-add-multiple-people")
+    }
+})
+
+router.post('/beta/activities/person/activity-people-check', function(request, response) {
+
+    var who = request.session.data['activity-person-check']
+
+    if (who.includes("other")){
+        response.redirect("/beta/activities/person/activity-add-multiple-people")
+    } else {
+        response.redirect("/beta/activities/person/activity-date")
+    }
+})
+
+
+
+

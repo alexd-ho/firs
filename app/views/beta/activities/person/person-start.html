@@ -1,0 +1,74 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<!--
+      <span class="govuk-caption-l">About the arrangement</span>
+      <h1 class="govuk-heading-l">
+        {% if (data['activityStarted-public'] == "yes") %}
+        When did the activity start?
+        {% else %}
+        Are you registering an activity for a specified entity?
+        {% endif %}
+      </h1> -->
+
+    <form action="activity-person-check" method="post">
+
+      {{ govukCheckboxes({
+        name: "activity-person-check",
+        values: data['activity-person-check'],
+        fieldset: {
+          legend: {
+            html: '<span class="govuk-caption-l">About the arrangement</span>Who is involved in making these private communications?', 
+            text: "Which of the following specified entities are you registering for?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply."
+        },
+        items: [
+          {
+            value: "me",
+            text: "Me"
+          },
+          {
+            value: "organisation",
+            text: "My Organisation"
+          },
+          {
+            value: "other",
+            text: "Other people or other organisations"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
