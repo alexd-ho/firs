@@ -109,12 +109,9 @@
 <script>
 
 function dynamicTitle () {
-    console.log('START');
     $('#js-activity-wrapper').on("keyup", ".name-field", function( event ) {
-      console.log('focus');
       let thisName = $(this).val();
-      console.log(thisName);
-      $(this).parent().parent().children().children().children(".min-label__name").html(thisName);
+      $(this).closest(".person-module").find(".min-label__name").html(thisName);
     })
 }
 
@@ -130,12 +127,7 @@ function addNew() {
       return doc.body.firstChild;
     };
 
-
-
-
-
     addAnotherButton.onclick = function () {
-
 
       $('.person-module').addClass('person-module--hidden');
 
@@ -195,11 +187,11 @@ function addNew() {
 
 
     $('.button--update').on('click', function() {
-        $(this).parent().parent().parent().removeClass('person-module--hidden');
+        $(this).closest(".person-module").removeClass('person-module--hidden');
         return false;
     })
     $('.button--delete').on('click', function() {
-        $(this).parent().parent().parent().addClass('person-module--delete')
+        $(this).closest(".person-module").addClass('person-module--delete')
         return false;
     })
 
