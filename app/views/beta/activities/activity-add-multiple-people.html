@@ -1,0 +1,229 @@
+{% extends "layouts/main-w-nav.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      {% if (data['activity-stream'] == 'communication') %}
+      <span class="govuk-caption-l">About the private communication</span>
+      {% elseif (data['activity-stream'] == 'public') %}
+      <span class="govuk-caption-l">About the public communication</span>
+      {% elseif (data['activity-stream'] == 'disbursement') %}
+      <span class="govuk-caption-l">About the distribution of money, goods, or services</span>
+      {% else %}
+      <span class="govuk-caption-l">About the activities</span>
+      {% endif %}
+
+      <h1 class="govuk-heading-l">Tell us the details of the other people or organisations making this private communication.</h1>
+      
+      <form action="/beta/activities/{{data['activity-stream']}}/activity-other-person-role" method="post">
+
+        <div id="js-activity-wrapper">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+        {% call govukFieldset({
+          classes: "person-module",
+          legend: {
+            text: "Person / Organisation 1",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: false
+          }
+        }) %}
+
+
+          {{ govukInput({
+            label: {
+              text: "What is their full name?"
+            },
+            classes: "name-field",
+            id: "activityWhoElse-" + data['activity-stream']+"-1",
+            name: "activityWhoElse-" + data['activity-stream']+"-1",
+            autocomplete: "activityWhoElse-" + data['activity-stream']+"-1"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "What is their role in conducting this activity?"
+            },
+            id: "activityOtherPersonRole-" + data['activity-stream']+"-1",
+            name: "activityOtherPersonRole-" + data['activity-stream']+"-1",
+            autocomplete: "activityOtherPersonRole-" + data['activity-stream']+"-1"
+          }) }}
+
+          {{ govukTextarea({
+            label: {
+              text: "What is your relationship with the registrant?"
+            },
+            id: "activityOtherPersonRelationship-" + data['activity-stream']+"-1",
+            name: "activityOtherPersonRelationship-" + data['activity-stream']+"-1",
+            autocomplete: "activityOtherPersonRelationship-" + data['activity-stream']+"-1"
+          }) }}
+
+            <div class="govuk-heading-m min-label">
+                <div class="person-texts">
+                    <div class="govuk-caption-m">Person / Organisation 1</div>
+                    <div class="govuk-heading-m min-label__name"></div>
+                </div>
+                <div class="person-actions govuk-button-group">
+                    <button class="govuk-button button--update">Update</button>
+                    <a class="govuk-link button--delete">Delete</a>
+                </div>
+            </div>
+
+        {% endcall %}
+
+      </div>
+
+        <div id="add-another-button"  class="govuk-!-padding-top-5">
+          <a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another person or organisation</a>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+
+function dynamicTitle () {
+    console.log('START');
+    $('#js-activity-wrapper').on("keyup", ".name-field", function( event ) {
+      console.log('focus');
+      let thisName = $(this).val();
+      console.log(thisName);
+      $(this).parent().parent().children().children().children(".min-label__name").html(thisName);
+    })
+}
+
+function addNew() {
+
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+
+
+
+
+    addAnotherButton.onclick = function () {
+
+
+      $('.person-module').addClass('person-module--hidden');
+
+      var s = stringToHTML(`
+      
+        {% call govukFieldset({
+          classes: "person-module",
+          legend: {
+            text: "Person / Organisation ${newNameId}",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+
+          {{ govukInput({
+            label: {
+              text: "What is their full name?"
+            },
+            classes: "name-field",
+            id: "activityWhoElse-" + data['activity-stream'] +'-${newNameId}',
+            name: "activityWhoElse-" + data['activity-stream'] +'-${newNameId}',
+            autocomplete: "activityWhoElse-" + data['activity-stream'] +'-${newNameId}'
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "What is their role in conducting this activity?"
+            },
+            id: "activityOtherPersonRole-" + data['activity-stream'] +'-${newNameId}',
+            name: "activityOtherPersonRole-" + data['activity-stream'] +'-${newNameId}',
+            autocomplete: "activityOtherPersonRole-" + data['activity-stream'] +'-${newNameId}'
+          }) }}
+
+          {{ govukTextarea({
+            label: {
+              text: "What is your relationship with the registrant?"
+            },
+            id: "activityOtherPersonRelationship-" + data['activity-stream'] +'-${newNameId}',
+            name: "activityOtherPersonRelationship-" + data['activity-stream'] +'-${newNameId}',
+            autocomplete: "activityOtherPersonRelationship-" + data['activity-stream'] +'-${newNameId}'
+          }) }}
+
+            <div class="govuk-heading-m min-label">
+                <div class="person-texts">
+                    <div class="govuk-caption-m">Person / Organisation ${newNameId}</div>
+                    <div class="govuk-heading-m min-label__name">Person's Name</div>
+                </div>
+                <div class="person-actions govuk-button-group">
+                    <button class="govuk-button button--update">Update</button>
+                    <a class="govuk-link button--delete">Delete</a>
+                </div>
+            </div>
+
+        {% endcall %}
+      `);
+
+
+    $('.button--update').on('click', function() {
+        $(this).parent().parent().parent().removeClass('person-module--hidden');
+        return false;
+    })
+    $('.button--delete').on('click', function() {
+        $(this).parent().parent().parent().addClass('person-module--delete')
+        return false;
+    })
+
+
+
+
+      names.appendChild(s);
+      // document.getElementById("industry"+newNameId).focus();
+      newNameId++;
+      return false;
+      console.log(newNameId);
+    };
+    
+};
+
+
+window.onload = function() {
+    dynamicTitle();
+    addNew();
+};
+
+</script>
+
+{% endblock %}
+
+
+

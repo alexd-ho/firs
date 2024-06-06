@@ -18,6 +18,38 @@
     }
 }
 
+.person-module {
+    margin-bottom: 20px;
+    .min-label {
+        display: none;
+    }
+    &.person-module--delete {
+        display: none!important;
+    }
+    &.person-module--hidden {
+        .govuk-form-group,
+        .govuk-fieldset__legend {
+            display: none;
+        }
+        .govuk-fieldset__legend {
+        }
+        .min-label {
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .person-texts {
+                * {
+                    margin: 0;
+                }
+            }
+            .person-actions {
+                margin: 0;
+            }
+        }
+    }
+}
+
 .govuk-tag {
     max-width: 200px;
 }
