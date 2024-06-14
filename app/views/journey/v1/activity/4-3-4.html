@@ -1,0 +1,336 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your answers before saving this activity
+      </h1>
+      <p>You will be able to amend this activity later.</p>
+
+      <h2 class="govuk-heading-m">Public communication details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "What type of public communication will be made?"
+            },
+            value: {
+              text: data['v4-2']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "4-2",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }          
+          ,
+          {
+            key: {
+              text: "Do you know when the activity will end?"
+            },
+            value: {
+              text: data['activityKnown-communication']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "activity-known",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+
+          {
+            key: {
+              text: "Frequency of actvities"
+            },
+            value: {
+              text: data['often-communication']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "activity-frequency",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Will you be conducting the activity?"
+            },
+            value: {
+              text: data['activityWho-communication']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "activity-who",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Will anyone else be involved in conducting the activity?"
+            },
+            value: {
+              text: data['activityAnyoneElse-communication']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "activity-anyone-else",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Who will be involved in conducting the activity?"
+            },
+            value: {
+              text: data['activityWhoElse-communication']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "activity-who-else",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "What is the role of each person or entity involved in conducting the activity?"
+            },
+            value: {
+              text: data['activityOtherPersonRole-communication']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "activity-other-person-role",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "What is the relationship with any person or entity involved in conducting the activity?"
+            },
+            value: {
+              text: data['activityOtherPersonRelationship-communication']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "activity-other-person-relationship",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Name of recipient"
+            },
+            value: {
+              text: data['communicationName']              
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-name",
+                  text: "Change",
+                  visuallyHiddenText: "Name of recipient"
+                }
+              ]
+            }
+          }
+          ,
+
+
+
+
+          {
+            key: {
+              text: "Category"
+            },
+            value: {
+              text: data['communicationCategory'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-category",
+                  text: "Change",
+                  visuallyHiddenText: "Category of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Role or job title"
+            },
+            value: {
+              text: data['communicationRole'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-role",
+                  text: "Change",
+                  visuallyHiddenText: "Role or job title of recipient"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Type of communication"
+            },
+            value: {
+              text: data['nature'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-nature",
+                  text: "Change",
+                  visuallyHiddenText: "Type of communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Purpose of communication"
+            },
+            value: {
+              text: data['communicationPurpose'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-purpose",
+                  text: "Change",
+                  visuallyHiddenText: "Purpose of communication"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Outcome of communication"
+            },
+            value: {
+              text: data['communicationOutcome'] 
+            },
+            actions: {
+              items: [
+                {
+                  href: "communication-outcome",
+                  text: "Change",
+                  visuallyHiddenText: "Outcome of communication"
+                }
+              ]
+            }
+          }
+         ,
+        {
+          key: {
+            text: "Industry"
+          },
+          value: {
+            text: data['industry-communication']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Industry the activities relate to"
+              }
+            ]
+          }
+        }
+        ,  
+        {
+          key: {
+            text: "Name of those carrying out activities"
+          },
+          value: {
+            text: data['activitiesName-communication']              
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "Name of those carrying out the activities"
+              }
+            ]
+          }
+        }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+
+        <a href="/beta/activities/summary" class="govuk-button ">Save and close activity</a>
+
+        <a href="/beta/activities/new" class="govuk-button govuk-button--secondary">Add another activity</a>
+
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

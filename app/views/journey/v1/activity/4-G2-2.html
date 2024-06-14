@@ -1,0 +1,84 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <span class="govuk-caption-l">About the activity</span>
+      <h1 class="govuk-heading-l"><!-- communication -->
+        Do you know the end date of the activity?
+      </h1>
+   <!--    <div id="often-communication-hint" class="govuk-hint">
+        Select one option.
+      </div> -->
+
+    <form class="form" action="/route/4-G2-return" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        
+        {% set endDate %}
+        {{ govukDateInput({
+          id: 'end-date',
+          namePrefix: "end-date",
+          data: "data['end-date']",
+          fieldset: {
+            legend: {
+              text: "End Date",
+              isPageHeading: false
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "v4-G2-2--t"+data['stream'],
+          fieldset: {
+            legend: {
+            }
+          },
+          hint: {
+            text: "If you don't know the start or end dates, or the dates change from what you select, you must update this form to the correct dates as soon as possible."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: endDate
+              }
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

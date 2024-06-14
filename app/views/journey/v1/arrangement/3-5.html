@@ -1,0 +1,28 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-l">
+        Based on the answers you have provided you do not need to register.
+      </h1>
+
+    </div>
+  </div>
+{% endblock %}

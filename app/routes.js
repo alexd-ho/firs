@@ -484,3 +484,206 @@ router.post('/beta/activities/person/activity-people-check', function(request, r
 
 
 
+
+/// JOURNEY 
+
+var root = '/journey/v1/';
+var registration = '/journey/v1/registration/';
+var arrangement = '/journey/v1/arrangement/';
+var activity = '/journey/v1/activity/';
+
+
+/// JOURNEY / ARRANGEMENT
+
+// Are you in an arrangement with a foreign power?
+router.post('/route/3-0', function(request, response) {
+
+    var value = request.session.data['v3-0']
+    if (value == "yes"){ 
+        response.redirect(arrangement+"3-1")
+    } else { 
+        response.redirect(arrangement+"3-4")
+    }
+})
+
+// Are you in an arrangement with a foreign power listed below?
+router.post('/route/3-1', function(request, response) {
+
+    var value = request.session.data['v3-1']
+    if (value == "yes"){ 
+        response.redirect(arrangement+"3-2?tier=enhanced")
+    } else { 
+        response.redirect(arrangement+"3-3?tier=political")
+    }
+})
+
+// Are you in an arrangement with a foreign power?
+router.post('/route/3-4', function(request, response) {
+
+    var value = request.session.data['v3-4']
+    if (value == "yes"){ 
+        response.redirect(arrangement+"3-4-1?tier=enhanced")
+    } else { // exit
+        response.redirect(arrangement+"3-5")
+    }
+})
+
+
+/// JOURNEY / ACTIVITY
+
+// Person or entity 'doing'
+router.post('/group/4-G1', function(request, response) {
+    response.redirect(activity+"4-G1-1")
+})
+
+// Dates and frequency 
+router.post('/group/4-G2', function(request, response) {
+    response.redirect(activity+"4-G2-1")
+})
+
+// Is this activity intended to influence:
+router.post('/route/4-0', function(request, response) {
+
+    var value = request.session.data['v4-0']
+    if (value == "yes"){ // state type of political activity
+        response.redirect(activity+"4-0-1")
+    } else { // 'other' type
+        response.redirect(activity+"4-5")
+    }
+})
+
+// What type of influencing activity do you want to register?
+router.post('/route/4-1', function(request, response) {
+
+    var value = request.session.data['v4-1']
+    if (value.includes("private")){
+        response.redirect(activity+"4-2")
+    } else if (value.includes("public")) {
+        response.redirect(activity+"4-3")
+    } else {
+        response.redirect(activity+"4-4")
+    }
+})
+
+/// JOURNEY / ACTIVITY / GROUPS
+
+
+// Will you be personally involved in the activity?
+router.post('/route/4-G1-1--t2', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t2']
+    if (value == "yes"){
+        response.redirect(activity+"4-G1-2")
+    } else {
+        response.redirect(activity+"4-G1-3")
+    }
+})
+router.post('/route/4-G1-1--t3', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t3']
+    if (value == "yes"){
+        response.redirect(activity+"4-G1-2")
+    } else {
+        response.redirect(activity+"4-G1-3")
+    }
+})
+router.post('/route/4-G1-1--t4', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t4']
+    if (value == "yes"){
+        response.redirect(activity+"4-G1-2")
+    } else {
+        response.redirect(activity+"4-G1-3")
+    }
+})
+router.post('/route/4-G1-1--t5', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t5']
+    if (value == "yes"){
+        response.redirect(activity+"4-G1-2")
+    } else {
+        response.redirect(activity+"4-G1-3")
+    }
+})
+
+// Will anyone else be involved in this activity?
+router.post('/route/4-G1-2--t2', function(request, response) {
+    var value = request.session.data['v4-G1-2--t2'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity+"4-G1-3")
+    } else {
+        response.redirect(activity+"4-2-1")
+    }
+})
+// Will anyone else be involved in this activity?
+router.post('/route/4-G1-2--t3', function(request, response) {
+    var value = request.session.data['v4-G1-2--t3'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity+"4-G1-3")
+    } else {
+        // Drop out of Group 1
+        response.redirect(activity+"4-3-1")
+    }
+})
+// Will anyone else be involved in this activity?
+router.post('/route/4-G1-2--t4', function(request, response) {
+    var value = request.session.data['v4-G1-2--t4'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity+"4-G1-3")
+    } else {
+        // Drop out of Group 1
+        response.redirect(activity+"4-4-2")
+    }
+})
+// Will anyone else be involved in this activity?
+router.post('/route/4-G1-2--t5', function(request, response) {
+    var value = request.session.data['v4-G1-2--t5'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity+"4-G1-3")
+    } else {
+        response.redirect(activity+"4-G2-1")
+    }
+})
+// router.post('/route/4-G1-return', function(request, response) {
+//     var stream = request.session.data['stream'];
+//     if (stream == 2) {
+//         response.redirect(version+"4-2-1")
+//     } else if (stream == 3) {
+//         response.redirect(version+"4-3-1")
+//     } else  {
+//         response.redirect(version+"4-4-2")
+//     }
+// })
+
+
+router.post('/route/4-G1-return-2', function(request, response) {
+    response.redirect(activity+"4-2-1")
+})
+router.post('/route/4-G1-return-3', function(request, response) {
+    response.redirect(activity+"4-3-1")
+})
+router.post('/route/4-G1-return-4', function(request, response) {
+    response.redirect(activity+"4-4-2")
+})
+router.post('/route/4-G1-return-5', function(request, response) {
+    response.redirect(activity+"4-G2-1")
+})
+
+router.post('/route/4-G2-return', function(request, response) {
+    var stream = request.session.data['stream'];
+    if (stream == 2) {
+        response.redirect(activity+"4-2-2")
+    } else if (stream == 3) {
+        response.redirect(activity+"4-3-3")
+    } else if (stream == 4) {
+        response.redirect(activity+"4-4-3")
+    } else  {
+        response.redirect(activity+"4-5-1")
+    }
+})
+
+

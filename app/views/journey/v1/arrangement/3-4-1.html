@@ -1,0 +1,60 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+    Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+    }) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l">About the activity [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} // tier:  {{data['tier']}}]</span>
+    <div>
+
+    <form class="form" action="3-4-2" method="post">
+
+        {{ govukRadios({
+        name: "v3-4-1",
+        fieldset: {
+            legend: {
+                text: "Select the foreign power-controlled organisation you are in an arrangement with.",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+          {
+            value: "kGB News",
+            text: "kGB News"
+          },
+          {
+            value: "Russia Today",
+            text: "Russia Today"
+          }
+        ]
+        }) }}
+
+        {{ govukButton({
+        text: "Save and continue"
+        }) }}
+
+    </form>
+
+    <!-- <p>
+    {{ data['activityTypes'] }}
+    </p> -->
+
+</div>
+
+{% endblock %}

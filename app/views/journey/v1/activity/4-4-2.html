@@ -1,0 +1,306 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <span class="govuk-caption-l">About the activity</span>
+
+      <h1 class="govuk-heading-l">Please provide details of everyone intended to receive this offer</h1>
+      
+      <form action="/group/4-G2?stream=4" method="post">
+
+        <div id="js-activity-wrapper">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {% call govukFieldset({
+          classes: "person-module",
+          legend: {
+            text: "Recipient 1",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: false
+          }
+        }) %}
+
+
+          {{ govukInput({
+            label: {
+              text: "Name of person or group"
+            },
+            classes: "name-field",
+            id: "4-" + data['activity-stream']+"-2--name",
+            name: "4-" + data['activity-stream']+"-2--name",
+            autocomplete: "activityWhoElse-" + data['activity-stream']+"-2--name"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Role"
+            },
+            id: "4-" + data['activity-stream']+"-2--role",
+            name: "4-" + data['activity-stream']+"-2--role",
+            autocomplete: "activityWhoElse-" + data['activity-stream']+"-2--role"
+          }) }}
+
+
+          {% call govukFieldset({
+            legend: {
+              text: "Address",
+              isPageHeading: false
+            }
+          }) %}
+
+            {{ govukInput({
+              label: {
+                text: "Address line 1"
+              },
+              id: "address-line-1",
+              name: "addressLine1",
+              autocomplete: "address-line1"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Address line 2 (optional)"
+              },
+              id: "address-line-2",
+              name: "addressLine2",
+              autocomplete: "address-line2"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Town or city"
+              },
+              classes: "govuk-!-width-two-thirds",
+              id: "address-town",
+              name: "addressTown",
+              autocomplete: "address-level2"
+            }) }}
+
+            {{ govukInput({
+              label: {
+                text: "Postcode"
+              },
+              classes: "govuk-input--width-10",
+              id: "address-postcode",
+              name: "addressPostcode",
+              autocomplete: "postal-code"
+            }) }}
+
+          {% endcall %}
+
+
+          {{ govukInput({
+            label: {
+              text: "Telephone"
+            },
+            hint: {
+              text: "If known"
+            },
+            type: "tel",
+            id: "4-" + data['activity-stream']+"-2--telephone",
+            name: "4-" + data['activity-stream']+"-2--telephone",
+            autocomplete: "activityWhoElse-" + data['activity-stream']+"-2--telephone"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Email"
+            },
+            hint: {
+              text: "If known"
+            },
+            type: "email",
+            id: "4-" + data['activity-stream']+"-2--email",
+            name: "4-" + data['activity-stream']+"-2--email",
+            autocomplete: "activityWhoElse-" + data['activity-stream']+"-2--email"
+          }) }}
+
+
+            <div class="govuk-heading-m min-label">
+                <div class="person-texts">
+                    <div class="govuk-caption-m">Recipient 1</div>
+                    <div class="govuk-heading-m min-label__name"></div>
+                </div>
+                <div class="person-actions govuk-button-group">
+                    <button class="govuk-button button--update">Update</button>
+                    <a class="govuk-link button--delete">Delete</a>
+                </div>
+            </div>
+
+        {% endcall %}
+
+      </div>
+
+        <div id="add-another-button"  class="govuk-!-padding-top-5">
+          <a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another person or organisation</a>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+
+function dynamicTitle () {
+    $('#js-activity-wrapper').on("keyup", ".name-field", function( event ) {
+      let thisName = $(this).val();
+      $(this).closest(".person-module").find(".min-label__name").html(thisName);
+    })
+}
+
+function addNew() {
+
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+
+      $('.person-module').addClass('person-module--hidden');
+
+      var s = stringToHTML(`
+      
+        {% call govukFieldset({
+          classes: "person-module",
+          legend: {
+            text: "Recipient ${newNameId}",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+
+          {{ govukSelect({
+            id: "4-" + data['activity-stream']+"-1--type",
+            name: "4-" + data['activity-stream']+"-1--type",
+            label: {
+              text: "Type of recipient"
+            },
+            items: [
+              {
+                value: "published",
+                text: "Recently published"
+              },
+              {
+                value: "updated",
+                text: "Recently updated",
+                selected: true
+              },
+              {
+                value: "views",
+                text: "Most views"
+              },
+              {
+                value: "comments",
+                text: "Most comments"
+              }
+            ]
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "What is their full name?"
+            },
+            hint: {
+              text: "If known"
+            },
+            classes: "name-field",
+            id: "4-" + data['activity-stream']+"-1--name",
+            name: "4-" + data['activity-stream']+"-1--name",
+            autocomplete: "activityWhoElse-" + data['activity-stream']+"-1"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "What is their role in conducting this activity?"
+            },
+            hint: {
+              text: "If known"
+            },
+            id: "4-" + data['activity-stream']+"-1--role",
+            name: "4-" + data['activity-stream']+"-1--role",
+            autocomplete: "activityOtherPersonRole-" + data['activity-stream']+"-1"
+          }) }}
+
+            <div class="govuk-heading-m min-label">
+                <div class="person-texts">
+                    <div class="govuk-caption-m">Recipient ${newNameId}</div>
+                    <div class="govuk-heading-m min-label__name">Person's Name</div>
+                </div>
+                <div class="person-actions govuk-button-group">
+                    <button class="govuk-button button--update">Update</button>
+                    <a class="govuk-link button--delete">Delete</a>
+                </div>
+            </div>
+
+        {% endcall %}
+      `);
+
+
+    $('.button--update').on('click', function() {
+        $(this).closest(".person-module").removeClass('person-module--hidden');
+        return false;
+    })
+    $('.button--delete').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--delete')
+        return false;
+    })
+
+
+
+
+      names.appendChild(s);
+      // document.getElementById("industry"+newNameId).focus();
+      newNameId++;
+      return false;
+      console.log(newNameId);
+    };
+    
+};
+
+
+window.onload = function() {
+    dynamicTitle();
+    addNew();
+};
+
+</script>
+
+{% endblock %}
+
+
+

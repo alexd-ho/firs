@@ -15,6 +15,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
   }
 </style>
 
+{% set root = '/journey/v1/' %}
 
 
 {{ govukHeader({
@@ -26,23 +27,37 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 
 {% if (data['confirmation-complete'] == 'yes') %}
+{% endif %}
 {{ xGovukPrimaryNavigation({
-  visuallyHiddenTitle: "Navigation",
+  visuallyHiddenTitle: "FIRS",
   items: [{
     text: "Home",
-    href: "/"
+    href: root+"home",
+    classes: 'li-home'
   }, {
     text: "Your Account",
-    href: "#"
+    href: root+"account",
+    classes: 'li-account'
+  }, {
+    text: "Registration",
+    href: root+"registration",
+    classes: 'li-registration'
   }, {
     text: "Arrangement",
-    href: "arrangement-overview"
+    href: root+"arrangement",
+    classes: 'li-arrangement'
   }, {
     text: "Activities",
-    href: "activities-overview"
+    href: root+"activity",
+    classes: 'li-activities'
+  }, {
+    text: "Messages",
+    href: root+"messages",
+    classes: 'li-messages'
   }]
 }) }}
-{% endif %}
+    <!-- {% if (section == 'activities') %}, current: 'true'{% else %}, current: 'false'{% endif %} -->
+
 
 {{ govukPhaseBanner({
   classes: "app-phase-banner–no-border govuk-width-container",

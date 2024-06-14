@@ -1,0 +1,92 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">About the activity</span>
+    <div>
+
+    <form class="form" action="4-1" method="post">
+
+      {{ govukCheckboxes({
+        name: "v4-0-1",
+        fieldset: {
+          legend: {
+            text: "Please select the what the activity is intended to influence:",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "elections-referendums",
+            text: "UK elections or referendums"
+          },
+          {
+            value: "govt-decisions",
+            text: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
+          },
+          {
+            value: "uk-political-parties",
+            text: "UK political parties"
+          },
+          {
+            value: "members-uk-parliament",
+            text: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru [or Members of the UK legislatures?]"
+          }
+        ]
+      }) }}
+
+      
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+
+    <!-- <p>
+      {{ data['activityTypes'] }}
+    </p> -->
+
+  </div>
+
+{% endblock %}

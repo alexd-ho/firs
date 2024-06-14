@@ -1,0 +1,62 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <span class="govuk-caption-l">About the activity</span>
+      <h1 class="govuk-heading-l"><!-- communication -->
+        Will you be personally involved in the activity? {{data['stream']}}
+      </h1>
+   <!--    <div id="often-communication-hint" class="govuk-hint">
+        Select one option.
+      </div> -->
+
+    <form class="form" action="/route/4-G1-1--t{{data['stream']}}" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        
+        
+        {{ govukRadios({
+          name: "v4-G1-1--t"+data['stream'],
+          fieldset: {
+            legend: {
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
