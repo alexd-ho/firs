@@ -488,21 +488,119 @@ router.post('/beta/activities/person/activity-people-check', function(request, r
 /// JOURNEY 
 
 var root = '/journey/v1/';
+var account = '/journey/v1/account/';
 var registration = '/journey/v1/registration/';
 var arrangement = '/journey/v1/arrangement/';
 var activity = '/journey/v1/activity/';
 
 
+/// JOURNEY / ACCOUNT
+
+// Are you a setting up this account for yourself, a corporate body, an unincorporated association, or a foreign power?
+router.post('/route/1-1', function(request, response) {
+    var value = request.session.data['v1-1']
+    if (value == "Yourself"){ 
+        response.redirect(account+"1-2-0")
+    } else if (value == ("Corporate body")) {
+        response.redirect(account+"1-3-0")
+    } else {
+        response.redirect(account+"1-4-0")
+    }
+})
+
+// Do you have a different correspondence address? - YOURSELF ROUTE
+router.post('/route/1-2-2', function(request, response) {
+    var value = request.session.data['v1-2-2']
+    if (value == "Yes"){ 
+        response.redirect(account+"1-2-3")
+    } else {
+        response.redirect(account+"1-2-4")
+    }
+})
+
+// Is the name the body corporate uses publicly for day-to-day operations different from the trading name? - BODY CORP
+router.post('/route/1-3-1', function(request, response) {
+    var value = request.session.data['v1-3-1']
+    if (value == "Yes"){ 
+        response.redirect(account+"1-3-2")
+    } else {
+        response.redirect(account+"1-3-3")
+    }
+})
+
+// Does the body corporate have a registered address? - BODY CORP
+router.post('/route/1-3-3', function(request, response) {
+    var value = request.session.data['v1-3-3']
+    if (value == "Yes"){ 
+        response.redirect(account+"1-3-5")
+    } else {
+        response.redirect(account+"1-3-4")
+    }
+})
+
+// Does the body corporate have a different correspondance address? - BODY CORP
+router.post('/route/1-3-6', function(request, response) {
+    var value = request.session.data['v1-3-6']
+    if (value == "Yes"){ 
+        response.redirect(account+"1-3-7")
+    } else {
+        response.redirect(account+"1-3-8")
+    }
+})
+
+// Does the unincorporated association have a different correspondance address? - UNICORP ASSOC
+router.post('/route/1-4-2', function(request, response) {
+    var value = request.session.data['v1-4-2']
+    if (value == "Yes"){ 
+        response.redirect(account+"1-4-3")
+    } else {
+        response.redirect(account+"1-4-4")
+    }
+})
+
+
+
+
+
+
+/// JOURNEY / REGISTRATION
+
+// Are you a setting up this account for yourself, a corporate body, an unincorporated association, or a foreign power?
+router.post('/route/1-1', function(request, response) {
+    var value = request.session.data['v1-1']
+    if (value == "Yourself"){ 
+        response.redirect(account+"1-2-0")
+    } else if (value == ("Corporate body")) {
+        response.redirect(account+"1-3-0")
+    } else {
+        response.redirect(account+"1-4-0")
+    }
+})
+
+
+
+
+
 /// JOURNEY / ARRANGEMENT
 
-// Are you in an arrangement with a foreign power?
-router.post('/route/3-0', function(request, response) {
-
-    var value = request.session.data['v3-0']
-    if (value == "yes"){ 
-        response.redirect(arrangement+"3-1")
-    } else { 
-        response.redirect(arrangement+"3-4")
+// Are you registering for:
+router.post('/route/2-0', function(request, response) {
+    var value = request.session.data['v2-0']
+    if (value == "Yourself"){ 
+        response.redirect(account+"2-1-0?mode=self")
+    } else if (value == ("Your Corporate Body")) {
+        response.redirect(account+"2-2-0?mode=self")
+    } else if (value == ("Your Unicorporated Association")) {
+        response.redirect(account+"2-3-0?mode=self")
+    } else if (value == ("A Foreign Power")) {
+        response.redirect(account+"2-4-0?mode=self")
+    } 
+      else if (value == ("Individual")) {
+        response.redirect(account+"2-5-0?mode=behalf")
+    } else if (value == ("Corporate body")) {
+        response.redirect(account+"2-6-0?mode=behalf")
+    } else if (value == ("Unincorporated association")) {
+        response.redirect(account+"2-7-0?mode=behalf")
     }
 })
 

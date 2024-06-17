@@ -1,0 +1,123 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Account Setup</span>
+            <h1 class="govuk-heading-l">What is the address of the body corporate's principal office?</h1>
+        <div>
+
+        <form class="form" action="1-3-6" method="post">
+
+
+
+	        {% from "govuk/components/input/macro.njk" import govukInput %}
+			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+			{% call govukFieldset({
+				name: "body-corp-principal-address",
+				values: data['body-corp-principal-address'],
+				legend: {
+				}
+			}) %}
+
+
+			{{ govukInput({
+				label: {
+				text: "Address line 1"
+				},
+				id: "body-corp-principal-address-line-1",
+				name: "body-corp-principal-address-line-1",
+				autocomplete: "address-line1"
+			}) }}
+
+			{{ govukInput({
+				label: {
+				text: "Address line 2 (optional)"
+				},
+				id: "body-corp-principal-address-line-2",
+				name: "body-corp-principal-address-line-2",
+				autocomplete: "address-line2"
+			}) }}
+
+			{{ govukInput({
+				label: {
+				text: "Address line 3 (optional)"
+				},
+				id: "body-corp-principal-address-line-3",
+				name: "body-corp-principal-address-line-3",
+				autocomplete: "address-line3"
+			}) }}
+
+			{{ govukInput({
+				label: {
+				text: "Town or city"
+				},
+				classes: "govuk-!-width-two-thirds",
+				id: "body-corp-principal-address-town",
+				name: "body-corp-principal-address-town",
+				autocomplete: "address-level2"
+			}) }}
+
+			{{ govukInput({
+				label: {
+				text: "Country"
+				},
+				classes: "govuk-!-width-two-thirds",
+				id: "body-corp-principal-address-country",
+				name: "body-corp-principal-address-country",
+				autocomplete: "country"
+			}) }}
+
+			{{ govukInput({
+				label: {
+				text: "Postcode"
+				},
+				classes: "govuk-input--width-10",
+				id: "body-corp-principal-address--postcode",
+				name: "body-corp-principal-address-postcode",
+				autocomplete: "postal-code"
+			}) }}
+
+			{% endcall %}
+
+
+
+
+
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+<!--
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power?",
+				text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+			}) }}-->
+
+        </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+        </div>
+
+{% endblock %}

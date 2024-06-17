@@ -1,0 +1,167 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Add a Registration</span>
+        <div>
+
+        <form class="form" action="/route/2-0" method="post">
+
+
+
+
+			<div class="govuk-form-group">
+				<fieldset class="govuk-fieldset" aria-describedby="v2-0-hint">
+				    
+				    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+				    
+				      <h1 class="govuk-fieldset__heading">
+				        Are you registering for:
+				      </h1>
+				    
+				    </legend>
+				    
+				  
+				    <div id="v2-0-hint" class="govuk-hint">
+				      This question relates to you or your organisation. If you are registering on behalf of someone or another organisation, you will be asked to provide their details in the next section.
+				    </div>
+				  
+				  
+				    <div class="govuk-radios" data-module="govuk-radios">
+				      
+
+
+					{% if (data['acc-type'] == 'individual' ) %} 
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="v2-0-1" name="v2-0" type="radio" value="Yourself">
+						<label class="govuk-label govuk-radios__label" for="v2-0-1">
+						  Yourself
+						</label>
+
+					</div>
+				    {% endif %}
+						    
+					{% if (data['acc-type'] == 'corp-body' ) %} 
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="v2-0-1" name="v2-0" type="radio" value="Your Corporate Body">
+						<label class="govuk-label govuk-radios__label" for="v2-0-1">
+						  Your Corporate Body
+						</label>
+
+					</div>
+				    {% endif %}
+						    
+					{% if (data['acc-type'] == 'unincorp-assoc' ) %} 
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="v2-0-1" name="v2-0" type="radio" value="Your Unicorporated Association">
+						<label class="govuk-label govuk-radios__label" for="v2-0-1">
+						  Your Unicorporated Association
+						</label>
+
+					</div>
+				    {% endif %}
+						    
+					{% if (data['acc-type'] == 'foreign-power' ) %} 
+					<div class="govuk-radios__item">
+						<input class="govuk-radios__input" id="v2-0-1" name="v2-0" type="radio" value="A Foreign Power">
+						<label class="govuk-label govuk-radios__label" for="v2-0-1">
+						  A Foreign Power
+						</label>
+
+					</div>
+				    {% endif %}
+						    
+						      
+				        
+				    
+				      <div class="govuk-radios__divider" style="
+				    width: auto;
+				    text-align: left;
+				">Or, on behalf of</div>
+				    
+				      
+				        
+				    
+				      
+				      
+				      
+				      <div class="govuk-radios__item">
+				        <input class="govuk-radios__input" id="v2-0-2" name="v2-0" type="radio" value="Individual">
+				        <label class="govuk-label govuk-radios__label" for="v2-0-2">
+				          An individual
+				        </label>
+				        
+				      </div>
+				      
+				    
+				      
+				      
+				      <div class="govuk-radios__item">
+				        <input class="govuk-radios__input" id="v2-0-3" name="v2-0" type="radio" value="Corporate body">
+				        <label class="govuk-label govuk-radios__label" for="v2-0-3">
+				          A Corporate body
+				        </label>
+				        
+				      </div>
+				      
+				    
+				      
+				        
+				    
+				      
+				      
+				      
+				      <div class="govuk-radios__item">
+				        <input class="govuk-radios__input" id="v2-0-4" name="v2-0" type="radio" value="Unincorporated association">
+				        <label class="govuk-label govuk-radios__label" for="v2-0-4">
+				          An Unincorporated association
+				        </label>
+				        
+				      </div>
+				      
+				    
+				      
+				      
+				    </div>
+				  
+				  </fieldset>
+
+				</div>
+
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+<!--
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power?",
+				text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+			}) }}-->
+
+        </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+        </div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Account Setup</span>
+        <div>
+
+        <form class="form" action="/route/1-1" method="post">
+
+
+
+            {{ govukRadios({
+	            name: "v1-1",
+	            fieldset: {
+		            legend: {
+			            text: "Are you a setting up this account for yourself, a corporate body, an unincorporated association?",
+			            isPageHeading: true,
+			            classes: "govuk-fieldset__legend--l"
+		            }
+	            },
+	            hint: {
+	            	text: "This question relates to you or your organisation. If you are registering on behalf of someone or another organisation, you will be asked to provide their details in the next section."
+	            },
+	            items: [
+		            {
+			            value: "Yourself",
+			            text: "Yourself"
+		            },
+		            {
+			            value: "Corporate body",
+			            text: "Corporate body"
+		            },
+		            {
+			            value: "Unincorporated association",
+			            text: "Unincorporated association"
+		            }
+	            ]
+            }) }}
+
+
+            {{ govukButton({
+            text: "Save and continue"
+            }) }}
+<!--
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power?",
+				text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+			}) }}-->
+
+        </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+        </div>
+
+{% endblock %}
