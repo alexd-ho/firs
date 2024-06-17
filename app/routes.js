@@ -519,12 +519,26 @@ router.post('/route/3-1', function(request, response) {
 
 // Are you in an arrangement with a foreign power?
 router.post('/route/3-4', function(request, response) {
-
-    var value = request.session.data['v3-4']
+    var value = request.session.data['v3-4'];
+    var type = request.session.data['registrant-type'];
     if (value == "yes"){ 
         response.redirect(arrangement+"3-4-1?tier=enhanced")
     } else { // exit
-        response.redirect(arrangement+"3-5")
+        if (type == "individual") {
+            response.redirect(arrangement+"3-6")
+        } else {
+            response.redirect(arrangement+"3-5")            
+        }
+    }
+})
+
+// Are you a salaried employee of a foreign power controlled organisation listed below? 
+router.post('/route/3-5', function(request, response) {
+    var value = request.session.data['v3-5']
+    if (value == "yes"){ 
+        response.redirect(arrangement+"3-5-1?tier=enhanced")
+    } else { // exit
+        response.redirect(arrangement+"3-6")
     }
 })
 

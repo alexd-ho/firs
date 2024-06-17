@@ -22,32 +22,25 @@
         <span class="govuk-caption-l">About the arrangement [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} // tier:  {{data['tier']}}]</span>
     <div>
 
-    <form class="form" action="/route/3-5" method="post">
+    <form class="form" action="3-5-2" method="post">
 
         {{ govukRadios({
-        name: "v3-5",
+        name: "v3-4-1",
         fieldset: {
             legend: {
-                text: "Are you a salaried employee of a foreign power controlled organisation listed below? ",
+                text: "Select the foreign power-controlled organisation you are a salaried employee of.",
                 isPageHeading: true,
-                classes: "govuk-fieldset__legend--l",
-                html: 'Are you a salaried employee of a foreign power controlled organisation listed below? 
-                <span class="govuk-body">
-                    <p class="govuk-body-l">
-
-                    &ndash; kGB News</br>
-                    &ndash; Russia Today</p>
-                </span>'
+                classes: "govuk-fieldset__legend--l"
             }
         },
         items: [
           {
-            value: "yes",
-            text: "Yes"
+            value: "kGB News",
+            text: "kGB News"
           },
           {
-            value: "no",
-            text: "No"
+            value: "Russia Today",
+            text: "Russia Today"
           }
         ]
         }) }}
