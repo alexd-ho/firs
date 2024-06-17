@@ -565,42 +565,66 @@ router.post('/route/1-4-2', function(request, response) {
 
 /// JOURNEY / REGISTRATION
 
-// Are you a setting up this account for yourself, a corporate body, an unincorporated association, or a foreign power?
-router.post('/route/1-1', function(request, response) {
-    var value = request.session.data['v1-1']
+// Personal details
+router.post('/group/2-G1', function(request, response) {
+    response.redirect(registration+"2-G1-1")
+})
+
+// ID Verification 
+router.post('/group/2-G2', function(request, response) {
+    response.redirect(registration+"2-G2-1")
+})
+
+// Body corporate details 
+router.post('/group/2-G3', function(request, response) {
+    response.redirect(registration+"2-G3-1")
+})
+
+// Unincorporated association details 
+router.post('/group/2-G4', function(request, response) {
+    response.redirect(registration+"2-G4-1")
+})
+
+// foreign power details 
+router.post('/group/2-G5', function(request, response) {
+    response.redirect(registration+"2-G5-1")
+})
+
+
+// Are you registering for:
+router.post('/route/2-0', function(request, response) {
+    var value = request.session.data['v2-0']
     if (value == "Yourself"){ 
-        response.redirect(account+"1-2-0")
+        response.redirect(registration+"2-1-0?mode=self&reg-type=individual")
+    } else if (value == ("Your Corporate Body")) {
+        response.redirect("/group/4-G3?mode=self&reg-type=body-corp")
+    } else if (value == ("Your Unicorporated Association")) {
+        response.redirect("/group/4-G4?mode=self&reg-type=unincorp")
+    } else if (value == ("A Foreign Power")) {
+        response.redirect("/group/4-G5?mode=self&reg-type=foreign-power")
+    } 
+      else if (value == ("Individual")) {
+        response.redirect(registration+"2-5-0?mode=on-behalf&reg-type=individual")
     } else if (value == ("Corporate body")) {
-        response.redirect(account+"1-3-0")
-    } else {
-        response.redirect(account+"1-4-0")
+        response.redirect(registration+"2-6-0?mode=on-behalf&reg-type=body-corp")
+    } else if (value == ("Unincorporated association")) {
+        response.redirect(registration+"2-7-0?mode=on-behalf&reg-type=unincorp")
     }
 })
 
 
 
 
-
 /// JOURNEY / ARRANGEMENT
 
-// Are you registering for:
-router.post('/route/2-0', function(request, response) {
-    var value = request.session.data['v2-0']
-    if (value == "Yourself"){ 
-        response.redirect(account+"2-1-0?mode=self")
-    } else if (value == ("Your Corporate Body")) {
-        response.redirect(account+"2-2-0?mode=self")
-    } else if (value == ("Your Unicorporated Association")) {
-        response.redirect(account+"2-3-0?mode=self")
-    } else if (value == ("A Foreign Power")) {
-        response.redirect(account+"2-4-0?mode=self")
-    } 
-      else if (value == ("Individual")) {
-        response.redirect(account+"2-5-0?mode=behalf")
-    } else if (value == ("Corporate body")) {
-        response.redirect(account+"2-6-0?mode=behalf")
-    } else if (value == ("Unincorporated association")) {
-        response.redirect(account+"2-7-0?mode=behalf")
+// Are you in an arrangement with a foreign power?
+router.post('/route/3-0', function(request, response) {
+
+    var value = request.session.data['v3-0']
+    if (value == "yes"){ 
+        response.redirect(arrangement+"3-1")
+    } else { 
+        response.redirect(arrangement+"3-4")
     }
 })
 
