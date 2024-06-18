@@ -721,31 +721,20 @@ router.post('/route/2-G3-12', function(request, response) {
     }
 })
 router.post('/route/2-G3-15', function(request, response) {
-    var value = request.session.data['v2-G3-15']
+    var value = request.session.data['v2-G3-15'];
+    var mode = request.session.data['mode'];
     if (value == "Yes"){ 
         response.redirect(registration+"2-G3-16")
     } else { 
-        response.redirect(registration+"2-G3-return-XXXXXX")
+        if (mode == "self") {
+            response.redirect(registration+"2-2-1")
+        } else {
+            response.redirect(registration+"2-6-1")
+        }
     }
 })
 
 
-router.post('/route/2-G4-5', function(request, response) {
-    var value = request.session.data['v2-G4-5']
-    if (value == "Yes"){ 
-        response.redirect(registration+"2-G4-6")
-    } else { 
-        response.redirect(registration+"2-G4-7")
-    }
-})
-router.post('/route/2-G4-9', function(request, response) {
-    var value = request.session.data['v2-G4-9']
-    if (value == "Yes"){ 
-        response.redirect(registration+"2-G4-10")
-    } else { 
-        response.redirect(registration+"2-G4-return-XXXXXX")
-    }
-})
 
 // Group 3 return paths
 router.post('/route/2-G3-return-self-body-corp', function(request, response) {
@@ -777,12 +766,32 @@ router.post('/route/2-G4-5', function(request, response) {
 })
 router.post('/route/2-G4-9', function(request, response) {
     var value = request.session.data['v2-G4-9']
+    var mode = request.session.data['mode'];
     if (value == "Yes"){ 
         response.redirect(registration+"2-G4-10")
     } else { 
-        response.redirect(registration+"2-G4-return-xxxxx")
+        if (mode == "self") {
+            response.redirect(registration+"2-3-1")
+        } else {
+            response.redirect(registration+"2-7-1")
+        }
     }
 })
+
+router.post('/route/2-G3-15', function(request, response) {
+    var value = request.session.data['v2-G3-15'];
+    var mode = request.session.data['mode'];
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G3-16")
+    } else { 
+        if (mode == "self") {
+            response.redirect(registration+"2-2-1")
+        } else {
+            response.redirect(registration+"2-6-1")
+        }
+    }
+})
+
 
 // Group 4 return paths
 router.post('/route/2-G4-return-self-unincorp', function(request, response) {

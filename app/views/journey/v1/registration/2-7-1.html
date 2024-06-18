@@ -22,18 +22,16 @@
     <div class="govuk-grid-column-two-thirds">
 
 			<h1 class="govuk-heading-l">
-				Confirmation
+				Check answers
 			</h1>
 
-      <div class="govuk-body">
-        <p>Thank you. The individual has been sent an information request. You will receive an email to confirm when they have submitted their information. You may continue with the FIRS registration.</p>
-      </div>
+        <form class="form" action="2-7-3" method="post">
 
-      <div class="govuk-button-group">
-        <a href="/journey/v1/registration" class="govuk-button govuk-button--secondary">Return to Registrations</a>
-        <a href="/journey/v1/arrangement" class="govuk-button">Save and go to Arrangements</a>
-      </div>
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
 
+      </form>
 
     </div>
 
