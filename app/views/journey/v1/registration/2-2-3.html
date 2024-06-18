@@ -1,0 +1,78 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <form class="form" action="/route/2-2-3" method="post">
+
+                {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+                {{ govukWarningText({
+                  text: "We need the details of an 'officer' of the body corporate who will be legally responsible for the body's compliance with FIRS.",
+                  iconFallbackText: "Warning"
+                }) }}
+
+
+                {{ govukRadios({
+                    name: "v2-2-3",
+                    id: "v2-2-3",
+                    fieldset: {
+                        legend: {
+                            text: "Are you an officer of the body corporate?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "Yes",
+                            text: "Yes"
+                        },
+                        {
+                            value: "No",
+                            text: "No"
+                        }
+                    ]
+                }) }}
+
+
+
+                {{ govukButton({
+                text: "Save and continue"
+                }) }}
+    <!--
+                {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+    			{{ govukDetails({
+    				summaryText: "What is a foreign power?",
+    				text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+    			}) }}-->
+
+            </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+        </div>
+
+    </div>
+
+{% endblock %}

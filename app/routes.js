@@ -597,11 +597,11 @@ router.post('/route/2-0', function(request, response) {
     if (value == "Yourself"){ 
         response.redirect(registration+"2-1-0?mode=self&reg-type=individual")
     } else if (value == ("Your Corporate Body")) {
-        response.redirect("/group/4-G3?mode=self&reg-type=body-corp")
+        response.redirect(registration+"2-G3-1?mode=self&reg-type=body-corp")
     } else if (value == ("Your Unicorporated Association")) {
-        response.redirect("/group/4-G4?mode=self&reg-type=unincorp")
+        response.redirect(registration+"2-G4-1?mode=self&reg-type=unincorp")
     } else if (value == ("A Foreign Power")) {
-        response.redirect("/group/4-G5?mode=self&reg-type=foreign-power")
+        response.redirect(registration+"2-G5-1?mode=self&reg-type=foreign-power")
     } 
       else if (value == ("Individual")) {
         response.redirect(registration+"2-5-0?mode=on-behalf&reg-type=individual")
@@ -611,6 +611,197 @@ router.post('/route/2-0', function(request, response) {
         response.redirect(registration+"2-7-0?mode=on-behalf&reg-type=unincorp")
     }
 })
+
+// Do you have any former names?
+router.post('/route/2-G1-2', function(request, response) {
+
+    var value = request.session.data['v2-G1-2']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G1-3")
+    } else { 
+        response.redirect(registration+"2-G1-4")
+    }
+})
+
+// Do you have a different correspondence address?
+router.post('/route/2-G1-7', function(request, response) {
+
+    var value = request.session.data['v2-G1-7']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G1-8")
+    } else { 
+        response.redirect(registration+"2-G1-9")
+    }
+})
+
+// EXIT POINTS 
+
+// GROUP 1 - PERSONAL INFORMATION
+router.post('/route/2-G1-return-self-individual', function(request, response) {
+    response.redirect(registration+"2-G2-1")
+})
+router.post('/route/2-G1-return-self-body-corp', function(request, response) {
+    response.redirect(registration+"2-G2-1")
+})
+router.post('/route/2-G1-return-self-unincorp', function(request, response) {
+    response.redirect(registration+"2-G2-1")
+})
+router.post('/route/2-G1-return-on-behalf-individual', function(request, response) {
+    response.redirect(registration+"2-G2-1")
+})
+router.post('/route/2-G1-return-on-behalf-body-corp', function(request, response) {
+    response.redirect(registration+"2-G2-1")
+})
+router.post('/route/2-G1-return-on-behalf-unincorp', function(request, response) {
+    response.redirect(registration+"2-G2-1")
+})
+
+
+// GROUP 2 - IDV
+router.post('/route/2-G2-return-self-individual', function(request, response) {
+    response.redirect(registration+"2-1-2")
+})
+
+router.post('/route/2-G2-return-self-body-corp', function(request, response) {
+    response.redirect(registration+"2-2-7")
+})
+router.post('/route/2-G2-return-self-body-corp-officer', function(request, response) {
+    response.redirect(registration+"2-2-off-3")
+})
+
+router.post('/route/2-G2-return-self-unincorp', function(request, response) {
+    response.redirect(registration+"2-3-7")
+})
+router.post('/route/2-G2-return-self-unincorp-officer', function(request, response) {
+    response.redirect(registration+"2-3-off-3")
+})
+
+// On Behalf of 
+router.post('/route/2-G2-return-on-behalf-individual', function(request, response) {
+    response.redirect(registration+"2-5-off-3")
+})
+router.post('/route/2-G2-return-on-behalf-body-corp-officer', function(request, response) {
+    response.redirect(registration+"2-6-off-3")
+})
+router.post('/route/2-G2-return-on-behalf-unincorp-officer', function(request, response) {
+    response.redirect(registration+"2-7-off-3")
+})
+
+// GROUP 3
+router.post('/route/2-G3-2', function(request, response) {
+    var value = request.session.data['v2-G3-2']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G3-3")
+    } else { 
+        response.redirect(registration+"2-G3-4")
+    }
+})
+router.post('/route/2-G3-5', function(request, response) {
+    var value = request.session.data['v2-G3-5']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G3-7")
+    } else { 
+        response.redirect(registration+"2-G3-6")
+    }
+})
+router.post('/route/2-G3-8', function(request, response) {
+    var value = request.session.data['v2-G3-8']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G3-9")
+    } else { 
+        response.redirect(registration+"2-G3-10")
+    }
+})
+router.post('/route/2-G3-12', function(request, response) {
+    var value = request.session.data['v2-G3-12']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G3-13")
+    } else { 
+        response.redirect(registration+"2-G3-15")
+    }
+})
+router.post('/route/2-G3-15', function(request, response) {
+    var value = request.session.data['v2-G3-15']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G3-16")
+    } else { 
+        response.redirect(registration+"2-G3-return-XXXXXX")
+    }
+})
+
+
+router.post('/route/2-G4-5', function(request, response) {
+    var value = request.session.data['v2-G4-5']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G4-6")
+    } else { 
+        response.redirect(registration+"2-G4-7")
+    }
+})
+router.post('/route/2-G4-9', function(request, response) {
+    var value = request.session.data['v2-G4-9']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G4-10")
+    } else { 
+        response.redirect(registration+"2-G4-return-XXXXXX")
+    }
+})
+
+// Group 3 return paths
+router.post('/route/2-G3-return-self-body-corp', function(request, response) {
+    response.redirect(registration+"2-2-1")
+})
+router.post('/route/2-G3-return-on-behalf-body-corp', function(request, response) {
+    response.redirect(registration+"2-6-1")
+})
+
+// Are you an officer of the body corporate?
+router.post('/route/2-2-3', function(request, response) {
+    var value = request.session.data['v2-2-3']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-2-5")
+    } else { 
+        response.redirect(registration+"2-2-4")
+    }
+})
+
+
+// GROUP 4
+router.post('/route/2-G4-5', function(request, response) {
+    var value = request.session.data['v2-G4-5']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G4-6")
+    } else { 
+        response.redirect(registration+"2-G4-7")
+    }
+})
+router.post('/route/2-G4-9', function(request, response) {
+    var value = request.session.data['v2-G4-9']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-G4-10")
+    } else { 
+        response.redirect(registration+"2-G4-return-xxxxx")
+    }
+})
+
+// Group 4 return paths
+router.post('/route/2-G4-return-self-unincorp', function(request, response) {
+    response.redirect(registration+"2-3-1")
+})
+router.post('/route/2-G4-return-on-behalf-unincorp', function(request, response) {
+    response.redirect(registration+"2-7-1")
+})
+
+// Are you an officer of the unincorporated association?
+router.post('/route/2-3-3', function(request, response) {
+    var value = request.session.data['v2-3-3']
+    if (value == "Yes"){ 
+        response.redirect(registration+"2-3-5")
+    } else { 
+        response.redirect(registration+"2-3-4")
+    }
+})
+
 
 
 

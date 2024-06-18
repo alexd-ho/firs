@@ -1,0 +1,65 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <!-- <span class="govuk-caption-l">Account Setup</span> -->
+
+	        <form class="form" action="2-G1-5" method="post">
+
+							{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+							{{ govukDateInput({
+							  id: "v2-G1-4",
+							  namePrefix: "registrant-dob",
+							  fieldset: {
+							    legend: {
+							      text: "What is your DOB?",
+							      isPageHeading: true,
+							      classes: "govuk-fieldset__legend--l"
+							    }
+							  },
+							  hint: {
+							    text: "For example, 27 3 1987"
+							  }
+							}) }}
+
+	            {{ govukButton({
+	            text: "Save and continue"
+	            }) }}
+	<!--
+	            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+				{{ govukDetails({
+					summaryText: "What is a foreign power?",
+					text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+				}) }}-->
+
+	        </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+        </div>
+
+
+      </div>
+
+{% endblock %}

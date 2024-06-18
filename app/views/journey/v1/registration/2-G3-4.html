@@ -1,0 +1,58 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <!-- <span class="govuk-caption-l">Account Setup</span> -->
+
+	        <form class="form" action="2-G3-5" method="post">
+
+				{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+				{{ govukDateInput({
+				  id: "body-corporate-incorporated",
+				  namePrefix: "2-G3-4",
+				  fieldset: {
+				    legend: {
+				      text: "What date was the body corporate incorporated?",
+				      isPageHeading: true,
+				      classes: "govuk-fieldset__legend--l"
+				    }
+				  },
+				  hint: {
+				    text: "For example, 27 3 2007"
+				  }
+				}) }}
+
+
+	            {{ govukButton({
+	            text: "Save and continue"
+	            }) }}
+
+	        </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+    	</div>
+
+    </div>
+
+{% endblock %}

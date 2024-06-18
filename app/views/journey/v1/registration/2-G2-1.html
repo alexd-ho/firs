@@ -1,0 +1,48 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+		<h1 class="govuk-heading-l">
+		IDV
+		</h1>
+
+        <form class="form" action="/route/2-G2-return-{{data['mode']}}-{{data['reg-type']}}" method="post">
+
+	        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+			{{ govukFileUpload({
+			  id: "file-upload-1",
+			  name: "fileUpload1",
+			  label: {
+			    text: "Upload a file"
+			  }
+			}) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

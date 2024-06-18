@@ -1,0 +1,42 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+			<h1 class="govuk-heading-l">
+				Info
+			</h1>
+
+      <div class="govuk-body">
+        <p>Thank you. Your ID is being verified. You will receive an email to confirm if your ID has been accepted or not with instructions on what to do next. You can continue with your registration for the time being.</p>
+      </div>
+
+      <div class="govuk-button-group">
+        <a href="/journey/v1/registration" class="govuk-button govuk-button--secondary">Return to Registrations</a>
+        <a href="/journey/v1/arrangement" class="govuk-button">Save and go to Arrangements</a>
+      </div>
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

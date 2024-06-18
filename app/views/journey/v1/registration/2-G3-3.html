@@ -1,0 +1,58 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <!-- <span class="govuk-caption-l">Account Setup</span> -->
+
+	        <form class="form" action="2-G3-4" method="post">
+
+	        	{% from "govuk/components/input/macro.njk" import govukInput %}
+
+	        	<div class="govuk-form-group">
+
+					{{ govukInput({
+						label: {
+							text: "What is the day-to-day operational name of the body corportate?",
+	                        isPageHeading: true,
+	                        classes: "govuk-fieldset__legend--l"
+						},
+						id: "v2-G3-3",
+						name: "v2-G3-3"
+					}) }}
+
+				</div>
+
+
+
+	            {{ govukButton({
+	            text: "Save and continue"
+	            }) }}
+
+	        </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+    	</div>
+
+    </div>
+
+{% endblock %}
