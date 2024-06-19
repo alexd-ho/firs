@@ -41,28 +41,27 @@
 
 
           {{ govukSelect({
-            id: "4-" + data['activity-stream']+"-1--type",
-            name: "4-" + data['activity-stream']+"-1--type",
+            id: "v4-2-1--type-1",
+            name: "v4-2-1--type-1",
             label: {
               text: "Type of recipient"
             },
             items: [
               {
-                value: "published",
-                text: "Recently published"
+                value: "option 1",
+                text: "Option 1"
               },
               {
-                value: "updated",
-                text: "Recently updated",
-                selected: true
+                value: "option 2",
+                text: "Option 2"
               },
               {
-                value: "views",
-                text: "Most views"
+                value: "option 3",
+                text: "Option 3"
               },
               {
-                value: "comments",
-                text: "Most comments"
+                value: "option 4",
+                text: "Option 4"
               }
             ]
           }) }}
@@ -75,9 +74,8 @@
               text: "If known"
             },
             classes: "name-field",
-            id: "4-" + data['activity-stream']+"-1--name",
-            name: "4-" + data['activity-stream']+"-1--name",
-            autocomplete: "activityWhoElse-" + data['activity-stream']+"-1"
+            id: "v4-2-1--name-1",
+            name: "v4-2-1--name-1"
           }) }}
 
           {{ govukInput({
@@ -87,9 +85,8 @@
             hint: {
               text: "If known"
             },
-            id: "4-" + data['activity-stream']+"-1--role",
-            name: "4-" + data['activity-stream']+"-1--role",
-            autocomplete: "activityOtherPersonRole-" + data['activity-stream']+"-1"
+            id: "v4-2-1--role-1",
+            name: "v4-2-1--role-1"
           }) }}
 
 
@@ -163,8 +160,8 @@ function addNew() {
 
 
           {{ govukSelect({
-            id: "4-" + data['activity-stream']+"-1--type",
-            name: "4-" + data['activity-stream']+"-1--type",
+            id: "v4-2-1--type-${newNameId}",
+            name: "v4-2-1--type-${newNameId}",
             label: {
               text: "Type of recipient"
             },
@@ -197,9 +194,8 @@ function addNew() {
               text: "If known"
             },
             classes: "name-field",
-            id: "4-" + data['activity-stream']+"-1--name",
-            name: "4-" + data['activity-stream']+"-1--name",
-            autocomplete: "activityWhoElse-" + data['activity-stream']+"-1"
+            id: "v4-2-1--name-${newNameId}",
+            name: "v4-2-1--name-${newNameId}"
           }) }}
 
           {{ govukInput({
@@ -209,9 +205,8 @@ function addNew() {
             hint: {
               text: "If known"
             },
-            id: "4-" + data['activity-stream']+"-1--role",
-            name: "4-" + data['activity-stream']+"-1--role",
-            autocomplete: "activityOtherPersonRole-" + data['activity-stream']+"-1"
+            id: "v4-2-1--role-${newNameId}",
+            name: "v4-2-1--role-${newNameId}"
           }) }}
 
             <div class="govuk-heading-m min-label">

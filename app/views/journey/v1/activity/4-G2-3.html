@@ -1,0 +1,95 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+
+        <form class="form" action="/route/4-G2-return" method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        
+        
+        
+        {% set differentHtml %}
+        {{ govukInput({
+          id: "v4-G2-3--custom",
+          name: "v4-G2-3--custom",
+          type: "text",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Expected frequency"
+          },
+          hint: {
+            text: "For example, the activities will take place every 3 to 4 weeks during the period."
+          }
+        }) }}
+        {% endset -%}
+        
+        {{ govukRadios({
+          name: "v4-G2-3",
+          fieldset: {
+            legend: {
+              html: '<span class ="govuk-caption-l">About the activities</span>How often will the activities take place during this period?',
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "daily",
+              text: "Daily"
+            },
+            {
+              value: "weekly",
+              text: "Weekly"
+            },
+            {
+              value: "monthly",
+              text: "Monthly"
+            },
+            {
+              value: "A one-off activity",
+              text: "A one-off activity"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "different",
+              text: "A different period of time",
+              conditional: {
+                html: differentHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

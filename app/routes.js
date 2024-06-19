@@ -892,9 +892,9 @@ router.post('/route/4-0', function(request, response) {
 router.post('/route/4-1', function(request, response) {
 
     var value = request.session.data['v4-1']
-    if (value.includes("private")){
+    if (value.includes("Private communication")){
         response.redirect(activity+"4-2")
-    } else if (value.includes("public")) {
+    } else if (value.includes("Public communication")) {
         response.redirect(activity+"4-3")
     } else {
         response.redirect(activity+"4-4")

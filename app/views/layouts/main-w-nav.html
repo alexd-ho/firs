@@ -21,13 +21,12 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {{ govukHeader({
   homepageUrl: "/",
   serviceName: "Foreign Influence Registration Scheme",
-  serviceUrl: "/beta/start",
+  serviceUrl: "/",
   classes: "app-header--full-width-border"
 }) }}
 
 
-{% if (data['confirmation-complete'] == 'yes') %}
-{% endif %}
+
 {{ xGovukPrimaryNavigation({
   visuallyHiddenTitle: "FIRS",
   items: [{
@@ -56,7 +55,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     classes: 'li-messages'
   }]
 }) }}
-    <!-- {% if (section == 'activities') %}, current: 'true'{% else %}, current: 'false'{% endif %} -->
 
 
 {{ govukPhaseBanner({

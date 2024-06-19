@@ -44,27 +44,24 @@
               text: "What is their full name?"
             },
             classes: "name-field",
-            id: "v4-G1-3--t"+data['stream']+"--name",
-            name: "v4-G1-3--t"+data['stream']+"--name",
-            autocomplete: "v4-G1-3--t"+data['stream']+"--name"
+            id: "v4-G1-3--t"+data['stream']+"--name-1",
+            name: "v4-G1-3--t"+data['stream']+"--name-1"
           }) }}
 
           {{ govukInput({
             label: {
               text: "What is their role in conducting this activity?"
             },
-            id: "v4-G1-3--t"+data['stream']+"--role",
-            name: "v4-G1-3--t"+data['stream']+"--role",
-            autocomplete: "v4-G1-3--t"+data['stream']+"--role"
+            id: "v4-G1-3--t"+data['stream']+"--role-1",
+            name: "v4-G1-3--t"+data['stream']+"--role-1"
           }) }}
 
           {{ govukTextarea({
             label: {
               text: "What is your relationship with the registrant?"
             },
-            id: "v4-G1-3--t"+data['stream']+"--relationship",
-            name: "v4-G1-3--t"+data['stream']+"--relationship",
-            autocomplete: "v4-G1-3--t"+data['stream']+"--relationship"
+            id: "v4-G1-3--t"+data['stream']+"--relationship-1",
+            name: "v4-G1-3--t"+data['stream']+"--relationship-1"
           }) }}
 
             <div class="govuk-heading-m min-label">
@@ -141,27 +138,24 @@ function addNew() {
               text: "What is their full name?"
             },
             classes: "name-field",
-            id: "activityWhoElse-" + data['activity-stream'] +'-${newNameId}',
-            name: "activityWhoElse-" + data['activity-stream'] +'-${newNameId}',
-            autocomplete: "activityWhoElse-" + data['activity-stream'] +'-${newNameId}'
+            id: "v4-G1-3--t" + data['stream'] +'--name-${newNameId}',
+            name: "v4-G1-3--t" + data['stream'] +'--name-${newNameId}'
           }) }}
 
           {{ govukInput({
             label: {
               text: "What is their role in conducting this activity?"
             },
-            id: "activityOtherPersonRole-" + data['activity-stream'] +'-${newNameId}',
-            name: "activityOtherPersonRole-" + data['activity-stream'] +'-${newNameId}',
-            autocomplete: "activityOtherPersonRole-" + data['activity-stream'] +'-${newNameId}'
+            id: "v4-G1-3--t" + data['stream'] +'--role-${newNameId}',
+            name: "v4-G1-3--t" + data['stream'] +'--role-${newNameId}'
           }) }}
 
           {{ govukTextarea({
             label: {
               text: "What is your relationship with the registrant?"
             },
-            id: "activityOtherPersonRelationship-" + data['activity-stream'] +'-${newNameId}',
-            name: "activityOtherPersonRelationship-" + data['activity-stream'] +'-${newNameId}',
-            autocomplete: "activityOtherPersonRelationship-" + data['activity-stream'] +'-${newNameId}'
+            id: "v4-G1-3--t" + data['stream'] +'--relationship-${newNameId}',
+            name: "v4-G1-3--t" + data['stream'] +'--relationship-${newNameId}'
           }) }}
 
             <div class="govuk-heading-m min-label">
