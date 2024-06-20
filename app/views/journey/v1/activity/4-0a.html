@@ -40,41 +40,39 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-l">About the activity</span>
-
     <div>
 
-    <form class="form" action="/route/4-1" method="post">
+    <form class="form" action="4-1" method="post">
 
-      {{ govukRadios({
-        name: "v4-1",
+      {{ govukCheckboxes({
+        name: "v4-0a",
+        values: data['v4-0a'],
         fieldset: {
           legend: {
-            text: "What type of activity do you want to register?",
+            text: "What is the activity is intended to influence?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
+        hint: {
+          text: "Select all that apply"
+        },
         items: [
           {
-            value: "Private communication",
-            text: "Private communication",
-            hint: {
-              text: "For example, lobbying, sending an email or letter, or having a private conversation"
-            }
+            value: "UK elections or referendums",
+            text: "UK elections or referendums"
           },
           {
-            value: "Public communication",
-            text: "Public communication",
-            hint: {
-              text: "For example, social media content, poster, leaflet, or published article"
-            }
+            value: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales",
+            text: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
           },
           {
-            value: "Distribution of money, goods or services",
-            text: "Distribution of money, goods or services",
-            hint: {
-              text: "For example, the offer of money, goods or services to an individual or entity in the UK"
-            }
+            value: "UK political parties",
+            text: "UK political parties"
+          },
+          {
+            value: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru [or Members of the UK legislatures?",
+            text: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru [or Members of the UK legislatures?]"
           }
         ]
       }) }}

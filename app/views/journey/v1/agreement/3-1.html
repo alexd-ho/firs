@@ -27,29 +27,30 @@
 
         {{ govukRadios({
         name: "v3-1",
+        value: "v3-1",
         fieldset: {
             legend: {
                 text: "Are you in an arrangement with a foreign power listed below?",
                 isPageHeading: true,
-                classes: "govuk-fieldset__legend--l",
-                html: 'Are you in an arrangement with a foreign power listed below?
-                <span class="govuk-body">
-                    <p class="govuk-body-l">
-
-                    &ndash; Iran<br>
-                    &ndash; Russia</p>
-                </span>'
+                classes: "govuk-fieldset__legend--l"
             }
         },
         items: [
-          {
-            value: "yes",
-            text: "Yes"
-          },
-          {
-            value: "no",
-            text: "No"
-          }
+            {
+                value: "Country 1",
+                text: "Country 1"
+            },
+            {
+                value: "Country 1",
+                text: "Country 1"
+            },
+            {
+                divider: "or"
+            },
+            {
+                value: "Another foreign power not listed here",
+                text: "Another foreign power not listed here"
+            }
         ]
         }) }}
 

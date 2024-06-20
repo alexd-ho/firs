@@ -25,31 +25,50 @@
 
     <form class="form" action="/route/3-4" method="post">
 
-        {{ govukRadios({
+        {{ govukCheckboxes({
         name: "v3-4",
+        values: "v3-4",
+        classes: "govuk-checkboxes--small",
         fieldset: {
             legend: {
-                text: "Are you in an arrangement with foreign power controlled organisation listed below?",
+                text: "Are you in an arrangement with any of the foreign power controlled organisations listed here?",
                 isPageHeading: true,
-                classes: "govuk-fieldset__legend--l",
-                html: 'Are you in an arrangement with foreign power controlled organisation listed below?
-                <span class="govuk-body">
-                    <p class="govuk-body-l">
-
-                    &ndash; kGB News</br>
-                    &ndash; Russia Today</p>
-                </span>'
+                classes: "govuk-fieldset__legend--l"
             }
         },
         items: [
-          {
-            value: "yes",
-            text: "Yes"
-          },
-          {
-            value: "no",
-            text: "No"
-          }
+            {
+                value: "Organisation 1",
+                text: "Organisation 1"
+            },
+            {
+                value: "Organisation 2",
+                text: "Organisation 2"
+            },
+            {
+                value: "Organisation 3",
+                text: "Organisation 3"
+            },
+            {
+                value: "Organisation 4",
+                text: "Organisation 4"
+            },
+            {
+                value: "Organisation 5",
+                text: "Organisation 5"
+            },
+            {
+                value: "Organisation 6",
+                text: "Organisation 6"
+            },
+            {
+                divider: "or"
+            },
+            {
+                value: "None",
+                text: "I am not in an arrangement with any of the foreign power controlled organisations listed here",
+                behaviour: "exclusive"
+            }
         ]
         }) }}
 

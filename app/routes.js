@@ -832,10 +832,10 @@ router.post('/route/3-0', function(request, response) {
 router.post('/route/3-1', function(request, response) {
 
     var value = request.session.data['v3-1']
-    if (value == "yes"){ 
-        response.redirect(agreement+"3-2?tier=enhanced")
-    } else { 
+    if (value == "Another foreign power not listed here"){ 
         response.redirect(agreement+"3-3?tier=political")
+    } else { 
+        response.redirect(agreement+"3-2-1?tier=enhanced")
     }
 })
 
@@ -843,24 +843,24 @@ router.post('/route/3-1', function(request, response) {
 router.post('/route/3-4', function(request, response) {
     var value = request.session.data['v3-4'];
     var type = request.session.data['registrant-type'];
-    if (value == "yes"){ 
-        response.redirect(agreement+"3-4-1?tier=enhanced")
-    } else { // exit
+    if (value == "None"){ 
         if (type == "individual") {
             response.redirect(agreement+"3-6")
         } else {
             response.redirect(agreement+"3-5")            
         }
+    } else { // exit
+        response.redirect(agreement+"3-4-2?tier=enhanced")
     }
 })
 
 // Are you a salaried employee of a foreign power controlled organisation listed below? 
 router.post('/route/3-5', function(request, response) {
     var value = request.session.data['v3-5']
-    if (value == "yes"){ 
-        response.redirect(agreement+"3-5-1?tier=enhanced")
-    } else { // exit
+    if (value == "None"){ 
         response.redirect(agreement+"3-6")
+    } else { // exit
+        response.redirect(agreement+"3-5-1?tier=enhanced")
     }
 })
 
@@ -887,6 +887,18 @@ router.post('/route/4-0', function(request, response) {
         response.redirect(activity+"4-5")
     }
 })
+
+// Enhanced Tier: Is this activity intended to influence:
+router.post('/route/4-0b', function(request, response) {
+
+    var value = request.session.data['v4-0b']
+    if (value == "Non-political"){ // state type of political activity
+        response.redirect(activity+"4-5")
+    } else { // 'other' type
+        response.redirect(activity+"4-1")
+    }
+})
+
 
 // What type of influencing activity do you want to register?
 router.post('/route/4-1', function(request, response) {
