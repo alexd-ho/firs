@@ -20,7 +20,7 @@
     
       <span class="govuk-caption-l">About the activity</span>
 
-      <h1 class="govuk-heading-l">Please provide details of everyone intended to receive this private communication</h1>
+      <h1 class="govuk-heading-l">Who is intended to receive this private communication?</h1>
       
       <form action="/group/4-G2?stream=2" method="post">
 
@@ -68,10 +68,7 @@
 
           {{ govukInput({
             label: {
-              text: "What is their full name?"
-            },
-            hint: {
-              text: "If known"
+              text: "Full name (optional)"
             },
             classes: "name-field",
             id: "v4-2-1--name-1",
@@ -80,10 +77,7 @@
 
           {{ govukInput({
             label: {
-              text: "What is their role in conducting this activity?"
-            },
-            hint: {
-              text: "If known"
+              text: "Their role in conducting this activity (optional)"
             },
             id: "v4-2-1--role-1",
             name: "v4-2-1--role-1"
@@ -188,10 +182,7 @@ function addNew() {
 
           {{ govukInput({
             label: {
-              text: "What is their full name?"
-            },
-            hint: {
-              text: "If known"
+              text: "Full name (optional)"
             },
             classes: "name-field",
             id: "v4-2-1--name-${newNameId}",
@@ -200,10 +191,7 @@ function addNew() {
 
           {{ govukInput({
             label: {
-              text: "What is their role in conducting this activity?"
-            },
-            hint: {
-              text: "If known"
+              text: "Their role in conducting this activity (optional)"
             },
             id: "v4-2-1--role-${newNameId}",
             name: "v4-2-1--role-${newNameId}"

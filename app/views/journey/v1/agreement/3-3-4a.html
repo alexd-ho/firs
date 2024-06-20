@@ -1,5 +1,5 @@
 {% extends "layouts/main-w-nav.html" %}
-{% set bodyClasses = "arrangement" %}
+{% set bodyClasses = "agreement" %}
 
 {% block pageTitle %}
     Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -19,19 +19,20 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">About the arrangement [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} // tier:  {{data['tier']}}]</span>
+            <span class="govuk-caption-l">About the agreement</span>
+             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
     <div>
 
-    <form class="form" action="3-4-4" method="post">
+    <form class="form" action="3-3-5" method="post">
 
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {{ govukDateInput({
-          id: "3-4-3",
-          namePrefix: "date-started",
+          name: "v3-3-4",
+          id: "v3-3-4",
           fieldset: {
             legend: {
-              text: "When was the arrangement with "+data['v3-2-1']+" made?",
+              text: "When was a formal contract or agreement with the foreign power made?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
@@ -40,6 +41,7 @@
             text: "For example, 27 3 2007"
           }
         }) }}
+
 
         {{ govukButton({
         text: "Save and continue"

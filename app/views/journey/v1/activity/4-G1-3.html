@@ -20,7 +20,8 @@
     
       <span class="govuk-caption-l">About the activity</span>
 
-      <h1 class="govuk-heading-l">Tell us the details of the other people or organisations making this private communication.</h1>
+      <h1 class="govuk-heading-l">Who is involved in the activity?</h1>
+      <p>Add as many people and organisations as required.</p>
       
       <form action="/route/4-G1-return-{{data['stream']}}" method="post">
 
@@ -41,7 +42,7 @@
 
           {{ govukInput({
             label: {
-              text: "What is their full name?"
+              text: "Full name"
             },
             classes: "name-field",
             id: "v4-G1-3--t"+data['stream']+"--name-1",
@@ -50,7 +51,7 @@
 
           {{ govukInput({
             label: {
-              text: "What is their role in conducting this activity?"
+              text: "Their role in conducting this activity"
             },
             id: "v4-G1-3--t"+data['stream']+"--role-1",
             name: "v4-G1-3--t"+data['stream']+"--role-1"
@@ -58,7 +59,7 @@
 
           {{ govukTextarea({
             label: {
-              text: "What is your relationship with the registrant?"
+              text: "Their relationship with the registrant"
             },
             id: "v4-G1-3--t"+data['stream']+"--relationship-1",
             name: "v4-G1-3--t"+data['stream']+"--relationship-1"
@@ -135,7 +136,7 @@ function addNew() {
 
           {{ govukInput({
             label: {
-              text: "What is their full name?"
+              text: "Full name"
             },
             classes: "name-field",
             id: "v4-G1-3--t" + data['stream'] +'--name-${newNameId}',
@@ -144,7 +145,7 @@ function addNew() {
 
           {{ govukInput({
             label: {
-              text: "What is their role in conducting this activity?"
+              text: "Their role in conducting this activity"
             },
             id: "v4-G1-3--t" + data['stream'] +'--role-${newNameId}',
             name: "v4-G1-3--t" + data['stream'] +'--role-${newNameId}'
@@ -152,7 +153,7 @@ function addNew() {
 
           {{ govukTextarea({
             label: {
-              text: "What is your relationship with the registrant?"
+              text: "Their relationship with the registrant"
             },
             id: "v4-G1-3--t" + data['stream'] +'--relationship-${newNameId}',
             name: "v4-G1-3--t" + data['stream'] +'--relationship-${newNameId}'

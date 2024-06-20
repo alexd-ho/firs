@@ -1,5 +1,5 @@
 {% extends "layouts/main-w-nav.html" %}
-{% set bodyClasses = "arrangement" %}
+{% set bodyClasses = "agreement" %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -39,7 +39,8 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-l">About the arrangement [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ]</span>
+            <span class="govuk-caption-l">About the agreement</span>
+             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
         <div>
 
         <form class="form" action="/route/3-0" method="post">
@@ -48,7 +49,7 @@
             name: "v3-0",
             fieldset: {
             legend: {
-            text: "Is your organisation in an arrangement with a foreign power?",
+            text: "Are you in an arrangement with a foreign power?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
             }
@@ -72,6 +73,15 @@
 
         </form>
 
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukDetails({
+          summaryText: "What is a foreign power?",
+          text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+        }) }}
+
+        
         <!-- <p>
         {{ data['activityTypes'] }}
         </p> -->

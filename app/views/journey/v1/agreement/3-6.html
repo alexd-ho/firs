@@ -1,5 +1,5 @@
 {% extends "layouts/main-w-nav.html" %}
-{% set bodyClasses = "arrangement" %}
+{% set bodyClasses = "agreement" %}
 
 {% block pageTitle %}
   Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -20,14 +20,8 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <h1 class="govuk-heading-l">
-        If you are filling this in on behalf of someone else, such as a client, answer the questions as though you were them.
+        Based on the answers you have provided you do not need to register.
       </h1>
-
-      {% if (data['registrant-type'] == "individual") %}
-      <a href="3-0a">Next</a>
-      {% else %}
-      <a href="3-0b">Next</a>
-      {% endif %}
 
     </div>
   </div>

@@ -1,5 +1,5 @@
 {% extends "layouts/main-w-nav.html" %}
-{% set bodyClasses = "arrangement" %}
+{% set bodyClasses = "agreement" %}
 
 {% block pageTitle %}
     Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -19,28 +19,29 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-l">About the arrangement [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} // tier:  {{data['tier']}}]</span>
+            <span class="govuk-caption-l">About the agreement</span>
+             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
     <div>
 
-    <form class="form" action="3-4-2" method="post">
+    <form class="form" action="3-2-1" method="post">
 
         {{ govukRadios({
-        name: "v3-4-1",
+        name: "v3-2",
         fieldset: {
             legend: {
-                text: "Select the foreign power-controlled organisation you are in an arrangement with.",
+                text: "Select the foreign power you are in an arrangement with:",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }
         },
         items: [
           {
-            value: "kGB News",
-            text: "kGB News"
+            value: "Iran",
+            text: "Iran"
           },
           {
-            value: "Russia Today",
-            text: "Russia Today"
+            value: "Russia",
+            text: "Russia"
           }
         ]
         }) }}

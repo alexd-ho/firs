@@ -16,321 +16,167 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">
-        Check your answers before saving this activity
-      </h1>
-      <p>You will be able to amend this activity later.</p>
+        <h1 class="govuk-heading-xl">
+            Check your answers before saving this activity
+        </h1>
+        <p>You will be able to amend this activity later.</p>
 
-      <h2 class="govuk-heading-m">Distribution of money, goods, or services details</h2>
+        {% if (data['v4-1'] == "Private communication") %}
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "What type of public communication will be made?"
-            },
-            value: {
-              text: data['v4-2']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "4-2",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }          
-          ,
-          {
-            key: {
-              text: "Do you know when the activity will end?"
-            },
-            value: {
-              text: data['activityKnown-communication']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "activity-known",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
+        <h2 class="govuk-heading-m">Private communication details</h2>
 
-          {
-            key: {
-              text: "Frequency of actvities"
-            },
-            value: {
-              text: data['often-communication']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "activity-frequency",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Will you be conducting the activity?"
-            },
-            value: {
-              text: data['activityWho-communication']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "activity-who",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Will anyone else be involved in conducting the activity?"
-            },
-            value: {
-              text: data['activityAnyoneElse-communication']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "activity-anyone-else",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Who will be involved in conducting the activity?"
-            },
-            value: {
-              text: data['activityWhoElse-communication']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "activity-who-else",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "What is the role of each person or entity involved in conducting the activity?"
-            },
-            value: {
-              text: data['activityOtherPersonRole-communication']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "activity-other-person-role",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "What is the relationship with any person or entity involved in conducting the activity?"
-            },
-            value: {
-              text: data['activityOtherPersonRelationship-communication']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "activity-other-person-relationship",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Name of recipient"
-            },
-            value: {
-              text: data['communicationName']              
-            },
-            actions: {
-              items: [
-                {
-                  href: "communication-name",
-                  text: "Change",
-                  visuallyHiddenText: "Name of recipient"
-                }
-              ]
-            }
-          }
-          ,
+        <dl class="govuk-summary-list">
 
 
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                What is this activity intended to influence?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-0-1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-0-1">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
 
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Types of private communication
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
 
-          {
-            key: {
-              text: "Category"
-            },
-            value: {
-              text: data['communicationCategory'] 
-            },
-            actions: {
-              items: [
-                {
-                  href: "communication-category",
-                  text: "Change",
-                  visuallyHiddenText: "Category of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Role or job title"
-            },
-            value: {
-              text: data['communicationRole'] 
-            },
-            actions: {
-              items: [
-                {
-                  href: "communication-role",
-                  text: "Change",
-                  visuallyHiddenText: "Role or job title of recipient"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Type of communication"
-            },
-            value: {
-              text: data['nature'] 
-            },
-            actions: {
-              items: [
-                {
-                  href: "communication-nature",
-                  text: "Change",
-                  visuallyHiddenText: "Type of communication"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Purpose of communication"
-            },
-            value: {
-              text: data['communicationPurpose'] 
-            },
-            actions: {
-              items: [
-                {
-                  href: "communication-purpose",
-                  text: "Change",
-                  visuallyHiddenText: "Purpose of communication"
-                }
-              ]
-            }
-          }
-          ,
-          {
-            key: {
-              text: "Outcome of communication"
-            },
-            value: {
-              text: data['communicationOutcome'] 
-            },
-            actions: {
-              items: [
-                {
-                  href: "communication-outcome",
-                  text: "Change",
-                  visuallyHiddenText: "Outcome of communication"
-                }
-              ]
-            }
-          }
-         ,
-        {
-          key: {
-            text: "Industry"
-          },
-          value: {
-            text: data['industry-communication']              
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "Industry the activities relate to"
-              }
-            ]
-          }
-        }
-        ,  
-        {
-          key: {
-            text: "Name of those carrying out activities"
-          },
-          value: {
-            text: data['activitiesName-communication']              
-          },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change",
-                visuallyHiddenText: "Name of those carrying out the activities"
-              }
-            ]
-          }
-        }
-        ]
-      }) }}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Are you involved in this activity?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G1-1--t4']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+            {% if (data['v4-G1-3--t4--name-1']) %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Others involved in the activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G1-3--t4--name-1']}}{% if (data['v4-G1-3--t4--name-2']) %}, {{data['v4-G1-3--t4--name-2']}}{% endif %}{% if (data['v4-G1-3--t4--name-3']) %}, {{data['v4-G1-3--t4--name-3']}}{% endif %}{% if (data['v4-G1-3--t4--name-4']) %}, {{data['v4-G1-3--t4--name-4']}}{% endif %}{% if (data['v4-G1-3--t4--name-5']) %}, {{data['v4-G1-3--t4--name-5']}}{% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+            {% endif %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Others involved in the activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-2-1--name-1']}}{% if (data['v4-2-1--name-2']) %}, {{data['v4-2-1--name-2']}}{% endif %}{% if (data['v4-2-1--name-3']) %}, {{data['v4-2-1--name-3']}}{% endif %}{% if (data['v4-2-1--name-4']) %}, {{data['v4-2-1--name-4']}}{% endif %}{% if (data['v4-2-1--name-5']) %}, {{data['v4-2-1--name-5']}}{% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+<!-- 
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Intended audience
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-3-1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-2-1">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div> -->
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity start date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-1--t4']) == "yes" %}
+                {{data['start-date-day']}}/{{data['start-date-month']}}/{{data['start-date-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity end date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-2--t4']) == "yes" %}
+                {{data['end-date-day']}}/{{data['end-date-month']}}/{{data['end-date-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Frequency of activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G2-3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Expected outcome
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-2-2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+           
+
+        </dl>
+
+        {% endif %}        
+
 
       <div class="govuk-button-group">
 
-        <a href="/beta/activities/summary" class="govuk-button ">Save and close activity</a>
+        <a href="/journey/v1/activity" class="govuk-button ">Save and close activity</a>
 
-        <a href="/beta/activities/new" class="govuk-button govuk-button--secondary">Add another activity</a>
+        <a href="/journey/v1/activity" class="govuk-button govuk-button--secondary">Add another activity</a>
 
       </div>
 
     </div>
   </div>
+
 {% endblock %}

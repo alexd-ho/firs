@@ -20,64 +20,44 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
             <span class="govuk-caption-l">Account Setup</span>
-            <h1 class="govuk-heading-l">Your Details</h1>
-        <div>
+	        <div>
 
-        <form class="form" action="1-2-1" method="post">
+	        <form class="form" action="1-2-0a" method="post">
 
-        	{% from "govuk/components/input/macro.njk" import govukInput %}
+	        	{% from "govuk/components/input/macro.njk" import govukInput %}
 
-        	<div class="govuk-form-group">
 
 				{{ govukInput({
 					label: {
-						text: "What is your full name?"
+						text: "What is your full name?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
 					},
 					id: "acc-holder-contact-name",
 					name: "acc-holder-contact-name",
 					autocomplete: "name"
 				}) }}
 
-				{{ govukInput({
-					label: {
-						text: "What is your email address?"
-					},
-					id: "acc-holder-contact-email",
-					name: "acc-holder-contact-email",
-					type: "email",
-					autocomplete: "email"
-				}) }}
-
-				{{ govukInput({
-					label: {
-						text: "What is your telephone number?"
-					},
-					id: "acc-holder-contact-telephone",
-					name: "acc-holder-contact-telephone",
-					type: "tel",
-					autocomplete: "tel-national"
-				}) }}
-
-			</div>
 
 
+	            {{ govukButton({
+	            text: "Save and continue"
+	            }) }}
+	<!--
+	            {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-            {{ govukButton({
-            text: "Save and continue"
-            }) }}
-<!--
-            {% from "govuk/components/details/macro.njk" import govukDetails %}
+				{{ govukDetails({
+					summaryText: "What is a foreign power?",
+					text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+				}) }}-->
 
-			{{ govukDetails({
-				summaryText: "What is a foreign power?",
-				text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
-			}) }}-->
-
-        </form>
+	        </form>
 
         <!-- <p>
         {{ data['activityTypes'] }}
         </p> -->
+
+        </div>
 
         </div>
 

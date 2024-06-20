@@ -24,27 +24,22 @@
             <p>We also need your name, email address and telephone number to aid with future correspondence. </p>
  -->        <div>
 
-        <form class="form" action="1-4-6a" method="post">
+        <form class="form" action="1-4-6b" method="post">
 
         	{% from "govuk/components/input/macro.njk" import govukInput %}
 
 
 			{{ govukInput({
 				label: {
-					text: "What is your full name?",
+					text: "What is your email address?",
                         isPageHeading: true,
                         classes: "govuk-fieldset__legend--l"
 				},
-				hint: {
-					text: "We need your name, email address and telephone number to aid with future correspondence."
-				},
-				id: "acc-holder-contact-name",
-				name: "acc-holder-contact-name",
-				autocomplete: "name"
+				id: "acc-holder-contact-email",
+				name: "acc-holder-contact-email",
+				type: "email",
+				autocomplete: "email"
 			}) }}
-
-
-
 
             {{ govukButton({
             text: "Save and continue"
