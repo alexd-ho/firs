@@ -47,6 +47,7 @@
 
       {{ govukCheckboxes({
         name: "v4-2",
+        values:  data['v4-2'],
         fieldset: {
           legend: {
             text: "What type of private communication will be made?",
@@ -59,25 +60,27 @@
         },
         items: [
           {
-            value: "one",
-            text: "One",
+            value: "Email",
+            text: "Email"
+          },
+          {
+            value: "Phone call",
+            text: "Phone call"
+          },
+          {
+            value: "Text message",
+            text: "Text message"
+          },
+          {
+            value: "Meeting",
+            text: "Meeting",
             hint: {
-              text: "For example, lobbying, sending an email or letter, or having a private conversation"
+              text: "Including in-person, or remote using technology"
             }
           },
           {
-            value: "two",
-            text: "Two",
-            hint: {
-              text: "For example, social media content, poster, leaflet, or published article"
-            }
-          },
-          {
-            value: "three",
-            text: "Three",
-            hint: {
-              text: "For example, the offer of money, goods or services to an individual or entity in the UK"
-            }
+            value: "Letter",
+            text: "Letter"
           }
         ]
       }) }}
