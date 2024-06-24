@@ -134,6 +134,17 @@
             autocomplete: "activityWhoElse-" + data['activity-stream']+"-2--email"
           }) }}
 
+            <div class="govuk-heading-m update-button-group update-button-group--hidden">
+                <div class="person-texts">
+                </div>
+                <div class="person-actions govuk-button-group">
+                    <button class="govuk-button button--save">Save</button>
+                    <a class="govuk-link button--delete">Delete</a>
+                </div>
+            </div>
+
+
+
 
             <div class="govuk-heading-m min-label">
                 <div class="person-texts">
@@ -256,6 +267,17 @@ function addNew() {
             autocomplete: "activityOtherPersonRole-" + data['activity-stream']+"-1"
           }) }}
 
+            <div class="govuk-heading-m update-button-group update-button-group--hidden">
+                <div class="person-texts">
+                </div>
+                <div class="person-actions govuk-button-group">
+                    <button class="govuk-button button--save">Save</button>
+                    <a class="govuk-link button--delete">Delete</a>
+                </div>
+            </div>
+
+
+
             <div class="govuk-heading-m min-label">
                 <div class="person-texts">
                     <div class="govuk-caption-m">Recipient ${newNameId}</div>
@@ -273,13 +295,18 @@ function addNew() {
 
     $('.button--update').on('click', function() {
         $(this).closest(".person-module").removeClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+        return false;
+    })
+    $('.button--save').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
         return false;
     })
     $('.button--delete').on('click', function() {
         $(this).closest(".person-module").addClass('person-module--delete')
         return false;
     })
-
 
 
 

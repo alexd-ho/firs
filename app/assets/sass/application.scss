@@ -26,6 +26,11 @@
     &.person-module--delete {
         display: none!important;
     }
+    .update-button-group {
+        &.update-button-group--hidden {
+            display: none;
+        }
+    }
     &.person-module--hidden {
         .govuk-form-group,
         .govuk-fieldset__legend {
@@ -45,6 +50,7 @@
             }
             .person-actions {
                 margin: 0;
+                flex-shrink: 0;
             }
         }
     }
