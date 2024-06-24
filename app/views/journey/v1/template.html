@@ -19,9 +19,17 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-l">Caption heading</span>
+
+          {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+          {{ govukInsetText({
+            text: "Inset text - used to differentiate a block of text from the content that surrounds it."
+          }) }}          
+
+
+          <span class="govuk-caption-l">Caption heading</span>
              <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
-        <div>
+  
 
         <form class="form" action="/route/3-0" method="post">
 
@@ -113,6 +121,7 @@
         {{ data['activityTypes'] }}
         </p> -->
 
+        </div>
         </div>
 
 {% endblock %}
