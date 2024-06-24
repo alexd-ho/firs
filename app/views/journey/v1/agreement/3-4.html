@@ -31,7 +31,7 @@
         classes: "govuk-checkboxes--small",
         fieldset: {
             legend: {
-                text: "Are you in an arrangement with any of the foreign power controlled organisations listed here?",
+                text: "Do you have an agreement with any of these organisations?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }
@@ -66,7 +66,7 @@
             },
             {
                 value: "None",
-                text: "I am not in an arrangement with any of the foreign power controlled organisations listed here",
+                text: "No, I do not have an agreement with any of these organisations",
                 behaviour: "exclusive"
             }
         ]
@@ -75,6 +75,15 @@
         {{ govukButton({
         text: "Save and continue"
         }) }}
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukDetails({
+          summaryText: "What is an agreement?",
+          text: "An agreement includes activities ranging from a legally enforceable contract to an informal, but clear, written or verbal understanding."
+        }) }}
+
+
 
     </form>
 

@@ -832,7 +832,7 @@ router.post('/route/3-0', function(request, response) {
 router.post('/route/3-1', function(request, response) {
 
     var value = request.session.data['v3-1']
-    if (value == "Another foreign power not listed here"){ 
+    if (value == "None"){ 
         response.redirect(agreement+"3-3?tier=political")
     } else { 
         response.redirect(agreement+"3-2-1?tier=enhanced")

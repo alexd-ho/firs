@@ -35,10 +35,10 @@
                 What is this activity intended to influence?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['v4-0-1']}}
+                {{data['v4-0a']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="4-0-1">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                    <a class="govuk-link" href="4-0a">Change<span class="govuk-visually-hidden"> intended activity to be influence</span></a>
                 </dd>
             </div>
 
@@ -50,7 +50,7 @@
                 {{data['v4-3']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="4-3">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                    <a class="govuk-link" href="4-3">Change<span class="govuk-visually-hidden"> Types of public communication</span></a>
                 </dd>
             </div>
 
@@ -62,7 +62,7 @@
                 {{data['v4-G1-1--t3']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="4-G1-1">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                    <a class="govuk-link" href="4-G1-1">Change<span class="govuk-visually-hidden"> your involvement in this activity</span></a>
                 </dd>
             </div>
             {% if (data['v4-G1-3--t3--name-1']) %}
@@ -74,35 +74,37 @@
                 {{data['v4-G1-3--t3--name-1']}}{% if (data['v4-G1-3--t3--name-2']) %}, {{data['v4-G1-3--t3--name-2']}}{% endif %}{% if (data['v4-G1-3--t3--name-3']) %}, {{data['v4-G1-3--t3--name-3']}}{% endif %}{% if (data['v4-G1-3--t3--name-4']) %}, {{data['v4-G1-3--t3--name-4']}}{% endif %}{% if (data['v4-G1-3--t3--name-5']) %}, {{data['v4-G1-3--t3--name-5']}}{% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Others involved in the activity</span></a>
                 </dd>
-            </div>
-            {% endif %}
-
+            </div>{% else %}
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                 Others involved in the activity
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['v4-2-1--name-1']}}{% if (data['v4-2-1--name-2']) %}, {{data['v4-2-1--name-2']}}{% endif %}{% if (data['v4-2-1--name-3']) %}, {{data['v4-2-1--name-3']}}{% endif %}{% if (data['v4-2-1--name-4']) %}, {{data['v4-2-1--name-4']}}{% endif %}{% if (data['v4-2-1--name-5']) %}, {{data['v4-2-1--name-5']}}{% endif %}
+                    None stated
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Others involved in the activity</span></a>
                 </dd>
             </div>
+            {% endif %}
 
-<!-- 
+
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                 Intended audience
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['v4-3-1']}}
+                {% if (data['v4-3-1']) %}{{data['v4-3-1']}}
+                {% else %}
+                None Stated
+                {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="4-2-1">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                    <a class="govuk-link" href="4-2-1">Change<span class="govuk-visually-hidden"> Intended audience</span></a>
                 </dd>
-            </div> -->
+            </div>
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -110,7 +112,7 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                 {% if (data['v4-G2-1--t3']) == "yes" %}
-                {{data['start-date-day']}}/{{data['start-date-month']}}/{{data['start-date-year']}}
+                {{data['v4-G2-1--t3-day']}}/{{data['v4-G2-1--t3-month']}}/{{data['v4-G2-1--t3-year']}}
                 {% else %}
                 None stated
                 {% endif %}
@@ -126,7 +128,7 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                 {% if (data['v4-G2-2--t3']) == "yes" %}
-                {{data['end-date-day']}}/{{data['end-date-month']}}/{{data['end-date-year']}}
+                {{data['v4-G2-2--t3-day']}}/{{data['v4-G2-2--t3-month']}}/{{data['v4-G2-2--t3-year']}}
                 {% else %}
                 None stated
                 {% endif %}
@@ -141,7 +143,7 @@
                 Frequency of activity
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['v4-G2-3']}}
+                {{data['v4-G2-3--t3']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
