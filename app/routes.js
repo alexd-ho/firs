@@ -860,7 +860,7 @@ router.post('/route/3-5', function(request, response) {
     if (value == "None"){ 
         response.redirect(agreement+"3-6")
     } else { // exit
-        response.redirect(agreement+"3-5-1?tier=enhanced")
+        response.redirect(agreement+"3-5-2?tier=enhanced")
     }
 })
 
