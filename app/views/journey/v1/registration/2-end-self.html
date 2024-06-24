@@ -21,12 +21,22 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-			<h1 class="govuk-heading-l">
-				Registration confirmation
-			</h1>
+      <div class="govuk-panel govuk-panel--interuption">
+        <h1 class="govuk-panel__title ">
+          Waiting for identity to be confirmed
+        </h1>
+        <div class="govuk-panel__body govuk-body-l">
+          Email sent to <br><strong>{{data['v2-5-1']}}</strong>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-m">
+        What happens Next
+      </h1>
 
       <div class="govuk-body">
-        <p>Thank you. Your ID is being verified. You will receive an email to confirm if your ID has been accepted or not with instructions on what to do next. You can continue with your registration for the time being.</p>
+        <p>Your ID is being verified. You will receive an email to confirm if your ID has been accepted or not with instructions on what to do next.</p>
+        <p>You can continue with your registration for the time being.</p>
       </div>
 
       <div class="govuk-button-group">
