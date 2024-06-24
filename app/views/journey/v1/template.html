@@ -1,0 +1,118 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "home" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Caption heading</span>
+             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
+        <div>
+
+        <form class="form" action="/route/3-0" method="post">
+
+        {% set startDate %}
+        {{ govukInput({
+          id: "v4-G2-3--custom",
+          name: "v4-G2-3--custom",
+          type: "text",
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Conditional Field"
+          },
+          hint: {
+            text: "Hint text for the conditional field"
+          }
+        }) }}
+        {% endset -%}
+
+
+          {{ govukCheckboxes({
+            name: "v3-0",
+            fieldset: {
+              legend: {
+              text: "Page title, which should be a question?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Hint text, to help the user understand the question and how to answer it"
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Label text for option 1"
+              },
+              {
+                value: "no",
+                text: "Label text for option 2",
+                hint: {
+                  text: "Further hint text to add more context for this option"
+                }
+              },
+              {
+                value: "no",
+                text: "Label text for option 3"
+              },
+              {
+                  divider: "divider"
+              },
+              {
+                value: "no",
+                text: "Label text for exclusive option, that also has a conditional field",
+                behaviour: "exclusive",
+                conditional: {
+                  html: startDate
+                }
+              }
+
+            ]
+            }) }}
+
+
+            <div class="govuk-button-group">
+
+              {{ govukButton({
+              text: "Primary Button"
+              }) }}
+
+              {{ govukButton({
+              text: "Secondary Button",
+              classes: "govuk-button--secondary"
+              }) }}
+
+            </div>
+
+        </form>
+
+
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+        {{ govukDetails({
+          summaryText: "More info",
+          text: "Expandable text box to provide more information on a subject or term used in the above question."
+        }) }}
+
+        
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+        </div>
+
+{% endblock %}
