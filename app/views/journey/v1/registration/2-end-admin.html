@@ -26,7 +26,7 @@
           Waiting for your information request to be completed
         </h1>
         <div class="govuk-panel__body govuk-body">
-          {% if (data['v2-5-1']) %}<p>Email sent to <br><strong>{{data['v2-5-1']}}</strong></p>{% endif %}
+          {% if (data['v2-5-1']) %}<p>Email sent to <br><strong>{{data['v2-5-1']}}</strong></p>{% elseif (data['v2-6-3']) %}<p>Email sent to <br><strong>{{data['v2-6-3']}}</strong></p>{% endif %}
         </div>
       </div>
 

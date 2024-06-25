@@ -2,7 +2,7 @@
 {% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -11,30 +11,95 @@
   text: "Back",
   href: "javascript:window.history.back()"
 }) }}
+
 {% endblock %}
 
 {% block content %}
 
-{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
 
-  <div class="govuk-grid-row">
+        <h1 class="govuk-heading-xl">
+            Check your answers before saving this activity
+        </h1>
+        <p>You will be able to amend this activity later.</p>
 
-    <div class="govuk-grid-column-two-thirds">
+        <dl class="govuk-summary-list">
 
-			<h1 class="govuk-heading-l">
-				Check answers
-			</h1>
 
-        <form class="form" action="2-6-3" method="post">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Trading name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v2-G3-1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-0a">Change<span class="govuk-visually-hidden"> intended activity to be influence</span></a>
+                </dd>
+            </div>
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Date incorporated
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v2-G3-4-day']}}/{{data['v2-G3-4-month']}}/{{data['v2-G3-4-year']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-4">Change<span class="govuk-visually-hidden"> Types of offer</span></a>
+                </dd>
+            </div>
 
-      </form>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Principal office
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v2-G3-6-line-1']}}, {{data['v2-G3-6-line-2']}}, {{data['v2-G3-6-town']}}, {{data['v2-G3-6-postcode']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-4-1">Change<span class="govuk-visually-hidden"> Types of offer</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Telephone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v2-G3-10']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-1">Change<span class="govuk-visually-hidden"> your involvement in this activity</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v2-G3-11']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-1">Change<span class="govuk-visually-hidden"> your involvement in this activity</span></a>
+                </dd>
+            </div>
+
+           
+
+        </dl>
+
+
+
+      <div class="govuk-button-group">
+
+        <a href="2-6-3" class="govuk-button ">Continue</a>
+
+
+      </div>
 
     </div>
-
   </div>
 
 {% endblock %}
