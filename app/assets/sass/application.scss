@@ -62,6 +62,13 @@
 
 .govuk-panel--interuption {
     background: #ddd;
+    .govuk-body strong {
+        width: auto;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 100%;
+        display: inline-block;
+    }
 }
 
 

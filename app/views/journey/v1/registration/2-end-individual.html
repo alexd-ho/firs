@@ -23,16 +23,16 @@
 
       <div class="govuk-panel govuk-panel--interuption">
         <h1 class="govuk-panel__title ">
-          Waiting for your information request to be confirmed
+          Waiting for your information request to be completed
         </h1>
-        <div class="govuk-panel__body govuk-body-l">
-          Email sent to <br><strong>{{data['v2-5-1']}}</strong>
+        <div class="govuk-panel__body govuk-body">
+          {% if (data['v2-5-1']) %}Email sent to <br><strong>{{data['v2-5-1']}}</strong>{% endif %}
         </div>
       </div>
 
-			<h1 class="govuk-heading-m">
-				What happens Next
-			</h1>
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
 
       <div class="govuk-body">
         <p>The individual has been sent an information request. You will receive an email to confirm when they have submitted their information.</p>
