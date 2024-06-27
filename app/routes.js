@@ -490,6 +490,7 @@ router.post('/beta/activities/person/activity-people-check', function(request, r
 var root = '/journey/v1/';
 var account = '/journey/v1/account/';
 var registration = '/journey/v1/registration/';
+var arrangement = '/journey/v1/arrangement/';
 var agreement = '/journey/v1/agreement/';
 var activity = '/journey/v1/activity/';
 
@@ -815,42 +816,42 @@ router.post('/route/2-3-3', function(request, response) {
 
 
 
-/// JOURNEY / agreement
+/// JOURNEY / arrangement
 
-// Are you in an agreement with a foreign power?
+// Are you in an arrangement with a foreign power?
 router.post('/route/3-0', function(request, response) {
 
     var value = request.session.data['v3-0']
     if (value == "yes"){ 
-        response.redirect(agreement+"3-1")
+        response.redirect(arrangement+"3-1")
     } else { 
-        response.redirect(agreement+"3-4")
+        response.redirect(arrangement+"3-4")
     }
 })
 
-// Are you in an agreement with a foreign power listed below?
+// Are you in an arrangement with a foreign power listed below?
 router.post('/route/3-1', function(request, response) {
 
     var value = request.session.data['v3-1']
     if (value == "None"){ 
-        response.redirect(agreement+"3-3?tier=political")
+        response.redirect(arrangement+"3-3?tier=political")
     } else { 
-        response.redirect(agreement+"3-2-1?tier=enhanced")
+        response.redirect(arrangement+"3-2-1?tier=enhanced")
     }
 })
 
-// Are you in an agreement with a foreign power?
+// Are you in an arrangement with a foreign power?
 router.post('/route/3-4', function(request, response) {
     var value = request.session.data['v3-4'];
     var type = request.session.data['registrant-type'];
     if (value == "None"){ 
         if (type == "individual") {
-            response.redirect(agreement+"3-6")
+            response.redirect(arrangement+"3-6")
         } else {
-            response.redirect(agreement+"3-5")            
+            response.redirect(arrangement+"3-5")            
         }
     } else { // exit
-        response.redirect(agreement+"3-4-2?tier=enhanced")
+        response.redirect(arrangement+"3-4-2?tier=enhanced")
     }
 })
 
@@ -858,9 +859,9 @@ router.post('/route/3-4', function(request, response) {
 router.post('/route/3-5', function(request, response) {
     var value = request.session.data['v3-5']
     if (value == "None"){ 
-        response.redirect(agreement+"3-6")
+        response.redirect(Continue+"3-6")
     } else { // exit
-        response.redirect(agreement+"3-5-2?tier=enhanced")
+        response.redirect(arrangement+"3-5-2?tier=enhanced")
     }
 })
 

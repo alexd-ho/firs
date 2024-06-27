@@ -1,0 +1,86 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "arrangement" %}
+
+{% block pageTitle %}
+    Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+    }) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">About the arrangement</span>
+             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
+    <div>
+
+    <form class="form" action="3-5-2" method="post">
+
+        {{ govukRadios({
+            name: "v3-4-1",
+            fieldset: {
+                legend: {
+                    text: "Select the foreign power-controlled organisation you are a salaried employee of.",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "Organisation 1",
+                    text: "Organisation 1"
+                },
+                {
+                    value: "Organisation 2",
+                    text: "Organisation 2"
+                },
+                {
+                    value: "Organisation 3",
+                    text: "Organisation 3"
+                },
+                {
+                    value: "Organisation 4",
+                    text: "Organisation 4"
+                },
+                {
+                    value: "Organisation 5",
+                    text: "Organisation 5"
+                },
+                {
+                    value: "Organisation 6",
+                    text: "Organisation 6"
+                },
+                {
+                    divider: "or"
+                },
+                {
+                    value: "None",
+                    text: "I am not in an arrangement with any of the foreign power controlled organisations listed here",
+                    behaviour: "exclusive"
+                }
+            ]
+            }) 
+        }}
+
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+    </form>
+
+    <!-- <p>
+    {{ data['activityTypes'] }}
+    </p> -->
+
+</div>
+
+{% endblock %}

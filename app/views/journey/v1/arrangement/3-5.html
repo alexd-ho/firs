@@ -1,0 +1,86 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "arrangement" %}
+
+{% block pageTitle %}
+    Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+    }) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">About the arrangement</span>
+             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
+    <div>
+
+    <form class="form" action="/route/3-5" method="post">
+
+        {{ govukCheckboxes({
+        name: "v3-5",
+        values: "v3-5",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+            legend: {
+                text: "Do you work for any of these organisations?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+            }
+        },
+        items: [
+            {
+                value: "Organisation 1",
+                text: "Organisation 1"
+            },
+            {
+                value: "Organisation 2",
+                text: "Organisation 2"
+            },
+            {
+                value: "Organisation 3",
+                text: "Organisation 3"
+            },
+            {
+                value: "Organisation 4",
+                text: "Organisation 4"
+            },
+            {
+                value: "Organisation 5",
+                text: "Organisation 5"
+            },
+            {
+                value: "Organisation 6",
+                text: "Organisation 6"
+            },
+            {
+                divider: "or"
+            },
+            {
+                value: "None",
+                text: "No, I do not work for any of these organisations"
+            }
+        ]
+        }) }}
+
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+    </form>
+
+    <!-- <p>
+    {{ data['activityTypes'] }}
+    </p> -->
+
+</div>
+
+{% endblock %}

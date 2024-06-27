@@ -1,0 +1,57 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "arrangement" %}
+
+{% block pageTitle %}
+    Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+    }) }}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">About the arrangement</span>
+             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
+    <div>
+
+    <form class="form" action="3-4-3a" method="post">
+
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "v3-4-3",
+          namePrefix: "v3-4-3",
+          fieldset: {
+            legend: {
+              text: "When was contact with the foreign power controlled organisation first made?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          }
+        }) }}
+
+        {{ govukButton({
+        text: "Continue"
+        }) }}
+
+    </form>
+
+    <!-- <p>
+    {{ data['activityTypes'] }}
+    </p> -->
+
+</div>
+
+{% endblock %}
