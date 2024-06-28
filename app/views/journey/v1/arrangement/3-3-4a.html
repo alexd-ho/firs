@@ -28,8 +28,10 @@
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
         {{ govukDateInput({
-          name: "v3-3-4",
-          id: "v3-3-4",
+          name: "v3-3-4a",
+          id: "v3-3-4a",
+          value: data['v3-3-4a'],
+          namePrefix: "v3-3-4a",
           fieldset: {
             legend: {
               text: "When was a formal contract or agreement with the foreign power made?",

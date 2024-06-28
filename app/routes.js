@@ -859,7 +859,7 @@ router.post('/route/3-4', function(request, response) {
 router.post('/route/3-5', function(request, response) {
     var value = request.session.data['v3-5']
     if (value == "None"){ 
-        response.redirect(Continue+"3-6")
+        response.redirect(arrangement+"3-6")
     } else { // exit
         response.redirect(arrangement+"3-5-2?tier=enhanced")
     }

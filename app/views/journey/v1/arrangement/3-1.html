@@ -19,70 +19,71 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-l">About the arrangement</span>
-             <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
-    <div>
+        <span class="govuk-caption-l">About the arrangement</span>
+        {% if (data['titles']) == "dynamic" %}
+        <h1 class="govuk-heading-l">Does {{data['dynamic']}} have an arrangement with a foreign power?</h1>
+        {% elseif (data['titles']) == "static" %}
+        <h1 class="govuk-heading-l">Does {{data['dynamic']}} have an arrangement with a foreign power?</h1>
+        {% endif %}
+         <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
+            
+        <form class="form" action="/route/3-1" method="post">
 
-    <form class="form" action="/route/3-1" method="post">
-
-        {{ govukCheckboxes({
-        name: "v3-1",
-        values: "v3-1",
-        fieldset: {
-            legend: {
-                text: "Do you have an agreement with any of these foreign powers?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
-            }
-        },
-        items: [
-            {
-                value: "Country 1",
-                text: "Country 1"
+            {{ govukCheckboxes({
+            name: "v3-1",
+            values: data["v3-1"],
+            fieldset: {
+                legend: {
+                    text: "Do you have an agreement with any of these foreign powers?",
+                    classes: "hidden"
+                }
             },
-            {
-                value: "Country 2",
-                text: "Country 2"
-            },
-            {
-                divider: "or"
-            },
-            {
-                value: "None",
-                text: "No, I do not have an agreement with any of these foreign powers",
-                behaviour: "exclusive"
-            }
-        ]
-        }) }}
+            items: [
+                {
+                    value: "Country 1",
+                    text: "Country 1"
+                },
+                {
+                    value: "Country 2",
+                    text: "Country 2"
+                },
+                {
+                    divider: "or"
+                },
+                {
+                    value: "None",
+                    text: "No, I do not have an agreement with any of these foreign powers",
+                    behaviour: "exclusive"
+                }
+            ]
+            }) }}
 
-        {{ govukButton({
-        text: "Continue"
-        }) }}
+            {{ govukButton({
+            text: "Continue"
+            }) }}
 
-        {% from "govuk/components/details/macro.njk" import govukDetails %}
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-        {{ govukDetails({
-          summaryText: "What is an agreement?",
-          text: "An agreement includes activities ranging from a legally enforceable contract to an informal, but clear, written or verbal understanding."
-        }) }}
+            {{ govukDetails({
+              summaryText: "What is an agreement?",
+              text: "An agreement includes activities ranging from a legally enforceable contract to an informal, but clear, written or verbal understanding."
+            }) }}
 
 
-        {{ govukDetails({
-          summaryText: "What is a foreign power?",
-          html: "<p>A foreign power is: </p>
-          <ul>
-            <li>A head of state</li>
-            <li>A foreign government, or parts of the government, or person doing the same functions</li>
-            <li>An agency, organisation, or authority of a foreign government</li>
-            <li>A political party that is a governing political party of a foreign government </li>
-        </ul>
-        <p>outside the UK, Channel Islands, Isle of Man and the British Overseas Territories.</p>"
-        }) }}
-    </form>
+            {{ govukDetails({
+              summaryText: "What is a foreign power?",
+              html: "<p>A foreign power is: </p>
+              <ul>
+                <li>A head of state</li>
+                <li>A foreign government, or parts of the government, or person doing the same functions</li>
+                <li>An agency, organisation, or authority of a foreign government</li>
+                <li>A political party that is a governing political party of a foreign government </li>
+            </ul>
+            <p>outside the UK, Channel Islands, Isle of Man and the British Overseas Territories.</p>"
+            }) }}
+        </form>
 
-    <!-- <p>
-    {{ data['activityTypes'] }}
-    </p> -->
+    </div>
 
 </div>
 

@@ -19,9 +19,19 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-l">
-        Based on the answers you have provided you do not need to register.
-      </h1>
+        {% if (data['titles']) == "dynamic" %}
+          <h1 class="govuk-heading-l">
+            Based on the answers you have provided, {{data['dynamic']}} does not need to register.
+          </h1>
+        {% elseif (data['titles']) == "static" %}
+          <h1 class="govuk-heading-l">
+            Based on the answers you have provided, {{data['dynamic']}} does not need to register.
+          </h1>
+        {% else %}
+          <h1 class="govuk-heading-l">
+            Based on the answers you have provided you do not need to register.
+          </h1>
+        {% endif %}
 
     </div>
   </div>

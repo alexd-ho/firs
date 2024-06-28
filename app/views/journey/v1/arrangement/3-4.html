@@ -19,8 +19,15 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-l">About the arrangement</span>
+        <span class="govuk-caption-l">About the arrangement</span>
              <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
+        {% if (data['titles']) == "dynamic" %}
+        <h1 class="govuk-heading-l">Does {{data['dynamic']}} have an arrangement with any of these organisations?</h1>
+        {% elseif (data['titles']) == "static" %}
+        <h1 class="govuk-heading-l">Does {{data['dynamic']}} have an arrangement with any of these organisations?</h1>
+        {% else %}
+        <h1 class="govuk-heading-l">Do you have an arrangement with any of these organisations?</h1>
+        {% endif %}
     <div>
 
     <form class="form" action="/route/3-4" method="post">
@@ -32,8 +39,8 @@
         fieldset: {
             legend: {
                 text: "Do you have an agreement with any of these organisations?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--l"
+                isPageHeading: false,
+                classes: "hidden"
             }
         },
         items: [
