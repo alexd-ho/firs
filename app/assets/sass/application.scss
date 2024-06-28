@@ -9,7 +9,7 @@
     > .govuk-fieldset {
         padding: 20px;
         background: #f3f2f1;
-        box-shadow: -2px 0 0 #929191;
+        box-shadow: 0 0 1px #333;
         > .govuk-fieldset__legend {
             margin-bottom: 50px;
             bottom: -40px;
@@ -47,10 +47,14 @@
                 * {
                     margin: 0;
                 }
+                .govuk-caption-m {
+                    display: none;
+                }
             }
             .person-actions {
-                margin: 0;
+                // margin: 0;
                 flex-shrink: 0;
+                height: fit-content;
             }
         }
     }
