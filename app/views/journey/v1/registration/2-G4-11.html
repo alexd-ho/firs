@@ -19,6 +19,8 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Add a registrant</span>
+            <h1 class="govuk-heading-l">What is the name of the unincorporated association on {{	data['v2-G4-10']}}?</h1>
             <!-- <span class="govuk-caption-l">Create account</span> -->
 
             <form class="form" action="/route/2-G4-return-{{data['mode']}}-{{data['reg-type']}}" method="post">
@@ -30,8 +32,8 @@
 					{{ govukInput({
 						label: {
 							text: "What is the name of the public register?",
-	                        isPageHeading: true,
-	                        classes: "govuk-fieldset__legend--l"
+	                        isPageHeading: false,
+	                        classes: "hidden"
 						},
 						classes: "govuk-!-width-two-thirds",
 						id: "v2-G4-11",

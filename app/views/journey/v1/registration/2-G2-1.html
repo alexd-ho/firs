@@ -17,11 +17,12 @@
 
 {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Add a registrant</span>
 
 		<h1 class="govuk-heading-l">
-		IDV
+		Identity Verification
 		</h1>
 
         <form class="form" action="/route/2-G2-return-{{data['mode']}}-{{data['reg-type']}}" method="post">
@@ -31,9 +32,9 @@
 			{{ govukFileUpload({
 			  id: "file-upload-1",
 			  name: "fileUpload1",
-			  label: {
-			    text: "Upload a file"
-			  }
+        hint: {
+            html: "<p>Upload your passport, national identity card, or biometric residence card or permit.</p><p> If you have EEA or Swiss nationality, use this.</p>"
+        }
 			}) }}
 
         {{ govukButton({

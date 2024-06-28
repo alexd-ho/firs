@@ -33,9 +33,7 @@
 			            classes: "govuk-fieldset__legend--l"
 		            }
 	            },
-	            hint: {
-	            	text: "This question relates to you or your organisation. If you are registering on behalf of someone or another organisation, you will be asked to provide their details in the next section."
-	            },
+
 	            items: [
 		            {
 			            value: "Yes",
@@ -53,6 +51,11 @@
             text: "Continue"
             }) }}
 <!--
+
+	            hint: {
+	            	text: "This question relates to you or your organisation. If you are registering on behalf of someone or another organisation, you will be asked to provide their details in the next section."
+	            },
+	            	
             {% from "govuk/components/details/macro.njk" import govukDetails %}
 
 			{{ govukDetails({

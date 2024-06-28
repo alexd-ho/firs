@@ -29,9 +29,9 @@
             
         <form class="form" action="/route/3-1" method="post">
 
-            {{ govukCheckboxes({
+            {{ govukRadios({
             name: "v3-1",
-            values: data["v3-1"],
+            value: data["v3-1"],
             fieldset: {
                 legend: {
                     text: "Do you have an agreement with any of these foreign powers?",
@@ -40,20 +40,19 @@
             },
             items: [
                 {
-                    value: "Country 1",
-                    text: "Country 1"
+                    value: "Foreign Power 1",
+                    text: "Foreign Power 1"
                 },
                 {
-                    value: "Country 2",
-                    text: "Country 2"
+                    value: "Foreign Power 2",
+                    text: "Foreign Power 2"
                 },
                 {
                     divider: "or"
                 },
                 {
                     value: "None",
-                    text: "No, I do not have an agreement with any of these foreign powers",
-                    behaviour: "exclusive"
+                    text: "No, I do not have an agreement with any of these foreign powers"
                 }
             ]
             }) }}

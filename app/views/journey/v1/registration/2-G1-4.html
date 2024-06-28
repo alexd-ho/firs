@@ -19,26 +19,27 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Add a registrant</span>
             <!-- <span class="govuk-caption-l">Create account</span> -->
 
 	        <form class="form" action="2-G1-5" method="post">
 
-							{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+				{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-							{{ govukDateInput({
-							  id: "v2-G1-4",
-							  namePrefix: "registrant-dob",
-							  fieldset: {
-							    legend: {
-							      text: "What is your DOB?",
-							      isPageHeading: true,
-							      classes: "govuk-fieldset__legend--l"
-							    }
-							  },
-							  hint: {
-							    text: "For example, 27 3 1987"
-							  }
-							}) }}
+				{{ govukDateInput({
+				  id: "v2-G1-4",
+				  namePrefix: "registrant-dob",
+				  fieldset: {
+				    legend: {
+				      text: "What is your date of birth?",
+				      isPageHeading: true,
+				      classes: "govuk-fieldset__legend--l"
+				    }
+				  },
+				  hint: {
+				    text: "For example, 27 3 1987"
+				  }
+				}) }}
 
 	            {{ govukButton({
 	            text: "Continue"

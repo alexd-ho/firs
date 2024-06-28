@@ -19,7 +19,9 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Add a registrant</span>
             <!-- <span class="govuk-caption-l">Create account</span> -->
+            <h1 class="govuk-heading-l">What is the unique reference number of the body corporate on {{data['v2-G3-13']}}?</h1>
 
 	        <form class="form" action="2-G3-15" method="post">
 
@@ -29,9 +31,9 @@
 
 					{{ govukInput({
 						label: {
-							text: "What is the body corporate's unique reference number on the register?",
-	                        isPageHeading: true,
-	                        classes: "govuk-fieldset__legend--l"
+							text: "What is the unique reference number of the body corporate on {{data['v2-G3-13']?",
+	                        isPageHeading: false,
+	                        classes: "hidden"
 						},
 						id: "v2-G3-14",
 						name: "v2-G3-14"
