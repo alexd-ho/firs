@@ -21,7 +21,7 @@
       <span class="govuk-caption-l">Add an activity</span>
 
       <h1 class="govuk-heading-l">Who is intended to receive this private communication?</h1>
-      <p>Add as many people and organisations as required, or leave empty if no one else is involved.</p>
+      <div class="govuk-hint">Add as many people and organisations as required, or leave empty if no one else is involved</div>
       
       <form action="/group/4-G2?stream=2" method="post">
 
@@ -96,13 +96,7 @@
             name: "v4-2-1--name-1"
           }) }}
 
-          {{ govukInput({
-            label: {
-              text: "Their role in conducting this activity (optional)"
-            },
-            id: "v4-2-1--role-1",
-            name: "v4-2-1--role-1"
-          }) }}
+
 
             <div class="govuk-heading-m update-button-group update-button-group--hidden">
                 <div class="person-texts">
@@ -313,13 +307,6 @@ function addNew() {
             name: "v4-2-1--name-${newNameId}"
           }) }}
 
-          {{ govukInput({
-            label: {
-              text: "Their role in conducting this activity (optional)"
-            },
-            id: "v4-2-1--role-${newNameId}",
-            name: "v4-2-1--role-${newNameId}"
-          }) }}
 
             <div class="govuk-heading-m update-button-group update-button-group--hidden">
                 <div class="person-texts">
