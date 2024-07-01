@@ -22,68 +22,203 @@
         <span class="govuk-caption-l">About the arrangement</span>
         {% if (data['titles']) == "dynamic" %}
         <h1 class="govuk-heading-l">Does {{data['dynamic']}} work for any of these organisations?</h1>
-        {% elseif (data['titles']) == "static" %}
-        <h1 class="govuk-heading-l">Does {{data['dynamic']}} work for any of these organisations?</h1>
-        {% else %}
-        <h1 class="govuk-heading-l">Do you work for any of these organisations?</h1>
-        {% endif %}
          <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
-    <div>
 
-    <form class="form" action="/route/3-5" method="post">
 
-        {{ govukCheckboxes({
-        name: "v3-5",
-        values: data['v3-5'],
-        classes: "govuk-checkboxes--small",
-        fieldset: {
-            legend: {
-                text: "Do you work for any of these organisations?",
-                isPageHeading: false,
-                classes: "hidden"
-            }
-        },
-        items: [
-            {
-                value: "Organisation 1",
-                text: "Organisation 1"
-            },
-            {
-                value: "Organisation 2",
-                text: "Organisation 2"
-            },
-            {
-                value: "Organisation 3",
-                text: "Organisation 3"
-            },
-            {
-                value: "Organisation 4",
-                text: "Organisation 4"
-            },
-            {
-                value: "Organisation 5",
-                text: "Organisation 5"
-            },
-            {
-                value: "Organisation 6",
-                text: "Organisation 6"
-            },
-            {
-                divider: "or"
-            },
-            {
-                value: "None",
-                text: "No, I do not work for any of these organisations",
-                behaviour: "exclusive"
-            }
-        ]
-        }) }}
+        <form class="form" action="/route/3-5" method="post">
 
-        {{ govukButton({
-        text: "Continue"
-        }) }}
+            <div class="govuk-form-group">
 
-    </form>
+              <fieldset class="govuk-fieldset">
+                
+                <legend class="govuk-fieldset__legend hidden">
+                
+                  Do you work for any of these organisations?
+                
+                </legend>
+                
+              
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5" name="v3-5" type="checkbox" value="Organisation 1">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5">
+                      Organisation 1
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-2" name="v3-5" type="checkbox" value="Organisation 2">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-2">
+                      Organisation 2
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-3" name="v3-5" type="checkbox" value="Organisation 3">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-3">
+                      Organisation 3
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-4" name="v3-5" type="checkbox" value="Organisation 4">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-4">
+                      Organisation 4
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-5" name="v3-5" type="checkbox" value="Organisation 5">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-5">
+                      Organisation 5
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-6" name="v3-5" type="checkbox" value="Organisation 6">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-6">
+                      Organisation 6
+                    </label>
+                    
+                  </div>
+                
+                  <div class="govuk-checkboxes__divider">or</div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-8" name="v3-5" type="checkbox" value="None" checked="" data-behaviour="exclusive">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-8">
+                      No, {{data['dynamic']}} does not work for any of these organisations
+                    </label>
+                    
+                  </div>
+                  
+                </div>
+              
+              </fieldset>
+
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+        </form>
+
+
+        {% else %}
+
+        {% if (data['registrant-type'] == "individual") %}
+        <h1 class="govuk-heading-l">Do you work for any of these organisations?</h1>
+        {% else %}
+        <h1 class="govuk-heading-l">Does your organisation work for any of these organisations?</h1>
+        {% endif %}
+
+
+        <form class="form" action="/route/3-5" method="post">
+
+            <div class="govuk-form-group">
+
+              <fieldset class="govuk-fieldset">
+                
+                <legend class="govuk-fieldset__legend hidden">
+                
+                  Do you work for any of these organisations?
+                
+                </legend>
+                
+              
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5" name="v3-5" type="checkbox" value="Organisation 1">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5">
+                      Organisation 1
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-2" name="v3-5" type="checkbox" value="Organisation 2">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-2">
+                      Organisation 2
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-3" name="v3-5" type="checkbox" value="Organisation 3">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-3">
+                      Organisation 3
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-4" name="v3-5" type="checkbox" value="Organisation 4">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-4">
+                      Organisation 4
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-5" name="v3-5" type="checkbox" value="Organisation 5">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-5">
+                      Organisation 5
+                    </label>
+                    
+                  </div>
+                  
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-6" name="v3-5" type="checkbox" value="Organisation 6">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-6">
+                      Organisation 6
+                    </label>
+                    
+                  </div>
+                
+                  <div class="govuk-checkboxes__divider">or</div>
+                  
+                {% if (data['registrant-type'] == "individual") %}
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-8" name="v3-5" type="checkbox" value="None" checked="" data-behaviour="exclusive">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-8">
+                      No, I do not work for any of these organisations
+                    </label>
+                    
+                  </div>
+                {% else %}
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="v3-5-8" name="v3-5" type="checkbox" value="None" checked="" data-behaviour="exclusive">
+                    <label class="govuk-label govuk-checkboxes__label" for="v3-5-8">
+                      No, my organisation does not work for any of these organisations
+                    </label>
+                    
+                  </div>
+                {% endif %}
+
+                  
+                </div>
+              
+              </fieldset>
+
+            </div>
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+        </form>
+
+        {% endif %}
+
+
 
     <!-- <p>
     {{ data['activityTypes'] }}

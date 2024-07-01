@@ -19,7 +19,13 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-            <span class="govuk-caption-l">About the arrangement</span>
+        <span class="govuk-caption-l">About the arrangement</span>
+        {% if (data['titles']) == "dynamic" %}
+        <h1 class="govuk-heading-l">What is the nature and form of the arrangement between {{data['dynamic']}} and {{data['v3-1']}}?</h1>
+        {% else %}
+        <h1 class="govuk-heading-l">What is the nature and form of the arrangement with the foreign power?</h1>
+        {% endif %}
+
              <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
     <div>
 
@@ -32,9 +38,9 @@
           id: "v3-2-1",
           value: data['v3-2-1'],
           label: {
-            text: "What is the nature and form of the arrangement with "+data['v3-1']+"?",
-            classes: "govuk-label--l",
-            isPageHeading: true
+            text: "What is the nature and form of the arrangement between "+data['dynamic']+" and "+data['v3-1']+"?",
+            classes: "hidden",
+            isPageHeading: false
           }
         }) }}
 

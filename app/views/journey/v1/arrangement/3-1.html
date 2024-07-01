@@ -21,66 +21,269 @@
     <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l">About the arrangement</span>
         {% if (data['titles']) == "dynamic" %}
-        <h1 class="govuk-heading-l">Does {{data['dynamic']}} have an arrangement with a foreign power?</h1>
-        {% elseif (data['titles']) == "static" %}
-        <h1 class="govuk-heading-l">Does {{data['dynamic']}} have an arrangement with a foreign power?</h1>
-        {% endif %}
+        <h1 class="govuk-heading-l">Is {{data['dynamic']}} in an arrangement with a foreign power listed here?</h1>
+
          <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
             
         <form class="form" action="/route/3-1" method="post">
 
-            {{ govukRadios({
-            name: "v3-1",
-            value: data["v3-1"],
-            fieldset: {
-                legend: {
-                    text: "Do you have an agreement with any of these foreign powers?",
-                    classes: "hidden"
-                }
-            },
-            items: [
-                {
-                    value: "Foreign Power 1",
-                    text: "Foreign Power 1"
-                },
-                {
-                    value: "Foreign Power 2",
-                    text: "Foreign Power 2"
-                },
-                {
-                    divider: "or"
-                },
-                {
-                    value: "None",
-                    text: "No, I do not have an agreement with any of these foreign powers"
-                }
-            ]
-            }) }}
+            <div class="govuk-form-group">
 
-            {{ govukButton({
-            text: "Continue"
-            }) }}
+              <fieldset class="govuk-fieldset">
+                
+                <legend class="govuk-fieldset__legend hidden">
+                
+                  Are you in an arrangement with a foreign power listed here?
+                
+                </legend>
+                
+              
+                <div class="govuk-radios" data-module="govuk-radios">
+                  
+                  
+                    
+                
+                  
+                  
+                  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="v3-1" name="v3-1" type="radio" value="Foreign Power 1">
+                    <label class="govuk-label govuk-radios__label" for="v3-1">
+                      Foreign Power 1
+                    </label>
+                    
+                  </div>
+                  
+                
+                  
+                    
+                
+                  
+                  
+                  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="v3-1-2" name="v3-1" type="radio" value="Foreign Power 2">
+                    <label class="govuk-label govuk-radios__label" for="v3-1-2">
+                      Foreign Power 2
+                    </label>
+                    
+                  </div>
+                  
+                
+                  
+                    
+                
+                  <div class="govuk-radios__divider">or</div>
+                
+                  
+                    
+                
+                  
+                  
+                  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="v3-1-4" name="v3-1" type="radio" value="None">
+                    <label class="govuk-label govuk-radios__label" for="v3-1-4">
+                      No, {{data['dynamic']}} is not have an agreement with any of these foreign powers
+                    </label>
+                    
+                  </div>
+                  
+                
+                  
+                  
+                </div>
+              
+              </fieldset>
 
-            {% from "govuk/components/details/macro.njk" import govukDetails %}
-
-            {{ govukDetails({
-              summaryText: "What is an agreement?",
-              text: "An agreement includes activities ranging from a legally enforceable contract to an informal, but clear, written or verbal understanding."
-            }) }}
+            </div>
 
 
-            {{ govukDetails({
-              summaryText: "What is a foreign power?",
-              html: "<p>A foreign power is: </p>
-              <ul>
-                <li>A head of state</li>
-                <li>A foreign government, or parts of the government, or person doing the same functions</li>
-                <li>An agency, organisation, or authority of a foreign government</li>
-                <li>A political party that is a governing political party of a foreign government </li>
-            </ul>
-            <p>outside the UK, Channel Islands, Isle of Man and the British Overseas Territories.</p>"
-            }) }}
+                        
+              
+                
+              
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+
+                        
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What is an agreement?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                An agreement includes activities ranging from a legally enforceable contract to an informal, but clear, written or verbal understanding.
+              </div>
+            </details>
+
+
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What is a foreign power?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p>A foreign power is: </p>
+                          <ul>
+                            <li>A head of state</li>
+                            <li>A foreign government, or parts of the government, or person doing the same functions</li>
+                            <li>An agency, organisation, or authority of a foreign government</li>
+                            <li>A political party that is a governing political party of a foreign government </li>
+                        </ul>
+                        <p>outside the UK, Channel Islands, Isle of Man and the British Overseas Territories.</p>
+              </div>
+            </details>
+
         </form>
+
+
+        {% else %}
+
+        {% if (data['registrant-type'] == "individual") %}
+        <h1 class="govuk-heading-l">Are you in an arrangement with a foreign power listed here?</h1>
+        {% else %}
+        <h1 class="govuk-heading-l">Is your organisation in an arrangement with a foreign power listed here?</h1>
+        {% endif %}
+              
+        <form class="form" action="/route/3-1" method="post">
+
+            <div class="govuk-form-group">
+
+              <fieldset class="govuk-fieldset">
+                
+                <legend class="govuk-fieldset__legend hidden">
+                
+                  Are you in an arrangement with a foreign power listed here?
+                
+                </legend>
+                
+              
+                <div class="govuk-radios" data-module="govuk-radios">
+                  
+                  
+                    
+                
+                  
+                  
+                  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="v3-1" name="v3-1" type="radio" value="Foreign Power 1">
+                    <label class="govuk-label govuk-radios__label" for="v3-1">
+                      Foreign Power 1
+                    </label>
+                    
+                  </div>
+                  
+                
+                  
+                    
+                
+                  
+                  
+                  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="v3-1-2" name="v3-1" type="radio" value="Foreign Power 2">
+                    <label class="govuk-label govuk-radios__label" for="v3-1-2">
+                      Foreign Power 2
+                    </label>
+                    
+                  </div>
+                  
+                
+                  
+                    
+                
+                  <div class="govuk-radios__divider">or</div>
+                
+                  
+                    
+                
+                  
+                  
+                {% if (data['registrant-type'] == "individual") %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="v3-1-4" name="v3-1" type="radio" value="None">
+                    <label class="govuk-label govuk-radios__label" for="v3-1-4">
+                      No, I do not have an agreement with any of these foreign powers
+                    </label>
+                    
+                  </div>
+                {% else %}
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="v3-1-4" name="v3-1" type="radio" value="None">
+                    <label class="govuk-label govuk-radios__label" for="v3-1-4">
+                      No, my organisation does not have an agreement with any of these foreign powers
+                    </label>
+                    
+                  </div>
+                {% endif %}
+                  
+                  
+                
+                  
+                  
+                </div>
+              
+              </fieldset>
+
+            </div>
+
+
+                        
+              
+                
+              
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+
+                        
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What is an agreement?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                An agreement includes activities ranging from a legally enforceable contract to an informal, but clear, written or verbal understanding.
+              </div>
+            </details>
+
+
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  What is a foreign power?
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <p>A foreign power is: </p>
+                          <ul>
+                            <li>A head of state</li>
+                            <li>A foreign government, or parts of the government, or person doing the same functions</li>
+                            <li>An agency, organisation, or authority of a foreign government</li>
+                            <li>A political party that is a governing political party of a foreign government </li>
+                        </ul>
+                        <p>outside the UK, Channel Islands, Isle of Man and the British Overseas Territories.</p>
+              </div>
+            </details>
+
+        </form>
+
+        {% endif %}
+
 
     </div>
 

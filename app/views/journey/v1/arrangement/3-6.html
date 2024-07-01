@@ -23,14 +23,16 @@
           <h1 class="govuk-heading-l">
             Based on the answers you have provided, {{data['dynamic']}} does not need to register.
           </h1>
-        {% elseif (data['titles']) == "static" %}
-          <h1 class="govuk-heading-l">
-            Based on the answers you have provided, {{data['dynamic']}} does not need to register.
-          </h1>
         {% else %}
+          {% if (data['registrant-type'] == "individual") %}
           <h1 class="govuk-heading-l">
-            Based on the answers you have provided you do not need to register.
+            Based on the answers you have provided, you do not need to register.
           </h1>
+          {% else %}
+          <h1 class="govuk-heading-l">
+            Based on the answers you have provided, your organisation does not need to register.
+          </h1>
+          {% endif %}
         {% endif %}
 
     </div>
