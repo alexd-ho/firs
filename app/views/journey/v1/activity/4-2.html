@@ -45,6 +45,25 @@
 
     <form class="form" action="/group/4-G1?stream=2" method="post">
 
+      {% set otherDetails %}
+      {{ govukInput({
+        id: 'v4-2-other',
+        namePrefix: "v4-2-other",
+        data: "data['v4-2-other']",
+        fieldset: {
+          legend: {
+            text: "Describe the communication",
+            isPageHeading: false
+          }
+        },
+        hint: {
+          text: "Describe the communication"
+        }
+      }) }}
+      {% endset -%}
+
+
+
       {{ govukCheckboxes({
         name: "v4-2",
         values:  data['v4-2'],
@@ -84,7 +103,10 @@
           },
           {
             value: "Other",
-            text: "Other"
+            text: "Other",
+              conditional: {
+                html: otherDetails
+              }
           }
         ]
       }) }}
