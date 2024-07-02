@@ -25,7 +25,9 @@
         <form class="form" action="/route/1-4-2" method="post">
 
             {{ govukRadios({
-	            name: "v1-4-2",
+	            value: data['v1-4-2'],
+				name: "v1-4-2",
+				id: "v1-4-2",
 	            fieldset: {
 		            legend: {
 			            text: "Does the unincorporated association have a different correspondance address?",

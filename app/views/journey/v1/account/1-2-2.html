@@ -25,7 +25,9 @@
         <form class="form" action="/route/1-2-2" method="post">
 
             {{ govukRadios({
-	            name: "v1-2-2",
+                value: data['v1-2-2'],
+				id: "v1-2-2",
+				name: "v1-2-2",
 	            fieldset: {
 		            legend: {
 			            text: "Do you have a different correspondence address?",

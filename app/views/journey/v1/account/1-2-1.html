@@ -31,8 +31,9 @@
 			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
 			{% call govukFieldset({
-				name: "acc-holder-address",
-				values: data['acc-holder-address'],
+                value: data['v1-2-1'],
+				id: "v1-2-1",
+				name: "v1-2-1",
 				legend: {
 				}
 			}) %}
@@ -42,9 +43,9 @@
 				label: {
 				text: "Address line 1"
 				},
-				id: "acc-holder-address-line-1",
-				name: "acc-holder-address-line-1",
-				values: "acc-holder-address-line-1",
+				id: "v1-2-1-line-1",
+				name: "v1-2-1-line-1",
+				values: "v1-2-1-line-1",
 				autocomplete: "address-line1"
 			}) }}
 
@@ -52,8 +53,8 @@
 				label: {
 				text: "Address line 2 (optional)"
 				},
-				id: "acc-holder-address-line-2",
-				name: "acc-holder-address-line-2",
+				id: "v1-2-1-line-2",
+				name: "v1-2-1-line-2",
 				autocomplete: "address-line2"
 			}) }}
 
@@ -61,8 +62,8 @@
 				label: {
 				text: "Address line 3 (optional)"
 				},
-				id: "acc-holder-address-line-3",
-				name: "acc-holder-address-line-3",
+				id: "v1-2-1-line-3",
+				name: "v1-2-1-line-3",
 				autocomplete: "address-line3"
 			}) }}
 
@@ -71,8 +72,8 @@
 				text: "Town or city"
 				},
 				classes: "govuk-!-width-two-thirds",
-				id: "acc-holder-address-town",
-				name: "acc-holder-address-town",
+				id: "v1-2-1-town",
+				name: "v1-2-1-town",
 				autocomplete: "address-level2"
 			}) }}
 
@@ -81,8 +82,8 @@
 				text: "Country"
 				},
 				classes: "govuk-!-width-two-thirds",
-				id: "acc-holder-address-country",
-				name: "acc-holder-address-country",
+				id: "v1-2-1-country",
+				name: "v1-2-1-country",
 				autocomplete: "country"
 			}) }}
 
@@ -91,8 +92,8 @@
 				text: "Postcode"
 				},
 				classes: "govuk-input--width-10",
-				id: "acc-holder-address--postcode",
-				name: "acc-holder-address-postcode",
+				id: "v1-2-1--postcode",
+				name: "v1-2-1-postcode",
 				autocomplete: "postal-code"
 			}) }}
 

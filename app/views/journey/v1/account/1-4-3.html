@@ -31,8 +31,9 @@
 			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
 			{% call govukFieldset({
-				name: "body-corp-correspondance-address",
-				values: data['body-corp-correspondance-address'],
+	            values: data['v1-4-3'],
+				name: "v1-4-3",
+				id: "v1-4-3",
 				legend: {
 				}
 			}) %}
@@ -42,8 +43,8 @@
 				label: {
 				text: "Address line 1"
 				},
-				id: "unincorporated-association-correspondance-address-line-1",
-				name: "unincorporated-association-correspondance-address-line-1",
+				id: "v1-4-3-line-1",
+				name: "v1-4-3-line-1",
 				autocomplete: "address-line1"
 			}) }}
 
@@ -51,8 +52,8 @@
 				label: {
 				text: "Address line 2 (optional)"
 				},
-				id: "unincorporated-association-correspondance-address-line-2",
-				name: "unincorporated-association-correspondance-address-line-2",
+				id: "v1-4-3-line-2",
+				name: "v1-4-3-line-2",
 				autocomplete: "address-line2"
 			}) }}
 
@@ -60,8 +61,8 @@
 				label: {
 				text: "Address line 3 (optional)"
 				},
-				id: "unincorporated-association-correspondance-address-line-3",
-				name: "unincorporated-association-correspondance-address-line-3",
+				id: "v1-4-3-line-3",
+				name: "v1-4-3-line-3",
 				autocomplete: "address-line3"
 			}) }}
 
@@ -70,8 +71,8 @@
 				text: "Town or city"
 				},
 				classes: "govuk-!-width-two-thirds",
-				id: "unincorporated-association-correspondance-address-town",
-				name: "unincorporated-association-correspondance-address-town",
+				id: "v1-4-3-town",
+				name: "v1-4-3-town",
 				autocomplete: "address-level2"
 			}) }}
 
@@ -80,8 +81,8 @@
 				text: "Country"
 				},
 				classes: "govuk-!-width-two-thirds",
-				id: "unincorporated-association-correspondance-address-country",
-				name: "unincorporated-association-correspondance-address-country",
+				id: "v1-4-3-country",
+				name: "v1-4-3-country",
 				autocomplete: "country"
 			}) }}
 
@@ -90,8 +91,8 @@
 				text: "Postcode"
 				},
 				classes: "govuk-input--width-10",
-				id: "unincorporated-association-correspondance-address--postcode",
-				name: "unincorporated-association-correspondance-address-postcode",
+				id: "v1-4-3--postcode",
+				name: "v1-4-3-postcode",
 				autocomplete: "postal-code"
 			}) }}
 
