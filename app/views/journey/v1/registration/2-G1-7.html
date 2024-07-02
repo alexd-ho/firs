@@ -1,5 +1,5 @@
 {% extends "layouts/main-w-nav.html" %}
-{% set bodyClasses = "account" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -27,6 +27,7 @@
 
             {{ govukRadios({
 	            name: "v2-G1-7",
+	            value: data["v2-G1-7"],
 	            fieldset: {
 		            legend: {
 			            text: "Do you have a different correspondence address?",

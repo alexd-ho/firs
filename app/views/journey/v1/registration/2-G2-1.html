@@ -30,11 +30,12 @@
 	        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
 			{{ govukFileUpload({
-			  id: "file-upload-1",
-			  name: "fileUpload1",
-        hint: {
-            html: "<p>Upload your passport, national identity card, or biometric residence card or permit.</p><p> If you have EEA or Swiss nationality, use this.</p>"
-        }
+			  id: "v2-G2-1",
+              value: data['v2-G2-1'],
+			  name: "v2-G2-1",
+                hint: {
+                    html: "<p>Upload your passport, national identity card, or biometric residence card or permit.</p><p> If you have EEA or Swiss nationality, use this.</p>"
+                }
 			}) }}
 
         {{ govukButton({

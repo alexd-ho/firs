@@ -27,8 +27,9 @@
 				{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
 				{{ govukDateInput({
-				  id: "body-corporate-incorporated",
-				  namePrefix: "2-G4-2",
+				  value: data["v2-G4-2"],
+				  id: "v2-G4-2",
+				  namePrefix: "v2-G4-2",
 				  fieldset: {
 				    legend: {
 				      text: "What date was the unincorporated association formed?",

@@ -1,5 +1,5 @@
 {% extends "layouts/main-w-nav.html" %}
-{% set bodyClasses = "account" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
@@ -31,8 +31,8 @@
 			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
 			{% call govukFieldset({
-				name: "registrant-residential-corr-address",
-				values: data['registrant-residential-corr-address'],
+				name: "v2-G1-8",
+				values: data['v2-G1-8'],
 				legend: {
 				}
 			}) %}
@@ -42,8 +42,8 @@
 				label: {
 				text: "Address line 1"
 				},
-				id: "registrant-residential-corr-address-line-1",
-				name: "registrant-residential-corr-address-line-1",
+				id: "v2-G1-8-line-1",
+				name: "v2-G1-8-line-1",
 				autocomplete: "address-line1"
 			}) }}
 
@@ -51,8 +51,8 @@
 				label: {
 				text: "Address line 2 (optional)"
 				},
-				id: "registrant-residential-corr-address-line-2",
-				name: "registrant-residential-corr-address-line-2",
+				id: "v2-G1-8-line-2",
+				name: "v2-G1-8-line-2",
 				autocomplete: "address-line2"
 			}) }}
 
@@ -60,8 +60,8 @@
 				label: {
 				text: "Address line 3 (optional)"
 				},
-				id: "registrant-residential-corr-address-line-3",
-				name: "registrant-residential-corr-address-line-3",
+				id: "v2-G1-8-address-line-3",
+				name: "v2-G1-8-address-line-3",
 				autocomplete: "address-line3"
 			}) }}
 
@@ -70,8 +70,8 @@
 				text: "Town or city"
 				},
 				classes: "govuk-!-width-two-thirds",
-				id: "registrant-residential-corr-address-town",
-				name: "registrant-residential-corr-address-town",
+				id: "v2-G1-8-town",
+				name: "v2-G1-8-town",
 				autocomplete: "address-level2"
 			}) }}
 
@@ -80,8 +80,8 @@
 				text: "Country"
 				},
 				classes: "govuk-!-width-two-thirds",
-				id: "registrant-residential-corr-address-country",
-				name: "registrant-residential-corr-address-country",
+				id: "v2-G1-8-country",
+				name: "v2-G1-8-country",
 				autocomplete: "country"
 			}) }}
 
@@ -90,8 +90,8 @@
 				text: "Postcode"
 				},
 				classes: "govuk-input--width-10",
-				id: "registrant-residential-corr-address--postcode",
-				name: "registrant-residential-corr-address-postcode",
+				id: "v2-G1-8-postcode",
+				name: "v2-G1-8-postcode",
 				autocomplete: "postal-code"
 			}) }}
 
