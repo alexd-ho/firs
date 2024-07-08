@@ -102,8 +102,8 @@
                 <div class="person-texts">
                 </div>
                 <div class="person-actions  govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save</a></li>
-                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete</a></li>
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save  <span class="govuk-visually-hidden"> this person or organisation, and minimise this panel </span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
                 </div>
             </div>
 
@@ -113,8 +113,12 @@
                     <div class="govuk-heading-m min-label__name"></div>
                 </div>
                 <div class="person-actions  govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit</a></li>
-                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete</a></li>
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit <span class="govuk-visually-hidden"> this person or organisation</span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions govuk-summary-card__actions--undo">
+                    <li class="govuk-summary-card__action govuk-summary-card__action--undo"><a href="#"  class="govuk-link button--undo">Undo <span class="govuk-visually-hidden"> the deletion of this person or organisation</span></a></li>
+                    <li class="govuk-summary-card__action govuk-summary-card__action--confirm"><a href="#"  class="govuk-link button--confirm">Confirm <span class="govuk-visually-hidden"> the deletion of this person or organisation - this action is irreversible</span></a></li>
                 </div>
             </div>
 
@@ -123,7 +127,7 @@
       </div>
 
         <div id="add-another-button"  class="govuk-!-padding-top-5">
-          <a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another person or organisation</a>
+          <a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another</a>
         </div>
 
         {{ govukButton({
@@ -312,8 +316,8 @@ function addNew() {
                 <div class="person-texts">
                 </div>
                 <div class="person-actions  govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save</a></li>
-                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete</a></li>
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save  <span class="govuk-visually-hidden"> this person or organisation, and minimise this panel </span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
                 </div>
             </div>
 
@@ -323,8 +327,12 @@ function addNew() {
                     <div class="govuk-heading-m min-label__name"></div>
                 </div>
                 <div class="person-actions  govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit</a></li>
-                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete</a></li>
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit <span class="govuk-visually-hidden"> this person or organisation</span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions govuk-summary-card__actions--undo">
+                    <li class="govuk-summary-card__action govuk-summary-card__action--undo"><a href="#"  class="govuk-link button--undo">Undo <span class="govuk-visually-hidden"> the deletion of this person or organisation</span></a></li>
+                    <li class="govuk-summary-card__action govuk-summary-card__action--confirm"><a href="#"  class="govuk-link button--confirm">Confirm <span class="govuk-visually-hidden"> the deletion of this person or organisation - this action is irreversible</span></a></li>
                 </div>
             </div>
 
@@ -343,7 +351,17 @@ function addNew() {
         return false;
     })
     $('.button--delete').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
         $(this).closest(".person-module").addClass('person-module--delete')
+        return false;
+    })
+    $('.button--undo').on('click', function() {
+        $(this).closest(".person-module").removeClass('person-module--delete')
+        return false;
+    })
+    $('.button--confirm').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--deleted')
         return false;
     })
 
