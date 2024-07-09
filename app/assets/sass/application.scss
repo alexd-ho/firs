@@ -102,6 +102,34 @@
 }
 
 
+.exception-checkbox {
+    // top: 10px;
+    position: relative;
+
+    &:before {
+        left: 0;
+        width: 24px;
+        height: 24px;
+        // content: "";
+        display: inline-block;
+        outline: 2px solid black;        
+    }
+
+    input {
+        // opacity: 0;
+        // position: relative;
+        // left: -999em;
+
+        width: 24px;
+        height: 24px;
+
+        &:hover {
+            border: 5px solid rgba(0,0,0,0.5);
+        }
+    }
+
+}
+
 /// NAV
 
 body.home li.li-home {border-bottom: 4px solid #1d70b8;}
