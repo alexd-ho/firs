@@ -124,6 +124,9 @@ function dynamicTitle () {
 function addNew() {
 
     var newNameId = 2;
+    var itemCount = 0;
+    const maxItems = 3;
+
     var addAnotherButton = document.getElementById('add-another-button');
     var names = document.getElementById('js-activity-wrapper');
 
@@ -136,11 +139,13 @@ function addNew() {
     addAnotherButton.onclick = function () {
 
       $('.person-module').addClass('person-module--hidden');
+      $('.person-module').removeClass('person-module--new');
+
 
       var s = stringToHTML(`
       
         {% call govukFieldset({
-          classes: "person-module",
+          classes: "person-module person-module--new",
           legend: {
             text: "Person or Organisation ${newNameId}",
             classes: "hidden",
@@ -202,41 +207,65 @@ function addNew() {
         {% endcall %}
       `);
 
+      $('.button--update').on('click', function() {
+          $(this).closest(".person-module").removeClass('person-module--hidden');
+          $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+          return false;
+      })
+      $('.button--save').on('click', function() {
+          $(this).closest(".person-module").addClass('person-module--hidden');
+          $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+          return false;
+      })
+      $('.button--delete').on('click', function() {
+          $(this).closest(".person-module").addClass('person-module--hidden');
+          $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+          $(this).closest(".person-module").addClass('person-module--delete');
+          return false;
+      })
+      $('.button--undo').on('click', function() {
+          $(this).closest(".person-module").removeClass('person-module--delete');
+          return false;
+      })
+      $('.button--confirm').on('click', function() {
+          $(this).closest(".person-module").addClass('person-module--deleted');
+          console.log('item deleted');
 
-    $('.button--update').on('click', function() {
-        $(this).closest(".person-module").removeClass('person-module--hidden');
-        $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
-        return false;
-    })
-    $('.button--save').on('click', function() {
-        $(this).closest(".person-module").addClass('person-module--hidden');
-        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
-        return false;
-    })
-    $('.button--delete').on('click', function() {
-        $(this).closest(".person-module").addClass('person-module--hidden');
-        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
-        $(this).closest(".person-module").addClass('person-module--delete')
-        return false;
-    })
-    $('.button--undo').on('click', function() {
-        $(this).closest(".person-module").removeClass('person-module--delete')
-        return false;
-    })
-    $('.button--confirm').on('click', function() {
-        $(this).closest(".person-module").addClass('person-module--deleted')
-        return false;
-    })
+          if (itemCount == maxItems) {
+            $(addAnotherButton).removeClass('hidden');
+            $('.person-module--new').removeClass('hidden');
+            itemCount = maxItems -1;
+            console.log('removed max item, show form again');
+          } else if (itemCount != maxItems) {
+            itemCount = itemCount -1;
+            console.log('removed item, form should still show');
+          }
+
+          console.log('count: '+itemCount+'/'+maxItems);
+          return false;
+      })
 
 
 
+      itemCount++;
+      newNameId++;
 
       names.appendChild(s);
+
+      if (itemCount == maxItems) {
+        $(addAnotherButton).addClass('hidden');
+        $('.person-module--new').addClass('hidden');
+      };
+
       // document.getElementById("industry"+newNameId).focus();
-      newNameId++;
+      console.log('next item: '+newNameId);
+      console.log('count: '+itemCount+'/'+maxItems);
       return false;
-      console.log(newNameId);
+
     };
+
+
+
     
 };
 
