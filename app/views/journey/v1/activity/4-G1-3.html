@@ -21,7 +21,10 @@
       <span class="govuk-caption-l">Add an activity</span>
 
       <h1 class="govuk-heading-l">Who else is involved in the activity?</h1>
-      <div class="govuk-hint">Add as many people and organisations as required, or leave empty if no one else is involved</div>
+      <div class="govuk-hint">
+        <p>Add up to eight people or organisations as required, or leave empty if no one else is involved. </p>
+        <p>Where groups of people are being added, if this group includes more than 3 people, only add the lead person of that group.</p>
+      </div>
       
       <form action="/route/4-G1-return-{{data['stream']}}" method="post">
 
@@ -125,7 +128,7 @@ function addNew() {
 
     var newNameId = 2;
     var itemCount = 0;
-    const maxItems = 3;
+    const maxItems = 8;
 
     var addAnotherButton = document.getElementById('add-another-button');
     var names = document.getElementById('js-activity-wrapper');

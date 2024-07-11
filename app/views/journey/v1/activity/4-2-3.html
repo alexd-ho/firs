@@ -166,16 +166,105 @@
 
         </dl>
 
+        
+        <form action="/route/4-exception?exception-type={{data['stream']}}" method="post">
+            
+            {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+            {% set exceptionOptions %}
+            {{ govukCheckboxes({
+              name: "exception-reason",
+              id: "exception-reason",
+              values: data['exception-reason'],
+              classes: "govuk-checkboxes--small",
+              fieldset: {
+                legend: {
+                  text: "What is the reason for the exception?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--s"
+                }
+              },
+              hint: {
+                text: "You will be asked to supply evidence and detailed reasoning for the exception, after you have submitted this activity."
+              },
+              items: [
+                {
+                  value: "Safety to the UK",
+                  text: "Safety to the UK",
+                  hint: {
+                    text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
+                  }
+                },
+                {
+                  value: "Risk to the safety of an individual",
+                  text: "Risk to the safety of an individual",
+                  hint: {
+                    text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
+                  }
+                },
+                {
+                  value: "Prejudicial to criminal investigation",
+                  text: "Prejudicial to criminal investigation",
+                  hint: {
+                    text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
+                  }
+                },
+                {
+                  value: "Commercially sensitive",
+                  text: "Commercially sensitive",
+                  hint: {
+                    text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
+                  }
+                }
+              ]
+            }) }}
+            {% endset -%}
+            
+            {{ govukCheckboxes({
+              name: "exception-request",
+              id: "exception-request",
+              values: data['exception-request'],
+              fieldset: {
+                legend: {
+                  text: "Do you need to request an exception?",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "If you need to register an exception as part of this activity, check this box. You can also return and request an exception at a later date."
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: "I would like to register an exception",
+                    conditional: {
+                        html: exceptionOptions
+                    }
+                }
+              ]
+            }) }}
 
 
+
+            {{ govukButton({
+              text: "Submit activity"
+            }) }}
+
+
+            
+        </form>
+
+
+<!--
       <div class="govuk-button-group">
 
-        <a href="/journey/v1/activity" class="govuk-button ">Save and close activity</a>
+        <a href="/journey/v1/activity" class="govuk-button ">Save activity</a>
 
-        <a href="/journey/v1/activity" class="govuk-button govuk-button--secondary">Add another activity</a>
+        <a href="/journey/v1/activity/4-exception" class="govuk-button govuk-button--secondary">Save activity and regsiter exception</a>
 
       </div>
-
+-->
     </div>
   </div>
 

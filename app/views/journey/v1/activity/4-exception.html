@@ -19,10 +19,20 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
+        {% if (data['refer'] == "yes") %}
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: "You have five working days to submit a request for an exception before your registered activities may be published on the register.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        {% endif %}
+        
         <h1 class="govuk-heading-xl">
-            Public regsiter details
+            Request an exception
         </h1>
-        <p>This page shows how the activity will look on the public register. If you would like to request some of the data shown here to be removed from the public register, you can request an exception below.</p>
+        <p>This page shows how details supplied as part of your registration will appear on the public register. If you would like to request some of the data shown here to be removed from the public register, you can request an exception below, and it will be reviewed by the Home Office. You can <a href="">read more about requesting an exception here</a>.</p>
         <p>If you need to notify us of any material changes to any of these details, you can <a href="">submit a request for change</a>.</p>
 
     </div>
@@ -33,6 +43,8 @@
 
     <div class="govuk-grid-column-full">
         <!-- <h2 class="govuk-heading-m">Public regsiter details</h2> -->
+
+
 
         {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
@@ -78,6 +90,23 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                   Sheffield, UK
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                </dd>
+                
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Year of Birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  1977
                 </dd>
                 
                 <dd class="govuk-summary-list__actions">
@@ -670,6 +699,7 @@
           name: "exception-reason",
           id: "exception-reason",
           values: data['exception-reason'],
+          classes: "govuk-checkboxes--small",
           fieldset: {
             legend: {
               text: "What is the reason for exception?",
@@ -682,22 +712,31 @@
           },
           items: [
             {
-              value: "british",
-              text: "Safety to the UK"
+              value: "Safety to the UK",
+              text: "Safety to the UK",
+              hint: {
+                text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
+              }
             },
             {
-              value: "irish",
-              text: "Safety to the individual"
+              value: "Risk to the safety of an individual",
+              text: "Risk to the safety of an individual",
+              hint: {
+                text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
+              }
             },
             {
-              value: "other",
-              text: "Prejudicial to criminal investigation"
+              value: "Prejudicial to criminal investigation",
+              text: "Prejudicial to criminal investigation",
+              hint: {
+                text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
+              }
             },
             {
-              value: "other",
+              value: "Commercially sensitive",
               text: "Commercially sensitive",
               hint: {
-                text: "Including confidential or negatively affected impact"
+                text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
               }
             }
           ]
@@ -711,12 +750,23 @@
           id: "more-detail",
           values: data['more-detail'],
           label: {
-            text: "Provide more detail for your exception",
+            text: "Provide detailed reasoning for your exception",
             classes: "govuk-label--m",
             isPageHeading: true
           },
           hint: {
-            text: "Do not include personal or financial information, like your National Insurance number or credit card details."
+            text: "Describe in detail your reasoning for requesting an exception. This will be reviewed and an outcome decided by the Home Office. If you have any supporting documents such as police reports, NDAs, or contracts, these can be uploaded separately. "
+          }
+        }) }}
+
+
+        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+        {{ govukFileUpload({
+          id: "file-upload-1",
+          name: "fileUpload1",
+          label: {
+            text: "Upload supporting documents. All documents will be stored securely and used only as part of the exception review process."
           }
         }) }}
 
