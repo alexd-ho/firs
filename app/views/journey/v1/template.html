@@ -20,6 +20,13 @@
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
+          {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+          {{ govukWarningText({
+            text: "Warning Text - you can be fined up to £5,000 if you do not register.",
+            iconFallbackText: "Warning"
+          }) }}
+
           {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
           {{ govukInsetText({
@@ -28,7 +35,7 @@ additional information about the page."
           }) }}          
 
 
-          <span class="govuk-caption-l">Caption heading</span>
+          <span class="govuk-caption-l">Caption</span>
              <!-- [registrant-type: {{data['registrant-type']}} // mode: {{data['mode']}} ] -->
   
 
@@ -41,10 +48,10 @@ additional information about the page."
           type: "text",
           classes: "govuk-!-width-two-thirds",
           label: {
-            text: "Conditional Field"
+            text: "Conditional Field Label"
           },
           hint: {
-            text: "Hint text for the conditional field"
+            text: "Hint Text for the conditional field"
           }
         }) }}
         {% endset -%}
@@ -54,36 +61,36 @@ additional information about the page."
             name: "v3-0",
             fieldset: {
               legend: {
-              text: "Page title, which should be a question?",
+              text: "Title, which should be a question?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
               }
             },
             hint: {
-              text: "Hint text, to help the user understand the question and how to answer it"
+              text: "Hint Text, used to help the user understand the question and how to answer it"
             },
             items: [
               {
                 value: "yes",
-                text: "Label text for option 1"
+                text: "Label text for Checkbox 1"
               },
               {
                 value: "no",
-                text: "Label text for option 2",
+                text: "Label text for Checkbox 2",
                 hint: {
-                  text: "Further hint text to add more context for this option"
+                  text: "Label Hint Text, to add more context for this option"
                 }
               },
               {
                 value: "no",
-                text: "Label text for option 3"
+                text: "Label text for Checkbox 3"
               },
               {
                   divider: "divider"
               },
               {
                 value: "no",
-                text: "Label text for exclusive option, that also has a conditional field",
+                text: "Label text for an 'Exclusive' Checkbox, that also has a conditional field when selected",
                 behaviour: "exclusive",
                 conditional: {
                   html: startDate
@@ -113,16 +120,149 @@ additional information about the page."
         {% from "govuk/components/details/macro.njk" import govukDetails %}
 
         {{ govukDetails({
-          summaryText: "More info",
-          text: "Expandable text box to provide more information on a subject or term used in the above question."
+          summaryText: "More Info (title)",
+          text: "More Info - expandable text box to provide more information on a subject or term used in the above question."
         }) }}
 
+
+        <hr>
+        <p>&nbsp;</p>
+        <h3 class="govuk-heading-m">Other Field Types:</h3>
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "Text Input",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          id: "event-name",
+          name: "eventName"
+        }) }}
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+        {{ govukTextarea({
+          name: "moreDetail",
+          id: "more-detail",
+          label: {
+            text: "Text Area",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Text Area Hint Text"
+          }
+        }) }}
+
+        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+        {{ govukDateInput({
+          id: "passport-issued",
+          namePrefix: "passport-issued",
+          fieldset: {
+            legend: {
+              text: "Date Field",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 27 3 2007"
+          }
+        }) }}
+
+
+        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+        {{ govukFileUpload({
+          id: "file-upload-1",
+          name: "fileUpload1",
+          label: {
+            classes: "govuk-label--m",
+            text: "File Upload"
+          }
+        }) }}
+
+
+        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+        {% set html %}
+          <p class="govuk-notification-banner__heading">
+            Notification Banner.
+            <a class="govuk-notification-banner__link" href="#">Notification Link</a>.
+          </p>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: html
+        }) }}
+
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "whereDoYouLive",
+          fieldset: {
+            legend: {
+              text: "Radio Buttons",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "england",
+              text: "Option 1"
+            },
+            {
+              value: "scotland",
+              text: "Option 2"
+            },
+            {
+              value: "wales",
+              text: "Option 3"
+            }
+          ]
+        }) }}
+
+
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {{ govukSelect({
+          id: "sort",
+          name: "sort",
+          label: {
+            classes: "govuk-label--m",
+            text: "Select"
+          },
+          items: [
+            {
+              value: "published",
+              text: "Recently published"
+            },
+            {
+              value: "updated",
+              text: "Recently updated",
+              selected: true
+            },
+            {
+              value: "views",
+              text: "Most views"
+            },
+            {
+              value: "comments",
+              text: "Most comments"
+            }
+          ]
+        }) }}
         
         <!-- <p>
         {{ data['activityTypes'] }}
         </p> -->
 
-        </div>
-        </div>
+      </div>
+    </div>
 
 {% endblock %}
