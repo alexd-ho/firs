@@ -31,50 +31,60 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
+        <h1 class="govuk-heading-xl">
         Register an activity
-      </h1>
+        </h1>
 
-      <p>In this section you will be asked about the details of the activity for this arrangement.</p>
-      <p>You will need:</p>
+        <p>In this section, you will be asked about the details of an activity for this agreement.</p>
 
-      <ul class="govuk-list govuk-list--bullet">
-        <li>Type of activity</li>
-        <li>Names and roles of poeple conducting the activity</li>
-        <li>Expected outcome of the activity</li>
-        <li>Dates of the activity</li>
-      </ul>
+        {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-      <p>Registering takes around 5 minutes.</p>
+        {{ govukDetails({
+          summaryText: "What is an activity?",
+          text: "An activity is any action that involves at least one other party, and works towards the desired outcome of the agreement."
+        }) }}
 
-      {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+        <p>You will need:</p>
 
-      {{ govukInsetText({
-        text: "Some of the information you provide might appear on a public register. You can request this information be kept hidden. You will have the opportunity to request this after you have submitted your activity, and before the activity is published on the public register."
-      }) }}
+        <ul class="govuk-list govuk-list--bullet">
+            <li>The type of activity</li>
+            <li>The names and roles of people conducting the activity</li>
+            <li>The dates of the activity</li>
+            <li>The expected outcome of the activity</li>
+        </ul>
 
-      {{ govukButton({
+        <p>Registering takes around 5 minutes.</p>
+
+        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+        {{ govukInsetText({
+            html: "<p>Some of the information you provide may appear on a public register.</p>
+            <p>You can make a request for any information that would appear on the public register to remain private.</p>
+            <p>You can request for the information to remain private after you have registered your activity, and before the activity is published on the public register.</p>"
+        }) }}
+
+        {{ govukButton({
         text: "Start now",
         href: "#",
         isStartButton: true
-      }) }}
+        }) }}
 
 
 
-      <p>
+        <p>
         You can also <a href="#">register by post</a>.
-      </p>
+        </p>
 
-      <p>
+        <p>
         The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
-      </p>
+        </p>
 
-      <p>
+        <p>
         You can’t register for this service if you’re in the UK illegally.
-      </p>
+        </p>
 
     </div>
 
@@ -82,23 +92,18 @@
 
       <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
+          More information
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
               <a href="#">
-                Related link
+                Request an exception
               </a>
             </li>
             <li>
               <a href="#">
-                Related link
-              </a>
-            </li>
-            <li>
-              <a href="#" class="govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
+                Terms and conditions
               </a>
             </li>
           </ul>

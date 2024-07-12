@@ -179,13 +179,13 @@
               classes: "govuk-checkboxes--small",
               fieldset: {
                 legend: {
-                  text: "What is the reason for the exception?",
+                  text: "Why do you want this information to remain private?",
                   isPageHeading: true,
                   classes: "govuk-fieldset__legend--s"
                 }
               },
               hint: {
-                text: "You will be asked to supply evidence and detailed reasoning for the exception, after you have submitted this activity."
+                text: "You will need to give evidence on the next page to keep this information private."
               },
               items: [
                 {
@@ -220,24 +220,30 @@
             }) }}
             {% endset -%}
             
-            {{ govukCheckboxes({
+            {{ govukRadios({
               name: "exception-request",
               id: "exception-request",
-              values: data['exception-request'],
+              value: data['exception-request'],
               fieldset: {
                 legend: {
-                  text: "Do you need to request an exception?",
+                  text: "Do you want to request that the information remains private?",
                   isPageHeading: false,
                   classes: "govuk-fieldset__legend--m"
                 }
               },
               hint: {
-                text: "If you need to register an exception as part of this activity, check this box. You can also return and request an exception at a later date."
+                classes: "govuk-hint",
+                html: "<p>Some of the information about this activity will appear on a public register. You can make a request for the information to remain private if you have a legitimate reason.</p>
+                <p> To request that some of this information remains private, check this box.</p>"
               },
               items: [
                 {
+                  value: "No",
+                  text: "I am aware this information will appear on a public register."
+                },
+                {
                   value: "Yes",
-                  text: "I would like to register an exception",
+                  text: "I would like to request that the information remains private.",
                     conditional: {
                         html: exceptionOptions
                     }
