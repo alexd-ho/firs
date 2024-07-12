@@ -1038,7 +1038,7 @@ router.post('/route/4-G2-return', function(request, response) {
 router.post('/route/4-exception', function(request, response) {
     var exception = request.session.data['exception-request'];
     if (exception == "Yes") {
-        response.redirect(activity+"4-exception?refer=yes")
+        response.redirect(activity+"4-exception-a?refer=yes")
     } else  {
         response.redirect(activity)
     }
