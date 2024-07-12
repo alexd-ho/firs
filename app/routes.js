@@ -1044,6 +1044,15 @@ router.post('/route/4-exception', function(request, response) {
     }
 })
 
+router.post('/route/4-exception-b', function(request, response) {
+    var exception = request.session.data['exception-request'];
+    if (exception == "Yes") {
+        response.redirect(activity+"4-exception-b?refer=yes")
+    } else  {
+        response.redirect(activity)
+    }
+})
+
 
 
 
