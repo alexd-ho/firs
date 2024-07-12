@@ -223,7 +223,6 @@
             {{ govukRadios({
               name: "exception-request",
               id: "exception-request",
-              value: data['exception-request'],
               fieldset: {
                 legend: {
                   text: "Do you want to request that the information remains private?",
@@ -233,22 +232,20 @@
               },
               hint: {
                 classes: "govuk-hint",
-                html: "<p>Some of the information about this activity will appear on a public register. You can make a request for the information to remain private if you have a legitimate reason.</p>
-                <p> To request that some of this information remains private, check this box.</p>"
+                html: "<p>Some of the information about this activity will appear on a public register. You can make a request for the information to remain private if you have a legitimate reason.</p>"
               },
               items: [
-                {
-                  value: "No",
-                  text: "I am aware this information will appear on a public register."
-                },
                 {
                   value: "Yes",
                   text: "I would like to request that the information remains private.",
                     conditional: {
                         html: exceptionOptions
                     }
-                }
-              ]
+                },
+                {
+                  value: "No",
+                  text: "I am aware this information will appear on a public register."
+                }              ]
             }) }}
 
 
