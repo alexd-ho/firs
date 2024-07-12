@@ -19,17 +19,8 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        {% if (data['refer'] == "yes") %}
-        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
-        {{ govukWarningText({
-          text: "You have five working days to submit a request for an exception before your registered activities may be published on the register.",
-          iconFallbackText: "Warning"
-        }) }}
-        {% endif %}
-
         <h1 class="govuk-heading-xl">
-            Request an exception
+            Public register details
         </h1>
 
     </div>
@@ -40,8 +31,10 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <p>This page shows how details supplied as part of your registration will appear on the public register. If you would like to request some of the data shown here to be removed from the public register, you can request an exception here, and it will be reviewed by the Home Office. <!--You can <a href="">read more about requesting an exception here</a>.--></p>
-        <p>If you need to notify us of any material changes to any of these details, you can <a href="">submit a request for change</a>.</p>
+        <p>This page shows the information that will appear on the public register. You can make a request for the information to remain private if you have a legitimate reason.</p>
+        <p>If you make a request for the information to remain private, none of the information will appear on the public register until the request is resolved.</p>
+        <p>If you need to notify us of any material changes to any of this information, you can
+ <a href="">submit a request for change</a>.</p>
     </div>
     <div class="govuk-grid-column-one-third govuk-prototype-kit-common-templates-related-items--">
         <h2 class="govuk-heading-m">More Information</h2>
