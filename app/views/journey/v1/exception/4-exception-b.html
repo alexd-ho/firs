@@ -16,24 +16,42 @@
 
 {% block content %}
 
+
+
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+        {{ govukPanel({
+          titleText: "Application complete",
+          html: "Your reference number<br><strong>HDJ2123F</strong>"
+        }) }}
+
+
+        {% if (data['refer'] == "yes") %}
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: "You have five working days to submit a request for an exception before your registered activities may be published on the register.",
+          iconFallbackText: "Warning"
+        }) }}
+        {% endif %}
 
         <h1 class="govuk-heading-xl">
             Public register details
         </h1>
 
     </div>
-</div>
 
+</div>
 
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <p>This page shows the information that will appear on the public register. You can make a request for the information to remain private if you have a legitimate reason.</p>
-        <p>If you do not want to make a request for the information to remain private, submit your activity.</p>
-        <p>If you make a request for the information to remain private, none of the information will appear on the public register until the request is resolved.</p>
-        <p>If you need to notify us of any material changes to any of this information, you can <a href="">submit a request for change</a>.</p>
+        <p>This page shows how details supplied as part of your registration will appear on the public register. If you would like to request some of the data shown here to be removed from the public register, you can request an exception here, and it will be reviewed by the Home Office. <!--You can <a href="">read more about requesting an exception here</a>.--></p>
+        <p>If you need to notify us of any material changes to any of these details, you can <a href="">submit a request for change</a>.</p>
     </div>
     <div class="govuk-grid-column-one-third govuk-prototype-kit-common-templates-related-items--">
         <h2 class="govuk-heading-m">More Information</h2>
@@ -61,7 +79,7 @@
           <div class="govuk-summary-card__title-wrapper">
           
             <h2 class="govuk-summary-card__title">
-              Registrant - A
+              Registrant
             </h2>
             <div class="govuk-summary-card__actions">
               <span class="govuk-body" style="margin: 0;">Request exception</span>
@@ -131,120 +149,6 @@
             </dl>
           </div>
         </div>
-
-
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-          
-            <h2 class="govuk-summary-card__title">
-              Registrant - B
-            </h2>
-            <div class="govuk-summary-card__actions">
-              <span class="govuk-body" style="margin: 0;">Request exception</span>
-            </div>
-          
-          
-          </div>
-
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-            
-              
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Name
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  ABC
-                </dd>
-                
-                <dd class="govuk-summary-list__actions ">
-                    <label class="exception-checkbox">
-                        <input class="" name="organisation" type="checkbox" value="value">
-                        <span class="govuk-visually-hidden">Select data for exception</span>
-                    </label>
-                </dd>
-                
-              </div>
-              
-            
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Trading Name
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  ABC Ltd
-                </dd>
-                
-                <dd class="govuk-summary-list__actions ">
-                    <label class="exception-checkbox">
-                        <input class="" name="organisation" type="checkbox" value="value">
-                        <span class="govuk-visually-hidden">Select data for exception</span>
-                    </label>
-                </dd>
-                
-              </div>
-              
-            
-              
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Companies House
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  12345678
-                </dd>
-                
-                <dd class="govuk-summary-list__actions">
-                    <label class="exception-checkbox">
-                        <input class="" name="organisation" type="checkbox" value="value">
-                        <span class="govuk-visually-hidden">Select data for exception</span>
-                    </label>
-                </dd>
-                
-              </div>
-
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Country or territory of incorporation
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  UK
-                </dd>
-                
-                <dd class="govuk-summary-list__actions">
-                    <label class="exception-checkbox">
-                        <input class="" name="organisation" type="checkbox" value="value">
-                        <span class="govuk-visually-hidden">Select data for exception</span>
-                    </label>
-                </dd>
-                
-              </div>
-              
-            
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Registered Address
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Address Line 1, City, PO5T C0D3
-                </dd>
-                
-                <dd class="govuk-summary-list__actions">
-                    <label class="exception-checkbox">
-                        <input class="" name="organisation" type="checkbox" value="value">
-                        <span class="govuk-visually-hidden">Select data for exception</span>
-                    </label>
-                </dd>
-                
-              </div>
-              
-            
-            </dl>
-          </div>
-        </div>
-
-
 
 
         <div class="govuk-summary-card">
@@ -856,8 +760,6 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        <p>To make a request for the information to remain private, select the information in the table, then fill in this form.</p>
-
         {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
         
         {{ govukCheckboxes({
@@ -867,41 +769,41 @@
           classes: "govuk-checkboxes--small",
           fieldset: {
             legend: {
-              text: "Why do you want the information to remain private?",
+              text: "What is the reason for exception?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
           },
           hint: {
-            text: "Select all that apply."
+            text: "Select all that apply"
           },
           items: [
             {
               value: "Safety to the UK",
               text: "Safety to the UK",
               hint: {
-                text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK."
+                text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
               }
             },
             {
-              value: "Safety to the individual",
-              text: "Safety to the individual",
+              value: "Risk to the safety of an individual",
+              text: "Risk to the safety of an individual",
               hint: {
-                text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm."
+                text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
               }
             },
             {
               value: "Prejudicial to criminal investigation",
               text: "Prejudicial to criminal investigation",
               hint: {
-                text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime."
+                text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
               }
             },
             {
               value: "Commercially sensitive",
               text: "Commercially sensitive",
               hint: {
-                text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity."
+                text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
               }
             }
           ]
@@ -915,7 +817,7 @@
           id: "more-detail",
           values: data['more-detail'],
           label: {
-            text: "Tell us as much information as possible to support your request",
+            text: "Provide detailed reasoning for your exception",
             classes: "govuk-label--m",
             isPageHeading: true
           },
@@ -931,7 +833,7 @@
           id: "file-upload-1",
           name: "fileUpload1",
           label: {
-            text: "Upload documents to support your request."
+            text: "Upload supporting documents. All documents will be stored securely and used only as part of the exception review process."
           }
         }) }}
 
@@ -939,8 +841,8 @@
             <h3 class="govuk-heading-m">Declaration</h3>
             <p>I confirm that:</p>
             <ul>
-                <li>the information I have provided is true and correct to the best of my knowledge.</li>
-                <li>I have read the <a href="">terms and conditions</a>.</li>
+                <li>the information I have provided in this exception is true and correct to the best of my knowledge</li>
+                <li>I have read the <a href="">terms and conditions</a> relating to exceptions</li>
             </ul>
         </div>
 
@@ -963,7 +865,7 @@
           items: [
             {
               value: "british",
-              text: "I understand and agree with the declaration."
+              text: "I understand and agree with the declaration"
             }
 
           ]

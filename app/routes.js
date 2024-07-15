@@ -493,6 +493,7 @@ var registration = '/journey/v1/registration/';
 var arrangement = '/journey/v1/arrangement/';
 var agreement = '/journey/v1/agreement/';
 var activity = '/journey/v1/activity/';
+var exception = '/journey/v1/exception/';
 
 
 /// JOURNEY / ACCOUNT
@@ -1052,6 +1053,19 @@ router.post('/route/4-exception-b', function(request, response) {
         response.redirect(activity)
     }
 })
+
+
+// EXCEPTIONS
+router.post('/route/exception-check', function(request, response) {
+    var val = request.session.data['exception-request'];
+    if (val == "Yes") {
+        response.redirect(exception+"registration-complete?hold-activity=yes")
+    } else  {
+        response.redirect(exception+"registration-complete?hold-activity=no")
+    }
+})
+
+
 
 
 

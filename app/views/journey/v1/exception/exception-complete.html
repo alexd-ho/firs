@@ -1,0 +1,50 @@
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+        {{ govukPanel({
+          titleText: "Exception complete",
+          html: "Your reference number<br><strong>HDJ2123F</strong>"
+        }) }}
+
+
+        <p>We have sent you a confirmation email.</p>
+
+        <h2 class="govuk-heading-m">
+            What happens next
+        </h2>
+        
+        <p>We'll check the details of your exception.</p>
+
+        <p>We'll contact you either to confirm your exception, or to ask for more information.</p>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}
