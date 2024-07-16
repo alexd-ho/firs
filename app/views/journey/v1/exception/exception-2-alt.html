@@ -19,8 +19,8 @@
    meta: {
      items: [
        {
-         href: "exception-2-alt",
-         text: "Alternate condensed version"
+         href: "exception-2",
+         text: "Alternate extended version"
        },
        {
          href: "/manage-prototype",
@@ -42,7 +42,7 @@
 
 
 
-<form action="exception-3" method="post">
+<form action="exception-check" method="post">
 
 
   <div class="govuk-grid-row">
@@ -95,6 +95,34 @@
               }
             ]
           }) }}
+
+
+          {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+          
+          {{ govukTextarea({
+            name: "more-detail",
+            id: "more-detail",
+            value: data['more-detail'],
+            label: {
+              text: "Describe in detail your reasoning for requesting an exception",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            hint: {
+              text: "This will be reviewed and an outcome decided by the Home Office. "
+            }
+          }) }}
+
+          {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+          {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "fileUpload1",
+            label: {
+              text: "If you have any supporting documents such as police reports, NDAs, or contracts, these can be uploaded here."
+            }
+          }) }}
+
 
 
       </div>

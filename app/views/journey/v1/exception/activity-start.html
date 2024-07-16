@@ -1,4 +1,5 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-w-nav.html" %}
+{% set bodyClasses = "activities" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -97,7 +98,7 @@
           More information
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
+          <ul class="govuk-list">
             <li>
               <a href="#">
                 Request an exception
