@@ -1,0 +1,80 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+<style>
+  .app-header--full-width-border {
+    border-bottom: 10px solid #1f70b8;
+  }
+  .app-phase-banner–no-border {
+    border-bottom: none;
+  }
+</style>
+
+{% set root = '/journey/v2/' %}
+
+
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: "Foreign Influence Registration Scheme",
+  serviceUrl: "/",
+  classes: "app-header--full-width-border"
+}) }}
+
+
+
+{{ xGovukPrimaryNavigation({
+  visuallyHiddenTitle: "FIRS",
+  items: [{
+    text: "Home",
+    href: root+"home",
+    classes: 'li-home'
+  }, {
+    text: "Account",
+    href: root+"account",
+    classes: 'li-account'
+  }, {
+    text: "Registration",
+    href: root+"registration",
+    classes: 'li-registration'
+  }, {
+    text: "Arrangement",
+    href: root+"arrangement",
+    classes: 'li-arrangement'
+  }, {
+    text: "Activities",
+    href: root+"activity",
+    classes: 'li-activities'
+  }, {
+    text: "Messages",
+    href: root+"messages",
+    classes: 'li-messages'
+  }]
+}) }}
+
+
+{{ govukPhaseBanner({
+  classes: "app-phase-banner–no-border govuk-width-container",
+  tag: {
+    text: "Alpha"
+  },
+  html: 'This is a new service – your <a href="#">feedback</a> will help us to improve it.'
+}) }}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}

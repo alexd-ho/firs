@@ -1,0 +1,46 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="../account/2-1?foreign-power={{data['v1-6']}}" method="post">
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "v1-8",
+				name: "v1-8",
+				value: data['v1-8'],
+				label: {
+					html: "What is the name of the "+data['v1-7']+" in "+data['v1-6']+"?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		  
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

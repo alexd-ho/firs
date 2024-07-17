@@ -1,0 +1,127 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Add an activity</span>
+
+    <div>
+
+    <form class="form" action="/group-v2/4-G1?stream=2" method="post">
+
+      {% set otherDetails %}
+      {{ govukInput({
+        id: 'v4-2-other',
+        namePrefix: "v4-2-other",
+        data: "data['v4-2-other']",
+        fieldset: {
+          legend: {
+            text: "Describe the communication",
+            isPageHeading: false
+          }
+        },
+        hint: {
+          text: "Describe the communication"
+        }
+      }) }}
+      {% endset -%}
+
+
+
+      {{ govukCheckboxes({
+        name: "v4-2",
+        values:  data['v4-2'],
+        fieldset: {
+          legend: {
+            text: "What type of private communication will be made?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Email",
+            text: "Email"
+          },
+          {
+            value: "Phone call",
+            text: "Phone call"
+          },
+          {
+            value: "Text message",
+            text: "Text message"
+          },
+          {
+            value: "Meeting",
+            text: "Meeting",
+            hint: {
+              text: "Including in-person, or remote using technology"
+            }
+          },
+          {
+            value: "Letter",
+            text: "Letter"
+          },
+          {
+            value: "Other",
+            text: "Other",
+              conditional: {
+                html: otherDetails
+              }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <!-- <p>
+      {{ data['activityTypes'] }}
+    </p> -->
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Add an activity</span>
+    <div>
+
+    <form class="form" action="4-4-1?stream=4" method="post">
+
+      {{ govukCheckboxes({
+        name: "v4-4",
+        values: data["v4-4"],
+        fieldset: {
+          legend: {
+            text: "What is the offer?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Money",
+            text: "Money"
+          },
+          {
+            value: "Goods",
+            text: "Goods",
+            hint: {
+              text: "For example, a product or physical item"
+            }
+          },
+          {
+            value: "Service",
+            text: "Service",
+            hint: {
+              text: "For example, doing work for someone"
+            }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <!-- <p>
+      {{ data['activityTypes'] }}
+    </p> -->
+
+  </div>
+
+{% endblock %}

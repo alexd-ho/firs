@@ -1,0 +1,210 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-xl">
+            Check your answers before saving this activity
+        </h1>
+        <p>You will be able to amend this activity later.</p>
+
+
+        <h2 class="govuk-heading-m">Public communication details</h2>
+
+        <dl class="govuk-summary-list">
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                What is this activity intended to influence?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-0a']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-0a">Change<span class="govuk-visually-hidden"> intended activity to be influence</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Types of public communication
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-3">Change<span class="govuk-visually-hidden"> Types of public communication</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Are you involved in this activity?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G1-1--t3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-1">Change<span class="govuk-visually-hidden"> your involvement in this activity</span></a>
+                </dd>
+            </div>
+            {% if (data['v4-G1-3--t3--name-1']) %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Others involved in the activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G1-3--t3--name-1']}}{% if (data['v4-G1-3--t3--name-2']) %}, {{data['v4-G1-3--t3--name-2']}}{% endif %}{% if (data['v4-G1-3--t3--name-3']) %}, {{data['v4-G1-3--t3--name-3']}}{% endif %}{% if (data['v4-G1-3--t3--name-4']) %}, {{data['v4-G1-3--t3--name-4']}}{% endif %}{% if (data['v4-G1-3--t3--name-5']) %}, {{data['v4-G1-3--t3--name-5']}}{% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Others involved in the activity</span></a>
+                </dd>
+            </div>{% else %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Others involved in the activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    None stated
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Others involved in the activity</span></a>
+                </dd>
+            </div>
+            {% endif %}
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Intended audience
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-3-1']) %}{{data['v4-3-1']}}
+                {% else %}
+                None Stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-2-1">Change<span class="govuk-visually-hidden"> Intended audience</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity start date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-1--t3']) == "yes" %}
+                {{data['v4-G2-1--t3-day']}}/{{data['v4-G2-1--t3-month']}}/{{data['v4-G2-1--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity end date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-2--t3']) == "yes" %}
+                {{data['v4-G2-2--t3-day']}}/{{data['v4-G2-2--t3-month']}}/{{data['v4-G2-2--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Frequency of activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G2-3--t3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Expected outcome
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-3-3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+           
+
+        </dl>
+
+
+        
+        <form action="/route-v2/exception-check" method="post">
+            
+            {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+            
+            {{ govukCheckboxes({
+              name: "exception-request",
+              id: "exception-request",
+              fieldset: {
+                legend: {
+                  text: "Do you want to request that the information remains private?",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                classes: "govuk-hint",
+                html: "<p>Some of the information about this activity will appear on a public register. You can make a request for this information to remain private if you have a legitimate reason.</p>"
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: "I would like to request that the information remains private."
+                }
+              ]
+            }) }}
+
+
+
+            {{ govukButton({
+              text: "Submit activity"
+            }) }}
+
+
+            
+        </form>
+
+    </div>
+  </div>
+
+{% endblock %}

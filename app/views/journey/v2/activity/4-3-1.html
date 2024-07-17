@@ -1,0 +1,53 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/group-v2/4-G2" method="post">
+
+      <span class="govuk-caption-l">Add an activity</span>
+
+      {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+      {{ govukTextarea({
+        name: "v4-3-1",
+        value: data["v4-3-1"],
+        id: "v4-3-1",
+        label: {
+          text: "Who is the intended audience for the public communication?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "For example, group or organisation, political party, or demographic"
+        }
+      }) }}
+    
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+
+
+  </div>
+</div>
+
+{% endblock %}

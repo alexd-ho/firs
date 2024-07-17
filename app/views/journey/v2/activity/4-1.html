@@ -1,0 +1,96 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Add an activity</span>
+
+    <div>
+
+    <form class="form" action="/route-v2/4-1" method="post">
+
+      {{ govukRadios({
+        name: "v4-1",
+        values: data["v4-1"],
+        fieldset: {
+          legend: {
+            text: "What type of activity do you want to register?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Private communication",
+            text: "Private communication",
+            hint: {
+              text: "For example, lobbying, sending an email or letter, or having a private conversation"
+            }
+          },
+          {
+            value: "Public communication",
+            text: "Public communication",
+            hint: {
+              text: "For example, social media content, poster, leaflet, or published article"
+            }
+          },
+          {
+            value: "Distribution of money, goods or services",
+            text: "Distribution of money, goods or services",
+            hint: {
+              text: "For example, the offer of money, goods or services to an individual or entity in the UK"
+            }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <!-- <p>
+      {{ data['activityTypes'] }}
+    </p> -->
+
+  </div>
+
+{% endblock %}

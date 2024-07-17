@@ -1067,6 +1067,450 @@ router.post('/route/exception-check', function(request, response) {
 
 
 
+//// VERSION 2
+
+
+//   __     __            _               ____  
+//   \ \   / /__ _ __ ___(_) ___  _ __   |___ \ 
+//    \ \ / / _ \ '__/ __| |/ _ \| '_ \    __) |
+//     \ V /  __/ |  \__ \ | (_) | | | |  / __/ 
+//      \_/ \___|_|  |___/_|\___/|_| |_| |_____|
+
+//   https://www.asciiart.eu/text-to-ascii-art
+
+/// JOURNEY 
+
+var root_v2 = '/journey/v2/';
+var tier_v2 = '/journey/v2/tier/';
+var account_v2 = '/journey/v2/account/';
+
+var registration_v2 = '/journey/v2/registration/';
+var arrangement_v2 = '/journey/v2/arrangement/';
+var agreement_v2 = '/journey/v2/agreement/';
+var activity_v2 = '/journey/v2/activity/';
+var exception_v2 = '/journey/v2/exception/';
+
+
+/// 1. TIER
+
+// Does this registration involve Foreign Power X / Y / Z?:
+router.post('/route-v2/1-1', function(request, response) {
+    var value = request.session.data['v1-1']
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(account_v2+"2-1?tier=enhanced&foreign-power=Foreign Power X")
+    } else { 
+        response.redirect(tier_v2+"1-2")
+    }
+})
+router.post('/route-v2/1-2', function(request, response) {
+    var value = request.session.data['v1-2']
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(account_v2+"2-1?tier=enhanced&foreign-power=Foreign Power Y")
+    } else { 
+        response.redirect(tier_v2+"1-3")
+    }
+})
+router.post('/route-v2/1-3', function(request, response) {
+    var value = request.session.data['v1-3']
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(account_v2+"2-1?tier=enhanced&foreign-power=Foreign Power Z")
+    } else { 
+        response.redirect(tier_v2+"1-4")
+    }
+})
+router.post('/route-v2/1-4', function(request, response) {
+    var value = request.session.data['v1-4']
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(tier_v2+"1-5?tier=enhanced")
+    } else { 
+        response.redirect(tier_v2+"1-6?tier=political")
+    }
+})
+
+router.post('/route-v2/1-7', function(request, response) {
+    var value = request.session.data['v1-7']
+    var value_b = request.session.data['v1-6']
+    if (value == "governing political party of a national government"){ // Enhanced tier, go to account
+        if (value_b == "Ireland"){ // 
+            response.redirect(tier_v2+"1-9")
+        } else {
+            response.redirect(tier_v2+"1-8")            
+        }
+    } else { 
+        response.redirect(tier_v2+"1-8")            
+    }
+})
+
+/// ACCOUNT
+
+router.post('/route-v2/2-1', function(request, response) {
+    var value = request.session.data['v2-1']
+    if (value == "No"){ // 
+        response.redirect(account_v2+"2-2")
+    } else {
+        response.redirect(account_v2+"2-13")            
+    }
+})
+
+router.post('/route-v2/2-2', function(request, response) {
+    var value = request.session.data['v2-2']
+    if (value == "No"){ // 
+        response.redirect(account_v2+"2-3?reg-mode=behalf")
+    } else {
+        response.redirect(account_v2+"2-12?reg-mode=self")            
+    }
+})
+
+router.post('/route-v2/2-3', function(request, response) {
+    var value = request.session.data['v2-3']
+    if (value == "An individual person") {
+        response.redirect(account_v2+"2-4")
+    } else if (value == "An organisation that I work for") {
+        response.redirect(account_v2+"2-7")
+    } else if (value == "An organisation that I don't work for") {
+        response.redirect(account_v2+"2-9")
+    } else  {
+        response.redirect(account_v2+"2-4")
+    }
+})
+
+router.post('/route-v2/2-13', function(request, response) {
+    var value = request.session.data['v2-13']
+    if (value == "myself"){ // 
+        response.redirect(account_v2+"2-14")
+    } else {
+        response.redirect(account_v2+"2-16")            
+    }
+})
+
+router.post('/route-v2/2-14', function(request, response) {
+    var value = request.session.data['v2-14'] // self misreps??
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"2-15")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+router.post('/route-v2/2-18', function(request, response) {
+    var value = request.session.data['v2-18'] // on behalf of misreps??
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"2-19")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+
+
+// Confirm statements
+router.post('/route-v2/confirm-2-6', function(request, response) {
+    var value = request.session.data['v2-6']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=1")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+router.post('/route-v2/confirm-2-8', function(request, response) {
+    var value = request.session.data['v2-8']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=2")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+router.post('/route-v2/confirm-2-11', function(request, response) {
+    var value = request.session.data['v2-11']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=1")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+router.post('/route-v2/confirm-2-12', function(request, response) {
+    var value = request.session.data['v2-12']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=3")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+
+router.post('/route-v2/confirm-2-15', function(request, response) {
+    var value = request.session.data['v2-15']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"account-type-4?account-type=4&misreps=true")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+
+router.post('/route-v2/confirm-2-19', function(request, response) {
+    var value = request.session.data['v2-19']
+    var rel = request.session.data['v2-17']
+    if (value == "Yes"){ // 
+        if (rel == "Colleague"){ // colleague
+            response.redirect(account_v2+"account-type-5?account-type=5&misreps=true")
+        } else { // representative
+            response.redirect(account_v2+"account-type-6?account-type=6&misreps=true")
+        }
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+
+
+// Group
+
+router.post('/route-v2/group-1-1', function(request, response) {
+    var value = request.session.data['group-1-1']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-2")
+    } else {
+        response.redirect(account_v2+"group-1-4")            
+    }
+})
+
+router.post('/route-v2/group-1-2', function(request, response) {
+    var value = request.session.data['group-1-2'];
+    var type = request.session.data['account-type'];
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-3")
+    } else {
+        response.redirect(account_v2+"account-type-"+type)            
+    }
+})
+
+router.post('/route-v2/group-1-4', function(request, response) {
+    var value = request.session.data['group-1-4']
+    if (value == "Verbal agreement"){ // 
+        response.redirect(account_v2+"group-1-5")
+    } else {
+        response.redirect(account_v2+"group-1-6")
+    }
+})
+
+
+// router.post('/route-v2/group-1--return-to-account-1', function(request, response) {
+//     response.redirect(account_v2+"account-type-1")
+// })
+// router.post('/route-v2/group-1--return-to-account-2', function(request, response) {
+//     response.redirect(account_v2+"account-type-2")
+// })
+// router.post('/route-v2/group-1--return-to-account-3', function(request, response) {
+//     response.redirect(account_v2+"account-type-3")
+// })
+// router.post('/route-v2/group-1--return-to-account-4', function(request, response) {
+//     response.redirect(account_v2+"account-type-4")
+// })
+// router.post('/route-v2/group-1--return-to-account-5', function(request, response) {
+//     response.redirect(account_v2+"account-type-5")
+// })
+
+
+
+
+
+/// JOURNEY / ACTIVITY
+
+// Person or entity 'doing'
+router.post('/group-v2/4-G1', function(request, response) {
+    response.redirect(activity_v2+"4-G1-1")
+})
+
+// Dates and frequency 
+router.post('/group-v2/4-G2', function(request, response) {
+    response.redirect(activity_v2+"4-G2-1")
+})
+
+// Is this activity intended to influence:
+router.post('/route-v2/4-0', function(request, response) {
+
+    var value = request.session.data['v4-0']
+    if (value == "yes"){ // state type of political activity
+        response.redirect(activity_v2+"4-0-1")
+    } else { // 'other' type
+        response.redirect(activity_v2+"4-5")
+    }
+})
+
+// Enhanced Tier: Is this activity intended to influence:
+router.post('/route-v2/4-0b', function(request, response) {
+    var value = request.session.data['v4-0b']
+    if (value == "Non-political"){ // state type of political activity
+        response.redirect(activity_v2+"4-5?activityType=other")
+    } else { // 'other' type
+        response.redirect(activity_v2+"4-1")
+    }
+})
+
+
+// What type of influencing activity do you want to register?
+router.post('/route-v2/4-1', function(request, response) {
+
+    var value = request.session.data['v4-1']
+    if (value.includes("Private communication")){
+        response.redirect(activity_v2+"4-2?activityType=private")
+    } else if (value.includes("Public communication")) {
+        response.redirect(activity_v2+"4-3?activityType=public")
+    } else {
+        response.redirect(activity_v2+"4-4?activityType=money")
+    }
+})
+
+/// JOURNEY / ACTIVITY / GROUPS
+
+
+// Will you be personally involved in the activity?
+router.post('/route-v2/4-G1-1--t2', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t2']
+    if (value == "yes"){
+        response.redirect(activity_v2+"4-G1-2")
+    } else {
+        response.redirect(activity_v2+"4-G1-3")
+    }
+})
+router.post('/route-v2/4-G1-1--t3', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t3']
+    if (value == "yes"){
+        response.redirect(activity_v2+"4-G1-2")
+    } else {
+        response.redirect(activity_v2+"4-G1-3")
+    }
+})
+router.post('/route-v2/4-G1-1--t4', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t4']
+    if (value == "yes"){
+        response.redirect(activity_v2+"4-G1-2")
+    } else {
+        response.redirect(activity_v2+"4-G1-3")
+    }
+})
+router.post('/route-v2/4-G1-1--t5', function(request, response) {
+
+    var value = request.session.data['v4-G1-1--t5']
+    if (value == "yes"){
+        response.redirect(activity_v2+"4-G1-2")
+    } else {
+        response.redirect(activity_v2+"4-G1-3")
+    }
+})
+
+// Will anyone else be involved in this activity?
+router.post('/route-v2/4-G1-2--t2', function(request, response) {
+    var value = request.session.data['v4-G1-2--t2'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity_v2+"4-G1-3")
+    } else {
+        response.redirect(activity_v2+"4-2-1")
+    }
+})
+// Will anyone else be involved in this activity?
+router.post('/route-v2/4-G1-2--t3', function(request, response) {
+    var value = request.session.data['v4-G1-2--t3'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity_v2+"4-G1-3")
+    } else {
+        // Drop out of Group 1
+        response.redirect(activity_v2+"4-3-1")
+    }
+})
+// Will anyone else be involved in this activity?
+router.post('/route-v2/4-G1-2--t4', function(request, response) {
+    var value = request.session.data['v4-G1-2--t4'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity_v2+"4-G1-3")
+    } else {
+        // Drop out of Group 1
+        response.redirect(activity_v2+"4-4-2")
+    }
+})
+// Will anyone else be involved in this activity?
+router.post('/route-v2/4-G1-2--t5', function(request, response) {
+    var value = request.session.data['v4-G1-2--t5'];
+    if (value == "yes"){
+        // > Please provide details of everyone involved in this activity
+        response.redirect(activity_v2+"4-G1-3")
+    } else {
+        response.redirect(activity_v2+"4-G2-1")
+    }
+})
+// router.post('/route-v2/4-G1-return', function(request, response) {
+//     var stream = request.session.data['stream'];
+//     if (stream == 2) {
+//         response.redirect(version+"4-2-1")
+//     } else if (stream == 3) {
+//         response.redirect(version+"4-3-1")
+//     } else  {
+//         response.redirect(version+"4-4-2")
+//     }
+// })
+
+
+router.post('/route-v2/4-G1-return-2', function(request, response) {
+    response.redirect(activity_v2+"4-2-1")
+})
+router.post('/route-v2/4-G1-return-3', function(request, response) {
+    response.redirect(activity_v2+"4-3-1")
+})
+router.post('/route-v2/4-G1-return-4', function(request, response) {
+    response.redirect(activity_v2+"4-4-2")
+})
+router.post('/route-v2/4-G1-return-5', function(request, response) {
+    response.redirect(activity_v2+"4-G2-1")
+})
+
+router.post('/route-v2/4-G2-return', function(request, response) {
+    var stream = request.session.data['stream'];
+    if (stream == 2) {
+        response.redirect(activity_v2+"4-2-2")
+    } else if (stream == 3) {
+        response.redirect(activity_v2+"4-3-3")
+    } else if (stream == 4) {
+        response.redirect(activity_v2+"4-4-3")
+    } else  {
+        response.redirect(activity_v2+"4-5-1")
+    }
+})
+
+router.post('/route-v2/4-exception', function(request, response) {
+    var exception = request.session.data['exception-request'];
+    if (exception == "Yes") {
+        response.redirect(activity_v2+"4-exception-a?refer=yes")
+    } else  {
+        response.redirect(activity_v2)
+    }
+})
+
+router.post('/route-v2/4-exception-b', function(request, response) {
+    var exception = request.session.data['exception-request'];
+    if (exception == "Yes") {
+        response.redirect(activity_v2+"4-exception-b?refer=yes")
+    } else  {
+        response.redirect(activity_v2)
+    }
+})
+
+
+// EXCEPTIONS
+router.post('/route-v2/exception-check', function(request, response) {
+    var val = request.session.data['exception-request'];
+    if (val == "Yes") {
+        response.redirect(exception_v2+"registration-complete?hold-activity=yes")
+    } else  {
+        response.redirect(exception_v2+"registration-complete?hold-activity=no")
+    }
+})
+
+
+
+
+
 
 
 

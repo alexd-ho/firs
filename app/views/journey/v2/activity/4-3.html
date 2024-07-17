@@ -1,0 +1,141 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Add an activity</span>
+    <div>
+
+    <form class="form" action="/group-v2/4-G1?stream=3" method="post">
+
+      {% set otherDetails %}
+      {{ govukInput({
+        id: 'v4-3-other',
+        namePrefix: "v4-3-other",
+        data: "data['v4-3-other']",
+        fieldset: {
+          legend: {
+            text: "Describe the communication",
+            isPageHeading: false
+          }
+        },
+        hint: {
+          text: "Describe the communication"
+        }
+      }) }}
+      {% endset -%}
+
+
+      {{ govukCheckboxes({
+        name: "v4-3",
+        fieldset: {
+          legend: {
+            text: "What type of public communication will be made?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Newspaper or magazine publication",
+            text: "Newspaper or magazine publication",
+            hint: {
+              text: "Including online content"
+            }
+          },
+          {
+            value: "Poster, leaflet or billboard advertisement",
+            text: "Poster, leaflet or billboard advertisement"
+          },
+          {
+            value: "Public speaking event",
+            text: "Public speaking event",
+            hint: {
+              text: "Including a conference, seminar, or public interview"
+            }
+          },
+          {
+            value: "Radio",
+            text: "Radio",
+            hint: {
+              text: "Including an advertisement, programme, or interview"
+            }
+          },
+          {
+            value: "Social media post",
+            text: "Social media post"
+          },
+          {
+            value: "Television",
+            text: "Television",
+            hint: {
+              text: "Including an advertisement, programme, or interview"
+            }
+          },
+          {
+            value: "Website",
+            text: "Website"
+          },
+          {
+            value: "Other",
+            text: "Other",
+              conditional: {
+                html: otherDetails
+              }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <!-- <p>
+      {{ data['activityTypes'] }}
+    </p> -->
+
+  </div>
+
+{% endblock %}

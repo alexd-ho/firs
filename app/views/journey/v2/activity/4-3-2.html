@@ -1,0 +1,270 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Add an activity</span>
+    <div>
+
+    <form class="form" action="/group-v2/4-G2" method="post">
+
+      {% set newspaperOptions %}
+      {{ govukCheckboxes({
+        name: "newspaper-types",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of Production and/or publication"
+          }
+        },
+        items: [
+          {
+            value: "Newspaper production",
+            text: "Writing of newspaper or magazine articles"
+          },
+          {
+            value: "Newslpaper publication",
+            text: "Publication, printing or distribution of newspaper or magazine publication"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set posterOptions %}
+      {{ govukCheckboxes({
+        name: "posters-types",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of Production and/or publication"
+          }
+        },
+        items: [
+          {
+            value: "Posters production",
+            text: "Research, writing or design of posters, leaflets or billboard advertisements"
+          },
+          {
+            value: "Posters publication",
+            text: "Distribution of posters, and/or leaflets or commisioning of billboard advertisements"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set publicSpeakingOptions %}
+      {{ govukCheckboxes({
+        name: "public-speaking-types",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of Production and/or publication"
+          }
+        },
+        items: [
+          {
+            value: "public speaking production",
+            text: "Researching and writing of public speaking events, conferences, seminars or interviews"
+          },
+          {
+            value: "public speaking publication",
+            text: "Delivering public speaking events, conferences, seminars or interviews"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set radioOptions %}
+      {{ govukCheckboxes({
+        name: "radio-types",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of Production and/or publication"
+          }
+        },
+        items: [
+          {
+            value: "radio production",
+            text: "Producing programmes, conducting intreviews, producing advertisements"
+          },
+          {
+            value: "radio publication",
+            text: "Broadcasting of radio programmes, intreviews, and/or advertisements"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set socialMediaOptions %}
+      {{ govukCheckboxes({
+        name: "social-media-types",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of Production and/or publication"
+          }
+        },
+        items: [
+          {
+            value: "Social Media Writing, or content creation",
+            text: "Writing, or content creation"
+          },
+          {
+            value: "Social Media Uploading or Sharing",
+            text: "Uploading or Sharing"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set televisionOptions %}
+      {{ govukCheckboxes({
+        name: "television-types",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of Production and/or publication"
+          }
+        },
+        items: [
+          {
+            value: "Television production",
+            text: "Producing"
+          },
+          {
+            value: "Television Broadcasting",
+            text: "Broadcasting"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+      {% set websiteOptions %}
+      {{ govukCheckboxes({
+        name: "website-types",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "Type of Production and/or publication"
+          }
+        },
+        items: [
+          {
+            value: "Website article production",
+            text: "Writing"
+          },
+          {
+            value: "Website publishing or uploading",
+            text: "Publishing or uploading"
+          }
+        ]
+      }) }}
+      {% endset -%}
+
+
+
+      {{ govukCheckboxes({
+        name: "v4-3-2",
+        fieldset: {
+          legend: {
+            text: "Does the public communication involve production or publication?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Newspaper or magazine publication",
+            text: "Newspaper or magazine publication",
+            hint: {
+              text: "Including online content."
+            },
+            conditional: {
+              html: newspaperOptions
+            }
+          },
+          {
+            value: "Poster,leaflet or billboard advertisement",
+            text: "Poster, leaflet or billboard advertisement",
+            conditional: {
+              html: posterOptions
+            }
+          },
+          {
+            value: "Public speaking event",
+            text: "Public speaking event",
+            hint: {
+              text: "Including a conference, seminar, or public interview."
+            },
+            conditional: {
+              html: publicSpeakingOptions
+            }
+          },
+          {
+            value: "Radio",
+            text: "Radio",
+            hint: {
+              text: "Including an advertisement, programme, or interview."
+            },
+            conditional: {
+              html: radioOptions
+            }
+          },
+          {
+            value: "Social media post",
+            text: "Social media post",
+            conditional: {
+              html: socialMediaOptions
+            }
+          },
+          {
+            value: "Television",
+            text: "Television",
+            hint: {
+              text: "Including an advertisement, programme, or interview."
+            },
+            conditional: {
+              html: televisionOptions
+            }
+          },
+          {
+            value: "Website",
+            text: "Website",
+            conditional: {
+              html: websiteOptions
+            }
+          }
+        ]
+      }) }}
+
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <!-- <p>
+      {{ data['activityTypes'] }}
+    </p> -->
+
+  </div>
+
+{% endblock %}

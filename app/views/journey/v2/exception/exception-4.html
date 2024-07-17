@@ -1,0 +1,56 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<form action="exception-check" method="post">
+
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-l">
+            Upload files
+        </h1>
+
+
+          {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+          {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "fileUpload1",
+            label: {
+              text: "Upload documents to support your request."
+            }
+          }) }}
+
+
+         
+      </div>
+    </div>
+
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  </form>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/1-7" method="post">
+
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			  name: "v1-7",
+			  id: "v1-7",
+			  value: data['v1-7'],
+			  fieldset: {
+			    legend: {
+			      text: "Which of these does the registration involve?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "head of state",
+			      text: "Head of state"
+			    },
+			    {
+			      value: "national government or part of a national government",
+			      text: "National government or part of a national government"
+			    },
+			    {
+			      value: "agency or authority of a national government",
+			      text: "Agency or authority of a national government"
+			    },
+			    {
+			      value: "authority managing an area within a country or territory",
+			      text: "Authority managing an area within a country or territory"
+			    },
+			    {
+			      value: "governing political party of a national government",
+			      text: "Governing political party of a national government"
+			    }
+			  ]
+			}) }}
+			
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power?",
+				text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+			}) }}
+
+		  
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

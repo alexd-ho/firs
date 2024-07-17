@@ -1,0 +1,552 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-l">
+            Check your answers
+        </h1>
+
+    </div>
+
+</div>
+
+
+
+<form action="exception-complete" method="post">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <!-- <h2 class="govuk-heading-m">Public regsiter details</h2> -->
+
+        <h2 class="govuk-heading-m">
+            Information to be kept private
+        </h2>
+
+
+          {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+
+          {% if (data['type'] == "individual") %}
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Registrant
+              </h2>
+              <div class="govuk-summary-card__actions">
+              </div>
+            
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                {% if (data['individual-v1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['individual-v1']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+                
+                {% if (data['individual-v2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Location
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['individual-v2']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+                
+                {% if (data['individual-v3']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Year of Birth
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['individual-v3']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+              
+              </dl>
+            </div>
+          </div>
+          {% endif %}
+
+          {% if (data['type'] == "organisation") %}
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Registrant
+              </h2>
+              <div class="govuk-summary-card__actions">
+              </div>
+            
+            
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                {% if (data['organisation-v1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['organisation-v1']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['organisation-v2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Trading Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['organisation-v2']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['organisation-v3']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Companies House
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['organisation-v3']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['organisation-v4']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Country or territory of incorporation
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['organisation-v4']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['organisation-v5']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Registered Address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['organisation-v5']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+              
+              </dl>
+            </div>
+          </div>
+          {% endif %}
+
+
+
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Arrangement
+              </h2>
+              <div class="govuk-summary-card__actions">
+              </div>
+            
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+
+                {% if (data['arrangement-v1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Foreign Power
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['arrangement-v1']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['arrangement-v2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Type of foreign power
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['arrangement-v2']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['arrangement-v3']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Nature and form of the arrangement
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['arrangement-v3']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['arrangement-v4']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Formal contract or agreement with foreign power
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['arrangement-v4']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+
+              
+              </dl>
+            </div>
+          </div>
+
+
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Activity
+              </h2>
+              <div class="govuk-summary-card__actions">
+              </div>
+
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+
+                {% if (data['activity-v1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What is this activity intended to influence?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v1']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Types of private communication
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v2']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v3']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    People involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v3']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v4']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    People involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v4']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v5']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    People involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v5']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v6']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Intended recipient
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v6']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v7']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity start date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v7']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v8']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity end date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v8']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v9']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Frequency of activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v9']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+                {% if (data['activity-v10']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Expected outcome
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['activity-v10']}}
+                  </dd>                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-1">Change</a>
+                  </dd>                  
+                </div>
+                {% endif %}
+
+
+              
+              </dl>
+            </div>
+          </div>
+
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Additional information
+              </h2>
+            
+            
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Reasons for information to remain private
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['exception-reason']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-2">Change</a>
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    More details
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['more-detail']) %}{{data['more-detail']}}{% else %}None stated{% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-3">Change</a>
+                  </dd>
+                  
+                </div>
+
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Uploaded files
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['fileUpload1']) %}{{data['fileUpload1']}}{% else %}None selected{% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions ">
+                      <a href="exception-4">Change</a>
+                  </dd>
+                  
+                </div>
+
+              
+              </dl>
+            </div>
+          </div>
+
+          <div class="govuk-body">
+              <h3 class="govuk-heading-m">Declaration</h3>
+              <p>I confirm that:</p>
+              <ul>
+                  <li>the information I have provided is true and correct to the best of my knowledge.</li>
+                  <li>I have read the <a href="">terms and conditions</a>.</li>
+              </ul>
+          </div>
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          
+          {{ govukCheckboxes({
+            name: "exception-declaration",
+            id: "exception-declaration",
+            values: data['exception-declaration'],
+            fieldset: {
+              legend: {
+                text: "Declaration",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m hidden"
+              }
+            },
+            hint: {
+              html: ""
+            },
+            items: [
+              {
+                value: "Accept",
+                text: "I understand and agree with the declaration."
+              }
+
+            ]
+          }) }}
+
+    </div>
+  </div>
+
+  {{ govukButton({
+    text: "Submit exception"
+  }) }}
+
+  </form>
+
+{% endblock %}

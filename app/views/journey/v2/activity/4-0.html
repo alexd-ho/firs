@@ -1,0 +1,88 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <span class="govuk-caption-l">Add an activity</span>
+        <div>
+
+        <form class="form" action="/route-v2/4-0" method="post">
+
+            {{ govukRadios({
+            name: "v4-0",
+            fieldset: {
+            legend: {
+            text: "What is the activity is intended to influence?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l",
+            html: 'What is the activity is intended to influence?
+            <span class="govuk-body">
+                <p class="">&ndash; UK elections or referendums;<br>
+                &ndash; Decisions of the government of the UK, Northern Ireland, Scotland or Wales;<br>
+                &ndash; UK political parties; or <br>
+                &ndash; Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru [or Members of the UK legislatures?]</p>
+            </span>'
+            }
+            },
+            items: [
+            {
+            value: "yes",
+            text: "Yes"
+            },
+            {
+            value: "no",
+            text: "No"
+            }
+            ]
+            }) }}
+
+
+            {{ govukButton({
+            text: "Continue"
+            }) }}
+
+        </form>
+
+        <!-- <p>
+        {{ data['activityTypes'] }}
+        </p> -->
+
+        </div>
+
+{% endblock %}

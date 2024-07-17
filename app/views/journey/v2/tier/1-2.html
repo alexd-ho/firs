@@ -1,0 +1,63 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/1-2" method="post">
+
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			  name: "v1-2",
+			  id: "v1-2",
+			  value: data['v1-2'],
+			  fieldset: {
+			    legend: {
+			      text: "Does this registration involve Foreign Power Y?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "Yes",
+			      text: "Yes"
+			    },
+			    {
+			      value: "No",
+			      text: "No"
+			    }
+			  ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power?",
+				text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
+			}) }}
+
+		  
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

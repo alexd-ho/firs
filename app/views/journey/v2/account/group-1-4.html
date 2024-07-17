@@ -1,0 +1,64 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/group-1-4" method="post">
+
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			  name: "group-1-4",
+			  id: "group-1-4",
+			  value: data['group-1-4'],
+			  fieldset: {
+			    legend: {
+			      text: "How was the agreement made?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "Verbal agreement",
+			      text: "Verbal agreement",
+			      hint: {
+			      	text: "For example, a telephone conversation"
+			      }
+			    },
+			    {
+			      value: "Written agreement",
+			      text: "Written agreement",
+			      hint: {
+			      	text: "For example, an email or text mesaage that isn't a signed contract"
+			      }
+			    }
+			  ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

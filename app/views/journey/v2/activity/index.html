@@ -1,0 +1,39 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Activities</h1>
+    <div class="govuk-body">
+
+    <p>
+        <strong>Political Tier</strong></p>
+    <ul>
+        <li><a href="/journey/v2/activity/4-0a?registrant-type=individual&mode=self&tier=political">Add new activity (as individual)</a></li>
+        <li><a href="/journey/v2/activity/4-0a?registrant-type=organisation&mode=self&tier=political">Add new activity (as organisation)</a></li>
+        <li><a href="/journey/v2/activity/4-0a?registrant-type=individual&mode=behalf&tier=political">Add new activity (on behalf of an individual)</a></li>
+        <li><a href="/journey/v2/activity/4-0a?registrant-type=organisation&mode=behalf&tier=political">Add new activity (on behalf of an organisation)</a></li>
+    </ul>
+
+    <p>
+        <strong>Enhanced Tier</strong></p>
+    <ul>
+        <li><a href="/journey/v2/activity/4-0b?registrant-type=individual&mode=self&tier=enhanced">Add new activity (as individual)</a></li>
+        <li><a href="/journey/v2/activity/4-0b?registrant-type=organisation&mode=self&tier=enhanced">Add new activity (as organisation)</a></li>
+        <li><a href="/journey/v2/activity/4-0b?registrant-type=individual&mode=behalf&tier=enhanced">Add new activity (on behalf of an individual)</a></li>
+        <li><a href="/journey/v2/activity/4-0b?registrant-type=organisation&mode=behalf&tier=enhanced">Add new activity (on behalf of an organisation)</a></li>
+    </ul>
+    <!-- <p>
+    {{ data['activityTypes'] }}
+    </p> -->
+</div>
+</div>
+
+{% endblock %}

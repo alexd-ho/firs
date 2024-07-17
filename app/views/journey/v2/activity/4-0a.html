@@ -1,0 +1,93 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "activity-types-plus-none",
+         text: "Activity types, with option for 'None'"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">Add an activity</span>
+    <div>
+
+    <form class="form" action="4-1" method="post">
+
+      {{ govukCheckboxes({
+        name: "v4-0a",
+        values: data['v4-0a'],
+        fieldset: {
+          legend: {
+            text: "What is the activity is intended to influence?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "UK elections or referendums",
+            text: "UK elections or referendums"
+          },
+          {
+            value: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales",
+            text: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
+          },
+          {
+            value: "UK political parties",
+            text: "UK political parties"
+          },
+          {
+            value: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru",
+            text: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru"
+          }
+        ]
+      }) }}
+
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    <!-- <p>
+      {{ data['activityTypes'] }}
+    </p> -->
+
+  </div>
+
+{% endblock %}

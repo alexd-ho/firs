@@ -1,0 +1,58 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/2-14" method="post">
+
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			  name: "v2-14",
+			  id: "v2-14",
+			  value: data['v2-14'],
+			  fieldset: {
+			    legend: {
+			      text: "Do you ever omit or give information to mislead as part of your work for [or membership of] "+data['foreign-power']+"?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "Yes",
+			      text: "Yes"
+			    },
+			    {
+			      value: "No",
+			      text: "No"
+			    }
+			  ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,1016 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        {% if (data['refer'] == "yes") %}
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: "You have five working days to submit a request for an exception before your registered activities may be published on the register.",
+          iconFallbackText: "Warning"
+        }) }}
+        {% endif %}
+
+        <h1 class="govuk-heading-xl">
+            Request an exception
+        </h1>
+
+    </div>
+
+</div>
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <p>This page shows how details supplied as part of your registration will appear on the public register. If you would like to request some of the data shown here to be removed from the public register, you can request an exception here, and it will be reviewed by the Home Office. <!--You can <a href="">read more about requesting an exception here</a>.--></p>
+        <p>If you need to notify us of any material changes to any of these details, you can <a href="">submit a request for change</a>.</p>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-prototype-kit-common-templates-related-items--">
+        <h2 class="govuk-heading-m">More Information</h2>
+        <ul class="govuk-list">
+            <li>
+                <a class="govuk-link" href="#">Requesting an exception</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="#">Tell us about a material change</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <!-- <h2 class="govuk-heading-m">Public regsiter details</h2> -->
+
+
+
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+          
+            <h2 class="govuk-summary-card__title">
+              Registrant
+            </h2>
+            <div class="govuk-summary-card__actions">
+              <span class="govuk-body" style="margin: 0;">Request exception</span>
+            </div>
+          
+          
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Andy Marshall
+                </dd>
+                
+                <dd class="govuk-summary-list__actions ">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Location
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Sheffield, UK
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                </dd>
+                
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Year of Birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  1977
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                </dd>
+                
+              </div>
+              
+            
+            </dl>
+          </div>
+        </div>
+
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+          
+            <h2 class="govuk-summary-card__title">
+              Arrangement
+            </h2>
+            <div class="govuk-summary-card__actions">
+              <span class="govuk-body" style="margin: 0;">Request exception</span>
+            </div>
+          
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Foreign Power
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Foreign Power 2
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Type of foreign power
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  National Government (Name of govt)
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Nature and form of the arrangement
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                  consequat.
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Formal contract or agreement with foreign power
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  12 Jun 2023
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+            </dl>
+          </div>
+        </div>
+
+
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+          
+            <h2 class="govuk-summary-card__title">
+              Activity
+            </h2>
+              <div class="govuk-summary-card__actions">
+              <span class="govuk-body" style="margin: 0;">Request exception</span>
+            </div>
+
+          
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  What is this activity intended to influence?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Decisions of the government of the UK, Northern Ireland, Scotland or Wales
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                      
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Types of private communication
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Phone call,Text message
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  People involved in this activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Andy Marshall (Registrant)
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Mark Mauloni (Content Designer)
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  James Watson (Service Designer)
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Intended recipient
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Oliver Coppard
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Activity start date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  12 Mar 2023
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Activity end date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  None stated
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Frequency of activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  monthly
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+              
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Expected outcome
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </dd>
+                
+                <dd class="govuk-summary-list__actions">
+                    <label class="exception-checkbox">
+                        <input class="" name="organisation" type="checkbox" value="value">
+                        <span class="govuk-visually-hidden">Select data for exception</span>
+                    </label>
+                  
+                </dd>
+                
+              </div>
+              
+            
+            </dl>
+          </div>
+        </div>
+
+
+
+<!--
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Registrant"
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Name"
+              },
+              value: {
+                html: "Andy Marshall"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "age"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Location"
+              },
+              value: {
+                html: "Sheffield, UK"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "nationality"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Arrangement"
+            },
+            actions: {
+              items: [
+                {
+                  html: "Request exception"
+                }
+              ]
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "Foreign Power"
+              },
+              value: {
+                html: "Iraq"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Select",
+                    visuallyHiddenText: "whether details are known"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Type of foreign power"
+              },
+              value: {
+                html: "National Government (Name of govt)"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Select",
+                    visuallyHiddenText: "relationship to lead tenant"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Nature and form of the arrangement"
+              },
+              value: {
+                html: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. "
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Select",
+                    visuallyHiddenText: "age"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Formal contract or agreement with foreign power"
+              },
+              value: {
+                html: "12 Jun 2023"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Select",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukSummaryList({
+          card: {
+            title: {
+              text: "Activity"
+            }
+          },
+          rows: [
+            {
+              key: {
+                text: "What is this activity intended to influence?"
+              },
+              value: {
+                html: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "whether details are known"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Types of private communication"
+              },
+              value: {
+                html: "Phone call,Text message"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "relationship to lead tenant"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "People involved in this activity"
+              },
+              value: {
+                html: "Andy Marshall (Registrant))<br>  Mark Mauloni (Content Designer)<br> James Watson (Service Designer)"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "age"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Intended recipient"
+              },
+              value: {
+                html: "Oliver Coppard"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Activity start date"
+              },
+              value: {
+                html: "12 Mar 2023"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Activity end date"
+              },
+              value: {
+                html: "None stated"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Frequency of activity"
+              },
+              value: {
+                html: "monthly"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Expected outcome"
+              },
+              value: {
+                html: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Request exception",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+    -->
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+        
+        {{ govukCheckboxes({
+          name: "exception-reason",
+          id: "exception-reason",
+          values: data['exception-reason'],
+          classes: "govuk-checkboxes--small",
+          fieldset: {
+            legend: {
+              text: "What is the reason for exception?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+          items: [
+            {
+              value: "Safety to the UK",
+              text: "Safety to the UK",
+              hint: {
+                text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
+              }
+            },
+            {
+              value: "Risk to the safety of an individual",
+              text: "Risk to the safety of an individual",
+              hint: {
+                text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
+              }
+            },
+            {
+              value: "Prejudicial to criminal investigation",
+              text: "Prejudicial to criminal investigation",
+              hint: {
+                text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
+              }
+            },
+            {
+              value: "Commercially sensitive",
+              text: "Commercially sensitive",
+              hint: {
+                text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
+              }
+            }
+          ]
+        }) }}
+
+
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+        
+        {{ govukTextarea({
+          name: "more-detail",
+          id: "more-detail",
+          values: data['more-detail'],
+          label: {
+            text: "Provide detailed reasoning for your exception",
+            classes: "govuk-label--m",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Describe in detail your reasoning for requesting an exception. This will be reviewed and an outcome decided by the Home Office. If you have any supporting documents such as police reports, NDAs, or contracts, these can be uploaded separately. "
+          }
+        }) }}
+
+
+        {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+        {{ govukFileUpload({
+          id: "file-upload-1",
+          name: "fileUpload1",
+          label: {
+            text: "Upload supporting documents. All documents will be stored securely and used only as part of the exception review process."
+          }
+        }) }}
+
+        <div class="govuk-body">
+            <h3 class="govuk-heading-m">Declaration</h3>
+            <p>I confirm that:</p>
+            <ul>
+                <li>the information I have provided in this exception is true and correct to the best of my knowledge</li>
+                <li>I have read the <a href="">terms and conditions</a> relating to exceptions</li>
+            </ul>
+        </div>
+
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+        
+        {{ govukCheckboxes({
+          name: "declaration",
+          id: "declaration",
+          values: data['declaration'],
+          fieldset: {
+            legend: {
+              text: "Declaration",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m hidden"
+            }
+          },
+          hint: {
+            html: ""
+          },
+          items: [
+            {
+              value: "british",
+              text: "I understand and agree with the declaration"
+            }
+
+          ]
+        }) }}
+        
+        
+<!--
+        <dl class="govuk-summary-list">
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                What is this activity intended to influence?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-0a']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-0a">Change<span class="govuk-visually-hidden"> intended activity to be influence</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Types of public communication
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-3">Change<span class="govuk-visually-hidden"> Types of public communication</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Are you involved in this activity?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G1-1--t3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-1">Change<span class="govuk-visually-hidden"> your involvement in this activity</span></a>
+                </dd>
+            </div>
+            {% if (data['v4-G1-3--t3--name-1']) %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Others involved in the activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G1-3--t3--name-1']}}{% if (data['v4-G1-3--t3--name-2']) %}, {{data['v4-G1-3--t3--name-2']}}{% endif %}{% if (data['v4-G1-3--t3--name-3']) %}, {{data['v4-G1-3--t3--name-3']}}{% endif %}{% if (data['v4-G1-3--t3--name-4']) %}, {{data['v4-G1-3--t3--name-4']}}{% endif %}{% if (data['v4-G1-3--t3--name-5']) %}, {{data['v4-G1-3--t3--name-5']}}{% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Others involved in the activity</span></a>
+                </dd>
+            </div>{% else %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Others involved in the activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    None stated
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Others involved in the activity</span></a>
+                </dd>
+            </div>
+            {% endif %}
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Intended audience
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-3-1']) %}{{data['v4-3-1']}}
+                {% else %}
+                None Stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-2-1">Change<span class="govuk-visually-hidden"> Intended audience</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity start date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-1--t3']) == "yes" %}
+                {{data['v4-G2-1--t3-day']}}/{{data['v4-G2-1--t3-month']}}/{{data['v4-G2-1--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity end date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-2--t3']) == "yes" %}
+                {{data['v4-G2-2--t3-day']}}/{{data['v4-G2-2--t3-month']}}/{{data['v4-G2-2--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Frequency of activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G2-3--t3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Expected outcome
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-2-2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+
+           
+
+        </dl>
+
+-->
+
+      <div class="govuk-button-group">
+
+        <a href="/journey/v1/activity" class="govuk-button ">Submit exception</a>
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

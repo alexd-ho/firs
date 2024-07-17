@@ -1,0 +1,1330 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-l">
+            Public register details
+        </h1>
+
+    </div>
+
+</div>
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <p>This page shows the information that will appear on the public register. You can make a request for specific information to remain private if you have a legitimate reason.</p>
+        <p>If you make a request for the information to remain private, none of the information will appear on the public register until the request is resolved.</p>
+    </div>
+    <div class="govuk-grid-column-one-third govuk-prototype-kit-common-templates-related-items--">
+        <h2 class="govuk-heading-m">More Information</h2>
+        <ul class="govuk-list">
+            <li>
+                <a class="govuk-link" href="#">Requesting an exception</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="#">Tell us about a material change</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<form action="exception-2" method="post">
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+        <!-- <h2 class="govuk-heading-m">Public regsiter details</h2> -->
+
+        <h2 class="govuk-heading-l">
+            Which information would you like to remain private? {{data['activityType']}}
+        </h2>
+        <div class="govuk-hint">
+        	<p>Check the box for each row you would like to remain private.</p>
+        </div>
+
+
+          {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+          {% if (data['registrant-type'] == "individual") %}
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Registrant
+              </h2>
+              <div class="govuk-summary-card__actions">
+                <span class="govuk-body" style="margin: 0;">Remain private</span>
+              </div>
+            
+            
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Andy Marshall
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions ">
+                      <label class="exception-checkbox">
+                          <input class="" name="individual-v1" type="checkbox" value="Andy Marshall">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Location
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Sheffield, UK
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="individual-v2" type="checkbox" value="Sheffield, UK">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Year of Birth
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    1977
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="individual-v3" type="checkbox" value="1977">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+                
+              
+              </dl>
+            </div>
+          </div>
+          {% endif %}
+
+
+          {% if (data['registrant-type'] == "organisation") %}
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Registrant
+              </h2>
+              <div class="govuk-summary-card__actions">
+                <span class="govuk-body" style="margin: 0;">Remain private</span>
+              </div>
+            
+            
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    ABC
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions ">
+                      <label class="exception-checkbox">
+                          <input class="" name="organisation-v1" type="checkbox" value="ABC">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+                
+              
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Trading Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    ABC Ltd
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions ">
+                      <label class="exception-checkbox">
+                          <input class="" name="organisation-v2" type="checkbox" value="ABC Ltd">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Companies House
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    12345678
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="organisation-v3" type="checkbox" value="12345678">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Country or territory of incorporation
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    UK
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="organisation-v4" type="checkbox" value="UK">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+                
+              
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Registered Address
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Address Line 1, City, PO5T C0D3
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="organisation-v5" type="checkbox" value="Address Line 1, City, PO5T C0D3">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                  </dd>
+                  
+                </div>
+                
+              
+              </dl>
+            </div>
+          </div>
+          {% endif %}
+
+
+
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Arrangement
+              </h2>
+              <div class="govuk-summary-card__actions">
+                <span class="govuk-body" style="margin: 0;">Remain private</span>
+              </div>
+            
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Foreign Power
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Foreign Power 2
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="arrangement-v1" type="checkbox" value="Foreign Power 2">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Type of foreign power
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    National Government (Name of govt)
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="arrangement-v2" type="checkbox" value="National Government (Name of govt)">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Nature and form of the arrangement
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="arrangement-v3" type="checkbox" value="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat.">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Formal contract or agreement with foreign power
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    12 Jun 2023
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="arrangement-v4" type="checkbox" value="12 Jun 2023">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+              </dl>
+            </div>
+          </div>
+
+
+          {% if (data['activityType'] == "private") %}
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Activity
+              </h2>
+                <div class="govuk-summary-card__actions">
+                <span class="govuk-body" style="margin: 0;">Remain private</span>
+              </div>
+
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What is this activity intended to influence?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-0a']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var1" type="checkbox" value="{{data['v4-0a']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                        
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Types of private communication
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-2']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var2" type="checkbox" value=" {{data['v4-2']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                {% if (data['v4-G1-1--t2'] == "yes") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    People involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     Andy Marshall (Registrant)
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var3" type="checkbox" value="Andy Marshall (Registrant)">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+                {% if (data['v4-G1-3--t2--name-1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t2--name-1']}} ( {{data['v4-G1-3--t2--role-1']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t2--name-1']}} ( {{data['v4-G1-3--t2--role-1']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+
+                {% if (data['v4-G1-3--t2--name-2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t2--name-2']}} ( {{data['v4-G1-3--t2--role-2']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t2--name-2']}} ( {{data['v4-G1-3--t2--role-2']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+
+                 {% if (data['v4-2-1--name-1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Intended recipient
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-2-1--name-1']}}{% if (data['v4-2-1--name-2']) %}, {{data['v4-2-1--name-2']}}{% endif %}{% if (data['v4-2-1--name-3']) %}, {{data['v4-2-1--name-3']}}{% endif %}{% if (data['v4-2-1--name-4']) %}, {{data['v4-2-1--name-4']}}{% endif %}{% if (data['v4-2-1--name-5']) %}, {{data['v4-2-1--name-5']}}{% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var6" type="checkbox" value="{{data['v4-2-1--name-1']}}{% if (data['v4-2-1--name-2']) %}, {{data['v4-2-1--name-2']}}{% endif %}{% if (data['v4-2-1--name-3']) %}, {{data['v4-2-1--name-3']}}{% endif %}{% if (data['v4-2-1--name-4']) %}, {{data['v4-2-1--name-4']}}{% endif %}{% if (data['v4-2-1--name-5']) %}, {{data['v4-2-1--name-5']}}{% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity start date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-1--t2']) == "yes" %}
+                {{data['v4-G2-1--t2-day']}}/{{data['v4-G2-1--t2-month']}}/{{data['v4-G2-1--t2-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['v4-G2-1--t2']) == 'yes' %}
+                {{data['v4-G2-1--t2-day']}}/{{data['v4-G2-1--t2-month']}}/{{data['v4-G2-1--t2-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity end date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-2--t2']) == "yes" %}
+                {{data['v4-G2-2--t2-day']}}/{{data['v4-G2-2--t2-month']}}/{{data['v4-G2-2--t2-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['v4-G2-2--t2']) == 'yes' %}
+                {{data['v4-G2-2--t2-day']}}/{{data['v4-G2-2--t2-month']}}/{{data['v4-G2-2--t2-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Frequency of activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-G2-3--t2']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var9" type="checkbox" value="{{data['v4-G2-3--t2']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Expected outcome
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-2-2']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var10" type="checkbox" value="{{data['v4-2-2']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+              </dl>
+            </div>
+          </div>
+
+          {% endif %}
+
+
+
+          {% if (data['activityType'] == "public") %}
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Activity
+              </h2>
+                <div class="govuk-summary-card__actions">
+                <span class="govuk-body" style="margin: 0;">Remain private</span>
+              </div>
+
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What is this activity intended to influence?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-0a']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var1" type="checkbox" value="{{data['v4-0a']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                        
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Types of public communication
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-3']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var2" type="checkbox" value=" {{data['v4-2']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                {% if (data['v4-G1-1--t3'] == "yes") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    People involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     Andy Marshall (Registrant)
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var3" type="checkbox" value="Andy Marshall (Registrant)">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+                {% if (data['v4-G1-3--t3--name-1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t3--name-1']}} ({{data['v4-G1-3--t3--role-1']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t3--name-1']}} ( {{data['v4-G1-3--t3--role-1']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+
+                {% if (data['v4-G1-3--t3--name-2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t3--name-2']}} ( {{data['v4-G1-3--t3--role-2']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t3--name-2']}} ( {{data['v4-G1-3--t3--role-2']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+
+                 {% if (data['v4-2-1--name-1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Intended audience
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-3-1']) %}{{data['v4-3-1']}}
+                {% else %}
+                None Stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var6" type="checkbox" value="{% if (data['v4-3-1']) %}{{data['v4-3-1']}}
+                {% else %}
+                None Stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity start date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-1--t3']) == "yes" %}
+                {{data['v4-G2-1--t3-day']}}/{{data['v4-G2-1--t3-month']}}/{{data['v4-G2-1--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['v4-G2-1--t3']) == 'yes' %}
+                {{data['v4-G2-1--t3-day']}}/{{data['v4-G2-1--t3-month']}}/{{data['v4-G2-1--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity end date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-2--t3']) == "yes" %}
+                {{data['v4-G2-2--t3-day']}}/{{data['v4-G2-2--t3-month']}}/{{data['v4-G2-2--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['v4-G2-2--t3']) == 'yes' %}
+                {{data['v4-G2-2--t3-day']}}/{{data['v4-G2-2--t3-month']}}/{{data['v4-G2-2--t3-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Frequency of activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-G2-3--t3']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var9" type="checkbox" value="{{data['v4-G2-3--t3']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Expected outcome
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-3-3']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var10" type="checkbox" value="{{data['v4-2-2']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+              </dl>
+            </div>
+          </div>
+
+          {% endif %}
+
+
+
+          {% if (data['activityType'] == "money") %}
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Activity
+              </h2>
+                <div class="govuk-summary-card__actions">
+                <span class="govuk-body" style="margin: 0;">Remain private</span>
+              </div>
+
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What is this activity intended to influence?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-0a']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var1" type="checkbox" value="{{data['v4-0a']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                        
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What is the offer?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-4']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var2" type="checkbox" value=" {{data['v4-4']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Total value of the offer
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     £{{data['v4-4-1']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var2-1" type="checkbox" value="£{{data['v4-4-1']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                {% if (data['v4-G1-1--t4'] == "yes") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    People involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     Andy Marshall (Registrant)
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var3" type="checkbox" value="Andy Marshall (Registrant)">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+                {% if (data['v4-G1-3--t4--name-1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t4--name-1']}} ( {{data['v4-G1-3--t4--role-1']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t4--name-1']}} ( {{data['v4-G1-3--t4--role-1']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+
+                {% if (data['v4-G1-3--t4--name-2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t4--name-2']}} ( {{data['v4-G1-3--t4--role-2']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t4--name-2']}} ( {{data['v4-G1-3--t4--role-2']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+
+                 {% if (data['v4-4-2--name-1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Recipients of the offer
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-4-2--name-1']}}{% if (data['v4-4-2--name-2']) %}, {{data['v4-4-2--name-2']}}{% endif %}{% if (data['v4-4-2--name-3']) %}, {{data['v4-4-2--name-3']}}{% endif %}{% if (data['v4-4-2--name-4']) %}, {{data['v4-4-2--name-4']}}{% endif %}{% if (data['v4-4-2--name-5']) %}, {{data['v4-4-2--name-5']}}{% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var6" type="checkbox" value="{{data['v4-2-1--name-1']}}{% if (data['v4-2-1--name-2']) %}, {{data['v4-2-1--name-2']}}{% endif %}{% if (data['v4-2-1--name-3']) %}, {{data['v4-2-1--name-3']}}{% endif %}{% if (data['v4-2-1--name-4']) %}, {{data['v4-2-1--name-4']}}{% endif %}{% if (data['v4-2-1--name-5']) %}, {{data['v4-2-1--name-5']}}{% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity start date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-1--t4']) == "yes" %}
+                {{data['v4-G2-1--t4-day']}}/{{data['v4-G2-1--t4-month']}}/{{data['v4-G2-1--t4-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['v4-G2-1--t4']) == 'yes' %}
+                {{data['v4-G2-1--t4-day']}}/{{data['v4-G2-1--t4-month']}}/{{data['v4-G2-1--t4-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity end date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-2--t4']) == "yes" %}
+                {{data['v4-G2-2--t4-day']}}/{{data['v4-G2-2--t4-month']}}/{{data['v4-G2-2--t4-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['v4-G2-2--t4']) == 'yes' %}
+                {{data['v4-G2-2--t4-day']}}/{{data['v4-G2-2--t4-month']}}/{{data['v4-G2-2--t4-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Frequency of activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-G2-3--t4']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var9" type="checkbox" value="{{data['v4-G2-3--t4']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Expected outcome
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-4-3']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var10" type="checkbox" value="{{data['v4-2-2']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+              </dl>
+            </div>
+          </div>
+
+          {% endif %}
+
+
+
+          {% if (data['activityType'] == "other") %}
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+            
+              <h2 class="govuk-summary-card__title">
+                Activity
+              </h2>
+                <div class="govuk-summary-card__actions">
+                <span class="govuk-body" style="margin: 0;">Remain private</span>
+              </div>
+
+            </div>
+
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    What will the activity involve?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-5']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var1" type="checkbox" value="{{data['v4-0a']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                        
+                  </dd>
+                  
+                </div>
+                
+              
+                
+              
+                {% if (data['v4-G1-1--t5'] == "yes") %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    People involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     Andy Marshall (Registrant)
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var3" type="checkbox" value="Andy Marshall (Registrant)">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+                {% if (data['v4-G1-3--t5--name-1']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t5--name-1']}} ( {{data['v4-G1-3--t5--role-1']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t5--name-1']}} ( {{data['v4-G1-3--t5--role-1']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+
+                {% if (data['v4-G1-3--t5--name-2']) %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Others involved in this activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{data['v4-G1-3--t5--name-2']}} ( {{data['v4-G1-3--t5--role-2']}})
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var4" type="checkbox" value=" {{data['v4-G1-3--t5--name-2']}} ( {{data['v4-G1-3--t5--role-2']}})">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                {% endif %}
+                
+
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity start date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-1--t5']) == "yes" %}
+                {{data['v4-G2-1--t5-day']}}/{{data['v4-G2-1--t5-month']}}/{{data['v4-G2-1--t5-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['v4-G2-1--t5']) == 'yes' %}
+                {{data['v4-G2-1--t5-day']}}/{{data['v4-G2-1--t5-month']}}/{{data['v4-G2-1--t5-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Activity end date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if (data['v4-G2-2--t5']) == "yes" %}
+                {{data['v4-G2-2--t5-day']}}/{{data['v4-G2-2--t5-month']}}/{{data['v4-G2-2--t5-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['v4-G2-2--t5']) == 'yes' %}
+                {{data['v4-G2-2--t5-day']}}/{{data['v4-G2-2--t5-month']}}/{{data['v4-G2-2--t5-year']}}
+                {% else %}
+                None stated
+                {% endif %}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Frequency of activity
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-G2-3--t5']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var9" type="checkbox" value="{{data['v4-G2-3--t5']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+                
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Expected outcome
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{data['v4-5-1']}}
+                  </dd>
+                  
+                  <dd class="govuk-summary-list__actions">
+                      <label class="exception-checkbox">
+                          <input class="" name="activity-v2-var10" type="checkbox" value="{{data['v4-5-1']}}">
+                          <span class="govuk-visually-hidden">Select data for exception</span>
+                      </label>
+                    
+                  </dd>
+                  
+                </div>
+                
+              
+              </dl>
+            </div>
+          </div>
+
+          {% endif %}
+
+
+    </div>
+  </div>
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  </form>
+
+{% endblock %}
