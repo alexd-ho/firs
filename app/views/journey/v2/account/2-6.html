@@ -16,7 +16,15 @@
 
 		<form action="/route-v2/confirm-2-6" method="post">
 
-			
+
+			{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+			{{ govukInsetText({
+			  text: data['v2-4']+" is part of an agreement with "+data['foreign-power']
+			}) }}
+
+
+			<h1 class="govuk-heading-xl"></h1>
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
@@ -25,13 +33,10 @@
 			  value: data['v2-6'],
 			  fieldset: {
 			    legend: {
-			      text: data['v2-4']+" is part of an agreement with "+data['foreign-power'],
-			      isPageHeading: true,
+			      text: "Is this correct?",
+			      isPageHeading: false,
 			      classes: "govuk-fieldset__legend--l"
 			    }
-			  },
-			  hint: {
-			  	text: "Is this correct?"
 			  },
 			  items: [
 			    {
