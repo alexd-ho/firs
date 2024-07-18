@@ -16,7 +16,17 @@
 
 		<form action="2-11" method="post">
 
-			
+							{% set otherHtml %}
+				{{ govukInput({
+				  id: "v2-10-other",
+				  name: "v2-10-other",
+				  type: "v2-10-other",
+				  classes: "govuk-!-width-two-third",
+				  label: {
+				    text: "Please specify"
+				  }
+				}) }}
+				{% endset -%}
 			  {% from "govuk/components/radios/macro.njk" import govukRadios %}
 			  
 			  {{ govukRadios({
@@ -32,13 +42,32 @@
 			    },
 			    items: [
 			      {
+			        value: "Family member, friend or partner",
+			        text: "Family member, friend or partner"
+			      },
+			      {
+			        value: "Legal representative",
+			        text: "Legal representative"
+			      },
+			      {
 			        value: "Colleague",
 			        text: "Colleague"
 			      },
 			      {
-			        value: "Representative",
-			        text: "Representative"
-			      }
+			        value: "Contractor",
+			        text: "Contractor"
+			      },
+			      {
+			        value: "Assistant",
+			        text: "Assistant"
+			      },
+			      {
+			        value: "Other",
+			        text: "Other",
+				      conditional: {
+				        html: otherHtml
+				      }
+      	    }
 			    ]
 			  }) }}		  
 

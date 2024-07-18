@@ -25,10 +25,13 @@
 			  value: data['v2-1'],
 			  fieldset: {
 			    legend: {
-			      text: "Are you registering for "+data['foreign-power']+"?",
+			      text: "Are you registering for the "+data['foreign-power']+"?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
+			  },
+			  hint: {
+			  	html: "<p>You can only register for "+data['foreign-power']+" if have an official role with them or if you're registering for a person who does.</p>"
 			  },
 			  items: [
 			    {
