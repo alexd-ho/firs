@@ -16,13 +16,37 @@
 
 		<form action="/route-v2/confirm-2-6" method="post">
 
+<!-- 				<h1 class="govuk-heading-l">
+				Is the following correct?
+				</h1>
+ -->
+<!--  			<div class="govuk-panel govuk-panel--interuption">
+				<h1 class="govuk-panel__title">
+				{{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
+				</h1>
+			</div> -->
+
+
+			<div class="govuk-warning-text">
+			  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+			  <strong class="govuk-warning-text__text">
+			    <span class="govuk-visually-hidden">Warning</span>
+			    {{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
+			  </strong>
+			</div>
 
 			{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-			{{ govukInsetText({
-			  text: data['v2-4']+" is part of an agreement with "+data['foreign-power']
-			}) }}
 
+			{% from "govuk/components/panel/macro.njk" import govukPanel %}
+			<!--
+			{{ govukPanel({
+			  titleText: data['v2-4']+" is part of an agreement with "+data['foreign-power']
+			}) }}			
+			-->
+<!-- 			<div class="govuk-inset-text">
+			  {{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
+			</div> -->
 
 			<h1 class="govuk-heading-xl"></h1>
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}

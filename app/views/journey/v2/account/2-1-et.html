@@ -14,17 +14,18 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v2/1-2" method="post">
+		<form action="/route-v2/2-1" method="post">
 
+			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			  name: "v1-2",
-			  id: "v1-2",
-			  value: data['v1-2'],
+			  name: "v2-1",
+			  id: "v2-1",
+			  value: data['v2-1'],
 			  fieldset: {
 			    legend: {
-			      text: "Does this registration involve Parliament of Obristan?",
+			      text: "Are you registering for "+data['foreign-power']+"?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
@@ -45,8 +46,7 @@
 				text: "Continue"
 			}) }}
 
-
-		  
+	
 		</form>
 
 	</div>

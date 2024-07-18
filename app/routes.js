@@ -1095,31 +1095,31 @@ var exception_v2 = '/journey/v2/exception/';
 
 // Does this registration involve Foreign Power X / Y / Z?:
 router.post('/route-v2/1-1', function(request, response) {
-    var value = request.session.data['v1-1']
+    var value = request.session.data['v1-1'];
     if (value == "Yes"){ // Enhanced tier, go to account
-        response.redirect(account_v2+"2-1?tier=enhanced&foreign-power=Foreign Power X")
+        response.redirect(account_v2+"2-1-et?tier=enhanced&foreign-power=Ministry of Defence of Kolechia")
     } else { 
         response.redirect(tier_v2+"1-2")
     }
 })
 router.post('/route-v2/1-2', function(request, response) {
-    var value = request.session.data['v1-2']
+    var value = request.session.data['v1-2'];
     if (value == "Yes"){ // Enhanced tier, go to account
-        response.redirect(account_v2+"2-1?tier=enhanced&foreign-power=Foreign Power Y")
+        response.redirect(account_v2+"2-1-et?tier=enhanced&foreign-power=Parliament of Obristan")
     } else { 
         response.redirect(tier_v2+"1-3")
     }
 })
 router.post('/route-v2/1-3', function(request, response) {
-    var value = request.session.data['v1-3']
+    var value = request.session.data['v1-3'];
     if (value == "Yes"){ // Enhanced tier, go to account
-        response.redirect(account_v2+"2-1?tier=enhanced&foreign-power=Foreign Power Z")
+        response.redirect(account_v2+"2-1-et?tier=enhanced&foreign-power=Socialist Party of Arstotzka")
     } else { 
         response.redirect(tier_v2+"1-4")
     }
 })
 router.post('/route-v2/1-4', function(request, response) {
-    var value = request.session.data['v1-4']
+    var value = request.session.data['v1-4'];
     if (value == "Yes"){ // Enhanced tier, go to account
         response.redirect(tier_v2+"1-5?tier=enhanced")
     } else { 
@@ -1128,8 +1128,8 @@ router.post('/route-v2/1-4', function(request, response) {
 })
 
 router.post('/route-v2/1-7', function(request, response) {
-    var value = request.session.data['v1-7']
-    var value_b = request.session.data['v1-6']
+    var value = request.session.data['v1-7'];
+    var value_b = request.session.data['v1-6'];
     if (value == "governing political party of a national government"){ // Enhanced tier, go to account
         if (value_b == "Ireland"){ // 
             response.redirect(tier_v2+"1-9")
@@ -1140,6 +1140,12 @@ router.post('/route-v2/1-7', function(request, response) {
         response.redirect(tier_v2+"1-8")            
     }
 })
+
+router.post('/route-v2/tier-handoff', function(request, response) {
+    var fp= request.session.data['v1-8']
+    response.redirect(account_v2+"2-1?foreign-power="+fp)
+})
+
 
 /// ACCOUNT
 
