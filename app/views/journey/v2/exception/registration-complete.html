@@ -25,7 +25,7 @@
         {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
         {{ govukPanel({
-          titleText: "Regsitration complete",
+          titleText: "Registration submitted",
           html: "Your reference number<br><strong>HDJ2123F</strong>"
         }) }}
         <p>We have sent you a confirmation email.</p>
@@ -40,8 +40,7 @@
             What happens next
         </h2>
         
-        <p>We'll check the details of your registration, and then contact you either to confirm your registration, or to ask for more information.</p>
-        <p><A href="">What did you think of this service?</A> (takes 30 seconds)</p>
+        <p>The details of your registration will be reviewed. We will contact you to accept your registration or to ask you for more information.</p>
 
 
 
@@ -49,22 +48,24 @@
         {% if (data['hold-activity'] == "yes") %}
 
         <h2 class="govuk-heading-l">
-            Requesting an exception
+            Request for your information to remain private
         </h2>
 
-        <p>You have expressed an interest in an exception from the Public Register. To request this, you will need to complete a "Request and exception" form that will be reviewed by the Home Office.</p>
+        <p>You have requested that some of your information remains private. You must submit this request within 5 working days of submitting your activity.</p>
 
         {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
         {{ govukWarningText({
-          text: "You have five working days to submit a request for an exception before your registered activities may be published on the register.",
+          text: "You have 5 working days to submit a request for your information to remain private. If you do not complete your request in that time, your information may be published on the Foreign Influence Registration Scheme public register.",
           iconFallbackText: "Warning"
         }) }}
 
-        <a href="exception-1" class="govuk-button">Request an exception</a>
+        <a href="exception-1" class="govuk-button">Start request</a>
 
 
         {% endif %}
+
+        <p><A href="">What did you think of this service?</A> (takes 30 seconds)</p>
 
 
     </div>

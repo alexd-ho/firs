@@ -44,7 +44,7 @@
           {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 
-          {% if (data['type'] == "individual") %}
+          {% if (data['registrant-type'] == "individual") %}
           <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
             
@@ -107,7 +107,7 @@
           </div>
           {% endif %}
 
-          {% if (data['type'] == "organisation") %}
+          {% if (data['registrant-type'] == "organisation") %}
           <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
             
@@ -294,28 +294,48 @@
             <div class="govuk-summary-card__content">
               <dl class="govuk-summary-list">
               
+  
+                {% if (data['activityType'] == "other") %}
 
-                {% if (data['activity-v1']) %}
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    What is this activity intended to influence?
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{data['activity-v1']}}
-                  </dd>                  
-                  <dd class="govuk-summary-list__actions ">
-                      <a href="exception-1">Change</a>
-                  </dd>                  
-                </div>
+                    {% if (data['activity-v2-var1']) %}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        What will the activity involve?
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{data['activity-v2-var1']}}
+                      </dd>                  
+                      <dd class="govuk-summary-list__actions ">
+                          <a href="exception-1">Change</a>
+                      </dd>                  
+                    </div>
+                    {% endif %}
+
+                {% else %}
+
+                    {% if (data['activity-v2-var1']) %}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        What is this activity intended to influence?
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{data['activity-v2-var1']}}
+                      </dd>                  
+                      <dd class="govuk-summary-list__actions ">
+                          <a href="exception-1">Change</a>
+                      </dd>                  
+                    </div>
+                    {% endif %}
+
                 {% endif %}
 
-                {% if (data['activity-v2']) %}
+                {% if (data['activity-v2-var2']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Types of private communication
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v2']}}
+                    {{data['activity-v2-var2']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -323,13 +343,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v3']) %}
+                {% if (data['activity-v2-var3']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     People involved in this activity
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v3']}}
+                    {{data['activity-v2-var3']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -337,13 +357,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v4']) %}
+                {% if (data['activity-v2-var4']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     People involved in this activity
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v4']}}
+                    {{data['activity-v2-var4']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -351,13 +371,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v5']) %}
+                {% if (data['activity-v2-var5']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     People involved in this activity
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v5']}}
+                    {{data['activity-v2-var5']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -365,13 +385,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v6']) %}
+                {% if (data['activity-v2-var6']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Intended recipient
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v6']}}
+                    {{data['activity-v2-var6']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -379,13 +399,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v7']) %}
+                {% if (data['activity-v2-var7']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Activity start date
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v7']}}
+                    {{data['activity-v2-var7']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -393,13 +413,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v8']) %}
+                {% if (data['activity-v2-var8']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Activity end date
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v8']}}
+                    {{data['activity-v2-var8']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -407,13 +427,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v9']) %}
+                {% if (data['activity-v2-var9']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Frequency of activity
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v9']}}
+                    {{data['activity-v2-var9']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -421,13 +441,13 @@
                 </div>
                 {% endif %}
 
-                {% if (data['activity-v10']) %}
+                {% if (data['activity-v2-var10']) %}
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Expected outcome
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{data['activity-v10']}}
+                    {{data['activity-v2-var10']}}
                   </dd>                  
                   <dd class="govuk-summary-list__actions ">
                       <a href="exception-1">Change</a>
@@ -544,7 +564,7 @@
   </div>
 
   {{ govukButton({
-    text: "Submit exception"
+    text: "Submit request"
   }) }}
 
   </form>

@@ -104,22 +104,24 @@
             id: "more-detail",
             value: data['more-detail'],
             label: {
-              text: "Describe in detail your reasoning for requesting an exception",
+              text: "Tell us as much information as possible to support your request",
               classes: "govuk-label--m",
               isPageHeading: false
             },
             hint: {
-              text: "This will be reviewed and an outcome decided by the Home Office. "
+              html: "<p>Describe in detail why you want this information to remain private.</p>
+              <p>Do not include personal or financial information, like your National Insurance number or credit card details.</p>"
             }
           }) }}
 
           {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
+          <h3 class="govuk-heading-m">Upload supporting documents</h3>
           {{ govukFileUpload({
             id: "file-upload-1",
             name: "fileUpload1",
             label: {
-              text: "If you have any supporting documents such as police reports, NDAs, or contracts, these can be uploaded here."
+              text: "Upload documents, such as police reports, NDAs, or contracts, to support your request."
             }
           }) }}
 
