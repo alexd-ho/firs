@@ -216,3 +216,15 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
         }
     }
 }
+
+
+
+.firs-block-top-border {
+    border-top: 2px solid #b1b4b6;
+    padding-top: 20px;
+    &--complementary {
+        border-top: 2px solid #1d70b8;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+}
