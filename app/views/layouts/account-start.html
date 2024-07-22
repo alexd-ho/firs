@@ -1,0 +1,49 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+<style>
+  .app-header--full-width-border {
+    border-bottom: 10px solid #1f70b8;
+  }
+  .app-phase-banner–no-border {
+    border-bottom: none;
+  }
+</style>
+
+{% set root = '/journey/v2/' %}
+
+
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: "Foreign Influence Registration Scheme",
+  serviceUrl: "/",
+  classes: "app-header--full-width-border"
+}) }}
+
+
+
+
+{{ xGovukMasthead({
+  phaseBanner: {
+    text: "This is a new service"
+  },
+  breadcrumbs: {
+    items: [{
+      href: "/",
+      text: "Home"
+    }]
+  },
+  title: {
+    text: "Foreign Influence Registration Scheme"
+  }
+}) }}
+
+{% endblock %}
+
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}

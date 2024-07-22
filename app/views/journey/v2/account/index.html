@@ -1,17 +1,18 @@
-{% extends "layouts/main-v2.html" %}
+{% extends "layouts/account-start.html" %}
 {% set bodyClasses = "account" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+
 {% block footer %}
  {{ govukFooter({
    meta: {
      items: [
        {
-         href: "/journey/v2/account/service-start",
-         text: "Alternate start page"
+         href: "/journey/v2/account/",
+         text: "Main start page"
        },
        {
          href: "/manage-prototype",
@@ -27,29 +28,9 @@
  }) }}
 {% endblock %}
 
-{% block beforeContent %}
-
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Home",
-        href: "#"
-      },
-      {
-        text: "Section",
-        href: "#"
-      },
-      {
-        text: "Subsection"
-      }
-    ]
-  }) }}
-
-{% endblock %}
-
 {% block content %}
 
-<div class="govuk-grid-row">
+<!-- <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
@@ -57,66 +38,111 @@
         </h1>
 
     </div>
-  </div>
+</div> -->
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-prototype-kit-common-templates-mainstream-guide-contents-list">
+
+        <p>Contents</p>
+        <ol class="govuk-list govuk-list--number">
+            <li><a href="">Overview</a></li>
+            <li><a href="">Check if you need to register</a></li>
+            <li><a href="">How to register</a></li>
+            <li><a href="">After you have registered</a></li>
+            <li><a href="">What we publish on the public register</a></li>
+            <li><a href="">If you receive an information notice</a></li>
+            <li><a href="">If you fail to register</a></li>
+        </ol>
+
+    </div>
+</div>
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <p>In this section, you will be asked about the details of the foreign power or organisation in this registration, that will form the basis of your Foreign Influence Registration Scheme (FIRS) account type.</p>
+        <div class="govuk-prototype-kit-common-templates-mainstream-guide-body">
 
-        {% from "govuk/components/details/macro.njk" import govukDetails %}
+            <h3 class="govuk-heading-l">How to register</h3>
+            <p>Check if you need to register before you start.</p>
+            <p>You can register online or using a paper form. It's quicker to register online.</p>
+            <p>Registration is free.</p>
+            <p>You must register each agreement, and its associated activities, separately. You can update the details of any activities after you have registered them.</p>
 
-        {{ govukDetails({
-          summaryText: "What is a foreign power?",
-          text: "We need to know the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out an activity."
-        }) }}
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
 
-        <p>You will need:</p>
+            {{ govukDetails({
+              summaryText: "What is an agreement?",
+              text: "An agreement can be anything from a legally enforceable contract to a written or verbal understanding between two or more parties."
+            }) }}
 
-        <ul class="govuk-list govuk-list--bullet">
-            <!-- <li>The type of activity</li> -->
-            <li>The names of the foreign power or organisations you are registering</li>
-            <li>The names of any individual or organisations you are registering on behalf of</li>
-        </ul>
+            {{ govukDetails({
+              summaryText: "What is an activity?",
+              text: "An activity is any action taken that relates to an agreement. This includes public communications, private communications, and the disbursement of goods and services."
+            }) }}        
 
-        <p>Setting up your account takes around 5 minutes.</p>
+            <h3 class="govuk-heading-l">Register online</h3>
 
-        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+            <p>You will need:</p>
 
-        {{ govukInsetText({
-            html: "<p>Some of the information you provide may appear on a public register.</p>
-            <p>After you have submitted an activity, you can make a request for any information that would appear on the public register to remain private.</p>"
-        }) }}
+            <ul class="govuk-list govuk-list--bullet">
+                <!-- <li>The type of activity</li> -->
+                <li>details of the agreement</li>
+                <li>details of the activities that will be carried out as part of the agreement</li>
+                <li>the name of the foreign government or local authority, Sovereign, or Head of State that directed you to carry out the activities</li>
+                <li>details of the individuals who will carry out the activities</li>
+                <li>the start and end dates of the activities</li>
+                <li>your address and contact details (if you are registering on behalf of someone else, you will need their details)</li>
+            </ul>
 
-        {{ govukButton({
-        text: "Start now",
-        href: "/journey/v2/tier/1-1",
-        isStartButton: true
-        }) }}
+            {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+            {{ govukInsetText({
+                html: "<p>Some of the information you provide may appear on a public register.</p>
+                <p>After you have submitted an activity, you can make a request for any information that would appear on the public register to remain private.</p>"
+            }) }}
+
+            {{ govukButton({
+            text: "Start now",
+            href: "/journey/v2/tier/1-1",
+            isStartButton: true
+            }) }}
 
 
 
-        <p>
-        You can also <a href="#">register by post</a>.
-        </p>
+            <p>
+            You can also <a href="#">register by post</a>.
+            </p>
 
-        <p>
-        The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
-        </p>
+            <p>
+            The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
+            </p>
 
-        <p>
-        You can’t register for this service if you’re in the UK illegally.
-        </p>
+            <p>
+            You can’t register for this service if you’re in the UK illegally.
+            </p>
+
+        </div>
 
     </div>
 
     <div class="govuk-grid-column-one-third">
 
-      <aside class="govuk-prototype-kit-common-templates-related-items-" role="complementary">
+      <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
           More information
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list">
+            <li>
+              <a href="https://www.gov.uk/government/publications/national-security-bill-factsheets/foreign-influence-registration-scheme-factsheet">
+                Foreign Influence Registration Scheme factsheet
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Check eligibility
+              </a>
+            </li>
             <li>
               <a href="#">
                 Request an exception

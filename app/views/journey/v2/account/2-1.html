@@ -14,6 +14,16 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
+		{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+		<div class="govuk-inset-text app-inset-text" style="border-left-color: #1d70b8;">
+			<!-- <h3 class="govuk-heading-m">Notice</h3> -->
+			<p>Registration is not required if you, or the person you are registering, have an official role with the {{data['foreign-power']}} that does not involve omitting information or giving misleading information.</p>
+			<p>If you or your organisation, or another person or organisation you are registering for, have an agreement with the {{data['foreign-power']}}, and someone is omitting information or giving misleading information, you must review your answers.</p>
+			<p>If you are still unsure, check the guidance notes or seek legal advice before continuing.</p>
+		</div>
+
+
 		<form action="/route-v2/2-1" method="post">
 
 			
