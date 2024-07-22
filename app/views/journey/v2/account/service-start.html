@@ -11,7 +11,7 @@
    meta: {
      items: [
        {
-         href: "./",
+         href: "/journey/v2/account/",
          text: "Main start page"
        },
        {
@@ -43,7 +43,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <p>In this section, you will be asked about the details of the foreign power or organisation in this registration.</p>
+        <p>In this section, you will be asked about the details of the foreign power or organisation in this registration, that will form the basis of your FIRS account type.</p>
 
         {% from "govuk/components/details/macro.njk" import govukDetails %}
 
@@ -56,13 +56,12 @@
 
         <ul class="govuk-list govuk-list--bullet">
             <!-- <li>The type of activity</li> -->
-            <li>The names and roles of people conducting the activity</li>
-            <li>The dates of the activity</li>
-            <li>The expected outcome of the activity</li>
-            <li>The value and recipients of any offers, if relevant</li>
+            <li>The names of the foreign power or organisations you are registering</li>
+            <li>The names of any individual or organisations you are registering on behalf of</li>
         </ul>
 
-        <p>Registering takes around 5 minutes.</p>
+
+        <p>Setting up your account takes around 5 minutes.</p>
 
         {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
@@ -73,7 +72,7 @@
 
         {{ govukButton({
         text: "Start now",
-        href: "../tier/1-1",
+        href: "/journey/v2/tier/1-1",
         isStartButton: true
         }) }}
 
