@@ -11,8 +11,8 @@
    meta: {
      items: [
        {
-         href: "2-6-alt",
-         text: "Alternate confirmation statement"
+         href: "2-6",
+         text: "Default confirmation statement"
        },
        {
          href: "/manage-prototype",
@@ -38,6 +38,14 @@
 
 		<form action="/route-v2/confirm-2-6" method="post">
 
+			{% set otherHtml %}
+		  	<div class="govuk-inset-text">
+				<p class="govuk-body-l">
+				  {{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
+				 </p>
+			</div>
+			{% endset -%}
+
 			{% from "govuk/components/panel/macro.njk" import govukPanel %}
 			<!--
 			{{ govukPanel({
@@ -45,7 +53,9 @@
 			}) }}			
 			-->
 <!-- 			<div class="govuk-inset-text">
-			  {{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
+				<p class="govuk-body-l">
+				  {{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
+				 </p>
 			</div> -->
 
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -56,13 +66,13 @@
 			  value: data['v2-6'],
 			  fieldset: {
 			    legend: {
-			      text: data['v2-4']+" is part of an agreement with the "+data['foreign-power'],
-			      isPageHeading: false,
+			      text: "Is the following statement correct?",
+			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
 			  },
 			  hint: {
-			  	text: "Is this correct?"
+			  	html: otherHtml
 			  },
 			  items: [
 			    {
