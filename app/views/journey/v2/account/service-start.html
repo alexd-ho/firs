@@ -1,17 +1,18 @@
-{% extends "layouts/main-v2.html" %}
+{% extends "layouts/service-start-v2.html" %}
 {% set bodyClasses = "account" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+
 {% block footer %}
  {{ govukFooter({
    meta: {
      items: [
        {
-         href: "account/service-start",
-         text: "Alternate start page"
+         href: "./",
+         text: "Main start page"
        },
        {
          href: "/manage-prototype",
@@ -27,29 +28,9 @@
  }) }}
 {% endblock %}
 
-{% block beforeContent %}
-
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Home",
-        href: "#"
-      },
-      {
-        text: "Section",
-        href: "#"
-      },
-      {
-        text: "Subsection"
-      }
-    ]
-  }) }}
-
-{% endblock %}
-
 {% block content %}
 
-<div class="govuk-grid-row">
+<!-- <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
         <h1 class="govuk-heading-xl">
@@ -57,7 +38,8 @@
         </h1>
 
     </div>
-  </div>
+</div> -->
+
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -119,6 +101,16 @@
         </h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list">
+            <li>
+              <a href="https://www.gov.uk/government/publications/national-security-bill-factsheets/foreign-influence-registration-scheme-factsheet">
+                Foreign Influence Registration Scheme factsheet
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Check eligibility
+              </a>
+            </li>
             <li>
               <a href="#">
                 Request an exception
