@@ -1081,6 +1081,7 @@ router.post('/route/exception-check', function(request, response) {
 /// JOURNEY 
 
 var root_v2 = '/journey/v2/';
+var eligibility_v2 = '/journey/v2/eligibility/';
 var tier_v2 = '/journey/v2/tier/';
 var account_v2 = '/journey/v2/account/';
 
@@ -1089,6 +1090,65 @@ var arrangement_v2 = '/journey/v2/arrangement/';
 var agreement_v2 = '/journey/v2/agreement/';
 var activity_v2 = '/journey/v2/activity/';
 var exception_v2 = '/journey/v2/exception/';
+
+/// 0. ELIGBILITY
+
+router.post('/route-v2/0-1', function(request, response) {
+    var value = request.session.data['v0-1'];
+    if (value == "None of these"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"0-3")
+    } else { 
+        response.redirect(eligibility_v2+"0-2")
+    }
+})
+router.post('/route-v2/0-2', function(request, response) {
+    var value = request.session.data['v0-2'];
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"registration-required")
+    } else { 
+        response.redirect(eligibility_v2+"0-6")
+    }
+})
+router.post('/route-v2/0-3', function(request, response) {
+    var value = request.session.data['v0-3'];
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"registration-required")
+    } else { 
+        response.redirect(eligibility_v2+"0-4")
+    }
+})
+router.post('/route-v2/0-4', function(request, response) {
+    var value = request.session.data['v0-4'];
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"registration-required")
+    } else { 
+        response.redirect(eligibility_v2+"0-5")
+    }
+})
+router.post('/route-v2/0-5', function(request, response) {
+    var value = request.session.data['v0-5'];
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"registration-required")
+    } else { 
+        response.redirect(eligibility_v2+"0-6")
+    }
+})
+router.post('/route-v2/0-6', function(request, response) {
+    var value = request.session.data['v0-6'];
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"registration-required")
+    } else { 
+        response.redirect(eligibility_v2+"0-7")
+    }
+})
+router.post('/route-v2/0-7', function(request, response) {
+    var value = request.session.data['v0-7'];
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"registration-required")
+    } else { 
+        response.redirect(eligibility_v2+"registration-not-required")
+    }
+})
 
 
 /// 1. TIER

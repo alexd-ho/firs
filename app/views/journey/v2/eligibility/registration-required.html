@@ -1,0 +1,37 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<h1 class="govuk-heading-xl">You are required to register.</h1>
+
+		<p>Whilst your registerable activities may fall under the criteria for registering, you may still be exempt from needing to regsiter. Full <a href="eligibilty/exemptions">guidance on exemptions can be found here</a>.</p>
+
+      {{ govukPagination({
+       
+        next: {
+          labelText: "How to register",
+          href: "../account"
+        }
+      }) }}
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

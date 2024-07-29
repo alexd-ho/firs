@@ -14,28 +14,19 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v2/confirm-2-6" method="post">
+		<form action="/route-v2/0-3" method="post">
 
-			{% from "govuk/components/panel/macro.njk" import govukPanel %}
-			<!--
-			{{ govukPanel({
-			  titleText: data['v2-4']+" is part of an agreement with "+data['foreign-power']
-			}) }}			
-			-->
-<!-- 			<div class="govuk-inset-text">
-			  {{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
-			</div> -->
-
+			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			  name: "v2-6",
-			  id: "v2-6",
-			  value: data['v2-6'],
+			  name: "v0-3",
+			  id: "v0-3",
+			  value: data['v0-3'],
 			  fieldset: {
 			    legend: {
-			      text: "Is "+data['v2-4']+" in an agreement with the "+data['foreign-power']+"?",
-			      isPageHeading: false,
+			      text: "Do you represent Foreign Power X?",
+			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
 			  },

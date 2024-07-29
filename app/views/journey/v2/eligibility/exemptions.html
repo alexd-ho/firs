@@ -1,0 +1,133 @@
+{% extends "layouts/account-start.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/journey/v2/account/",
+         text: "Main start page"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Start your registration
+        </h1>
+
+    </div>
+</div> -->
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <p>Contents</p>
+        <ol class="govuk-list govuk-list--number">
+            <li><a href="overview">Overview</a></li>
+            <li>Check if you need to register</li>
+            <li><a href="account">How to register</a></li>
+            <li><a href="">After you have registered</a></li>
+            <li><a href="">What we publish on the public register</a></li>
+            <li><a href="">If you receive an information notice</a></li>
+            <li><a href="">If you fail to register</a></li>
+        </ol>
+
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds ">
+
+        <div class="govuk-prototype-kit-common-templates-mainstream-guide-body firs-block-top-border">
+
+            <h3 class="govuk-heading-l">Conditions for regsitering and exemptions</h3>
+
+            <h3 class="govuk-heading-s">
+            When you may not need to register
+            </h3>
+            <p>You may not need to register if:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>the UK Government is a party to your arrangement</li>
+                <li>you are a foreign government or local authority, Sovereign, or Head of State</li>
+                <li>you are a diplomat or a spouse, partner or family member of a diplomat</li>
+                <li>you are carrying out activities that are reasonably necessary for the functioning of a diplomatic mission</li>
+                <li>you are a recognised news publisher</li>
+                <li>you are a lawyer or solicitor carrying out legal activity</li>  
+            </ul>
+
+
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            {{ govukDetails({
+              summaryText: "What is a registerable activity?",
+              text: "Any private communication, public communication, or distribution of money, goods, or services intended to influence a decision."
+            }) }}
+
+
+            <h3 class="govuk-heading-m">Eligibilty checker</h3>
+
+            <p>Complete the online Eligibilty checker to determine if you are required to register.</p>
+
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+
+            {{ govukButton({
+            text: "Start now",
+            href: "/journey/v2/eligibility/0-1",
+            isStartButton: true
+            }) }}
+
+
+        </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="firs-block-top-border--complementary" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          More information
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list">
+            <li>
+              <a href="https://www.gov.uk/government/publications/national-security-bill-factsheets/foreign-influence-registration-scheme-factsheet">
+                Foreign Influence Registration Scheme factsheet
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Terms and conditions
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+
+{% endblock %}

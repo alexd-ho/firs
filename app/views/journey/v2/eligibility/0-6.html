@@ -14,30 +14,31 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v2/confirm-2-6" method="post">
+		<form action="/route-v2/0-6" method="post">
 
-			{% from "govuk/components/panel/macro.njk" import govukPanel %}
-			<!--
-			{{ govukPanel({
-			  titleText: data['v2-4']+" is part of an agreement with "+data['foreign-power']
-			}) }}			
-			-->
-<!-- 			<div class="govuk-inset-text">
-			  {{data['v2-4']}} is part of an agreement with {{data['foreign-power']}}
-			</div> -->
-
+			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			  name: "v2-6",
-			  id: "v2-6",
-			  value: data['v2-6'],
+			  name: "v0-6",
+			  id: "v0-6",
+			  value: data['v0-6'],
 			  fieldset: {
 			    legend: {
-			      text: "Is "+data['v2-4']+" in an agreement with the "+data['foreign-power']+"?",
-			      isPageHeading: false,
+			      text: "Do you represent any of these organisations?",
+			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
+			  },
+			  hint: {
+			    html: "<ul>
+			    		<li>Aperture Science</li>
+			    		<li>Belltower Associates</li>
+			    		<li>Helios</li>
+			    		<li>Rapture Tribune</li>
+			    		<li>Umbrella Pharmaceuticals</li>
+			    		<li>Vault-Tec Corporation</li>
+			    	</ul>"
 			  },
 			  items: [
 			    {

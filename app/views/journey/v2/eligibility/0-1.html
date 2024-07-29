@@ -1,0 +1,83 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+Enhanced tier answers:
+UK elections or referendums;
+Decisions of the government of the UK, Northern Ireland, Scotland or Wales;
+UK political parties; or 
+Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru
+None of these
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/0-1" method="post">
+
+			
+			{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+			
+			{{ govukCheckboxes({
+			  name: "v0-1",
+			  id: "v0-1",
+			  values: data['v0-1'],
+			  fieldset: {
+			    legend: {
+			      text: "Which political institution are you intending to influence?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  hint: {
+			    text: "Select any that apply."
+			  },
+			  items: [
+			    {
+			      value: "UK elections or referendums;",
+			      text: "UK elections or referendums"
+			    },
+			    {
+			      value: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales",
+			      text: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
+			    },
+			    {
+			      value: "UK political parties",
+			      text: "UK political parties"
+			    },
+			    {
+			      value: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru",
+			      text: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru"
+			    },
+			    {
+			    	divider: "or"
+			    },
+			    {
+			      value: "None of these",
+			      text: "None of these",
+			      behaviour: "exclusive"
+			    }
+			  ]
+			}) }}
+			
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
