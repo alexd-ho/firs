@@ -1,0 +1,83 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="account-type-3?account-type=3" method="post">
+
+				{% set otherHtml %}
+				{{ govukInput({
+				  id: "v2-33-other",
+				  name: "v2-33-other",
+				  type: "v2-33-other",
+				  classes: "govuk-!-width-two-third",
+				  label: {
+				    text: "Please specify"
+				  }
+				}) }}
+				{% endset -%}
+			  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+			  
+			  {{ govukRadios({
+			    name: "v2-33",
+			    id: "v2-33",
+			    value: data['v2-33'],
+			    fieldset: {
+			      legend: {
+			        text: "What is your relationship with "+data['foreign-power']+"?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			      }
+			    },
+			    items: [
+			      {
+			        value: "Agent, consultant, or contractor",
+			        text: "Agent, consultant, or contractor"
+			      },
+			      {
+			        value: "Colleague",
+			        text: "Colleague"
+			      },
+			      {
+			        value: "Family member, friend, or partner",
+			        text: "Family member, friend, or partner"
+			      },
+			      {
+			        value: "Legal representative",
+			        text: "Legal representative"
+			      },
+			      {
+			        value: "Other",
+			        text: "Other",
+				      conditional: {
+				        html: otherHtml
+				      }
+      	    }
+			    ]
+			  }) }}		  
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

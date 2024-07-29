@@ -1187,6 +1187,11 @@ router.post('/route-v2/1-4', function(request, response) {
     }
 })
 
+router.post('/route-v2/1-5', function(request, response) {
+    var etOrg = request.session.data['v1-5'];
+    response.redirect(account_v2+"2-20?foreign-power="+etOrg)
+})
+
 router.post('/route-v2/1-7', function(request, response) {
     var value = request.session.data['v1-7'];
     var value_b = request.session.data['v1-6'];
@@ -1323,6 +1328,79 @@ router.post('/route-v2/confirm-2-19', function(request, response) {
         response.redirect(account_v2+"2-1?guidance=true")            
     }
 })
+
+// ET Orgs
+router.post('/route-v2/2-20', function(request, response) {
+    var value = request.session.data['v2-20'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"2-32")
+    } else {
+        response.redirect(account_v2+"2-21")            
+    }
+})
+
+router.post('/route-v2/2-21', function(request, response) {
+    var value = request.session.data['v2-21'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"2-31")
+    } else {
+        response.redirect(account_v2+"2-22")            
+    }
+})
+
+router.post('/route-v2/2-22', function(request, response) {
+    var value = request.session.data['v2-22'] // 
+    if (value == "An individual person"){ // 
+        response.redirect(account_v2+"2-23")
+    } else if (value == "An organisation that I work for") {
+        response.redirect(account_v2+"2-26")
+    } else {
+        response.redirect(account_v2+"2-28")            
+    }
+})
+router.post('/route-v2/confirm-2-25', function(request, response) {
+    var value = request.session.data['v2-25']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=3")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+router.post('/route-v2/confirm-2-27', function(request, response) {
+    var value = request.session.data['v2-27']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=2")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+router.post('/route-v2/confirm-2-30', function(request, response) {
+    var value = request.session.data['v2-30']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=3")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+router.post('/route-v2/confirm-2-31', function(request, response) {
+    var value = request.session.data['v2-31']
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"group-1-1?account-type=1")
+    } else {
+        response.redirect(account_v2+"2-1?guidance=true")            
+    }
+})
+
+router.post('/route-v2/2-32', function(request, response) {
+    var value = request.session.data['v2-32'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v2+"account-type-7?account-type=7")
+    } else {
+        response.redirect(account_v2+"2-33")            
+    }
+})
+
+
 
 
 // Group

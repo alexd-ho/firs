@@ -1,0 +1,68 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/2-22" method="post">
+
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v2-22",
+			    id: "v2-22",
+			    value: data['v2-22'],
+			    fieldset: {
+			    legend: {
+			        text: "Which of these are you registering for?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    items: [
+			    {
+			        value: "An individual person",
+			        text: "An individual person"
+			    },
+			    {
+			        value: "An organisation that I work for",
+			        text: "An organisation that I work for",
+			        hint: {
+			        	text: "For example, you are employed by the organisation, including if you are a contractor or volunteer"
+			        }
+			    },
+			    {
+			        value: "An organisation that I don't work for",
+			        text: "An organisation that I don't work for",
+			        hint: {
+			        	text: "For example, you are a legal or non-legal representative"
+			        }
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
