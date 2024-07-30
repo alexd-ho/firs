@@ -1451,6 +1451,36 @@ router.post('/route-v2/group-1-4', function(request, response) {
 // })
 
 
+/// REGISTRATION
+
+router.post('/route-v2/3-1-2', function(request, response) {
+    var value = request.session.data['v3-1-2'] // 
+    if (value == "Yes"){ // 
+        response.redirect(registration_v2+"3-1-3")
+    } else {
+        response.redirect(registration_v2+"3-1-4")            
+    }
+})
+
+router.post('/route-v2/3-1-7', function(request, response) {
+    var value = request.session.data['v3-1-7'] // 
+    if (value == "Yes"){ // 
+        response.redirect(registration_v2+"3-1-8")
+    } else {
+        response.redirect(registration_v2+"3-1-9")            
+    }
+})
+
+router.post('/route-v2/3-2-1', function(request, response) {
+    var value = request.session.data['v3-2-1'] // 
+    if (value == "Body corporate"){ // 
+        response.redirect(registration_v2+"3-2a-1?reg-type=corp")
+    } else {
+        response.redirect(registration_v2+"3-2b-1?reg-type=assoc")            
+    }
+})
+
+
 
 
 

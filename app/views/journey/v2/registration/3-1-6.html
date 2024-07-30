@@ -1,0 +1,87 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="3-1-7" method="post">
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+			
+			{% call govukFieldset({
+			  legend: {
+			    text: "What is your residential address?",
+			    classes: "govuk-fieldset__legend--l",
+			    isPageHeading: true
+			  }
+			}) %}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Address line 1"
+			    },
+			    id: "v3-1-6-line-1",
+			    name: "v3-1-6-line-1",
+			    value: data["v3-1-6-line-1"],
+			    autocomplete: "address-line1"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Address line 2 (optional)"
+			    },
+			    id: "v3-1-6-line-2",
+			    name: "v3-1-6-line-2",
+			    value: data["v3-1-6-line-2"],
+			    autocomplete: "address-line2"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Town or city"
+			    },
+			    classes: "govuk-!-width-two-thirds",
+			    id: "v3-1-6-town",
+			    name: "v3-1-6-town",
+			    value: data["v3-1-6-town"],
+			    autocomplete: "address-level2"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Postcode"
+			    },
+			    classes: "govuk-input--width-10",
+			    id: "v3-1-6-postcode",
+			    name: "v3-1-6-postcode",
+			    value: data["v3-1-6-postcode"],
+			    autocomplete: "postal-code"
+			  }) }}
+			
+			{% endcall %}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
