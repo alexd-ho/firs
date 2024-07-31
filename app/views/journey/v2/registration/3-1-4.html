@@ -19,6 +19,7 @@
 			
 			{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 			
+			{% if (data['mode'] == 'self') %}
 			{{ govukDateInput({
 			  namePrefix: "v3-1-4",
 			  id: "v3-1-4",
@@ -34,6 +35,24 @@
 			    text: "For example, 27 3 1977"
 			  }
 			}) }}
+			{% else %}
+			{{ govukDateInput({
+			  namePrefix: "v3-1-4",
+			  id: "v3-1-4",
+			  values: data['v3-1-4'],
+			  fieldset: {
+			    legend: {
+			      text: "What is the date of birth of "+data['v2-4']+"?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  hint: {
+			    text: "For example, 27 3 1977"
+			  }
+			}) }}
+			{% endif %}
+
 			
 
 			{{ govukButton({

@@ -41,12 +41,19 @@
             <p>After you have submitted an activity, you can make a request for any information that would appear on the public register to remain private.</p>"
         }) }}
 
+        {% if (data['mode'] == 'self') %}
         {{ govukButton({
         text: "Start now",
         href: "3-1-1",
         isStartButton: true
         }) }}
-
+        {% else %}
+        {{ govukButton({
+        text: "Start now",
+        href: "3-1-2",
+        isStartButton: true
+        }) }}
+        {% endif %}
 
 
         <p>

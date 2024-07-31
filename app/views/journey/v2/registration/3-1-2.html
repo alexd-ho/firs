@@ -17,30 +17,60 @@
 		<form action="/route-v2/3-1-2" method="post">
 
 			
-			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+		{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
-			{{ govukRadios({
-			    name: "v3-1-2",
-			    id: "v3-1-2",
-			    value: data['v3-1-2'],
-			    fieldset: {
-			    legend: {
-			        text: "Do you have any former names?",
-			        isPageHeading: true,
-			        classes: "govuk-fieldset__legend--l"
-			    }
-			    },
-			    items: [
-			    {
-			        value: "Yes",
-			        text: "Yes"
-			    },
-			    {
-			        value: "No",
-			        text: "No"
-			    }
-			    ]
-			}) }}
+	    {% if (data['mode'] == 'self') %}
+
+		{{ govukRadios({
+		    name: "v3-1-2",
+		    id: "v3-1-2",
+		    value: data['v3-1-2'],
+		    fieldset: {
+		    legend: {
+		        text: "Do you have any former names?",
+		        isPageHeading: true,
+		        classes: "govuk-fieldset__legend--l"
+		    }
+		    },
+		    items: [
+		    {
+		        value: "Yes",
+		        text: "Yes"
+		    },
+		    {
+		        value: "No",
+		        text: "No"
+		    }
+		    ]
+		}) }}
+
+
+	    {% else %}
+
+		{{ govukRadios({
+		    name: "v3-1-2",
+		    id: "v3-1-2",
+		    value: data['v3-1-2'],
+		    fieldset: {
+		    legend: {
+		        text: "Does "+data['v2-4']+" have any former names?",
+		        isPageHeading: true,
+		        classes: "govuk-fieldset__legend--l"
+		    }
+		    },
+		    items: [
+		    {
+		        value: "Yes",
+		        text: "Yes"
+		    },
+		    {
+		        value: "No",
+		        text: "No"
+		    }
+		    ]
+		}) }}
+
+		{% endif %}
 
 			{{ govukButton({
 				text: "Continue"

@@ -18,6 +18,7 @@
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
+			{% if (data['mode'] == 'self') %}
 			{{ govukInput({
 				id: "v3-1-9",
 				name: "v3-1-9",
@@ -29,6 +30,21 @@
 					isPageHeading: true
 				}
 			}) }}
+			{% else %}
+			{{ govukInput({
+				id: "v3-1-9",
+				name: "v3-1-9",
+				value: data['v3-1-9'],
+				type: "tel",
+				label: {
+					text: "What is the telephone number of "+data['v2-4']+"?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+			{% endif %}
+
+
 
 			{{ govukButton({
 				text: "Continue"

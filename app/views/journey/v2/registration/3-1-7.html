@@ -19,6 +19,9 @@
 			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
+
+
+			{% if (data['mode'] == 'self') %}
 			{{ govukRadios({
 			    name: "v3-1-7",
 			    id: "v3-1-7",
@@ -41,6 +44,33 @@
 			    }
 			    ]
 			}) }}
+			{% else %}
+			{{ govukRadios({
+			    name: "v3-1-7",
+			    id: "v3-1-7",
+			    value: data['v3-1-7'],
+			    fieldset: {
+			    legend: {
+			        text: "Does "+data['v2-4']+" have a different correspondence address?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    items: [
+			    {
+			        value: "Yes",
+			        text: "Yes"
+			    },
+			    {
+			        value: "No",
+			        text: "No"
+			    }
+			    ]
+			}) }}
+
+			{% endif %}
+
+
 
 			{{ govukButton({
 				text: "Continue"

@@ -27,7 +27,7 @@
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                Your Name
+                Name
                 </dt>
                 <dd class="govuk-summary-list__value">
                 {{data['v3-1-1']}}
@@ -36,6 +36,11 @@
                     <a class="govuk-link" href="3-1-1">Change<span class="govuk-visually-hidden"> Your Name</span></a>
                 </dd>
             </div>
+
+            
+            {% if (data['type'] == "registrant") %}
+
+            
             {% if (data['v3-1-2'] == "Yes") %}
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -74,6 +79,8 @@
                     <a class="govuk-link" href="3-1-5">Change<span class="govuk-visually-hidden"> Nationality</span></a>
                 </dd>
             </div>
+
+            {% endif %}
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -125,7 +132,58 @@
                 </dd>
             </div>
 
+            {% if (data['misrep'] == 'true') %}
 
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v3-1-m1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email address</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Employment responsibilties
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v3-1-m2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email address</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Information that was omitted or mislead
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v3-1-m3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email address</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Reason for omission or misleading
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v3-1-m4']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email address</span></a>
+                </dd>
+            </div>
+
+
+            {% endif %}
 
 
          <!--    <div class="govuk-summary-list__row">

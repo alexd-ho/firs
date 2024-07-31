@@ -19,7 +19,9 @@
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 			
-			{% call govukFieldset({
+
+			{% if (data['mode'] == 'self') %}
+{% call govukFieldset({
 			  legend: {
 			    text: "What is your correspondence address?",
 			    classes: "govuk-fieldset__legend--l",
@@ -66,6 +68,61 @@
 			  }) }}
 			
 			{% endcall %}
+
+			{% else %}
+
+			{% call govukFieldset({
+			  legend: {
+			    text: "What is the correspondence address of "+data['v2-4']+"?",
+			    classes: "govuk-fieldset__legend--l",
+			    isPageHeading: true
+			  }
+			}) %}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Address line 1"
+			    },
+			    id: "v3-1-8-line-1",
+			    name: "v3-1-8-line-1",
+			    autocomplete: "address-line1"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Address line 2 (optional)"
+			    },
+			    id: "v3-1-8-line-2",
+			    name: "v3-1-8-line-2",
+			    autocomplete: "address-line2"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Town or city"
+			    },
+			    classes: "govuk-!-width-two-thirds",
+			    id: "v3-1-8-town",
+			    name: "v3-1-8-town",
+			    autocomplete: "address-level2"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Postcode"
+			    },
+			    classes: "govuk-input--width-10",
+			    id: "v3-1-8-postcode",
+			    name: "v3-1-8-postcode",
+			    autocomplete: "postal-code"
+			  }) }}
+			
+			{% endcall %}
+
+			{% endif %}
+
+
+
 
 			{{ govukButton({
 				text: "Continue"
