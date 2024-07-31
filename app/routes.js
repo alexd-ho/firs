@@ -1480,6 +1480,53 @@ router.post('/route-v2/3-2-1', function(request, response) {
     }
 })
 
+router.post('/route-v2/3-2a-1', function(request, response) {
+    var value = request.session.data['v3-2a-1'] // 
+    if (value == "Yes"){ // 
+        response.redirect(registration_v2+"3-2-2")
+    } else {
+        response.redirect(registration_v2+"3-2-3")            
+    }
+})
+router.post('/route-v2/3-2b-1', function(request, response) {
+    var value = request.session.data['v3-2a-1'] // 
+    if (value == "Yes"){ // 
+        response.redirect(registration_v2+"3-2-2")
+    } else {
+        response.redirect(registration_v2+"3-2-3")            
+    }
+})
+router.post('/route-v2/3-2a-5', function(request, response) {
+    var value = request.session.data['v3-2a-5'] // 
+    if (value == "Yes"){ // 
+        response.redirect(registration_v2+"3-2-6")
+    } else {
+        response.redirect(registration_v2+"3-2-8")            
+    }
+})
+
+router.post('/route-v2/3-2-9', function(request, response) {
+    var value = request.session.data['v3-2-9'] // 
+    if (value == "Yes"){ // 
+        response.redirect(registration_v2+"3-2-10")
+    } else {
+        response.redirect(registration_v2+"3-2-11")            
+    }
+})
+router.post('/route-v2/3-2-13', function(request, response) {
+    var value = request.session.data['v3-2-13'] //
+    var dir = request.session.data['reg-type'] //
+    if (value == "Yes") { // 
+        response.redirect(registration_v2+"3-2-14")
+    } else {
+        if (dir == "corp"){ // 
+            response.redirect(registration_v2+"3-2-16")            
+        } else {
+            response.redirect(registration_v2+"3-2-check")            
+        }    
+    }
+})
+
 
 
 

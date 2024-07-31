@@ -1,0 +1,73 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		{% if (data['reg-type'] == 'corp') %}
+		<form action="3-2a-5" method="post">
+		{% endif %}
+		{% if (data['reg-type'] == 'assoc') %}
+		<form action="3-2b-5" method="post">
+		{% endif %}
+
+			
+			{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+			
+			{% if (data['reg-type'] == "corp") %}
+			{{ govukDateInput({
+			  namePrexif: "v3-2-4",
+			  id: "v3-2-4",
+			  values: data['v3-2-4'],
+			  fieldset: {
+			    legend: {
+			      text: "What date was "+data['v2-7']+" incorporated?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  hint: {
+			    text: "For example, 27 3 2007"
+			  }
+			}) }}
+			{% else %}
+			{{ govukDateInput({
+			  namePrexif: "v3-2-4",
+			  id: "v3-2-4",
+			  values: data['v3-2-4'],
+			  fieldset: {
+			    legend: {
+			      text: "What date was "+data['v2-7']+" formed?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  hint: {
+			    text: "For example, 27 3 2007"
+			  }
+			}) }}
+			{% endif %}
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

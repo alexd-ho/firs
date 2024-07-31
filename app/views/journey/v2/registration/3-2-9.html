@@ -1,5 +1,5 @@
 {% extends "layouts/main-v2.html" %}
-{% set bodyClasses = "account" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -14,39 +14,38 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v2/2-2" method="post">
+		<form action="/route-v2/3-2-9" method="post">
 
-
+			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			  name: "v2-2",
-			  id: "v2-2",
-			  value: data['v2-2'],
-			  fieldset: {
+			    name: "v3-2-9",
+			    id: "v3-2-9",
+			    value: data['v3-2-9'],
+			    fieldset: {
 			    legend: {
-			      text: "Are you registering for yourself?",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--l"
+			        text: "Does "+data['v2-7']+" have a different correspondence address?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
 			    }
-			  },
-			  items: [
+			    },
+			    items: [
 			    {
-			      value: "Yes",
-			      text: "Yes, I am personally involved in the agreement"
+			        value: "Yes",
+			        text: "Yes"
 			    },
 			    {
-			      value: "No",
-			      text: "No, I am not personally involved in the agreement"
+			        value: "No",
+			        text: "No"
 			    }
-			  ]
+			    ]
 			}) }}
-		  
 
 			{{ govukButton({
 				text: "Continue"
 			}) }}
-		  
+
 		</form>
 
 	</div>

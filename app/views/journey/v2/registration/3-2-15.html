@@ -1,0 +1,50 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		{% if (data['reg-type'] == 'corp') %}
+		<form action="3-2-16" method="post">
+		{% endif %}
+		{% if (data['reg-type'] == 'assoc') %}
+		<form action="3-2-check" method="post">
+		{% endif %}
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "v3-2-15",
+				name: "v3-2-15",
+				value: data['v3-2-15'],
+				label: {
+					text: "What is the reference number for "+data['v2-7']+" issued by "+data['v3-2-14']+"?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
