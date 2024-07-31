@@ -1526,6 +1526,14 @@ router.post('/route-v2/3-2-13', function(request, response) {
         }    
     }
 })
+router.post('/route-v2/3-2-16', function(request, response) {
+    var value = request.session.data['v3-2-16'] //
+    if (value == "Yes") { // 
+        response.redirect(registration_v2+"3-2-17")
+    } else {
+        response.redirect(registration_v2+"3-2-check")            
+    }
+})
 
 
 
