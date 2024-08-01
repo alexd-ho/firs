@@ -1482,18 +1482,28 @@ router.post('/route-v2/3-2-1', function(request, response) {
 
 router.post('/route-v2/3-2a-1', function(request, response) {
     var value = request.session.data['v3-2a-1'] // 
+    var dir = request.session.data['type'] // registrant or inputter
     if (value == "Yes"){ // 
         response.redirect(registration_v2+"3-2-2")
     } else {
-        response.redirect(registration_v2+"3-2-3")            
+        if (dir == "registrant"){ // 
+            response.redirect(registration_v2+"3-2-3")            
+        } else {
+            response.redirect(registration_v2+"3-2a-5")            
+        }
     }
 })
 router.post('/route-v2/3-2b-1', function(request, response) {
-    var value = request.session.data['v3-2a-1'] // 
+    var value = request.session.data['v3-2b-1'] // 
+    var dir = request.session.data['type'] // registrant or inputter
     if (value == "Yes"){ // 
         response.redirect(registration_v2+"3-2-2")
     } else {
-        response.redirect(registration_v2+"3-2-3")            
+        if (dir == "registrant"){ // 
+            response.redirect(registration_v2+"3-2-3")            
+        } else {
+            response.redirect(registration_v2+"3-2b-5")            
+        }
     }
 })
 router.post('/route-v2/3-2a-5', function(request, response) {

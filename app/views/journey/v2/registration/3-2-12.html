@@ -14,7 +14,16 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
+		{% if (data['type'] == 'registrant') %}
+
 		<form action="3-2-13" method="post">
+
+		{% else %}
+
+		<form action="3-2-check" method="post">
+
+		{% endif %}
+
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
