@@ -16,7 +16,7 @@
 
 		<form action="/route-v2/0-3" method="post">
 
-			
+			<!-- Do you represent Foreign Power X -->
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
@@ -25,10 +25,17 @@
 			  value: data['v0-3'],
 			  fieldset: {
 			    legend: {
-			      text: "Do you represent Foreign Power X?",
+			      text: "Do you work for, with, on behalf of, or have any arrangement with any of these foreign powers?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
+			  },
+			  hint: {
+			    html: "<ul>
+			    		<li>Foreign Power X</li>
+			    		<li>Foreign Power Y</li>
+			    		<li>Foreign Power Z</li>
+			    	</ul>"
 			  },
 			  items: [
 			    {

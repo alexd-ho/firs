@@ -16,7 +16,7 @@
 
 		<form action="/route-v2/0-2" method="post">
 
-			
+			<!-- Do you work for, or on behalf of, a government or political party based in a country other than the UK or Ireland? -->
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
@@ -25,7 +25,7 @@
 			  value: data['v0-2'],
 			  fieldset: {
 			    legend: {
-			      text: "Do you work for, or on behalf of, a government or political party based in a country other than the UK or Ireland?",
+			      text: "Do you work for, with, on behalf of, or have any arrangement with a government or political party based in a country other than the UK or Ireland?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }

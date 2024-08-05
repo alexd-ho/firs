@@ -16,7 +16,7 @@
 
 		<form action="/route-v2/0-6" method="post">
 
-			
+			<!-- Do you represent any of these organisations -->
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
@@ -25,7 +25,7 @@
 			  value: data['v0-6'],
 			  fieldset: {
 			    legend: {
-			      text: "Do you represent any of these organisations?",
+			      text: "Do you work for, with, on behalf of, or have any arrangement with any of these organisations?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
