@@ -1095,7 +1095,7 @@ var exception_v2 = '/journey/v2/exception/';
 
 router.post('/route-v2/0-1', function(request, response) {
     var value = request.session.data['v0-1'];
-    if (value == "No"){ // Enhanced tier, go to account
+    if (value == "None of these"){ // Enhanced tier, go to account
         response.redirect(eligibility_v2+"0-3")
     } else { 
         response.redirect(eligibility_v2+"0-2")
