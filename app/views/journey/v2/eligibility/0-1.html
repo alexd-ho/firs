@@ -25,44 +25,28 @@ None of these -->
 			
 			{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 			
-			{{ govukCheckboxes({
+			{{ govukRadios({
 			  name: "v0-1",
 			  id: "v0-1",
 			  values: data['v0-1'],
 			  fieldset: {
 			    legend: {
-			      text: "Which political institution are you intending to influence?",
+			      text: "Are you intending to influence any of these?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
 			  },
 			  hint: {
-			    text: "Select any that apply."
+			    html: "<ul><li>UK elections or referendums</li><li>Decisions of the government of the UK, Northern Ireland, Scotland or Wales</li><li>UK political parties</li><li>Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru</li></ul>"
 			  },
 			  items: [
 			    {
-			      value: "UK elections or referendums;",
-			      text: "UK elections or referendums"
+			      value: "Yes;",
+			      text: "Yes"
 			    },
 			    {
-			      value: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales",
-			      text: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
-			    },
-			    {
-			      value: "UK political parties",
-			      text: "UK political parties"
-			    },
-			    {
-			      value: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru",
-			      text: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru"
-			    },
-			    {
-			    	divider: "or"
-			    },
-			    {
-			      value: "None of these",
-			      text: "None of these",
-			      behaviour: "exclusive"
+			      value: "No",
+			      text: "No"
 			    }
 			  ]
 			}) }}
