@@ -1106,13 +1106,13 @@ router.post('/route-v2/0-2', function(request, response) {
     if (value == "Yes"){ // Enhanced tier, go to account
         response.redirect(eligibility_v2+"registration-required")
     } else { 
-        response.redirect(eligibility_v2+"0-6")
+        response.redirect(eligibility_v2+"0-8")
     }
 })
 router.post('/route-v2/0-3', function(request, response) {
     var value = request.session.data['v0-3'];
     if (value == "Yes"){ // Enhanced tier, go to account
-        response.redirect(eligibility_v2+"registration-required")
+        response.redirect(eligibility_v2+"0-8")
     } else { 
         // response.redirect(eligibility_v2+"0-4")
         response.redirect(eligibility_v2+"0-6")
@@ -1148,6 +1148,15 @@ router.post('/route-v2/0-7', function(request, response) {
     if (value == "Yes"){ // Enhanced tier, go to account
         response.redirect(eligibility_v2+"registration-required")
     } else { 
+        response.redirect(eligibility_v2+"registration-not-required")
+    }
+})
+router.post('/route-v2/0-8', function(request, response) {
+    var value = request.session.data['v0-8'];
+    if (value == "Yes"){ // Enhanced tier, go to account
+        response.redirect(eligibility_v2+"registration-required")
+    } else { 
+        // response.redirect(eligibility_v2+"0-4")
         response.redirect(eligibility_v2+"registration-not-required")
     }
 })

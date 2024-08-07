@@ -24,7 +24,50 @@ None of these -->
 
 			
 			{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+		<!-- 	
+			{{ govukCheckboxes({
+			  name: "v0-1",
+			  id: "v0-1",
+			  values: data['v0-1'],
+			  fieldset: {
+			    legend: {
+			      text: "Which political institution are you intending to influence?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  hint: {
+			    text: "Select any that apply."
+			  },
+			  items: [
+			    {
+			      value: "UK elections or referendums;",
+			      text: "UK elections or referendums"
+			    },
+			    {
+			      value: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales",
+			      text: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
+			    },
+			    {
+			      value: "UK political parties",
+			      text: "UK political parties"
+			    },
+			    {
+			      value: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru",
+			      text: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru"
+			    },
+			    {
+			    	divider: "or"
+			    },
+			    {
+			      value: "None of these",
+			      text: "None of these",
+			      behaviour: "exclusive"
+			    }
+			  ]
+			}) }}
 			
+			 -->
 			{{ govukRadios({
 			  name: "v0-1",
 			  id: "v0-1",
@@ -37,7 +80,12 @@ None of these -->
 			    }
 			  },
 			  hint: {
-			    html: "<ul><li>UK elections or referendums</li><li>Decisions of the government of the UK, Northern Ireland, Scotland or Wales</li><li>UK political parties</li><li>Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru</li></ul>"
+			    html: "<ul>
+			    	<li>UK elections or referendums</li>
+			    	<li>Decisions of the government of the UK, Northern Ireland, Scotland or Wales</li>
+			    	<li>UK political parties</li>
+			    	<li>Members of either the House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru</li>
+			    </ul>"
 			  },
 			  items: [
 			    {
@@ -50,7 +98,6 @@ None of these -->
 			    }
 			  ]
 			}) }}
-			
 
 			{{ govukButton({
 				text: "Continue"
