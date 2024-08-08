@@ -1,5 +1,5 @@
 {% extends "layouts/main-v2.html" %}
-{% set bodyClasses = "account" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -9,95 +9,46 @@
 
 {% block content %}
 
-<!-- Enhanced tier answers:
-UK elections or referendums;
-Decisions of the government of the UK, Northern Ireland, Scotland or Wales;
-UK political parties; or 
-Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru
-None of these -->
 
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v2/0-1" method="post">
+		<form action="0-2" method="post">
 
 			
-			{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
-			{{ govukCheckboxes({
-			  name: "v0-1",
-			  id: "v0-1",
-			  values: data['v0-1'],
-			  fieldset: {
-			    legend: {
-			      text: "Which political institution are you intending to influence?",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--l"
-			    }
-			  },
-			  hint: {
-			    text: "Select any that apply."
-			  },
-			  items: [
-			    {
-			      value: "UK elections or referendums;",
-			      text: "UK elections or referendums"
-			    },
-			    {
-			      value: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales",
-			      text: "Decisions of the government of the UK, Northern Ireland, Scotland or Wales"
-			    },
-			    {
-			      value: "UK political parties",
-			      text: "UK political parties"
-			    },
-			    {
-			      value: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru",
-			      text: "Members of the of either House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru"
-			    },
-			    {
-			    	divider: "or"
-			    },
-			    {
-			      value: "None of these",
-			      text: "None of these",
-			      behaviour: "exclusive"
-			    }
-			  ]
-			}) }}
-			
-			<!-- 
 			{{ govukRadios({
-			  name: "v0-1",
-			  id: "v0-1",
-			  values: data['v0-1'],
-			  fieldset: {
+			    name: "v0-0",
+			    id: "v0-0",
+			    value: data['v0-0'],
+			    fieldset: {
 			    legend: {
-			      text: "Are you intending to influence any of these?",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--l"
+			        text: "Who are you registering for?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
 			    }
-			  },
-			  hint: {
-			    html: "<ul>
-			    	<li>UK elections or referendums</li>
-			    	<li>Decisions of the government of the UK, Northern Ireland, Scotland or Wales</li>
-			    	<li>UK political parties</li>
-			    	<li>Members of either the House of Parliament, the Northern Ireland Assembly, the Scottish Parliament or Senedd Cymru</li>
-			    </ul>"
-			  },
-			  items: [
+			    },
+			    items: [
 			    {
-			      value: "Yes;",
-			      text: "Yes"
+			        value: "individual",
+			        text: "Myself as an individual"
 			    },
 			    {
-			      value: "No",
-			      text: "No"
+			        value: "organisation",
+			        text: "My organisation"
+			    },
+			    {
+			        value: "another-individual",
+			        text: "Another individual"
+			    },
+			    {
+			        value: "another-organisation",
+			        text: "Another organisation"
 			    }
-			  ]
-			}) }} -->
+			    ]
+			}) }}
 
 			{{ govukButton({
 				text: "Continue"

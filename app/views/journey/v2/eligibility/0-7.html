@@ -1,5 +1,5 @@
 {% extends "layouts/main-v2.html" %}
-{% set bodyClasses = "account" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -16,36 +16,58 @@
 
 		<form action="/route-v2/0-7" method="post">
 
+			{% set dynamic1 %}
+				{% if (data['v0-0'] == "individual") %}
+				Do you
+				{% elseif (data['v0-0'] == "organisation") %}
+				Does your organisation
+				{% elseif (data['v0-0'] == "another-individual") %}
+				Does the individual
+				{% else %}
+				Does the organisation
+				{% endif %}
+			{% endset -%}
 			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			  name: "v0-7",
-			  id: "v0-7",
-			  value: data['v0-7'],
-			  fieldset: {
-			    legend: {
-			      text: "Does any person who will be involved in a registerable activity ever omit or give information to mislead as part of their work [or membership]?",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--l"
-			    }
-			  },
-			  items: [
+			    name: "v0-7",
+			    id: "v0-7",
+			    value: data['v0-7'],
+			    fieldset: {
+				    legend: {
+				        text: dynamic1+" work with, or have any arrangement with, any of these organisations?",
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    hint: {
+			    	html: "
+			    	<p class='govuk-hint'>This includes working directly for or on behalf of any of these organisations. </p>
+			    	<ul class='govuk-list govuk-list--bullet'>
+			    		<li>Organisation 1</li>
+			    		<li>Organisation 2</li>
+			    		<li>Organisation 3</li>
+			    		<li>Organisation 4</li>
+			    		<li>Organisation 5</li>
+			    		<li>Organisation 6</li>
+			    	</ul>"
+			    },
+			    items: [
 			    {
-			      value: "Yes",
-			      text: "Yes"
+			        value: "Yes",
+			        text: "Yes"
 			    },
 			    {
-			      value: "No",
-			      text: "No"
+			        value: "No",
+			        text: "No"
 			    }
-			  ]
+			    ]
 			}) }}
 
 			{{ govukButton({
 				text: "Continue"
 			}) }}
-
 		</form>
 
 	</div>

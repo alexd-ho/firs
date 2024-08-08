@@ -1,0 +1,121 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+{% set dynamic1 %}
+	{% if (data['v0-0'] == "individual") %}
+	You 
+	{% elseif (data['v0-0'] == "organisation") %}
+	Your organisation 
+	{% elseif (data['v0-0'] == "another-individual") %}
+	The individual 
+	{% else %}
+	The organisation 
+	{% endif %}
+{% endset -%}
+{% set dynamic2 %}
+	{% if (data['v0-0'] == "individual") %}
+	are
+	{% else %}
+	is
+	{% endif %}
+{% endset -%}
+{% set dynamic3 %}
+	{% if (data['v0-0'] == "individual") %}
+	work
+	{% else %}
+	works
+	{% endif %}
+{% endset -%}
+{% set dynamic4 %}
+	{% if (data['v0-0'] == "individual") %}
+	have
+	{% else %}
+	has
+	{% endif %}
+{% endset -%}
+{% set dynamic5 %}
+	{% if (data['v0-0'] == "individual") %}
+	do
+	{% else %}
+	does
+	{% endif %}
+{% endset -%}
+
+{% set dynamic10 %}
+	{% if (data['v0-0'] == "individual") %}
+	you need
+	{% elseif (data['v0-0'] == "organisation") %}
+	your organisation needs 
+	{% elseif (data['v0-0'] == "another-individual") %}
+	the individual needs
+	{% else %}
+	the organisation needs
+	{% endif %}
+{% endset -%}
+{% set dynamic11 %}
+	{% if (data['v0-0'] == "individual") %}
+	you are
+	{% elseif (data['v0-0'] == "organisation") %}
+	your organisation is
+	{% elseif (data['v0-0'] == "another-individual") %}
+	the individual is
+	{% else %}
+	the organisation is
+	{% endif %}
+{% endset -%}
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<h1 class="govuk-heading-l">You need to register</h1>
+
+		<p>You have told us:</p>
+    	<ul class='govuk-list govuk-list--bullet'>
+    		{% if (data['v0-2'] == 'None of these') %}
+
+    		<li>{{dynamic1}} {{dynamic2}} not involved in political influencing activities.</li>
+    		
+    		{% if (data['v0-5'] == 'Yes') %}
+    		<li>{{dynamic1}} {{dynamic3}} with, or {{dynamic4}} an arrangement with, {{ data['v0-6'] }}.</li>
+    		{% else %}
+    		<li>{{dynamic1}} {{dynamic5}} not work with, or have an arrangement with, any listed foreign power.</li>
+    		<li>{{dynamic1}} {{dynamic3}} with, or {{dynamic4}} an agreement with, {{ data['v0-8'] }}.</li>
+    		{% endif %}
+
+    		{% else %}
+
+    		<li>{{dynamic1}} {{dynamic2}} involved in activities that intend to influence {{data['v0-2']}}</li>
+
+    		{% if (data['v0-3'] == 'Yes') %}
+    		<li>{{dynamic1}} {{dynamic3}} with, or has an arrangement with a {{ data['v0-4'] }}.</li>
+    		{% else %}
+    		<li>{{dynamic1}} {{dynamic5}} not work with, or have an arrangement with, a political structure.</li>
+    		<li>{{dynamic1}} {{dynamic3}} with, or {{dynamic4}} an agreement with, {{ data['v0-8'] }}.</li>
+    		{% endif %}
+
+			{% endif %}
+
+		</ul>
+
+		<p>Based on your answers, {{dynamic10}} to register with FIRS, unless {{dynamic11}} exempt. See the <a href="exemptions">guidance on 
+exemptions</a> for more information.</p>
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

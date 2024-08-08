@@ -1,5 +1,5 @@
 {% extends "layouts/main-v2.html" %}
-{% set bodyClasses = "account" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -14,44 +14,50 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v2/0-6" method="post">
+		<form action="register" method="post">
 
-			<!-- Do you represent any of these organisations -->
-			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			{% set dynamic1 %}
+				{% if (data['v0-0'] == "individual") %}
+				do you
+				{% elseif (data['v0-0'] == "organisation") %}
+				does your organisation
+				{% elseif (data['v0-0'] == "another-individual") %}
+				does the individual
+				{% else %}
+				does the organisation
+				{% endif %}
+			{% endset -%}
 			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
 			{{ govukRadios({
-			  name: "v0-6",
-			  id: "v0-6",
-			  value: data['v0-6'],
-			  fieldset: {
+			    name: "v0-6",
+			    id: "v0-6",
+			    value: data['v0-6'],
+			    fieldset: {
 			    legend: {
-			      text: "Do you work for, with, on behalf of, or have any arrangement with any of these organisations?",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--l"
+			        text: "Which one of these foreign powers "+dynamic1+" work with, or have any arrangement with?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
 			    }
-			  },
-			  hint: {
-			    html: "
-			    <p>This includes working directly for or on behalf of any of these organisations.</p>
-			    <ul>
-			    		<li>Aperture Science</li>
-			    		<li>Belltower Associates</li>
-			    		<li>Helios</li>
-			    		<li>Rapture Tribune</li>
-			    		<li>Umbrella Pharmaceuticals</li>
-			    		<li>Vault-Tec Corporation</li>
-			    	</ul>"
-			  },
-			  items: [
+			    },
+			    hint: {
+			    	text: "This includes working directly for or on behalf of any of these Foreign Powers."
+			    },
+			    items: [
 			    {
-			      value: "Yes",
-			      text: "Yes"
+			        value: "Foreign Power X",
+			        text: "Foreign Power X"
 			    },
 			    {
-			      value: "No",
-			      text: "No"
+			        value: "Foreign Power Y",
+			        text: "Foreign Power Y"
+			    },
+			    {
+			        value: "Foreign Power Z",
+			        text: "Foreign Power Z"
 			    }
-			  ]
+			    ]
 			}) }}
 
 			{{ govukButton({

@@ -1,5 +1,5 @@
 {% extends "layouts/main-v2.html" %}
-{% set bodyClasses = "account" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -16,30 +16,50 @@
 
 		<form action="/route-v2/0-5" method="post">
 
+			{% set dynamic1 %}
+				{% if (data['v0-0'] == "individual") %}
+				Do you
+				{% elseif (data['v0-0'] == "organisation") %}
+				Does your organisation
+				{% elseif (data['v0-0'] == "another-individual") %}
+				Does the individual
+				{% else %}
+				Does the organisation
+				{% endif %}
+			{% endset -%}
 			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			  name: "v0-5",
-			  id: "v0-5",
-			  value: data['v0-5'],
-			  fieldset: {
+			    name: "v0-5",
+			    id: "v0-5",
+			    value: data['v0-5'],
+			    fieldset: {
 			    legend: {
-			      text: "Do you represent Foreign Power Z?",
-			      isPageHeading: true,
-			      classes: "govuk-fieldset__legend--l"
+			        text: dynamic1+" work with, or have any arrangement with, any of these Foreign Powers?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
 			    }
-			  },
-			  items: [
+			    },
+			    hint: {
+			    	html: "
+			    	<p class='govuk-hint'>This includes working directly for or on behalf of any of these Foreign Powers.</p>
+			    	<ul class='govuk-list govuk-list--bullet'>
+			    		<li>Foreign Power X</li>
+			    		<li>Foreign Power Y</li>
+			    		<li>Foreign Power Z</li>
+			    	</ul>"
+			    },
+			    items: [
 			    {
-			      value: "Yes",
-			      text: "Yes"
+			        value: "Yes",
+			        text: "Yes"
 			    },
 			    {
-			      value: "No",
-			      text: "No"
+			        value: "No",
+			        text: "No"
 			    }
-			  ]
+			    ]
 			}) }}
 
 			{{ govukButton({
