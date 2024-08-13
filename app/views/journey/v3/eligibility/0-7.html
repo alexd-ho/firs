@@ -16,14 +16,14 @@
 
 		<form action="/route-v3/0-7" method="post">
 
-			<span class="govuk-caption-l">Check if you need to register for FIRS</span>
+			<span class="govuk-caption-l">Check if you need to register for the Foreign Influence Registration Scheme</span>
 
 			{% set dynamic1 %}
-				{% if (data['v0-0'] == "individual") %}
+				{% if (data['v0-0'] == "Myself as an individual") %}
 				Which of these do you work with, or have any arrangement with?
-				{% elseif (data['v0-0'] == "organisation") %}
+				{% elseif (data['v0-0'] == "My organisation") %}
 				Which of these does your organisation work with, or have any arrangement with?
-				{% elseif (data['v0-0'] == "another-individual") %}
+				{% elseif (data['v0-0'] == "Another individual") %}
 				Which of these does the individual work with, or have any arrangement with?
 				{% else %}
 				Which of these does the organisation work with, or have any arrangement with?
@@ -100,7 +100,7 @@
 				  Who are you registering for
 				</dt>
 				<dd class="govuk-summary-list__value">
-				  {{data['v0-1']}}
+				  {{data['v0-0']}}
 				</dd>
 				<dd class="govuk-summary-list__actions">
 				  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>

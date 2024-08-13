@@ -16,17 +16,17 @@
 
 		<form action="/route-v3/0-3" method="post">
 
-			<span class="govuk-caption-l">Check if you need to register for FIRS</span>
+			<span class="govuk-caption-l">Check if you need to register for the Foreign Influence Registration Scheme</span>
 			
 			{% set dynamic1 %}
 				{% if (data['v0-0'] == "Myself as an individual") %}
-				As part of these political influencing activities, which of these do you work with, or have any arrangement with?
+				As part of these political influencing activities, which of these do you work with, or have any agreements with?
 				{% elseif (data['v0-0'] == "My organisation") %}
-				As part of these political influencing activities, which of these does your organisation work with, or have any arrangement with?
+				As part of these political influencing activities, which of these does your organisation work with, or have any agreements with?
 				{% elseif (data['v0-0'] == "Another individual") %}
-				As part of these political influencing activities, which of these does the individual work with, or have any arrangement with?
+				As part of these political influencing activities, which of these does the individual work with, or have any agreements with?
 				{% else %}
-				As part of these political influencing activities, which of these does the organisation work with, or have any arrangement with?
+				As part of these political influencing activities, which of these does the organisation work with, or have any agreements with?
 				{% endif %}
 			{% endset -%}
 			
@@ -90,6 +90,13 @@
 			{{ govukButton({
 				text: "Continue"
 			}) }}
+
+
+            {{ govukDetails({
+              summaryText: "What is an agreement?",
+              text: "An agreement includes activities ranging from a legally enforceable contract to an informal, but clear, written or verbal understanding."
+            }) }}
+
 
 		</form>
 

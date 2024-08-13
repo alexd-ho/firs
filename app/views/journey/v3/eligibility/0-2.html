@@ -22,7 +22,7 @@ None of these -->
 
 		<form action="/route-v3/0-2" method="post">
 
-			<span class="govuk-caption-l">Check if you need to register for FIRS</span>
+			<span class="govuk-caption-l">Check if you need to register for the Foreign Influence Registration Scheme</span>
 
 			{% set dynamic1 %}{% if (data['v0-0'] == "Myself as an individual") %}Are you conducting or organising activities in the UK that are intended to influence any of these?{% elseif (data['v0-0'] == "My organisation") %}Is your organisation conducting or organising activities in the UK that are intended to influence any of these?{% elseif (data['v0-0'] == "Another individual") %}Is the individual conducting or organising activities in the UK that are intended to influence any of these?{% else %}Is the organisation conducting or organising activities in the UK that are intended to influence any of these?{% endif %}{% endset -%}
 
@@ -43,7 +43,7 @@ None of these -->
 			    }
 			  },
 			  hint: {
-			    text: "Select any that apply."
+			    text: "Select all that apply."
 			  },
 			  items: [
 			    {
@@ -86,6 +86,7 @@ None of these -->
 				}
 			}) }}
 
+
 			<!-- 
 			{{ govukRadios({
 			  name: "v0-1",
@@ -121,6 +122,13 @@ None of these -->
 			{{ govukButton({
 				text: "Continue"
 			}) }}
+
+
+            {{ govukDetails({
+              summaryText: "What is a registerable activity?",
+              text: "Any private communication, public communication, or distribution of money, goods, or services intended to influence a decision."
+            }) }}
+
 
 		</form>
 
