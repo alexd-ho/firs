@@ -20,13 +20,13 @@
 
 			{% set dynamic1 %}
 				{% if (data['v0-0'] == "Myself as an individual") %}
-				Which of these Foreign Powers do you work with, or have any arrangement with?
+				Which foreign power do you work with, or have an agreement with?
 				{% elseif (data['v0-0'] == "My organisation") %}
-				Which of these Foreign Powers does your organisation work with, or have any arrangement with?
+				Which foreign power does your organisation work with, or have an agreement with?
 				{% elseif (data['v0-0'] == "Another individual") %}
-				Which of these Foreign Powers does the individual work with, or have any arrangement with?
+				Which foreign power does the individual work with, or have an agreement with?
 				{% else %}
-				Which of these Foreign Powers does the organisation work with, or have any arrangement with?
+				Which foreign power does the organisation work with, or have an agreement with?
 				{% endif %}
 			{% endset -%}
 			
@@ -45,7 +45,7 @@
 			    },
 			    hint: {
 			    	html: "
-			    	<p class='govuk-hint'>This includes working directly for or on behalf of any of these Foreign Powers.</p>"
+			    	<p class='govuk-hint'>This includes working directly for, or on behalf of, any of these foreign powers.</p>"
 			    },
 			    items: [
 			    {
@@ -91,7 +91,7 @@
 		<h3 class="govuk-heading-m">Your answers</h3>
 
 		<p><a href="../eligibility">Start again</a></p>	
-		
+
 		<dl class="govuk-summary-list">
 
 			<div class="govuk-summary-list__row">

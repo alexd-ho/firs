@@ -20,13 +20,13 @@
 
 			{% set dynamic1 %}
 				{% if (data['v0-0'] == "Myself as an individual") %}
-				Which of these do you work with, or have any arrangement with?
+				Which of these do you work with, or have any agreement with?
 				{% elseif (data['v0-0'] == "My organisation") %}
-				Which of these does your organisation work with, or have any arrangement with?
+				Which of these does your organisation work with, or have any agreement with?
 				{% elseif (data['v0-0'] == "Another individual") %}
-				Which of these does the individual work with, or have any arrangement with?
+				Which of these does the individual work with, or have any agreement with?
 				{% else %}
-				Which of these does the organisation work with, or have any arrangement with?
+				Which of these does the organisation work with, or have any agreement with?
 				{% endif %}
 			{% endset -%}
 			
