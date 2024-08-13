@@ -43,6 +43,21 @@
 	{% endif %}
 {% endset -%}
 
+
+
+{% set dynamic20 %}
+	{% if (data['v0-0'] == "Myself as an individual") %}
+	Based on your answers, you do not need to register for FIRS.
+	{% elseif (data['v0-0'] == "My organisation") %}
+	Based on your answers, your organisation does not need to register for FIRS.
+	{% elseif (data['v0-0'] == "Another individual") %}
+	Based on your answers, the individual does not need to register for FIRS.
+	{% else %}
+	Based on your answers, the organisation does not need to register for FIRS.
+	{% endif %}
+{% endset -%}
+
+
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
@@ -53,7 +68,7 @@
 
 		<h2 class="govuk-heading-m">You do not need to register for FIRS</h2>
 
-		<p>Based on your answers, you do not need to register for FIRS.</p>
+		<p>{{ dynamic20 }}</p>
 
 		<h3 class="govuk-heading-m">Your answers</h3>
 
@@ -69,7 +84,7 @@
 					  Who are you registering for
 					</dt>
 					<dd class="govuk-summary-list__value">
-					  {{data['v0-1']}}
+					  {{data['v0-0']}}
 					</dd>
 					<dd class="govuk-summary-list__actions">
 					  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -126,7 +141,7 @@
 					  Who are you registering for
 					</dt>
 					<dd class="govuk-summary-list__value">
-					  {{data['v0-1']}}
+					  {{data['v0-0']}}
 					</dd>
 					<dd class="govuk-summary-list__actions">
 					  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>

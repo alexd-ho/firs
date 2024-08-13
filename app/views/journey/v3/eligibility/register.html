@@ -73,6 +73,20 @@
 	{% endif %}
 {% endset -%}
 
+
+
+{% set dynamic20 %}
+	{% if (data['v0-0'] == "Myself as an individual") %}
+	Based on your answers, you need to register for FIRS unless you are exempt.
+	{% elseif (data['v0-0'] == "My organisation") %}
+	Based on your answers, your organisation needs to register for FIRS unless it is exempt.
+	{% elseif (data['v0-0'] == "Another individual") %}
+	Based on your answers, the individual needs to register for FIRS unless they are exempt.
+	{% else %}
+	Based on your answers, the organisation needs to register for FIRS unless they are exempt.
+	{% endif %}
+{% endset -%}
+
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
@@ -83,14 +97,14 @@
 
 		<h2 class="govuk-heading-m">You need to register for FIRS</h2>
 
-		<p>Based on your answers, you need to register for FIRS unless you are exempt.<br>
+		<p>{{ dynamic20 }}<br>
 			See the <a href="exemptions">guidance on exemptions</a> for more information.</p>
 		
 		<h3 class="govuk-heading-m">Your answers</h3>
 
 		<p><a href="../eligibility">Start again</a></p>	
 
-		
+
     		{% if (data['v0-2'] == 'None of these') %}
 
 			<dl class="govuk-summary-list">
@@ -100,7 +114,7 @@
 					  Who are you registering for
 					</dt>
 					<dd class="govuk-summary-list__value">
-					  {{data['v0-1']}}
+					  {{data['v0-0']}}
 					</dd>
 					<dd class="govuk-summary-list__actions">
 					  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -159,7 +173,7 @@
 					  Who are you registering for
 					</dt>
 					<dd class="govuk-summary-list__value">
-					  {{data['v0-1']}}
+					  {{data['v0-0']}}
 					</dd>
 					<dd class="govuk-summary-list__actions">
 					  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
