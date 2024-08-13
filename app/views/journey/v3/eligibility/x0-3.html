@@ -1,0 +1,67 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/0-3" method="post">
+
+			<!-- Do you represent Foreign Power X -->
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			  name: "v0-3",
+			  id: "v0-3",
+			  value: data['v0-3'],
+			  fieldset: {
+			    legend: {
+			      text: "Do you work with, or have any arrangement with, a government or political party based in a country other than the UK or Ireland?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  hint: {
+			    html: "
+			    <p>This includes working directly for or on behalf of any of these Foreign Powers. </p>
+			    <ul>
+			    		<li>Foreign Power X</li>
+			    		<li>Foreign Power Y</li>
+			    		<li>Foreign Power Z</li>
+			    	</ul>"
+			  },
+			  items: [
+			    {
+			      value: "Yes",
+			      text: "Yes"
+			    },
+			    {
+			      value: "No",
+			      text: "No"
+			    }
+			  ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

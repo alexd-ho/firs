@@ -1,0 +1,125 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v3/0-5" method="post">
+
+			<span class="govuk-caption-l">Check if you need to register for FIRS</span>
+
+			{% set dynamic1 %}
+				{% if (data['v0-0'] == "Myself as an individual") %}
+				Which of these Foreign Powers do you work with, or have any arrangement with?
+				{% elseif (data['v0-0'] == "My organisation") %}
+				Which of these Foreign Powers does your organisation work with, or have any arrangement with?
+				{% elseif (data['v0-0'] == "Another individual") %}
+				Which of these Foreign Powers does the individual work with, or have any arrangement with?
+				{% else %}
+				Which of these Foreign Powers does the organisation work with, or have any arrangement with?
+				{% endif %}
+			{% endset -%}
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v0-5",
+			    id: "v0-5",
+			    value: data['v0-5'],
+			    fieldset: {
+			    legend: {
+			        text: dynamic1,
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    hint: {
+			    	html: "
+			    	<p class='govuk-hint'>This includes working directly for or on behalf of any of these Foreign Powers.</p>"
+			    },
+			    items: [
+			    {
+			        value: "Foreign Power X",
+			        text: "Foreign Power X"
+			    },
+			    {
+			        value: "Foreign Power Y",
+			        text: "Foreign Power Y"
+			    },
+			    {
+			        value: "Foreign Power Z",
+			        text: "Foreign Power Z"
+			    },
+			    {
+			        divider: "or"
+			    },
+			    {
+			        value: "None of these",
+			        text: "None of these"
+			    }
+			    ]
+			}) }}
+
+			{{ govukInput({
+				id: "q0-5",
+				name: "q0-5",
+				value: dynamic1,
+				classes: "hidden",
+				label: {
+					text: "Question 0-5",
+					classes: "govuk-label--s hidden",
+					isPageHeading: true
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+		<dl class="govuk-summary-list">
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  Who are you registering for
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-0']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  {{data['q0-2']}}				
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-2']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+		</dl>
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

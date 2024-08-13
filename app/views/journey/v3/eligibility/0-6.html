@@ -1,0 +1,76 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="register" method="post">
+
+			{% set dynamic1 %}
+				{% if (data['v0-0'] == "individual") %}
+				do you
+				{% elseif (data['v0-0'] == "organisation") %}
+				does your organisation
+				{% elseif (data['v0-0'] == "another-individual") %}
+				does the individual
+				{% else %}
+				does the organisation
+				{% endif %}
+			{% endset -%}
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+			{{ govukRadios({
+			    name: "v0-6",
+			    id: "v0-6",
+			    value: data['v0-6'],
+			    fieldset: {
+			    legend: {
+			        text: "Which one of these foreign powers "+dynamic1+" work with, or have any arrangement with?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    hint: {
+			    	text: "This includes working directly for or on behalf of any of these Foreign Powers."
+			    },
+			    items: [
+			    {
+			        value: "Foreign Power X",
+			        text: "Foreign Power X"
+			    },
+			    {
+			        value: "Foreign Power Y",
+			        text: "Foreign Power Y"
+			    },
+			    {
+			        value: "Foreign Power Z",
+			        text: "Foreign Power Z"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

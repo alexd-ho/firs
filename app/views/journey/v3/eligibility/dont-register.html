@@ -1,0 +1,186 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+{% set dynamic1 %}
+	{% if (data['v0-0'] == "individual") %}
+	You are
+	{% elseif (data['v0-0'] == "organisation") %}
+	Your organisation is
+	{% elseif (data['v0-0'] == "another-individual") %}
+	The individual is
+	{% else %}
+	The organisation is
+	{% endif %}
+{% endset -%}
+{% set dynamic2 %}
+	{% if (data['v0-0'] == "individual") %}
+	You do
+	{% elseif (data['v0-0'] == "organisation") %}
+	Your organisation does
+	{% elseif (data['v0-0'] == "another-individual") %}
+	The individual does
+	{% else %}
+	The organisation does
+	{% endif %}
+{% endset -%}
+{% set dynamic3 %}
+	{% if (data['v0-0'] == "individual") %}
+	you do
+	{% elseif (data['v0-0'] == "organisation") %}
+	your organisation does
+	{% elseif (data['v0-0'] == "another-individual") %}
+	the individual does
+	{% else %}
+	the organisation does
+	{% endif %}
+{% endset -%}
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<span class="govuk-caption-l">Check if you need to register for FIRS</span>
+		
+		<h1 class="govuk-heading-l">Information based on your answers</h1>
+
+		<h2 class="govuk-heading-m">You do not need to register for FIRS</h2>
+
+		<p>Based on your answers, you do not need to register for FIRS.</p>
+
+		<p><strong>Your answers:</strong></p>
+
+    		{% if (data['v0-2'] == 'None of these') %}
+
+			<dl class="govuk-summary-list">
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  Who are you registering for
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-1']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  {{data['q0-2']}}				
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-2']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-2">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  {{data['q0-5']}}				
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-5']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-5">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+
+				{% if (data['v0-5'] == "None of these") %}
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  {{data['q0-7']}}				
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-7']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-7">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+				{% endif %}
+
+			</dl>
+
+    		{% else %}
+
+			<dl class="govuk-summary-list">
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  Who are you registering for
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-1']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  {{data['q0-2']}}				
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-2']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-2">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  {{data['q0-3']}}				
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-3']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-3">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+
+				{% if (data['v0-3'] == "None of these") %}
+
+				<div class="govuk-summary-list__row">
+					<dt class="govuk-summary-list__key">
+					  {{data['q0-7']}}				
+					</dt>
+					<dd class="govuk-summary-list__value">
+					  {{data['v0-7']}}
+					</dd>
+					<dd class="govuk-summary-list__actions">
+					  <a class="govuk-link" href="0-7">Change<span class="govuk-visually-hidden"> name</span></a>
+					</dd>
+				</div>
+				{% endif %}
+
+			</dl>
+
+
+			{% endif %}
+
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/0-7" method="post">
+
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			  name: "v0-7",
+			  id: "v0-7",
+			  value: data['v0-7'],
+			  fieldset: {
+			    legend: {
+			      text: "Does any person who will be involved in a registerable activity ever omit or give information to mislead as part of their work [or membership]?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "Yes",
+			      text: "Yes"
+			    },
+			    {
+			      value: "No",
+			      text: "No"
+			    }
+			  ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

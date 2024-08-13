@@ -1,0 +1,88 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="register" method="post">
+
+			{% set dynamic1 %}
+				{% if (data['v0-0'] == "individual") %}
+				do you
+				{% elseif (data['v0-0'] == "organisation") %}
+				does your organisation
+				{% elseif (data['v0-0'] == "another-individual") %}
+				does the individual
+				{% else %}
+				does the organisation
+				{% endif %}
+			{% endset -%}
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v0-8",
+			    id: "v0-8",
+			    value: data['v0-8'],
+			    fieldset: {
+			    legend: {
+			        text: "Which organisation "+dynamic1+" work with, or have any arrangement with?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    hint: {
+			    	text: "This includes working directly for or on behalf of any of these organisations."
+			    },
+			    items: [
+			    {
+			        value: "Organisation 1",
+			        text: "Organisation 1"
+			    },
+			    {
+			        value: "Organisation 2",
+			        text: "Organisation 2"
+			    },
+			    {
+			        value: "Organisation 3",
+			        text: "Organisation 3"
+			    },
+			    {
+			        value: "Organisation 4",
+			        text: "Organisation 4"
+			    },
+			    {
+			        value: "Organisation 5",
+			        text: "Organisation 5"
+			    },
+			    {
+			        value: "Organisation 6",
+			        text: "Organisation 6"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

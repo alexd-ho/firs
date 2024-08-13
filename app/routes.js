@@ -1728,6 +1728,66 @@ router.post('/route-v2/exception-check', function(request, response) {
 
 
 
+//// VERSION 3
+
+
+// __     __            _               _____ 
+// \ \   / /__ _ __ ___(_) ___  _ __   |___ / 
+//  \ \ / / _ \ '__/ __| |/ _ \| '_ \    |_ \ 
+//   \ V /  __/ |  \__ \ | (_) | | | |  ___) |
+//    \_/ \___|_|  |___/_|\___/|_| |_| |____/ 
+
+//   https://www.asciiart.eu/text-to-ascii-art
+
+/// JOURNEY 
+
+var root_v3 = '/journey/v3/';
+var eligibility_v3 = '/journey/v3/eligibility/';
+var tier_v3 = '/journey/v3/tier/';
+var account_v3 = '/journey/v3/account/';
+
+var registration_v3 = '/journey/v3/registration/';
+var arrangement_v3 = '/journey/v3/arrangement/';
+var agreement_v3 = '/journey/v3/agreement/';
+var activity_v3 = '/journey/v3/activity/';
+var exception_v3 = '/journey/v3/exception/';
+
+/// 0. ELIGBILITY
+
+router.post('/route-v3/0-2', function(request, response) {
+    var value = request.session.data['v0-2'];
+    if (value == "None of these"){ 
+        response.redirect(eligibility_v3+"0-5")
+    } else { 
+        response.redirect(eligibility_v3+"0-3")
+    }
+})
+router.post('/route-v3/0-3', function(request, response) {
+    var value = request.session.data['v0-3'];
+    if (value == "None of these"){ 
+        response.redirect(eligibility_v3+"0-7")
+    } else { 
+        response.redirect(eligibility_v3+"register")
+    }
+})
+router.post('/route-v3/0-5', function(request, response) {
+    var value = request.session.data['v0-5'];
+    if (value == "None of these"){ 
+        response.redirect(eligibility_v3+"0-7")
+    } else { 
+        response.redirect(eligibility_v3+"register")
+    }
+})
+router.post('/route-v3/0-7', function(request, response) {
+    var value = request.session.data['v0-7'];
+    if (value == "None of these"){ 
+        response.redirect(eligibility_v3+"dont-register")
+    } else { 
+        response.redirect(eligibility_v3+"register")
+    }
+})
+
+
 
 
 

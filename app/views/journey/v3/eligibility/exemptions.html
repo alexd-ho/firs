@@ -1,0 +1,198 @@
+{% extends "layouts/account-start.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/journey/v2/account/",
+         text: "Main start page"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Start your registration
+        </h1>
+
+    </div>
+</div> -->
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <p>Contents</p>
+        <ol class="govuk-list govuk-list--number">
+            <li><a href="overview">Overview</a></li>
+            <li>Check if you need to register</li>
+            <li><a href="account">How to register</a></li>
+            <li><a href="">After you have registered</a></li>
+            <li><a href="">What we publish on the public register</a></li>
+            <li><a href="">If you receive an information notice</a></li>
+            <li><a href="">If you fail to register</a></li>
+        </ol>
+
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds ">
+
+        <div class="govuk-prototype-kit-common-templates-mainstream-guide-body firs-block-top-border">
+
+            <h2 class="govuk-heading-l">Exemptions</h3>
+
+            <p>As set out in <a href="https://www.legislation.gov.uk/ukpga/2023/32/schedule/15">Schedule 15 of the National Security Act 2023</a>, you may be exempt from the Foreign Information Registration Scheme (FIRS) if you are one of these:</p>
+            <ol class='govuk-list govuk-list--number'>
+                <li>Party to a UK arrangement</li>
+                <li>A foreign power</li>
+                <li>Conducting activities that are reasonably necessary for the functioning of a diplomatic mission</li>
+                <li>A spouse, partner, or family member of a diplomat on a diplomatic mission</li>
+                <li>A recognised news publisher</li>
+                <li>Conducting legal activities</li>
+            </ol>
+            <p>Please see the explanations and examples on this page to find out if you are exempt. </p>
+            <h3 class="govuk-heading-m"><strong>Exemption 1: Those who are party to a UK arrangement </strong></h3>
+            <p>If the United Kingdom is a party to an arrangement, that arrangement does not need to be registered. This includes arrangements where the UK Government, a department of the UK Government, a UK government official, or any person acting on behalf of the Crown, is a party.</p>
+            <p>This exemption includes the following scenarios:</p>
+            <ul class='govuk-list govuk-list--bullet'>
+                <li>Where an entity or individual who would otherwise be required to register has signed a contract with a UK government department, and the activities being carried out are related to that contract;</li>
+                <li>Where the UK Government has invited or authorised an individual or organisation, who would otherwise be required to register, to participate in certain activities;</li>
+                <li>Where an entity or individual carries out activities as part of a multi-lateral agreement to which the UK is a party.</li>
+            </ul>
+            <p>Formal responses to UK government consultations or invitations to tender do not require registration under FIRS.</p>
+            <h4 class="govuk-heading-s"><strong>Examples of circumstances where this exemption applies</strong></h4>
+            <p><strong>Example 1:</strong></p>
+            <p>The Head of State from Country L is invited to make a state visit to the UK, accompanied by a business delegation. The Ministry of Commerce from Country L invites an automotive company to be part of the business delegation, with an expectation that it uses the opportunity to speak to UK senior civil servants and special advisers about the need for policy changes to allow for the roll-out of self-driving vehicles on UK motorways. </p>
+            <p>The UK Government endorses the invitation for representatives of the automotive company to be part of the business delegation. Whilst the automotive company is being directed to carry out political influence activity by a foreign power, the UK is party to this arrangement, and the automotive company is therefore not required to register.</p>
+            <p><strong>Example 2:</strong></p>
+            <p>A foreign state-owned enterprise has been listed on the registration form. It is involved in the development of UK infrastructure, constituting a “relevant activity”. A UK government department conducts due diligence into the state-owned enterprise and signs a contract with it for limited involvement in a UK investment project. As a UK government department is party to this arrangement, the state-owned enterprise would not have to register its involvement in this project.</p>
+            <h3 class="govuk-heading-m"><strong>Exemption 2: Foreign powers </strong></h3>
+            <p>Foreign powers, as well as their employees and office holders, are not required to register their own activities, providing that they are open and honest about who they represent. This exemption does not apply where a person acting for the foreign power makes a misrepresentation about who they are, or the capacity in which they act.</p>
+            <p>A foreign power is defined as any of the following (see section 32 of the National Security Act 2023):</p>
+            <p>a) the sovereign or other head of a foreign State in their public capacity</p>
+            <p>b) a foreign government, or part of a foreign government</p>
+            <p>c) an agency or authority of a foreign government, or of part of a foreign government</p>
+            <p>d) an authority responsible for administering the affairs of an area within a foreign country or territory, or persons exercising the functions of such an authority</p>
+            <p>e) a political party which is a governing political party of a foreign government</p>
+            <p>The activities of UK-based embassies and consulates, as well as the official activities of their diplomats and staff members, are covered by this exemption.</p>
+            <h4 class="govuk-heading-s"><strong>Examples of circumstances where this exemption applies</strong></h4>
+            <p><strong>Example 1:</strong></p>
+            <p>An official of an agency of the Government of Country M communicates with UK senior officials, seeking to influence a visa decision for a high-profile individual of Country M to visit the UK. Whilst this constitutes political influence activity, no registration is required as the activity is carried out by the foreign power itself.</p>
+            <p><strong>Example 2:</strong></p>
+            <p>The Ministry of Security of Country N has been specified under the enhanced tier. An employee of that ministry makes an official visit to the UK to engage with UK researchers. Whilst the Ministry of Security has been specified, no registration is required for activities that it carries out itself as a foreign power.</p>
+            <h3 class="govuk-heading-m"><strong>Exemption 3: Activities that are reasonably necessary for the functioning of a diplomatic mission</strong></h3>
+            <p>If an individual or entity conducts an activity that is essential to the functioning of a diplomatic mission, even where this diplomatic mission is conducted by a foreign power listed on the FIRS registration form, the activity is exempt from registration. This includes activities such as catering or maintenance services for the diplomatic mission.</p>
+            <h4 class="govuk-heading-s"><strong>Example of a circumstance where this exemption applies</strong></h4>
+            <p><strong>Example:</strong></p>
+            <p>The Foreign Ministry of Country O is listed on the FIRS registration form. A UK-based embassy, which forms part of the Foreign Ministry of Country O, signs a contract with a UK construction firm for essential maintenance work to the embassy. The construction firm is not required to register because the arrangement relates to the provision of services that are reasonably necessary for the functioning of a diplomatic mission.</p>
+            <h3 class="govuk-heading-m"><strong>Exemption 4: Spouses, partners, and family members of diplomats and staff of diplomatic missions </strong></h3>
+            <p>This exemption recognises the role that spouses, partners, and family members of diplomatic staff members play in diplomatic missions. It applies to an individual where conditions A, B, and C are met.</p>
+            <p><strong>Conditions for the exemption</strong></p>
+            <p>Condition A: The individual is a member of the family (including an unmarried partner) of a “principal person”.</p>
+            <p>Condition B: That principal person is a member of staff of a diplomatic mission, consular post, or the permanent mission to a UK-based international organisation of a country that is a member of the organisation.</p>
+            <p>Condition C: The individual makes an arrangement to support the official activities or duties of the principal person.</p>
+            <p>This exemption would not apply where the family member makes an arrangement when acting in their personal capacity, or as part of any other work that they carry out, that is unrelated to that of the principal person.</p>
+            <h4 class="govuk-heading-s"><strong>Examples of circumstances where this exemption applies</strong></h4>
+            <p><strong>Example 1:</strong></p>
+            <p>An ambassador of a foreign government in the UK holds a reception, which is attended by his partner as well as a number of UK senior officials and special advisers. During the event, the partner of the ambassador speaks to, on behalf of the ambassador, the senior officials and special advisers seeking to secure funding from the UK Government for a joint research project into 6G technology. While the ambassador’s partner is conducting a political influencing activity on behalf of a foreign power, they are not required to register because they are doing so on behalf of the ambassador.</p>
+            <p><strong>Example 2:</strong></p>
+            <p>A consular post in the UK forms part of a foreign government that has been listed on the FIRS registration form. The spouse of a member of staff of the consular post, acting on behalf of their spouse, makes contact with UK academics seeking to secure collaborative projects with academics from their own country. While the spouse is acting at the direction of a specified foreign power, they are not required to register because they are doing so on behalf of their spouse.</p>
+            <h3 class="govuk-heading-m"><strong>Exemption 5: Recognised news publishers </strong></h3>
+            <p>Recognised news publishers are exempt from registering any arrangements that they make with foreign powers to carry out political influence activities. This exemption also applies in relation to employees of registered news publishers when acting in their capacity as an employee.</p>
+            <p>Where an individual makes an arrangement with a recognised news publisher, they also benefit from this exemption, providing that one of the purposes of the arrangement is the publication of news-related material.</p>
+            <p>“News-related material” means material consisting of either:</p>
+            <p>a) news or information about current affairs</p>
+            <p>b) opinion about matters relating to the news or current affairs</p>
+            <p>c) gossip about celebrities, other public figures, or other persons in the news.</p>
+            <p>A “recognised news publisher” includes the British Broadcasting Corporation, Sianel Pedwar Cymru, and the holder of a licence under the Broadcasting Act 1990 or 1996 who publishes news-related material in connection with the broadcasting activities authorised under the licence. It also includes any entity that meets all of the following conditions:</p>
+            <p>Condition A: The principal purpose of the entity is the publication of news-related material, and such material— (i) is created by different persons, and (ii) is subject to editorial control.</p>
+            <p>Condition B: The entity publishes such material as a business (whether or not carried on with a view to profit).</p>
+            <p>Condition C: The entity is subject to a standards code.</p>
+            <p>Condition D: The entity has policies and procedures for handling and resolving complaints.</p>
+            <p>Condition E: The entity has a registered office or other business address that it publishes.</p>
+            <p>Condition F: The entity has legal responsibility for material published by it in the United Kingdom.</p>
+            <p>Condition G: The entity publishes its name, address, registered number if it has one, and the name and address of any person who controls the entity. If such a person is an entity, the registered address of the principal office of that person and their registered number, if any.</p>
+            <p>Condition H: The entity is not an “excluded entity” or “sanctioned entity”.</p>
+            <p>An “excluded entity” is an entity that is a proscribed organisation under the Terrorism Act 2000, or an entity whose purpose is to support a proscribed organisation under that Act.</p>
+            <p>A “sanctioned entity” is an entity that is designated under sections 1 or 13 of the Sanctions and Anti-Money Laundering Act 2018.</p>
+            <h4 class="govuk-heading-s"><strong>Example of a circumstance where this exemption applies</strong></h4>
+            <p><strong>Example: </strong></p>
+            <p>A recognised news publisher enters an arrangement with the Government of Country P, who directs them to publish an opinion article containing criticism of UK government spending on overseas aid. The foreign government intends that, by doing so, the UK Government may direct its funding to a particular country for economic reconstruction work following a civil war. While the recognised news publisher is conducting a political influencing activity at the direction of a foreign power, it is not required to register as it benefits from an exemption.</p>
+            <h3 class="govuk-heading-m"><strong>Exemption 6: Legal activities </strong></h3>
+            <p>Where an arrangement with a foreign power or specified entity relates to a legal activity by a lawyer, this arrangement is exempt from registration requirements.</p>
+            <p>Where a lawyer carries out non-legal activity, for example in their personal capacity, they do not benefit from this exemption. Similarly, where an arrangement relates to a legal activity by an individual who does not meet the definition of a “lawyer”, the exemption does not apply.</p>
+            <p>A “Lawyer” means (see paragraph 6(3))—</p>
+            <p>a) a person who, for the purposes of the Legal Services Act 2007, is an authorised person in relation to an activity that constitutes a reserved legal activity within the meaning of that Act</p>
+            <p>b) a solicitor or barrister in Northern Ireland</p>
+            <p>c) a solicitor or advocate in Scotland</p>
+            <p>d) a person who is a member, and entitled to practise as such, of a legal profession regulated in a jurisdiction outside the United Kingdom</p>
+            <p>“Legal activity” means: </p>
+            <p>a) in England and Wales, a legal activity within the meaning of section 12 of the Legal Services Act 2007</p>
+            <p>b) in Northern Ireland, a legal activity within the meaning of that section, but reading the reference to an activity which is a reserved legal activity as a reference to an activity corresponding to a reserved legal activity</p>
+            <p>c) in Scotland, the provision of legal services within the meaning of section 3 of the Legal Services (Scotland) Act 2010</p>
+            <p>d) acting as an arbitrator or mediator.</p>
+            <h4 class="govuk-heading-s"><strong>Examples of circumstances where this exemption applies</strong></h4>
+            <p><strong>Example 1:</strong></p>
+            <p>A high-profile individual of Country Q has recently had his UK visa revoked by the Home Office. The Government of Country Q instructs a lawyer to appeal the decision. The lawyer subsequently writes to the relevant Home Office senior officials and ministers to seek to persuade why the decision was incorrectly made, and to overturn the decision. While the lawyer is involved in a political influencing activity at the direction of a foreign power, they are not required to register because they are conducting a legal activity.</p>
+            <p><strong>Example 2:</strong></p>
+            <p>A state-owned enterprise, with a regional office in the UK, has been listed on the FIRS registration form. The state-owned enterprise contracts a lawyer to represent them in an ongoing court case. While the lawyer is acting at the direction of a specified entity, they are not required to register because they are conducting a legal activity.</p>
+            <h4 class="govuk-heading-s"><strong>Example of a circumstance where this exemption does not apply</strong></h4>
+            <p><strong>Example 3:</strong></p>
+            <p>The Ministry of Security of Country R meets with a lawyer who is residing in the UK. They request that he use his senior contacts in the Home Office to persuade them to commence negotiations on a Mutual Legal Assistance Treaty between the UK and Country R. The lawyer meets with senior civil servants from the Home Office to set out the need for such a treaty and the positive steps that Country R has taken recently to ensure compliance with such treaties. While the individual making the arrangement with the foreign power is a lawyer, the activities being carried out are not legal activities so the exemption does not apply.</p>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="firs-block-top-border--complementary" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          More information
+        </h3>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list">
+            <li>
+              <a href="https://www.gov.uk/government/publications/national-security-bill-factsheets/foreign-influence-registration-scheme-factsheet">
+                Foreign Influence Registration Scheme factsheet
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Terms and conditions
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+
+{% endblock %}

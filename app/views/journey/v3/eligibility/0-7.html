@@ -1,0 +1,189 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v3/0-7" method="post">
+
+			<span class="govuk-caption-l">Check if you need to register for FIRS</span>
+
+			{% set dynamic1 %}
+				{% if (data['v0-0'] == "individual") %}
+				Which of these do you work with, or have any arrangement with?
+				{% elseif (data['v0-0'] == "organisation") %}
+				Which of these does your organisation work with, or have any arrangement with?
+				{% elseif (data['v0-0'] == "another-individual") %}
+				Which of these does the individual work with, or have any arrangement with?
+				{% else %}
+				Which of these does the organisation work with, or have any arrangement with?
+				{% endif %}
+			{% endset -%}
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v0-7",
+			    id: "v0-7",
+			    value: data['v0-7'],
+			    fieldset: {
+				    legend: {
+				        text: dynamic1,
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    hint: {
+			    	html: "
+			    	<p class='govuk-hint'>This includes working directly for or on behalf of any of these organisations.</p>"
+			    },
+			    items: [
+			    {
+			        value: "Organisation 1",
+			        text: "Organisation 1"
+			    },
+			    {
+			        value: "Organisation 2",
+			        text: "Organisation 2"
+			    },
+			    {
+			        value: "Organisation 3",
+			        text: "Organisation 3"
+			    },
+			    {
+			        value: "Organisation 4",
+			        text: "Organisation 4"
+			    },
+			    {
+			        divider: "or"
+			    },
+			    {
+			        value: "None of these",
+			        text: "None of these"
+			    }
+			    ]
+			}) }}
+
+			{{ govukInput({
+				id: "q0-7",
+				name: "q0-7",
+				value: dynamic1,
+				classes: "hidden",
+				label: {
+					text: "Question 0-7",
+					classes: "govuk-label--s hidden",
+					isPageHeading: true
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+		</form>
+
+   		{% if (data['v0-2'] == 'None of these') %}
+
+		<dl class="govuk-summary-list">
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  Who are you registering for
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-1']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  {{data['q0-2']}}				
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-2']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-2">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  {{data['q0-5']}}				
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-5']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-3">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+
+		</dl>
+
+		{% else %}
+
+		<dl class="govuk-summary-list">
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  Who are you registering for
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-1']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-1">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  {{data['q0-2']}}				
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-2']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-2">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+			<div class="govuk-summary-list__row">
+				<dt class="govuk-summary-list__key">
+				  {{data['q0-3']}}				
+				</dt>
+				<dd class="govuk-summary-list__value">
+				  {{data['v0-3']}}
+				</dd>
+				<dd class="govuk-summary-list__actions">
+				  <a class="govuk-link" href="0-3">Change<span class="govuk-visually-hidden"> name</span></a>
+				</dd>
+			</div>
+
+
+		</dl>
+
+		{% endif %}
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v2/0-6" method="post">
+
+			<!-- Do you represent any of these organisations -->
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			  name: "v0-6",
+			  id: "v0-6",
+			  value: data['v0-6'],
+			  fieldset: {
+			    legend: {
+			      text: "Do you work for, with, on behalf of, or have any arrangement with any of these organisations?",
+			      isPageHeading: true,
+			      classes: "govuk-fieldset__legend--l"
+			    }
+			  },
+			  hint: {
+			    html: "
+			    <p>This includes working directly for or on behalf of any of these organisations.</p>
+			    <ul>
+			    		<li>Aperture Science</li>
+			    		<li>Belltower Associates</li>
+			    		<li>Helios</li>
+			    		<li>Rapture Tribune</li>
+			    		<li>Umbrella Pharmaceuticals</li>
+			    		<li>Vault-Tec Corporation</li>
+			    	</ul>"
+			  },
+			  items: [
+			    {
+			      value: "Yes",
+			      text: "Yes"
+			    },
+			    {
+			      value: "No",
+			      text: "No"
+			    }
+			  ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
