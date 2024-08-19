@@ -228,3 +228,49 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
         padding-top: 20px;
     }
 }
+
+
+//// FIRS ACCOUNT HOME
+
+.firs-home-containers {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 10px;
+    padding: 0;
+    gap: 20px;
+    .firs-home-containers__panel {
+        display: flex;
+        width: auto;
+        // flex-grow: 1;
+        list-style-type: none;
+        // margin-bottom: 15px;
+
+        > a {
+            border: 1px solid #b1b4b6;
+            border-bottom: none;
+            box-shadow: 0 2px 0 0 #1d70b8;
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            text-decoration: none;
+            &:hover {
+                // color: #111;
+            }
+            > h3 {
+                color: inherit;
+            }
+        }
+    }
+
+    @media (min-width: 800px) {
+        grid-template-columns: 1fr 1fr 1fr;
+        .firs-home-containers__panel {
+            // width: 33.333%;
+        }
+    }
+}
+
+
+
+
+

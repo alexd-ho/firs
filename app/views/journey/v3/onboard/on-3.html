@@ -1,0 +1,50 @@
+{% extends "layouts/v3-header-one-0.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="../account?acc-type=Organisation" method="post">
+
+			<span class="govuk-caption-l">Setting up your account</span>
+			
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "v-on-3",
+				name: "v-on-3",
+				value: data['v-on-3'],
+				label: {
+					text: "What is the organisation's name?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				},
+				hint: {
+					text: "This should be the name the organisation is typically known by. We will ask for other details such as regsitered names later."
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

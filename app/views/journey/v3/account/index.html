@@ -1,0 +1,261 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set bodyClasses = "registration" %}
+{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "account/partial",
+         text: "Partial account home"
+       },
+       {
+         href: "account/full",
+         text: "Completed account home"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+
+
+		<span class="govuk-caption-l">{{data['acc-type']}} account</span>
+
+		<h1 class="govuk-heading-l">{% if (data['acc-type'] == "Individual") %}{{data['v-on-2']}}{% else %}{{data['v-on-3']}}{% endif %}</h1>
+
+		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this <strong>Account</strong> page at any time to find common actions and account wide statuses.</p>
+
+		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+		{% if (data['acc-type'] == "Individual") %}
+
+			{{ govukSummaryList({
+			  card: {
+			    title: {
+			      text: "Account information"
+			    }
+			  },
+			  rows: [
+			    {
+			      key: {
+			        text: "Contact details"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "age"
+			          }
+			        ]
+			      }
+			    },
+			    {
+			      key: {
+			        text: "Identity Verification"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "working situation"
+			          }
+			        ]
+			      }
+			    },
+			    {
+			      key: {
+			        text: "Delegated authority"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--grey'>None</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "working situation"
+			          }
+			        ]
+			      }
+			    }
+			  ]
+			}) }}
+
+		{% else %}
+
+
+
+			{{ govukSummaryList({
+			  card: {
+			    title: {
+			      text: "Account information"
+			    }
+			  },
+			  rows: [
+			    {
+			      key: {
+			        text: "Contact details"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "age"
+			          }
+			        ]
+			      }
+			    },
+			    {
+			      key: {
+			        text: "Organisation details"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "age"
+			          }
+			        ]
+			      }
+			    },			    {
+			      key: {
+			        text: "Officer Identity Verification"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "working situation"
+			          }
+			        ]
+			      }
+			    },
+			    {
+			      key: {
+			        text: "Delegated authority"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--grey'>None</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "working situation"
+			          }
+			        ]
+			      }
+			    }
+			  ]
+			}) }}
+
+		{% endif %}
+
+
+		<div class="firs-home-containers">
+
+			<div class="firs-home-containers__panel">
+				<a href="account/update" class="govuk-link">
+					<h3 class="govuk-heading-m">Update account details</h3>
+					<p>Update contact details such as email, telephone numbers, and registered addresses.</p>
+				</a>
+			</div>
+
+			<div class="firs-home-containers__panel">
+				<a href="registrations" class="govuk-link">
+					<h3 class="govuk-heading-m">View your registrations</h3>
+					<p>View the registrations you have with foreign powers, and the activities assigned to each.</p>
+					<p><strong>You currently have no registrations. Complete account information before adding a registration.</strong></p>
+				</a>
+			</div>
+
+			<div class="firs-home-containers__panel">
+				<a href="messages" class="govuk-link">
+					<h3 class="govuk-heading-m">Contact FIRS</h3>
+					<p>Contact the case working team to request material changes to your registrations and activities, and follow up any requests for more information.</p>
+				</a>
+			</div>
+
+		</div>
+
+<!-- 
+		{{ govukSummaryList({
+		  card: {
+		    title: {
+		      text: "Registrations"
+		    }
+		  },
+		  rows: [
+		    {
+		      key: {
+		        text: "None"
+		      },
+		      value: {
+		        html: "Complete Account information first"
+		      },
+		      actions: {
+		        items: [
+		          {
+		            href: "#",
+		            text: "Update",
+		            visuallyHiddenText: "age"
+		          }
+		        ]
+		      }
+		    }
+		  ]
+		}) }} -->
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

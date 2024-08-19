@@ -1,0 +1,150 @@
+{% extends "layouts/account-start.html" %}
+{% set bodyClasses = "account" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "/journey/v2/account/",
+         text: "Main start page"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">
+        Start your registration
+        </h1>
+
+    </div>
+</div> -->
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <p>Contents</p>
+        <ol class="govuk-list govuk-list--number">
+            <li><a href="">Overview</a></li>
+            <li><a href="check-if-you-need-to-register">Check if you need to register</a></li>
+            <li>How to register</li>
+            <li><a href="">After you have registered</a></li>
+            <li><a href="">What we publish on the public register</a></li>
+            <li><a href="">If you receive an information notice</a></li>
+            <li><a href="">If you fail to register</a></li>
+        </ol>
+
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds ">
+
+        <div class="govuk-prototype-kit-common-templates-mainstream-guide-body firs-block-top-border">
+
+            <h2 class="govuk-heading-l">Are you registering your activities on the Foreign Influence Registration Scheme?</h2>
+
+            <p>If you are creating an account to tell us about registerable activities for yourself or your organisation, start here.</p>
+
+            <p>You will need to a GOV.UK One Login account to use this service. If you do not have a GOV.UK One Login, you can create one here.</p>
+
+
+            {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+            <p>This service is also available <a href="https://www.gov.uk/cofrestru-ar-gyfer-hunanasesiad">in Welsh (Cymraeg)</a>.</p>
+
+
+            {{ govukButton({
+            text: "Start now",
+            href: "/journey/v3/login?acc-type=registrant",
+            isStartButton: true
+            }) }}
+
+            <hr>
+
+            <h2 class="govuk-heading-m">Are you representing another individual or organisation?</h2>
+            <p>If you are creating a reprentaitives account to complete registraitons on nehalf of the regsitrant, start here</p>
+
+            {{ govukButton({
+            text: "Create respresentative account",
+            href: "/journey/v3/login?acc-type=representative",
+            isStartButton: false
+            }) }}
+
+            <hr>
+
+            <h2 class="govuk-heading-m">Do you have a registration code to access part of the Foreign Influence Registration Scheme?</h2>
+            <p>If you have been sent a 16 digit code and asked to carry out a task such as Officer verification or as a subcontractor, start here</p>
+
+            {{ govukButton({
+            text: "Access account",
+            href: "/journey/v3/login?acc-type=code",
+            isStartButton: false
+            }) }}
+
+
+            {{ govukPagination({
+             
+              next: {
+                labelText: "How to register",
+                href: "account"
+              }
+            }) }}
+
+
+        </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <aside class="firs-block-top-border--complementary" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          More information
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list">
+            <li>
+              <a href="https://www.gov.uk/government/publications/national-security-bill-factsheets/foreign-influence-registration-scheme-factsheet">
+                Foreign Influence Registration Scheme factsheet
+              </a>
+            </li>
+            <li>
+              <a href="eligibility/exemptions">
+                Exemptions
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Terms and conditions
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+
+
+{% endblock %}

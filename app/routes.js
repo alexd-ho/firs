@@ -1743,6 +1743,8 @@ router.post('/route-v2/exception-check', function(request, response) {
 
 var root_v3 = '/journey/v3/';
 var eligibility_v3 = '/journey/v3/eligibility/';
+var login_v3 = '/journey/v3/login/';
+var onboard_v3 = '/journey/v3/onboard/';
 var tier_v3 = '/journey/v3/tier/';
 var account_v3 = '/journey/v3/account/';
 
@@ -1784,6 +1786,25 @@ router.post('/route-v3/0-7', function(request, response) {
         response.redirect(eligibility_v3+"dont-register")
     } else { 
         response.redirect(eligibility_v3+"register")
+    }
+})
+
+
+router.post('/route-v3/l-end', function(request, response) {
+    var value = request.session.data['acc-type'];
+    if (value == "registrant"){ 
+        response.redirect(onboard_v3+"on-1")
+    } else { 
+        response.redirect(onboard_v3+"on-2")
+    }
+})
+
+router.post('/route-v3/on-1', function(request, response) {
+    var value = request.session.data['v-on-1'];
+    if (value == "An individual"){ 
+        response.redirect(onboard_v3+"on-2")
+    } else { 
+        response.redirect(onboard_v3+"on-3")
     }
 })
 
