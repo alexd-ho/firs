@@ -12,12 +12,12 @@
    meta: {
      items: [
        {
-         href: "../account",
-         text: "Initial account home"
+         href: "account-2",
+         text: "Partial account home"
        },
        {
-         href: "../account/partial",
-         text: "Partial account home"
+         href: "account-3",
+         text: "Completed account home"
        },
        {
          href: "/manage-prototype",
@@ -42,11 +42,13 @@
 	<div class="govuk-grid-column-full">
 
 
-		<span class="govuk-caption-l">{{data['acc-type']}} account</span>
+		<span class="govuk-caption-l">{% if (data['acc-type']) %}{{data['acc-type']}} account{% else %}Account type{% endif %}</span>
 
-		<h1 class="govuk-heading-l">{% if (data['acc-type'] == "Individual") %}{{data['v-on-2']}}{% else %}{{data['v-on-3']}}{% endif %}</h1>
+		<h1 class="govuk-heading-l">{{data['accName']}}</h1>
+
 
 		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this <strong>Account</strong> page at any time to find common actions and account wide statuses.</p>
+
 
 		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
@@ -64,7 +66,77 @@
 			        text: "Contact details"
 			      },
 			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong>"
+			        html: "<strong class='govuk-tag govuk-tag--green'>Completed</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "3-1-check",
+			            text: "View",
+			            visuallyHiddenText: "Contact details"
+			          },
+			          {
+			            href: "3-1-1",
+			            text: "Update",
+			            visuallyHiddenText: "Contact details"
+			          }
+			        ]
+			      }
+			    },
+			    {
+			      key: {
+			        text: "Identity Verification"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--green'>Completed</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "identity-verification",
+			            text: "Update",
+			            visuallyHiddenText: "Identity Verification"
+			          }
+			        ]
+			      }
+			    },
+			    {
+			      key: {
+			        text: "Delegated authority"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--grey'>None</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "working situation"
+			          }
+			        ]
+			      }
+			    }
+			  ]
+			}) }}
+
+		{% elseif (data['acc-type'] == "Organisation") %}
+
+
+
+			{{ govukSummaryList({
+			  card: {
+			    title: {
+			      text: "Account information"
+			    }
+			  },
+			  rows: [
+			    {
+			      key: {
+			        text: "Contact details"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
 			      },
 			      actions: {
 			        items: [
@@ -78,10 +150,26 @@
 			    },
 			    {
 			      key: {
-			        text: "Identity Verification"
+			        text: "Organisation details"
 			      },
 			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong>"
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
+			      },
+			      actions: {
+			        items: [
+			          {
+			            href: "#",
+			            text: "Update",
+			            visuallyHiddenText: "age"
+			          }
+			        ]
+			      }
+			    },			    {
+			      key: {
+			        text: "Officer Identity Verification"
+			      },
+			      value: {
+			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
 			      },
 			      actions: {
 			        items: [
@@ -113,139 +201,7 @@
 			  ]
 			}) }}
 
-		{% else %}
-
-
-
-			{{ govukSummaryList({
-			  card: {
-			    title: {
-			      text: "Account information"
-			    }
-			  },
-			  rows: [
-			    {
-			      key: {
-			        text: "Contact details"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--green'>Completed</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Update",
-			            visuallyHiddenText: "age"
-			          }
-			        ]
-			      }
-			    },
-			    {
-			      key: {
-			        text: "Organisation details"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--green'>Completed</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Update",
-			            visuallyHiddenText: "age"
-			          }
-			        ]
-			      }
-			    },			    
-			    {
-			      key: {
-			        text: "Officer Identity Verification"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--green'>Verified</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "View",
-			            visuallyHiddenText: "working situation"
-			          }
-			        ]
-			      }
-			    },
-			    {
-			      key: {
-			        text: "Delegated authority"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--green'>Manage</strong>
-			        <p class='govuk-body-m govuk-!-margin-top-3 govuk-!-margin-bottom-1'>
-			        Delegated to 'Mark & Sons Ltd'</p>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Manage",
-			            visuallyHiddenText: "working situation"
-			          }
-			        ]
-			      }
-			    }
-			  ]
-			}) }}
-
 		{% endif %}
-
-
-
-
-
-		{{ govukSummaryList({
-		  card: {
-		    title: {
-		      text: "Registrations"
-		    }
-		  },
-		  rows: [
-		    {
-		      key: {
-		        text: "Foreign Power X"
-		      },
-		      value: {
-		        html: "4 Activities"
-		      },
-		      actions: {
-		        items: [
-		          {
-		            href: "#",
-		            text: "View",
-		            visuallyHiddenText: "age"
-		          }
-		        ]
-		      }
-		    },
-		    {
-		      key: {
-		        text: "Organisation 3"
-		      },
-		      value: {
-		        html: "2 Activities"
-		      },
-		      actions: {
-		        items: [
-		          {
-		            href: "#",
-		            text: "View",
-		            visuallyHiddenText: "age"
-		          }
-		        ]
-		      }
-		    }
-		  ]
-		}) }}
 
 
 		<div class="firs-home-containers">
@@ -261,6 +217,7 @@
 				<a href="registrations" class="govuk-link">
 					<h3 class="govuk-heading-m">View your registrations</h3>
 					<p>View the registrations you have with foreign powers, and the activities assigned to each.</p>
+					<p><strong>You currently have no registrations. Complete account information before adding a registration.</strong></p>
 				</a>
 			</div>
 
@@ -272,6 +229,35 @@
 			</div>
 
 		</div>
+
+<!-- 
+		{{ govukSummaryList({
+		  card: {
+		    title: {
+		      text: "Registrations"
+		    }
+		  },
+		  rows: [
+		    {
+		      key: {
+		        text: "None"
+		      },
+		      value: {
+		        html: "Complete Account information first"
+		      },
+		      actions: {
+		        items: [
+		          {
+		            href: "#",
+		            text: "Update",
+		            visuallyHiddenText: "age"
+		          }
+		        ]
+		      }
+		    }
+		  ]
+		}) }} -->
+
 	</div>
 
 </div>

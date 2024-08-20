@@ -14,40 +14,43 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v3/on-3" method="post">
+		<form action="/route-v3/on-4" method="post">
 
 			<span class="govuk-caption-l">Setting up your account</span>
 			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			    name: "v-on-3",
-			    id: "v-on-3",
-			    value: data['v-on-3'],
+			    name: "v-on-4",
+			    id: "v-on-4",
+			    value: data['v-on-4'],
 			    fieldset: {
 				    legend: {
-				        text: "Are you registering as any of these specified organisations?",
+				        text: "Which of these specified organisations are you registering as?",
 				        isPageHeading: true,
 				        classes: "govuk-fieldset__legend--l"
 				    }
 			    },
-			    hint: {
-			    	html: "<ul class='govuk-list govuk-list--bullet'>
-			    		<li>Organisation 1</li>
-			    		<li>Organisation 2</li>
-			    		<li>Organisation 3</li>
-			    		<li>Organisation 4</li>
-			    		<li>Organisation 5</li>
-			    	</ul>"
-			    },
 			    items: [
 			    {
-			        value: "Yes",
-			        text: "Yes"
+			        value: "Organisation 1",
+			        text: "Organisation 1"
 			    },
 			    {
-			        value: "No",
-			        text: "No"
+			        value: "Organisation 2",
+			        text: "Organisation 2"
+			    },
+			    {
+			        value: "Organisation 3",
+			        text: "Organisation 3"
+			    },
+			    {
+			        value: "Organisation 4",
+			        text: "Organisation 4"
+			    },
+			    {
+			        value: "Organisation 5",
+			        text: "Organisation 5"
 			    }
 			    ]
 			}) }}

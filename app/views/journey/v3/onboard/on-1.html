@@ -23,7 +23,7 @@
 			{{ govukRadios({
 			    name: "v-on-1",
 			    id: "v-on-1",
-			    value: data['v-onb-1'],
+			    value: data['v-on-1'],
 			    fieldset: {
 				    legend: {
 				        text: "Are you registering an individual or organisation?",
@@ -33,14 +33,14 @@
 			    },
 			    items: [
 			    {
-			        value: "An individual",
+			        value: "Individual",
 			        text: "An individual"
 			    },
 			    {
-			        value: "An organisation",
+			        value: "Organisation",
 			        text: "An organisation",
 			        hint: {
-			        	text: "This would include an incorporated body, and unincoporated association or as a foreign power "
+			        	text: "This would include an incorporated body, and unincoporated association, or a foreign power "
 			        }
 			    }
 			    ]

@@ -1799,14 +1799,165 @@ router.post('/route-v3/l-end', function(request, response) {
     }
 })
 
+
+// ONBOARDING SCREENS
 router.post('/route-v3/on-1', function(request, response) {
     var value = request.session.data['v-on-1'];
-    if (value == "An individual"){ 
+    if (value == "Individual"){ 
         response.redirect(onboard_v3+"on-2")
     } else { 
         response.redirect(onboard_v3+"on-3")
     }
 })
+
+router.post('/route-v3/on-2', function(request, response) {
+    var value = request.session.data['v-on-2'];
+    if (value == "None of these statements apply"){ 
+        response.redirect(onboard_v3+"on-final?acc-type=Individual&misrep=false&tier=default")
+    } else { 
+        response.redirect(onboard_v3+"on-final?acc-type=Individual&misrep=true&tier=enhanced")
+    }
+})
+
+router.post('/route-v3/on-3', function(request, response) {
+    var value = request.session.data['v-on-3'];
+    if (value == "No"){ 
+        response.redirect(onboard_v3+"on-5?misrep=false")
+    } else { 
+        response.redirect(onboard_v3+"on-4?misrep=false&tier=enhanced")
+    }
+})
+
+router.post('/route-v3/on-4', function(request, response) {
+    var value = request.session.data['v-on-4'];
+    // var accName = request.session.data['v-on-4'];
+    response.redirect(account_v3+"?acc-type=Organisation&misrep=false&accName="+value)
+})
+
+router.post('/route-v3/on-5', function(request, response) {
+    var value = request.session.data['v-on-5'];
+    if (value == "No"){ 
+        response.redirect(onboard_v3+"on-final?acc-type=Organisation&misrep=false&tier=default")
+    } else { 
+        response.redirect(onboard_v3+"on-6")
+    }
+})
+
+router.post('/route-v3/on-6', function(request, response) {
+    var value = request.session.data['v-on-6'];
+    if (value == "No"){ 
+        response.redirect(onboard_v3+"on-5")
+    } else { 
+        response.redirect(onboard_v3+"on-2")
+    }
+})
+
+
+/// REGISTRANT CONTACT DETAILS
+
+router.post('/route-v3/3-1-2', function(request, response) {
+    var value = request.session.data['v3-1-2'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"3-1-3")
+    } else {
+        response.redirect(account_v3+"3-1-4")            
+    }
+})
+
+router.post('/route-v3/3-1-7', function(request, response) {
+    var value = request.session.data['v3-1-7'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"3-1-8")
+    } else {
+        response.redirect(account_v3+"3-1-9")            
+    }
+})
+
+router.post('/route-v3/3-2-1', function(request, response) {
+    var value = request.session.data['v3-2-1'] // 
+    if (value == "Body corporate"){ // 
+        response.redirect(account_v3+"3-2a-1?reg-type=corp")
+    } else {
+        response.redirect(account_v3+"3-2b-1?reg-type=assoc")            
+    }
+})
+
+router.post('/route-v3/3-2a-1', function(request, response) {
+    var value = request.session.data['v3-2a-1'] // 
+    var dir = request.session.data['type'] // registrant or inputter
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"3-2-2")
+    } else {
+        if (dir == "registrant"){ // 
+            response.redirect(account_v3+"3-2-3")            
+        } else {
+            response.redirect(account_v3+"3-2a-5")            
+        }
+    }
+})
+router.post('/route-v3/3-2b-1', function(request, response) {
+    var value = request.session.data['v3-2b-1'] // 
+    var dir = request.session.data['type'] // registrant or inputter
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"3-2-2")
+    } else {
+        if (dir == "registrant"){ // 
+            response.redirect(account_v3+"3-2-3")            
+        } else {
+            response.redirect(account_v3+"3-2b-5")            
+        }
+    }
+})
+router.post('/route-v3/3-2a-5', function(request, response) {
+    var value = request.session.data['v3-2a-5'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"3-2-6")
+    } else {
+        response.redirect(account_v3+"3-2-8")            
+    }
+})
+
+router.post('/route-v3/3-2-9', function(request, response) {
+    var value = request.session.data['v3-2-9'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"3-2-10")
+    } else {
+        response.redirect(account_v3+"3-2-11")            
+    }
+})
+router.post('/route-v3/3-2-13', function(request, response) {
+    var value = request.session.data['v3-2-13'] //
+    var dir = request.session.data['reg-type'] //
+    if (value == "Yes") { // 
+        response.redirect(account_v3+"3-2-14")
+    } else {
+        if (dir == "corp"){ // 
+            response.redirect(account_v3+"3-2-16")            
+        } else {
+            response.redirect(account_v3+"3-2-check")            
+        }    
+    }
+})
+router.post('/route-v3/3-2-16', function(request, response) {
+    var value = request.session.data['v3-2-16'] //
+    if (value == "Yes") { // 
+        response.redirect(account_v3+"3-2-17")
+    } else {
+        response.redirect(account_v3+"3-2-check")            
+    }
+})
+
+router.post('/route-v3/delegated-authority', function(request, response) {
+    var value = request.session.data['delegated-authority'] //
+    if (value == "None") { // 
+        response.redirect(account_v3)
+    } else {
+        response.redirect(account_v3+"delegated-authority-name")            
+    }
+})
+
+
+
 
 
 

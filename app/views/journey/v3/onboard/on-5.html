@@ -14,30 +14,30 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="/route-v3/on-3" method="post">
+		<form action="/route-v3/on-5" method="post">
 
 			<span class="govuk-caption-l">Setting up your account</span>
 			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
-			    name: "v-on-3",
-			    id: "v-on-3",
-			    value: data['v-on-3'],
+			    name: "v-on-5",
+			    id: "v-on-5",
+			    value: data['v-on-5'],
 			    fieldset: {
-				    legend: {
-				        text: "Are you registering as any of these specified organisations?",
-				        isPageHeading: true,
-				        classes: "govuk-fieldset__legend--l"
-				    }
+			    legend: {
+			        text: "Does your organisation fit into any of these categories?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
 			    },
 			    hint: {
 			    	html: "<ul class='govuk-list govuk-list--bullet'>
-			    		<li>Organisation 1</li>
-			    		<li>Organisation 2</li>
-			    		<li>Organisation 3</li>
-			    		<li>Organisation 4</li>
-			    		<li>Organisation 5</li>
+			    		<li>My organisation is the office of, or officially represents, the head of a foreign state </li>
+			    		<li>My organisation is a foreign government or part of a foreign government</li>
+			    		<li>My organisation is an agency or authority of a foreign government</li>
+			    		<li>My organisation is responsible for administering affairs in an area within a foreign country or territory</li>
+			    		<li>My organisation is a political party that governs a foreign country</li>
 			    	</ul>"
 			    },
 			    items: [

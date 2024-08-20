@@ -1,0 +1,88 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v3/3-1-7" method="post">
+
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+
+
+			{% if (data['mode'] == 'self') %}
+			{{ govukRadios({
+			    name: "v3-1-7",
+			    id: "v3-1-7",
+			    value: data['v3-1-7'],
+			    fieldset: {
+			    legend: {
+			        text: "Do you have a different correspondence address?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    items: [
+			    {
+			        value: "Yes",
+			        text: "Yes"
+			    },
+			    {
+			        value: "No",
+			        text: "No"
+			    }
+			    ]
+			}) }}
+			{% else %}
+			{{ govukRadios({
+			    name: "v3-1-7",
+			    id: "v3-1-7",
+			    value: data['v3-1-7'],
+			    fieldset: {
+			    legend: {
+			        text: "Does "+data['accName']+" have a different correspondence address?",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    items: [
+			    {
+			        value: "Yes",
+			        text: "Yes"
+			    },
+			    {
+			        value: "No",
+			        text: "No"
+			    }
+			    ]
+			}) }}
+
+			{% endif %}
+
+
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

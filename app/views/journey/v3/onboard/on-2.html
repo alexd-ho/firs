@@ -14,21 +14,43 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="../account?acc-type=Individual" method="post">
+		<form action="/route-v3/on-2" method="post">
 
 			<span class="govuk-caption-l">Setting up your account</span>
 			
-			{% from "govuk/components/input/macro.njk" import govukInput %}
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
-			{{ govukInput({
-				id: "v-on-2",
-				name: "v-on-2",
-				value: data['v-on-2'],
-				label: {
-					text: "What is the individual's full name?",
-					classes: "govuk-label--l",
-					isPageHeading: true
-				}
+			{{ govukRadios({
+			    name: "v-on-2",
+			    id: "v-on-2",
+			    value: data['v-on-2'],
+			    fieldset: {
+				    legend: {
+				        text: "Do any of these statements apply to you?",
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    hint: {
+			    	html: "<ul class='govuk-list govuk-list--bullet'>
+			    		<li>You hold office under or represent(s) the head of a foreign state in their public capacity</li>
+			    		<li>You are part of or employed by a foreign government or part of a foreign government</li>
+			    		<li>You work for an agency or authority of a foreign government</li>
+			    		<li>You are part of an authority administering affairs in an area within a foreign country or territory</li>
+			    		<li>You are a member of a political party that governs a foreign country</li>
+			    		<li>You have another type of official role or affiliation with a government or organisation outside the UK</li>
+			    	</ul>"
+			    },
+			    items: [
+			    {
+			        value: "Yes",
+			        text: "Yes"
+			    },
+			    {
+			        value: "None of these statements apply",
+			        text: "None of these statements apply"
+			    }
+			    ]
 			}) }}
 
 			{{ govukButton({
