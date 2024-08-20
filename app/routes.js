@@ -1790,6 +1790,15 @@ router.post('/route-v3/0-7', function(request, response) {
 })
 
 
+router.post('/route-v3/l-4', function(request, response) {
+    var value = request.session.data['v-l-4'];
+    if (value == "Text message"){ 
+        response.redirect(login_v3+"l-5")
+    } else { 
+        response.redirect(login_v3+"l-7")
+    }
+})
+
 router.post('/route-v3/l-end', function(request, response) {
     var value = request.session.data['acc-type'];
     if (value == "registrant"){ 

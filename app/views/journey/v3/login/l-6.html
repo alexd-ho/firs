@@ -14,39 +14,36 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<h1 class="govuk-heading-l">Choose how to get get security codes</h1>
+		<h1 class="govuk-heading-l">Check your phone</h1>
 
-		<form action="/route-v3/l-4" method="post">
+		{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+		
+		{{ govukInsetText({
+		  html: "We have sent a code to <strong>********8273</strong>"
+		}) }}
+
+		<form action="l-end" method="post">
 
 			{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 			
-			<p>To finish creating your account, chose a way to prove it's you when you sign in.</p>
+			<p>It might take a few minutes to arrive. The code will expire after 2 hours.</p>
 
-
-			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
-			{{ govukRadios({
-			    name: "v-l-4",
-			    id: "v-l-4",
-			    value: data['v-l-4'],
-			    fieldset: {
-			    legend: {
-			        text: "Codes type",
-			        isPageHeading: false,
-			        classes: "govuk-fieldset__legend--l hidden"
-			    }
-			    },
-			    items: [
-			    {
-			        value: "Text message",
-			        text: "Text message"
-			    },
-			    {
-			        value: "Authenticator app for smartphone, tablet or computer",
-			        text: "Authenticator app for smartphone, tablet or computer"
-			    }
-			    ]
+			{{ govukInput({
+				id: "v-1-6",
+				name: "v-1-6",
+				value: data['v-1-6'],
+				classes: "govuk-!-width-one-third",
+				label: {
+					text: "Enter the 6 digit security code",
+					classes: "govuk-label--s",
+					isPageHeading: false
+				}
 			}) }}
+
+
+
 
 			{{ govukButton({
 				text: "Continue"
@@ -55,7 +52,7 @@
 			{% from "govuk/components/details/macro.njk" import govukDetails %}
 			
 			{{ govukDetails({
-			  summaryText: "What is an authenticator app?",
+			  summaryText: "Problems with the code?",
 			  text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 			  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 			  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
