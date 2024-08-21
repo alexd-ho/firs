@@ -43,7 +43,7 @@
 
 		<span class="govuk-caption-l">{% if (data['acc-type']) %}{{data['acc-type']}} account{% else %}Account type{% endif %}</span>
 
-		<h1 class="govuk-heading-l">{{data['accName']}}</h1>
+		<h1 class="govuk-heading-l">{% if (data['accName']) %}}{{data['accName']}}{% else %}Regsitrant Name{% endif %}</h1>
 
 
 		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this <strong>Account</strong> page at any time to find common actions and account wide statuses.</p>
