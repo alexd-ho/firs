@@ -49,186 +49,101 @@
 
 		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this <strong>Account</strong> page at any time to find common actions and account wide statuses.</p>
 
-
-		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-
-		{% if (data['acc-type'] == "Individual") %}
-
-			{{ govukSummaryList({
-			  card: {
-			    title: {
-			      text: "Account information"
-			    }
-			  },
-			  rows: [
-			    {
-			      key: {
-			        text: "Contact details"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--green'>Completed</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "3-1-check",
-			            text: "View",
-			            visuallyHiddenText: "Contact details"
-			          },
-			          {
-			            href: "3-1-1",
-			            text: "Update",
-			            visuallyHiddenText: "Contact details"
-			          }
-			        ]
-			      }
-			    },
-			    {
-			      key: {
-			        text: "Identity Verification"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--green'>Completed</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "identity-verification",
-			            text: "Update",
-			            visuallyHiddenText: "Identity Verification"
-			          }
-			        ]
-			      }
-			    },
-			    {
-			      key: {
-			        text: "Delegated authority"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--grey'>None</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Update",
-			            visuallyHiddenText: "working situation"
-			          }
-			        ]
-			      }
-			    }
-			  ]
-			}) }}
-
-		{% elseif (data['acc-type'] == "Organisation") %}
-
-
-
-			{{ govukSummaryList({
-			  card: {
-			    title: {
-			      text: "Account information"
-			    }
-			  },
-			  rows: [
-			    {
-			      key: {
-			        text: "Contact details"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Update",
-			            visuallyHiddenText: "age"
-			          }
-			        ]
-			      }
-			    },
-			    {
-			      key: {
-			        text: "Organisation details"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Update",
-			            visuallyHiddenText: "age"
-			          }
-			        ]
-			      }
-			    },			    {
-			      key: {
-			        text: "Officer Identity Verification"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Update",
-			            visuallyHiddenText: "working situation"
-			          }
-			        ]
-			      }
-			    },
-			    {
-			      key: {
-			        text: "Delegated authority"
-			      },
-			      value: {
-			        html: "<strong class='govuk-tag govuk-tag--grey'>None</strong>"
-			      },
-			      actions: {
-			        items: [
-			          {
-			            href: "#",
-			            text: "Update",
-			            visuallyHiddenText: "working situation"
-			          }
-			        ]
-			      }
-			    }
-			  ]
-			}) }}
-
-		{% endif %}
-
-
-		<div class="firs-home-containers">
-
-			<div class="firs-home-containers__panel">
-				<a href="account/update" class="govuk-link">
-					<h3 class="govuk-heading-m">Update account details</h3>
-					<p>Update contact details such as email, telephone numbers, and registered addresses.</p>
-				</a>
-			</div>
-
-			<div class="firs-home-containers__panel">
-				<a href="registrations" class="govuk-link">
-					<h3 class="govuk-heading-m">View your registrations</h3>
-					<p>View the registrations you have with foreign powers, and the activities assigned to each.</p>
-					<p><strong>You currently have no registrations. Complete account information before adding a registration.</strong></p>
-				</a>
-			</div>
-
-			<div class="firs-home-containers__panel">
-				<a href="messages" class="govuk-link">
-					<h3 class="govuk-heading-m">Contact FIRS</h3>
-					<p>Contact the case working team to request material changes to your registrations and activities, and follow up any requests for more information.</p>
-				</a>
-			</div>
-
+		<div class="govuk-summary-card">
+		  <div class="govuk-summary-card__title-wrapper">
+		    <h2 class="govuk-summary-card__title">
+		      Spain
+		    </h2>
+		  </div>
+		  <div class="govuk-summary-card__content">
+		    <dl class="govuk-summary-list">
+		      <div class="govuk-summary-list__row">
+		        <dt class="govuk-summary-list__key">
+		          <a class="govuk-link" href="registrations/public-1">Public Communication</a>
+		        </dt>
+		        <dd class="govuk-summary-list__value">
+			        Public speaking event, Social Media
+		        </dd>
+		        <dd class="govuk-summary-list__actions">
+		          <strong class='govuk-tag govuk-tag--green'>Published</strong>
+		        </dd>
+		      </div>
+		      <div class="govuk-summary-list__row">
+		        <dt class="govuk-summary-list__key">
+		          <a class="govuk-link" href="registrations/money-1">Distribution of money, goods or services</a>
+		        </dt>
+		        <dd class="govuk-summary-list__value">
+			        £20,000 - Jane Smith, Robert Jones
+		        </dd>
+		        <dd class="govuk-summary-list__actions">
+		          <strong class='govuk-tag govuk-tag--red'>Action required</strong>
+		        </dd>
+		      </div>
+		
+		    </dl>
+		  </div>
 		</div>
+	
+
+		<p>Different style</p>
+		
+
+		<div class="govuk-summary-card">
+		  <div class="govuk-summary-card__title-wrapper">
+		    <h2 class="govuk-summary-card__title">
+		      Foreign Power Y
+		    </h2>
+		  </div>
+		  <div class="govuk-summary-card__content">
+		    <dl class="govuk-summary-list">
+		      <div class="govuk-summary-list__row">
+		        <dt class="govuk-summary-list__key">
+		          Public Communication
+		        </dt>
+		        <dd class="govuk-summary-list__value">
+			        Public speaking event, Radio
+		        </dd>
+		        <dd class="govuk-summary-list__status">
+		          <strong class='govuk-tag govuk-tag--green'>Published</strong>
+		        </dd>
+		        <dd class="govuk-summary-list__actions">
+		          <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
+		        </dd>
+		      </div>
+		      <div class="govuk-summary-list__row">
+		        <dt class="govuk-summary-list__key">
+		          Private Communication
+		        </dt>
+		        <dd class="govuk-summary-list__value">
+		          Email (John Smith)
+		        </dd>
+		        <dd class="govuk-summary-list__status">
+		          <strong class='govuk-tag govuk-tag--blue'>Pending</strong>
+		        </dd>
+		        <dd class="govuk-summary-list__actions">
+		          <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> nationality (Lead tenant)</span></a>
+		        </dd>
+		      </div>
+		      <div class="govuk-summary-list__row">
+		        <dt class="govuk-summary-list__key">
+		          Non-public activity
+		        </dt>
+		        <dd class="govuk-summary-list__value">
+		          
+		        </dd>
+		        <dd class="govuk-summary-list__status">
+		          <strong class='govuk-tag govuk-tag--green'>Completed</strong>
+		        </dd>
+		        <dd class="govuk-summary-list__actions">
+		          <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a>
+		        </dd>
+		      </div>
+		    </dl>
+		  </div>
+		</div>
+
+
+
 
 <!-- 
 		{{ govukSummaryList({
