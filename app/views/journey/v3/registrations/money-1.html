@@ -1,5 +1,5 @@
 {% extends "layouts/v3-header-one-1.html" %}
-{% set activeLinkId = "account" %}
+{% set activeLinkId = "registrations" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -12,21 +12,40 @@
 
 <div class="govuk-grid-row">
 
-	<div class="govuk-grid-column-full">
-    <!-- <h2 class="govuk-heading-m">Public regsiter details</h2> -->
+    <div class="govuk-grid-column-two-thirds">
+
+		{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+		{{ govukWarningText({
+		  html: "<p>There are outstanding actions for you to complete before it can regsitered. You can find these actions in the <a href='../messages'>Messages</a> section.</p>",
+		  iconFallbackText: "Warning"
+		}) }}
+
+
+	    <span class="govuk-caption-l">Your registrations</span>
 
         <h2 class="govuk-heading-l">
-            Registration
+            Ref no: FIRS-2398644<br>
+            <strong class='govuk-tag govuk-tag--red'>Action required</strong>
         </h2>
-<!--         <div class="govuk-hint">
-        	<p>Select the information that you want to remain private.</p>
-        </div>
- -->
+
+
+          {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+          
+          {{ govukInsetText({
+            html: "<p>This activity was submitted to the Home Office for review, on 3 July 2024, but has not yet been published.</p>"
+          }) }}
+
+ 	</div>
+
+</div>
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
 
           
-
-          
-          <div class="govuk-summary-card">
+          <div class="govuk-summary-card govuk-summary-card--two-columns">
             <div class="govuk-summary-card__title-wrapper">
             
               <h2 class="govuk-summary-card__title">
@@ -108,7 +127,7 @@
 
 
 
-          <div class="govuk-summary-card">
+          <div class="govuk-summary-card govuk-summary-card--two-columns">
             <div class="govuk-summary-card__title-wrapper">
             
               <h2 class="govuk-summary-card__title">
@@ -224,7 +243,7 @@
 
           
 
-          <div class="govuk-summary-card">
+          <div class="govuk-summary-card govuk-summary-card--two-columns">
             <div class="govuk-summary-card__title-wrapper">
             
               <h2 class="govuk-summary-card__title">

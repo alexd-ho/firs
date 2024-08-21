@@ -308,6 +308,19 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
 }
 
 
+// REGISTRATIONS
+
+.govuk-summary-card {
+    &.govuk-summary-card--two-columns {
+        .govuk-summary-list__value {
+            width: 60%;
+        }
+        .govuk-summary-list__actions {
+            width: 10%;
+        }
+    }
+}
+
 
 // MESSAGES INBOX
 
