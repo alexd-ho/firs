@@ -1,0 +1,73 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "messages" %}
+
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row inbox-message">
+
+	<div class="govuk-grid-column-full">
+
+
+		<span class="govuk-caption-l">FIRS - Action Required</span>
+
+		<h1 class="govuk-heading-l">Spain - More information required</h1>
+
+		<p  class="govuk-body">This message was sent to you 12 July 2024</p>
+
+	</div>
+
+</div>
+
+<div class="govuk-grid-row inbox-message">
+
+	<div class="govuk-grid-column-two-thirds">
+
+
+		<section class="govuk-prototype-kit-common-templates-mainstream-guide-body">
+
+
+
+		<p>The Distribution of money, goods or services activity (Ref no: FIRS927198) as part of your agreement with <strong>Spain</strong> needs additional information supplying before registration can be completed.<br>
+		The information required is:</p>
+		<ul class="govuk-list govuk-list--bullet">
+			<li>Regsitered address of the foreign power - <a href="">link</a></li>
+			<li>Contact telephone number of the foreign power - <a href="">link</a></li>
+		</ul>
+
+		<p>You are required to supply this information by XX XXX 2024</p>
+
+		</section>
+
+	</div>
+
+
+ 	<div class="govuk-grid-column-one-third">
+
+	    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+	      <h2 class="govuk-heading-s" id="subsection-title">
+	        Related content
+	      </h2>
+	      <nav role="navigation" aria-labelledby="subsection-title">
+	        <ul class="govuk-list govuk-!-font-size-16" data-module="edge">
+	          <li>
+	            <a href="#">
+	              Draft guidance on the Foreign Influence Registration Scheme 
+	            </a>
+	          </li>
+	        </ul>
+	      </nav>
+	    </aside>
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}

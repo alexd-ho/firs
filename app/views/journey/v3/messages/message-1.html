@@ -1,0 +1,106 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "messages" %}
+
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row inbox-message">
+
+	<div class="govuk-grid-column-full">
+
+
+		<span class="govuk-caption-l">FIRS - Notification</span>
+
+		<h1 class="govuk-heading-l">Spain - Activity published to public register</h1>
+
+		<p  class="govuk-body">This message was sent to you 8 August 2024</p>
+
+	</div>
+
+</div>
+
+<div class="govuk-grid-row inbox-message">
+
+	<div class="govuk-grid-column-two-thirds">
+
+
+		<section class="govuk-prototype-kit-common-templates-mainstream-guide-body">
+    
+			<p>The Public Communication Activity (Ref no: FIRS927462) as part of your agreement with Spain was published to the public register on 8 August 2024.</p>
+
+			<p>You can <a href="">view it here (opens in a new window)</a>.</p>
+
+		</section>
+
+	</div>
+
+
+ 	<div class="govuk-grid-column-one-third">
+
+	    <aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+	      <h2 class="govuk-heading-s" id="subsection-title">
+	        Related content
+	      </h2>
+	      <nav role="navigation" aria-labelledby="subsection-title">
+	        <ul class="govuk-list govuk-!-font-size-16" data-module="edge">
+	          <li>
+	            <a href="#">
+	              Draft guidance on the Foreign Influence Registration Scheme 
+	            </a>
+	          </li>
+	          <li>
+	            <a href="#">
+	              Public Register
+	            </a>
+	          </li>
+	          
+	        </ul>
+	      </nav>
+	    </aside>
+
+  </div>
+
+</div>
+
+
+<!-- 
+		{{ govukSummaryList({
+		  card: {
+		    title: {
+		      text: "Registrations"
+		    }
+		  },
+		  rows: [
+		    {
+		      key: {
+		        text: "None"
+		      },
+		      value: {
+		        html: "Complete Account information first"
+		      },
+		      actions: {
+		        items: [
+		          {
+		            href: "#",
+		            text: "Update",
+		            visuallyHiddenText: "age"
+		          }
+		        ]
+		      }
+		    }
+		  ]
+		}) }} -->
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

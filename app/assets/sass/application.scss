@@ -238,19 +238,29 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
 .service-header__nav-list-item:last-of-type {
     .service-header__nav-list-item-link {
         &:after {
-            content: "1";
+            content: "2";
             display: inline-block;
             font-size: 16px;
-            height: 26px;
-            width: 26px;
+            height: 24px;
+            width: 24px;
             padding: 0;
             line-height: 26px;
             text-align: center;
-            background: #efa99d;
+            // border: 2px solid #333;
+
+            background: #f4cdc6; // red
             color: #2a0b06;
+
+            // border-color: #6e3619; // orange
+            color: #6e3619; // orange
+            background-color: #fcd6c3;
+
+            color: #0c2d4a; // blue
+            background-color: #bbd4ea;
+
             border-radius: 100px;
             // font-weight: 400;
-            margin-left: 5px;
+            margin: -1px 0 -1px 5px;
         }
 
     }
@@ -320,8 +330,9 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
         }
     }
     &__status {
-        width: 50px;
+        width: 60px;
         vertical-align: middle;
+        text-align: center;
         .unread {
             width: 14px;
             height: 14px;
@@ -342,7 +353,15 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
     }
 }
 
+.inbox-message {
+    .govuk-prototype-kit-common-templates-mainstream-guide-body {
+        border-top: 2px solid #999;
+        margin-top: 0;
+        padding-top: 20px;
+        padding-right: 50px;
 
+    }
+}
 
 
 
