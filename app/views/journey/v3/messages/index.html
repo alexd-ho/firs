@@ -1,0 +1,104 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "messages" %}
+
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+
+
+		<span class="govuk-caption-l">Your messages</span>
+
+		<h1 class="govuk-heading-l">{{data['accName']}}</h1>
+
+
+		<div class="inbox-table">
+
+			<div class="inbox-table__row inbox-table__row--header">
+				<div class="inbox-table__status">Unread</div>
+				<div class="inbox-table__subject-line">Message</div>
+				<div class="inbox-table__date">Date</div>
+			</div>
+
+			<div class="inbox-table__row">
+				<div class="inbox-table__status"><em class="unread"><span class="govuk-visually-hidden">Unread message</span></em></div>
+				<a href="messages/message-1" class="inbox-table__subject-line">
+					<div class="inbox-table__message-title">FIRS - Notification</div>
+					<div class="inbox-table__message-subtitle">Spain - Activity published to public register</div>
+				</a>
+				<div class="inbox-table__date"> 8 August 2024</div>
+			</div>
+
+			<div class="inbox-table__row">
+				<div class="inbox-table__status"></div>
+				<a href="messages/message-1" class="inbox-table__subject-line">
+					<div class="inbox-table__message-title">FIRS - Action Required</div>
+					<div class="inbox-table__message-subtitle">Foreign Power Y - More information required </div>
+				</a>
+				<div class="inbox-table__date"> 12 July 2024</div>
+			</div>
+
+			<div class="inbox-table__row">
+				<div class="inbox-table__status"><em class="read"><span class="govuk-visually-hidden">Read message</span></em></div>
+				<a href="messages/message-1" class="inbox-table__subject-line">
+					<div class="inbox-table__message-title">FIRS - Notification</div>
+					<div class="inbox-table__message-subtitle">Delegated Authority - successfully setup </div>
+				</a>
+				<div class="inbox-table__date"> 15 June 2024</div>
+			</div>
+
+			<div class="inbox-table__row">
+				<div class="inbox-table__status"><em class="read"><span class="govuk-visually-hidden">Read message</span></em></div>
+				<a href="messages/message-1" class="inbox-table__subject-line">
+					<div class="inbox-table__message-title">FIRS - Notification</div>
+					<div class="inbox-table__message-subtitle">Account Created </div>
+				</a>
+				<div class="inbox-table__date"> 8 June 2024</div>
+			</div>
+
+
+		</div>
+
+<!-- 
+		{{ govukSummaryList({
+		  card: {
+		    title: {
+		      text: "Registrations"
+		    }
+		  },
+		  rows: [
+		    {
+		      key: {
+		        text: "None"
+		      },
+		      value: {
+		        html: "Complete Account information first"
+		      },
+		      actions: {
+		        items: [
+		          {
+		            href: "#",
+		            text: "Update",
+		            visuallyHiddenText: "age"
+		          }
+		        ]
+		      }
+		    }
+		  ]
+		}) }} -->
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
