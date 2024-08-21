@@ -1,5 +1,6 @@
 {% extends "layouts/v3-header-one-1.html" %}
-{% set activeLinkId = "account" %}
+{% set activeLinkId = "registrations" %}
+
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -41,7 +42,7 @@
 	<div class="govuk-grid-column-full">
 
 
-		<span class="govuk-caption-l">{% if (data['acc-type']) %}{{data['acc-type']}} account{% else %}Account type{% endif %}</span>
+		<span class="govuk-caption-l">Your registrations</span>
 
 		<h1 class="govuk-heading-l">{{data['accName']}}</h1>
 
