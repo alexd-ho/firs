@@ -1,0 +1,46 @@
+{% extends "layouts/v3-header-one-0.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="on-1" method="post">
+
+			<span class="govuk-caption-l">Setting up your account</span>
+			<h1 class="govuk-heading-l">You have are now created your Foreign Influence Registration Scheme (FIRS) account.</h1>
+
+			<p>To begin, we need to determine what type of registrant you are.<br>
+			There are four types of registrant:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Individual who is conducting or organising activities in the UK as part of an agreement with a foreign power or specified organisation</li>
+				<li>Organisation that is conducting or organising activities in the UK as part of an agreement with a foreign power or specified organisation</li>
+				<li>Specified organisation conducting or organising activities in the UK</li>
+				<li>Individual who has a role, position or affiliation with a foreign power, conducting or organising activities in the UK, and who inaccurately reports or 'misrepresents' their relationship with the foreign power or the activities in the UK</li>
+			</ul>
+
+			<p>The next section will help determine your registrant type, and guide you through the setting up of your FIRS account.</p>
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
