@@ -1,6 +1,19 @@
 {% extends "di-govuk-one-login-service-header/layouts/service-header.html" %}
 
-{% set serviceName = "Foreign Influence Registration Scheme" %}.
+{% set serviceName = "Foreign Influence Registration Scheme" %}
+
+{% if (data['m1'] == 'read') %}
+    {% if (data['m2'] == 'read') %}
+        {% set bodyClasses = "m1 m2" %}
+    {% else %}
+        {% set bodyClasses = "m1" %}
+    {% endif %}
+{% else %}
+    {% if (data['m2'] == 'read') %}
+        {% set bodyClasses = "m2" %}
+    {% endif %}
+{% endif %}
+
 
 {% set navigationItems = [
   {
@@ -14,7 +27,8 @@
   },{
     href: "/journey/v3/messages",
     text: 'Messages',
-    id: 'messages'
+    id: 'messages',
+    classes: 'contaaaact'
   }]
 %} 
 
@@ -39,10 +53,5 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-</div></div>
 
 {% endblock %}

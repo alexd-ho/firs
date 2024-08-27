@@ -264,6 +264,21 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
         }
 
     }
+    body.m1 & ,
+    body.m2 & {
+        .service-header__nav-list-item-link {
+            &:after {
+                content: "1";        
+            }
+        }
+    }
+    body.m1.m2 & {
+        .service-header__nav-list-item-link {
+            &:after {
+                content: "0";        
+            }
+        }
+    }
 }
 
 

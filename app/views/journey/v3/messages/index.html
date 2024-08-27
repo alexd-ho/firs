@@ -6,6 +6,28 @@
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "messages?m1=unread&m2=unread",
+         text: "Reset unread messages"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
 {% block content %}
 
 
@@ -28,8 +50,8 @@
 			</div>
 
 			<div class="inbox-table__row">
-				<div class="inbox-table__status"><em class="unread"><span class="govuk-visually-hidden">Unread message</span></em></div>
-				<a href="messages/message-1" class="inbox-table__subject-line">
+				<div class="inbox-table__status">{% if (data['m1'] != 'read') %}<em class="unread"><span class="govuk-visually-hidden">Unread message</span></em>{% endif %}</div>
+				<a href="messages/message-1?m1=read" class="inbox-table__subject-line">
 					<div class="inbox-table__message-title">FIRS - Notification</div>
 					<div class="inbox-table__message-subtitle">Spain - Activity published to public register</div>
 				</a>
@@ -37,8 +59,8 @@
 			</div>
 
 			<div class="inbox-table__row">
-				<div class="inbox-table__status"><em class="unread"><span class="govuk-visually-hidden">Unread message</span></em></div>
-				<a href="messages/message-2" class="inbox-table__subject-line">
+				<div class="inbox-table__status">{% if (data['m2'] != 'read') %}<em class="unread"><span class="govuk-visually-hidden">Unread message</span></em>{% endif %}</div>
+				<a href="messages/message-2?m2=read" class="inbox-table__subject-line">
 					<div class="inbox-table__message-title">FIRS - Action Required</div>
 					<div class="inbox-table__message-subtitle">Spain - More information required </div>
 				</a>
@@ -47,7 +69,7 @@
 
 			<div class="inbox-table__row">
 				<div class="inbox-table__status"></div>
-				<a href="messages/message-1" class="inbox-table__subject-line">
+				<a href="messages/message-3" class="inbox-table__subject-line">
 					<div class="inbox-table__message-title">FIRS - Action Required</div>
 					<div class="inbox-table__message-subtitle">Foreign Power Y - More information required </div>
 				</a>
@@ -56,7 +78,7 @@
 
 			<div class="inbox-table__row">
 				<div class="inbox-table__status"><em class="read"><span class="govuk-visually-hidden">Read message</span></em></div>
-				<a href="messages/message-1" class="inbox-table__subject-line">
+				<a href="messages/message-3" class="inbox-table__subject-line">
 					<div class="inbox-table__message-title">FIRS - Notification</div>
 					<div class="inbox-table__message-subtitle">Delegated Authority - successfully setup </div>
 				</a>
@@ -65,7 +87,7 @@
 
 			<div class="inbox-table__row">
 				<div class="inbox-table__status"><em class="read"><span class="govuk-visually-hidden">Read message</span></em></div>
-				<a href="messages/message-1" class="inbox-table__subject-line">
+				<a href="messages/message-3" class="inbox-table__subject-line">
 					<div class="inbox-table__message-title">FIRS - Notification</div>
 					<div class="inbox-table__message-subtitle">Account Created </div>
 				</a>
