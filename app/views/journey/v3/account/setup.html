@@ -40,12 +40,13 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-full">
 
+		<span class="govuk-caption-l">{% if (data['acc-type']) %}{{data['acc-type']}} account created{% else %}Account created{% endif %}</span>
 
-		<!-- <span class="govuk-caption-l">{{data['accName']}}</span> -->
-
-		<h1 class="govuk-heading-l">Setup your account</h1>
+		<h1 class="govuk-heading-l">{{data['accName']}}</h1>
 
 		<p>Complete these tasks to finish setting up your account.</p>
+
+		<h2 class="govuk-heading-m">Setup your account</h2>
 
 		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
