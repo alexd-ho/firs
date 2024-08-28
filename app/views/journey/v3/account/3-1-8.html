@@ -2,7 +2,7 @@
 {% set activeLinkId = "account" %}
 
 {% block pageTitle %}
-  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+  Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 
@@ -14,7 +14,11 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
+		{% if (data['return'] == 'update') %}
+		<form action="contact-details?return=complete" method="post">
+		{% else %}
 		<form action="3-1-9" method="post">
+		{% endif %}
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
