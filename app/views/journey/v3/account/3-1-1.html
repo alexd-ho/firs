@@ -16,12 +16,77 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 		{% if (data['return'] == 'update') %}
 		<form action="contact-details?return=complete" method="post">
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "v3-1-1",
+				name: "v3-1-1",
+				value: data['v3-1-1'],
+				label: {
+					text: "What is your name?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				},
+				hint: {
+					text: 'This is based on the name you told us earlier on. You can update it here.'
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
 		{% elseif (data['return'] == 'check') %}
 		<form action="3-1-check?return=complete" method="post">
-		{% else %}
-		<form action="3-1-2?accName={{data['v3-1-1']}}" method="post">
-		{% endif %}
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "v3-1-1",
+				name: "v3-1-1",
+				value: data['v3-1-1'],
+				label: {
+					text: "What is your name?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				},
+				hint: {
+					text: 'This is based on the name you told us earlier on. You can update it here.'
+				}
+			}) }}
 
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+		{% else %}
+
+		{% if (data['acc-type'] == 'Organisation') %}
+
+		<form action="3-1-2" method="post">
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "v3-1-1",
+				name: "v3-1-1",
+				value: data['v3-1-1'],
+				label: {
+					text: "What is your name?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+		{% else %}
+
+		<form action="3-1-2?accName={{data['v3-1-1']}}" method="post">
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
 			{{ govukInput({
@@ -43,6 +108,11 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 			}) }}
 
 		</form>
+
+		{% endif %}
+
+		{% endif %}
+
 
 	</div>
 

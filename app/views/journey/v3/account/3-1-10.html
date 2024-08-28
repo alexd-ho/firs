@@ -14,11 +14,13 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
+		<!-- <form action="3-1-m1" method="post"> -->
+
 	    {% if (data['misrep'] == 'true') %}
 			{% if (data['return'] == 'update') %}
 			<form action="contact-details?return=complete" method="post">
 			{% else %}
-			<form action="3-1-m1" method="post">
+			<form action="3-1-check" method="post">
 			{% endif %}
 	    {% else %}
 			{% if (data['return'] == 'update') %}

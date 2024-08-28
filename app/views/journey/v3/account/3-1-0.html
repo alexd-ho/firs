@@ -9,83 +9,87 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">
-        What information you'll need to complete this section
-        </h1>
+		<h1 class="govuk-heading-l">
+			What information you'll need to complete this section
+		</h1>
 
-    </div>
-  </div>
+	</div>
+</div>
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+	<div class="govuk-grid-column-two-thirds">
 
-        <p>In this section, you will be asked about the details of the person in the registration. Once this is compete, you will be asked to provide details of the individual's activities in a separate section.</p>
+		<p>In this section, you will be asked about the details of the person in the registration. Once this is compete,
+			you
+			will be asked to provide details of the individual's activities in a separate section.</p>
 
-        <p>To complete this section, you will need:</p>
+		<p>To complete this section, you will need:</p>
 
-        <ul class="govuk-list govuk-list--bullet">
-            <!-- <li>The type of activity</li> -->
-            <li>The names and other personal details of the person being regsitered</li>
-            <li>Any address(es) of the individual</li>
-            <li>Contact details of the individual</li>
-        </ul>
+		<ul class="govuk-list govuk-list--bullet">
+			<!-- <li>The type of activity</li> -->
+			<li>The names and other personal details of the person being regsitered</li>
+			<li>Any address(es) of the individual</li>
+			<li>Contact details of the individual</li>
+		</ul>
 
-        <p>Completion takes around 5 minutes.</p>
-
- 
-        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-
-        {{ govukInsetText({
-            html: "<p>Some of the information you provide may appear on a public register.</p>
-            <p>After you have submitted an activity, you can make a request for any information that would appear on the public register to remain private.</p>"
-        }) }}
+		<p>Completion takes around 5 minutes.</p>
 
 
-        {{ govukButton({
-        text: "Start now",
-        href: "3-1-1",
-        isStartButton: true
-        }) }}
+		{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+		{{ govukInsetText({
+		html: "<p>Some of the information you provide may appear on a public register.</p>
+		<p>After you have submitted an activity, you can make a request for any information that would appear on the
+			public
+			register to remain private.</p>"
+		}) }}
 
 
-        <p>
-        You can also <a href="#">register by post</a>.
-        </p>
+		{{ govukButton({
+			text: "Start now",
+			href: "3-1-1",
+			isStartButton: true
+		}) }}
 
-        <p>
-        The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
-        </p>
 
-        <p>
-        You can’t register for this service if you’re in the UK illegally.
-        </p>
+		<p>
+			You can also <a href="#">register by post</a>.
+		</p>
 
-    </div>
+		<p>
+			The online service is also <a href="#">available in Welsh (ar gael yn Gymraeg)</a>.
+		</p>
 
-    <div class="govuk-grid-column-one-third">
+		<p>
+			You can’t register for this service if you’re in the UK illegally.
+		</p>
 
-      <aside class="govuk-prototype-kit-common-templates-related-items-" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          More information
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list">
-            <li>
-              <a href="#">
-                Request an exception
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Terms and conditions
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+	</div>
 
-    </div>
-  </div>
+	<div class="govuk-grid-column-one-third">
+
+		<aside class="govuk-prototype-kit-common-templates-related-items-" role="complementary">
+			<h2 class="govuk-heading-m" id="subsection-title">
+				More information
+			</h2>
+			<nav role="navigation" aria-labelledby="subsection-title">
+				<ul class="govuk-list">
+					<li>
+						<a href="#">
+							Request an exception
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Terms and conditions
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</aside>
+
+	</div>
+</div>
 
 {% endblock %}
