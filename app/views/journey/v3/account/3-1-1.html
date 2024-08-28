@@ -1,4 +1,8 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
 {% extends "layouts/v3-header-one-1.html" %}
+{% endif %}
 {% set activeLinkId = "account" %}
 
 {% block pageTitle %}
@@ -86,7 +90,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 		{% else %}
 
-		<form action="3-1-2?accName={{data['v3-1-1']}}" method="post">
+		<form action="3-1-2" method="post">
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
 			{{ govukInput({

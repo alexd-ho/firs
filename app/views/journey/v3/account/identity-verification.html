@@ -1,4 +1,8 @@
-{% extends "layouts/main-v2.html" %}
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
+{% extends "layouts/v3-header-one-1.html" %}
+{% endif %}
 {% set activeLinkId = "account" %}
 
 {% block pageTitle %}
@@ -17,7 +21,11 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 		{% if (data['return'] == 'update') %}
 		<form action="overview?return=complete" method="post">
 		{% else %}
-		<form action="../account" method="post">
+			{% if (data['setup'] == 'incomplete') %}
+			<form action="../account/setup" method="post">
+			{% else %}
+			<form action="../account" method="post">
+			{% endif %}
 		{% endif %}
 
 

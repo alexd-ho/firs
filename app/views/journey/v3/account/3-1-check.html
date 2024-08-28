@@ -1,4 +1,8 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
 {% extends "layouts/v3-header-one-1.html" %}
+{% endif %}
 {% set activeLinkId = "account" %}
 
 {% block pageTitle %}
@@ -309,10 +313,19 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
         </form>
  -->
 
-        {{ govukButton({
+    {% if (data['setup'] == 'incomplete') %}
+    {{ govukButton({
+        text: "Save contact details",
+        href: "../account/setup?contact-details=Completed"
+        }) }}
+    {% else %}
+    {{ govukButton({
         text: "Save contact details",
         href: "../account?contact-details=Completed"
-        }) }}
+    }) }}
+    {% endif %}
+
+
 
     </div>
 
