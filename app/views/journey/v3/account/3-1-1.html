@@ -16,6 +16,8 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 		{% if (data['return'] == 'update') %}
 		<form action="contact-details?return=complete" method="post">
+		{% elseif (data['return'] == 'check') %}
+		<form action="3-1-check?return=complete" method="post">
 		{% else %}
 		<form action="3-1-2?accName={{data['v3-1-1']}}" method="post">
 		{% endif %}
@@ -25,7 +27,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 			{{ govukInput({
 				id: "v3-1-1",
 				name: "v3-1-1",
-				value: data['v3-1-1'],
+				value: data['accName'],
 				label: {
 					text: "What is your name?",
 					classes: "govuk-label--l",
