@@ -15,9 +15,17 @@
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
 	    {% if (data['misrep'] == 'true') %}
-		<form action="3-1-m1" method="post">
+			{% if (data['return'] == 'update') %}
+			<form action="contact-details?return=complete" method="post">
+			{% else %}
+			<form action="3-1-m1" method="post">
+			{% endif %}
 	    {% else %}
-		<form action="3-1-check" method="post">
+			{% if (data['return'] == 'update') %}
+			<form action="contact-details?return=complete" method="post">
+			{% else %}
+			<form action="3-1-check" method="post">
+			{% endif %}
     	{% endif %}
 
 		<form action="3-1-check" method="post">

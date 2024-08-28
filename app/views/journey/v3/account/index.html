@@ -51,7 +51,7 @@
 		<ul class="govuk-task-list">
 		  <li class="govuk-task-list__item govuk-task-list__item--with-link">
 		    <div class="govuk-task-list__name-and-hint">
-		      <a class="govuk-link govuk-task-list__link" href="3-1-0?mode=self" aria-describedby="company-details-1-status">
+		      <a class="govuk-link govuk-task-list__link" href="account/3-1-0?mode=self" aria-describedby="company-details-1-status">
 		        Contact details
 		      </a>
 		    </div>
@@ -62,7 +62,7 @@
 		  {% if (data['acc-type'] == "Organisation") %}
 		  <li class="govuk-task-list__item govuk-task-list__item--with-link">
 		    <div class="govuk-task-list__name-and-hint">
-		      <a class="govuk-link govuk-task-list__link" href="organisation-details" aria-describedby="company-details-1-status">
+		      <a class="govuk-link govuk-task-list__link" href="account/organisation-details" aria-describedby="company-details-1-status">
 		        Organisation details
 		      </a>
 		    </div>
@@ -73,7 +73,7 @@
 		  {% endif %}
 		  <li class="govuk-task-list__item govuk-task-list__item--with-link">
 		    <div class="govuk-task-list__name-and-hint">
-		      <a class="govuk-link govuk-task-list__link" href="identity-verification" aria-describedby="company-details-1-status">
+		      <a class="govuk-link govuk-task-list__link" href="account/identity-verification" aria-describedby="company-details-1-status">
 		        Identity Verification
 		      </a>
 		    </div>
@@ -91,7 +91,7 @@
 		  </li>
 		  <li class="govuk-task-list__item govuk-task-list__item--with-link">
 		    <div class="govuk-task-list__name-and-hint ">
-		      <a class="govuk-link govuk-task-list__link" href="delegated-authority" aria-describedby="company-details-1-status" disabled>
+		      <a class="govuk-link govuk-task-list__link" href="account/delegated-authority" aria-describedby="company-details-1-status" disabled>
 		        Delegated authority
 		      </a>
 		      {% if (data['identity-verification'] != "Completed") %}

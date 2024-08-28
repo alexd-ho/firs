@@ -14,7 +14,11 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
+		{% if (data['return'] == 'update') %}
+		<form action="contact-details?return=complete" method="post">
+		{% else %}
 		<form action="3-1-6" method="post">
+		{% endif %}
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			

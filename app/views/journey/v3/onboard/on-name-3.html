@@ -1,5 +1,5 @@
-{% extends "layouts/main-v2.html" %}
-{% set activeLinkId = "account" %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
   Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
@@ -14,29 +14,25 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		{% if (data['return'] == 'update') %}
-		<form action="overview?return=complete" method="post">
-		{% else %}
-		<form action="../account" method="post">
-		{% endif %}
+		<form action="/route-v3/on-3" method="post">
 
-
-			
-			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			<span class="govuk-caption-l">Setting up your account</span>
 			
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
 			{{ govukInput({
-				id: "delegated-authority-name",
-				name: "delegated-authority-name",
-				value: data['delegated-authority-name'],
+				id: "accName",
+				name: "accName",
+				value: data['accName'],
 				label: {
-					text: "Set Delegated Authority Name",
+					text: "What is the organisation's full name?",
 					classes: "govuk-label--l",
 					isPageHeading: true
+				},
+				hint: {
+					text: "This is be the name the organisation is typically known by. We will ask for other details such as registered names later."
 				}
 			}) }}
-
 
 			{{ govukButton({
 				text: "Continue"
