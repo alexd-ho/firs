@@ -29,7 +29,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-1']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-1">Change<span class="govuk-visually-hidden"> Your Name</span></a>
+                    <a class="govuk-link" href="3-1-1?return=update">Change<span class="govuk-visually-hidden"> Your Name</span></a>
                 </dd>
             </div>
 
@@ -45,10 +45,11 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-3']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-2">Change<span class="govuk-visually-hidden"> Former
+                    <a class="govuk-link" href="3-1-2?return=update">Change<span class="govuk-visually-hidden"> Former
                             names</span></a>
                 </dd>
             </div>
+            {% endif %}
 
 
             <div class="govuk-summary-list__row">
@@ -59,7 +60,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-4-day']}}/{{data['v3-1-4-month']}}/{{data['v3-1-4-year']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-4">Change<span class="govuk-visually-hidden"> Date of
+                    <a class="govuk-link" href="3-1-4?return=update">Change<span class="govuk-visually-hidden"> Date of
                             birth</span></a>
                 </dd>
             </div>
@@ -72,11 +73,10 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-5']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-5">Change<span class="govuk-visually-hidden"> Nationality</span></a>
+                    <a class="govuk-link" href="3-1-5?return=update">Change<span class="govuk-visually-hidden"> Nationality</span></a>
                 </dd>
             </div>
 
-            {% endif %}
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -88,7 +88,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     endif %}{% if (data['v3-1-6-postcode']) %}, {{data['v3-1-6-postcode']}}{% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-6">Change<span class="govuk-visually-hidden"> Residential
+                    <a class="govuk-link" href="3-1-6?return=update">Change<span class="govuk-visually-hidden"> Residential
                             Address</span></a>
                 </dd>
             </div>
@@ -104,7 +104,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     endif %}{% if (data['v3-1-8-postcode']) %}, {{data['v3-1-8-postcode']}}{% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-6">Change<span class="govuk-visually-hidden"> Correspondence
+                    <a class="govuk-link" href="3-1-6?return=update">Change<span class="govuk-visually-hidden"> Correspondence
                             Address</span></a>
                 </dd>
             </div>
@@ -118,7 +118,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-9']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-9">Change<span class="govuk-visually-hidden"> Telephone
+                    <a class="govuk-link" href="3-1-9?return=update">Change<span class="govuk-visually-hidden"> Telephone
                             number</span></a>
                 </dd>
             </div>
@@ -131,7 +131,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-10']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
                             address</span></a>
                 </dd>
             </div>
@@ -146,7 +146,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-m1']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
                             address</span></a>
                 </dd>
             </div>
@@ -159,7 +159,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-m2']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
                             address</span></a>
                 </dd>
             </div>
@@ -172,7 +172,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-m3']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
                             address</span></a>
                 </dd>
             </div>
@@ -185,7 +185,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     {{data['v3-1-m4']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-10">Change<span class="govuk-visually-hidden"> Email
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
                             address</span></a>
                 </dd>
             </div>
