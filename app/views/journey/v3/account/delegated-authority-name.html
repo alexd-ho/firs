@@ -15,7 +15,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
 		{% if (data['return'] == 'update') %}
-		<form action="overview?return=complete" method="post">
+		<form action="../account?return=complete" method="post">
 		{% else %}
 		<form action="../account" method="post">
 		{% endif %}

@@ -61,7 +61,7 @@ visuallyHiddenTitle: "Footer links"
 		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 		{% if (data['acc-type'] == "Individual") %}
-
+<!--
 		<div class="govuk-summary-card">
 			<div class="govuk-summary-card__title-wrapper">
 
@@ -75,7 +75,7 @@ visuallyHiddenTitle: "Footer links"
 			<div class="govuk-summary-card__content">
 				<dl class="govuk-summary-list">
 
-<!--					<div class="govuk-summary-list__row">
+					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
 							Contact details
 						</dt>
@@ -92,7 +92,7 @@ visuallyHiddenTitle: "Footer links"
 					</div>
 				-->
 
-
+<!--	
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
 							Identity Verification
@@ -119,8 +119,7 @@ visuallyHiddenTitle: "Footer links"
 					</div>
 
 
-
-					<div class="govuk-summary-list__row">
+			<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
 							Delegated authority
 						</dt>
@@ -143,94 +142,81 @@ visuallyHiddenTitle: "Footer links"
 						</dd>
 
 					</div>
+				
+
+				</dl>
+			</div>
+		</div>
+
+-->
+
+		{% elseif (data['acc-type'] == "Organisation") %}
+
+<!--	
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+
+				<h2 class="govuk-summary-card__title">
+					Account tasks
+				</h2>
+
+
+			</div>
+
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+
+				<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Contact details
+						</dt>
+						<dd class="govuk-summary-list__value">
+							<strong class="govuk-tag govuk-tag--green">Completed</strong>
+						</dd>
+
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="account/contact-details">View<span class="govuk-visually-hidden">
+									Contact details (Account information)</span></a>
+
+						</dd>
+
+					</div>
+			
+
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Officer identity verification
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{% if (data['identity-verification'] == 'Completed') %}
+							<strong class='govuk-tag govuk-tag--green'>Completed</strong>
+							{% elseif (data['identity-verification'] == 'Pending') %}
+							<strong class='govuk-tag govuk-tag--blue'>Pending</strong>
+							{% elseif (data['identity-verification'] == 'Rejected') %}
+							<strong class='govuk-tag govuk-tag--red'>Rejected</strong>
+							{% else %}
+							<strong class='govuk-tag govuk-tag--light-blue'>Incomplete</strong>
+							{% endif %}
+						</dd>
+
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="account/identity-verification?return=update">Update<span
+									class="govuk-visually-hidden"> Identity Verification (Account
+									information)</span></a>
+
+						</dd>
+
+					</div>
+
+
 
 
 				</dl>
 			</div>
 		</div>
 
-
-
-		{% elseif (data['acc-type'] == "Organisation") %}
-
-
-
-		{{ govukSummaryList({
-		card: {
-		title: {
-		text: "Account information"
-		}
-		},
-		rows: [
-		{
-		key: {
-		text: "Contact details"
-		},
-		value: {
-		html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
-		},
-		actions: {
-		items: [
-		{
-		href: "account/contact-details",
-		text: "Update",
-		visuallyHiddenText: "age"
-		}
-		]
-		}
-		},
-		{
-		key: {
-		text: "Organisation details"
-		},
-		value: {
-		html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
-		},
-		actions: {
-		items: [
-		{
-		href: "account/organisation-details",
-		text: "Update",
-		visuallyHiddenText: "age"
-		}
-		]
-		}
-		}, {
-		key: {
-		text: "Officer Identity Verification"
-		},
-		value: {
-		html: "<strong class='govuk-tag govuk-tag--red'>Incomplete</strong>"
-		},
-		actions: {
-		items: [
-		{
-		href: "account/officer-identity-verification",
-		text: "Update",
-		visuallyHiddenText: "working situation"
-		}
-		]
-		}
-		},
-		{
-		key: {
-		text: "Delegated authority"
-		},
-		value: {
-		html: "<strong class='govuk-tag govuk-tag--grey'>None</strong>"
-		},
-		actions: {
-		items: [
-		{
-		href: "account/delegated-authority",
-		text: "Update",
-		visuallyHiddenText: "working situation"
-		}
-		]
-		}
-		}
-		]
-		}) }}
+	-->
 
 		{% else  %}
 			
@@ -242,25 +228,71 @@ visuallyHiddenTitle: "Footer links"
 		<div class="firs-home-containers">
 
 			<div class="firs-home-containers__panel">
-				<a href="account/update" class="govuk-link">
-					<h3 class="govuk-heading-m">Update account details</h3>
+				<div>
+					<h3 class="govuk-heading-m">Your account</h3>
 					<p>Update contact details such as email, telephone numbers, and registered addresses.</p>
-				</a>
+					<p><a href="account/contact-details" class="govuk-link">Update contact details</a>
+						{% if (data['acc-type'] == "Individual") %}<br><a href="account/contact-details" class="govuk-link">View your identity verification</a>{% endif %}
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</div>
+			</div>
+
+			{% if (data['acc-type'] == "Organisation") %}
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Your organisation</h3>
+					<p>Update details about {{data['accName']}} such as email, telephone numbers, and registered addresses.</p>
+					<p><a href="account/organisation-details" class="govuk-link">Organisation details</a><br>
+						<a href="account/officer-identity-verification" class="govuk-link">Officer identity verification</a> <!-- <br>
+						<a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</div>
+			</div>
+			{% endif %}
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Delegated authority</h3>
+					{% if (data['delegated-authority'] == 'None') %}
+					<p>Allow third parties to manage regsitrations on your behalf.</p>
+					{% else %}
+					{% if (data['delegated-authority'] == 'Completed') %}
+					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
+					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong></p>
+					{% elseif (data['delegated-authority'] == 'Pending') %}
+					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
+					<p>Delegated authority has been set up for <strong>{{data['delegated-authority-name']}}</strong></p>
+					{% elseif (data['delegated-authority'] == 'Rejected') %}
+					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
+					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong></p>
+					{% endif %}
+
+					{% endif %}
+					<p><a href="account/delegated-authority?return=update" class="govuk-link">Manage delegated authority</a></p>
+				</div>
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<a href="registrations" class="govuk-link">
-					<h3 class="govuk-heading-m">View your registrations</h3>
-					<p>View the registrations you have with foreign powers, and the activities assigned to each.</p>
-				</a>
+				<div>
+					<h3 class="govuk-heading-m">Your FIRS registrations</h3>
+					<p>View, manage and add new regsitraions and activities.</p>
+					<p><a href="registrations" class="govuk-link">Manage your registrations</a></p>
+				</div>
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<a href="messages" class="govuk-link">
-					<h3 class="govuk-heading-m">Contact FIRS</h3>
-					<p>Contact the case working team to request material changes to your registrations and activities,
-						and follow up any requests for more information.</p>
-				</a>
+				<div>
+					<h3 class="govuk-heading-m">Your FIRS tasks</h3>
+					<p>View and complete outstanding tasks.</p>
+					<p>You currently have <strong>2</strong> tasks.</p>
+					<p><a href="messages" class="govuk-link">View your tasks</a></p>
+				</div>
+			</div>
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Contact the FIRS team</h3>
+					<p>Contact the case working team to request material changes to your registrations and activities.</p>
+					<p><a href="account/messages" class="govuk-link">View your tasks</a></p>
+				</div>
 			</div>
 
 		</div>

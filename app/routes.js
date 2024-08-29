@@ -1746,7 +1746,7 @@ var eligibility_v3 = '/journey/v3/eligibility/';
 var login_v3 = '/journey/v3/login/';
 var onboard_v3 = '/journey/v3/onboard/';
 var tier_v3 = '/journey/v3/tier/';
-var account_v3 = '/journey/v3/account/';
+var account_v3 = '/journey/v3/account';
 
 var registration_v3 = '/journey/v3/registration/';
 var arrangement_v3 = '/journey/v3/arrangement/';
@@ -1872,9 +1872,9 @@ router.post('/route-v3/3-1-2', function(request, response) {
         response.redirect(account_v3+"3-1-3")
     } else {
         if (redirect == 'update') {
-            response.redirect(account_v3+"contact-details?return=complete")            
+            response.redirect(account_v3+"/contact-details?return=complete")            
         } else {
-            response.redirect(account_v3+"3-1-4")            
+            response.redirect(account_v3+"/3-1-4")            
         }
     }
 })
@@ -1882,18 +1882,18 @@ router.post('/route-v3/3-1-2', function(request, response) {
 router.post('/route-v3/3-1-7', function(request, response) {
     var value = request.session.data['v3-1-7'] // 
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"3-1-8")
+        response.redirect(account_v3+"/3-1-8")
     } else {
-        response.redirect(account_v3+"3-1-9")            
+        response.redirect(account_v3+"/3-1-9")            
     }
 })
 
 router.post('/route-v3/3-2-1', function(request, response) {
     var value = request.session.data['v3-2-1'] // 
     if (value == "Body corporate"){ // 
-        response.redirect(account_v3+"3-2a-1?reg-type=corp")
+        response.redirect(account_v3+"/3-2a-1?reg-type=corp")
     } else {
-        response.redirect(account_v3+"3-2b-1?reg-type=assoc")            
+        response.redirect(account_v3+"/3-2b-1?reg-type=assoc")            
     }
 })
 
@@ -1901,12 +1901,12 @@ router.post('/route-v3/3-2a-1', function(request, response) {
     var value = request.session.data['v3-2a-1'] // 
     var dir = request.session.data['type'] // registrant or inputter
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"3-2-2")
+        response.redirect(account_v3+"/3-2-2")
     } else {
         if (dir == "registrant"){ // 
-            response.redirect(account_v3+"3-2-3")            
+            response.redirect(account_v3+"/3-2-3")            
         } else {
-            response.redirect(account_v3+"3-2a-5")            
+            response.redirect(account_v3+"/3-2a-5")            
         }
     }
 })
@@ -1914,51 +1914,51 @@ router.post('/route-v3/3-2b-1', function(request, response) {
     var value = request.session.data['v3-2b-1'] // 
     var dir = request.session.data['type'] // registrant or inputter
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"3-2-2")
+        response.redirect(account_v3+"/3-2-2")
     } else {
         if (dir == "registrant"){ // 
-            response.redirect(account_v3+"3-2-3")            
+            response.redirect(account_v3+"/3-2-3")            
         } else {
-            response.redirect(account_v3+"3-2b-5")            
+            response.redirect(account_v3+"/3-2b-5")            
         }
     }
 })
 router.post('/route-v3/3-2a-5', function(request, response) {
     var value = request.session.data['v3-2a-5'] // 
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"3-2-6")
+        response.redirect(account_v3+"/3-2-6")
     } else {
-        response.redirect(account_v3+"3-2-8")            
+        response.redirect(account_v3+"/3-2-8")            
     }
 })
 
 router.post('/route-v3/3-2-9', function(request, response) {
     var value = request.session.data['v3-2-9'] // 
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"3-2-10")
+        response.redirect(account_v3+"/3-2-10")
     } else {
-        response.redirect(account_v3+"3-2-11")            
+        response.redirect(account_v3+"/3-2-11")            
     }
 })
 router.post('/route-v3/3-2-13', function(request, response) {
     var value = request.session.data['v3-2-13'] //
     var dir = request.session.data['reg-type'] //
     if (value == "Yes") { // 
-        response.redirect(account_v3+"3-2-14")
+        response.redirect(account_v3+"/3-2-14")
     } else {
         if (dir == "corp"){ // 
-            response.redirect(account_v3+"3-2-16")            
+            response.redirect(account_v3+"/3-2-16")            
         } else {
-            response.redirect(account_v3+"3-2-check")            
+            response.redirect(account_v3+"/3-2-check")            
         }    
     }
 })
 router.post('/route-v3/3-2-16', function(request, response) {
     var value = request.session.data['v3-2-16'] //
     if (value == "Yes") { // 
-        response.redirect(account_v3+"3-2-17")
+        response.redirect(account_v3+"/3-2-17")
     } else {
-        response.redirect(account_v3+"3-2-check")            
+        response.redirect(account_v3+"/3-2-check")            
     }
 })
 
@@ -1968,12 +1968,12 @@ router.post('/route-v3/delegated-authority', function(request, response) {
 
     if (value == "None") { // 
         if (redirect == 'update') {
-            response.redirect(account_v3+"overview?return=complete")
+            response.redirect(account_v3+"?return=complete")
         } else {
             response.redirect(account_v3)
         }
     } else {
-        response.redirect(account_v3+"delegated-authority-name")            
+        response.redirect(account_v3+"/delegated-authority-name")            
     }
 })
 
