@@ -232,7 +232,7 @@ visuallyHiddenTitle: "Footer links"
 					<h3 class="govuk-heading-m">Your account</h3>
 					<p>Update contact details such as email, telephone numbers, and registered addresses.</p>
 					<p><a href="account/contact-details" class="govuk-link">Update contact details</a>
-						{% if (data['acc-type'] == "Individual") %}<br><a href="account/contact-details" class="govuk-link">View your identity verification</a>{% endif %}
+						{% if (data['acc-type'] == "Individual") %}<br><a href="account/identity-verification?return=update" class="govuk-link">View your identity verification</a>{% endif %}
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</div>
 			</div>
@@ -264,6 +264,8 @@ visuallyHiddenTitle: "Footer links"
 					{% elseif (data['delegated-authority'] == 'Rejected') %}
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
 					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong></p>
+					{{ else }}
+					<p>Allow third parties to manage regsitrations on your behalf.</p>
 					{% endif %}
 
 					{% endif %}
