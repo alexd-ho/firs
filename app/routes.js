@@ -1822,9 +1822,9 @@ router.post('/route-v3/on-1', function(request, response) {
 router.post('/route-v3/on-2', function(request, response) {
     var value = request.session.data['v-on-2'];
     if (value == "None of these statements apply"){ 
-        response.redirect(onboard_v3+"on-final?acc-type=Individual&misrep=false&tier=default")
+        response.redirect(onboard_v3+"on-name?acc-type=Individual&misrep=false&tier=default")
     } else { 
-        response.redirect(onboard_v3+"on-final?acc-type=Individual&misrep=true&tier=enhanced")
+        response.redirect(onboard_v3+"on-name?acc-type=Individual&misrep=true&tier=enhanced")
     }
 })
 
@@ -1840,13 +1840,13 @@ router.post('/route-v3/on-3', function(request, response) {
 router.post('/route-v3/on-4', function(request, response) {
     var value = request.session.data['v-on-4'];
     // var accName = request.session.data['v-on-4'];
-    response.redirect(account_v3+"?acc-type=Organisation&misrep=false&accName="+value)
+    response.redirect(account_v3+"?acc-type=Organisation&misrep=false&tier=enhanced"+value)
 })
 
 router.post('/route-v3/on-5', function(request, response) {
     var value = request.session.data['v-on-5'];
     if (value == "No"){ 
-        response.redirect(onboard_v3+"on-final?acc-type=Organisation&misrep=false&tier=default")
+        response.redirect(onboard_v3+"on-name?acc-type=Organisation&misrep=false&tier=default")
     } else { 
         response.redirect(onboard_v3+"on-6")
     }

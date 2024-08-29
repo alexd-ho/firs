@@ -1,0 +1,129 @@
+{% extends 'layouts/v3-header-one-0.html' %}
+{% set activeLinkId = 'account' %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds-from-desktop'>
+        <form action='../account/setup?setup=incomplete' method='post'>
+
+            <span class="govuk-caption-l">Setting up your account</span>
+
+            <h1 class="govuk-heading-l">Check your answers</h1>
+
+            {% if (data['v-on-1'] == 'Organisation') %}
+            
+            <dl class="govuk-summary-list">
+
+                {% if (data['v-on-3'] == 'Yes') %}
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Organisation name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['v-on-4']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="on-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                {% else %}
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['accName']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="on-name">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Organisation is, is a part of, is a political party that governs a foreign country
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['v-on-5']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="on-5">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                {% endif %}
+           
+            </dl>
+
+
+            {% elseif (data['v-on-1'] == 'Individual') %}
+        
+            <dl class="govuk-summary-list">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['accName']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="on-name">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                {% if (data['v-on-2'] == 'Yes') %}
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Involvement with a foreign power, state, government or party
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        Yes
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="on-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                {% else %}
+                    
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Involvement with a foreign power, state, government or party
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        None
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="on-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                {% endif %}
+           
+            </dl>
+
+            {% endif %}
+            
+
+
+            {{ govukButton({
+            text: 'Continue'
+            }) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

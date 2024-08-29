@@ -2,7 +2,7 @@
 {% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
-Account – {{ serviceName }} – GOV.UK Prototype Kit
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 
@@ -33,18 +33,38 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    },
 			    items: [
 			    {
-			        value: "Individual",
+			        value: "individual",
 			        text: "An individual"
 			    },
 			    {
-			        value: "Organisation",
-			        text: "An organisation",
+			        value: "body corporate",
+			        text: "A body corporate",
 			        hint: {
-			        	text: "This would include an incorporated body, and unincoporated association, or a foreign power "
+			        	text: "A company that exists as its own legal 'person', separate from its owners"
+			        }
+			    },
+			    {
+			        value: "unincorporated association",
+			        text: "An unincorporated association",
+			        hint: {
+			        	text: "A group of people working together for a shared purpose, but without being a separate legal entity"
+			        }
+			    },
+			    {
+			        value: "foreign power",
+			        text: "A foreign power",
+			        hint: {
+			        	text: "Any government or official body from a country outside the UK or Ireland, including their leaders and political parties in control"
 			        }
 			    }
+				
+
 			    ]
 			}) }}
+
+			<p>Read the full guidance for expanded definitions of 
+				body corporate, unincorporated association and 
+				foreign power.</p>
 
 			{{ govukButton({
 				text: "Continue"
