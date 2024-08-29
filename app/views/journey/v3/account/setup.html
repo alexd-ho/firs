@@ -40,7 +40,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-full">
 
-		<span class="govuk-caption-l">{% if (data['acc-type']) %}{{data['acc-type']}} account created{% else %}Account created{% endif %}</span>
+		<span class="govuk-caption-l">{% if (data['acc-type']) %}{{data['acc-type']}} account setup{% else %}Account setup{% endif %}</span>
 
 		<h1 class="govuk-heading-l">{{data['accName']}}</h1>
 
@@ -125,6 +125,10 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 		{% if (data['contact-details'] == "Completed") %}
 		{% if (data['identity-verification'] == "Completed") %}
+		<p><strong>Account setup is now complete</strong></p>
+		<p><a href="../account?setup=complete" class="govuk-button">Continue</a></strong></p>
+		{% endif %}
+		{% if (data['identity-verification'] == "Pending") %}
 		<p><strong>Account setup is now complete</strong></p>
 		<p><a href="../account?setup=complete" class="govuk-button">Continue</a></strong></p>
 		{% endif %}

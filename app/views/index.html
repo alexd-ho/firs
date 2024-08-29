@@ -5,486 +5,586 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-
-    <h2 class="govuk-heading-l">
-      Research round 1
-    </h2>
-    <p> <strong>Research w/c 22 January 2024</strong></p>
-  
-    <p class="govuk-body">We are testing the eligibility journey for public registrants.</p>
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          More about this research
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-       
-        <h3 class="govuk-heading-m">
-          Research aims
-        </h3>
-        <ol class="govuk-list govuk-list--number">
-          <li>What are users' needs, frustrations and concerns - do they align with our discovery personas?</li>
-          <li>How will users become aware of FIRS without an information notice or personal search?</li>
-          <li>Are users confident that the service is for them or not and how easy was it for them to know?</li>
-          <li>Does the eligibility form give a clear answer on next steps and is the length of time it takes to complete acceptable?</li>
-        </ol>
-      </div>
-    </details>
-  </div>
-</div>
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-prototype-kit-task-list__section">
-        User journeys
-    </h2>
-    <ul class="govuk-task-list">
-      <li class="govuk-task-list__item govuk-task-list__item--with-link">
-        <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="foreign-influence-registration-scheme" aria-describedby="task-list-1-status">Guidance page</a>
-        </div>
-        <div class="govuk-task-list__status" id="task-list-1-status">
-          Tested
-        </div>
-      </li>
-      <li class="govuk-task-list__item govuk-task-list__item--with-link">
-        <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="eligibility-start" aria-describedby="task-list-2-status">Eligibility form</a>
-        </div>
-        <div class="govuk-task-list__status" id="task-list-1-status">
-          Tested
-        </div>
-      </li>
-    </ul>
-  </div> 
-</div>
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l">
-      Research round 2
-    </h2>
-    <p> <strong>Research w/c 19 February 2024</strong></p>
-  
-    <p class="govuk-body">We are testing the start of the registration journey for public registrants. Specifically looking at how we triage different user groups into the service.</p>
-  
-    <h2 class="govuk-prototype-kit-task-list__section">
-        User journeys
-    </h2>
-    <ul class="govuk-task-list">
-      <li class="govuk-task-list__item govuk-task-list__item--with-link">
-        <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="/register/register-start" aria-describedby="task-list-1-status">Start page</a>
-        </div>
-        <div class="govuk-task-list__status" id="task-list-1-status">
-          Tested
-        </div>
-      </li>
-      <li class="govuk-task-list__item govuk-task-list__item--with-link">
-        <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="/register/register-who-are-you" aria-describedby="task-list-2-status">Create account</a>
-        </div>
-        <div class="govuk-task-list__status" id="task-list-1-status">
-          Tested
-        </div>
-      </li>
-      <li class="govuk-task-list__item govuk-task-list__item--with-link">
-        <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="/register/your-registrations-new" aria-describedby="task-list-2-status">New account</a>
-        </div>
-        <div class="govuk-task-list__status" id="task-list-1-status">
-          Tested
-        </div>
-      </li>
-      <li class="govuk-task-list__item govuk-task-list__item--with-link">
-        <div class="govuk-task-list__name-and-hint">
-          <a class="govuk-link govuk-task-list__link" href="/register/specified-person" aria-describedby="task-list-2-status">ID Document upload journey (No One Login)</a>
-        </div>
-        <div class="govuk-task-list__status" id="task-list-1-status">
-          Tested
-        </div>
-      </li>
-    </ul>
-
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l">
-      Research round 3
-    </h2>
-    <p> <strong>Research w/c 25 March 2024</strong></p>
-
-    <p class="govuk-body">We are testing the registration journey for public registrants. Specifically looking at questions about arrangements and activities.</p>
-
-      <h2 class="govuk-prototype-kit-task-list__section">
-        User journeys
-      </h2>
-      <ul class="govuk-task-list">
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/arrangement/arrangement-start" aria-describedby="task-list-1-status">Start page</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/arrangement/describe-arrangement" aria-describedby="task-list-1-status">About the arrangement</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/activity/activity-type" aria-describedby="task-list-1-status">About the activities</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/communication/communication-name" aria-describedby="task-list-1-status">About the private communication</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/public/public-publication" aria-describedby="task-list-1-status">About the public communication</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/disbursement/disbursement-nature" aria-describedby="task-list-1-status">About the money, goods or services</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/declaration" aria-describedby="task-list-1-status">Declaration</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-      </ul>
-
-    </div>
-  </div>
-  
-  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-l">
-        Design alternates
-      </h2>
-      <h2 class="govuk-prototype-kit-task-list__section"> <strong>For alpha assessment</strong></h2>
 
-      <p class="govuk-body">These screens show different design approaches to solving a problem for users and how we have iterated designs based on user research.</p>
+        {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
 
-      <h2 class="govuk-prototype-kit-task-list__section">
-      Design screens
-      </h2>
-      <ul class="govuk-task-list">
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/alternates/foreign-power-A" aria-describedby="task-list-1-status">Asking users to tell us the name of the foreign power</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/alternates/disbursement-A" aria-describedby="task-list-1-status">Helping users to understand how much data to enter</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/alternates/activity-frequency-A" aria-describedby="task-list-1-status">How we ask users to input the frequency of their activities</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/alternates/access-A" aria-describedby="task-list-1-status">How we enable users to triage into the service</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/alternates/specified-person-A" aria-describedby="task-list-1-status">How we handle questions related to the public register</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-      </ul>
-      
+        <h1 class="govuk-heading-xl">
+            {{ serviceName }}
+        </h1>
 
-      <h2 class="govuk-prototype-kit-task-list__section"><strong>For Beta assessment</strong></h2>
+        <h2 class="govuk-heading-l">
+            Research round 1
+        </h2>
+        <p> <strong>Research w/c 22 January 2024</strong></p>
 
-      <p class="govuk-body">These screens show different design approaches to solving a problem for users and how we have iterated designs based on user research.</p>
+        <p class="govuk-body">We are testing the eligibility journey for public registrants.</p>
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                    More about this research
+                </span>
+            </summary>
+            <div class="govuk-details__text">
 
-      <h3 class="govuk-prototype-kit-task-list__section" id="v1">
-      Registration Journey - version 1
-      </h3>
-      <ul class="govuk-task-list">
+                <h3 class="govuk-heading-m">
+                    Research aims
+                </h3>
+                <ol class="govuk-list govuk-list--number">
+                    <li>What are users' needs, frustrations and concerns - do they align with our discovery personas?
+                    </li>
+                    <li>How will users become aware of FIRS without an information notice or personal search?</li>
+                    <li>Are users confident that the service is for them or not and how easy was it for them to know?
+                    </li>
+                    <li>Does the eligibility form give a clear answer on next steps and is the length of time it takes
+                        to complete
+                        acceptable?</li>
+                </ol>
+            </div>
+        </details>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-prototype-kit-task-list__section">
+            User journeys
+        </h2>
+        <ul class="govuk-task-list">
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="foreign-influence-registration-scheme"
+                        aria-describedby="task-list-1-status">Guidance page</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="eligibility-start"
+                        aria-describedby="task-list-2-status">Eligibility form</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">
+            Research round 2
+        </h2>
+        <p> <strong>Research w/c 19 February 2024</strong></p>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v1/home" aria-describedby="task-list-1-status">Account > Registration > Arrangement > Activities</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/beta/activities/person/person-start" aria-describedby="task-list-1-status">Activity - Add multiple people journey</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/beta/arrangement/start" aria-describedby="task-list-1-status">Arrangement and Activity journey</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/alternate-route-2/start" aria-describedby="task-list-1-status">User journey to add multiple instances of an activity</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/arrangement-alt-simple/arrangement-start" aria-describedby="task-list-1-status">User journey linking the 3 activity types into one path, to allow for multiple types of actvity being registered</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/arrangement-alt/arrangement-start" aria-describedby="task-list-1-status">'Add Another' pattern to allow multiple activities of the same activity type</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
+        <p class="govuk-body">We are testing the start of the registration journey for public registrants. Specifically
+            looking at how we triage different user groups into the service.</p>
 
-      </ul>
+        <h2 class="govuk-prototype-kit-task-list__section">
+            User journeys
+        </h2>
+        <ul class="govuk-task-list">
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/register/register-start"
+                        aria-describedby="task-list-1-status">Start page</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/register/register-who-are-you"
+                        aria-describedby="task-list-2-status">Create account</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/register/your-registrations-new"
+                        aria-describedby="task-list-2-status">New account</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/register/specified-person"
+                        aria-describedby="task-list-2-status">ID Document upload journey (No One Login)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+        </ul>
 
-      <h3 class="govuk-prototype-kit-task-list__section" id="v2">
-      Registration Journey - version 2
-      </h3>
-      <ul class="govuk-task-list">
+    </div>
+</div>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/eligibility" aria-describedby="task-list-1-status">Eligibility Checker (Prose based)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">
+            Research round 3
+        </h2>
+        <p> <strong>Research w/c 25 March 2024</strong></p>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/account" aria-describedby="task-list-1-status">Account overview &amp; setup (Journey start)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
+        <p class="govuk-body">We are testing the registration journey for public registrants. Specifically looking at
+            questions about arrangements and activities.</p>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-1-0?type=registrant&misrep=false&mode=self" aria-describedby="task-list-1-status">Registration (Individual Registrant)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
+        <h2 class="govuk-prototype-kit-task-list__section">
+            User journeys
+        </h2>
+        <ul class="govuk-task-list">
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/arrangement/arrangement-start"
+                        aria-describedby="task-list-1-status">Start page</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/arrangement/describe-arrangement"
+                        aria-describedby="task-list-1-status">About the arrangement</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/activity/activity-type"
+                        aria-describedby="task-list-1-status">About the activities</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/communication/communication-name"
+                        aria-describedby="task-list-1-status">About the private communication</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/public/public-publication"
+                        aria-describedby="task-list-1-status">About the public communication</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/disbursement/disbursement-nature"
+                        aria-describedby="task-list-1-status">About the money, goods or services</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/declaration"
+                        aria-describedby="task-list-1-status">Declaration</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+        </ul>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-1-0?type=inputter&misrep=false&mode=self" aria-describedby="task-list-1-status">Registration (Individual, as a Data Inputter)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
+    </div>
+</div>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-1-0?type=registrant&misrep=true&mode=self" aria-describedby="task-list-1-status">Registration (Individual Registrant, who is also a Misrep)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h2 class="govuk-heading-l">
+            Design alternates
+        </h2>
+        <h2 class="govuk-prototype-kit-task-list__section"> <strong>For alpha assessment</strong></h2>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-1-0?type=registrant&misrep=false&mode=behalf" aria-describedby="task-list-1-status">Registration (On behalf of another Individual Registrant)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
+        <p class="govuk-body">These screens show different design approaches to solving a problem for users and how we
+            have
+            iterated designs based on user research.</p>
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-1-0?type=registrant&misrep=true&mode=behalf" aria-describedby="task-list-1-status">Registration (On behalf of another Individual Registrant, who is also a Misrep - a freelance "Miss Money Penny")</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-2-0?v2-7=ACME&type=registrant&mode=self" aria-describedby="task-list-1-status">Registration (Organisation, as the registrant, eg Uni registering themselves)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-2-0?v2-7=ACME&type=inputter&mode=self" aria-describedby="task-list-1-status">Registration (Organisation, as the data inputter, eg a law firm that does other's registrations)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/registration/3-2-0?v2-7=ACME&type=registrant&mode=behalf" aria-describedby="task-list-1-status">Registration (Organisation, the registrant that is being added by another organisation)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-
-      </ul>
-
-
-      <h3 class="govuk-prototype-kit-task-list__section" id="v2">
-      Registration Journey - version 3
-      </h3>
-      <ul class="govuk-task-list">
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v3/eligibility" aria-describedby="task-list-1-status">Eligibility Checker (Summary lists)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v3/login" aria-describedby="task-list-1-status">One Login (Start)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Not tested
-          </div>
-        </li>
-      </ul>
-
-
-      <h3 class="govuk-prototype-kit-task-list__section" id="exceptions">
-      Exceptions
-      </h3>
-      <ul class="govuk-task-list">
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/activity/activity-start?registrant-type=individual&tier=enhanced" aria-describedby="task-list-1-status">Activity Start (Individual, enhanced tier)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/activity/activity-start?registrant-type=individual&tier=political" aria-describedby="task-list-1-status">Activity Start (Individual, political tier)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/activity/activity-start?registrant-type=organisation&tier=enhanced" aria-describedby="task-list-1-status">Activity Start (Organisation, enhanced tier)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/activity/activity-start?registrant-type=organisation&tier=political" aria-describedby="task-list-1-status">Activity Start (Organisation, political tier)</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
+        <h2 class="govuk-prototype-kit-task-list__section">
+            Design screens
+        </h2>
+        <ul class="govuk-task-list">
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/alternates/foreign-power-A"
+                        aria-describedby="task-list-1-status">Asking users to tell us the name of the foreign power</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/alternates/disbursement-A"
+                        aria-describedby="task-list-1-status">Helping users to understand how much data to enter</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/alternates/activity-frequency-A"
+                        aria-describedby="task-list-1-status">How we ask users to input the frequency of their
+                        activities</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/alternates/access-A"
+                        aria-describedby="task-list-1-status">How we enable users to triage into the service</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/alternates/specified-person-A"
+                        aria-describedby="task-list-1-status">How we handle questions related to the public register</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+        </ul>
 
 
-        <li class="govuk-task-list__item govuk-task-list__item--with-link">
-          <div class="govuk-task-list__name-and-hint">
-            <a class="govuk-link govuk-task-list__link" href="/journey/v2/exception/exception-full?refer=yes" aria-describedby="task-list-1-status">One page exception</a>
-          </div>
-          <div class="govuk-task-list__status" id="task-list-1-status">
-            Tested
-          </div>
-        </li>
-      </ul>
+        <h2 class="govuk-prototype-kit-task-list__section"><strong>For Beta assessment</strong></h2>
+
+        <p class="govuk-body">These screens show different design approaches to solving a problem for users and how we
+            have
+            iterated designs based on user research.</p>
+
+        <h3 class="govuk-prototype-kit-task-list__section" id="v1">
+            Registration Journey - version 1
+        </h3>
+        <ul class="govuk-task-list">
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v1/home"
+                        aria-describedby="task-list-1-status">Account > Registration > Arrangement > Activities</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/beta/activities/person/person-start"
+                        aria-describedby="task-list-1-status">Activity - Add multiple people journey</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/beta/arrangement/start"
+                        aria-describedby="task-list-1-status">Arrangement and Activity journey</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/alternate-route-2/start"
+                        aria-describedby="task-list-1-status">User journey to add multiple instances of an activity</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/arrangement-alt-simple/arrangement-start"
+                        aria-describedby="task-list-1-status">User journey linking the 3 activity types into one path,
+                        to allow for
+                        multiple types of actvity being registered</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/arrangement-alt/arrangement-start"
+                        aria-describedby="task-list-1-status">'Add Another' pattern to allow multiple activities of the
+                        same
+                        activity type</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+        </ul>
+
+        <h3 class="govuk-prototype-kit-task-list__section" id="v2">
+            Registration Journey - version 2
+        </h3>
+        <ul class="govuk-task-list">
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v2/eligibility"
+                        aria-describedby="task-list-1-status">Eligibility Checker (Prose based)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v2/account"
+                        aria-describedby="task-list-1-status">Account overview &amp; setup (Journey start)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-1-0?type=registrant&misrep=false&mode=self"
+                        aria-describedby="task-list-1-status">Registration (Individual Registrant)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-1-0?type=inputter&misrep=false&mode=self"
+                        aria-describedby="task-list-1-status">Registration (Individual, as a Data Inputter)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-1-0?type=registrant&misrep=true&mode=self"
+                        aria-describedby="task-list-1-status">Registration (Individual Registrant, who is also a
+                        Misrep)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-1-0?type=registrant&misrep=false&mode=behalf"
+                        aria-describedby="task-list-1-status">Registration (On behalf of another Individual
+                        Registrant)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-1-0?type=registrant&misrep=true&mode=behalf"
+                        aria-describedby="task-list-1-status">Registration (On behalf of another Individual Registrant,
+                        who is also
+                        a Misrep - a freelance "Miss Money Penny")</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-2-0?v2-7=ACME&type=registrant&mode=self"
+                        aria-describedby="task-list-1-status">Registration (Organisation, as the registrant, eg Uni
+                        registering
+                        themselves)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-2-0?v2-7=ACME&type=inputter&mode=self"
+                        aria-describedby="task-list-1-status">Registration (Organisation, as the data inputter, eg a law
+                        firm that
+                        does other's registrations)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/registration/3-2-0?v2-7=ACME&type=registrant&mode=behalf"
+                        aria-describedby="task-list-1-status">Registration (Organisation, the registrant that is being
+                        added by
+                        another organisation)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+        </ul>
+
+
+        <h3 class="govuk-prototype-kit-task-list__section" id="v2">
+            Registration Journey - version 3
+        </h3>
+        <ul class="govuk-task-list">
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v3/eligibility"
+                        aria-describedby="task-list-1-status">Eligibility Checker (Summary lists)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v3/login"
+                        aria-describedby="task-list-1-status">One
+                        Login (Start)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v3/onboard/on-0"
+                        aria-describedby="task-list-1-status">Onboarding (Start)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v3/account"
+                        aria-describedby="task-list-1-status">Account (Home)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Not tested
+                </div>
+            </li>
+
+        </ul>
+
+
+        <h3 class="govuk-prototype-kit-task-list__section" id="exceptions">
+            Exceptions
+        </h3>
+        <ul class="govuk-task-list">
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/activity/activity-start?registrant-type=individual&tier=enhanced"
+                        aria-describedby="task-list-1-status">Activity Start (Individual, enhanced tier)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/activity/activity-start?registrant-type=individual&tier=political"
+                        aria-describedby="task-list-1-status">Activity Start (Individual, political tier)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/activity/activity-start?registrant-type=organisation&tier=enhanced"
+                        aria-describedby="task-list-1-status">Activity Start (Organisation, enhanced tier)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link"
+                        href="/journey/v2/activity/activity-start?registrant-type=organisation&tier=political"
+                        aria-describedby="task-list-1-status">Activity Start (Organisation, political tier)</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+
+
+            <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                    <a class="govuk-link govuk-task-list__link" href="/journey/v2/exception/exception-full?refer=yes"
+                        aria-describedby="task-list-1-status">One page exception</a>
+                </div>
+                <div class="govuk-task-list__status" id="task-list-1-status">
+                    Tested
+                </div>
+            </li>
+        </ul>
 
 
     </div>
-  </div>    
-  
-    <!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->
+</div>
+
+<!--{% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}-->
 </div>
 
 {% endblock %}
