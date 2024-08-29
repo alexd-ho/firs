@@ -13,9 +13,43 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             <span class="govuk-caption-l">Setting up your account</span>
 
-            <h1 class="govuk-heading-l">Check your answers</h1>
+            <h1 class="govuk-heading-l">Based on your answers</h1>
 
-            {% if (data['v-on-1'] == 'Organisation') %}
+            {% if (data['acc-type'] == 'Organisation') %}
+
+                {% if (data['tier'] == 'enhanced') %}
+
+                <p>[SPECIFIED ENTITY, ENHANCED TIER] text tbc.</p>
+
+                {% else %}
+
+                <p>[ORGANISATION, POLITICAL TIER] text tbc.</p>
+
+                {% endif %}
+
+            {% elseif (data['acc-type'] == 'Individual') %}
+
+                {% if (data['misrep'] == 'true') %}
+
+                <p>[INDIVIDUAL, MISREP] text tbc.</p>
+
+                {% else %}
+
+                <p>[INDIVIDUAL] text tbc.</p>
+
+                {% endif %}
+
+
+            {% endif %}
+
+
+            {{ govukButton({
+                text: 'Accept and continue'
+            }) }}
+    
+            <h2 class='govuk-heading-m'>Your answers</h2>
+
+            {% if (data['acc-type'] == 'Organisation') %}
             
             <dl class="govuk-summary-list">
 
@@ -37,7 +71,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Name
+                        Organisation name
                     </dt>
                     <dd class="govuk-summary-list__value">
                         {{data['accName']}}
@@ -66,7 +100,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
             </dl>
 
 
-            {% elseif (data['v-on-1'] == 'Individual') %}
+            {% elseif (data['acc-type'] == 'Individual') %}
         
             <dl class="govuk-summary-list">
 
@@ -86,7 +120,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Involvement with a foreign power, state, government or party
+                        Role, position or affiliation with a foreign power
                     </dt>
                     <dd class="govuk-summary-list__value">
                         Yes
@@ -100,7 +134,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
                     
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Involvement with a foreign power, state, government or party
+                        Role, position or affiliation with a foreign power
                     </dt>
                     <dd class="govuk-summary-list__value">
                         None
@@ -116,11 +150,6 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% endif %}
             
-
-
-            {{ govukButton({
-            text: 'Continue'
-            }) }}
         </form>
     </div>
 </div>

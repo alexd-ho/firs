@@ -20,18 +20,22 @@
 			
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
+				<!-- hint: {
+					text: "This is be the name the organisation is typically known by. We will ask for other details such as registered names later."
+				}
+					hint: {
+					text: "This is be the name the individual is typically known by. We will ask for other details such as former names later."
+				} -->
+
 			{% if (data['acc-type'] == "Organisation") %}
 			{{ govukInput({
 				id: "accName",
 				name: "accName",
 				value: data['accName'],
 				label: {
-					text: "What is the organisation's full name?",
+					text: "What is the name of your organisation or group?",
 					classes: "govuk-label--l",
 					isPageHeading: true
-				},
-				hint: {
-					text: "This is be the name the organisation is typically known by. We will ask for other details such as registered names later."
 				}
 			}) }}
 			{% else %}
@@ -40,12 +44,9 @@
 				name: "accName",
 				value: data['accName'],
 				label: {
-					text: "What is the individual's full name?",
+					text: "What is the your name?",
 					classes: "govuk-label--l",
 					isPageHeading: true
-				},
-				hint: {
-					text: "This is be the name the individual is typically known by. We will ask for other details such as former names later."
 				}
 			}) }}
 			{% endif %}

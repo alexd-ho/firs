@@ -1831,9 +1831,9 @@ router.post('/route-v3/on-2', function(request, response) {
 router.post('/route-v3/on-3', function(request, response) {
     var value = request.session.data['v-on-3'];
     if (value == "No"){ 
-        response.redirect(onboard_v3+"on-5?misrep=false")
+        response.redirect(onboard_v3+"on-5")
     } else { 
-        response.redirect(onboard_v3+"on-4?misrep=false&tier=enhanced")
+        response.redirect(onboard_v3+"on-4")
     }
 })
 
@@ -1857,7 +1857,7 @@ router.post('/route-v3/on-6', function(request, response) {
     if (value == "No"){ 
         response.redirect(onboard_v3+"on-5")
     } else { 
-        response.redirect(onboard_v3+"on-2")
+        response.redirect(onboard_v3+"on-2?acc-type=Individual")
     }
 })
 

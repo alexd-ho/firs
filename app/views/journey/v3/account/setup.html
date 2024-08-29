@@ -51,7 +51,8 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 		<ul class="govuk-task-list">
-		  <li class="govuk-task-list__item govuk-task-list__item--with-link">
+			{% if (data['acc-type'] == "Individual") %}
+			<li class="govuk-task-list__item govuk-task-list__item--with-link">
 		    <div class="govuk-task-list__name-and-hint">
 		      <a class="govuk-link govuk-task-list__link" href="3-1-0?mode=self" aria-describedby="company-details-1-status">
 		        Contact details
@@ -61,7 +62,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		      {% if (data['contact-details'] == 'Completed') %}<strong class='govuk-tag govuk-tag--green'>Completed</strong>{% else %}<strong class='govuk-tag govuk-tag--light-blue'>Incomplete</strong>{% endif %}
 		    </div>
 		  </li>
-		  {% if (data['acc-type'] == "Organisation") %}
+		  {% elseif (data['acc-type'] == "Organisation") %}
 		  <li class="govuk-task-list__item govuk-task-list__item--with-link">
 		    <div class="govuk-task-list__name-and-hint">
 		      <a class="govuk-link govuk-task-list__link" href="organisation-details" aria-describedby="company-details-1-status">
@@ -73,6 +74,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		    </div>
 		  </li>
 		  {% endif %}
+		  
 		  <li class="govuk-task-list__item govuk-task-list__item--with-link">
 		    <div class="govuk-task-list__name-and-hint">
 		      <a class="govuk-link govuk-task-list__link" href="identity-verification" aria-describedby="company-details-1-status">

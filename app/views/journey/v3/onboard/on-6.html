@@ -18,9 +18,14 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 			<span class="govuk-caption-l">Setting up your account</span>
 
-			<h1 class="govuk-heading-l">You have indicated that your organisation is a foreign power.</h1>
-			<p> You can read the full definition of a foreign power under xxxx of the NSA 2023.</p>
-			<p>You only need to register if you have a role, position or affiliation with a foreign power, and you do not accurately report or 'misrepresent' this relationship or activities in the UK. You can read the full definition of misrepresentation under xxxx of the NSA 2023.</p>
+			<h1 class="govuk-heading-l">You have indicated that you are registering as a foreign power</h1>
+			<p>Only individuals with a role, position or affiliation 
+				with a foreign power have to register under 
+				special circumstances.</p>
+				<p>These individuals must be doing or arranging for 
+				others to do activities in the UK. They must also 
+				be deliberately misrepresenting their role, 
+				position or affiliation, or the activities in the UK.</p>
 
 
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -31,7 +36,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    value: data['v-on-6'],
 			    fieldset: {
 				    legend: {
-				        text: "Do you want to setup an account as an individual?",
+				        text: "Do you want to register as an individual?",
 				        isPageHeading: false,
 				        classes: "govuk-fieldset__legend--m"
 				    }
@@ -43,7 +48,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    },
 			    {
 			        value: "No",
-			        text: "No"
+			        text: "No, take me back to the guidance"
 			    }
 			    ]
 			}) }}

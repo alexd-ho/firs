@@ -26,18 +26,25 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    value: data['v-on-3'],
 			    fieldset: {
 				    legend: {
-				        text: "Are you registering as any of these specified organisations?",
+				        text: "Is your organisation or group on the list of specified foreign power-controlled entities?",
 				        isPageHeading: true,
 				        classes: "govuk-fieldset__legend--l"
 				    }
 			    },
 			    hint: {
-			    	html: "<ul class='govuk-list govuk-list--bullet'>
+			    	html: "
+					<p>There are 10 foreign power-controlled entities specified in UK legislation:</p>
+					<ul class='govuk-list govuk-list--bullet'>
 			    		<li>Organisation 1</li>
 			    		<li>Organisation 2</li>
 			    		<li>Organisation 3</li>
 			    		<li>Organisation 4</li>
 			    		<li>Organisation 5</li>
+						<li>Organisation 6</li>
+			    		<li>Organisation 7</li>
+			    		<li>Organisation 8</li>
+			    		<li>Organisation 9</li>
+			    		<li>Organisation 10</li>
 			    	</ul>"
 			    },
 			    items: [
