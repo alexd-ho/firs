@@ -237,15 +237,50 @@ visuallyHiddenTitle: "Footer links"
 
 		<div class="firs-home-containers">
 
+			{% if (data['acc-type'] == "Individual") %}
 			<div class="firs-home-containers__panel">
 				<div>
 					<h3 class="govuk-heading-m">Your account</h3>
 					<p>Update contact details such as email, telephone numbers, and registered addresses.</p>
-					<p><a href="account/contact-details" class="govuk-link">Update contact details</a>
-						{% if (data['acc-type'] == "Individual") %}<br><a href="account/identity-verification?return=update" class="govuk-link">View your identity verification</a>{% endif %}
+					<p><a href="account/contact-details" class="govuk-link">Update contact details</a></p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</div>
 			</div>
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Identity verficiation</h3>
+					{% if (data['identity-verification'] == 'Incomplete') %}
+					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
+					<p>Identity verfication {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has not been completed.<br>
+						You will be unable to submit registrations until identity verification is complete.</p>
+					{% else %}
+					{% if (data['identity-verification'] == 'Completed') %}
+					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
+					<p>Identity verfication has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %}.</p>
+					{% elseif (data['identity-verification'] == 'Pending') %}
+					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
+					<p>Identity verfication has been submitted {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} and pending verification.<br>
+						You will be unable to submit registrations until identity verification is complete.</p>
+					{% elseif (data['identity-verification'] == 'Rejected') %}
+					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
+					<p>Identity verfication {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been rejected.<br>
+						You will be unable to submit registrations until identity verification is complete.</p>
+					{% endif %}
+
+					{% endif %}
+
+					<p><a href="account/identity-verification?return=update" class="govuk-link">View your identity verification</a></p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</div>
+			</div>
+
+
+			{% else %}
+				
+
+
+			{% endif %}
 
 			{% if (data['acc-type'] == "Organisation") %}
 			<div class="firs-home-containers__panel">
@@ -267,15 +302,14 @@ visuallyHiddenTitle: "Footer links"
 					{% else %}
 					{% if (data['delegated-authority'] == 'Completed') %}
 					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong></p>
+					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong>.</p>
 					{% elseif (data['delegated-authority'] == 'Pending') %}
 					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Delegated authority has been set up for <strong>{{data['delegated-authority-name']}}</strong></p>
+					<p>Delegated authority has been set up for <strong>{{data['delegated-authority-name']}}</strong>.</p>
 					{% elseif (data['delegated-authority'] == 'Rejected') %}
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong></p>
-					{{ else }}
-					<p>Allow third parties to manage regsitrations on your behalf.</p>
+					<p>Delegated authority to <strong>{{data['delegated-authority-name']}}</strong> has been rejected.</p>
+					
 					{% endif %}
 
 					{% endif %}

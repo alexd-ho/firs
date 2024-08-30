@@ -1,5 +1,8 @@
-{% extends "layouts/main-v2.html" %}
-{% set activeLinkId = "account" %}
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
+{% extends "layouts/v3-header-one-1.html" %}
+{% endif %}{% set activeLinkId = "account" %}
 
 {% block pageTitle %}
 Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
