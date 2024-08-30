@@ -1749,10 +1749,10 @@ var tier_v3 = '/journey/v3/tier/';
 var account_v3 = '/journey/v3/account';
 
 var registration_v3 = '/journey/v3/registrations';
-var arrangement_v3 = '/journey/v3/arrangement/';
-var agreement_v3 = '/journey/v3/agreement/';
-var activity_v3 = '/journey/v3/activity';
-var exception_v3 = '/journey/v3/exception/';
+var arrangement_v3 = '/journey/v3/arrangement';
+var agreement_v3 = '/journey/v3/agreement';
+var activities_v3 = '/journey/v3/activities';
+var exception_v3 = '/journey/v3/exception';
 
 /// 0. ELIGBILITY
 
@@ -2020,5 +2020,33 @@ router.post('/route-v3/r6', function(request, response) {
         response.redirect(registration_v3+"/r8")            
     }
 })
+
+
+/// ACTIVITIES
+
+router.post('/route-v3/a3', function(request, response) {
+    var value = request.session.data['a3'] //
+    if (value == "Private communication") { // 
+        response.redirect(activities_v3+"/a4-1")
+    } else if (value == "Public communication") { // 
+        response.redirect(activities_v3+"/a5-1")
+    } else if (value == "Distribution of money, goods or services") { // 
+        response.redirect(activities_v3+"/a6-1")
+    } else {
+        response.redirect(activities_v3+"/a7-1")
+    }
+})
+
+router.post('/route-v3/a4-2', function(request, response) {
+    var value = request.session.data['a3'] //
+    if (value == "I am doing the communication myself") { // 
+        response.redirect(activities_v3+"/a4-1")
+    } else if (value == "I am organising for others to do the communication") { // 
+        response.redirect(activities_v3+"/a5-1")
+    } else if (value == "I am both doing the communication myself and organising for other to do it") { // 
+        response.redirect(activities_v3+"/a6-1")
+    }
+})
+
 
 

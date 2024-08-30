@@ -34,7 +34,22 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-            {% if (data['r3'] == "Yes") %}
+            {% if (data['r2'] == "A foreign power-controlled entity") %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Which foreign power-controlled entity is your agreement with?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r3a']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r3a?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% elseif (data['r3'] == "Yes") %}
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">

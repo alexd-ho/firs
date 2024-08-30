@@ -1,0 +1,88 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+    
+{% set regsitrant %}
+{% if (data['acc-type'] == 'Organisation') %}does {{data['accName']}}{% else %}do you{% endif %}
+{% endset -%}
+
+
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+
+            {% if (data['return'] == 'check') %}
+            <form action="r-check?return=complete" method="post">
+            {% else %}
+            <form action="r6" method="post">						
+            {% endif %}
+    
+                <span class='govuk-caption-l'>Adding a registration</span>
+    
+
+                {{ govukRadios({
+                    name: "r3a",
+                    id: "r3a",
+                    value: data['r3a'],
+                    classes: "govuk-radios govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: "Which foreign power-controlled entity "+regsitrant+" have an agreement with?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                    {
+                        value: "Organisation 1",
+                        text: "Organisation 1"
+                    },
+                    {
+                        value: "Organisation 2",
+                        text: "Organisation 2"
+                    },
+                    {
+                        value: "Organisation 3",
+                        text: "Organisation 3"
+                    },
+                    {
+                        value: "Organisation 4",
+                        text: "Organisation 4"
+                    },
+                    {
+                        value: "Organisation 5",
+                        text: "Organisation 5"
+                    },
+                    {
+                        value: "Organisation 6",
+                        text: "Organisation 6"
+                    },
+                    {
+                        value: "Organisation 7",
+                        text: "Organisation 7"
+                    },
+                    {
+                        value: "Organisation 8",
+                        text: "Organisation 8"
+                    },
+                    {
+                        value: "Organisation 9",
+                        text: "Organisation 9"
+                    },
+                    {
+                        value: "Organisation 10",
+                        text: "Organisation 10"
+                    }
+                    ]
+                }) }}
+        
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

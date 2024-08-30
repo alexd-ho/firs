@@ -9,7 +9,8 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/r2' method='post'>
+
+            <form action="/route-v3/r2" method="post">						
 
                 <span class="govuk-caption-l">Adding a registration</span>
 
@@ -27,18 +28,18 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     },
                     items: [
                     {
-                    value: 'A foreign power',
+                        value: 'A foreign power',
                         text: 'A foreign power',
                         hint: {
-                            text: 'Any government or official body from a 
-                            country outside the UK or Ireland, 
-                            including their leaders and political 
-                            parties in control'
+                            text: 'Any governmental body, agency, authority or governing political party operating outside the UK and Ireland'
                         }
                     },
                     {
-                    value: 'A different type of entity',
-                        text: 'A different type of entity'
+                        value: 'A foreign power-controlled entity',
+                        text: 'A foreign power-controlled entity',
+                        hint: {
+                            text: 'An individual, organisation or part of an organisation specifically designated under UK law as being controlled by a foreign power'
+                        }
                     }
                     ]
                 }) }}
