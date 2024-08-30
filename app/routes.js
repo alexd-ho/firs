@@ -1748,10 +1748,10 @@ var onboard_v3 = '/journey/v3/onboard/';
 var tier_v3 = '/journey/v3/tier/';
 var account_v3 = '/journey/v3/account';
 
-var registration_v3 = '/journey/v3/registration/';
+var registration_v3 = '/journey/v3/registrations';
 var arrangement_v3 = '/journey/v3/arrangement/';
 var agreement_v3 = '/journey/v3/agreement/';
-var activity_v3 = '/journey/v3/activity/';
+var activity_v3 = '/journey/v3/activity';
 var exception_v3 = '/journey/v3/exception/';
 
 /// 0. ELIGBILITY
@@ -1987,6 +1987,37 @@ router.post('/route-v3/delegated-authority', function(request, response) {
         }
     } else {
         response.redirect(account_v3+"/delegated-authority-name")            
+    }
+})
+
+
+
+/// REGISTRATIONS
+
+router.post('/route-v3/r2', function(request, response) {
+    var value = request.session.data['r2'] //
+    if (value == "A foreign power") { // 
+        response.redirect(registration_v3+"/r3")
+    } else {
+        response.redirect(registration_v3+"/r3a")            
+    }
+})
+
+router.post('/route-v3/r3', function(request, response) {
+    var value = request.session.data['r3'] //
+    if (value == "No") { // 
+        response.redirect(registration_v3+"/r5")
+    } else {
+        response.redirect(registration_v3+"/r4")            
+    }
+})
+
+router.post('/route-v3/r6', function(request, response) {
+    var value = request.session.data['r6'] //
+    if (value == "Signed contract") { // 
+        response.redirect(registration_v3+"/r7")
+    } else {
+        response.redirect(registration_v3+"/r8")            
     }
 })
 

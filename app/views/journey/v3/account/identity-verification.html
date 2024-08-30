@@ -22,14 +22,15 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 		<form action="../account?return=complete" method="post">
 		{% else %}
 			{% if (data['setup'] == 'incomplete') %}
-			<form action="../account/setup" method="post">
+			<form action="../account?setup=complete" method="post">
 			{% else %}
 			<form action="../account" method="post">
 			{% endif %}
 		{% endif %}
 
 
-			
+		<span class="govuk-caption-l">Identity Verification</span>
+
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
@@ -44,7 +45,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 			    }
 			    },
 			    hint: {
-			    	text: "Shortcuts to set diff statuses"
+			    	text: "NOTE: Shortcuts to set diff statuses"
 			    },
 			    items: [
 			    {

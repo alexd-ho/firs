@@ -40,18 +40,28 @@ visuallyHiddenTitle: "Footer links"
 
 	<div class="govuk-grid-column-full">
 
+		{% if (data['acc-type'] == "Individual") %}
 
-		<span class="govuk-caption-l">{% if (data['acc-type']) %}{{data['acc-type']}} account{% else %}Account type{%
-			endif %}</span>
-
+		<span class="govuk-caption-l">Individual registrant account</span>
 		<h1 class="govuk-heading-l">
-			{% if (data['acc-type'] == "Individual") %}
-			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else
-			%}Registrant Name{% endif %}
-			{% else %}
-			{% if (data['accName']) %}{{data['accName']}}{% else %}Registrant Name{% endif %}
-			{% endif %}
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
 		</h1>
+
+		{% elseif (data['acc-type'] == "Organisation") %}
+
+		<span class="govuk-caption-l">Organisation account</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+		</h1>
+
+		{% else %}
+			
+		<span class="govuk-caption-l">Account</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+		</h1>
+
+		{% endif %}
 
 
 		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this

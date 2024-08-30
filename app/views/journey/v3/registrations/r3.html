@@ -1,0 +1,54 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds-from-desktop'>
+        <form action='/route-v3/r3' method='post'>
+    
+			<span class="govuk-caption-l">Adding a registration</span>
+
+            {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+            {{ govukRadios({
+                id: 'r3',
+                name: 'r3',
+                value: data['r3'],
+                fieldset: {
+                    legend: {
+                        text: 'Is your agreement with one of these foreign powers?',
+                        classes: 'govuk-fieldset__legend--l',
+                        isPageHeading: true
+                    }
+                },
+                hint: {
+                    html: '
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Ministry of Defence of X</li>
+                        <li>Parliament of Y</li>
+                        <li>Socialist Party of Z</li>
+                    </ul>'
+                },
+                items: [
+                {
+                   value: 'Yes',
+                    text: 'Yes'
+                },
+                {
+                   value: 'No',
+                    text: 'No'
+                }
+                ]
+            }) }}
+    
+            {{ govukButton({
+                text: 'Continue'
+            }) }}
+        </form>
+    </div>
+    </div>
+    {% endblock %}

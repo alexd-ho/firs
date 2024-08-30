@@ -1,0 +1,41 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Adding an activity – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+			<span class="govuk-caption-l">Adding an activity</span>
+			<h1 class="govuk-heading-l">What information you'll need to complete this section</h1>
+
+			<p>TBC.</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </li>
+				<li>A necessitatibus temporibus beatae fuga deleniti, alias laborum voluptate, unde facere dignissimos,</li>
+				<li>Provident minima architecto aliquam? At in rerum praesentium quaerat debitis.</li>
+			</ul>
+
+			{{ govukButton({
+				text: "Continue",
+                href: "a2"
+			}) }}
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
