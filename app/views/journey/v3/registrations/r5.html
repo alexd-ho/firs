@@ -5,6 +5,11 @@
 Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% set registrant %}
+{% if (data['acc-type'] == 'Organisation') %}{{data['accName']}} has{% else %}you have{% endif %}
+{% endset -%}
+
+
 
 {% block content %}
 <div class='govuk-grid-row'>
@@ -21,7 +26,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
-                        How would you describe the foreign power your agreement is with?
+                        How would you describe the foreign power {{registrant}} an agreement is with?
                     </h1>
                 </legend>
                 <div class="govuk-form-group">

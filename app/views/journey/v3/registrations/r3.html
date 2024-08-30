@@ -5,6 +5,10 @@
 Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
     
+{% set registrant %}
+{% if (data['acc-type'] == 'Organisation') %}Does {{data['accName']}}{% else %}Do you{% endif %}
+{% endset -%}
+
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -22,13 +26,14 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                 value: data['r3'],
                 fieldset: {
                     legend: {
-                        text: 'Is your agreement with one of these foreign powers?',
+                        text: registrant+' have an agreement with a foreign power on the list of speciified foreign powers?',
                         classes: 'govuk-fieldset__legend--l',
                         isPageHeading: true
                     }
                 },
                 hint: {
                     html: '
+                    <p>There are 3 foreign powers specofied under UK law:</p>
                     <ul class="govuk-list govuk-list--bullet">
                         <li>Ministry of Defence of X</li>
                         <li>Parliament of Y</li>

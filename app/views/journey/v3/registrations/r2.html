@@ -5,7 +5,12 @@
 Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
     
-    
+
+{% set registrant %}
+{% if (data['acc-type'] == 'Organisation') %}does {{data['accName']}}{% else %}do you{% endif %}
+{% endset -%}
+
+
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
@@ -21,7 +26,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     value: data['r2'],
                     fieldset: {
                         legend: {
-                            text: 'What entity are you in an agreement with?',
+                            text: 'What entity '+registrant+' have an agreement with?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }

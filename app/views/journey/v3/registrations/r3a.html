@@ -5,7 +5,7 @@
 Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
     
-{% set regsitrant %}
+{% set registrant %}
 {% if (data['acc-type'] == 'Organisation') %}does {{data['accName']}}{% else %}do you{% endif %}
 {% endset -%}
 
@@ -30,7 +30,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     classes: "govuk-radios govuk-radios--small",
                     fieldset: {
                         legend: {
-                            text: "Which foreign power-controlled entity "+regsitrant+" have an agreement with?",
+                            text: 'Which foreign power-controlled entity '+registrant+' have an agreement with?',
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--l"
                         }
