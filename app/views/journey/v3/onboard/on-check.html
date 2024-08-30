@@ -24,6 +24,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             <p>[ORGANISATION, POLITICAL TIER] text tbc.</p>
 
+
             {% endif %}
 
             {{ govukButton({
@@ -40,7 +41,28 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% else %}
 
-            <p>[INDIVIDUAL] text tbc.</p>
+            <p>You've indicated that you are an individual with no 
+                role, position or affiliation with a foreign power.</p>
+                <p><strong>Account type to be assigned</strong></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Individual Registrant</li>
+                </ul>
+                <p>Your account will be set up to allow you to register 
+                agreements with foreign powers and foreign 
+                power-controlled entities. You'll also be able to 
+                register any activities you are doing or organising 
+                for others to do in the UK as part of these 
+                agreements.</p>
+
+                <p><strong>Managing your account</strong></p>
+
+                <p>You cannot change your account type after this 
+                point in the process. Refer to the guidance or 
+                contact the FIRS support team if you are unsure.</p>
+
+                <p>You'll have the option to add representatives to 
+                manage your account after set up is complete.</p>
+
 
             {% endif %}
 
