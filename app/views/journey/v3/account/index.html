@@ -249,7 +249,7 @@ visuallyHiddenTitle: "Footer links"
 
 			<div class="firs-home-containers__panel">
 				<div>
-					<h3 class="govuk-heading-m">Identity verficiation</h3>
+					<h3 class="govuk-heading-m">Identity verification</h3>
 					{% if (data['identity-verification'] == 'Incomplete') %}
 					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
 					<p>Identity verfication {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has not been completed.<br>
@@ -260,7 +260,7 @@ visuallyHiddenTitle: "Footer links"
 					<p>Identity verfication has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %}.</p>
 					{% elseif (data['identity-verification'] == 'Pending') %}
 					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Identity verfication has been submitted {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} and pending verification.<br>
+					<p>Identity verfication {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
 						You will be unable to submit registrations until identity verification is complete.</p>
 					{% elseif (data['identity-verification'] == 'Rejected') %}
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
