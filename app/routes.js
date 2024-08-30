@@ -1866,7 +1866,6 @@ router.post('/route-v3/on-6', function(request, response) {
 
 router.post('/route-v3/3-1-2', function(request, response) {
     var value = request.session.data['v3-1-2'] // 
-    var redirect = request.session.data['return'] // 
     
     if (value == "Yes"){ // 
         response.redirect(account_v3+"/3-1-3")
