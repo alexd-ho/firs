@@ -30,7 +30,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
-			{% if (data['mode'] == 'self') %}
+			{% if (data['mode'] == 'rep') %}
 			{{ govukInput({
 				id: "v3-1-5",
 				name: "v3-1-5",
@@ -47,7 +47,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 				name: "v3-1-5",
 				value: data['v3-1-5'],
 				label: {
-					text: "What is the nationality of "+data['accName']+"?",
+					text: "What is your country of nationality?",
 					classes: "govuk-label--l",
 					isPageHeading: true
 				}
