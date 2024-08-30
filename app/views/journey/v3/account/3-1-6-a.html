@@ -1,0 +1,66 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
+{% extends "layouts/v3-header-one-1.html" %}
+{% endif %}
+{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v3/3-1-6-a" method="post">
+
+			<span class="govuk-caption-l">Personal details</span>
+
+			{% from 'govuk/components/radios/macro.njk' import govukRadios %}
+			{{ govukRadios({
+				id: 'v3-1-6-a',
+				name: 'v3-1-6-a',
+				value: data['v3-1-6-a'],
+				fieldset: {
+					legend: {
+						text: 'Are you a resident in the UK?',
+						classes: 'govuk-fieldset__legend--l',
+						isPageHeading: true
+					}
+				},
+				hint: {
+					text: 'This means you normally live in the UK, or you spend more than 183 days here each year.'
+				},
+				items: [
+				{
+				   value: 'Yes',
+					text: 'Yes'
+				},
+				{
+				   value: 'No',
+					text: 'No'
+				}
+				]
+			}) }}
+
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

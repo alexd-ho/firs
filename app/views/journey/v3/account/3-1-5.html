@@ -20,9 +20,13 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 		{% if (data['return'] == 'update') %}
 		<form action="contact-details?return=complete" method="post">
+		{% elseif (data['return'] == 'check') %}
+		<form action="3-1-check?return=complete" method="post">
 		{% else %}
-		<form action="3-1-6" method="post">
+		<form action="3-1-6a" method="post">						
 		{% endif %}
+
+		<span class="govuk-caption-l">Personal details</span>
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
@@ -32,7 +36,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 				name: "v3-1-5",
 				value: data['v3-1-5'],
 				label: {
-					text: "What is your nationality?",
+					text: "What is your country of nationality?",
 					classes: "govuk-label--l",
 					isPageHeading: true
 				}

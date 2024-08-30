@@ -17,7 +17,9 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		<form action="/route-v3/on-5" method="post">
 
 			<span class="govuk-caption-l">Setting up your account</span>
-			
+
+			<!-- <p class='govuk-hint'>Section x of the FIRS guidance provides a full definition of a foreign power.</p> -->
+
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
 			{{ govukRadios({
@@ -41,7 +43,6 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    		<li>an entity responsible for administering affairs in an area within a foreign country or territory</li>
 			    		<li>a political party that governs a foreign country</li>
 			    	</ul>
-					<p class='govuk-hint'>Section x of the FIRS guidance provides a full definition of a foreign power.</p>
 					"
 			    },
 			    items: [

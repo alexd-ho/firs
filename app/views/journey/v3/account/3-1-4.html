@@ -20,9 +20,13 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 		{% if (data['return'] == 'update') %}
 		<form action="contact-details?return=complete" method="post">
+		{% elseif (data['return'] == 'check') %}
+		<form action="3-1-check?return=complete" method="post">
 		{% else %}
 		<form action="3-1-5" method="post">						
 		{% endif %}
+
+		<span class="govuk-caption-l">Personal details</span>
 
 			
 			{% from "govuk/components/date-input/macro.njk" import govukDateInput %}

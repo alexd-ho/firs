@@ -1855,7 +1855,7 @@ router.post('/route-v3/on-5', function(request, response) {
 router.post('/route-v3/on-6', function(request, response) {
     var value = request.session.data['v-on-6'];
     if (value == "No"){ 
-        response.redirect(onboard_v3+"on-5")
+        response.redirect(onboard_v3+"on-0?acc-type=None&v-on-1=None")
     } else { 
         response.redirect(onboard_v3+"on-2?acc-type=Individual")
     }
@@ -1869,7 +1869,7 @@ router.post('/route-v3/3-1-2', function(request, response) {
     var redirect = request.session.data['return'] // 
     
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"3-1-3")
+        response.redirect(account_v3+"/3-1-3")
     } else {
         if (redirect == 'update') {
             response.redirect(account_v3+"/contact-details?return=complete")            
@@ -1879,9 +1879,20 @@ router.post('/route-v3/3-1-2', function(request, response) {
     }
 })
 
+router.post('/route-v3/3-1-6-a', function(request, response) {
+    var value = request.session.data['v3-1-6-a'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"/3-1-6-c")
+    } else {
+        response.redirect(account_v3+"/3-1-6-b")            
+    }
+})
+
 router.post('/route-v3/3-1-7', function(request, response) {
     var value = request.session.data['v3-1-7'] // 
-    if (value == "Yes"){ // 
+    if (value == "different-uk"){ // 
+        response.redirect(account_v3+"/3-1-8")
+    } else if (value == "different-non-uk"){ // 
         response.redirect(account_v3+"/3-1-8")
     } else {
         response.redirect(account_v3+"/3-1-9")            

@@ -130,6 +130,19 @@
 
 }
 
+
+/// FORM CONTROLS
+/// 
+.govuk-input {
+    &.disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        border-color: #777;
+        color: #777;
+    }
+}
+
+
 /// NAV
 
 body.home li.li-home {border-bottom: 4px solid #1d70b8;}

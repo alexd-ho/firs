@@ -17,6 +17,11 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
+		
+		<span class="govuk-caption-l">Personal details</span>
+		<!-- hint: {
+			text: 'This is based on the name you told us earlier on. You can update it here.'
+		} -->
 
 		{% if (data['return'] == 'update') %}
 		<form action="contact-details?return=complete" method="post">
@@ -30,9 +35,6 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 					text: "What is your name?",
 					classes: "govuk-label--l",
 					isPageHeading: true
-				},
-				hint: {
-					text: 'This is based on the name you told us earlier on. You can update it here.'
 				}
 			}) }}
 
@@ -53,9 +55,6 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 					text: "What is your name?",
 					classes: "govuk-label--l",
 					isPageHeading: true
-				},
-				hint: {
-					text: 'This is based on the name you told us earlier on. You can update it here.'
 				}
 			}) }}
 
@@ -101,9 +100,6 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 					text: "What is your name?",
 					classes: "govuk-label--l",
 					isPageHeading: true
-				},
-				hint: {
-					text: 'This is based on the name you told us earlier on. You can update it here.'
 				}
 			}) }}
 
