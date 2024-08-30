@@ -12,17 +12,58 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
         <span class="govuk-caption-l">Setting up your account</span>
 
-        <h1 class="govuk-heading-l">Based on your answers</h1>
+        <h1 class="govuk-heading-l">Confirm your account 
+            type</h1>
 
         {% if (data['acc-type'] == 'Organisation') %}
 
             {% if (data['tier'] == 'enhanced') %}
 
-            <p>[SPECIFIED ENTITY, ENHANCED TIER] text tbc.</p>
+                <p><strong>Account type assigned</strong></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Foreign Power-Controlled Entity</li>
+                </ul>
+                <p><strong>What this means</strong></p>
+                <p>You can register activities your entity is doing or 
+                    organising for others to do in the UK.
+                    </p>
+                
+
+                <p><strong>Managing your account</strong></p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>You cannot change your account type after 
+                        this point</li>
+                        <li>You can add representatives to manage your 
+                            account after you have finished setting up</li>
+                </ul>
+
 
             {% else %}
 
-            <p>[ORGANISATION, POLITICAL TIER] text tbc.</p>
+                <p><strong>Account type assigned</strong></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Non-individual Entity</li>
+                </ul>
+                <p><strong>What this means</strong></p>
+                <p>You can register your entity's agreements with 
+                    foreign powers and specified foreign power-
+                    controlled entities, and any activities your entity is 
+                    doing or organising others to do in the UK as part 
+                    of these agreements.
+                    </p>
+                
+
+                <p><strong>Managing your account</strong></p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>You cannot change your account type after 
+                        this point</li>
+                        <li>You can add representatives to manage your 
+                            account after you have finished setting up</li>
+                </ul>
+
+
 
 
             {% endif %}
@@ -37,31 +78,57 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% if (data['misrep'] == 'true') %}
 
-            <p>[INDIVIDUAL, MISREP] text tbc.</p>
-
-            {% else %}
-
-            <p>You've indicated that you are an individual with no 
-                role, position or affiliation with a foreign power.</p>
-                <p><strong>Account type to be assigned</strong></p>
+                <p><strong>Account type assigned</strong></p>
                 <ul class="govuk-list govuk-list--bullet">
-                    <li>Individual Registrant</li>
+                    <li>Foreign Power Individual</li>
                 </ul>
-                <p>Your account will be set up to allow you to register 
-                agreements with foreign powers and foreign 
-                power-controlled entities. You'll also be able to 
-                register any activities you are doing or organising 
-                for others to do in the UK as part of these 
-                agreements.</p>
+                <p><strong>What this means</strong></p>
+                <p>You can register activities you are doing or 
+                    organising for others to do in the UK as part of 
+                    your role, position or affiliation with a foreign 
+                    power.
+                    </p>
+                    <p>You only need to register activities if you're 
+                        deliberately making statements, or presenting 
+                        information, that could be perceived as false or 
+                        misleading.
+                        </p>
 
                 <p><strong>Managing your account</strong></p>
 
-                <p>You cannot change your account type after this 
-                point in the process. Refer to the guidance or 
-                contact the FIRS support team if you are unsure.</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>You cannot change your account type after 
+                        this point</li>
+                        <li>You can add representatives to manage your 
+                            account after you have finished setting up</li>
+                </ul>
 
-                <p>You'll have the option to add representatives to 
-                manage your account after set up is complete.</p>
+
+
+            {% else %}
+
+                <p><strong>Account type assigned</strong></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Individual</li>
+                </ul>
+                <p><strong>What this means</strong></p>
+                <p>You can register agreements with foreign powers 
+                    and specified foreign power-controlled entities, 
+                    and any activities you are doing or organising 
+                    others to do in the UK as part of these 
+                    agreements.
+                    </p>
+                
+
+                <p><strong>Managing your account</strong></p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>You cannot change your account type after 
+                        this point</li>
+                        <li>You can add representatives to manage your 
+                            account after you have finished setting up</li>
+                </ul>
+
 
 
             {% endif %}
