@@ -2059,40 +2059,67 @@ router.post('/route-v3/a2-e', function(request, response) {
 router.post('/route-v3/a3', function(request, response) {
     var value = request.session.data['a3'] //
     if (value == "Private communication") { // 
-        response.redirect(activities_v3+"/a4-1")
+        response.redirect(activities_v3+"/a4-1?activity-type=private")
     } else if (value == "Public communication") { // 
-        response.redirect(activities_v3+"/a5-1")
+        response.redirect(activities_v3+"/a5-1?activity-type=public")
     } else if (value == "Offer of money, goods or services") { // 
-        response.redirect(activities_v3+"/a6-1")
+        response.redirect(activities_v3+"/a6-1?activity-type=money")
     } else {
-        response.redirect(activities_v3+"/a7-1")
+        response.redirect(activities_v3+"/a7-1?activity-type=other")
     }
 })
 
 router.post('/route-v3/a4-2', function(request, response) {
-    var value = request.session.data['a4-2'] //
+    var value = request.session.data['a4-3'] //
     if (value == "I am doing the private communication myself") { // 
         response.redirect(activities_v3+"/a4-5")
     } else { // 
-        response.redirect(activities_v3+"/a4-3")
+        response.redirect(activities_v3+"/a4-4")
+    }
+})
+
+router.post('/route-v3/a4-3', function(request, response) {
+    var value = request.session.data['a4-3'] //
+    if (value == "I am doing the private communication myself") { // 
+        response.redirect(activities_v3+"/a4-5")
+    } else { // 
+        response.redirect(activities_v3+"/a4-4")
     }
 })
 
 router.post('/route-v3/a5-2', function(request, response) {
-    var value = request.session.data['a5-2'] //
+    var value = request.session.data['a5-3'] //
     if (value == "I am doing the public communication myself") { // 
         response.redirect(activities_v3+"/a5-5")
     } else { // 
-        response.redirect(activities_v3+"/a5-3")
+        response.redirect(activities_v3+"/a5-4")
+    }
+})
+
+router.post('/route-v3/a5-3', function(request, response) {
+    var value = request.session.data['a5-3'] //
+    if (value == "I am doing the public communication myself") { // 
+        response.redirect(activities_v3+"/a5-5")
+    } else { // 
+        response.redirect(activities_v3+"/a5-4")
     }
 })
 
 router.post('/route-v3/a6-2', function(request, response) {
-    var value = request.session.data['a6-2'] //
+    var value = request.session.data['a6-3'] //
     if (value == "I am making the offer myself") { // 
         response.redirect(activities_v3+"/a6-5")
     } else { // 
-        response.redirect(activities_v3+"/a6-3")
+        response.redirect(activities_v3+"/a6-4")
+    }
+})
+
+router.post('/route-v3/a6-3', function(request, response) {
+    var value = request.session.data['a6-3'] //
+    if (value == "I am making the offer myself") { // 
+        response.redirect(activities_v3+"/a6-5")
+    } else { // 
+        response.redirect(activities_v3+"/a6-4")
     }
 })
 

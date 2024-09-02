@@ -8,40 +8,39 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/a4-2' method='post'>
+            <form action='/route-v3/a5-3' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'a4-2',
-                    name: 'a4-2',
-                    value: data['a4-2'],
+                    id: 'a5-3',
+                    name: 'a5-3',
+                    value: data['a5-3'],
                     fieldset: {
                         legend: {
-                            text: 'How are you involved in the private communication?',
+                            text: 'How are you involved in the public communication?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
+                    hint: {
+                        text: 'You are doing the public communication if you are 
+                        publishing, sharing or producing information, 
+                        documents or articles.'
+                    },
                     items: [
                     {
-                       value: 'I am doing the private communication myself',
-                        text: 'I am doing the private communication myself'
+                       value: 'I am doing the public communication myself',
+                        text: 'I am doing the public communication myself'
                     },
                     {
-                       value: 'I am organising for others to do the 
-                       private communication',
-                        text: 'I am organising for others to do the 
-                        private communication'
+                       value: 'I am organising for others to do the public communication',
+                        text: 'I am organising for others to do the public communication'
                     },
                     {
-                       value: 'I am both doing the private 
-                       communication myself and organising 
-                       for other to do it',
-                        text: 'I am both doing the private 
-                        communication myself and organising 
-                        for other to do it'
+                       value: 'I am both doing the public communication myself and organising for other to do it',
+                        text: 'I am both doing the public communication myself and organising for other to do it'
                     }
                     ]
                 }) }}

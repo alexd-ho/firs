@@ -1,0 +1,341 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a4-5' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+
+                <h1 class="govuk-heading-l">Who is involved in doing 
+                    the private 
+                    communication?  </h1>
+
+                    <div class="govuk-hint">
+                        <p>Include any individuals or groups who have a significant role in doing the private communication.</p>
+                        <p>You can add a maximum of 8 individuals or groups.</p>
+                    </div>
+
+                <div id="js-activity-wrapper">
+
+                    {% from "govuk/components/input/macro.njk" import govukInput %}
+                    {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+                    {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+                    {% from "govuk/components/select/macro.njk" import govukSelect %}
+            
+                    {% call govukFieldset({
+                      classes: "person-module",
+                      legend: {
+                        text: "Person or Organisation 1",
+                        classes: "hidden",
+                        isPageHeading: false
+                      }
+            
+                    }) %}
+            
+
+                    {{ govukSelect({
+                    id: "a4-3--type-1",
+                    name: "a4-3--type-1",
+                    label: {
+                        text: "Individual or group"
+                    },
+                    items: [
+                        {
+                            value: "Individual",
+                            text: "Individual"
+                        },
+                        {
+                            value: "Group",
+                            text: "Group"
+                        }
+                    ]
+                    }) }}
+            
+                    {{ govukInput({
+                        label: {
+                          text: "Full name"
+                        },
+                        classes: "name-field",
+                        id: "a4-3--name-1",
+                        name: "a4-3--name-1"
+                    }) }}
+
+                    {{ govukInput({
+                        label: {
+                          text: "Email address"
+                        },
+                        classes: "email-field",
+                        id: "a4-3--email-1",
+                        name: "a4-3--email-1"
+                    }) }}
+
+                    {{ govukTextarea({
+                        label: {
+                          text: "Relationship to registrant"
+                        },
+                        id: "a4-3--relationship-1",
+                        name: "a4-3--relationship-1"
+                    }) }}
+
+                    {{ govukTextarea({
+                        label: {
+                          text: "Role in prviate communication"
+                        },
+                        id: "a4-3--role-1",
+                        name: "a4-3--role-1"
+                    }) }}
+            
+
+                    <div class="govuk-heading-m update-button-group update-button-group--hidden">
+                        <div class="person-texts">
+                        </div>
+                        <div class="person-actions  govuk-summary-card__actions">
+                            <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save  <span class="govuk-visually-hidden"> this person or organisation, and minimise this panel </span></a></li>
+                            <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                        </div>
+                    </div>
+        
+                    <div class="govuk-heading-m min-label">
+                        <div class="person-texts">
+                            <div class="govuk-caption-m">Person or Organisation 1</div>
+                            <div class="govuk-heading-m min-label__name"></div>
+                        </div>
+                        <div class="person-actions  govuk-summary-card__actions">
+                            <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit <span class="govuk-visually-hidden"> this person or organisation</span></a></li>
+                            <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                        </div>
+                        <div class="person-actions  govuk-summary-card__actions govuk-summary-card__actions--undo">
+                            <li class="govuk-summary-card__action govuk-summary-card__action--confirm"><a href="#"  class="govuk-link button--confirm">Confirm <span class="govuk-visually-hidden"> the deletion of this person or organisation - this action is irreversible</span></a></li>
+                            <li class="govuk-summary-card__action govuk-summary-card__action--undo"><a href="#"  class="govuk-link button--undo">Cancel <span class="govuk-visually-hidden"> the deletion of this person or organisation</span></a></li>
+                        </div>
+                    </div>
+            
+                    {% endcall %}
+            
+                  </div>
+            
+                    <div id="add-another-button"  class="govuk-!-padding-top-5">
+                      <a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another</a>
+                    </div>
+            
+                    {{ govukButton({
+                      text: "Continue"
+                    }) }}
+            
+                  </form>
+
+
+        </div>
+    </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+
+function dynamicTitle () {
+    $('#js-activity-wrapper').on("keyup", ".name-field", function( event ) {
+      let thisName = $(this).val();
+      $(this).closest(".person-module").find(".min-label__name").html(thisName);
+    })
+}
+
+function addNew() {
+
+    var newNameId = 2;
+    var itemCount = 0;
+    const maxItems = 8;
+
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+
+      $('.person-module').addClass('person-module--hidden');
+      $('.person-module').removeClass('person-module--new');
+
+
+      var s = stringToHTML(`
+
+            {% call govukFieldset({
+                classes: "person-module",
+                legend: {
+                text: "Person or Organisation ${newNameId}",
+                classes: "hidden",
+                isPageHeading: false
+                }
+
+            }) %}
+
+
+            {{ govukSelect({
+            id: "a4-3--type-${newNameId}",
+            name: "a4-3--type-${newNameId}",
+            label: {
+                text: "Individual or group"
+            },
+            items: [
+                {
+                value: "Individual",
+                text: "Individual"
+                },
+                {
+                value: "Group",
+                text: "Group"
+                }
+            ]
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Full name"
+                },
+                classes: "name-field",
+                id: "a4-3--name-${newNameId}",
+                name: "a4-3--name-${newNameId}"
+            }) }}
+
+            {{ govukInput({
+                label: {
+                    text: "Email address"
+                },
+                classes: "email-field",
+                id: "a4-3--email-${newNameId}",
+                name: "a4-3--email-${newNameId}"
+            }) }}
+
+            {{ govukTextarea({
+                label: {
+                    text: "Relationship to registrant"
+                },
+                id: "a4-3--relationship-${newNameId}",
+                name: "a4-3--relationship-${newNameId}"
+            }) }}
+
+            {{ govukTextarea({
+                label: {
+                    text: "Role in prviate communication"
+                },
+                id: "a4-3--role-${newNameId}",
+                name: "a4-3--role-${newNameId}"
+            }) }}
+
+
+
+            <div class="govuk-heading-m update-button-group update-button-group--hidden">
+                <div class="person-texts">
+                </div>
+                <div class="person-actions  govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save  <span class="govuk-visually-hidden"> this person or organisation, and minimise this panel </span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+            </div>
+
+
+            <div class="govuk-heading-m min-label">
+                <div class="person-texts">
+                    <div class="govuk-caption-m">Person or Organisation 1</div>
+                    <div class="govuk-heading-m min-label__name"></div>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit <span class="govuk-visually-hidden"> this person or organisation</span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions govuk-summary-card__actions--undo">
+                    <li class="govuk-summary-card__action govuk-summary-card__action--confirm"><a href="#"  class="govuk-link button--confirm">Confirm <span class="govuk-visually-hidden"> the deletion of this person or organisation - this action is irreversible</span></a></li>
+                    <li class="govuk-summary-card__action govuk-summary-card__action--undo"><a href="#"  class="govuk-link button--undo">Cancel <span class="govuk-visually-hidden"> the deletion of this person or organisation</span></a></li>
+                </div>
+            </div>
+
+        {% endcall %}
+      `);
+
+      $('.button--update').on('click', function() {
+          $(this).closest(".person-module").removeClass('person-module--hidden');
+          $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+          return false;
+      })
+      $('.button--save').on('click', function() {
+          $(this).closest(".person-module").addClass('person-module--hidden');
+          $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+          return false;
+      })
+      $('.button--delete').on('click', function() {
+          $(this).closest(".person-module").addClass('person-module--hidden');
+          $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+          $(this).closest(".person-module").addClass('person-module--delete');
+          return false;
+      })
+      $('.button--undo').on('click', function() {
+          $(this).closest(".person-module").removeClass('person-module--delete');
+          return false;
+      })
+      $('.button--confirm').on('click', function() {
+          $(this).closest(".person-module").addClass('person-module--deleted');
+          console.log('item deleted');
+
+          if (itemCount == maxItems) {
+            $(addAnotherButton).removeClass('hidden');
+            $('.person-module--new').removeClass('hidden');
+            itemCount = maxItems -1;
+            console.log('removed max item, show form again');
+          } else if (itemCount != maxItems) {
+            itemCount = itemCount -1;
+            console.log('removed item, form should still show');
+          }
+
+          console.log('count: '+itemCount+'/'+maxItems);
+          return false;
+      })
+
+
+
+      itemCount++;
+      newNameId++;
+
+      names.appendChild(s);
+
+      if (itemCount == maxItems) {
+        $(addAnotherButton).addClass('hidden');
+        $('.person-module--new').addClass('hidden');
+      };
+
+      // document.getElementById("industry"+newNameId).focus();
+      console.log('next item: '+newNameId);
+      console.log('count: '+itemCount+'/'+maxItems);
+      return false;
+
+    };
+
+
+
+    
+};
+
+
+window.onload = function() {
+    dynamicTitle();
+    addNew();
+};
+
+</script>
+
+{% endblock %}
+
+
+
+
+

@@ -3,39 +3,36 @@
     {% block pageTitle %}
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
-    
-    
-    {% block content %}
+
+{% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/a4-3' method='post'>
+            <form action='a5-9' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+
+
                 {{ govukRadios({
-                    id: 'a4-3',
-                    name: 'a4-3',
-                    value: data['a4-3'],
+                    id: 'a5-8',
+                    name: 'a5-8',
+                    value: data['a5-8'],
                     fieldset: {
                         legend: {
-                            text: 'How are you involved in the private communication?',
+                            text: 'How often will the public communication occur?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     items: [
                     {
-                       value: 'I am doing the private communication myself',
-                        text: 'I am doing the private communication myself'
+                       value: 'Once',
+                        text: 'Once'
                     },
                     {
-                       value: 'I am organising for others to do the private communication',
-                        text: 'I am organising for others to do the private communication'
-                    },
-                    {
-                       value: 'I am both doing the private communication myself and organising for other to do it',
-                        text: 'I am both doing the private communication myself and organising for other to do it'
+                       value: 'More than once',
+                        text: 'More than once'
                     }
                     ]
                 }) }}

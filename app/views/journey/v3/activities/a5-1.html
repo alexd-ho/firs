@@ -11,17 +11,17 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a4-3' method='post'>
+            <form action='a5-3' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
 
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
 
-                {% set otherPrivate %}
+                {% set otherPublic %}
                 {{ govukInput({
-                    id: 'a4-1-other',
-                    name: 'a4-1-other',
+                    id: 'a5-1-other',
+                    name: 'a5-1-other',
                     classes: 'govuk-!-width-two-thirds',
                     label: {
                         classes: 'govuk-hint',
@@ -31,12 +31,12 @@
                 {% endset -%} 
 
                 {{ govukCheckboxes({
-                    id: 'a4-1',
-                    name: 'a4-1',
-                    values: data['a4-1'],
+                    id: 'a5-1',
+                    name: 'a5-1',
+                    values: data['a5-1'],
                     fieldset: {
                         legend: {
-                            text: 'How will the private communication be made?',
+                            text: 'How will the public communication be made?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
@@ -46,33 +46,48 @@
                     },
                     items: [
                     {
-                       value: 'Email',
-                        text: 'Email'
-                    },
-                    {
-                       value: 'Phone call',
-                        text: 'Phone call'
-                    },
-                    {
-                       value: 'Text message',
-                        text: 'Text message'
-                    },
-                    {
-                       value: 'Meeting',
-                        text: 'Meeting',
+                       value: 'Newspaper or magazine publication',
+                        text: 'Newspaper or magazine publication',
                         hint: {
-                            text: 'Including in-person or remote technology'
+                            text: 'Including online content'
                         }
                     },
                     {
-                       value: 'Letter',
-                        text: 'Letter'
+                       value: 'Public speaking event',
+                        text: 'Public speaking event',
+                        hint: {
+                            text: 'Including a conference, seminar or interview'
+                        }
                     },
                     {
+                       value: 'Radio',
+                        text: 'Radio',
+                        hint: {
+                            text: 'Including an advertisement, programme or 
+                            interview'
+                        }
+                    },
+                    {
+                       value: 'Social media post',
+                        text: 'Social media post'
+                    },
+                    {
+                       value: 'Television',
+                        text: 'Television',
+                        hint: {
+                            text: 'Including an advertisement, programme or 
+                            interview'
+                        }
+                    },
+                    {
+                        value: 'Website',
+                         text: 'Website'
+                     },
+                     {
                        value: 'Other',
                         text: 'Other',
                         conditional: {
-                            html: otherPrivate
+                            html: otherPublic
                         }
                     }
                     ]

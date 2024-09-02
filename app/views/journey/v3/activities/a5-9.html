@@ -7,26 +7,23 @@
 {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a4-check' method='post'>
+            <form action='a5-check' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
     
                 {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
                 {{ govukTextarea({
                 name: 'moreDetail',
-                    id: 'a4-9',
-                    name: 'a4-9',
-                    value: data['a4-9'],
+                    id: 'a5-9',
+                    name: 'a5-9',
+                    value: data['a5-9'],
                     label: {
-                        text: 'What do you want to 
-                        achieve from the private 
-                        communication?',
+                        text: 'What do you want to achieve from the public communication?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },
                     hint: {
-                        text: 'Describe the specific results or changes you hope 
-                        to see as a result of this private communication.'
+                        text: 'Describe the specific results or changes you hope to see as a result of the public communication.'
                     }
                 }) }} 
     
