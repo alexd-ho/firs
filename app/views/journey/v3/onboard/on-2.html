@@ -16,7 +16,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<form action="/route-v3/on-2" method="post">
 
-			<span class="govuk-caption-l">Setting up your account</span>
+            <span class="govuk-caption-l">Check what account you need</span>
 			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
@@ -32,14 +32,20 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 				    }
 			    },
 			    hint: {
-			    	html: "<ul class='govuk-list govuk-list--bullet'>
-			    		<li>You hold office under or represent(s) the head of a foreign state in their public capacity</li>
-			    		<li>You are part of or employed by a foreign government or part of a foreign government</li>
-			    		<li>You work for an agency or authority of a foreign government</li>
-			    		<li>You are part of an authority administering affairs in an area within a foreign country or territory</li>
-			    		<li>You are a member of a political party that governs a foreign country</li>
-			    		<li>You have another type of official role or affiliation with a government or organisation outside the UK</li>
-			    	</ul>"
+			    	html: "
+						<p>A foreign power is any governmental body, 
+							agency, authority or governing political party 
+							operating outside the UK and Ireland.</p>
+							<p>							A role or an affiliation with a foreign power could 
+							mean you:</p>
+							<ul class='govuk-list govuk-list--bullet'>
+
+								<li>hold office under or represent the head of a foreign state</li>
+								<li>are part of or employed by a foreign government or part of a foreign government</li>
+								<li>work for an agency or authority of a foreign government</li>
+								<li>are part of an authority administering affairs in an area within a foreign country or territory</li>
+								<li>are a member of a political party that governs a foreign country</li>
+						</ul>"
 			    },
 			    items: [
 			    {
@@ -47,8 +53,8 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			        text: "Yes"
 			    },
 			    {
-			        value: "None of these statements apply",
-			        text: "None of these statements apply"
+			        value: "No",
+			        text: "No"
 			    }
 			    ]
 			}) }}

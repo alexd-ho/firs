@@ -1,0 +1,50 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Organisation Details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/o2' method='post'>
+    
+                <span class='govuk-caption-l'>Organisation Details</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'o2',
+                    name: 'o2',
+                    value: data['o2'],
+                    fieldset: {
+                        legend: {
+                            text: 'Does Acme Ltd use any 
+                            other names?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'This could include a trading name, abbreviations 
+                        or acronyms, or a previous name still in use.'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

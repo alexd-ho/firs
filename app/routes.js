@@ -1821,7 +1821,7 @@ router.post('/route-v3/on-1', function(request, response) {
 
 router.post('/route-v3/on-2', function(request, response) {
     var value = request.session.data['v-on-2'];
-    if (value == "None of these statements apply"){ 
+    if (value == "No"){ 
         response.redirect(onboard_v3+"on-name?acc-type=Individual&misrep=false&tier=default")
     } else { 
         response.redirect(onboard_v3+"on-name?acc-type=Individual&misrep=true&tier=enhanced")
@@ -1987,6 +1987,17 @@ router.post('/route-v3/delegated-authority', function(request, response) {
         }
     } else {
         response.redirect(account_v3+"/delegated-authority-name")            
+    }
+})
+
+/// ORGANISATION DETAILS
+
+router.post('/route-v3/o2', function(request, response) {
+    var value = request.session.data['o2'] // 
+    if (value == "Yes"){ // 
+        response.redirect(account_v3+"/3-2-10")
+    } else {
+        response.redirect(account_v3+"/3-2-11")            
     }
 })
 

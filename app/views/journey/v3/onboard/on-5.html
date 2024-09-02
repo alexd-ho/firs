@@ -16,7 +16,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<form action="/route-v3/on-5" method="post">
 
-			<span class="govuk-caption-l">Setting up your account</span>
+            <span class="govuk-caption-l">Check what account you need</span>
 
 			<!-- <p class='govuk-hint'>Section x of the FIRS guidance provides a full definition of a foreign power.</p> -->
 
@@ -28,14 +28,16 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    value: data['v-on-5'],
 			    fieldset: {
 			    legend: {
-			        text: "Is your organisation or group a foreign power?",
+			        text: "Is your entity a foreign power?",
 			        isPageHeading: true,
 			        classes: "govuk-fieldset__legend--l"
 			    }
 			    },
 			    hint: {
 			    	html: "
+					<p class='govuk-hint'>A foreign power is any governmental body, agency, authority or governing political party operating outside the UK and Ireland.</p>
 					<p class='govuk-hint'>A foreign power can be:</p>
+					
 					<ul class='govuk-hint govuk-list govuk-list--bullet'>
 			    		<li>an office of the head of a foreign state</li>
 			    		<li>a foreign government or part of a foreign government</li>

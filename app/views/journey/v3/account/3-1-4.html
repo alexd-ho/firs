@@ -26,19 +26,19 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 		<form action="3-1-5" method="post">						
 		{% endif %}
 
-		<span class="govuk-caption-l">Personal details</span>
+		<span class="govuk-caption-l">Add your personal details</span>
 
 			
 			{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 			
-			{% if (data['mode'] == 'self') %}
+			{% if (data['mode'] == 'rep') %}
 			{{ govukDateInput({
 			  namePrefix: "v3-1-4",
 			  id: "v3-1-4",
 			  values: data['v3-1-4'],
 			  fieldset: {
 			    legend: {
-			      text: "What is your date of birth?",
+				  text: "What is the date of birth of "+data['accName']+"?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
@@ -54,7 +54,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 			  values: data['v3-1-4'],
 			  fieldset: {
 			    legend: {
-			      text: "What is the date of birth of "+data['accName']+"?",
+  				  text: "What is your date of birth?",
 			      isPageHeading: true,
 			      classes: "govuk-fieldset__legend--l"
 			    }
