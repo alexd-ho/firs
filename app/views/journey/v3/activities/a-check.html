@@ -120,8 +120,8 @@
                 Activity start date
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {% if (data['a4-6']) == "yes" %}
-                {{data['a4-6-day']}}/{{data['a4-6-month']}}/{{data['a4-6-year']}}
+                {% if (data['a4-6']) == "Yes" %}
+                {{data['a4-6-date-day']}}/{{data['a4-6-date-month']}}/{{data['a4-6-date-year']}}
                 {% else %}
                 None stated
                 {% endif %}
@@ -136,8 +136,8 @@
                 Activity end date
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {% if (data['a4-7']) == "yes" %}
-                {{data['a4-7-day']}}/{{data['a4-7-month']}}/{{data['a4-7-year']}}
+                {% if (data['a4-7']) == "Yes" %}
+                {{data['a4-7-date-day']}}/{{data['a4-7-date-month']}}/{{data['a4-7-date-year']}}
                 {% else %}
                 None stated
                 {% endif %}
