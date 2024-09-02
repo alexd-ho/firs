@@ -26,6 +26,8 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 		<form action="3-1-6-a" method="post">						
 		{% endif %}
 
+		<!-- text: "What is your nationality or nationalities?", -->
+
 		<span class="govuk-caption-l">Personal details</span>
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
@@ -36,7 +38,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 				name: "v3-1-5",
 				value: data['v3-1-5'],
 				label: {
-					text: "What is your nationality or nationalities?",
+					text: "What is your nationality?",
 					classes: "govuk-label--l",
 					isPageHeading: true
 				}
@@ -47,7 +49,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 				name: "v3-1-5",
 				value: data['v3-1-5'],
 				label: {
-					text: "What is your nationality or nationalities?",
+					text: "What is your nationality?",
 					classes: "govuk-label--l",
 					isPageHeading: true
 				}

@@ -10,19 +10,18 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-two-thirds-from-desktop'>
 
-        <span class="govuk-caption-l">Setting up your account</span>
-
-        <h1 class="govuk-heading-l">Confirm your account 
-            type</h1>
 
         {% if (data['acc-type'] == 'Organisation') %}
 
             {% if (data['tier'] == 'enhanced') %}
 
-                <p><strong>Account type assigned</strong></p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>Foreign Power-Controlled Entity</li>
-                </ul>
+            <span class="govuk-caption-l">Check what registrant 
+                account you need</span>
+
+            <h1 class="govuk-heading-l">You need an account for 
+                a specified foreign 
+                power-controlled entity</h1>
+    
                 <p><strong>What this means</strong></p>
                 <p>You can register activities your entity is doing or 
                     organising for others to do in the UK.
@@ -41,10 +40,12 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% else %}
 
-                <p><strong>Account type assigned</strong></p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>Non-individual Entity</li>
-                </ul>
+            <span class="govuk-caption-l">Check what registrant 
+                account you need</span>
+
+            <h1 class="govuk-heading-l">You need an account for 
+                a non-individual entity</h1>
+    
                 <p><strong>What this means</strong></p>
                 <p>You can register your entity's agreements with 
                     foreign powers and specified foreign power-
@@ -78,10 +79,14 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% if (data['misrep'] == 'true') %}
 
-                <p><strong>Account type assigned</strong></p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>Foreign Power Individual</li>
-                </ul>
+            <span class="govuk-caption-l">Check what registrant 
+                account you need</span>
+
+            <h1 class="govuk-heading-l">You need an account for 
+                an individual with a role 
+                or an affiliation with a 
+                foreign power</h1>
+
                 <p><strong>What this means</strong></p>
                 <p>You can register activities you are doing or 
                     organising for others to do in the UK as part of 
@@ -107,10 +112,12 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% else %}
 
-                <p><strong>Account type assigned</strong></p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>Individual</li>
-                </ul>
+            <span class="govuk-caption-l">Check what registrant 
+                account you need</span>
+
+            <h1 class="govuk-heading-l">You need an account for 
+                an individual</h1>
+
                 <p><strong>What this means</strong></p>
                 <p>You can register agreements with foreign powers 
                     and specified foreign power-controlled entities, 
