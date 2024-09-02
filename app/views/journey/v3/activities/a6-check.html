@@ -211,39 +211,40 @@
                     text: "You will need to give evidence on the next page to keep this information private."
                   },
                   items: [
-                    {
-                      value: "Safety to the UK",
-                      text: "Safety to the UK",
-                      hint: {
-                        text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
-                      }
-                    },
-                    {
-                      value: "Risk to the safety of an individual",
-                      text: "Risk to the safety of an individual",
-                      hint: {
-                        text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
-                      }
-                    },
-                    {
-                      value: "Prejudicial to criminal investigation",
-                      text: "Prejudicial to criminal investigation",
-                      hint: {
-                        text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
-                      }
-                    },
-                    {
-                      value: "Commercially sensitive",
-                      text: "Commercially sensitive",
-                      hint: {
-                        text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
-                      }
+                  {
+                    value: "Safety to the UK",
+                    text: "Safety to the UK",
+                    hint: {
+                      text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK."
                     }
-                  ]
+                  },
+                  {
+                    value: "Safety to the individual",
+                    text: "Safety to the individual",
+                    hint: {
+                      text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm."
+                    }
+                  },
+                  {
+                    value: "Prejudicial to criminal investigation",
+                    text: "Prejudicial to criminal investigation",
+                    hint: {
+                      text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime."
+                    }
+                  },
+                  {
+                    value: "Commercially sensitive",
+                    text: "Commercially sensitive",
+                    hint: {
+                      text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity."
+                    }
+                  }
+                ]
+    
                 }) }}
                 {% endset -%}
                 
-                {{ govukRadios({
+                {{ govukCheckboxes({
                   name: "exception-request",
                   id: "exception-request",
                   fieldset: {
@@ -264,11 +265,8 @@
                         conditional: {
                             html: exceptionOptions
                         }
-                    },
-                    {
-                      value: "No",
-                      text: "I am aware this information will appear on a public register."
-                    }              ]
+                    }
+                  ]
                 }) }}
     
     
