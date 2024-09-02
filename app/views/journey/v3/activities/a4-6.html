@@ -1,0 +1,70 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a4-7' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+
+                {% set startDate %}
+                {{ govukDateInput({
+                    namePrefix: 'a4-6-date',
+                    id: 'a4-6-date',
+                    value: data['a4-6-date'],
+                    fieldset: {
+                        legend: {
+                            text: 'Start date',
+                            classes: 'govuk-fieldset__legend--s',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2007'
+                    }
+                }) }}
+                {% endset -%} 
+
+                {{ govukRadios({
+                    id: 'a4-6',
+                    name: 'a4-6',
+                    value: data['a4-6'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you know the start 
+                            date of the private 
+                            communication?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional : {
+                            html: startDate
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

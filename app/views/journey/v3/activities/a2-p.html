@@ -1,0 +1,62 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+    Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a3' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'a2-p',
+                    name: 'a2-p',
+                    values: data['a2-p'],
+                    fieldset: {
+                        legend: {
+                            text: 'What is the activity intended to influence?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'Select all that apply.'
+                    },
+                    items: [
+                    {
+                       value: 'UK elections or referendums',
+                        text: 'UK elections or referendums'
+                    },
+                    {
+                        value: 'Decisions of the government of the UK, 
+                        Northern Ireland, Scotland or Wales  ',
+                         text: 'Decisions of the government of the UK, 
+                         Northern Ireland, Scotland or Wales  '
+                     },
+                     {
+                        value: 'UK political parties',
+                         text: 'UK political parties'
+                     },
+                     {
+                        value: 'Members of either of the Houses of 
+                        Parliament, the Northern Ireland Assembly, 
+                        the Scottish Parliament or Senedd Cymru  ',
+                         text: 'Members of either of the Houses of 
+                         Parliament, the Northern Ireland Assembly, 
+                         the Scottish Parliament or Senedd Cymru  '
+                     }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

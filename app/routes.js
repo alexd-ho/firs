@@ -2035,13 +2035,34 @@ router.post('/route-v3/r6', function(request, response) {
 
 /// ACTIVITIES
 
+router.post('/route-v3/a2-e', function(request, response) {
+    var value = request.session.data['a2-e']
+    if (value == 'The activity has a non-political objective'){ 
+        response.redirect(activities_v3+'/a4-4')
+    } else {
+        response.redirect(activities_v3+'/a3')
+    }
+})
+
+// REF v1/activities/4-0b
+// router.post('/route/4-0b', function(request, response) {
+
+//     var value = request.session.data['v4-0b']
+//     if (value == "Non-political"){ // state type of political activity
+//         response.redirect(activity+"4-5")
+//     } else { // 'other' type
+//         response.redirect(activity+"4-1")
+//     }
+// })
+
+
 router.post('/route-v3/a3', function(request, response) {
     var value = request.session.data['a3'] //
     if (value == "Private communication") { // 
         response.redirect(activities_v3+"/a4-1")
     } else if (value == "Public communication") { // 
         response.redirect(activities_v3+"/a5-1")
-    } else if (value == "Distribution of money, goods or services") { // 
+    } else if (value == "Offer of money, goods or services") { // 
         response.redirect(activities_v3+"/a6-1")
     } else {
         response.redirect(activities_v3+"/a7-1")
@@ -2049,13 +2070,49 @@ router.post('/route-v3/a3', function(request, response) {
 })
 
 router.post('/route-v3/a4-2', function(request, response) {
-    var value = request.session.data['a3'] //
-    if (value == "I am doing the communication myself") { // 
-        response.redirect(activities_v3+"/a4-1")
-    } else if (value == "I am organising for others to do the communication") { // 
-        response.redirect(activities_v3+"/a5-1")
-    } else if (value == "I am both doing the communication myself and organising for other to do it") { // 
-        response.redirect(activities_v3+"/a6-1")
+    var value = request.session.data['a4-2'] //
+    if (value == "I am doing the private communication myself") { // 
+        response.redirect(activities_v3+"/a4-5")
+    } else { // 
+        response.redirect(activities_v3+"/a4-3")
+    }
+})
+
+router.post('/route-v3/a5-2', function(request, response) {
+    var value = request.session.data['a5-2'] //
+    if (value == "I am doing the public communication myself") { // 
+        response.redirect(activities_v3+"/a5-5")
+    } else { // 
+        response.redirect(activities_v3+"/a5-3")
+    }
+})
+
+router.post('/route-v3/a6-2', function(request, response) {
+    var value = request.session.data['a6-2'] //
+    if (value == "I am making the offer myself") { // 
+        response.redirect(activities_v3+"/a6-5")
+    } else { // 
+        response.redirect(activities_v3+"/a6-3")
+    }
+})
+
+router.post('/route-v3/a7-2', function(request, response) {
+    var value = request.session.data['a7-2'] //
+    if (value == "I am doing the activity myself") { // 
+        response.redirect(activities_v3+"/a7-5")
+    } else { // 
+        response.redirect(activities_v3+"/a7-3")
+    }
+})
+
+
+// EXCEPTIONS
+router.post('/route-v3/exception-check', function(request, response) {
+    var val = request.session.data['exception-request'];
+    if (val == "Yes") {
+        response.redirect(exception_v3+"/registration-complete?hold-activity=yes")
+    } else  {
+        response.redirect(exception_v3+"/registration-complete?hold-activity=no")
     }
 })
 

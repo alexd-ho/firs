@@ -16,9 +16,9 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
     <div class='govuk-grid-column-two-thirds-from-desktop'>
 
         {% if (data['return'] == 'check') %}
-        <form action="r-check?return=complete" method="post">
+        <form action="r-check?return=complete&r1-tier=political" method="post">
         {% else %}
-        <form action="r6" method="post">						
+        <form action="r6?r1-tier=political" method="post">						
         {% endif %}
 
         <span class="govuk-caption-l">Add an agreement</span>
@@ -33,7 +33,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     <label class="govuk-label" for="r5-a">
                         Name
                     </label>
-                    <input class="govuk-input" id="r5-a" name="r5-a" type="text" autocomplete="organization">
+                    <input class="govuk-input" id="r5-a" name="r5-a" type="text" autocomplete="organization" value="{{data['r5-a']}}">
                 </div>
                 <div class="govuk-form-group">
                     <label class="govuk-label" for="r5-b">
@@ -288,10 +288,14 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                         Type of entity
                     </label>
                     <select class="govuk-select" id="r5-c" name="r5-c">
-                    <option value="" selected disabled>Select an option</option>
-                    <option value="Option 1">Option 1</option>
-                    <option value="Option 2">Option 2</option>
-                    <option value="Option 3">Option 3</option>
+                        <option value="" selected disabled>Select an option</option>
+                        <option value="Office of the head of state">Office of the head of state</option>
+                        <option value="National government">National government</option>
+                        <option value="OpLocal government">Local government</option>
+                        <option value="Government agency or authority">Government agency or authority</option>
+                        <option value="Authority administering affairs in an area">Authority administering affairs in an area</option>
+                        <option value="Governing political party">Governing political party</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 

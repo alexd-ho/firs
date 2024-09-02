@@ -1,0 +1,39 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+{% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-check' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'a4-9',
+                    name: 'a4-9',
+                    value: data['a4-9'],
+                    label: {
+                        text: 'What do you want to 
+                        achieve from the private 
+                        communication?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'Describe the specific results or changes you hope 
+                        to see as a result of this private communication.'
+                    }
+                }) }} 
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

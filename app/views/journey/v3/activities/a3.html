@@ -1,0 +1,65 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/a3' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'a3',
+                    name: 'a3',
+                    value: data['a3'],
+                    fieldset: {
+                        legend: {
+                            text: 'What type of activity do you want to register?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'Select one activity type. You can additional types after registering this activity.'
+                    },
+                    items: [
+                    {
+                        value: 'Private communication',
+                         text: 'Private communication',
+                         hint: {
+                             text: 'For example, sending an email or a letter, 
+                             or having a private conversation'
+                         }
+                     },
+                     {
+                        value: 'Public communication',
+                         text: 'Public communication',
+                         hint: {
+                             text: 'For example, a social media post, leaflet, 
+                             poster or newspaper article'
+                         }
+                     },
+                     {
+                        value: 'Offer of money, goods or services',
+                         text: 'Offer of money, goods or services',
+                         hint: {
+                             text: 'For example, the disbursement of physical 
+                             gifts, direct or indirect payments, travel and 
+                             accommodation, or consultancy'
+                         }
+                     }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

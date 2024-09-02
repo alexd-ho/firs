@@ -1,0 +1,78 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+{% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a4-9' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+
+                {% set otherPeriod %}
+                {{ govukInput({
+                    id: 'a4-8-other',
+                    name: 'a4-8-other',
+                    value: data['a4-8-other'],
+                    type: 'text',
+                    autocomplete: 'text',
+                    classes: 'govuk-!-width-two-thirds',
+                    label: {
+                        text: 'Describe the frequency of the private communication'
+                    }
+                }) }}
+                {% endset -%} 
+
+                {{ govukRadios({
+                    id: 'a4-8',
+                    name: 'a4-8',
+                    value: data['a4-8'],
+                    fieldset: {
+                        legend: {
+                            text: 'How often will the private communication occur?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Daily',
+                        text: 'Daily'
+                    },
+                    {
+                       value: 'Weekly',
+                        text: 'Weekly'
+                    },
+                    {
+                       value: 'Monthly',
+                        text: 'Monthly'
+                    },
+                    {
+                       value: 'A one-off activity',
+                        text: 'A one-off activity'
+                    },
+                    {
+                        divider: "or"
+                    },
+                    {
+                       value: 'A different period of time',
+                        text: 'A different period of time',
+                        conditional : {
+                            html: otherPeriod
+                        }
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

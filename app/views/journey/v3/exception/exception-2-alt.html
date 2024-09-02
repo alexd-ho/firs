@@ -1,0 +1,110 @@
+{% extends "layouts/main-v2.html" %}
+{% set bodyClasses = "activities" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+{% endblock %}
+
+{% block footer %}
+ {{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "exception-2",
+         text: "Alternate expanded version"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+<form action="exception-3" method="post">
+
+
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds-from-desktop">
+
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+          
+          {{ govukCheckboxes({
+            name: "exception-reason",
+            id: "exception-reason",
+            values: data['exception-reason'],
+            fieldset: {
+              legend: {
+                text: "Why do you want the information to remain private?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Select all that apply."
+            },
+            items: [
+              {
+                value: "Safety to the UK",
+                text: "Safety to the UK",
+                hint: {
+                  text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK."
+                }
+              },
+              {
+                value: "Safety to the individual",
+                text: "Safety to the individual",
+                hint: {
+                  text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm."
+                }
+              },
+              {
+                value: "Prejudicial to criminal investigation",
+                text: "Prejudicial to criminal investigation",
+                hint: {
+                  text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime."
+                }
+              },
+              {
+                value: "Commercially sensitive",
+                text: "Commercially sensitive",
+                hint: {
+                  text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity."
+                }
+              }
+            ]
+          }) }}
+
+
+      </div>
+    </div>
+
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  </form>
+
+{% endblock %}

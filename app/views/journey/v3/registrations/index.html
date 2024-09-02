@@ -50,11 +50,14 @@
 			<div class="govuk-summary-card">
 				<div class="govuk-summary-card__title-wrapper">
 					<h2 class="govuk-summary-card__title">
-						{% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}				
+						{% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	<!-- {{data['r1-tier']}} -->
 				    </h2>
 					<ul class="govuk-summary-card__actions">
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activities/a1?assigned-registration=reg1">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+							<a class="govuk-link" href="registrations/r-check">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li>
+						<li class="govuk-summary-card__action">
+							<a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
 						</li>
 					</ul>
 				</div>

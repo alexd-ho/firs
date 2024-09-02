@@ -1,0 +1,381 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+      <span class="govuk-caption-l">Add an activity</span>
+
+      <h1 class="govuk-heading-l">Who is intended to receive this private communication?</h1>
+      <div class="govuk-hint">Add as many people and organisations as required, or leave empty if no one else is involved</div>
+      
+      <form action="a4-6" method="post">
+
+        <div id="js-activity-wrapper">
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+        {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+        {% call govukFieldset({
+          classes: "person-module",
+          legend: {
+            text: "Recipient 1",
+            classes: "hidden",
+            isPageHeading: false
+          }
+        }) %}
+
+
+          {{ govukSelect({
+            id: "a4-5--type-1",
+            name: "a4-5--type-1",
+            label: {
+              text: "Type of recipient"
+            },
+            items: [
+              {
+                value: "default",
+                text: "Select"
+              },
+              {
+                value: "Civil servants",
+                text: "Civil servants"
+              },
+              {
+                value: "Election candidates",
+                text: "Election candidates"
+              },
+              {
+                value: "Local government",
+                text: "Local government"
+              },
+              {
+                value: "Ministers of Parliament or their employees",
+                text: "Ministers of Parliament or their employees"
+              },
+              {
+                value: "Ministers",
+                text: "Ministers"
+              },
+              {
+                value: "Military personnel",
+                text: "Military personnel"
+              },
+              {
+                value: "Police",
+                text: "Police"
+              },
+              {
+                value: "Political parties",
+                text: "Political parties"
+              }
+            ]
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Full name"
+            },
+            classes: "name-field",
+            id: "a4-5--name-1",
+            name: "a4-5--name-1"
+          }) }}
+
+
+
+            <div class="govuk-heading-m update-button-group update-button-group--hidden">
+                <div class="person-texts">
+                </div>
+                <div class="person-actions  govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save  <span class="govuk-visually-hidden"> this person or organisation, and minimise this panel </span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+            </div>
+
+            <div class="govuk-heading-m min-label">
+                <div class="person-texts">
+                    <div class="govuk-caption-m">Person or Organisation 1</div>
+                    <div class="govuk-heading-m min-label__name"></div>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit <span class="govuk-visually-hidden"> this person or organisation</span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions govuk-summary-card__actions--undo">
+                    <li class="govuk-summary-card__action govuk-summary-card__action--confirm"><a href="#"  class="govuk-link button--confirm">Confirm <span class="govuk-visually-hidden"> the deletion of this person or organisation - this action is irreversible</span></a></li>
+                    <li class="govuk-summary-card__action govuk-summary-card__action--undo"><a href="#"  class="govuk-link button--undo">Cancel <span class="govuk-visually-hidden"> the deletion of this person or organisation</span></a></li>
+                </div>
+            </div>
+
+        {% endcall %}
+
+      </div>
+
+        <div id="add-another-button"  class="govuk-!-padding-top-5">
+          <a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another</a>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+<details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Types of recipient receiving this private communication
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+      <p>Civil servants</p>
+      <ul>
+        <li>A member of the Senior Civil Service (for example, a Permanent Secretary, Director General or Deputy Director of a UK government department)</li>
+        <li>A member of the Northern Ireland Senior Civil Service</li>
+        <li>A member of the Senior Management Structure of His Majesty's Diplomatic Service</li>
+        <li>A special adviser within the UK Civil Service</li>
+        <li>A special adviser within the Northern Ireland Civil Service</li>
+      </ul>
+
+      <p>Election candidates</p>
+      <ul>
+        <li>A candidate at an election for a relevant elective office</li>
+        <li>A candidate at an election for a relevant Scottish elective office</li>
+      </ul>
+
+      <p>Local government</p>
+      <ul>
+        <li>The Mayor of London</li>
+        <li>A Mayor for the area of a combined authority</li>
+      </ul>
+
+      <p>Ministers of Parliament or their employees</p>
+      <ul>
+        <li>A Member of either House of Parliament</li>
+        <li>A Member of the Northern Ireland Assembly</li>
+        <li>A Member of the Scottish Parliament</li>
+        <li>A Member of Senedd Cymru</li>
+        <li>An employee or other member of staff of any of the above individuals</li>
+      </ul>
+
+      <p>Ministers</p>
+      <ul>
+        <li>A Minister of the Crown</li>
+        <li>A Northern Ireland Minister</li>
+        <li>A Scottish Minister</li>
+        <li>A Welsh Minister</li>
+      </ul>
+
+      <p>Military personnel</p>
+      <ul>
+        <li>An armed forces officer who is of, or above, the rank of commodore, brigadier, or air commodore</li>
+      </ul>
+
+      <p>Police</p>
+      <ul>The chief constable or deputy chief constable of a police force</li>
+        <li>A police and crime commissioner. The Commissioner, Deputy Commissioner, Assistant Commissioner or Deputy Assistant Commission of Police of the Metropolis</li>
+        <li>The Commissioner or Assistant Commissioner of Police for the City of London</li>
+        <li>The chief constable or deputy chief constable of the Police Service of Northern Ireland </li>
+        <li>The chief constable or a deputy chief constable of the Police Service of Scotland</li>
+        <li>The chief constable or a deputy chief constable of the Ministry of Defence Police</li>
+        <li>The chief constable or deputy chief constable of the British Transport Police Force</li>
+        <li>The chief constable or deputy chief constable of the Civil Nuclear Constabulary</li>
+        <li>A Director General, Director or Deputy Director of the National Crime Agency</li>
+      </ul>
+
+      <p>Political parties</p>
+      <ul>
+        <li>An officer, trustee, or agent of a UK registered political party</li>
+        <li>A Member of such a political party who exercises executive functions on behalf of the party</li>
+      </ul>
+    </div>
+</details>
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script>
+
+function dynamicTitle () {
+    $('#js-activity-wrapper').on("keyup", ".name-field", function( event ) {
+      let thisName = $(this).val();
+      $(this).closest(".person-module").find(".min-label__name").html(thisName);
+    })
+}
+
+function addNew() {
+
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+
+      $('.person-module').addClass('person-module--hidden');
+
+      var s = stringToHTML(`
+      
+        {% call govukFieldset({
+          classes: "person-module",
+          legend: {
+            text: "Recipient ${newNameId}",
+            classes: "hidden",
+            isPageHeading: true
+          }
+        }) %}
+
+
+          {{ govukSelect({
+            id: "a4-5--type-${newNameId}",
+            name: "a4-5--type-${newNameId}",
+            label: {
+              text: "Type of recipient"
+            },
+            items: [
+              {
+                value: "default",
+                text: "Select"
+              },
+              {
+                value: "Civil servants",
+                text: "Civil servants"
+              },
+              {
+                value: "Election candidates",
+                text: "Election candidates"
+              },
+              {
+                value: "Local government",
+                text: "Local government"
+              },
+              {
+                value: "Ministers of Parliament or their employees",
+                text: "Ministers of Parliament or their employees"
+              },
+              {
+                value: "Ministers",
+                text: "Ministers"
+              },
+              {
+                value: "Military personnel",
+                text: "Military personnel"
+              },
+              {
+                value: "Police",
+                text: "Police"
+              },
+              {
+                value: "Political parties",
+                text: "Political parties"
+              }
+            ]
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Full name"
+            },
+            classes: "name-field",
+            id: "a4-5--name-${newNameId}",
+            name: "a4-5--name-${newNameId}"
+          }) }}
+
+
+            <div class="govuk-heading-m update-button-group update-button-group--hidden">
+                <div class="person-texts">
+                </div>
+                <div class="person-actions  govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--save">Save  <span class="govuk-visually-hidden"> this person or organisation, and minimise this panel </span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+            </div>
+
+            <div class="govuk-heading-m min-label">
+                <div class="person-texts">
+                    <div class="govuk-caption-m">Person or Organisation 1</div>
+                    <div class="govuk-heading-m min-label__name"></div>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action"><a href="#" class="govuk-link button--update">Edit <span class="govuk-visually-hidden"> this person or organisation</span></a></li>
+                    <li class="govuk-summary-card__action"><a href="#"  class="govuk-link button--delete">Delete <span class="govuk-visually-hidden"> this person or organisation - you can undo this action if required</span></a></li>
+                </div>
+                <div class="person-actions  govuk-summary-card__actions govuk-summary-card__actions--undo">
+                    <li class="govuk-summary-card__action govuk-summary-card__action--confirm"><a href="#"  class="govuk-link button--confirm">Confirm <span class="govuk-visually-hidden"> the deletion of this person or organisation - this action is irreversible</span></a></li>
+                    <li class="govuk-summary-card__action govuk-summary-card__action--undo"><a href="#"  class="govuk-link button--undo">Cancel <span class="govuk-visually-hidden"> the deletion of this person or organisation</span></a></li>
+                </div>
+            </div>
+
+        {% endcall %}
+      `);
+
+
+    $('.button--update').on('click', function() {
+        $(this).closest(".person-module").removeClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+        return false;
+    })
+    $('.button--save').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+        return false;
+    })
+    $('.button--delete').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+        $(this).closest(".person-module").addClass('person-module--delete')
+        return false;
+    })
+    $('.button--undo').on('click', function() {
+        $(this).closest(".person-module").removeClass('person-module--delete')
+        return false;
+    })
+    $('.button--confirm').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--deleted')
+        return false;
+    })
+
+
+
+      names.appendChild(s);
+      // document.getElementById("industry"+newNameId).focus();
+      newNameId++;
+      return false;
+      console.log(newNameId);
+    };
+    
+};
+
+
+window.onload = function() {
+    dynamicTitle();
+    addNew();
+};
+
+</script>
+
+{% endblock %}
+
+
+
