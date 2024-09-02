@@ -190,40 +190,97 @@
 
         
         <form action="/route-v3/exception-check" method="post">
+          
             
-            {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-            
-            {{ govukCheckboxes({
-              name: "exception-request",
-              id: "exception-request",
-              fieldset: {
-                legend: {
-                  text: "Do you want to request that the information remains private?",
-                  isPageHeading: false,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              hint: {
-                classes: "govuk-hint",
-                html: "<p>Some of the information about this activity will appear on a public register. You can make a request for this information to remain private if you have a legitimate reason.</p>"
-              },
-              items: [
-                {
-                  value: "Yes",
-                  text: "I would like to request that the information remains private."
-                }
-              ]
-            }) }}
-
-
-
-            {{ govukButton({
-              text: "Submit activity"
-            }) }}
-
-
-            
-        </form>
+                {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+    
+                {% set exceptionOptions %}
+                {{ govukCheckboxes({
+                  name: "exception-reason",
+                  id: "exception-reason",
+                  values: data['exception-reason'],
+                  classes: "govuk-checkboxes--small",
+                  fieldset: {
+                    legend: {
+                      text: "Why do you want this information to remain private?",
+                      isPageHeading: true,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  hint: {
+                    text: "You will need to give evidence on the next page to keep this information private."
+                  },
+                  items: [
+                    {
+                      value: "Safety to the UK",
+                      text: "Safety to the UK",
+                      hint: {
+                        text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
+                      }
+                    },
+                    {
+                      value: "Risk to the safety of an individual",
+                      text: "Risk to the safety of an individual",
+                      hint: {
+                        text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
+                      }
+                    },
+                    {
+                      value: "Prejudicial to criminal investigation",
+                      text: "Prejudicial to criminal investigation",
+                      hint: {
+                        text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
+                      }
+                    },
+                    {
+                      value: "Commercially sensitive",
+                      text: "Commercially sensitive",
+                      hint: {
+                        text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
+                      }
+                    }
+                  ]
+                }) }}
+                {% endset -%}
+                
+                {{ govukRadios({
+                  name: "exception-request",
+                  id: "exception-request",
+                  fieldset: {
+                    legend: {
+                      text: "Do you want to request that the information remains private?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--m"
+                    }
+                  },
+                  hint: {
+                    classes: "govuk-hint",
+                    html: "<p>Some of the information about this activity will appear on a public register. You can make a request for the information to remain private if you have a legitimate reason.</p>"
+                  },
+                  items: [
+                    {
+                      value: "Yes",
+                      text: "I would like to request that the information remains private.",
+                        conditional: {
+                            html: exceptionOptions
+                        }
+                    },
+                    {
+                      value: "No",
+                      text: "I am aware this information will appear on a public register."
+                    }              ]
+                }) }}
+    
+    
+    
+                {{ govukButton({
+                  text: "Submit activity"
+                }) }}
+    
+    
+                
+            </form>
+    
   
     </div>
   </div>
