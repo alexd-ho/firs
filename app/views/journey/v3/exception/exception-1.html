@@ -57,7 +57,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-            {% if (data['registrant-type'] == "individual") %}
+            {% if (data['acc-type'] == "Individual") %}
             <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
 
@@ -85,7 +85,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 
                             <dd class="govuk-summary-list__actions ">
                                 <label class="exception-checkbox">
-                                    <input class="" name="individual-v1" type="checkbox" value="Andy Marshall">
+                                    <input class="" name="individual-v1" type="checkbox" value="{{data['accName']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -99,12 +99,12 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                                 Location
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v3-1-6-town']}}, ,  {{data['v3-1-6-country']}}
+                                {{data['v3-1-6-town']}}, {{data['v3-1-6-country']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="individual-v2" type="checkbox" value="Sheffield, UK">
+                                    <input class="" name="individual-v2" type="checkbox" value="{{data['v3-1-6-town']}}, {{data['v3-1-6-country']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -121,7 +121,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="individual-v3" type="checkbox" value="1977">
+                                    <input class="" name="individual-v3" type="checkbox" value="{{data['v3-1-4-year']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -135,7 +135,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
             {% endif %}
 
 
-            {% if (data['registrant-type'] == "organisation") %}
+            {% if (data['acc-type'] == "Entity") %}
             <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
 
@@ -273,12 +273,12 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                                 Foreign Power
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                Foreign Power 2
+                                {% if (data['r2'] == "A foreign power-controlled entity") %} {{data['r3a']}}{% elseif (data['r3'] == "Yes") %} {{data['r4']}} {% else  %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="arrangement-v1" type="checkbox" value="Foreign Power 2">
+                                    <input class="" name="arrangement-v1" type="checkbox" value="{% if (data['r2'] == "A foreign power-controlled entity") %} {{data['r3a']}}{% elseif (data['r3'] == "Yes") %} {{data['r4']}} {% else  %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -287,7 +287,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                         </div>
 
 
-
+<!--
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Type of foreign power
@@ -333,19 +333,27 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 
                         </div>
 
-
+-->
 
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
-                                Formal contract or agreement with foreign power
+                                {{data['r6']}}
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                12 Jun 2023
+                                {% if (data['r6'] == 'Signed contract') %}
+                                {{data['r7-day']}}/{{data['r7-month']}}/{{data['r7-year']}}
+                                {% else  %}                                                                    
+                                {{data['r8-day']}}/{{data['r8-month']}}/{{data['r8-year']}}
+                                {% endif %}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="arrangement-v4" type="checkbox" value="12 Jun 2023">
+                                    <input class="" name="arrangement-v4" type="checkbox" value=" {{data['r6']}}: {% if (data['r6'] == 'Signed contract') %}
+                                    {{data['r7-day']}}/{{data['r7-month']}}/{{data['r7-year']}}
+                                    {% else  %}                                                                    
+                                    {{data['r8-day']}}/{{data['r8-month']}}/{{data['r8-year']}}
+                                    {% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -359,7 +367,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
             </div>
 
 
-            {% if (data['activityType'] == "private") %}
+            {% if (data['a3'] == "Private communication") %}
 
             <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
@@ -382,7 +390,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                                 What is this activity intended to influence?
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-0a']}}
+                                {{data['a2-e']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
@@ -399,10 +407,12 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
-                                Types of private communication
+                                How will the private 
+communication be 
+made?
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-2']}}
+                                {{data['a4-1']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
@@ -416,26 +426,26 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                         </div>
 
 
-                        {% if (data['v4-G1-1--t2'] == "yes") %}
+                        {% if (data['a4-2'] == "I am doing the private communication myself") %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 People involved in this activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                Andy Marshall (Registrant)
+                                {{data['accName']}} (Registrant)
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var3" type="checkbox"
-                                        value="Andy Marshall (Registrant)">
+                                        value="{{data['accName']}} (Registrant)">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
                             </dd>
 
                         </div>
-                        {% endif %}
+                        {% else %}
 
                         {% if (data['v4-G1-3--t2--name-1']) %}
                         <div class="govuk-summary-list__row">
@@ -477,6 +487,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                             </dd>
 
                         </div>
+                        {% endif %}
                         {% endif %}
 
 
