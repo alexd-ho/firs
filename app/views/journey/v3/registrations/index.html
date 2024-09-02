@@ -36,8 +36,7 @@
 			<span class="govuk-caption-l">Your registrations</span>
 
 			<h1 class="govuk-heading-l">
-				{% if (data['accName']) %}{{data['accName']}}
-				{% else %}Registrant Name{% endif %}
+				{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
 			</h1>
 			{% if (condition) %}
 				
