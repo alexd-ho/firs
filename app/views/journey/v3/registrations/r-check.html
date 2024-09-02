@@ -14,7 +14,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        <span class="govuk-caption-l">Adding a registration</span>
+        <span class="govuk-caption-l">Add an agreement</span>
 
         <h1 class="govuk-heading-l">Check your answers</h1>
 
@@ -71,7 +71,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     Foreign power in the agreement
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{data['r5-a']}} - {{data['r5-b']}} - {{data['r5-c']}}
+                    {{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}})
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="r5?return=check">Change<span class="govuk-visually-hidden"> Former
@@ -132,7 +132,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
         </dl>
 
     {{ govukButton({
-        text: "Save registration",
+        text: "Save agreement",
         href: "../registrations?reg1=complete"
     }) }}
 

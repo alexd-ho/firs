@@ -15,7 +15,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
     
                 <form action='/route-v3/r6' method='post'>
     
-                <span class="govuk-caption-l">Adding a registration</span>
+                    <span class="govuk-caption-l">Add an agreement</span>
 
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -38,7 +38,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                         value: 'Non-signed written agreement',
                         text: 'Non-signed written agreement',
                         hint: {
-                            text: 'For example, an email or text message'
+                            text: 'For example, an email or a text message'
                         }
                     },
                     {

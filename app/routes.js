@@ -1840,13 +1840,13 @@ router.post('/route-v3/on-3', function(request, response) {
 router.post('/route-v3/on-4', function(request, response) {
     var value = request.session.data['v-on-4'];
     // var accName = request.session.data['v-on-4'];
-    response.redirect(account_v3+"?acc-type=Organisation&misrep=false&tier=enhanced"+value)
+    response.redirect(account_v3+"?acc-type=Entity&misrep=false&tier=enhanced&accName="+value)
 })
 
 router.post('/route-v3/on-5', function(request, response) {
     var value = request.session.data['v-on-5'];
     if (value == "No"){ 
-        response.redirect(onboard_v3+"on-name?acc-type=Organisation&misrep=false&tier=default")
+        response.redirect(onboard_v3+"on-name?acc-type=Entity&misrep=false&tier=default")
     } else { 
         response.redirect(onboard_v3+"on-6")
     }
@@ -2007,7 +2007,7 @@ router.post('/route-v3/o2', function(request, response) {
 
 router.post('/route-v3/r2', function(request, response) {
     var value = request.session.data['r2'] //
-    if (value == "A foreign power") { // 
+    if (value == "Foreign power") { // 
         response.redirect(registration_v3+"/r3")
     } else {
         response.redirect(registration_v3+"/r3a")            

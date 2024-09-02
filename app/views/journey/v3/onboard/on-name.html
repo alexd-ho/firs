@@ -16,7 +16,7 @@
 
 		<form action="on-check" method="post">
 
-			<span class="govuk-caption-l">Setting up your account</span>
+            <span class="govuk-caption-l">Check what account you need</span>
 			
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
@@ -27,7 +27,7 @@
 					text: "This is be the name the individual is typically known by. We will ask for other details such as former names later."
 				} -->
 
-			{% if (data['acc-type'] == "Organisation") %}
+			{% if (data['acc-type'] == "Entity") %}
 			{{ govukInput({
 				id: "accName",
 				name: "accName",

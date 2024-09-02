@@ -10,12 +10,8 @@
    meta: {
      items: [
        {
-         href: "account-2",
-         text: "Partial account home"
-       },
-       {
-         href: "account-3",
-         text: "Completed account home"
+         href: "registrations/prefilled",
+         text: "Prefilled Regsitration"
        },
        {
          href: "/manage-prototype",
@@ -47,7 +43,7 @@
 				
 			{% endif %}
 
-			<p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).<br> You can <a href="registrations/r1">add a new registration here</a>.</p>
+			<p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).</p>
 
 			{% if (data['reg1'] == 'complete') %}
 
@@ -58,7 +54,7 @@
 				    </h2>
 					<ul class="govuk-summary-card__actions">
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activities/a1?assigned-registration=reg1">Add a new activity<span class="govuk-visually-hidden"> for the Ukraine registration</span></a>
+							<a class="govuk-link" href="activities/a1?assigned-registration=reg1">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
 						</li>
 					</ul>
 				</div>
@@ -94,198 +90,8 @@
 			{% endif %}
 
 
-			<div class="govuk-summary-card">
-				<div class="govuk-summary-card__title-wrapper">
-					<h2 class="govuk-summary-card__title">
-		      Spain
-		    </h2>
-					<!-- 		    <ul class="govuk-summary-card__actions">
-		      <li class="govuk-summary-card__action">
-		        <a class="govuk-link" href="#">Add a new activity<span class="govuk-visually-hidden"> for the Spain registration</span></a>
-		      </li>
-		    </ul>
- -->
-				</div>
-				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-1">Public Communication</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-			        Public speaking event, Social Media
-		        </dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--green'>Published</strong>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/money-1">Distribution of money, goods or services</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-			        £20,000 - Jane Smith, Robert Jones
-		        </dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--red'>Action required</strong>
-							</dd>
-						</div>
+			<a class="govuk-button " href="registrations/r1">Add a new agreement</a>
 
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="activity/new">Add a new activity<span class="govuk-visually-hidden"> for the Ukraine registration</span></a>
-							</dt>
-							<dd class="govuk-summary-list__value"></dd>
-							<dd class="govuk-summary-list__actions"></dd>
-						</div>
-
-					</dl>
-				</div>
-			</div>
-
-			<div class="govuk-summary-card">
-				<div class="govuk-summary-card__title-wrapper">
-					<h2 class="govuk-summary-card__title">
-		      Ukraine
-		    </h2>
-					<ul class="govuk-summary-card__actions">
-						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activity/new">Add a new activity<span class="govuk-visually-hidden"> for the Ukraine registration</span></a>
-						</li>
-					</ul>
-				</div>
-				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-2">Public Communication</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-			        Public speaking event, Social Media, Website
-		        </dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--blue'>Submitted</strong>
-							</dd>
-						</div>
-
-						<!--       <div class="govuk-summary-list__row">
-		        <dt class="govuk-summary-list__key">
-		          <a class="govuk-link" href="registrations/public-2">Public Communication</a>
-		        </dt>
-		        <dd class="govuk-summary-list__value">
-			    </dd>
-		        <dd class="govuk-summary-list__actions">
-		        </dd>
-		      </div>
-		 -->
-					</dl>
-				</div>
-			</div>
-
-			<a class="govuk-button " href="registrations/r1">Add a new registration<span class="govuk-visually-hidden"> for the Foreign Power Y registration</span></a>
-
-			<p>Different style</p>
-
-			<div class="govuk-summary-card">
-				<div class="govuk-summary-card__title-wrapper">
-					<h2 class="govuk-summary-card__title">
-		      Foreign Power Y
-		    </h2>
-					<!-- 	    <ul class="govuk-summary-card__actions">
-		      <li class="govuk-summary-card__action">
-		        <a class="govuk-link" href="#">Add a new activity<span class="govuk-visually-hidden"> for the Foreign Power Y registration</span></a>
-		      </li>
-		    </ul> -->
-				</div>
-				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-		          Public Communication
-		        </dt>
-							<dd class="govuk-summary-list__value">
-			        Public speaking event, Radio
-		        </dd>
-							<dd class="govuk-summary-list__status">
-								<strong class='govuk-tag govuk-tag--green'>Published</strong>
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> age (Lead tenant)</span></a>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-		          Private Communication
-		        </dt>
-							<dd class="govuk-summary-list__value">
-		          Email (John Smith)
-		        </dd>
-							<dd class="govuk-summary-list__status">
-								<strong class='govuk-tag govuk-tag--blue'>Pending</strong>
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<ul class="govuk-summary-list__actions-list">
-									<li class="govuk-summary-list__actions-list-item">
-										<a class="govuk-link" href="#">Request Exception<span class="govuk-visually-hidden"> nationality (Lead tenant)</span></a>
-									</li>
-									<li class="govuk-summary-list__actions-list-item">
-										<a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> nationality (Lead tenant)</span></a>
-									</li>
-								</ul>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-		          Non-public activity
-		        </dt>
-							<dd class="govuk-summary-list__value"></dd>
-							<dd class="govuk-summary-list__status">
-								<strong class='govuk-tag govuk-tag--green'>Completed</strong>
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a>
-							</dd>
-						</div>
-
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-button" href="activity/new">Add a new activity<span class="govuk-visually-hidden"> for the Ukraine registration</span></a>
-							</dt>
-							<dd class="govuk-summary-list__value"></dd>
-							<dd class="govuk-summary-list__actions"></dd>
-						</div>
-
-					</dl>
-				</div>
-			</div>
-
-			<!-- 
-		{{ govukSummaryList({
-		  card: {
-		    title: {
-		      text: "Registrations"
-		    }
-		  },
-		  rows: [
-		    {
-		      key: {
-		        text: "None"
-		      },
-		      value: {
-		        html: "Complete Account information first"
-		      },
-		      actions: {
-		        items: [
-		          {
-		            href: "#",
-		            text: "Update",
-		            visuallyHiddenText: "age"
-		          }
-		        ]
-		      }
-		    }
-		  ]
-		}) }} -->
 
 		</div>
 

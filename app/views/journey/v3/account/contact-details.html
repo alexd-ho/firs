@@ -91,7 +91,7 @@ Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
                     endif %}{% if (data['v3-1-6-postcode']) %}, {{data['v3-1-6-postcode']}}{% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="3-1-6?return=update">Change<span class="govuk-visually-hidden"> Residential
+                    <a class="govuk-link" href="3-1-6-a?return=update">Change<span class="govuk-visually-hidden"> Residential
                             Address</span></a>
                 </dd>
             </div>
@@ -99,7 +99,7 @@ Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
             {% if (data['v3-1-7'] == "Yes") %}
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Correspondence address
+                    Contact address
                 </dt>
                 <dd class="govuk-summary-list__value">
                     {% if (data['v3-1-8-line-1']) %}{{data['v3-1-8-line-1']}}{% endif %}{% if (data['v3-1-8-line-2'])

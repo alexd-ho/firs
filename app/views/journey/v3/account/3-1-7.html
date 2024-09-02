@@ -290,7 +290,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 			    name: "v3-1-7",
 			    id: "v3-1-7",
 			    value: data['v3-1-7'],
-			    fieldset: {
+				fieldset: {
 					legend: {
 						text: "Which address should we use to contact you?",
 						isPageHeading: true,
@@ -301,14 +301,21 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 					text: "This is the address we will use if we need to send any physical documents."
 				},
 			    items: [
-			    {
-			        value: "Yes",
-			        text: "Yes"
-			    },
-			    {
-			        value: "No",
-			        text: "No"
-			    }
+					{
+						value: prevAddress,
+						text: prevAddress
+					},
+					{
+						value: "different-uk",
+						text: "A different address in the UK"
+					},
+					{
+						value: "different-non-uk",
+						text: "A different address outside the UK",
+						conditional: {
+							html: correspondenceCountry
+						}
+					}
 			    ]
 			}) }}
 			{% else %}
@@ -328,7 +335,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 				},
 			    items: [
 					{
-						value: prevAddress,
+						value: "previous address",
 						text: prevAddress
 					},
 					{

@@ -17,7 +17,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
             <form action="/route-v3/r2" method="post">						
 
-                <span class="govuk-caption-l">Adding a registration</span>
+                <span class="govuk-caption-l">Add an agreement</span>
 
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -33,15 +33,15 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     },
                     items: [
                     {
-                        value: 'A foreign power',
-                        text: 'A foreign power',
+                        value: 'Foreign power',
+                        text: 'Foreign power',
                         hint: {
                             text: 'Any governmental body, agency, authority or governing political party operating outside the UK and Ireland'
                         }
                     },
                     {
-                        value: 'A foreign power-controlled entity',
-                        text: 'A foreign power-controlled entity',
+                        value: 'Foreign power-controlled entity',
+                        text: 'Foreign power-controlled entity',
                         hint: {
                             text: 'An individual, organisation or part of an organisation specifically designated under UK law as being controlled by a foreign power'
                         }

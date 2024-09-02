@@ -11,7 +11,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
     <div class='govuk-grid-column-two-thirds-from-desktop'>
 
 
-        {% if (data['acc-type'] == 'Organisation') %}
+        {% if (data['acc-type'] == 'Entity') %}
 
             {% if (data['tier'] == 'enhanced') %}
 
@@ -69,7 +69,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {{ govukButton({
                 text: 'Accept and continue',
-                href: '../account/organisation-details?setup=incomplete'
+                href: '../account/e1?setup=incomplete'
             }) }}
     
 
@@ -149,7 +149,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
         <h2 class='govuk-heading-m'>Your answers</h2>
 
-        {% if (data['acc-type'] == 'Organisation') %}
+        {% if (data['acc-type'] == 'Entity') %}
         
         <dl class="govuk-summary-list">
 
@@ -158,7 +158,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
                     What are you registering as?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Organisation or other type of group
+                    Non-individual entity
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="on-1">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -170,7 +170,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Organisation name
+                    Entity name
                 </dt>
                 <dd class="govuk-summary-list__value">
                     {{data['v-on-4']}}
@@ -184,7 +184,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Organisation name
+                    Entity name
                 </dt>
                 <dd class="govuk-summary-list__value">
                     {{data['accName']}}
@@ -198,7 +198,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Is your organisation or group a foreign power?
+                    Is your entity a foreign power?
                 </dt>
                 <dd class="govuk-summary-list__value">
                     {{data['v-on-5']}}

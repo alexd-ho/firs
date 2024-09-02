@@ -20,7 +20,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
             <form action="r6" method="post">						
             {% endif %}
     
-                <span class="govuk-caption-l">Adding a registration</span>
+            <span class="govuk-caption-l">Add an agreement</span>
 
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -29,7 +29,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     value: data['r4'],
                     fieldset: {
                         legend: {
-                            text: 'Which foreign power '+registrant+' have an agreement with?',
+                            text: 'Which specified foreign power '+registrant+' have an agreement with?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
