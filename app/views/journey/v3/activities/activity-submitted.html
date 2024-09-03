@@ -1,0 +1,79 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+        {{ govukPanel({
+          titleText: "Registration submitted",
+          html: "Your reference number<br><strong>HDJ2123F</strong>"
+        }) }}
+        <p>We have sent you a confirmation email.</p>
+
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h2 class="govuk-heading-l">
+            What happens next
+        </h2>
+        
+        <p>The details of your registration will be reviewed. We will contact you to accept your registration or to ask you for more information.</p>
+
+
+
+
+        {% if (data['hold-activity'] == "yes") %}
+
+        <h2 class="govuk-heading-l">
+            Request for your information to remain private
+        </h2>
+
+        <p>You have requested that some of your information remains private. You must submit this request within 5 working days of submitting your activity.</p>
+
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+        {{ govukWarningText({
+          text: "You have 5 working days to submit a request for your information to remain private. If you do not complete your request in that time, your information may be published on the Foreign Influence Registration Scheme public register.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        <a href="exception-1" class="govuk-button">Start request</a>
+
+
+        {% endif %}
+
+        <p><A href="">What did you think of this service?</A> (takes 30 seconds)</p>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third govuk-prototype-kit-common-templates-related-items--">
+        <h2 class="govuk-heading-m">More Information</h2>
+        <ul class="govuk-list">
+            <li>
+                <a class="govuk-link" href="#">Requesting an exception</a>
+            </li>
+            <li>
+                <a class="govuk-link" href="#">Tell us about a material change</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+{% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a7-8' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+
+                {% set endDate %}
+                {{ govukDateInput({
+                    namePrefix: 'a7-7-date',
+                    id: 'a7-7-date',
+                    value: data['a7-7-date'],
+                    fieldset: {
+                        legend: {
+                            text: 'End date',
+                            classes: 'govuk-fieldset__legend--s',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2007'
+                    }
+                }) }}
+                {% endset -%} 
+
+                {{ govukRadios({
+                    id: 'a7-7',
+                    name: 'a7-7',
+                    value: data['a7-7'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you know the end date of the activity?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional : {
+                            html: endDate
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

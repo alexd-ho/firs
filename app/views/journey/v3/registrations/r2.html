@@ -15,7 +15,13 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
 
+            {% if (data['return'] == 'check') %}
+            <form action="r-check?return=complete" method="post">
+            {% elseif (data['return'] == 'update') %}
+            <form action="r-view?return=complete" method="post">
+            {% else  %}
             <form action="/route-v3/r2" method="post">						
+            {% endif %}
 
                 <span class="govuk-caption-l">Add an agreement</span>
 

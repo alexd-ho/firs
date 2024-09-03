@@ -16,6 +16,8 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% if (data['return'] == 'check') %}
             <form action="r-check?return=complete&r1-tier=enhanced" method="post">
+            {% elseif (data['return'] == 'update') %}
+            <form action="r-view?return=complete&r1-tier=enhanced" method="post">
             {% else %}
             <form action="r6?r1-tier=enhanced" method="post">						
             {% endif %}

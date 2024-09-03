@@ -29,9 +29,9 @@
 
 			{% if (data['acc-type'] == "Entity") %}
 			{{ govukInput({
-				id: "accName",
-				name: "accName",
-				value: data['accName'],
+				id: "orgName",
+				name: "orgName",
+				value: data['userName'],
 				label: {
 					text: "What is the name of the entity?",
 					classes: "govuk-label--l",
@@ -40,9 +40,9 @@
 			}) }}
 			{% else %}
 			{{ govukInput({
-				id: "accName",
-				name: "accName",
-				value: data['accName'],
+				id: "userName",
+				name: "userName",
+				value: data['userName'],
 				label: {
 					text: "What is your name?",
 					classes: "govuk-label--l",

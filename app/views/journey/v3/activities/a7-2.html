@@ -8,34 +8,34 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/a6-3' method='post'>
+            <form action='/route-v3/a7-2' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'a6-3',
-                    name: 'a6-3',
-                    value: data['a6-3'],
+                    id: 'a7-2',
+                    name: 'a7-2',
+                    value: data['a7-2'],
                     fieldset: {
                         legend: {
-                            text: 'How are you involved in the offer?',
+                            text: 'How are you involved in the activity?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     items: [
                     {
-                       value: 'I am making the offer myself',
-                        text: 'I am making the offer myself'
+                       value: 'I am doing the activity myself',
+                        text: 'I am doing the activity myself'
                     },
                     {
-                       value: 'I am organising for others to make the offer',
-                        text: 'I am organising for others to make the offer'
+                       value: 'I am organising for others to do the activity',
+                        text: 'I am organising for others to do the activity'
                     },
                     {
-                       value: 'I am both making the offer myself and organising for other to do it',
-                        text: 'I am both making the offer myself and organising for other to do it'
+                       value: 'I am both doing the activity myself and organising for other to do it',
+                        text: 'I am both doing the activity myself and organising for other to do it'
                     }
                     ]
                 }) }}

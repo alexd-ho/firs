@@ -2038,7 +2038,7 @@ router.post('/route-v3/r6', function(request, response) {
 router.post('/route-v3/a2-e', function(request, response) {
     var value = request.session.data['a2-e']
     if (value == 'The activity has a non-political objective'){ 
-        response.redirect(activities_v3+'/a4-4')
+        response.redirect(activities_v3+'/a7-1?activity-type=other&act1=in-progress')
     } else {
         response.redirect(activities_v3+'/a3')
     }
@@ -2059,13 +2059,13 @@ router.post('/route-v3/a2-e', function(request, response) {
 router.post('/route-v3/a3', function(request, response) {
     var value = request.session.data['a3'] //
     if (value == "Private communication") { // 
-        response.redirect(activities_v3+"/a4-1?activity-type=private")
+        response.redirect(activities_v3+'/a4-1?activity-type=private&act1=in-progress')
     } else if (value == "Public communication") { // 
-        response.redirect(activities_v3+"/a5-1?activity-type=public")
+        response.redirect(activities_v3+'/a5-1?activity-type=public&act1=in-progress')
     } else if (value == "Offer of money, goods or services") { // 
-        response.redirect(activities_v3+"/a6-1?activity-type=money")
+        response.redirect(activities_v3+'/a6-1?activity-type=money&act1=in-progress')
     } else {
-        response.redirect(activities_v3+"/a7-1?activity-type=other")
+        response.redirect(activities_v3+'/a7-1?activity-type=other&act1=in-progress')
     }
 })
 
@@ -2137,9 +2137,9 @@ router.post('/route-v3/a7-2', function(request, response) {
 router.post('/route-v3/exception-check', function(request, response) {
     var val = request.session.data['exception-request'];
     if (val == "Yes") {
-        response.redirect(exception_v3+"/registration-complete?hold-activity=yes")
+        response.redirect(exception_v3+"/registration-complete?hold-activity=yes&act1=submitted")
     } else  {
-        response.redirect(exception_v3+"/registration-complete?hold-activity=no")
+        response.redirect(exception_v3+"/registration-complete?hold-activity=no&act1=submitted")
     }
 })
 

@@ -44,14 +44,14 @@ visuallyHiddenTitle: "Footer links"
 
 		<span class="govuk-caption-l">Individual registrant account</span>
 		<h1 class="govuk-heading-l">
-			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
 		</h1>
 
-		{% elseif (data['acc-type'] == "Organisation") %}
+		{% elseif (data['acc-type'] == "Entity") %}
 
 		<span class="govuk-caption-l">Organisation account</span>
 		<h1 class="govuk-heading-l">
-			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
 		</h1>
 
 		{% else %}
@@ -160,7 +160,7 @@ visuallyHiddenTitle: "Footer links"
 
 -->
 
-		{% elseif (data['acc-type'] == "Organisation") %}
+		{% elseif (data['acc-type'] == "Entity") %}
 
 <!--	
 		<div class="govuk-summary-card">
@@ -252,19 +252,19 @@ visuallyHiddenTitle: "Footer links"
 					<h3 class="govuk-heading-m">Identity verification</h3>
 					{% if (data['identity-verification'] == 'Incomplete') %}
 					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has not been completed.<br>
+					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has not been completed.<br>
 						You will be unable to submit registrations until identity verification is complete.</p>
 					{% else %}
 					{% if (data['identity-verification'] == 'Completed') %}
 					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Identity verification has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %}.</p>
+					<p>Identity verification has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %}.</p>
 					{% elseif (data['identity-verification'] == 'Pending') %}
 					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
+					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
 						You will be unable to submit registrations until identity verification is complete.</p>
 					{% elseif (data['identity-verification'] == 'Rejected') %}
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been rejected.<br>
+					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been rejected.<br>
 						You will be unable to submit registrations until identity verification is complete.</p>
 					{% endif %}
 
@@ -274,15 +274,12 @@ visuallyHiddenTitle: "Footer links"
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</div>
 			</div>
-
-
-			{% else %}
 				
 
 
 			{% endif %}
 
-			{% if (data['acc-type'] == "Organisation") %}
+			{% if (data['acc-type'] == "Entity") %}
 			<div class="firs-home-containers__panel">
 				<div>
 					<h3 class="govuk-heading-m">Your organisation</h3>

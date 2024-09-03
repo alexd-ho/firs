@@ -36,11 +36,8 @@
 			<span class="govuk-caption-l">Your registrations</span>
 
 			<h1 class="govuk-heading-l">
-				{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+				{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Registrant Name{% endif %}
 			</h1>
-			{% if (condition) %}
-				
-			{% endif %}
 
 			<p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).</p>
 
@@ -49,30 +46,54 @@
 			<div class="govuk-summary-card">
 				<div class="govuk-summary-card__title-wrapper">
 					<h2 class="govuk-summary-card__title">
-						{% if (data['r2'] == "Foreign power-controlled entity") %}{{data['r3a']}}{% elseif (data['r3'] == "Yes") %}{{data['r4']}}{% else  %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
+						{% if (data['r2'] == "Foreign power-controlled entity") %}{{data['r3a']}}{% elseif (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
 							<!-- {{data['r1-tier']}} -->
 				    </h2>
 					<ul class="govuk-summary-card__actions">
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="registrations/r-check">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+							<a class="govuk-link" href="registrations/r-view">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
 						</li>
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+							<a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
 						</li>
 					</ul>
 				</div>
 				<div class="govuk-summary-card__content">
 					<dl class="govuk-summary-list">
-						{% if (data['act1'] == 'complete') %}
+						{% if (data['act1'] == 'submitted') %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-2">ACTIVITY TYPE</a>
+								<a class="govuk-link" href="registrations/public-2">Activity Type</a>
 							</dt>
 							<dd class="govuk-summary-list__value">
-								ACTIVITY DETAILS
+								Activity Details
 							</dd>
 							<dd class="govuk-summary-list__actions">
 								<strong class='govuk-tag govuk-tag--blue'>Submitted</strong>
+							</dd>
+						</div>
+						{% elseif (data['act1'] == 'in-progress') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a class="govuk-link" href="registrations/public-2">Activity Type</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Activity Details
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>
+							</dd>
+						</div>
+						{% elseif (data['act1'] == 'published') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a class="govuk-link" href="registrations/public-2">Activity Type</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Activity Details
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--green'>Published</strong>
 							</dd>
 						</div>
 						{% else %}

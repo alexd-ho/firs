@@ -38,7 +38,9 @@
 
 		<span class="govuk-caption-l">Your messages</span>
 
-		<h1 class="govuk-heading-l">{% if (data['accName']) %}{{data['accName']}}{% else %}Registrant Name{% endif %}</h1>
+		<h1 class="govuk-heading-l">
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+		</h1>
 
 
 		<div class="inbox-table">

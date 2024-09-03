@@ -1,0 +1,37 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+{% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a7-check' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'a7-9',
+                    name: 'a7-9',
+                    value: data['a7-9'],
+                    label: {
+                        text: 'What do you want to achieve from the activity?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'Describe the specific results or changes you hope to see as a result of the activity.'
+                    }
+                }) }} 
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}
