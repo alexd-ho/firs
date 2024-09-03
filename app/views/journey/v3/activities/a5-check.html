@@ -23,6 +23,37 @@
         <dl class="govuk-summary-list">
 
 
+            {% if (data['registration-tier'] == 'enhanced') %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                What is this activity intended to influence?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['a2-e']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="a2">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
+                </dd>
+            </div>
+
+            {% if (data['a2-e'] != 'The activity has a non-political objective') %}
+                
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What type of activity do you want to register?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['a3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="a3">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
+                </dd>
+            </div>
+            {% endif %}
+
+            {% else %}
+
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                 What is this activity intended to influence?
@@ -43,10 +74,12 @@
                 {{data['a3']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a3">Change<span class="govuk-visually-hidden"> Types of public communication</span></a>
+                    <a class="govuk-link" href="a3">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
                 </dd>
             </div>
 
+            {% endif %}
+            
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                     How will the public communication be 

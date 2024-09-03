@@ -12,10 +12,10 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        <span class='govuk-caption-l'>Add an activity</span>
+        <span class='govuk-caption-l'>View activity</span>
 
         <h1 class="govuk-heading-l">
-            Check your answers
+            Private communication
         </h1>
 
 
@@ -81,6 +81,7 @@
 
             {% endif %}
             
+
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                     How will the private 
@@ -213,43 +214,11 @@
         </dl>
 
 
+        {{ govukButton({
+            text: "Return to registrations",
+            href: "../registrations"
+          }) }}
 
-        
-        <form action="/route-v3/exception-check" method="post">
-            
-            {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-            
-            {{ govukCheckboxes({
-              name: "exception-request",
-              id: "exception-request",
-              fieldset: {
-                legend: {
-                  text: "Do you want to request that the information remains private?",
-                  isPageHeading: false,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              hint: {
-                classes: "govuk-hint",
-                html: "<p>Some of the information about this activity will appear on a public register. You can make a request for this information to remain private if you have a legitimate reason.</p>"
-              },
-              items: [
-                {
-                  value: "Yes",
-                  text: "I would like to request that the information remains private."
-                }
-              ]
-            }) }}
-
-
-
-            {{ govukButton({
-              text: "Submit activity"
-            }) }}
-
-
-            
-        </form>
   
     </div>
   </div>
