@@ -1,0 +1,40 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action="e5-2?" method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e5-1',
+                    name: 'e5-1',
+                    value: data['e5-1'],
+                    label: {
+                        text: 'In which country or territory does '+registrant+' primarily operate?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

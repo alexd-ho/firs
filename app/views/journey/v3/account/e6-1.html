@@ -1,0 +1,72 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+{% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+{% set regAddress %}
+{% if (data['e3'] == 'Yes') %}
+{% if (data['reg-add'] == 'reg-uk') %}{{data["e4-6-line-1"]}}, {{data["e4-6-town"]}}, {{data["e4-6-postcode"]}}, {{data["e4-6-country"]}}{% endif %}
+{% if (data['reg-add'] == 'reg-non-uk') %}{{data["e4-5-line-1"]}}, {{data["e4-5-town"]}}, {{data["e4-5-postcode"]}}, {{data["e4-5-country"]}}{% endif %}
+{% if (data['reg-add'] == 'main-non-uk') %}{{data["e4-7-line-1"]}}, {{data["e4-7-town"]}}, {{data["e4-7-postcode"]}}, {{data["e4-7-country"]}}{% endif %}
+{% else %}
+{% if (data['e5-3'] == 'Yes') %}{{data["e5-5-line-1"]}}, {{data["e5-5-town"]}}, {{data["e5-5-postcode"]}}, {{data["e5-5-country"]}}{% endif %}
+{% if (data['e5-3'] == 'No') %}{{data["e5-4-line-1"]}}, {{data["e5-4-town"]}}, {{data["e5-4-postcode"]}}, {{data["e5-4-country"]}}{% endif %}
+{% endif %}
+{% endset -%} <!-- '+registrant+' -->
+
+
+    
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/e6-1' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'e6-1',
+                    name: 'e6-1',
+                    value: data['e6-1'],
+                    fieldset: {
+                        legend: {
+                            text: 'Which address should we use to contact '+registrant+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'This is the address we will use if we need to send any physical documents.'
+                    },
+                    items: [
+                    {
+                       value: 'regAddress',
+                        text: regAddress
+                    },
+                    {
+                       value: 'A different address in the UK',
+                        text: 'A different address in the UK'
+                    },
+                    {
+                       value: 'A different address outside the UK',
+                        text: 'A different address outside the UK'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

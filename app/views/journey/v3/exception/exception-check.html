@@ -35,7 +35,7 @@
           {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 
-          {% if (data['registrant-type'] == "individual") %}
+          {% if (data['acc-type'] == "Individual") %}
           <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
             
@@ -98,7 +98,7 @@
           </div>
           {% endif %}
 
-          {% if (data['registrant-type'] == "organisation") %}
+          {% if (data['acc-type'] == "Entity") %}
           <div class="govuk-summary-card">
             <div class="govuk-summary-card__title-wrapper">
             

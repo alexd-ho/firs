@@ -1,0 +1,45 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e4-3' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+                {{ govukDateInput({
+                    namePrefix: 'e4-2',
+                    id: 'e4-2',
+                    value: data['e4-2'],
+                    fieldset: {
+                        legend: {
+                            text: 'On what date was '+registrant+' incorporated?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2007'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,43 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e8-1' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e7-4',
+                    name: 'e7-4',
+                    value: data['e7-4'],
+                    hint: {
+                        text: 'Check with the relevant government authority if you are unsure.'
+                    },
+                    label: {
+                        text: 'What is the identifying reference or number associated with the registration of '+registrant+' on '+data['e7-3']+'?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

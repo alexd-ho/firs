@@ -1,0 +1,45 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e7-1' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e6-4',
+                    name: 'e6-4',
+                    value: data['e6-4'],
+                    hint: {
+                        text: 'This is the email address we will use to send a 
+                        notification each time there is an update or action 
+                        on the account.'
+                    },
+                    label: {
+                        text: 'What is the contact email address for '+registrant+'?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

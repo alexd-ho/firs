@@ -1,4 +1,9 @@
-{% extends 'layouts/v3-header-one-1.html' %}
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
+{% extends "layouts/v3-header-one-1.html" %}
+{% endif %}
+
 {% set activeLinkId = 'account' %}
     {% block pageTitle %}
         Organisation Details – {{ serviceName }} – GOV.UK Prototype Kit
@@ -8,28 +13,74 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='o2' method='post'>
-    
-                <span class='govuk-caption-l'>Organisation Details</span>
-    
-                {% from 'govuk/components/input/macro.njk' import govukInput %}
+
+
+            {% if (data['return'] == 'update') %}
+            <form action="e-view?return=complete&orgName={{data['e1']}}" method="post">
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                
                 {{ govukInput({
-                    id: 'o1',
-                    name: 'o1',
-                    value: data['o1'],
+                    id: "e1",
+                    name: "e1",
+                    value: data['e1'],
                     label: {
-                        text: 'What is the name of 
-                        your organisation or 
-                        group?',
-                        classes: 'govuk-label--l',
+                        text: "What is the name of your organisation or group?",
+                        classes: "govuk-label--l",
                         isPageHeading: true
                     }
                 }) }}
     
                 {{ govukButton({
-                    text: 'Continue'
+                    text: "Continue"
                 }) }}
+    
             </form>
+            {% elseif (data['return'] == 'check') %}
+            <form action="e-check?return=complete&orgName={{data['e1']}}" method="post">
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                
+                {{ govukInput({
+                    id: "e1",
+                    name: "e1",
+                    value: data['e1'],
+                    label: {
+                        text: "What is the name of your organisation or group?",
+                        classes: "govuk-label--l",
+                        isPageHeading: true
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+    
+            </form>
+            {% else %}
+    
+            <form action="e2?orgName={{data['e1']}}" method="post">
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                
+                {{ govukInput({
+                    id: "e1",
+                    name: "e1",
+                    value: data['orgName'],
+                    label: {
+                        text: "What is the name of your organisation or group?",
+                        classes: "govuk-label--l",
+                        isPageHeading: true
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+    
+            </form>
+    
+    
+            {% endif %}
+
+            
         </div>
     </div>
     {% endblock %}

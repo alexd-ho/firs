@@ -6,7 +6,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
     
 {% set registrant %}
-{% if (data['acc-type'] == 'Organisation') %}does {{data['accName']}}{% else %}do you{% endif %}
+{% if (data['acc-type'] == 'Entity') %}does {{data['orgName']}}{% else %}do you{% endif %}
 {% endset -%}
 
 

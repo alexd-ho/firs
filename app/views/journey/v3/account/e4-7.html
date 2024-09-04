@@ -1,0 +1,119 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    {% set incCountry %}{{data['e4-1']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+        
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e6-1?reg-add=main-non-uk' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+                    
+        
+                    <!-- INCORP COUNTRY BASED -->
+        
+                    {% call govukFieldset({
+                      legend: {
+                        text: 'What is the main address of '+registrant+' in '+incCountry+'?',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                      }
+                    }) %}
+                    
+                      {{ govukInput({
+                        label: {
+                          text: "Address line 1"
+                        },
+                        id: "e4-7-line-1",
+                        name: "e4-7-line-1",
+                        value: data["e4-7-line-1"],
+                        autocomplete: "address-line1"
+                      }) }}
+                    
+                      {{ govukInput({
+                        label: {
+                          text: "Address line 2 (optional)"
+                        },
+                        id: "e4-7-line-2",
+                        name: "e4-7-line-2",
+                        value: data["e4-7-line-2"],
+                        autocomplete: "address-line2"
+                      }) }}
+                    
+                      {{ govukInput({
+                        label: {
+                          text: "Town or city"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "e4-7-town",
+                        name: "e4-7-town",
+                        value: data["e4-7-town"],
+                        autocomplete: "address-level2"
+                      }) }}
+        
+                      {{ govukInput({
+                        label: {
+                          text: "Postcode"
+                        },
+                        classes: "govuk-input--width-10",
+                        id: "e4-7-postcode",
+                        name: "e4-7-postcode",
+                        value: data["e4-7-postcode"],
+                        autocomplete: "postal-code"
+                      }) }}
+                    
+                      {{ govukInput({
+                        label: {
+                          text: "Country"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "e4-7-country",
+                        name: "e4-7-country",
+                        value: incCountry,
+                        autocomplete: "country",
+                        disabled: true
+                      }) }}
+        
+                
+        
+                      <div class="hidden">
+                        {{ govukInput({
+                          label: {
+                            text: "Country"
+                          },
+                          id: "e4-7-country",
+                          name: "e4-7-country",
+                          value: incCountry,
+                          hidden: "hidden"
+                        }) }}
+                      </div>
+          
+        
+                    {% endcall %}
+        
+        
+        
+        
+            
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

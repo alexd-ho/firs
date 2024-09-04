@@ -1,41 +1,41 @@
 {% if (data['setup'] == 'incomplete') %}
-{% extends "layouts/v3-header-one-0.html" %}
+{% extends 'layouts/v3-header-one-0.html' %}
 {% else %}
-{% extends "layouts/v3-header-one-1.html" %}
+{% extends 'layouts/v3-header-one-1.html' %}
 {% endif %}
 {% set activeLinkId = 'account' %}
-
-{% block pageTitle %}
-        Organisation Details – {{ serviceName }} – GOV.UK Prototype Kit
-    {% endblock %}
     
-    {% set registrant %}
-    {{data['orgName']}}
-    {% endset -%}
+{% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+{% set incCountry %}{{data['e4-1']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
     
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/e2' method='post'>
+            <form action='/route-v3/e4-4' method='post'>
     
-                <span class='govuk-caption-l'>Organisation Details</span>
+                <span class='govuk-caption-l'>Add your organisation details</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'e2',
-                    name: 'e2',
-                    value: data['e2'],
+                    id: 'e4-4',
+                    name: 'e4-4',
+                    value: data['e4-4'],
                     fieldset: {
                         legend: {
-                            text: 'Does '+registrant+' use any other names?',
+                            text: 'Does '+registrant+' have a registered address in '+data['incorpCountry']+'?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     hint: {
-                        text: 'This could include a trading name, abbreviations 
-                        or acronyms, or a previous name still in use.'
+                        text: 'The official address, registered with the relevant 
+                        government agency, where '+registrant+' receives 
+                        legal and government correspondence.'
                     },
                     items: [
                     {

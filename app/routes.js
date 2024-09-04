@@ -1992,15 +1992,95 @@ router.post('/route-v3/delegated-authority', function(request, response) {
 
 /// ORGANISATION DETAILS
 
-router.post('/route-v3/o2', function(request, response) {
-    var value = request.session.data['o2'] // 
+router.post('/route-v3/e2', function(request, response) {
+    var value = request.session.data['e2'] // 
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"/3-2-10")
+        response.redirect(account_v3+"/e2a")
     } else {
-        response.redirect(account_v3+"/3-2-11")            
+        response.redirect(account_v3+"/e2")            
     }
 })
 
+router.post('/route-v3/e3', function(request, response) {
+    var value = request.session.data['e3']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e4-1')
+    } else {
+        response.redirect(account_v3+'/e5-1')
+    }
+})
+
+router.post('/route-v3/e4-3', function(request, response) {
+    var value = request.session.data['e4-3']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e4-6')
+    } else {
+        response.redirect(account_v3+'/e4-4')
+    }
+})
+
+router.post('/route-v3/e4-4', function(request, response) {
+    var value = request.session.data['e4-4']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e4-5')
+    } else {
+        response.redirect(account_v3+'/e4-7')
+    }
+})
+
+
+router.post('/route-v3/e5-3', function(request, response) {
+    var value = request.session.data['e5-3']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e5-5')
+    } else {
+        response.redirect(account_v3+'/e5-4')
+    }
+})
+
+router.post('/route-v3/e6-1', function(request, response) {
+    var value = request.session.data['e6-1']
+    if (value == 'regAddress'){ 
+        response.redirect(account_v3+'/e6-3')
+    } else {
+        response.redirect(account_v3+'/e6-2')
+    }
+})
+
+router.post('/route-v3/e7-1', function(request, response) {
+    var value = request.session.data['e7-1']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e7-3')
+    } else {
+        response.redirect(account_v3+'/e7-2')
+    }
+})
+
+router.post('/route-v3/e7-2', function(request, response) {
+    var value = request.session.data['e7-2']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e7-3')
+    } else {
+        response.redirect(account_v3+'/e8-1')
+    }
+})
+
+router.post('/route-v3/e8-1', function(request, response) {
+    var value = request.session.data['e8-1']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e8-4')
+    } else {
+        response.redirect(account_v3+'/e8-2')
+    }
+})
+router.post('/route-v3/e8-2', function(request, response) {
+    var value = request.session.data['e8-2']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/e8-3')
+    } else {
+        response.redirect(account_v3+'/e-check')
+    }
+})
 
 
 /// REGISTRATIONS
