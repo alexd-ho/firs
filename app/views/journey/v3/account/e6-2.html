@@ -32,13 +32,12 @@
                         text: 'What is the contact address for '+registrant+'?',
                         classes: "govuk-fieldset__legend--l",
                         isPageHeading: true
-                      },
-                      hint: {
-                        text: 'This is the address we will use if we need to send 
-                        any physical documents.'
                       }
                     }) %}
                     
+                    <p class="govuk-hint">This is the address we will use if we need to send 
+                        any physical documents.</p>
+                      
                       {{ govukInput({
                         label: {
                           text: "Address line 1"
