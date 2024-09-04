@@ -1,151 +1,177 @@
 {% extends 'layouts/v3-header-one-1.html' %}
 {% set activeLinkId = 'registrations' %}
-    {% block pageTitle %}
-        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
-    {% endblock %}
-    
+{% block pageTitle %}
+Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
 
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-        <span class='govuk-caption-l'>Add an activity</span>
+    <span class='govuk-caption-l'>Add an activity</span>
 
-        <h1 class="govuk-heading-l">
-            Check your answers
-        </h1>
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+
+    {% if (data['registration-tier'] == 'political') %}
+    <p>Political Tier - exception<br>
+      - Criteria 1 met ({{data['a3-p']}})<br>
+      - Criteria 2 met ({{data['a2-p']}})<br>
+      As both Criteria 1 is met, and Criteria 2 is met, the activity is registerable under a Political Tier arrangement,
+      and would be published on the public register, and so would also be eligible for an exception</p>
+    </p>
+    {% else %}
+    <p>Enhanced Tier arrangement<br>
+      - Criteria 1 met ({{data['a3-e']}})<br>
+      - {% if (data['a2-e'] == 'The activity has a non-political objective') %} Criteria 2 NOT met ({{data['a2-e']}}) {%
+      else %}Criteria 2 met ({{data['a2-e']}}) {% endif %}<br>
+      {% if (data['a2-e'] == 'The activity has a non-political objective') %}Whilst Criteria 1 is met, Criteria 2 is NOT
+      met, so whilst the activity is registerable under an Enhanced Tier arrangement, it would not be published on the
+      public register, and so would not be eligible for an exception</p>{% endif %}
+
+    {% endif %}
+    <h2 class="govuk-heading-m">Offer details</h2>
+
+    <dl class="govuk-summary-list">
 
 
-        <h2 class="govuk-heading-m">Offer details</h2>
+      {% if (data['registration-tier'] == 'enhanced') %}
 
-        <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is this activity intended to influence?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a2-e']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a2-e">Change<span class="govuk-visually-hidden"> activity intended to
+              influence</span></a>
+        </dd>
+      </div>
 
+      {% if (data['a2-e'] != 'The activity has a non-political objective') %}
 
-          {% if (data['registration-tier'] == 'enhanced') %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What type of activity do you want to register?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a3-e']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a3-e">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
+        </dd>
+      </div>
+      {% endif %}
 
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-              What is this activity intended to influence?
-              </dt>
-              <dd class="govuk-summary-list__value">
-              {{data['a2-e']}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="a2">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
-              </dd>
-          </div>
+      {% else %}
 
-          {% if (data['a2-e'] != 'The activity has a non-political objective') %}
-              
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                  What type of activity do you want to register?
-              </dt>
-              <dd class="govuk-summary-list__value">
-              {{data['a3']}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="a3">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
-              </dd>
-          </div>
-          {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is this activity intended to influence?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a2-p']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a2-p">Change<span class="govuk-visually-hidden"> activity intended to
+              influence</span></a>
+        </dd>
+      </div>
 
-          {% else %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What type of activity do you want to register?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a3-p']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a3-p">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
+        </dd>
+      </div>
 
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-              What is this activity intended to influence?
-              </dt>
-              <dd class="govuk-summary-list__value">
-              {{data['a2-p']}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="a2">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
-              </dd>
-          </div>
+      {% endif %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is the offer?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a6-1']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-1">Change<span class="govuk-visually-hidden"> Types of private
+              communication</span></a>
+        </dd>
+      </div>
 
-          <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                  What type of activity do you want to register?
-              </dt>
-              <dd class="govuk-summary-list__value">
-              {{data['a3']}}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="a3">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
-              </dd>
-          </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          What is the total value of the offer?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          &pound;{{data['a6-2']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-1">Change<span class="govuk-visually-hidden"> Types of private
+              communication</span></a>
+        </dd>
+      </div>
 
-          {% endif %}
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    What is the offer?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['a6-1']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-1">Change<span class="govuk-visually-hidden"> Types of private communication</span></a>
-                </dd>
-            </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How are you involved in
+          the offer?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a6-3']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-3">Change<span class="govuk-visually-hidden"> your involved in this
+              activity</span></a>
+        </dd>
+      </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    What is the total value of the offer?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                &pound;{{data['a6-2']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-1">Change<span class="govuk-visually-hidden"> Types of private communication</span></a>
-                </dd>
-            </div>
+      {% if (data['a6-3'] != 'I am doing the private communication myself') %}
+      {% if (data['a6-4--name-1']) %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Others involved in the offer
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a6-4--name-1']}}{% if (data['a6-4--name-2']) %}, {{data['a6-4--name-2']}}{% endif %}{% if
+          (data['a6-4--name-3']) %}, {{data['a6-4--name-3']}}{% endif %}{% if (data['a6-4--name-4']) %},
+          {{data['a6-4--name-4']}}{% endif %}{% if (data['a6-4--name-5']) %}, {{data['a6-4--name-5']}}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-3">Change<span class="govuk-visually-hidden"> Others involved in the
+              activity</span></a>
+        </dd>
+      </div>
+      {% endif %}
+      {% endif %}
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    How are you involved in 
-                    the offer?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['a6-3']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-3">Change<span class="govuk-visually-hidden"> your involved in this activity</span></a>
-                </dd>
-            </div>
+      {% if (data['a6-5--name-1']) %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Intended recipient of the offer
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if
+          (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %},
+          {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-5">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+        </dd>
+      </div>
+      {% endif %}
 
-            {% if (data['a6-3'] != 'I am doing the private communication myself')  %}
-            {% if (data['a6-4--name-1']) %}
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                Others involved in the  offer
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['a6-4--name-1']}}{% if (data['a6-4--name-2']) %}, {{data['a6-4--name-2']}}{% endif %}{% if (data['a6-4--name-3']) %}, {{data['a6-4--name-3']}}{% endif %}{% if (data['a6-4--name-4']) %}, {{data['a6-4--name-4']}}{% endif %}{% if (data['a6-4--name-5']) %}, {{data['a6-4--name-5']}}{% endif %}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-3">Change<span class="govuk-visually-hidden"> Others involved in the activity</span></a>
-                </dd>
-            </div>
-            {% endif %}
-            {% endif %}
-
-            {% if (data['a6-5--name-1']) %}
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                Intended recipient of the offer
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %}, {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-5">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
-                </dd>
-            </div>
-            {% endif %}
-
-<!-- 
+      <!-- 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                 Intended audience
@@ -158,161 +184,165 @@
                 </dd>
             </div> -->
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                Activity start date
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {% if (data['a6-6']) == "Yes" %}
-                {{data['a6-6-date-day']}}/{{data['a6-6-date-month']}}/{{data['a6-6-date-year']}}
-                {% else %}
-                None stated
-                {% endif %}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-6">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
-                </dd>
-            </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Activity start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if (data['a6-6']) == "Yes" %}
+          {{data['a6-6-date-day']}}/{{data['a6-6-date-month']}}/{{data['a6-6-date-year']}}
+          {% else %}
+          None stated
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-6">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+        </dd>
+      </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                Activity end date
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {% if (data['a6-7']) == "Yes" %}
-                {{data['a6-7-date-day']}}/{{data['a6-7-date-month']}}/{{data['a6-7-date-year']}}
-                {% else %}
-                None stated
-                {% endif %}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-7">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
-                </dd>
-            </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Activity end date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if (data['a6-7']) == "Yes" %}
+          {{data['a6-7-date-day']}}/{{data['a6-7-date-month']}}/{{data['a6-7-date-year']}}
+          {% else %}
+          None stated
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-7">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+        </dd>
+      </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    How often will the offer occur?
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['a6-8']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-8">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
-                </dd>
-            </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          How often will the offer occur?
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a6-8']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-8">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+        </dd>
+      </div>
 
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                Expected outcome
-                </dt>
-                <dd class="govuk-summary-list__value">
-                {{data['a6-9']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a6-9">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
-                </dd>
-            </div>
-
-           
-
-        </dl>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Expected outcome
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['a6-9']}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="a6-9">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+        </dd>
+      </div>
 
 
 
-        
-        <form action="/route-v3/exception-check" method="post">
-          
-            
-                {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-    
-                {% set exceptionOptions %}
-                {{ govukCheckboxes({
-                  name: "exception-reason",
-                  id: "exception-reason",
-                  values: data['exception-reason'],
-                  classes: "govuk-checkboxes--small",
-                  fieldset: {
-                    legend: {
-                      text: "Why do you want this information to remain private?",
-                      isPageHeading: true,
-                      classes: "govuk-fieldset__legend--s"
-                    }
-                  },
-                  hint: {
-                    text: "You will need to give evidence on the next page to keep this information private."
-                  },
-                  items: [
-                  {
-                    value: "Safety to the UK",
-                    text: "Safety to the UK",
-                    hint: {
-                      text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK."
-                    }
-                  },
-                  {
-                    value: "Safety to the individual",
-                    text: "Safety to the individual",
-                    hint: {
-                      text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm."
-                    }
-                  },
-                  {
-                    value: "Prejudicial to criminal investigation",
-                    text: "Prejudicial to criminal investigation",
-                    hint: {
-                      text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime."
-                    }
-                  },
-                  {
-                    value: "Commercially sensitive",
-                    text: "Commercially sensitive",
-                    hint: {
-                      text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity."
-                    }
-                  }
-                ]
-    
-                }) }}
-                {% endset -%}
-                
-                {{ govukCheckboxes({
-                  name: "exception-request",
-                  id: "exception-request",
-                  fieldset: {
-                    legend: {
-                      text: "Do you want to request that the information remains private?",
-                      isPageHeading: false,
-                      classes: "govuk-fieldset__legend--m"
-                    }
-                  },
-                  hint: {
-                    classes: "govuk-hint",
-                    html: "<p>Some of the information about this activity will appear on a public register. You can make a request for the information to remain private if you have a legitimate reason.</p>"
-                  },
-                  items: [
-                    {
-                      value: "Yes",
-                      text: "I would like to request that the information remains private.",
-                        conditional: {
-                            html: exceptionOptions
-                        }
-                    }
-                  ]
-                }) }}
-    
-    
-    
-                {{ govukButton({
-                  text: "Submit activity"
-                }) }}
-    
-    
-                
-            </form>
-    
-  
-    </div>
+    </dl>
+
+
+
+
+    <form action="/route-v3/exception-check" method="post">
+
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      {% set exceptionOptions %}
+      {{ govukCheckboxes({
+      name: "exception-reason",
+      id: "exception-reason",
+      values: data['exception-reason'],
+      classes: "govuk-checkboxes--small",
+      fieldset: {
+      legend: {
+      text: "Why do you want this information to remain private?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+      }
+      },
+      hint: {
+      text: "You will need to give evidence on the next page to keep this information private."
+      },
+      items: [
+      {
+      value: "Safety to the UK",
+      text: "Safety to the UK",
+      hint: {
+      text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK."
+      }
+      },
+      {
+      value: "Safety to the individual",
+      text: "Safety to the individual",
+      hint: {
+      text: "Where there is a significant risk publication would put the safety of any individual in this activity at
+      risk of serious harm."
+      }
+      },
+      {
+      value: "Prejudicial to criminal investigation",
+      text: "Prejudicial to criminal investigation",
+      hint: {
+      text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to
+      the prevention or detection of crime."
+      }
+      },
+      {
+      value: "Commercially sensitive",
+      text: "Commercially sensitive",
+      hint: {
+      text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or
+      organisation in this activity."
+      }
+      }
+      ]
+
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+      name: "exception-request",
+      id: "exception-request",
+      fieldset: {
+      legend: {
+      text: "Do you want to request that the information remains private?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+      }
+      },
+      hint: {
+      classes: "govuk-hint",
+      html: "<p>Some of the information about this activity will appear on a public register. You can make a request for
+        the information to remain private if you have a legitimate reason.</p>"
+      },
+      items: [
+      {
+      value: "Yes",
+      text: "I would like to request that the information remains private.",
+      conditional: {
+      html: exceptionOptions
+      }
+      }
+      ]
+      }) }}
+
+
+
+      {{ govukButton({
+      text: "Submit activity"
+      }) }}
+
+
+
+    </form>
+
+
   </div>
+</div>
 
 {% endblock %}

@@ -17,7 +17,19 @@
             Check your answers
         </h1>
 
-
+        {% if (data['registration-tier'] == 'political') %}
+        <p>Political Tier - exception<br>
+            - Criteria 1 met ({{data['a3-p']}})<br>
+            - Criteria 2 met ({{data['a2-p']}})<br>
+            As both Criteria 1 is met, and Criteria 2 is met, the activity is registerable under a Political Tier arrangement, and would be published on the public register, and so would also be eligible for an exception</p>
+       </p>
+        {% else %}
+        <p>Enhanced Tier arrangement<br>
+             - Criteria 1 met ({{data['a3-e']}})<br>
+             - {% if (data['a2-e'] == 'The activity has a non-political objective') %} Criteria 2 NOT met ({{data['a2-e']}}) {% else %}Criteria 2 met ({{data['a2-e']}}) {% endif %}<br>
+             {% if (data['a2-e'] == 'The activity has a non-political objective') %}Whilst Criteria 1 is met, Criteria 2 is NOT met, so whilst the activity is registerable under an Enhanced Tier arrangement, it would not be published on the public register, and so would not be eligible for an exception</p>{% endif %}
+        
+        {% endif %}
         <h2 class="govuk-heading-m">Public communication details</h2>
 
         <dl class="govuk-summary-list">
@@ -33,7 +45,7 @@
                 {{data['a2-e']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a2">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
+                    <a class="govuk-link" href="a2-e">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
                 </dd>
             </div>
 
@@ -44,10 +56,10 @@
                     What type of activity do you want to register?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['a3']}}
+                {{data['a3-e']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a3">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
+                    <a class="govuk-link" href="a3-e">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
                 </dd>
             </div>
             {% endif %}
@@ -62,7 +74,7 @@
                 {{data['a2-p']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a2">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
+                    <a class="govuk-link" href="a2-p">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
                 </dd>
             </div>
 
@@ -71,10 +83,10 @@
                     What type of activity do you want to register?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                {{data['a3']}}
+                {{data['a3-p']}}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="a3">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
+                    <a class="govuk-link" href="a3-p">Change<span class="govuk-visually-hidden"> Types of activity</span></a>
                 </dd>
             </div>
 
