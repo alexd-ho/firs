@@ -18,7 +18,9 @@
             {% if (data['return'] == 'update') %}
             <form action="e-view?return=complete&orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
-                
+
+                <span class='govuk-caption-l'>Add your organisation details</span>
+
                 {{ govukInput({
                     id: "e1",
                     name: "e1",
@@ -38,6 +40,7 @@
             {% elseif (data['return'] == 'check') %}
             <form action="e-check?return=complete&orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
+                <span class='govuk-caption-l'>Add your organisation details</span>
                 
                 {{ govukInput({
                     id: "e1",
@@ -59,7 +62,9 @@
     
             <form action="e2?orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
-                
+
+                <span class='govuk-caption-l'>Add your organisation details</span>
+
                 {% if (data['acc-type'] == 'Entity') %}
                 {% if (data['tier'] == 'enhanced') %}
 

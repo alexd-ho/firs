@@ -15,7 +15,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-		<span class="govuk-caption-l">Add your details</span>
+		<span class="govuk-caption-l">Add the details of the entity</span>
 
 		<h1 class="govuk-heading-l">
 			What you need to complete this section 
@@ -26,14 +26,19 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
 	<div class="govuk-grid-column-two-thirds">
 
-		<p>In this section, we are asking about you.</p>
+		<p>In this section, we are asking about the entity in the registration.</p>
 
-		<p>You need:</p>
+		<p>You need to know:</p>
 
 		<ul class="govuk-list govuk-list--bullet">
-			<li>Your personal information </li>
-			<li>Your address </li>
-			<li>Your contact details </li>
+			<li>The name of the entity </li>
+			<li>The address of the entity </li>
+			<li>The contact details of the entity </li>
+            <li>The legal status of the entity</li>
+            <li>Where the entity was formed</li>
+            <li>The date the entity was formed</li>
+            <li>If the entity is registered with a public register</li>
+            <li>If the entity pays tax</li>
 		</ul>
 
 
@@ -43,13 +48,13 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 		{{ govukInsetText({
 		html: "<p>Some of the information you provide may appear on the Foreign Influence Registration Scheme public register if you register any activities that are considered political in nature. </p>
 		<p>You can make a request for any information that would appear on the public register to remain private.</p>
-		<p>You can request for the information to remain private when you register your activity. </p>"
+		<p>You can request for the information to remain private when you register your activity.</p>"
 		}) }}
 
 
 		{{ govukButton({
 			text: "Start now",
-			href: "3-1-1",
+			href: "e1",
 			isStartButton: true
 		}) }}
 
