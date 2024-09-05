@@ -1822,9 +1822,9 @@ router.post('/route-v3/on-1', function(request, response) {
 router.post('/route-v3/on-2', function(request, response) {
     var value = request.session.data['v-on-2'];
     if (value == "No"){ 
-        response.redirect(onboard_v3+"on-name?acc-type=Individual&misrep=false&tier=default")
+        response.redirect(onboard_v3+"on-check?acc-type=Individual&misrep=false&tier=default")
     } else { 
-        response.redirect(onboard_v3+"on-name?acc-type=Individual&misrep=true&tier=enhanced")
+        response.redirect(onboard_v3+"on-check?acc-type=Individual&misrep=true&tier=enhanced")
     }
 })
 
@@ -1833,7 +1833,7 @@ router.post('/route-v3/on-3', function(request, response) {
     if (value == "No"){ 
         response.redirect(onboard_v3+"on-5")
     } else { 
-        response.redirect(onboard_v3+"on-4")
+        response.redirect(onboard_v3+"on-check?acc-type=Entity&misrep=false&tier=enhanced")
     }
 })
 
@@ -1846,7 +1846,7 @@ router.post('/route-v3/on-4', function(request, response) {
 router.post('/route-v3/on-5', function(request, response) {
     var value = request.session.data['v-on-5'];
     if (value == "No"){ 
-        response.redirect(onboard_v3+"on-name?acc-type=Entity&misrep=false&tier=default")
+        response.redirect(onboard_v3+"on-check?acc-type=Entity&misrep=false&tier=default")
     } else { 
         response.redirect(onboard_v3+"on-6")
     }
@@ -1994,10 +1994,11 @@ router.post('/route-v3/delegated-authority', function(request, response) {
 
 router.post('/route-v3/e2', function(request, response) {
     var value = request.session.data['e2'] // 
+    var org = request.session.data['e1'] // 
     if (value == "Yes"){ // 
-        response.redirect(account_v3+"/e2a")
+        response.redirect(account_v3+"/e2a?orgName="+org)
     } else {
-        response.redirect(account_v3+"/e3")            
+        response.redirect(account_v3+"/e3?orgName="+org)          
     }
 })
 

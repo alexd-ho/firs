@@ -16,7 +16,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<form action="/route-v3/on-2" method="post">
 
-            <span class="govuk-caption-l">Check what account you need</span>
+            <span class="govuk-caption-l">Check what account you need as a registrant</span>
 			
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
@@ -26,25 +26,27 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    value: data['v-on-2'],
 			    fieldset: {
 				    legend: {
-				        text: "Do you have a role or an affiliation with a foreign power?",
+				        text: "Do you work for a foreign power?",
 				        isPageHeading: true,
 				        classes: "govuk-fieldset__legend--l"
 				    }
 			    },
 			    hint: {
 			    	html: "
-						<p>A foreign power is any governmental body, 
-							agency, authority or governing political party 
-							operating outside the UK and Ireland.</p>
-							<p>A role or an affiliation with a foreign power could 
-							mean you:</p>
+						<p>You work for a foreign power if you hold office in 
+							or under, or are an employee or other member of 
+							staff of a foreign power.</p>
+							<p>A foreign power is any governmental body, 
+								agency, authority or governing political party 
+								operating outside the UK and Ireland.</p>
+							<p> A foreign power could be:</p>
 							<ul class='govuk-list govuk-list--bullet'>
 
-								<li>hold office under or represent the head of a foreign state</li>
-								<li>are part of or employed by a foreign government or part of a foreign government</li>
-								<li>work for an agency or authority of a foreign government</li>
-								<li>are part of an authority administering affairs in an area within a foreign country or territory</li>
-								<li>are a member of a political party that governs a foreign country</li>
+								<li>an office of the head of a foreign state </li>
+								<li>a foreign government or part of a foreign government</li>
+								<li>an agency or authority of a foreign government</li>
+								<li>an entity responsible for administering affairs in an area within a foreign country or territory</li>
+								<li>a political party that governs a foreign country</li>
 						</ul>"
 			    },
 			    items: [
