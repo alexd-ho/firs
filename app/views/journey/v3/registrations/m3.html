@@ -62,14 +62,6 @@
                     {
                        value: 'I am being untruthful or misleading in other ways',
                         text: 'I am being untruthful or misleading in other ways'
-                    },
-                    {
-                        divider: 'or'
-                    },
-                    {
-                       value: 'This question is not relevant to my work',
-                        text: 'This question is not relevant to my work',
-                        behaviour: 'exclusive'
                     }
                     ]
                 }) }}
@@ -77,6 +69,15 @@
                 {{ govukButton({
                     text: 'Continue'
                 }) }}
+
+
+                {% from "govuk/components/details/macro.njk" import govukDetails %}
+
+                {{ govukDetails({
+                summaryText: "This question is not relevant to my work",
+                text: "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post."
+                }) }}
+
             </form>
         </div>
     </div>

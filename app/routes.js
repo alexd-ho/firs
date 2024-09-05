@@ -2113,6 +2113,18 @@ router.post('/route-v3/r6', function(request, response) {
     }
 })
 
+// MISREPS
+
+router.post('/route-v3/m1', function(request, response) {
+    var value = request.session.data['m1'] //
+    if (value == "Yes") { // 
+        response.redirect(registration_v3+"/m1a")
+    } else {
+        response.redirect(registration_v3+"/m1b")            
+    }
+})
+
+
 router.post('/route-v3/m3', function(request, response) {
     var value = request.session.data['m3'] //
     if (value.includes("I am not sharing all important details")){

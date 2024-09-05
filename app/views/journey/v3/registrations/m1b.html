@@ -11,17 +11,17 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='m3' method='post'>
+            <form action='m2' method='post'>
     
                 <span class='govuk-caption-l'>Add your organisation details</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
-                    id: 'm2',
-                    name: 'm2',
-                    value: data['m2'],
+                    id: 'm-fp',
+                    name: 'm-fp',
+                    value: data['m-fp'],
                     label: {
-                        text: 'What is your role within '+data['m-fp']+'?',
+                        text: 'What is the name of the foreign power that you work for?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     }

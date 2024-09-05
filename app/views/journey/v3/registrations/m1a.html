@@ -11,44 +11,37 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/m1' method='post'>
+            <form action='m2' method='post'>
     
                 <span class='govuk-caption-l'>Add your organisation details</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'm1',
-                    name: 'm1',
-                    value: data['m1'],
+                    id: 'm-fp',
+                    name: 'm-fp',
+                    value: data['m-fp'],
                     fieldset: {
                         legend: {
-                            text: 'Do you work for a specified foreign power?',
+                            text: 'What is the name of the foreign power that you work for?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
-                    hint: {
-                        html: '
-                        <p>There are 3 foreign powers specified under UK law:</p>
-                        <ul class="govuk-list govuk-list--bullet">
-                            <li>Ministry of Defence of X</li>
-                            <li>Parliament of Y</li>
-                            <li>Socialist Party of Z</li>
-                        </ul>
-                        '
-                    },
                     items: [
                     {
-                       value: 'Yes',
-                        text: 'Yes'
+                       value: 'Ministry of Defence of X',
+                        text: 'Ministry of Defence of X'
                     },
                     {
-                       value: 'No',
-                        text: 'No'
+                       value: 'Parliament of Y',
+                        text: 'Parliament of Y'
+                    },
+                    {
+                       value: 'Socialist Party of Z',
+                        text: 'Socialist Party of Z'
                     }
                     ]
                 }) }}
-
     
                 {{ govukButton({
                     text: 'Continue'
