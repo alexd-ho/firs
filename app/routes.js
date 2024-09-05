@@ -2153,7 +2153,7 @@ router.post('/route-v3/m5', function(request, response) {
         response.redirect(registration_v3+"/m7")            
     } else if (value.includes("I am being untruthful or misleading in other ways")){
         response.redirect(registration_v3+"/m8")            
-    } else {
+    } else if (value.includes("This question is not relevant to my work")){
         response.redirect(registration_v3+"/m-check")
     }
 })
