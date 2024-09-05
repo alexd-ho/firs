@@ -2150,7 +2150,7 @@ router.post('/route-v3/a3-e', function(request, response) {
 
 
 router.post('/route-v3/a3-p', function(request, response) {
-    var value = request.session.data['a3'] //
+    var value = request.session.data['a3-p'] //
     if (value == "Private communication") { // 
         response.redirect(activities_v3+'/a4-1?activity-type=private&act1=in-progress')
     } else if (value == "Public communication") { // 
