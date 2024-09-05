@@ -16,14 +16,53 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<span class="govuk-caption-l">Add an agreement</span>
 
-		<h1 class="govuk-heading-l">What information you'll need to complete this section</h1>
+		<h1 class="govuk-heading-l">What you need to complete this section</h1>
 
-			<p>TBC.</p>
+			<p>In this section, we are asking about the agreement. </p>
+
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+			summaryText: "What is an agreement?",
+			text: "An agreement is an understanding between two or more parties to conduct  
+			activities. The agreement can be anything from a legally enforceable contract 
+				to an informal, but clear, written or verbal understanding.
+			"
+			}) }}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+			summaryText: "What is an activity?",
+			text: "  An activity is any action that works towards the desired outcome of an 
+			agreement, or any action taken under a direction from a foreign power or 
+			foreign power-controlled entity. "
+			}) }}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power?",
+				text: "A foreign power is any governmental body, 
+				agency or authority, or governing political party 
+				operating outside the UK and Ireland."
+			}) }}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power-controlled entity?",
+				text: "Definition pending"
+			}) }}
+			<p>You need to know:</p>
 			<ul class="govuk-list govuk-list--bullet">
-				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </li>
-				<li>A necessitatibus temporibus beatae fuga deleniti, alias laborum voluptate, unde facere dignissimos,</li>
-				<li>Provident minima architecto aliquam? At in rerum praesentium quaerat debitis.</li>
+				<li>Who you have an agreement with </li>
+				<li>How the agreement was made</li>
+				<li>When the agreement was made</li>
 			</ul>
+
+
+			<p>Some of the information you provide may appear on the Foreign Influence Registration Scheme public register if you register any activities that are considered political in nature.</p>
+
+			<p>You must register agreements one at a time. </p>
+
+				<p>You can register or amend an agreement at any time, but you must comply with the <a href="#">timescales set out in the Foreign Influence Registration Scheme (FIRS) legislation</a>.</p>
 
 			{{ govukButton({
 				text: "Continue",

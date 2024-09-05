@@ -49,7 +49,7 @@ visuallyHiddenTitle: "Footer links"
 
 		{% elseif (data['acc-type'] == "Entity") %}
 
-		<span class="govuk-caption-l">Organisation account</span>
+		<span class="govuk-caption-l">Non-individual entity account</span>
 		<h1 class="govuk-heading-l">
 			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
 		</h1>
@@ -282,7 +282,7 @@ visuallyHiddenTitle: "Footer links"
 			{% if (data['acc-type'] == "Entity") %}
 			<div class="firs-home-containers__panel">
 				<div>
-					<h3 class="govuk-heading-m">Your organisation</h3>
+					<h3 class="govuk-heading-m">Your entity</h3>
 					<p>Update details about {{data['accName']}} such as email, telephone numbers, and registered addresses.</p>
 					<p><a href="account/e-view" class="govuk-link">Organisation details</a></p><!-- <br>
 						<a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
@@ -299,7 +299,7 @@ visuallyHiddenTitle: "Footer links"
 					{% else %}
 					{% if (data['officer-verification'] == 'Completed') %}
 					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Officer identity verification has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %}.</p>
+					<p>Officer identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been confirmed.</p>
 					{% elseif (data['officer-verification'] == 'Pending') %}
 					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
 					<p>Officer identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
@@ -321,7 +321,7 @@ visuallyHiddenTitle: "Footer links"
 
 			<div class="firs-home-containers__panel">
 				<div>
-					<h3 class="govuk-heading-m">Delegated authority</h3>
+					<h3 class="govuk-heading-m">Your FIRS representatives</h3>
 					{% if (data['delegated-authority'] == 'None') %}
 					<p>Allow third parties to manage regsitrations on your behalf.</p>
 					{% elseif (data['delegated-authority'] == 'Completed') %}
@@ -336,7 +336,7 @@ visuallyHiddenTitle: "Footer links"
 					{% else %}
 					<p>Allow third parties to manage regsitrations on your behalf.</p>
 					{% endif %}
-					<p><a href="account/delegated-authority?return=update" class="govuk-link">Manage delegated authority</a></p>
+					<p><a href="account/delegated-authority?return=update" class="govuk-link">Manage representatives</a></p>
 				</div>
 			</div>
 

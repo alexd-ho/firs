@@ -19,14 +19,14 @@
             <form action="e-view?return=complete&orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-                <span class='govuk-caption-l'>Add your organisation details</span>
+                <span class='govuk-caption-l'>Add your entity details</span>
 
                 {{ govukInput({
                     id: "e1",
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your organisation or group?",
+                        text: "What is the name of your entity?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }
@@ -40,14 +40,14 @@
             {% elseif (data['return'] == 'check') %}
             <form action="e-check?return=complete&orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
-                <span class='govuk-caption-l'>Add your organisation details</span>
+                <span class='govuk-caption-l'>Add your entity details</span>
                 
                 {{ govukInput({
                     id: "e1",
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your organisation or group?",
+                        text: "What is the name of your entity?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }
@@ -63,7 +63,7 @@
             <form action="e2?orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-                <span class='govuk-caption-l'>Add your organisation details</span>
+                <span class='govuk-caption-l'>Add your entity details</span>
 
                 {% if (data['acc-type'] == 'Entity') %}
                 {% if (data['tier'] == 'enhanced') %}
@@ -132,7 +132,7 @@
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your organisation or group?",
+                        text: "What is the name of your entity?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }
@@ -147,7 +147,7 @@
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your organisation or group?",
+                        text: "What is the name of your entity?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }

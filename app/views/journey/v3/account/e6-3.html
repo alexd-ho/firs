@@ -17,7 +17,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='e6-4' method='post'>
     
-                <span class='govuk-caption-l'>Add your organisation details</span>
+                <span class='govuk-caption-l'>Add your entity details</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -25,7 +25,7 @@
                     name: 'e6-3',
                     value: data['e6-3'],
                     label: {
-                        text: 'What contact telephone number for '+registrant+'?',
+                        text: 'What is the contact telephone number for '+registrant+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },

@@ -15,14 +15,53 @@
 
 
 			<span class="govuk-caption-l">Add an activity</span>
-			<h1 class="govuk-heading-l">What information you'll need to complete this section</h1>
+			<h1 class="govuk-heading-l">What you need to complete this section</h1>
 
-			<p>TBC.</p>
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+				summaryText: "What is an activity?",
+				text: "An activity is any action that works towards the desired outcome of an 
+				agreement, or any action taken under a direction from a foreign power or 
+				foreign power-controlled entity. "
+				}) }}
+
+				{{ govukDetails({
+					summaryText: "What is an agreement?",
+					text: "An agreement is an understanding between two or more parties to conduct  
+					activities. The agreement can be anything from a legally enforceable contract to 
+					an informal, but clear, written or verbal understanding."
+				}) }}
+							
+				{{ govukDetails({
+					summaryText: "What is a foreign power?",
+					text: "A foreign power is a government or local authority, Sovereign, or Head of State outside the UK and Ireland."
+				}) }}
+							
+				{{ govukDetails({
+					summaryText: "What is a foreign power-controlled entity?",
+					text: "Definition pending"
+				}) }}
+
+							
+			<p>You need to know:</p>
 			<ul class="govuk-list govuk-list--bullet">
-				<li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. </li>
-				<li>A necessitatibus temporibus beatae fuga deleniti, alias laborum voluptate, unde facere dignissimos,</li>
-				<li>Provident minima architecto aliquam? At in rerum praesentium quaerat debitis.</li>
+				<li>The type of activity</li>
+				<li>The names of people, or the names of the groups, conducting the activity</li>
+				<li>The frequency of the activity</li>
+				<li>The intended outcome of the activity</li>
 			</ul>
+
+
+			<p>You must register activities one at a time. </p>
+			<p>You can register or amend an activity at any time, but you must comply with the timescales set out in the Foreign Influence Registration Scheme (FIRS) legislation.</p>
+
+			{{ govukInsetText({
+				html: "<p>Some of the information you provide may appear on the Foreign Influence Registration Scheme public register if you register any activities that are considered political in nature. </p>
+				<p>You can make a request for any information that would appear on the public register to remain private.</p>
+				<p>You can request for the information to remain private when you register your activity.</p>"
+				}) }}
+
 
 			{% if (data['registration-tier'] == 'political') %}
 			{{ govukButton({

@@ -13,7 +13,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='m3' method='post'>
     
-                <span class='govuk-caption-l'>Add your organisation details</span>
+                <span class='govuk-caption-l'>Add your foreign power details</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -21,7 +21,7 @@
                     name: 'm2',
                     value: data['m2'],
                     label: {
-                        text: 'What is your role within '+data['m-fp']+'?',
+                        text: 'What is your role for '+data['m-fp']+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     }
