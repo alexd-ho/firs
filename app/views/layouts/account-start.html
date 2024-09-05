@@ -30,11 +30,15 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {{ xGovukMasthead({
   phaseBanner: {
-    text: "This is a new service"
-  },
+    classes: "app-phase-banner–no-border govuk-width-container",
+    tag: {
+      text: "Beta"
+    },
+    html: 'This is a new service – your <a href="#" style="color: white">feedback</a> will help us to improve it.'
+    },
   breadcrumbs: {
     items: [{
-      href: "/",
+      href: "overview",
       text: "Home"
     }]
   },
@@ -42,7 +46,6 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     text: "Foreign Influence Registration Scheme"
   }
 }) }}
-
 {% endblock %}
 
 

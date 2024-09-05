@@ -1,4 +1,4 @@
-{% extends "layouts/main-v2.html" %}
+{% extends "layouts/v3-min.html" %}
 {% set bodyClasses = "account" %}
 
 {% block pageTitle %}
@@ -118,8 +118,16 @@
 			</div>
 		</details>
 
-		
+	
+		{{ govukButton({
+            text: "Start your registration",
+            href: "/journey/v3/login",
+            isStartButton: true
+            }) }}
+
+	
 		<h3 class="govuk-heading-m">Your answers</h3>
+
 
 		<p><a href="../eligibility">Start again</a></p>	
 
