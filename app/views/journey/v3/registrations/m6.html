@@ -1,0 +1,46 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/m6' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'm6',
+                    name: 'm6',
+                    value: data['m6'],
+                    label: {
+                        text: 'How are you hiding your true identity or the real reasons for your activities?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        html: '
+                        <p>For example, you may be:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>using false name or creating a front organisation</li>
+                            <li>denying any connection to a foreign power</li>
+                            <li>misrepresenting the source of funding or resource for your work</li>
+                        </ul>'
+                    }
+                }) }} 
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

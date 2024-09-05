@@ -1,0 +1,83 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/m3' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'm3',
+                    name: 'm3',
+                    values: data['m3'],
+                    fieldset: {
+                        legend: {
+                            text: 'How are you being intentionally untruthful or misleading as part of your work for '+data['m1']+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'Select all that apply.'
+                    },
+                    items: [
+                    {
+                       value: 'I am not sharing all important details',
+                        text: 'I am not sharing all important details',
+                        hint: {
+                            text: 'For example, not mentioning any connections to, or support from, a foreign power'
+                        }
+                    },
+                    {
+                       value: 'I am giving information that is not true',
+                        text: 'I am giving information that is not true',
+                        hint: {
+                            text: 'For example, lying about my qualifications, experience or sources of funding'
+                        }
+                    },
+                    {
+                       value: 'I am hiding my true identity or the real reasons for my activities',
+                        text: 'I am hiding my true identity or the real reasons for my activities',
+                        hint: {
+                            text: 'For example, using a false name, hiding my connections, or misrepresenting my goals'
+                        }
+                    },
+                    {
+                       value: 'I am giving a false impression about my activities',
+                        text: 'I am giving a false impression about my activities',
+                        hint: {
+                            text: 'For example, downplaying any political connections or exaggerating the charitable aspects of my work'
+                        }
+                    },
+                    {
+                       value: 'I am being untruthful or misleading in other ways',
+                        text: 'I am being untruthful or misleading in other ways'
+                    },
+                    {
+                        divider: 'or'
+                    },
+                    {
+                       value: 'This question is not relevant to my work',
+                        text: 'This question is not relevant to my work',
+                        behaviour: 'exclusive'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

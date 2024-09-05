@@ -205,7 +205,19 @@
                 </dd>
             </div>
 
-           
+            {% if (data['account-type'] == 'misrep') %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How are you being intentionally untruthful or misleading about this activity?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['a-misrep']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="a-misrep">Change<span class="govuk-visually-hidden"> Name of recipient</span></a>
+                </dd>
+            </div>
+            {% endif %}
 
         </dl>
 

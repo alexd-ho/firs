@@ -1,0 +1,46 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/m4' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'm4',
+                    name: 'm4',
+                    value: data['m4'],
+                    label: {
+                        text: 'How are you not sharing all important information?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        html: '
+                        <p>For example, you may not be:</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>mentioning instructions or requests received from a foreign power</li>
+                            <li>disclosing any financial or other benefits you receive in connection to your activities</li>
+                            <li>clear about the true extent of your communications or coordination with a foreign power</li>
+                        </ul>'
+                    }
+                }) }} 
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -8,8 +8,14 @@
 {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a6-check' method='post'>
+
+            {% if (data['account-type'] == 'misrep') %}
+            <form action='a-misrep?act-type=6' method='post'>
+            {% else %}
+            <form action='a6-check' method='post'>                                
+            {% endif %}
     
+
                 <span class='govuk-caption-l'>Add an activity</span>
     
                 {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}

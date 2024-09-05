@@ -1,0 +1,154 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <span class="govuk-caption-l">About your employer</span>
+
+        <h1 class="govuk-heading-l">Check your answers</h1>
+
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What is the name of the foreign power that you work for?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['m1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="m1?return=check">Change<span class="govuk-visually-hidden"> Your Name</span></a>
+                </dd>
+            </div>
+
+
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What is your role within {{data['m1']}}?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['m2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="m2?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% if (data['m3'].includes("I am not sharing all important details")) %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How are you not sharing all important information?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['m4']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="m4?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% endif %}
+
+            {% if (data['m3'].includes("I am giving information that is not true")) %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How are you giving information that is not true?  
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['m5']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="m5?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% endif  %}
+
+            {% if (data['m3'].includes("I am hiding my true identity or the real reasons for my activities")) %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How are you hiding your true identity or the real reasons for your activities?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['m6']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="m6?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% endif %}
+
+            {% if (data['m3'].includes("I am giving a false impression about my activities")) %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How are you giving a false impression about your activities?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['m7']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="m7?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% endif %}
+
+            {% if (data['m3'].includes("I am being untruthful or misleading in other ways")) %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How are you being untruthful or misleading in other ways?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['m8']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="m8?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% endif %}
+
+
+
+        </dl>
+
+    {{ govukButton({
+        text: "Save agreement",
+        href: "../registrations?reg1=complete"
+    }) }}
+
+
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

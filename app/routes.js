@@ -2113,6 +2113,71 @@ router.post('/route-v3/r6', function(request, response) {
     }
 })
 
+router.post('/route-v3/m3', function(request, response) {
+    var value = request.session.data['m3'] //
+    if (value.includes("I am not sharing all important details")){
+        response.redirect(registration_v3+"/m4")
+    } else if (value.includes("I am giving information that is not true")){
+        response.redirect(registration_v3+"/m5")            
+    } else if (value.includes("I am hiding my true identity or the real reasons for my activities")){
+        response.redirect(registration_v3+"/m6")            
+    } else if (value.includes("I am giving a false impression about my activities")){
+        response.redirect(registration_v3+"/m7")            
+    } else if (value.includes("I am being untruthful or misleading in other ways")){
+        response.redirect(registration_v3+"/m8")            
+    } else if (value.includes("This question is not relevant to my work")){
+        response.redirect(registration_v3+"/m-check")
+    }
+})
+
+router.post('/route-v3/m4', function(request, response) {
+    var value = request.session.data['m3'] //
+    if  (value.includes("I am giving information that is not true")){
+        response.redirect(registration_v3+"/m5")            
+    } else if (value.includes("I am hiding my true identity or the real reasons for my activities")){
+        response.redirect(registration_v3+"/m6")            
+    } else if (value.includes("I am giving a false impression about my activities")){
+        response.redirect(registration_v3+"/m7")            
+    } else if (value.includes("I am being untruthful or misleading in other ways")){
+        response.redirect(registration_v3+"/m8")            
+    } else if (value.includes("This question is not relevant to my work")){
+        response.redirect(registration_v3+"/m-check")
+    }
+})
+
+router.post('/route-v3/m5', function(request, response) {
+    var value = request.session.data['m3'] //
+    if (value.includes("I am hiding my true identity or the real reasons for my activities")){
+        response.redirect(registration_v3+"/m6")            
+    } else if (value.includes("I am giving a false impression about my activities")){
+        response.redirect(registration_v3+"/m7")            
+    } else if (value.includes("I am being untruthful or misleading in other ways")){
+        response.redirect(registration_v3+"/m8")            
+    } else {
+        response.redirect(registration_v3+"/m-check")
+    }
+})
+
+router.post('/route-v3/m6', function(request, response) {
+    var value = request.session.data['m3'] //
+    if (value.includes("I am giving a false impression about my activities")){
+        response.redirect(registration_v3+"/m7")            
+    } else if (value.includes("I am being untruthful or misleading in other ways")){
+        response.redirect(registration_v3+"/m8")            
+    } else if (value.includes("This question is not relevant to my work")){
+        response.redirect(registration_v3+"/m-check")
+    }
+})
+
+router.post('/route-v3/m7', function(request, response) {
+    var value = request.session.data['m3'] //
+    if (value.includes("I am being untruthful or misleading in other ways")){
+        response.redirect(registration_v3+"/m8")            
+    } else if (value.includes("This question is not relevant to my work")){
+        response.redirect(registration_v3+"/m-check")
+    }
+})
+
 
 /// ACTIVITIES
 
