@@ -25,7 +25,11 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
                     What is the name of the foreign power that you work for?
                 </dt>
                 <dd class="govuk-summary-list__value">
+                    {% if (data['m1'] == 'Yes') %}
                     {{data['m-fp']}}
+                    {% else %}
+                    {{data['m-fp']}} ({{data['m-fp-type']}} - {{data['m-fp-country']}})                        
+                    {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="m1?return=check">Change<span class="govuk-visually-hidden"> Your Name</span></a>
