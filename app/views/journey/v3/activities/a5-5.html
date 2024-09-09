@@ -81,7 +81,7 @@
 
           {{ govukInput({
             label: {
-              text: "Full name"
+              text: "Full name or description"
             },
             classes: "name-field",
             id: "a5-5--name-1",
@@ -133,7 +133,7 @@
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
-      Types of recipient receiving this private communication
+      Roles for the types of recipient
     </span>
   </summary>
   <div class="govuk-details__text">
@@ -188,7 +188,8 @@
       </ul>
 
       <p>Senior police officer</p>
-      <ul>The chief constable or deputy chief constable of a police force</li>
+      <ul>
+        <li>The chief constable or deputy chief constable of a police force</li>
         <li>A police and crime commissioner. The Commissioner, Deputy Commissioner, Assistant Commissioner or Deputy Assistant Commission of Police of the Metropolis</li>
         <li>The Commissioner or Assistant Commissioner of Police for the City of London</li>
         <li>The chief constable or deputy chief constable of the Police Service of Northern Ireland </li>
@@ -298,7 +299,7 @@ function addNew() {
 
           {{ govukInput({
             label: {
-              text: "Full name"
+              text: "Full name or description"
             },
             classes: "name-field",
             id: "a5-5--name-${newNameId}",

@@ -18,7 +18,10 @@
                     <div class="govuk-hint">
                         <p>Include any individuals or groups who have a 
                             significant role in doing the activity.</p>
-                        <p>You can add a maximum of 8 individuals or groups.</p>
+                            <p>If more than 3 people from the same group or 
+                            organisation are involved in the activity, please tell 
+                            us the name of the group or organisation.</p>
+                        <p>You can add a maximum of 5 individuals or groups.</p>
                     </div>
 
                 <div id="js-activity-wrapper">
@@ -151,7 +154,7 @@ function addNew() {
 
     var newNameId = 2;
     var itemCount = 0;
-    const maxItems = 8;
+    const maxItems = 4;
 
     var addAnotherButton = document.getElementById('add-another-button');
     var names = document.getElementById('js-activity-wrapper');

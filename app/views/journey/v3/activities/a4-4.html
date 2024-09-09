@@ -4,7 +4,9 @@
     {% block pageTitle %}
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
-    
+    {% set activityDoer %}
+    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}}{% else %}you{% endif %}
+    {% endset -%}
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -19,6 +21,7 @@
 
                     <div class="govuk-hint">
                         <p>Include any individuals or groups who have a significant role in doing the private communication.</p>
+                        <p>If more than 3 people from the same group or organisation are involved in the activity, please tell us the name of the group or organisation.</p>
                         <p>You can add a maximum of 5 individuals or groups.</p>
                     </div>
 
@@ -78,7 +81,7 @@
 
                     {{ govukTextarea({
                         label: {
-                          text: "Relationship to registrant"
+                          text: "Relationship to "+activityDoer
                         },
                         id: "a4-3--relationship-1",
                         name: "a4-3--relationship-1"
@@ -220,7 +223,7 @@ function addNew() {
 
             {{ govukTextarea({
                 label: {
-                    text: "Relationship to registrant"
+                          text: "Relationship to "+activityDoer
                 },
                 id: "a4-3--relationship-${newNameId}",
                 name: "a4-3--relationship-${newNameId}"

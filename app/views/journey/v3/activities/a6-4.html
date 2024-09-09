@@ -4,7 +4,9 @@
     {% block pageTitle %}
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
-    
+    {% set activityDoer %}
+    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}}{% else %}you{% endif %}
+    {% endset -%}    
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -13,13 +15,12 @@
     
                 <span class='govuk-caption-l'>Add an activity</span>
 
-                <h1 class="govuk-heading-l">Who is involved in doing 
-                    the public 
-                    communication?</h1>
+                <h1 class="govuk-heading-l">Who is involved in making the offer?</h1>
 
                     <div class="govuk-hint">
-                        <p>Include any individuals or groups who have a significant role in doing the public communication.</p>
-                        <p>You can add a maximum of 8 individuals or groups.</p>
+                        <p>Include any individuals or groups who have a significant role in making the offer.</p>
+                        <p>If more than 3 people from the same group or organisation are involved in the activity, please tell us the name of the group or organisation.</p>
+                        <p>You can add a maximum of 5 individuals or groups.</p>
                     </div>
 
                 <div id="js-activity-wrapper">
@@ -78,7 +79,7 @@
 
                     {{ govukTextarea({
                         label: {
-                          text: "Relationship to registrant"
+                            text: "Relationship to "+activityDoer
                         },
                         id: "a6-4--relationship-1",
                         name: "a6-4--relationship-1"
@@ -220,7 +221,7 @@ function addNew() {
 
             {{ govukTextarea({
                 label: {
-                    text: "Relationship to registrant"
+                          text: "Relationship to "+activityDoer
                 },
                 id: "a6-4--relationship-${newNameId}",
                 name: "a6-4--relationship-${newNameId}"
