@@ -15,7 +15,7 @@
     {% set activityDoer3 %}
     {% if (data['acc-type'] == 'Entity') %}itself{% else %}myself{% endif %}
     {% endset -%}
-    
+
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
@@ -45,8 +45,8 @@
                         text: activityDoer2+' organising for others to make the offer'
                     },
                     {
-                       value: activityDoer2+' both making the offer '+activityDoer3+' and organising for other to do it',
-                        text: activityDoer2+' both making the offer '+activityDoer3+' and organising for other to do it'
+                       value: activityDoer2+' both making the offer '+activityDoer3+' and organising for others to do it',
+                        text: activityDoer2+' both making the offer '+activityDoer3+' and organising for others to do it'
                     }
                     ]
                 }) }}
