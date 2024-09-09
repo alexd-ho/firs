@@ -19,7 +19,7 @@
 
                     <div class="govuk-hint">
                         <p>Include any individuals or groups who have a significant role in doing the public communication.</p>
-                        <p>You can add a maximum of 8 individuals or groups.</p>
+                        <p>You can add a maximum of 5 individuals or groups.</p>
                     </div>
 
                 <div id="js-activity-wrapper">
@@ -60,7 +60,7 @@
             
                     {{ govukInput({
                         label: {
-                          text: "Full name"
+                          text: "Name"
                         },
                         classes: "name-field",
                         id: "a5-4--name-1",
@@ -202,7 +202,7 @@ function addNew() {
 
             {{ govukInput({
                 label: {
-                    text: "Full name"
+                    text: "Name"
                 },
                 classes: "name-field",
                 id: "a5-4--name-${newNameId}",

@@ -5,7 +5,16 @@
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-    
+    {% set activityDoer %}
+    {% if (data['acc-type'] == 'Entity') %}is {{data['e1']}}{% else %}are you{% endif %}
+    {% endset -%}
+    {% set activityDoer2 %}
+    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}} is{% else %}I am{% endif %}
+    {% endset -%}
+    {% set activityDoer3 %}
+    {% if (data['acc-type'] == 'Entity') %}itself{% else %}myself{% endif %}
+    {% endset -%}
+
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
@@ -20,23 +29,23 @@
                     value: data['a4-3'],
                     fieldset: {
                         legend: {
-                            text: 'How are you involved in the private communication?',
+                            text: 'How '+activityDoer+' involved in the private communication?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     items: [
                     {
-                       value: 'I am doing the private communication myself',
-                        text: 'I am doing the private communication myself'
+                       value: activityDoer2+' doing the private communication '+activityDoer3,
+                        text: activityDoer2+' doing the private communication '+activityDoer3
                     },
                     {
-                       value: 'I am organising for others to do the private communication',
-                        text: 'I am organising for others to do the private communication'
+                       value: activityDoer2+' organising for others to do the private communication',
+                        text: activityDoer2+' organising for others to do the private communication'
                     },
                     {
-                       value: 'I am both doing the private communication myself and organising for other to do it',
-                        text: 'I am both doing the private communication myself and organising for other to do it'
+                       value: activityDoer2+' both doing the private communication '+activityDoer3+' and organising for other to do it',
+                        text: activityDoer2+' both doing the private communication '+activityDoer3+' and organising for other to do it'
                     }
                     ]
                 }) }}

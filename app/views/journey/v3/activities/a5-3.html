@@ -4,8 +4,26 @@
     {% block pageTitle %}
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
+
+    {% set activityDoer %}
+    {% if (data['acc-type'] == 'Entity') %}is {{data['e1']}}{% else %}are you{% endif %}
+    {% endset -%}
+    {% set activityDoer2 %}
+    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}} is{% else %}I am{% endif %}
+    {% endset -%}
+    {% set activityDoer3 %}
+    {% if (data['acc-type'] == 'Entity') %}itself{% else %}myself{% endif %}
+    {% endset -%}
     
+    {% set activityDoer4 %}
+    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}} is doing the public communication if they are 
+    publishing, sharing or producing information, 
+    documents or articles.{% else %}You are doing the public communication if you are
+    publishing, sharing or producing information, 
+    documents or articles.{% endif %}
+    {% endset -%}
     
+
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
@@ -20,28 +38,26 @@
                     value: data['a5-3'],
                     fieldset: {
                         legend: {
-                            text: 'How are you involved in the public communication?',
+                            text: 'How '+activityDoer+' involved in the public communication?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     hint: {
-                        text: 'You are doing the public communication if you are 
-                        publishing, sharing or producing information, 
-                        documents or articles.'
+                        text: activityDoer4
                     },
                     items: [
                     {
-                       value: 'I am doing the public communication myself',
-                        text: 'I am doing the public communication myself'
+                       value: activityDoer2+' doing the public communication '+activityDoer3,
+                        text: activityDoer2+' doing the public communication '+activityDoer3
                     },
                     {
-                       value: 'I am organising for others to do the public communication',
-                        text: 'I am organising for others to do the public communication'
+                       value: activityDoer2+' organising for others to do the public communication',
+                        text: activityDoer2+' organising for others to do the public communication'
                     },
                     {
-                       value: 'I am both doing the public communication myself and organising for other to do it',
-                        text: 'I am both doing the public communication myself and organising for other to do it'
+                       value: activityDoer2+' both doing the public communication '+activityDoer3+' and organising for other to do it',
+                        text: activityDoer2+' both doing the public communication '+activityDoer3+' and organising for other to do it'
                     }
                     ]
                 }) }}

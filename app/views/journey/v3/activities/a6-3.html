@@ -5,6 +5,17 @@
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
+
+    {% set activityDoer %}
+    {% if (data['acc-type'] == 'Entity') %}is {{data['e1']}}{% else %}are you{% endif %}
+    {% endset -%}
+    {% set activityDoer2 %}
+    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}} is{% else %}I am{% endif %}
+    {% endset -%}
+    {% set activityDoer3 %}
+    {% if (data['acc-type'] == 'Entity') %}itself{% else %}myself{% endif %}
+    {% endset -%}
+    
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
@@ -19,23 +30,23 @@
                     value: data['a6-3'],
                     fieldset: {
                         legend: {
-                            text: 'How are you involved in the offer?',
+                            text: 'How '+activityDoer+' involved in the offer?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     items: [
                     {
-                       value: 'I am making the offer myself',
-                        text: 'I am making the offer myself'
+                       value: activityDoer2+' making the offer '+activityDoer3,
+                        text: activityDoer2+' making the offer '+activityDoer3
                     },
                     {
-                       value: 'I am organising for others to make the offer',
-                        text: 'I am organising for others to make the offer'
+                       value: activityDoer2+' organising for others to make the offer',
+                        text: activityDoer2+' organising for others to make the offer'
                     },
                     {
-                       value: 'I am both making the offer myself and organising for other to do it',
-                        text: 'I am both making the offer myself and organising for other to do it'
+                       value: activityDoer2+' both making the offer '+activityDoer3+' and organising for other to do it',
+                        text: activityDoer2+' both making the offer '+activityDoer3+' and organising for other to do it'
                     }
                     ]
                 }) }}

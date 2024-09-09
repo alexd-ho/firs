@@ -44,14 +44,14 @@ visuallyHiddenTitle: "Footer links"
 
 		<span class="govuk-caption-l">Individual registrant account</span>
 		<h1 class="govuk-heading-l">
-			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['accName']}}{% else %}Registrant Name{% endif %}
 		</h1>
 
 		{% elseif (data['acc-type'] == "Entity") %}
 
 		<span class="govuk-caption-l">Non-individual entity account</span>
 		<h1 class="govuk-heading-l">
-			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
+			{% if (data['e1']) %}{{data['e1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
 		</h1>
 
 		{% else %}
