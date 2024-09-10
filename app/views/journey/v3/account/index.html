@@ -294,19 +294,19 @@ visuallyHiddenTitle: "Footer links"
 					<h3 class="govuk-heading-m">Officer identity verification</h3>
 					{% if (data['officer-verification'] == 'Incomplete') %}
 					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
-					<p>Officer identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has not been completed.<br>
+					<p>Officer identity verification has not been completed.<br>
 						You will be unable to submit registrations until identity verification is complete.</p>
 					{% else %}
 					{% if (data['officer-verification'] == 'Completed') %}
 					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Officer identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been confirmed.</p>
+					<p>Officer identity verification has been confirmed.</p>
 					{% elseif (data['officer-verification'] == 'Pending') %}
 					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Officer identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
+					<p>Officer identity verification has been submitted and is pending verification.<br>
 						You will be unable to submit registrations until their identity verification is complete.</p>
 					{% elseif (data['officer-verification'] == 'Rejected') %}
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Officer identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['accName']) %}for <strong>{{data['accName']}}</strong>{% endif %} has been rejected.<br>
+					<p>Officer identity verification has been rejected.<br>
 						You will be unable to submit registrations until their identity verification is complete.</p>
 					{% endif %}
 
