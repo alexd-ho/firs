@@ -318,11 +318,21 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
             width: 100%;
             padding: 20px;
             text-decoration: none;
-            &:hover {
-                // color: #111;
+        }
+        a {
+            p {
+                color: #000;
             }
-            > h3 {
-                color: inherit;
+            h3 {
+                color: #1d70b8;
+            }
+            &:hover {
+                background: #1d70b8;
+                color: #fff;
+                // color: #111;
+                > * {
+                    color: #fff;
+                }
             }
         }
     }

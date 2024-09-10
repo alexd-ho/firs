@@ -36,6 +36,20 @@ visuallyHiddenTitle: "Footer links"
 
 	<div class="govuk-grid-column-full">
 
+		<div class="govuk-notification-banner govuk-notification-banner--success-" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+			<div class="govuk-notification-banner__header">
+			  <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
+				New account created
+			  </h2>
+			</div>
+			<div class="govuk-notification-banner__content">
+				<p class="govuk-body-m">If you need to create a FIRS registration for yourself or your organisation, click  <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1">Add registrant</a>.</p>
+				<p class="govuk-body-m">If you have a share code to link a registrant to your account, click <a class="govuk-notification-banner__link" href="#">Link registrant</a>.</p>
+			</div>
+		  </div>
+
+
+
 		{% if (data['acc-type'] == "Individual") %}
 
 		<span class="govuk-caption-l">Individual registrant account</span>
@@ -235,16 +249,15 @@ visuallyHiddenTitle: "Footer links"
 
 			{% if (data['acc-type'] == "Individual") %}
 			<div class="firs-home-containers__panel">
-				<div>
+				<a href="account/contact-details">
 					<h3 class="govuk-heading-m">Your account</h3>
 					<p>Update contact details such as email, telephone numbers, and registered addresses.</p>
-					<p><a href="account/contact-details" class="govuk-link">Update contact details</a></p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
-				</div>
+				</a>
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<div>
+				<a href="account/identity-verification?return=update">
 					<h3 class="govuk-heading-m">Identity verification</h3>
 					{% if (data['identity-verification'] == 'Incomplete') %}
 					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
@@ -266,9 +279,8 @@ visuallyHiddenTitle: "Footer links"
 
 					{% endif %}
 
-					<p><a href="account/identity-verification?return=update" class="govuk-link">View your identity verification</a></p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
-				</div>
+				</a>
 			</div>
 				
 
@@ -277,16 +289,15 @@ visuallyHiddenTitle: "Footer links"
 
 			{% if (data['acc-type'] == "Entity") %}
 			<div class="firs-home-containers__panel">
-				<div>
+				<a href="account/e-view">
 					<h3 class="govuk-heading-m">Your entity</h3>
 					<p>Update details about {{data['accName']}} such as email, telephone numbers, and registered addresses.</p>
-					<p><a href="account/e-view" class="govuk-link">Organisation details</a></p><!-- <br>
 						<a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
-				</div>
+				</a>
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<div>
+				<a href="account/officer-verification?return=update" class="">
 					<h3 class="govuk-heading-m">Officer identity verification</h3>
 					{% if (data['officer-verification'] == 'Incomplete') %}
 					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
@@ -308,15 +319,14 @@ visuallyHiddenTitle: "Footer links"
 
 					{% endif %}
 
-					<p><a href="account/officer-verification?return=update" class="govuk-link">View Officer identity verification</a></p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
-				</div>
+				</a>
 			</div>
 
 			{% endif %}
 
 			<div class="firs-home-containers__panel">
-				<div>
+				<a href="account/delegated-authority?return=update">
 					<h3 class="govuk-heading-m">Your FIRS representatives</h3>
 					{% if (data['delegated-authority'] == 'None') %}
 					<p>Allow third parties to manage regsitrations on your behalf.</p>
@@ -332,32 +342,28 @@ visuallyHiddenTitle: "Footer links"
 					{% else %}
 					<p>Allow third parties to manage regsitrations on your behalf.</p>
 					{% endif %}
-					<p><a href="account/delegated-authority?return=update" class="govuk-link">Manage representatives</a></p>
-				</div>
+				</a>
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<div>
+				<a href="registrations">
 					<h3 class="govuk-heading-m">Your FIRS registrations</h3>
 					<p>View, manage and add new registrations and activities.</p>
-					<p><a href="registrations" class="govuk-link">Manage your registrations</a></p>
-				</div>
+				</a>
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<div>
+				<a href="messages">
 					<h3 class="govuk-heading-m">Your FIRS tasks</h3>
 					<p>View and complete outstanding tasks.</p>
 					<p>You currently have <strong>2</strong> tasks.</p>
-					<p><a href="messages" class="govuk-link">View your tasks</a></p>
-				</div>
+				</a>
 			</div>
 			<div class="firs-home-containers__panel">
-				<div>
-					<h3 class="govuk-heading-m">Contact the FIRS team</h3>
-					<p>Contact the case working team to request material changes to your registrations and activities.</p>
-					<p><a href="messages/contact" class="govuk-link">Contact us</a></p>
-				</div>
+				<a href="messages/contact">
+					<h3 class="govuk-heading-m">Read guidance</h3>
+					<p>View guidance and resources to better understand FIRS.</p>
+				</a>
 			</div>
 
 		</div>
