@@ -1,0 +1,219 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block footer %}
+{{ govukFooter({
+meta: {
+items: [
+{
+href: "account-2",
+text: "Partial account home"
+},
+{
+href: "account-3",
+text: "Completed account home"
+},
+{
+href: "/manage-prototype",
+text: "Manage your prototype"
+},
+{
+href: "/manage-prototype/clear-data",
+text: "Clear data"
+}
+],
+visuallyHiddenTitle: "Footer links"
+}
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+
+		{% if (data['acc-type'] == "Individual") %}
+
+		<span class="govuk-caption-l">Individual registrant account</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['accName']}}{% else %}Registrant Name{% endif %}
+		</h1>
+
+		{% elseif (data['acc-type'] == "Entity") %}
+
+		<span class="govuk-caption-l">Non-individual entity account</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['e1']) %}{{data['e1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
+		</h1>
+
+		{% else %}
+			
+		<span class="govuk-caption-l">Account</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
+		</h1>
+
+		{% endif %}
+
+
+		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this
+			<strong>Account</strong> page at any time to find common actions and account wide statuses.</p>
+
+
+		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+		{% if (data['acc-type'] == "Individual") %}
+
+		{% elseif (data['acc-type'] == "Entity") %}
+
+
+		{% else  %}
+			
+		<a href="/journey/v3/onboard/on-1" class="govuk-button">Setup up account type</a>
+
+		{% endif %}
+
+
+		<div class="firs-home-containers">
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Add a registrant</h3>
+					<p>You can add yourself or your own company, or if you are representing someone else, add them as a regsitrant</p>
+					<p><a href="account/contact-details" class="govuk-link">Add yourself or your organisation as a regsitrant</a></p>
+                    <p>
+                        <a href="account/contact-details" class="govuk-link">Add a "Share code" for another regsitrant</a></p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</div>
+			</div>
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Your registrations</h3>
+					<p>View your regsitrants here, and add new agreemenets and activities to these registrants.</p>
+					<p><a href="account/contact-details" class="govuk-link">View registrants</a></p>
+					<p><a href="account/contact-details" class="govuk-link">Add an agreement</a></p>
+					<p><a href="account/contact-details" class="govuk-link">Add an activity</a></p>
+
+				</div>
+			</div>
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Your account</h3>
+					<p>Update account contact details such as email, telephone numbers, and registered addresses.</p>
+					<p><a href="account/contact-details" class="govuk-link">Update contact details</a></p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</div>
+			</div>
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Identity verification</h3>
+					{% if (data['identity-verification'] == 'Incomplete') %}
+					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
+					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has not been completed.<br>
+						You will be unable to submit registrations until identity verification is complete.</p>
+					{% else %}
+					{% if (data['identity-verification'] == 'Completed') %}
+					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
+					<p>Identity verification has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %}.</p>
+					{% elseif (data['identity-verification'] == 'Pending') %}
+					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
+					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
+						You will be unable to submit registrations until identity verification is complete.</p>
+					{% elseif (data['identity-verification'] == 'Rejected') %}
+					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
+					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been rejected.<br>
+						You will be unable to submit registrations until identity verification is complete.</p>
+					{% endif %}
+
+					{% endif %}
+
+					<p><a href="account/identity-verification?return=update" class="govuk-link">View your identity verification</a></p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</div>
+			</div>
+				
+
+
+
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Manage representatives</h3>
+					{% if (data['delegated-authority'] == 'None') %}
+					<p>Allow third parties to manage regsitrations on your behalf.</p>
+					{% elseif (data['delegated-authority'] == 'Completed') %}
+					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
+					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong>.</p>
+					{% elseif (data['delegated-authority'] == 'Pending') %}
+					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
+					<p>Delegated authority has been requested for <strong>{{data['delegated-authority-name']}}</strong>, and is waiting on confirmation.</p>
+					{% elseif (data['delegated-authority'] == 'Rejected') %}
+					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
+					<p>Delegated authority for <strong>{{data['delegated-authority-name']}}</strong> has been rejected.</p>
+					{% else %}
+					<p>Allow third parties to manage regsitrations on your behalf.</p>
+					{% endif %}
+					<p><a href="../account/delegated-authority?return=update" class="govuk-link">Manage representatives</a></p>
+				</div>
+			</div>
+
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Your FIRS tasks</h3>
+					<p>View and complete outstanding tasks.</p>
+					<p>You currently have <strong>2</strong> tasks.</p>
+					<p><a href="messages" class="govuk-link">View your tasks</a></p>
+				</div>
+			</div>
+	
+
+		</div>
+
+		<!-- 
+		{{ govukSummaryList({
+		  card: {
+		    title: {
+		      text: "Registrations"
+		    }
+		  },
+		  rows: [
+		    {
+		      key: {
+		        text: "None"
+		      },
+		      value: {
+		        html: "Complete Account information first"
+		      },
+		      actions: {
+		        items: [
+		          {
+		            href: "#",
+		            text: "Update",
+		            visuallyHiddenText: "age"
+		          }
+		        ]
+		      }
+		    }
+		  ]
+		}) }} -->
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
