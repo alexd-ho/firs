@@ -84,7 +84,7 @@ visuallyHiddenTitle: "Footer links"
 					{% else  %}
 					<p><a href="../onboard/on-0" class="govuk-link">Add yourself or your organisation as a registrant</a></p>
 					{% endif %}
-                    <p><a href="account/contact-details" class="govuk-link">Add a "Share code" for another registrant</a></p>
+                    <p><a href="../account/contact-details" class="govuk-link">Add a "Share code" for another registrant</a></p>
 				</div>
 			</div>
 
@@ -92,9 +92,9 @@ visuallyHiddenTitle: "Footer links"
 				<div>
 					<h3 class="govuk-heading-m">Your registrations</h3>
 					<p>View your regsitrants here, and add new agreemenets and activities to these registrants.</p>
-					<p><a href="account/contact-details" class="govuk-link">View registrants</a></p>
-					<p><a href="account/contact-details" class="govuk-link">Add an agreement</a></p>
-					<p><a href="account/contact-details" class="govuk-link">Add an activity</a></p>
+					<p><a href="../registrations/index-alt" class="govuk-link">View registrants</a></p>
+					<p><a href="../registrations/r1" class="govuk-link">Add an agreement</a></p>
+					<p><a href="../activities/a1" class="govuk-link">Add an activity</a></p>
 
 				</div>
 			</div>
@@ -103,11 +103,12 @@ visuallyHiddenTitle: "Footer links"
 				<div>
 					<h3 class="govuk-heading-m">Your account</h3>
 					<p>Update account contact details such as email, telephone numbers, and registered addresses.</p>
-					<p><a href="account/contact-details" class="govuk-link">Update contact details</a></p>
+					<p><a href="../account/contact-details" class="govuk-link">Update contact details</a></p>
+					<p><a href="../account/identity-verification?return=update" class="govuk-link">View your identity verification</a></p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</div>
 			</div>
-
+<!--
 			<div class="firs-home-containers__panel">
 				<div>
 					<h3 class="govuk-heading-m">Identity verification</h3>
@@ -132,17 +133,26 @@ visuallyHiddenTitle: "Footer links"
 					{% endif %}
 
 					<p><a href="account/identity-verification?return=update" class="govuk-link">View your identity verification</a></p>
-						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</div>
 			</div>
-				
-
+		-->				
 
 
 
 			<div class="firs-home-containers__panel">
 				<div>
-					<h3 class="govuk-heading-m">Manage representatives</h3>
+					<h3 class="govuk-heading-m">Your tasks</h3>
+					<p>View and complete outstanding tasks.</p>
+					<p>You currently have <strong>2</strong> tasks.</p>
+					<p><a href="../messages" class="govuk-link">View your tasks</a></p>
+				</div>
+			</div>
+
+			
+
+			<div class="firs-home-containers__panel">
+				<div>
+					<h3 class="govuk-heading-m">Manage representative access</h3>
 					{% if (data['delegated-authority'] == 'None') %}
 					<p>Allow third parties to manage regsitrations on your behalf.</p>
 					{% elseif (data['delegated-authority'] == 'Completed') %}
@@ -162,12 +172,14 @@ visuallyHiddenTitle: "Footer links"
 			</div>
 
 
+
 			<div class="firs-home-containers__panel">
 				<div>
-					<h3 class="govuk-heading-m">Your FIRS tasks</h3>
-					<p>View and complete outstanding tasks.</p>
-					<p>You currently have <strong>2</strong> tasks.</p>
-					<p><a href="messages" class="govuk-link">View your tasks</a></p>
+					<h3 class="govuk-heading-m">Read guidance</h3>
+					<p>View guidance and resources.</p>
+					<p><a href="#" class="govuk-link">Draft guidance</a></p>
+					<p><a href="#" class="govuk-link">Eligibility checker</a></p>
+					<p><a href="#" class="govuk-link">FIRS factsheet</a></p>
 				</div>
 			</div>
 	
