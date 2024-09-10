@@ -70,16 +70,7 @@ visuallyHiddenTitle: "Footer links"
 
 		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-		{% if (data['acc-type'] == "Individual") %}
 
-		{% elseif (data['acc-type'] == "Entity") %}
-
-
-		{% else  %}
-			
-		<a href="/journey/v3/onboard/on-1" class="govuk-button">Setup up account type</a>
-
-		{% endif %}
 
 
 		<div class="firs-home-containers">
@@ -88,10 +79,12 @@ visuallyHiddenTitle: "Footer links"
 				<div>
 					<h3 class="govuk-heading-m">Add a registrant</h3>
 					<p>You can add yourself or your own company, or if you are representing someone else, add them as a regsitrant</p>
-					<p><a href="account/contact-details" class="govuk-link">Add yourself or your organisation as a regsitrant</a></p>
-                    <p>
-                        <a href="account/contact-details" class="govuk-link">Add a "Share code" for another regsitrant</a></p>
-						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+					{% if (data['acc-type'] == "Individual") or (data['acc-type'] == "Entity") %}
+					<p><a href="../onboard/on-0" class="govuk-link">View your registrant details</a></p>
+					{% else  %}
+					<p><a href="../onboard/on-0" class="govuk-link">Add yourself or your organisation as a registrant</a></p>
+					{% endif %}
+                    <p><a href="account/contact-details" class="govuk-link">Add a "Share code" for another registrant</a></p>
 				</div>
 			</div>
 
