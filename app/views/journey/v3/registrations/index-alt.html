@@ -42,23 +42,15 @@
 			<p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).</p>
 
 
-			<h2 class="govuk-heading-m">
-				Your registrations
-			</h2>
-
-
 
 			<div class="govuk-summary-card">
 				<div class="govuk-summary-card__title-wrapper">
 					<h2 class="govuk-summary-card__title">
-						{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Registrant Name{% endif %}
+						Your registrants
 					</h2>
 					<ul class="govuk-summary-card__actions">
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="registrations/m-check">View your registrant details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
-						</li>
-						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier=enhanced&account-type=misrep&act1=started">Add an agreement <span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+							<span class="govuk-body">Verification status</span>
 						</li>
 					</ul>
 				</div>
@@ -66,15 +58,28 @@
 					<dl class="govuk-summary-list">
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="activities/a4-view">
-									UKRI
-								</a>									
+								<a href="eg-reg-1">
+								Andy Marshall
+								</a>
 							</dt>
 							<dd class="govuk-summary-list__value">
-								3 private communication activites
+								Individual account
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">Add an activity</a>
+								<strong class="govuk-tag govuk-tag--green">Verified</strong>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a href="eg-reg-2">
+									ACME Inc.
+								</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Organisation
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--lightsblue">Pending</strong>
 							</dd>
 						</div>
 					</dl>
@@ -83,7 +88,6 @@
 
 
 			<h2 class="govuk-heading-m">
-				Other registrations you manage
 			</h2>
 
 
@@ -92,30 +96,56 @@
 				<div class="govuk-summary-card__title-wrapper">
 					<h2 class="govuk-summary-card__title">
 						
-						Deloitte PLC
+						Other registrants you manage
 
 							<!-- {{data['r1-tier']}} -->
 					</h2>
 					<ul class="govuk-summary-card__actions">
-
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started">Add an agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
-						</li>
+							<span class="govuk-body">Verification status</span>
+						</li>		
 					</ul>
 				</div>
 				<div class="govuk-summary-card__content">
 					<dl class="govuk-summary-list">
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="../activities/a4-view">
-									{% if (data['r2'] == "Foreign power-controlled entity") %}{{data['r3a']}}{% elseif (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
+								<a href="eg-reg-3">
+									Deloitte PLC
+								</a>								
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Organisation
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--lightsblue">Pending</strong>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a href="eg-reg-4">
+									UKRI
+								</a>									
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Organisation
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--red">Rejected</strong>
+							</dd>
+						</div>
+
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a href="eg-reg-5">
+									Ukraine Government
 								</a>
 							</dt>
 							<dd class="govuk-summary-list__value">
-								3 public communication activities<br>5 private communication activites
+								Organisation
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">Add an activity</a>
+								<strong class="govuk-tag govuk-tag--green">Complete</strong>
 							</dd>
 						</div>
 					</dl>
@@ -124,86 +154,7 @@
 
 
 
-			<div class="govuk-summary-card">
-				<div class="govuk-summary-card__title-wrapper">
-					<h2 class="govuk-summary-card__title">
-						Ukraine Cultural Board
-					</h2>
-					<ul class="govuk-summary-card__actions">
-						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activity/new">Add an agreement<span class="govuk-visually-hidden"> for the Ukraine registration</span></a>
-						</li>
-					</ul>
-				</div>
-				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-1">Ukraine Government</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-								3 public communication activities<br>5 private communication activites
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a href="">Add an activity</a>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-2">UKR</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-								1 public communication activity
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a href="">Add an activity</a>
-							</dd>
-						</div>
-
-						<!--       <div class="govuk-summary-list__row">
-		        <dt class="govuk-summary-list__key">
-		          <a class="govuk-link" href="registrations/public-2">Public Communication</a>
-		        </dt>
-		        <dd class="govuk-summary-list__value">
-			    </dd>
-		        <dd class="govuk-summary-list__actions">
-		        </dd>
-		      </div>
-		 -->
-					</dl>
-				</div>
-			</div>
-
-
-
-			<div class="govuk-summary-card">
-				<div class="govuk-summary-card__title-wrapper">
-					<h2 class="govuk-summary-card__title">
-						HHPAC
-					</h2>
-					<ul class="govuk-summary-card__actions">
-						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier=enhanced&account-type=misrep&act1=started">Add an agreement <span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
-						</li>
-					</ul>
-				</div>
-				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<strong>No agreements registered</strong>
-							</dt>
-							<dd class="govuk-summary-list__value">
-							</dd>
-							<dd class="govuk-summary-list__actions">
-							</dd>
-						</div>
-					</dl>
-				</div>
-			</div>
-
-
-			<a class="govuk-button " href="registrations/r1">Add a new registrant</a>
+			<!-- <a class="govuk-button " href="registrations/r1">Add a new registrant</a> -->
 
 
 		</div>
