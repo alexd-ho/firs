@@ -1,4 +1,4 @@
-{% extends "layouts/v3-header-one-2.html" %}
+{% extends "layouts/v3-header-one-1.html" %}
 {% set activeLinkId = "account" %}
 
 {% block pageTitle %}
@@ -36,18 +36,20 @@ visuallyHiddenTitle: "Footer links"
 
 	<div class="govuk-grid-column-full">
 
-
-        <div class="govuk-notification-banner govuk-notification-banner--success-" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-			<div class="govuk-notification-banner__header">
-			  <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
-				New account created
-			  </h2>
-			</div>
-			<div class="govuk-notification-banner__content">
-				<p class="govuk-body-m">If you need to create a FIRS registration for yourself or your organisation, click  <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1">Add a registrant</a>.</p>
-				<p class="govuk-body-m">If you have a share code to link a registrant to your account, click <a class="govuk-notification-banner__link" href="#">Link a registrant</a>.</p>
-			</div>
-		  </div>
+        {% if (data['setup'] != 'complete') %}
+            
+            <div class="govuk-notification-banner govuk-notification-banner--success-" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
+                    New account created
+                    </h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                    <p class="govuk-body-m">If you need to create a FIRS registration for yourself or your organisation, click  <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1">Add a registrant</a>.</p>
+                    <p class="govuk-body-m">If you have a share code to link a registrant to your account, click <a class="govuk-notification-banner__link" href="#">Link a registrant</a>.</p>
+                </div>
+            </div>
+        {% endif %}
 
 
 		{% if (data['acc-type'] == "Individual") %}

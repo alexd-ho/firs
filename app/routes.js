@@ -2329,7 +2329,7 @@ router.post('/route-v3/exception-check', function(request, response) {
 router.post('/route-v3/link-registrant', function(request, response) {
     var value = request.session.data['link-registrant']
     if (value == 'Yes'){ 
-        response.redirect(account_v3+'/link-registrant-2')
+        response.redirect(account_v3+'/link-registrant-2?setup=complete')
     } else {
         response.redirect(account_v3+'/link-registrant-3')
     }
