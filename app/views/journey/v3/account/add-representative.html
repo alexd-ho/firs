@@ -1,0 +1,35 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+    Add a representative – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+
+            <span class='govuk-caption-l'>Add a representative</span>
+
+            <h1 class="govuk-heading-l">Allow another user to manage your FIRS registrations</h1>
+
+            <div class="govuk-body-m">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias voluptates, ipsam tenetur animi culpa vero, voluptas natus at itaque error sapiente minus cum quo veritatis modi reiciendis suscipit deserunt fugiat.</p>
+            </div>
+
+            {{ govukButton({
+                text: 'Continue',
+                href: "rep-0"
+            }) }}
+        
+                
+        </div>
+    </div>
+    {% endblock %}

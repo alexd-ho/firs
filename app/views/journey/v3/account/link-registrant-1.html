@@ -1,0 +1,65 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+    Link registrant – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/link-registrant' method='post'>
+    
+                <span class='govuk-caption-l'>Link registrant</span>
+    
+                <h1 class="govuk-heading-l">Confirm registrant details</h1>
+
+                <p>This FIRS Code has returned the following:</p>
+
+                {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
+                    
+                {{ govukInsetText({
+                  html: '<h3 class="govuk-heading-m">'+data['rep-name']+'</h3>
+                  <p>3 Union Street, Sheffield, S1 3SD, UK<br>
+                  0114 239 7634</p>'
+                }) }}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'link-registrant',
+                    name: 'link-registrant',
+                    value: data['link-registrant'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you wish to manage the FIRS registrations for '+data['rep-name']+'?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+              
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,35 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+    Link registrant – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/link-registrant' method='post'>
+    
+                <span class='govuk-caption-l'>Link registrant</span>
+    
+                <h1 class="govuk-heading-l">Registrant added</h1>
+
+                <p>You have successfully added {{data['rep-name']}} as a registrant you can now manage.</p>
+                <p>Click continue to go to their registrant account to manage their agreements and activities.</p>
+
+    
+                {{ govukButton({
+                    text: 'Continue',
+                    href: "/journey/v3/registrations/eg-reg-added"
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,34 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+    Link registrant – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/link-registrant' method='post'>
+    
+                <span class='govuk-caption-l'>Link registrant</span>
+    
+                <h1 class="govuk-heading-l">Registrant not added</h1>
+
+                <p>You have declined access to the FIRS account for {{data['rep-name']}}.</p>
+
+    
+                {{ govukButton({
+                    text: 'Continue to account',
+                    href: "/journey/v3/account/index-v4"
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

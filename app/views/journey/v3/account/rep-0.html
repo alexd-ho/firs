@@ -8,7 +8,7 @@
     {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
     
     {% block pageTitle %}
-        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    Add a representative – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
     
@@ -17,7 +17,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='rep-1' method='post'>
     
-                <span class='govuk-caption-l'>Link a registrant</span>
+                <span class='govuk-caption-l'>Add a representative</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({

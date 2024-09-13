@@ -8,28 +8,36 @@
     {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
     
     {% block pageTitle %}
-        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    Link registrant – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-
-            <span class='govuk-caption-l'>Link a registrant</span>
-
-            <h1 class="govuk-heading-l">Allow another user to manage your FIRS registrations</h1>
-
-            <div class="govuk-body-m">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias voluptates, ipsam tenetur animi culpa vero, voluptas natus at itaque error sapiente minus cum quo veritatis modi reiciendis suscipit deserunt fugiat.</p>
-            </div>
-
-            {{ govukButton({
-                text: 'Continue',
-                href: "rep-0"
-            }) }}
-        
-                
+            <form action='link-registrant-1' method='post'>
+    
+                <span class='govuk-caption-l'>Link registrant</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'link-reg-firs-code',
+                    name: 'link-reg-firs-code',
+                    value: data['link-reg-firs-code'],
+                    label: {
+                        text: 'Enter the 16 digit FIRS Code you have recieved',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'This will be in the format of XXXX-XXXX-XXXX-XXXX. You do not need to add the hyphens.'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
         </div>
     </div>
     {% endblock %}
