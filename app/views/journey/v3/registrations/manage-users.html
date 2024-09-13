@@ -54,6 +54,8 @@
 				</div>
 				<div class="govuk-summary-card__content">
 					<dl class="govuk-summary-list">
+                        {% if (data['state'] != 'dynamic') %}
+                            
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
 								James Watson 
@@ -100,6 +102,24 @@
 								<a href="">Remove access</a>
 							</dd>
 						</div>
+                        {% endif %}
+
+                        {% else %}
+                            
+                        {% if (data['rep-name']) %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								{{data['rep-name']}} 
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Last Login: never
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="">Remove access</a>
+							</dd>
+						</div>
+                        {% endif %}
+
                         {% endif %}
 
 					</dl>
