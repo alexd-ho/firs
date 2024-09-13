@@ -26,9 +26,9 @@
                 {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
                     
                 {{ govukInsetText({
-                  html: '<h3 class="govuk-heading-m">'+data['rep-name']+'</h3>
+                  html: '<h3 class="govuk-heading-m">'+data['accName']+'</h3>
                   <p>3 Union Street, Sheffield, S1 3SD, UK<br>
-                  0114 239 7634</p>'
+                    '+data['accTel']+'</p>'
                 }) }}
 
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
@@ -38,7 +38,7 @@
                     value: data['link-registrant'],
                     fieldset: {
                         legend: {
-                            text: 'Do you wish to manage the FIRS registrations for '+data['rep-name']+'?',
+                            text: 'Do you wish to manage the FIRS registrations for '+data['accName']+'?',
                             classes: 'govuk-fieldset__legend--m',
                             isPageHeading: true
                         }
