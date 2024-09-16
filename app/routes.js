@@ -1753,6 +1753,7 @@ var arrangement_v3 = '/journey/v3/arrangement';
 var agreement_v3 = '/journey/v3/agreement';
 var activities_v3 = '/journey/v3/activities';
 var exception_v3 = '/journey/v3/exception';
+var cmt_v3 = '/journey/v3/cmt';
 
 /// 0. ELIGBILITY
 
@@ -2334,4 +2335,21 @@ router.post('/route-v3/link-registrant', function(request, response) {
         response.redirect(account_v3+'/link-registrant-3')
     }
 })
+
+// CMT
+
+router.post('/route-v3/cmt-1', function(request, response) {
+    var value = request.session.data['v-on-1'];
+    if (value == "Individual"){ 
+        response.redirect(cmt_v3+"/cmt-1")
+    } else { 
+        response.redirect(cmt_v3+"/cmt-2")
+    }
+})
+
+
+
+
+
+
 

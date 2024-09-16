@@ -1,0 +1,203 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop cmt-form'>
+            <form action='cmt-3' method='post'>
+    
+                <span class='govuk-caption-l'>Section 1b</span>
+    
+                <h1 class='govuk-heading-l'>Non-individual entity</h1> 
+
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'v-on-3',
+                    name: 'v-on-3',
+                    value: data['v-on-3'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'Is your entity a specified foreign power-controlled entity?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+                
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'e1',
+                    name: 'e1',
+                    value: data['e1'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'If "Yes", which specified foreign power-controlled entity are you registering as?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'And skip the next question'
+                    },
+                    items: [
+                    {
+                        value: 'Entity 1',
+                         text: 'Entity 1'
+                     },
+                     {
+                        value: 'Entity 2',
+                         text: 'Entity 2'
+                     },
+                     {
+                        value: 'Entity 3',
+                         text: 'Entity 3'
+                     },
+                     {
+                        value: 'Entity 4',
+                         text: 'Entity 4'
+                     },
+                     {
+                        value: 'Entity 5',
+                         text: 'Entity 5'
+                     },
+                     {
+                        value: 'Entity 6',
+                         text: 'Entity 6'
+                     },
+                     {
+                        value: 'Entity 7',
+                         text: 'Entity 7'
+                     }
+                    ]
+                }) }}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e1',
+                    name: 'e1',
+                    value: data['e1'],
+                    label: {
+                        text: 'If "No", what is the name of your entity?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'e2',
+                    name: 'e2',
+                    value: data['e2'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'Does use any other names?',
+                            classes: 'govuk-label--m',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'This could include a trading name, abbreviations or acronyms, or a previous name still in use.'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+
+
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e2a',
+                    name: 'e2a',
+                    value: data['e2a'],
+                    label: {
+                        text: 'If "Yes", what other names do you have?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'e3',
+                    name: 'e3',
+                    value: data['e3'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'Is recognised as a separate legal entity from its owners or members?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+
+
+
+                
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e4-1',
+                    name: 'e4-1',
+                    value: data['e4-1'],
+                    label: {
+                        text: 'In which country or territory was incorporated?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+
+
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

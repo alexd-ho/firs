@@ -424,6 +424,26 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
 }
 
 
+div.cmt-form {
+    form {
+        > .govuk-form-group,
+        > .govuk-fieldset {
+            border-bottom: 1px solid grey;
+            padding: 20px 10px 30px;
+            margin-bottom: 30px;
+            background: #f8f8f8;
+        }
+        > .govuk-fieldset {
+            .govuk-fieldset__legend {
+                margin-bottom: 30px;
+                display: inline-block;
+                top: 30px;
+                position: relative;            
+            }
+        }
+    }
+}
+
 
 
 

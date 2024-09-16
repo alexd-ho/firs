@@ -1,0 +1,62 @@
+{% extends "layouts/v3-header-one-0.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+    <div class='govuk-grid-column-two-thirds-from-desktop cmt-form'>
+
+		<form action="/route-v3/cmt-1" method="post">
+
+            <span class="govuk-caption-l">Section 1</span>
+
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v-on-1",
+			    id: "v-on-1",
+			    value: data['v-on-1'],
+			    fieldset: {
+				    legend: {
+				        text: "What are you registering as?",
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    items: [
+			    {
+			        value: "Individual",
+			        text: "Individual (Section 1a)"
+			    },
+			    {
+			        value: "Entity",
+			        text: "Non-individual entity  (Section 1b)",
+			        hint: {
+			        	text: "Any non-individual such as a company, charity or club"
+			        }
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,393 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop cmt-form'>
+            <form action='cmt-3' method='post'>
+    
+                <span class='govuk-caption-l'>Section 1a</span>
+    
+                <h1 class='govuk-heading-l'>Individual</h1> 
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'v-on-2',
+                    name: 'v-on-2',
+                    value: data['v-on-2'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'Do you work for a foreign power?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'v3-1-1',
+                    name: 'v3-1-1',
+                    value: data['v3-1-1'],
+                    label: {
+                        text: 'What is your name?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'v3-1-2',
+                    name: 'v3-1-2',
+                    value: data['v3-1-2'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'Do you have any former names?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'v3-1-3',
+                    name: 'v3-1-3',
+                    value: data['v3-1-3'],
+                    label: {
+                        text: 'If Yes, what former names do you have?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+                {{ govukDateInput({
+                    namePrefix: 'v3-1-4',
+                    id: 'v3-1-4',
+                    value: data['v3-1-4'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'What is your date of birth?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2007'
+                    }
+                }) }}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'v3-1-5',
+                    name: 'v3-1-5',
+                    value: data['v3-1-5'],
+                    label: {
+                        text: 'What is your nationality?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'v3-1-6-a',
+                    name: 'v3-1-6-a',
+                    value: data['v3-1-6-a'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'Do you live in the UK?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+                    
+                {% call govukFieldset({
+                    legend: {
+                        text: 'If "Yes", what is your address in the UK?',
+                        classes: 'govuk-fieldset__legend--m',
+                        isPageHeading: false
+                    }
+                }) %}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Address line 1'
+                   },
+                   id: 'v3-1-6-line-1',
+                   name: 'v3-1-6-line-1',
+                   autocomplete: 'address-line1'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Address line 2 (optional)'
+                    },
+                    id: 'v3-1-6-line-2',
+                    name: 'v3-1-6-line-2',
+                    autocomplete: 'address-line2'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Town or city'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'v3-1-6-town',
+                    name: 'v3-1-6-town',
+                    autocomplete: 'address-level2'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Postcode'
+                    },
+                    classes: 'govuk-input--width-10',
+                    id: 'v3-1-6-postcode',
+                    name: 'v3-1-6-postcode',
+                    autocomplete: 'postal-code'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Country'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'v3-1-6-country',
+                    name: 'v3-1-6-country',
+                    autocomplete: 'country',
+                    value: 'UK'
+                }) }}
+                    
+                {% endcall %}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+                    
+                {% call govukFieldset({
+                    legend: {
+                        text: 'If "No", what is your address?',
+                        classes: 'govuk-fieldset__legend--m',
+                        isPageHeading: false
+                    }
+                }) %}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Address line 1'
+                   },
+                   id: '-line-1',
+                   name: '-line-1',
+                   autocomplete: 'address-line1'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Address line 2 (optional)'
+                    },
+                    id: '-line-2',
+                    name: '-line-2',
+                    autocomplete: 'address-line2'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Town or city'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: '-town',
+                    name: '-town',
+                    autocomplete: 'address-level2'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Postcode'
+                    },
+                    classes: 'govuk-input--width-10',
+                    id: '-postcode',
+                    name: '-postcode',
+                    autocomplete: 'postal-code'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Country'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: '-country',
+                    name: '-country',
+                    autocomplete: 'country'
+                }) }}
+                    
+                {% endcall %}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'v3-1-7',
+                    name: 'v3-1-7',
+                    value: data['v3-1-7'],
+                    classes: "govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: 'Which address should we use to contact you?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Above home address',
+                        text: 'Above home address'
+                    },
+                    {
+                       value: 'A different address',
+                        text: 'A different address'
+                    }
+                    ]
+                }) }}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+                    
+                {% call govukFieldset({
+                    legend: {
+                        text: 'If "A different address", what is your contact address?',
+                        classes: 'govuk-fieldset__legend--m',
+                        isPageHeading: false
+                    }
+                }) %}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Address line 1'
+                   },
+                   id: '-line-1',
+                   name: '-line-1',
+                   autocomplete: 'address-line1'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Address line 2 (optional)'
+                    },
+                    id: '-line-2',
+                    name: '-line-2',
+                    autocomplete: 'address-line2'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Town or city'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: '-town',
+                    name: '-town',
+                    autocomplete: 'address-level2'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Postcode'
+                    },
+                    classes: 'govuk-input--width-10',
+                    id: '-postcode',
+                    name: '-postcode',
+                    autocomplete: 'postal-code'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Country'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: '-country',
+                    name: '-country',
+                    autocomplete: 'country'
+                }) }}
+                    
+                {% endcall %}
+
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'v3-1-9',
+                    name: 'v3-1-9',
+                    value: data['v3-1-9'],
+                    label: {
+                        text: 'What is your contact telephone number?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'v3-1-10',
+                    name: 'v3-1-10',
+                    value: data['v3-1-10'],
+                    label: {
+                        text: 'What is your contact email address?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}
