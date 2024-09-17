@@ -11,7 +11,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 meta: {
 items: [
 {
-href: "account/index-v4",
+href: "account/index-alt",
 text: "Alternate account home"
 },
 {
@@ -36,338 +36,123 @@ visuallyHiddenTitle: "Footer links"
 
 	<div class="govuk-grid-column-full">
 
-<!-- 		
-		<div class="govuk-notification-banner govuk-notification-banner--success-" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-			<div class="govuk-notification-banner__header">
-			  <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
-				New account created
-			  </h2>
-			</div>
-			<div class="govuk-notification-banner__content">
-				<p class="govuk-body-m">If you need to create a FIRS registration for yourself or your organisation, click  <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1">Add registrant</a>.</p>
-				<p class="govuk-body-m">If you have a share code to link a registrant to your account, click <a class="govuk-notification-banner__link" href="#">Link registrant</a>.</p>
-			</div>
-		  </div>
- -->
+        {% if (data['setup'] != 'complete') %}
+            
+            <div class="govuk-notification-banner govuk-notification-banner--success-" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
+                    New account created
+                    </h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                    <p class="govuk-body-m">If you need to create a FIRS registration for yourself or your organisation, click  <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1">Add a registrant</a>.</p>
+                    <p class="govuk-body-m">If you have a share code to link a registrant to your account, click <a class="govuk-notification-banner__link" href="#">Link a registrant</a>.</p>
+                </div>
+            </div>
+        {% endif %}
+
+
 
 
 		{% if (data['acc-type'] == "Individual") %}
 
-		<span class="govuk-caption-l">Individual registrant account</span>
+		<span class="govuk-caption-l">Account home</span>
 		<h1 class="govuk-heading-l">
 			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['accName']}}{% else %}Registrant Name{% endif %}
-		</h1>
 
+        </h1>
+
+        
+        
 		{% elseif (data['acc-type'] == "Entity") %}
 
-		<span class="govuk-caption-l">Non-individual entity account</span>
+		<span class="govuk-caption-l">Account home</span>
 		<h1 class="govuk-heading-l">
 			{% if (data['e1']) %}{{data['e1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
 		</h1>
 
-		{% else %}
+        {% else %}
 			
-		<span class="govuk-caption-l">Account</span>
+		<span class="govuk-caption-l">Account home</span>
 		<h1 class="govuk-heading-l">
 			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
-		</h1>
+        </h1>
 
-		{% endif %}
+        {% if (data['v3-1-1']) %}
+        {% else %}
+        <a href="/journey/v3/account/contact-start" class="govuk-button">Quick setup - start here</a>            
+        {% endif %}
+		
+        {% endif %}
 
 
 		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this
-			<strong>Account</strong> page at any time to find common actions and account wide statuses.</p>
+			account <strong>Home</strong> page at any time to find common actions and account wide statuses.</p>
 
 
-		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 		{% if (data['acc-type'] == "Individual") %}
-<!--
-		<div class="govuk-summary-card">
-			<div class="govuk-summary-card__title-wrapper">
-
-				<h2 class="govuk-summary-card__title">
-					Account tasks
-				</h2>
-
-
-			</div>
-
-			<div class="govuk-summary-card__content">
-				<dl class="govuk-summary-list">
-
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">
-							Contact details
-						</dt>
-						<dd class="govuk-summary-list__value">
-							<strong class="govuk-tag govuk-tag--green">Completed</strong>
-						</dd>
-
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="account/contact-details">View<span class="govuk-visually-hidden">
-									Contact details (Account information)</span></a>
-
-						</dd>
-
-					</div>
-				-->
-
-<!--	
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">
-							Identity Verification
-						</dt>
-						<dd class="govuk-summary-list__value">
-							{% if (data['identity-verification'] == 'Completed') %}
-							<strong class='govuk-tag govuk-tag--green'>Completed</strong>
-							{% elseif (data['identity-verification'] == 'Pending') %}
-							<strong class='govuk-tag govuk-tag--blue'>Pending</strong>
-							{% elseif (data['identity-verification'] == 'Rejected') %}
-							<strong class='govuk-tag govuk-tag--red'>Rejected</strong>
-							{% else %}
-							<strong class='govuk-tag govuk-tag--light-blue'>Incomplete</strong>
-							{% endif %}
-						</dd>
-
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="account/identity-verification?return=update">Update<span
-									class="govuk-visually-hidden"> Identity Verification (Account
-									information)</span></a>
-
-						</dd>
-
-					</div>
-
-
-			<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">
-							Delegated authority
-						</dt>
-						<dd class="govuk-summary-list__value">
-							{% if (data['delegated-authority'] == 'Completed') %}
-							<strong class='govuk-tag govuk-tag--green'>Completed</strong>
-							{% elseif (data['delegated-authority'] == 'Pending') %}
-							<strong class='govuk-tag govuk-tag--blue'>Pending</strong>
-							{% elseif (data['delegated-authority'] == 'Rejected') %}
-							<strong class='govuk-tag govuk-tag--red'>Rejected</strong>
-							{% else %}
-							<strong class='govuk-tag govuk-tag--grey'>None</strong>
-							{% endif %}
-						</dd>
-
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="account/delegated-authority?return=update">Update<span
-									class="govuk-visually-hidden"> working situation (Account information)</span></a>
-
-						</dd>
-
-					</div>
-				
-
-				</dl>
-			</div>
-		</div>
-
--->
 
 		{% elseif (data['acc-type'] == "Entity") %}
 
-<!--	
-		<div class="govuk-summary-card">
-			<div class="govuk-summary-card__title-wrapper">
-
-				<h2 class="govuk-summary-card__title">
-					Account tasks
-				</h2>
-
-
-			</div>
-
-			<div class="govuk-summary-card__content">
-				<dl class="govuk-summary-list">
-
-				<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">
-							Contact details
-						</dt>
-						<dd class="govuk-summary-list__value">
-							<strong class="govuk-tag govuk-tag--green">Completed</strong>
-						</dd>
-
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="account/contact-details">View<span class="govuk-visually-hidden">
-									Contact details (Account information)</span></a>
-
-						</dd>
-
-					</div>
-			
-
-
-					<div class="govuk-summary-list__row">
-						<dt class="govuk-summary-list__key">
-							Officer identity verification
-						</dt>
-						<dd class="govuk-summary-list__value">
-							{% if (data['identity-verification'] == 'Completed') %}
-							<strong class='govuk-tag govuk-tag--green'>Completed</strong>
-							{% elseif (data['identity-verification'] == 'Pending') %}
-							<strong class='govuk-tag govuk-tag--blue'>Pending</strong>
-							{% elseif (data['identity-verification'] == 'Rejected') %}
-							<strong class='govuk-tag govuk-tag--red'>Rejected</strong>
-							{% else %}
-							<strong class='govuk-tag govuk-tag--light-blue'>Incomplete</strong>
-							{% endif %}
-						</dd>
-
-						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="account/identity-verification?return=update">Update<span
-									class="govuk-visually-hidden"> Identity Verification (Account
-									information)</span></a>
-
-						</dd>
-
-					</div>
-
-
-
-
-				</dl>
-			</div>
-		</div>
-
-	-->
-
 		{% else  %}
-			
-		<a href="/journey/v3/onboard/on-1" class="govuk-button">Setup up account type</a>
 
 		{% endif %}
 
-
 		<div class="firs-home-containers">
 
-			{% if (data['acc-type'] == "Individual") %}
-			<div class="firs-home-containers__panel">
-				<a href="account/contact-details">
-					<h3 class="govuk-heading-m">Your account</h3>
-					<p>Update contact details such as email, telephone numbers, and registered addresses.</p>
+
+            <div class="firs-home-containers__panel">
+				<a href="../onboard/on-0">
+					<h3 class="govuk-heading-m">Create a registrant</h3>
+					<p>The registrant can be you or an organisation you work for.</p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</a>
 			</div>
 
-			<div class="firs-home-containers__panel">
-				<a href="account/identity-verification?return=update">
-					<h3 class="govuk-heading-m">Identity verification</h3>
-					{% if (data['identity-verification'] == 'Incomplete') %}
-					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has not been completed.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
-					{% else %}
-					{% if (data['identity-verification'] == 'Completed') %}
-					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Identity verification has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %}.</p>
-					{% elseif (data['identity-verification'] == 'Pending') %}
-					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
-					{% elseif (data['identity-verification'] == 'Rejected') %}
-					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been rejected.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
-					{% endif %}
 
-					{% endif %}
-
-						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
-				</a>
-			</div>
-				
-
-
-			{% endif %}
-
-			{% if (data['acc-type'] == "Entity") %}
-			<div class="firs-home-containers__panel">
-				<a href="account/e-view">
-					<h3 class="govuk-heading-m">Your entity</h3>
-					<p>Update details about {{data['accName']}} such as email, telephone numbers, and registered addresses.</p>
-						<a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
-				</a>
-			</div>
-
-			<div class="firs-home-containers__panel">
-				<a href="account/officer-verification?return=update" class="">
-					<h3 class="govuk-heading-m">Officer identity verification</h3>
-					{% if (data['officer-verification'] == 'Incomplete') %}
-					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
-					<p>Officer identity verification has not been completed.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
-					{% else %}
-					{% if (data['officer-verification'] == 'Completed') %}
-					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Officer identity verification has been confirmed.</p>
-					{% elseif (data['officer-verification'] == 'Pending') %}
-					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Officer identity verification has been submitted and is pending verification.<br>
-						You will be unable to submit registrations until their identity verification is complete.</p>
-					{% elseif (data['officer-verification'] == 'Rejected') %}
-					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Officer identity verification has been rejected.<br>
-						You will be unable to submit registrations until their identity verification is complete.</p>
-					{% endif %}
-
-					{% endif %}
-
+            <div class="firs-home-containers__panel">
+				<a href="../account/link-registrant">
+					<h3 class="govuk-heading-m">Link to a registrant</h3>
+					<p>Use a 16-digit code to link your FIRS account to a registrant.</p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</a>
 			</div>
 
-			{% endif %}
-
-			<div class="firs-home-containers__panel">
-				<a href="account/delegated-authority?return=update">
-					<h3 class="govuk-heading-m">Your FIRS representatives</h3>
-					{% if (data['delegated-authority'] == 'None') %}
-					<p>Allow third parties to manage regsitrations on your behalf.</p>
-					{% elseif (data['delegated-authority'] == 'Completed') %}
-					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong>.</p>
-					{% elseif (data['delegated-authority'] == 'Pending') %}
-					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Delegated authority has been requested for <strong>{{data['delegated-authority-name']}}</strong>, and is waiting on confirmation.</p>
-					{% elseif (data['delegated-authority'] == 'Rejected') %}
-					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Delegated authority for <strong>{{data['delegated-authority-name']}}</strong> has been rejected.</p>
-					{% else %}
-					<p>Allow third parties to manage regsitrations on your behalf.</p>
-					{% endif %}
+            <div class="firs-home-containers__panel">
+				<a href="../registrations">
+					<h3 class="govuk-heading-m">Registrants</h3>
+					<p>View, manage, and add new agreements and activities.</p>
 				</a>
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<a href="registrations">
-					<h3 class="govuk-heading-m">Your FIRS registrations</h3>
-					<p>View, manage and add new registrations and activities.</p>
-				</a>
-			</div>
-
-			<div class="firs-home-containers__panel">
-				<a href="messages">
-					<h3 class="govuk-heading-m">Your FIRS tasks</h3>
+				<a href="#">
+					<h3 class="govuk-heading-m">Tasks / messages</h3>
 					<p>View and complete outstanding tasks.</p>
-					<p>You currently have <strong>2</strong> tasks.</p>
-				</a>
-			</div>
-			<div class="firs-home-containers__panel">
-				<a href="messages/contact">
-					<h3 class="govuk-heading-m">Read guidance</h3>
-					<p>View guidance and resources to better understand FIRS.</p>
+					<!-- <p>You currently have <strong>2</strong> tasks.</p> -->
 				</a>
 			</div>
 
-		</div>
+            <div class="firs-home-containers__panel">
+				<a href="#">
+					<h3 class="govuk-heading-m">Guidance</h3>
+					<p>Useful links to help you find the information you need.</p>
+				</a>
+			</div>
+
+
+            <div class="firs-home-containers__panel">
+				<a href="../account/contact-details">
+					<h3 class="govuk-heading-m">Your FIRS account</h3>
+					<p>Update your FIRS account details and verify your identity.</p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</a>
+			</div>
+
+
+
+
 
 		<!-- 
 		{{ govukSummaryList({
