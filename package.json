@@ -10,6 +10,7 @@
     "@govuk-prototype-kit/task-list": "2.0.0",
     "@x-govuk/govuk-prototype-components": "^3.0.4",
     "@x-govuk/govuk-prototype-filters": "^1.4.0",
+    "govuk-country-and-territory-autocomplete": "^2.0.0",
     "govuk-frontend": "5.2.0",
     "govuk-one-login-service-header": "github:govuk-one-login/service-header",
     "govuk-prototype-kit": "13.16.1",

@@ -2347,6 +2347,15 @@ router.post('/route-v3/cmt-1', function(request, response) {
     }
 })
 
+router.post('/route-v3/on-2', function(request, response) {
+    var value = request.session.data['on-2']
+    if (value == 'Yes'){ 
+        response.redirect(account_v3+'/on-3')
+    } else {
+        response.redirect(account_v3+'/on-4')
+    }
+})
+
 
 
 

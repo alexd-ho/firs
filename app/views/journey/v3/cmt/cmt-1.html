@@ -155,7 +155,7 @@
                     
                 {% call govukFieldset({
                     legend: {
-                        text: 'If "Yes", what is your address in the UK?',
+                        text: 'If "Yes", what is your home address in the UK?',
                         classes: 'govuk-fieldset__legend--m',
                         isPageHeading: false
                     }
@@ -217,7 +217,7 @@
                     
                 {% call govukFieldset({
                     legend: {
-                        text: 'If "No", what is your address?',
+                        text: 'If "No", what is your home address?',
                         classes: 'govuk-fieldset__legend--m',
                         isPageHeading: false
                     }
@@ -227,8 +227,8 @@
                     label: {
                         text: 'Address line 1'
                    },
-                   id: '-line-1',
-                   name: '-line-1',
+                   id: 'v3-1-6-c-line-1',
+                   name: 'v3-1-6-c-line-1',
                    autocomplete: 'address-line1'
                 }) }}
                     
@@ -236,8 +236,8 @@
                     label: {
                         text: 'Address line 2 (optional)'
                     },
-                    id: '-line-2',
-                    name: '-line-2',
+                    id: 'v3-1-6-c-line-2',
+                    name: 'v3-1-6-c-line-2',
                     autocomplete: 'address-line2'
                 }) }}
                     
@@ -246,8 +246,8 @@
                         text: 'Town or city'
                     },
                     classes: 'govuk-!-width-two-thirds',
-                    id: '-town',
-                    name: '-town',
+                    id: 'v3-1-6-c-town',
+                    name: 'v3-1-6-c-town',
                     autocomplete: 'address-level2'
                 }) }}
                     
@@ -256,8 +256,8 @@
                         text: 'Postcode'
                     },
                     classes: 'govuk-input--width-10',
-                    id: '-postcode',
-                    name: '-postcode',
+                    id: 'v3-1-6-c-postcode',
+                    name: 'v3-1-6-c-postcode',
                     autocomplete: 'postal-code'
                 }) }}
                     
@@ -266,8 +266,8 @@
                         text: 'Country'
                     },
                     classes: 'govuk-!-width-two-thirds',
-                    id: '-country',
-                    name: '-country',
+                    id: 'v3-1-6-c-country',
+                    name: 'v3-1-6-c-country',
                     autocomplete: 'country'
                 }) }}
                     
@@ -383,6 +383,9 @@
                         isPageHeading: false
                     }
                 }) }}
+
+
+                
     
                 {{ govukButton({
                     text: 'Continue'

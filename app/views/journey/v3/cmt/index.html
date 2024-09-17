@@ -17,6 +17,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		<form action="/route-v3/cmt-1" method="post">
 
             <span class="govuk-caption-l">Section 1</span>
+            <h1 class='govuk-heading-l'>Registrant type</h1> 
 
 			{% from "govuk/components/radios/macro.njk" import govukRadios %}
 			
@@ -24,11 +25,12 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    name: "v-on-1",
 			    id: "v-on-1",
 			    value: data['v-on-1'],
+                classes: 'govuk-radios--small',
 			    fieldset: {
 				    legend: {
 				        text: "What are you registering as?",
 				        isPageHeading: true,
-				        classes: "govuk-fieldset__legend--l"
+				        classes: "govuk-fieldset__legend--m"
 				    }
 			    },
 			    items: [
@@ -45,6 +47,10 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			    }
 			    ]
 			}) }}
+
+
+            
+
 
 			{{ govukButton({
 				text: "Continue"
