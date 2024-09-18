@@ -17,7 +17,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop cmt-form'>
             <form action='cmt-3' method='post'>
     
-                <span class='govuk-caption-l'>Section 1b</span>
+                <span class='govuk-caption-l'>Section 3</span>
     
                 <h1 class='govuk-heading-l'>Non-individual entity</h1> 
 
@@ -30,7 +30,7 @@
                     classes: "govuk-radios--small",
                     fieldset: {
                         legend: {
-                            text: 'Is your entity a specified foreign power-controlled entity?',
+                            text: '3.1 Is your entity a specified foreign power-controlled entity?',
                             classes: 'govuk-fieldset__legend--m',
                             isPageHeading: false
                         }
@@ -38,11 +38,17 @@
                     items: [
                     {
                        value: 'Yes',
-                        text: 'Yes'
+                        text: 'Yes',
+                        hint: {
+                            text: 'Go to 3.2'
+                        }
                     },
                     {
                        value: 'No',
-                        text: 'No'
+                        text: 'No',
+                        hint: {
+                            text: 'Go to 3.3'
+                        }
                     }
                     ]
                 }) }}
@@ -56,7 +62,7 @@
                     classes: "govuk-radios--small",
                     fieldset: {
                         legend: {
-                            text: 'If "Yes", which specified foreign power-controlled entity are you registering as?',
+                            text: '3.2 If "Yes", which specified foreign power-controlled entity are you registering as?',
                             classes: 'govuk-fieldset__legend--m',
                             isPageHeading: false
                         }
@@ -102,7 +108,7 @@
                     name: 'e1',
                     value: data['e1'],
                     label: {
-                        text: 'If "No", what is the name of your entity?',
+                        text: '3.3 If "No", what is the name of your entity?',
                         classes: 'govuk-label--m',
                         isPageHeading: false
                     }
@@ -116,8 +122,8 @@
                     classes: "govuk-radios--small",
                     fieldset: {
                         legend: {
-                            text: 'Does use any other names?',
-                            classes: 'govuk-label--m',
+                            text: '3.4 Does the entity use any other names?',
+                            classes: 'govuk-fieldset__legend--m',
                             isPageHeading: false
                         }
                     },
@@ -127,11 +133,17 @@
                     items: [
                     {
                        value: 'Yes',
-                        text: 'Yes'
+                        text: 'Yes',
+                        hint: {
+                            text: 'Go to 3.5'
+                        }
                     },
                     {
                        value: 'No',
-                        text: 'No'
+                        text: 'No',
+                        hint: {
+                            text: 'Go to 3.6'
+                        }
                     }
                     ]
                 }) }}
@@ -145,7 +157,7 @@
                     name: 'e2a',
                     value: data['e2a'],
                     label: {
-                        text: 'If "Yes", what other names do you have?',
+                        text: '3.5 If "Yes", what other names do you have?',
                         classes: 'govuk-label--m',
                         isPageHeading: false
                     }
@@ -159,7 +171,7 @@
                     classes: "govuk-radios--small",
                     fieldset: {
                         legend: {
-                            text: 'Is recognised as a separate legal entity from its owners or members?',
+                            text: '3.6 Is recognised as a separate legal entity from its owners or members?',
                             classes: 'govuk-fieldset__legend--m',
                             isPageHeading: false
                         }
@@ -186,7 +198,7 @@
                     name: 'e4-1',
                     value: data['e4-1'],
                     label: {
-                        text: 'In which country or territory was incorporated?',
+                        text: '3.7 In which country or territory was incorporated?',
                         classes: 'govuk-label--m',
                         isPageHeading: false
                     }

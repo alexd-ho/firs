@@ -15,9 +15,9 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='link-registrant-1' method='post'>
+            <form action='/route-v3/link-registrant' method='post'>
     
-                <span class='govuk-caption-l'>Link registrant</span>
+                <span class='govuk-caption-l'>Link to a registrant</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -25,12 +25,12 @@
                     name: 'link-reg-firs-code',
                     value: data['link-reg-firs-code'],
                     label: {
-                        text: 'Enter the 16 digit FIRS Code you have recieved',
+                        text: 'Enter the 16-digit FIRS code',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },
                     hint: {
-                        text: 'This will be in the format of XXXX-XXXX-XXXX-XXXX. You do not need to add the hyphens.'
+                        text: 'This is the 16 digit code that was sent to you by the Home Office.'
                     }
                 }) }}
     

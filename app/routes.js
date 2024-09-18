@@ -2292,7 +2292,7 @@ router.post('/route-v3/a6-2', function(request, response) {
     if (value == "I am making the offer myself") { // 
         response.redirect(activities_v3+"/a6-5")
     } else { // 
-        response.redirect(activities_v3+"/a6-4")
+        response.redirect(activities_v3+"/a6-4n")
     }
 })
 
@@ -2328,7 +2328,16 @@ router.post('/route-v3/exception-check', function(request, response) {
 // REPS
 
 router.post('/route-v3/link-registrant', function(request, response) {
-    var value = request.session.data['link-registrant']
+    var value = request.session.data['link-reg-firs-code']
+    if (value == '1234567890'){ 
+        response.redirect(account_v3+'/link-registrant-1?return=success')
+    } else {
+        response.redirect(account_v3+'/link-registrant-fail?return=fail')
+    }
+})
+
+router.post('/route-v3/link-registrant-1', function(request, response) {
+    var value = request.session.data['link-registrant-1']
     if (value == 'Yes'){ 
         response.redirect(account_v3+'/link-registrant-2?setup=complete')
     } else {

@@ -15,14 +15,17 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/link-registrant' method='post'>
+            <form action='/route-v3/link-registrant-1' method='post'>
     
                 <span class='govuk-caption-l'>Link to a registrant</span>
     
-                <h1 class="govuk-heading-l">Registrant not added</h1>
+                <h1 class="govuk-heading-l">Registrant not found</h1>
 
-                <p>You have declined to manage the FIRS account for {{data['v3-1-1']}}.</p>
+                <p>The FIRS code you have entered is incorrect. <a href="link-registrant">Please try again</a>.</p>
+                <p>If you are sure you are entering the FIRS code correctly, please contact the Home Office.</p>
+                <p>[contact details]</p>
 
+              
     
                 {{ govukButton({
                     text: 'Continue',

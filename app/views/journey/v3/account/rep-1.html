@@ -17,7 +17,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='rep-2' method='post'>
     
-                <span class='govuk-caption-l'>Add a representative</span>
+                <span class='govuk-caption-l'>Add a user</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -32,27 +32,25 @@
                             isPageHeading: true
                         }
                     },
-                    hint: {
-                        text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias voluptates, ipsam tenetur animi culpa vero, voluptas natus at itaque error sapiente minus cum quo veritatis modi reiciendis suscipit deserunt fugiat'
-                    },
                     items: [
                     {
-                       value: 'User',
-                        text: 'User',
+                       value: 'Standard',
+                        text: 'Standard',
                         hint: {
-                            text: 'A user can add agreements, activities 
-                            and exceptions to the registrant'
+                            text: 'A Standard user can add and submit agreements 
+                            and activities, and request exceptions. They 
+                            cannot add other users.'
                         }
                     },
                     {
-                       value: 'Admin',
-                        text: 'Admin',
+                       value: 'Administrator ',
+                        text: 'Administrator ',
                         hint: {
-                            text: 'In addition to all "User" permissions, an 
-                            Admin can manage other users added 
-                            to this regsitration. They can also 
-                            request an update to the registrant 
-                            details.'
+                            text: 'An Administrator user can add and submit 
+                            agreements and activities, and request exceptions. 
+                            Administrator users can also add and remove other 
+                            users, including Administrator users, and update the 
+                            details of the Registrant.'
                         }
                     }
                     ]

@@ -427,6 +427,7 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
 div.cmt-form {
     form {
         > .govuk-form-group,
+        > div > .govuk-form-group,
         > .govuk-fieldset {
             border-bottom: 1px solid grey;
             padding: 20px 10px 30px;
