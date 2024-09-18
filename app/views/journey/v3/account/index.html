@@ -11,6 +11,10 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 meta: {
 items: [
 {
+href: "/journey/v3/account/contact-start",
+text: "Quick setup"
+},
+{
 href: "account/index-alt",
 text: "Alternate account home"
 },
@@ -41,7 +45,7 @@ visuallyHiddenTitle: "Footer links"
             <div class="govuk-notification-banner govuk-notification-banner--success-" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
                 <div class="govuk-notification-banner__header">
                     <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
-                    New account created
+                    Start here
                     </h2>
                 </div>
                 <div class="govuk-notification-banner__content">
@@ -78,10 +82,6 @@ visuallyHiddenTitle: "Footer links"
 			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
         </h1>
 
-        {% if (data['v3-1-1']) %}
-        {% else %}
-        <a href="/journey/v3/account/contact-start" class="govuk-button">Quick setup - start here</a>            
-        {% endif %}
 		
         {% endif %}
 
