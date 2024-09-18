@@ -15,19 +15,22 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='rep-1' method='post'>
+            <form action='rep-4' method='post'>
     
                 <span class='govuk-caption-l'>Add a representative</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
-                    id: 'rep-name',
-                    name: 'rep-name',
-                    value: data['rep-name'],
+                    id: 'rep-email',
+                    name: 'rep-email',
+                    value: data['rep-email'],
                     label: {
-                        text: 'What is the name of the person you want the invite sent to? ',
+                        text: 'What is the email address you would like the invite to go to? ',
                         classes: 'govuk-label--l',
                         isPageHeading: true
+                    },
+                    hint: {
+                        text: 'We will send a "FIRS Code" to this user, which will allow them to access your account and complete regsitrations on your behalf. You can revoke this acess at any time in the Account section.'
                     }
                 }) }}
     

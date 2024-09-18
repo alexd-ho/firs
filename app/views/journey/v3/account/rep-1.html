@@ -19,19 +19,43 @@
     
                 <span class='govuk-caption-l'>Add a representative</span>
     
-                {% from 'govuk/components/input/macro.njk' import govukInput %}
-                {{ govukInput({
-                    id: 'rep-email',
-                    name: 'rep-email',
-                    value: data['rep-email'],
-                    label: {
-                        text: 'What is the email address you would like the invite to go to? ',
-                        classes: 'govuk-label--l',
-                        isPageHeading: true
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'rep-account',
+                    name: 'rep-account',
+                    value: data['rep-account'],
+                    fieldset: {
+                        legend: {
+                            text: 'What type of user do 
+                            you want to add?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
                     },
                     hint: {
-                        text: 'We will send a "FIRS Code" to this user, which will allow them to access your account and complete regsitrations on your behalf. You can revoke this acess at any time in the Account section.'
+                        text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias voluptates, ipsam tenetur animi culpa vero, voluptas natus at itaque error sapiente minus cum quo veritatis modi reiciendis suscipit deserunt fugiat'
+                    },
+                    items: [
+                    {
+                       value: 'User',
+                        text: 'User',
+                        hint: {
+                            text: 'A user can add agreements, activities 
+                            and exceptions to the registrant'
+                        }
+                    },
+                    {
+                       value: 'Admin',
+                        text: 'Admin',
+                        hint: {
+                            text: 'In addition to all "User" permissions, an 
+                            Admin can manage other users added 
+                            to this regsitration. They can also 
+                            request an update to the registrant 
+                            details.'
+                        }
                     }
+                    ]
                 }) }}
     
                 {{ govukButton({

@@ -10,8 +10,8 @@
    meta: {
      items: [
        {
-         href: "registrations/index-alt",
-         text: "Alternate Registration"
+         href: "registrations/manage-users-basic",
+         text: "View as 'User'"
        },
        {
          href: "/manage-prototype",
@@ -58,48 +58,48 @@
                             
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								James Watson 
+								<a href="">James Watson</a>
 							</dt>
 							<dd class="govuk-summary-list__value">
-								Last Login: 23 Aug 2024
+								 Last Login: 23 Aug 2024
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">Remove access</a>
+								<strong class="govuk-tag govuk-tag--orange">Admin</strong>
 							</dd>
 						</div>
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								Mark & Sons 
+								<a href="">Mark & Sons </a>
 							</dt>
 							<dd class="govuk-summary-list__value">
 								Last Login: 6 Jul 2024
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">Remove access</a>
+								<!-- <strong class="govuk-tag">User</strong> -->
 							</dd>
 						</div>
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								Jenna Murison 
+								<a href="">Jenna Murison </a>
 							</dt>
 							<dd class="govuk-summary-list__value">
 								Last Login: never
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">Remove access</a>
+								<!-- <strong class="govuk-tag">User</strong> -->
 							</dd>
 						</div>
 
                         {% if (data['rep-name']) %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								{{data['rep-name']}} 
+								<a href="">{{data['rep-name']}} </a>
 							</dt>
 							<dd class="govuk-summary-list__value">
 								Last Login: never
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">Remove access</a>
+								{% if (data['rep-account'] == 'admin') %}<strong class="govuk-tag">Admin</strong>{% endif %}
 							</dd>
 						</div>
                         {% endif %}
@@ -109,13 +109,13 @@
                         {% if (data['rep-name']) %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								{{data['rep-name']}} 
+								<a href="">{{data['rep-name']}} </a>
 							</dt>
 							<dd class="govuk-summary-list__value">
 								Last Login: never
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">Remove access</a>
+								{% if (data['rep-account'] == 'admin') %}<strong class="govuk-tag">Admin</strong>{% endif %}
 							</dd>
 						</div>
                         {% endif %}
@@ -127,7 +127,7 @@
 			</div>
 
 
-			<a class="govuk-button " href="../account/add-representative">Add a new user</a>
+			<a class="govuk-button " href="../account/rep-1">Add a new user</a>
 
 
 		</div>
