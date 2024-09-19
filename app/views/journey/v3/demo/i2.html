@@ -5,41 +5,28 @@
 {% endif %}
 {% set activeLinkId = 'account' %}
     
-    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
-    
     {% block pageTitle %}
-    Link registrant – {{ serviceName }} – GOV.UK Prototype Kit
+        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v3/link-registrant-1' method='post'>
+            <form action='/route-v3/i2' method='post'>
     
-                <span class='govuk-caption-l'>Link to a registrant</span>
+                <span class='govuk-caption-l'>Add your details</span>
     
-                <h1 class="govuk-heading-l">Registrant details</h1>
-
-                <!-- <p>This FIRS Code has returned the following:</p> -->
-
-                {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
-                    
-                {{ govukInsetText({
-                  html: '<h3 class="govuk-heading-m">[Registrant Name]</h3>
-                  <p>3 Union Street, Sheffield, S1 3SD, UK<br>
-                    [Contact Number]</p>'
-                }) }}
-
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'link-registrant-1',
-                    name: 'link-registrant-1',
-                    value: data['link-registrant-1'],
+                    id: 'i2',
+                    name: 'i2',
+                    value: data['i2'],
                     fieldset: {
                         legend: {
-                            text: 'Do you want to be linked to [Registrant Name]?',
-                            classes: 'govuk-fieldset__legend--m',
+                            text: 'Do you have any former 
+                            names?',
+                            classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
@@ -54,7 +41,6 @@
                     }
                     ]
                 }) }}
-              
     
                 {{ govukButton({
                     text: 'Continue'

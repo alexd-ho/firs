@@ -13,23 +13,25 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='i1' method='post'>
+            <form action='/route-v3/' method='post'>
     
                 <span class='govuk-caption-l'>Add your details</span>
     
-                <h1 class='govuk-heading-l'>User Name</h1>     
-                
-                <p>Add your personal details</p>
-
-                {% from 'govuk/components/input/macro.njk' import govukInput %}
-                {{ govukInput({
-                    id: 'e0',
-                    name: 'e0',
-                    value: data['e0'],
-                    label: {
-                        text: 'Text Label',
-                        classes: 'govuk-label--l',
-                        isPageHeading: true
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+                {{ govukDateInput({
+                    namePrefix: 'i4',
+                    id: 'i4',
+                    value: data['i4'],
+                    fieldset: {
+                        legend: {
+                            text: 'What is your date of 
+                            birth?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: '{3:For example, 27 3 2007}'
                     }
                 }) }}
     

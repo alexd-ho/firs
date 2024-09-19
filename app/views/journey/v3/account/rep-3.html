@@ -17,7 +17,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='rep-4' method='post'>
     
-                <span class='govuk-caption-l'>Add a representative</span>
+                <span class='govuk-caption-l'>Add a user</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -25,14 +25,12 @@
                     name: 'rep-email',
                     value: data['rep-email'],
                     label: {
-                        text: 'What is the email 
-                        address of the person 
-                        you want to add?',
+                        text: 'What is the email address of the user you want to add?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },
                     hint: {
-                        text: ' We will send a "FIRS Code" to this user, which will allow them to access your account and complete regsitrations on your behalf. You can revoke this acess at any time in the Account section.'
+                        text: 'We will send a FIRS code to this user, which will give them to access your account.'
                     }
                 }) }}
     

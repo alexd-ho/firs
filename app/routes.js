@@ -2370,7 +2370,14 @@ router.post('/route-v3/on-2', function(request, response) {
 // DEMO
 var demo_v3 = '/journey/v3/demo';
 
-
+router.post('/route-v3/i2', function(request, response) {
+    var value = request.session.data['i2']
+    if (value == 'Yes'){ 
+        response.redirect(demo_v3+'/i3')
+    } else {
+        response.redirect(demo_v3+'/i4')
+    }
+})
 
 
 
