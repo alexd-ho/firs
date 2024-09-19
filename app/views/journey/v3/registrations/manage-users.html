@@ -53,53 +53,65 @@
 					</ul>
 				</div>
 				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
+					<dl class="govuk-summary-list govuk-summary-list--users">
                         {% if (data['state'] != 'dynamic') %}
                             
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a href="">James Watson</a>
+								James Watson  
 							</dt>
 							<dd class="govuk-summary-list__value">
-								 Last Login: 23 Aug 2024
-							</dd>
+								Administrator
+						    </dd>
+							<dd class="govuk-summary-list__value">
+								Last Login: 23 Aug 2024
+						    </dd>
 							<dd class="govuk-summary-list__actions">
-								<strong class="govuk-tag govuk-tag--orange">Administrator</strong>
+								<a href="" class="">Remove</a> | <a href="" class="">Manage account</a>
 							</dd>
 						</div>
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a href="">Mark & Sons </a>
+								Mark & Sons
 							</dt>
+							<dd class="govuk-summary-list__value">
+								Standard
+						    </dd>
 							<dd class="govuk-summary-list__value">
 								Last Login: 6 Jul 2024
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<!-- <strong class="govuk-tag">User</strong> -->
+								<a href="" class="">Remove</a> | <a href="" class="">Manage account</a>
 							</dd>
 						</div>
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a href="">Jenna Murison </a>
+								Jenna Murison
 							</dt>
+							<dd class="govuk-summary-list__value">
+								Standard
+						    </dd>
 							<dd class="govuk-summary-list__value">
 								Last Login: never
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<!-- <strong class="govuk-tag">User</strong> -->
+								<a href="" class="">Remove</a> | <a href="" class="">Manage account</a>
 							</dd>
 						</div>
 
                         {% if (data['rep-name']) %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a href="">{{data['rep-name']}} </a>
+								{{data['rep-name']}}
 							</dt>
+							<dd class="govuk-summary-list__value">
+								{{data['rep-account']}}
+						    </dd>
 							<dd class="govuk-summary-list__value">
 								Last Login: never
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								{% if (data['rep-account'] == 'Administrator') %}<strong class="govuk-tag govuk-tag--orange">Administrator</strong>{% endif %}
+								<a href="" class="">Remove</a> | <a href="" class="">Manage account</a>
 							</dd>
 						</div>
                         {% endif %}
@@ -109,13 +121,16 @@
                         {% if (data['rep-name']) %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								<a href="">{{data['rep-name']}} </a>
+								{{data['rep-name']}}
 							</dt>
+							<dd class="govuk-summary-list__value">
+								{{data['rep-account']}}
+						    </dd>
 							<dd class="govuk-summary-list__value">
 								Last Login: never
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								{% if (data['rep-account'] == 'Administrator') %}<strong class="govuk-tag govuk-tag--orange">Administrator</strong>{% endif %}
+								<a href="" class="">Remove</a> | <a href="" class="">Manage account</a>
 							</dd>
 						</div>
                         {% endif %}

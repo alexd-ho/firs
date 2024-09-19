@@ -369,6 +369,17 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
 }
 
 
+// MANAGE USERS
+
+.govuk-summary-list--users {
+    .govuk-summary-list__key {
+        width: 22%;
+    }
+    .govuk-tag {
+        margin-left: 10px;
+    }
+}
+
 // MESSAGES INBOX
 
 .inbox-table {
