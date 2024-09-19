@@ -5,8 +5,6 @@
 {% endif %}
 {% set activeLinkId = 'account' %}
     
-    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
-    
     {% block pageTitle %}
         Add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
@@ -15,21 +13,11 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='p3-1-2' method='post'>
+            <form action='' method='post'>
     
                 <span class='govuk-caption-l'>Add your details</span>
     
-                {% from 'govuk/components/input/macro.njk' import govukInput %}
-                {{ govukInput({
-                    id: 'p3-1-1',
-                    name: 'p3-1-1',
-                    value: data['p3-1-1'],
-                    label: {
-                        text: 'What is your name?',
-                        classes: 'govuk-label--l',
-                        isPageHeading: true
-                    }
-                }) }}
+                
     
                 {{ govukButton({
                     text: 'Continue'
