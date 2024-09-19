@@ -1,0 +1,40 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Manage users – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='manage-users' method='post'>
+    
+                <span class='govuk-caption-l'>Manage users</span>
+
+                <h1 class='govuk-heading-l'>Do you want to remove {{data['user']}}?</h1> 
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+    
+                {{ govukButton({
+                    text: 'Yes',
+                    classes: 'govuk-button--warning',
+                    href: 'manage-users'
+                }) }}
+                    
+                {{ govukButton({
+                    href: '/manage-users',
+                    classes: 'govuk-button--secondary',
+                    text: 'No'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

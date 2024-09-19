@@ -1,0 +1,70 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Manage users – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='manage-users' method='post'>
+    
+                <span class='govuk-caption-l'>Manage users</span>
+
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'rep-account',
+                    name: 'rep-account',
+                    value: data['rep-account'],
+                    fieldset: {
+                        legend: {
+                            text: 'Change account type for '+data['user']+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Standard',
+                        text: 'Standard',
+                        hint: {
+                            html: '<p class="govuk-hint" style="margin-bottom: 5px;">A Standard user can:   </p>
+                            <ul class="govuk-hint govuk-list govuk-list--bullet">
+                                <li>Add and submit agreements and activities</li>
+                                <li>Request exception</li>
+                            </ul>'
+                        }
+                    },
+                    {
+                       value: 'Administrator',
+                        text: 'Administrator',
+                        hint: {
+                            html: '<p class="govuk-hint" style="margin-bottom: 5px;">An Administrator user can:</p>
+                            <ul class="govuk-hint govuk-list govuk-list--bullet">
+                                <li>Add and submit agreements and activities</li>
+                                <li>Request exceptions</li>
+                                <li>Add and remove other users, including Administrator users</li>
+                                <li>Update the details of the Registrant.</li>
+                            </ul>'
+                        }
+                    }
+                    ]
+                }) }}
+
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}
