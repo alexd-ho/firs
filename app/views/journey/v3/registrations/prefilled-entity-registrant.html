@@ -1,0 +1,620 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block footer %}
+	{{ govukFooter({
+   meta: {
+     items: [
+       {
+         href: "registrations/index-alt",
+         text: "Alternate Registration"
+       },
+       {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+	<div class="govuk-grid-row">
+
+		<div class="govuk-grid-column-full">
+
+			<span class="govuk-caption-l">Your registrations</span>
+
+			{% if (data['prefill'] == 'HSBC') %}
+			<h1 class="govuk-heading-l">
+				HSBC
+			</h1>
+
+
+			<div class="govuk-summary-card">
+				<div class="govuk-summary-card__title-wrapper">
+					<h2 class="govuk-summary-card__title">
+						Registrant
+					</h2>
+					<ul class="govuk-summary-card__actions">
+						<li class="govuk-summary-card__action">
+							<a class="govuk-link" href="registrations/m-check">View registrant details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="govuk-summary-card__content">
+					<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">								
+                                Identity verification status 								
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p><strong class="govuk-tag govuk-tag--green">Completed</strong></p>
+                                <p>Identity verification is completed </p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="">View details</a>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+									Manage user access
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['rep-email']) %}1 user has access {% else %}0 users have access {% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="manage-users?users-for=ACME Inc&state=dynamic">Manage users</a>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+									Contact details
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p>info@hsbc.com<br>
+									0345 740 4404
+                                </p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="">Manage contact details</a>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+									Registered address
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p>1 Centenary Square, Birmingham, B1 1HQ</p>
+                            </dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="">Manage address</a>
+							</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+
+
+			{% elseif (data['prefill'] == 'Citi') %}
+			
+			<h1 class="govuk-heading-l">
+				Citi
+			</h1>
+
+
+			<div class="govuk-summary-card">
+				<div class="govuk-summary-card__title-wrapper">
+					<h2 class="govuk-summary-card__title">
+						Registrant
+					</h2>
+					<ul class="govuk-summary-card__actions">
+						<li class="govuk-summary-card__action">
+							<a class="govuk-link" href="registrations/m-check">View registrant details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="govuk-summary-card__content">
+					<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">								
+                                Identity verification status 								
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p><strong class="govuk-tag govuk-tag--green">Completed</strong></p>
+                                <p>Identity verification is completed </p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="">View details</a>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+									Manage user access
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['rep-email']) %}1 user has access {% else %}0 users have access {% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="manage-users?users-for=ACME Inc&state=dynamic">Manage users</a>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+									Contact details
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p>info@citibank.co.uk<br>
+									020 7500 5000
+                                </p>
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="">Manage contact details</a>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+									Registered address
+							</dt>
+							<dd class="govuk-summary-list__value">
+								<p>Citigroup Centre, 33 Canada Square, London E14 5LB</p>
+                            </dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="">Manage address</a>
+							</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+
+			{% endif %}
+
+
+<!-- 
+            <h2 class="govuk-heading-m">Agreements</h2>
+
+			<div class="govuk-summary-card">
+				<div class="govuk-summary-card__title-wrapper">
+					<h2 class="govuk-summary-card__title">
+						
+						Geoscope
+
+                    </h2>
+					<ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+                        </li>
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started">Add a new activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+                        </li>
+                    </ul>
+				</div>
+			
+				<div class="govuk-summary-card__content">
+					<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a class="govuk-link" href="../registrations/public-1">Private communication</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Email, Phone call
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--green">Published</strong>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a class="govuk-link" href="../registrations/public-2">Private communication</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Phone call
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--yellow">Submitted</strong>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a class="govuk-link" href="../registrations/money-1">Offer of money goods or services</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								£12,000 - Edna Davies
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--green">Published</strong>
+							</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+
+
+			<div class="govuk-summary-card">
+				<div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                        
+                        UK/RO
+
+                    </h2>
+					<ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+                        </li>
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started">Add a new activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+                        </li>
+                    </ul>
+                </div>
+			
+				<div class="govuk-summary-card__content">
+					<dl class="govuk-summary-list">
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a class="govuk-link" href="../registrations/public-1">Public communication</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Website, social media
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--green">Published</strong>
+							</dd>
+						</div>
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<a class="govuk-link" href="../registrations/public-2">Non-political activity</a>
+							</dt>
+							<dd class="govuk-summary-list__value">
+								Other
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class="govuk-tag govuk-tag--blue">Completed</strong>
+							</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+ -->
+
+
+			{% if (data['entity-details'] == 'Completed') and (data['tier'] == 'enhanced') %}
+
+			{% if (data['reg1'] == 'complete') %}
+
+			<div class="govuk-summary-card">
+				<div class="govuk-summary-card__title-wrapper">
+					<h2 class="govuk-summary-card__title">
+						{% if (data['m1'] == 'Yes') %}
+						{{data['m-fp']}}
+						{% else %}
+						{{data['m-fp']}} ({{data['m-fp-type']}} - {{data['m-fp-country']}})                        
+						{% endif %}
+					</h2>
+					<ul class="govuk-summary-card__actions">
+						<li class="govuk-summary-card__action">
+							<a class="govuk-link" href="registrations/m-check">View details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li>
+						<li class="govuk-summary-card__action">
+							<a class="govuk-link" href="activities/a1?assigned-registration=reg1&registration-tier=enhanced&account-type=misrep&act1=started">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="govuk-summary-card__content">
+					<dl class="govuk-summary-list">
+						{% if (data['act1'] == 'submitted') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								{% if (data['activity-type'] == 'private') %}
+								<a class="govuk-link" href="activities/a4-view">
+									Private communication
+								</a>
+								{% elseif (data['activity-type'] == 'public') %}
+								<a class="govuk-link" href="activities/a5-view">
+									Public communication
+								</a>
+								{% elseif (data['activity-type'] == 'money') %}
+								<a class="govuk-link" href="activities/a6-view">
+									Offer
+								</a>
+								{% elseif (data['activity-type'] == 'other') %}
+								<a class="govuk-link" href="activities/a7-view">
+									Non-political activity
+								</a>
+								{% endif %}
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['activity-type'] == 'private') %}
+									{{data['a4-1']}} - 
+									{{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %}, {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %}, {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %}, {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %}, {{data['a4-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'public') %}
+									{{data['a5-1']}} - 
+									{{data['a5-5--name-1']}}{% if (data['a5-5--name-2']) %}, {{data['a5-5--name-2']}}{% endif %}{% if (data['a5-5--name-3']) %}, {{data['a5-5--name-3']}}{% endif %}{% if (data['a5-5--name-4']) %}, {{data['a5-5--name-4']}}{% endif %}{% if (data['a5-5--name-5']) %}, {{data['a5-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'money') %}
+									&pound;{{data['a6-2']}} - 
+									{{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %}, {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'other') %}
+									{{data['a7-5--name-1']}}{% if (data['a7-5--name-2']) %}, {{data['a7-5--name-2']}}{% endif %}{% if (data['a7-5--name-3']) %}, {{data['a7-5--name-3']}}{% endif %}{% if (data['a7-5--name-4']) %}, {{data['a7-5--name-4']}}{% endif %}{% if (data['a7-5--name-5']) %}, {{data['a7-5--name-5']}}{% endif %}
+								{% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--blue'>Submitted</strong>
+							</dd>
+						</div>
+						{% elseif (data['act1'] == 'in-progress') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								{% if (data['activity-type'] == 'private') %}
+								<a class="govuk-link" href="activities/a4-check">
+									Private communication
+								</a>
+								{% elseif (data['activity-type'] == 'public') %}
+								<a class="govuk-link" href="activities/a5-check">
+									Public communication
+								</a>
+								{% elseif (data['activity-type'] == 'money') %}
+								<a class="govuk-link" href="activities/a6-check">
+									Offer
+								</a>
+								{% elseif (data['activity-type'] == 'other') %}
+								<a class="govuk-link" href="activities/a7-check">
+									Non-political activity
+								</a>
+								{% endif %}
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['activity-type'] == 'private') %}
+									{{data['a4-1']}} - 
+									{{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %}, {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %}, {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %}, {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %}, {{data['a4-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'public') %}
+									{{data['a5-1']}} - 
+									{{data['a5-5--name-1']}}{% if (data['a5-5--name-2']) %}, {{data['a5-5--name-2']}}{% endif %}{% if (data['a5-5--name-3']) %}, {{data['a5-5--name-3']}}{% endif %}{% if (data['a5-5--name-4']) %}, {{data['a5-5--name-4']}}{% endif %}{% if (data['a5-5--name-5']) %}, {{data['a5-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'money') %}
+									&pound;{{data['a6-2']}} - 
+									{{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %}, {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'other') %}
+									{{data['a7-5--name-1']}}{% if (data['a7-5--name-2']) %}, {{data['a7-5--name-2']}}{% endif %}{% if (data['a7-5--name-3']) %}, {{data['a7-5--name-3']}}{% endif %}{% if (data['a7-5--name-4']) %}, {{data['a7-5--name-4']}}{% endif %}{% if (data['a7-5--name-5']) %}, {{data['a7-5--name-5']}}{% endif %}
+								{% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>
+							</dd>
+						</div>
+						{% elseif (data['act1'] == 'published') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								{% if (data['activity-type'] == 'private') %}
+								<a class="govuk-link" href="activities/a4-view">
+									Private communication
+								</a>
+								{% elseif (data['activity-type'] == 'public') %}
+								<a class="govuk-link" href="activities/a5-view">
+									Public communication
+								</a>
+								{% elseif (data['activity-type'] == 'money') %}
+								<a class="govuk-link" href="activities/a6-view">
+									Offer
+								</a>
+								{% elseif (data['activity-type'] == 'other') %}
+								<a class="govuk-link" href="activities/a7-view">
+									Non-political activity
+								</a>
+								{% endif %}
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['activity-type'] == 'private') %}
+									{{data['a4-1']}} - 
+									{{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %}, {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %}, {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %}, {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %}, {{data['a4-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'public') %}
+									{{data['a5-1']}} - 
+									{{data['a5-5--name-1']}}{% if (data['a5-5--name-2']) %}, {{data['a5-5--name-2']}}{% endif %}{% if (data['a5-5--name-3']) %}, {{data['a5-5--name-3']}}{% endif %}{% if (data['a5-5--name-4']) %}, {{data['a5-5--name-4']}}{% endif %}{% if (data['a5-5--name-5']) %}, {{data['a5-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'money') %}
+									&pound;{{data['a6-2']}} - 
+									{{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %}, {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'other') %}
+									{{data['a7-5--name-1']}}{% if (data['a7-5--name-2']) %}, {{data['a7-5--name-2']}}{% endif %}{% if (data['a7-5--name-3']) %}, {{data['a7-5--name-3']}}{% endif %}{% if (data['a7-5--name-4']) %}, {{data['a7-5--name-4']}}{% endif %}{% if (data['a7-5--name-5']) %}, {{data['a7-5--name-5']}}{% endif %}
+								{% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--green'>Published</strong>
+							</dd>
+						</div>
+						{% else %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<strong>No activities registered</strong>
+							</dt>
+							<dd class="govuk-summary-list__value">
+							</dd>
+							<dd class="govuk-summary-list__actions">
+							</dd>
+						</div>
+						{% endif %}
+					</dl>
+				</div>
+			</div>
+
+			{% else  %}
+				
+			<a class="govuk-button " href="registrations/m1">About your foreign power</a>
+
+			{% endif %}
+
+
+			{% else %}
+
+
+			{% if (data['reg1'] == 'complete') %}
+
+			<div class="govuk-summary-card">
+				<div class="govuk-summary-card__title-wrapper">
+					<h2 class="govuk-summary-card__title">
+						{% if (data['r2'] == "Foreign power-controlled entity") %}{{data['r3a']}}{% elseif (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
+							<!-- {{data['r1-tier']}} -->
+					</h2>
+					<ul class="govuk-summary-card__actions">
+						<li class="govuk-summary-card__action">
+							<a class="govuk-link" href="registrations/r-view">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li>
+						<li class="govuk-summary-card__action">
+							<a class="govuk-link" href="../activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started&acc-type={{data['registrant-type']}}">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li>
+					</ul>
+				</div>
+				<div class="govuk-summary-card__content">
+					<dl class="govuk-summary-list">
+						{% if (data['act1'] == 'submitted') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								{% if (data['activity-type'] == 'private') %}
+								<a class="govuk-link" href="activities/a4-view">
+									Private communication
+								</a>
+								{% elseif (data['activity-type'] == 'public') %}
+								<a class="govuk-link" href="activities/a5-view">
+									Public communication
+								</a>
+								{% elseif (data['activity-type'] == 'money') %}
+								<a class="govuk-link" href="activities/a6-view">
+									Offer
+								</a>
+								{% elseif (data['activity-type'] == 'other') %}
+								<a class="govuk-link" href="activities/a7-view">
+									Non-political activity
+								</a>
+								{% endif %}
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['activity-type'] == 'private') %}
+									{{data['a4-1']}} - 
+									{{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %}, {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %}, {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %}, {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %}, {{data['a4-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'public') %}
+									{{data['a5-1']}} - 
+									{{data['a5-5--name-1']}}{% if (data['a5-5--name-2']) %}, {{data['a5-5--name-2']}}{% endif %}{% if (data['a5-5--name-3']) %}, {{data['a5-5--name-3']}}{% endif %}{% if (data['a5-5--name-4']) %}, {{data['a5-5--name-4']}}{% endif %}{% if (data['a5-5--name-5']) %}, {{data['a5-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'money') %}
+									&pound;{{data['a6-2']}} - 
+									{{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %}, {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'other') %}
+									{{data['a7-5--name-1']}}{% if (data['a7-5--name-2']) %}, {{data['a7-5--name-2']}}{% endif %}{% if (data['a7-5--name-3']) %}, {{data['a7-5--name-3']}}{% endif %}{% if (data['a7-5--name-4']) %}, {{data['a7-5--name-4']}}{% endif %}{% if (data['a7-5--name-5']) %}, {{data['a7-5--name-5']}}{% endif %}
+								{% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--blue'>Submitted</strong>
+							</dd>
+						</div>
+						{% elseif (data['act1'] == 'in-progress') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								{% if (data['activity-type'] == 'private') %}
+								<a class="govuk-link" href="activities/a4-check">
+									Private communication
+								</a>
+								{% elseif (data['activity-type'] == 'public') %}
+								<a class="govuk-link" href="activities/a5-check">
+									Public communication
+								</a>
+								{% elseif (data['activity-type'] == 'money') %}
+								<a class="govuk-link" href="activities/a6-check">
+									Offer
+								</a>
+								{% elseif (data['activity-type'] == 'other') %}
+								<a class="govuk-link" href="activities/a7-check">
+									Non-political activity
+								</a>
+								{% endif %}
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['activity-type'] == 'private') %}
+									{{data['a4-1']}} - 
+									{{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %}, {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %}, {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %}, {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %}, {{data['a4-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'public') %}
+									{{data['a5-1']}} - 
+									{{data['a5-5--name-1']}}{% if (data['a5-5--name-2']) %}, {{data['a5-5--name-2']}}{% endif %}{% if (data['a5-5--name-3']) %}, {{data['a5-5--name-3']}}{% endif %}{% if (data['a5-5--name-4']) %}, {{data['a5-5--name-4']}}{% endif %}{% if (data['a5-5--name-5']) %}, {{data['a5-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'money') %}
+									&pound;{{data['a6-2']}} - 
+									{{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %}, {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'other') %}
+									{{data['a7-5--name-1']}}{% if (data['a7-5--name-2']) %}, {{data['a7-5--name-2']}}{% endif %}{% if (data['a7-5--name-3']) %}, {{data['a7-5--name-3']}}{% endif %}{% if (data['a7-5--name-4']) %}, {{data['a7-5--name-4']}}{% endif %}{% if (data['a7-5--name-5']) %}, {{data['a7-5--name-5']}}{% endif %}
+								{% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>
+							</dd>
+						</div>
+						{% elseif (data['act1'] == 'published') %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								{% if (data['activity-type'] == 'private') %}
+								<a class="govuk-link" href="activities/a4-view">
+									Private communication
+								</a>
+								{% elseif (data['activity-type'] == 'public') %}
+								<a class="govuk-link" href="activities/a5-view">
+									Public communication
+								</a>
+								{% elseif (data['activity-type'] == 'money') %}
+								<a class="govuk-link" href="activities/a6-view">
+									Offer
+								</a>
+								{% elseif (data['activity-type'] == 'other') %}
+								<a class="govuk-link" href="activities/a7-view">
+									Non-political activity
+								</a>
+								{% endif %}
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{% if (data['activity-type'] == 'private') %}
+									{{data['a4-1']}} - 
+									{{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %}, {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %}, {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %}, {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %}, {{data['a4-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'public') %}
+									{{data['a5-1']}} - 
+									{{data['a5-5--name-1']}}{% if (data['a5-5--name-2']) %}, {{data['a5-5--name-2']}}{% endif %}{% if (data['a5-5--name-3']) %}, {{data['a5-5--name-3']}}{% endif %}{% if (data['a5-5--name-4']) %}, {{data['a5-5--name-4']}}{% endif %}{% if (data['a5-5--name-5']) %}, {{data['a5-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'money') %}
+									&pound;{{data['a6-2']}} - 
+									{{data['a6-5--name-1']}}{% if (data['a6-5--name-2']) %}, {{data['a6-5--name-2']}}{% endif %}{% if (data['a6-5--name-3']) %}, {{data['a6-5--name-3']}}{% endif %}{% if (data['a6-5--name-4']) %}, {{data['a6-5--name-4']}}{% endif %}{% if (data['a6-5--name-5']) %}, {{data['a6-5--name-5']}}{% endif %}
+								{% elseif (data['activity-type'] == 'other') %}
+									{{data['a7-5--name-1']}}{% if (data['a7-5--name-2']) %}, {{data['a7-5--name-2']}}{% endif %}{% if (data['a7-5--name-3']) %}, {{data['a7-5--name-3']}}{% endif %}{% if (data['a7-5--name-4']) %}, {{data['a7-5--name-4']}}{% endif %}{% if (data['a7-5--name-5']) %}, {{data['a7-5--name-5']}}{% endif %}
+								{% endif %}
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<strong class='govuk-tag govuk-tag--green'>Published</strong>
+							</dd>
+						</div>
+						{% else %}
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								<strong>No activities registered</strong>
+							</dt>
+							<dd class="govuk-summary-list__value">
+							</dd>
+							<dd class="govuk-summary-list__actions">
+							</dd>
+						</div>
+						{% endif %}
+					</dl>
+				</div>
+			</div>
+
+
+			{% endif %}
+
+			{% endif %}
+
+
+			<a class="govuk-button " href="../registrations/r1">Add a new agreement</a>
+
+
+		</div>
+
+	</div>
+
+{% endblock %}

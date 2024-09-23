@@ -1,10 +1,35 @@
-{% extends "layouts/v3-header-one-0.html" %}
+{% extends 'layouts/v3-header-one-1.html' %}
 {% set bodyClasses = "registration" %}
 
 {% block pageTitle %}
 Account – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% block footer %}
+	{{ govukFooter({
+   meta: {
+     items: [
+	 {
+		href: "../registrations/prefilled?prefill=HSBC",
+		text: "Prefilled Reg 1"
+	  },
+	  {
+		href: "../registrations/prefilled?prefill=Citi",
+		text: "Prefilled Reg 2"
+	  },
+	  {
+         href: "/manage-prototype",
+         text: "Manage your prototype"
+       },
+       {
+         href: "/manage-prototype/clear-data",
+         text: "Clear data"
+       }
+     ],
+     visuallyHiddenTitle: "Footer links"
+   }
+ }) }}
+{% endblock %}
 
 
 {% block content %}

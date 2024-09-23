@@ -383,7 +383,7 @@ taxation authority for {{ registrant }} in {{data['e4-1']}}
     {% if (data['setup'] == 'incomplete') %}
     {{ govukButton({
         text: "Save details",
-        href: "../account/officer-verification?entity-details=Completed"
+        href: "../account/officer-verification?entity-details=Completed&registrant-type=Entity&setup=complete"
         }) }}
     {% else %}
     {{ govukButton({

@@ -29,170 +29,90 @@
 
 {% block content %}
 
-	<div class="govuk-grid-row">
 
-		<div class="govuk-grid-column-full">
+<div class="govuk-grid-row">
 
-			<span class="govuk-caption-l">Your registrations</span>
+	<div class="govuk-grid-column-full">
 
-			<h1 class="govuk-heading-l">
-                {% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['accName']) %}{{data['accName']}}{% else	%}Registrant Name{% endif %}
-			</h1>
-			{% if (condition) %}
-				
-			{% endif %}
+		<span class="govuk-caption-l">Your registrations</span>
 
-			<p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).</p>
+		<h1 class="govuk-heading-l">
+			{% if (data['contact-name']) %}{{data['contact-name']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Registrant Name{% endif %}
+		</h1>
 
-			{% if (data['reg1'] == 'complete') %}
+		<p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).</p>
 
-			<div class="govuk-summary-card">
-				<div class="govuk-summary-card__title-wrapper">
-					<h2 class="govuk-summary-card__title">
-						{% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}				
-				    </h2>
-					<ul class="govuk-summary-card__actions">
-						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activities/a1?assigned-registration=reg1">Add a new activity<span class="govuk-visually-hidden"> for the Ukraine registration</span></a>
-						</li>
-					</ul>
-				</div>
-				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
-						{% if (data['act1'] == 'complete') %}
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-2">ACTIVITY TYPE</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-								ACTIVITY DETAILS
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--blue'>Submitted</strong>
-							</dd>
-						</div>
-						{% else %}
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<strong>No activities registered</strong>
-							</dt>
-							<dd class="govuk-summary-list__value">
-							</dd>
-							<dd class="govuk-summary-list__actions">
-							</dd>
-						</div>
-						{% endif %}
-					</dl>
-				</div>
+		{% if (data['prefill'] == 'HSBC') %}
+
+
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+				<h2 class="govuk-summary-card__title">
+					Your registrants
+				</h2>
+				<ul class="govuk-summary-card__actions">
+					<li class="govuk-summary-card__action">
+						<span class="govuk-body">Verification status</span>
+					</li>
+				</ul>
 			</div>
-
-			{% endif %}
-
-
-			<div class="govuk-summary-card">
-				<div class="govuk-summary-card__title-wrapper">
-					<h2 class="govuk-summary-card__title">
-		      Ukraine
-		    </h2>
-					<ul class="govuk-summary-card__actions">
-						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="activity/new">Add a new activity<span class="govuk-visually-hidden"> for the Ukraine registration</span></a>
-						</li>
-					</ul>
-				</div>
-				<div class="govuk-summary-card__content">
-					<dl class="govuk-summary-list">
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-1">Private Communication</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-								Email
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-2">Public Communication</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-								Public speaking event, Social Media, Website
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--blue'>Submitted</strong>
-							</dd>
-						</div>
-
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/public-1">Public Communication</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-								Public speaking event, Social Media
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--green'>Published</strong>
-							</dd>
-						</div>
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								<a class="govuk-link" href="registrations/money-1">Distribution of money, goods or services</a>
-							</dt>
-							<dd class="govuk-summary-list__value">
-								£20,000 - Jane Smith, Robert Jones
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<strong class='govuk-tag govuk-tag--red'>Action required</strong>
-							</dd>
-						</div>
-
-						<!--       <div class="govuk-summary-list__row">
-		        <dt class="govuk-summary-list__key">
-		          <a class="govuk-link" href="registrations/public-2">Public Communication</a>
-		        </dt>
-		        <dd class="govuk-summary-list__value">
-			    </dd>
-		        <dd class="govuk-summary-list__actions">
-		        </dd>
-		      </div>
-		 -->
-					</dl>
-				</div>
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							<a href="../registrations/prefilled-entity-registrant">
+								HSBC
+							</a>
+						</dt>
+						<dd class="govuk-summary-list__value">
+							Organisation
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<strong class="govuk-tag govuk-tag--green">Completed</strong>
+						</dd>
+					</div>
+				</dl>
 			</div>
+		</div>				
 
-			<a class="govuk-button " href="registrations/r1">Add a new registration<span class="govuk-visually-hidden"> for the Foreign Power Y registration</span></a>
+		{% endif %}
 
-			<!-- 
-		{{ govukSummaryList({
-		  card: {
-		    title: {
-		      text: "Registrations"
-		    }
-		  },
-		  rows: [
-		    {
-		      key: {
-		        text: "None"
-		      },
-		      value: {
-		        html: "Complete Account information first"
-		      },
-		      actions: {
-		        items: [
-		          {
-		            href: "#",
-		            text: "Update",
-		            visuallyHiddenText: "age"
-		          }
-		        ]
-		      }
-		    }
-		  ]
-		}) }} -->
+		{% if (data['prefill'] == 'Citi') %}
 
-		</div>
+
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+				<h2 class="govuk-summary-card__title">
+					Your registrants
+				</h2>
+				<ul class="govuk-summary-card__actions">
+					<li class="govuk-summary-card__action">
+						<span class="govuk-body">Verification status</span>
+					</li>
+				</ul>
+			</div>
+			<div class="govuk-summary-card__content">
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							<a href="../registrations/prefilled-entity-registrant">
+								Citi
+							</a>
+						</dt>
+						<dd class="govuk-summary-list__value">
+							Organisation
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<strong class="govuk-tag govuk-tag--green">Completed</strong>
+						</dd>
+					</div>							
+				</dl>
+			</div>
+		</div>				
+
+		{% endif %}
+
+
 
 	</div>
 

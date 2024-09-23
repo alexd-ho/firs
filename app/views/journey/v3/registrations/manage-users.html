@@ -33,12 +33,13 @@
 
 		<div class="govuk-grid-column-full">
 
-			<span class="govuk-caption-l">Registrant</span>
+			<span class="govuk-caption-l">Your registrations</span>
 
 			<h1 class="govuk-heading-l">
 				{{data['users-for']}}
 			</h1>
 
+			{% if (data['state'] != 'dynamic') %}
 
 			<div class="govuk-summary-card">
 				<div class="govuk-summary-card__title-wrapper">
@@ -54,7 +55,6 @@
 				</div>
 				<div class="govuk-summary-card__content">
 					<dl class="govuk-summary-list govuk-summary-list--users">
-                        {% if (data['state'] != 'dynamic') %}
                             
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
@@ -99,7 +99,7 @@
 							</dd>
 						</div>
 
-                        {% if (data['rep-name']) %}
+                        {% if (data['rep-email']) %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
 								*****@email.com
@@ -114,32 +114,59 @@
 								<a href="remove-user?user={{data['rep-name']}}" class="">Remove</a> | <a href="change-user?user={{data['rep-name']}}" class="">Manage account</a>
 							</dd>
 						</div>
-                        {% endif %}
-
-                        {% else %}
-                            
-                        {% if (data['rep-name']) %}
-						<div class="govuk-summary-list__row">
-							<dt class="govuk-summary-list__key">
-								*****@email.com
-							</dt>
-							<dd class="govuk-summary-list__value">
-								{{data['rep-account']}}
-						    </dd>
-							<dd class="govuk-summary-list__value">
-								Last Login: never
-							</dd>
-							<dd class="govuk-summary-list__actions">
-								<a href="remove-user?user={{data['rep-name']}}" class="">Remove</a> | <a href="change-user?user={{data['rep-name']}}" class="">Manage account</a>
-							</dd>
-						</div>
-                        {% endif %}
-
                         {% endif %}
 
 					</dl>
 				</div>
 			</div>
+
+
+
+            {% else %}
+
+			{% if (data['rep-email']) %}
+
+			<div class="govuk-summary-card">
+				<div class="govuk-summary-card__title-wrapper">
+					<h2 class="govuk-summary-card__title">
+						User Access
+					</h2>
+					<ul class="govuk-summary-card__actions">
+						<!-- <li class="govuk-summary-card__action">
+							<a class="govuk-link" href="registrations/m-check">Add representative<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+						</li> -->
+						
+					</ul>
+				</div>
+				<div class="govuk-summary-card__content">
+					<dl class="govuk-summary-list govuk-summary-list--users">                
+						<div class="govuk-summary-list__row">
+							<dt class="govuk-summary-list__key">
+								*****@email.com
+							</dt>
+							<dd class="govuk-summary-list__value">
+								{{data['rep-account']}}
+						    </dd>
+							<dd class="govuk-summary-list__value">
+								Last Login: never
+							</dd>
+							<dd class="govuk-summary-list__actions">
+								<a href="remove-user?user={{data['rep-name']}}" class="">Remove</a> | <a href="change-user?user={{data['rep-name']}}" class="">Manage account</a>
+							</dd>
+						</div>
+
+					</dl>
+				</div>
+			</div>
+
+			{% else %}
+				
+			<p>No users have been added to this registrant.</p>
+
+			{% endif %}
+
+
+			{% endif %}
 
 
 			<a class="govuk-button " href="../account/rep-1">Add a new user</a>

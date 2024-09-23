@@ -328,7 +328,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
     {% if (data['setup'] == 'incomplete') %}
     {{ govukButton({
         text: "Save contact details",
-        href: "../account/identity-verification?contact-details=Completed"
+        href: "../account/identity-verification?contact-details=Completed&registrant-type=Individual&setup=complete"
         }) }}
     {% else %}
     {{ govukButton({

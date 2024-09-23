@@ -42,7 +42,7 @@ visuallyHiddenTitle: "Footer links"
 
         {% if (data['setup'] != 'complete') %}
             
-            <div class="govuk-notification-banner govuk-notification-banner--success-" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
                 <div class="govuk-notification-banner__header">
                     <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
                     Start here
@@ -51,6 +51,14 @@ visuallyHiddenTitle: "Footer links"
                 <div class="govuk-notification-banner__content">
                     <p class="govuk-body-m">If you are the registrant, or your organisation is the registrant, click  <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1">Create a registrant</a>.</p>
                     <p class="govuk-body-m">If you have a 16-digit FIRS code to link your FIRS account to another registrant, click <a class="govuk-notification-banner__link" href="account/link-registrant">Link to a registrant</a>.</p>
+
+					{% from 'govuk/components/details/macro.njk' import govukDetails %}
+						
+					{{ govukDetails({
+						summaryText: 'What is a registrant?',
+						text: 'A registrant is the person or organisation in an agreement with a foreign power.'
+					}) }}
+					
                 </div>
             </div>
         {% endif %}
@@ -62,7 +70,7 @@ visuallyHiddenTitle: "Footer links"
 
 		<span class="govuk-caption-l">Account home</span>
 		<h1 class="govuk-heading-l">
-			{% if (data['v3-1-1']) %}{{data['v3-1-1']}}{% elseif (data['userName']) %}{{data['accName']}}{% else %}Registrant Name{% endif %}
+			{% if (data['contact-name']) %}{{data['contact-name']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Registrant Name{% endif %}
 
         </h1>
 
@@ -86,8 +94,8 @@ visuallyHiddenTitle: "Footer links"
         {% endif %}
 
 
-		<p>This is your account home for the Foreign Influence Regsitration Scheme (FIRS).<br> You can return to this
-			account <strong>Home</strong> page at any time to find common actions and account wide statuses.</p>
+		<!-- <p>This is your account home for the Foreign Influence Registration Scheme (FIRS).<br> You can return to this
+			account <strong>Home</strong> page at any time to find common actions and account wide statuses.</p> -->
 
 
 
