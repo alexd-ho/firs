@@ -35,7 +35,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 			summaryText: "What is an activity?",
 			text: "  An activity is any action that works towards the desired outcome of an 
 			agreement, or any action taken under a direction from a foreign power or 
-			foreign power-controlled entity. "
+			foreign power-controlled organisation. "
 			}) }}
 			{% from "govuk/components/details/macro.njk" import govukDetails %}
 
@@ -52,10 +52,10 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 				</ul>"
 			}) }}
 
-			<!-- {{ govukDetails({
-				summaryText: "What is a foreign power-controlled entity?",
-				text: "Definition pending"
-			}) }} -->
+			{{ govukDetails({
+				summaryText: "What is a foreign power-controlled organisation?",
+				text: "A list of organisations defined by the government in legislation."
+			}) }}
 
 			<p>You need to know:</p>
 			<ul class="govuk-list govuk-list--bullet">
