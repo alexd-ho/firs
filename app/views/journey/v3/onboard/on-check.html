@@ -19,7 +19,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             <h1 class="govuk-heading-l">You need an account for 
                 a specified foreign 
-                power-controlled entity</h1>
+                power-controlled organisation</h1>
     
                 <p><strong>What this means</strong></p>
                 <p>You can register activities your entity is doing or organising for others to do in the UK.</p>
@@ -38,12 +38,12 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
             <span class="govuk-caption-l">Check what account you need as a registrant</span>
 
             <h1 class="govuk-heading-l">You need an account for 
-                a non-individual entity</h1>
+                an organisation</h1>
     
                 <p><strong>What this means</strong></p>
-                <p>You can register your entity's agreements with 
+                <p>You can register your organisation's agreements with 
                     foreign powers and specified foreign power-
-                    controlled entities, and any activities your entity is 
+                    controlled organisation, and any activities your organisation is 
                     doing or organising others to do in the UK as part 
                     of these agreements.
                     </p>
@@ -149,7 +149,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
                     What are you registering as?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    Non-individual entity
+                    Organisation
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="on-1">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -159,31 +159,32 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
             {% if (data['v-on-3'] == 'Yes') %}
 
-            <!-- <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Entity name
+                    Is your organisation a specified foreign power-controlled organisation?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{data['v-on-4']}}
+                    Yes
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="on-3">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
-            </div> -->
+            </div>
 
             {% else %}
 
-            <!-- <div class="govuk-summary-list__row">
+            <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Entity name
+                    Is your organisation a specified foreign power-controlled organisation?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                    {{data['orgName']}}
+                    No
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="on-name">Change<span class="govuk-visually-hidden"> name</span></a>
+                    <a class="govuk-link" href="on-3">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
-            </div> -->
+            </div>
+
 
 
 
