@@ -40,7 +40,7 @@
 			{% if (data['contact-name']) %}{{data['contact-name']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Registrant Name{% endif %}
 		</h1>
 
-		<p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).</p>
+		<!-- <p>This is your Registrations overview for the Foreign Influence Registration Scheme (FIRS).</p> -->
 
 		{% if (data['prefill'] == 'HSBC') %}
 
@@ -112,7 +112,7 @@
 
 		{% endif %}
 
-
+		<a class="govuk-button " href="onboard/on-0">Add a new registrant</a>
 
 	</div>
 
