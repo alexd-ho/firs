@@ -1814,7 +1814,7 @@ router.post('/route-v3/l-end', function(request, response) {
 router.post('/route-v3/on-1', function(request, response) {
     var value = request.session.data['v-on-1'];
     if (value == "Individual"){ 
-        response.redirect(onboard_v3+"on-2")
+        response.redirect(onboard_v3+"on-check?acc-type=Individual&misrep=false&tier=default") // swapped from on-2 to on-check
     } else { 
         response.redirect(onboard_v3+"on-3")
     }
@@ -1832,7 +1832,7 @@ router.post('/route-v3/on-2', function(request, response) {
 router.post('/route-v3/on-3', function(request, response) {
     var value = request.session.data['v-on-3'];
     if (value == "No"){ 
-        response.redirect(onboard_v3+"on-5")
+        response.redirect(onboard_v3+"on-check?acc-type=Entity&misrep=false&tier=default") // swapped path from on-5 to on-check
     } else { 
         response.redirect(onboard_v3+"on-check?acc-type=Entity&misrep=false&tier=enhanced")
     }
