@@ -34,11 +34,11 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-            {% if (data['r2'] == "Foreign power-controlled entity") %}
+            {% if (data['r2'] == "Foreign power-controlled organisation") %}
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                    Name of foreign power-controlled entity in the agreement
+                    Name of foreign power-controlled organisation in the agreement
                 </dt>
                 <dd class="govuk-summary-list__value">
                     {{data['r3a']}}
@@ -131,10 +131,24 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
         </dl>
 
-    {{ govukButton({
-        text: "Save agreement",
-        href: "../registrations?reg1=complete"
-    }) }}
+
+        {% if (data['prefill'] == 'Citi') %}
+        {{ govukButton({
+            text: "Save agreement",
+            href: "../registrations/prefilled-entity-registrant?reg1=complete"
+        }) }}                
+        {% elseif (data['prefill'] == 'HSBC') %}
+        {{ govukButton({
+            text: "Save agreement",
+            href: "../registrations/prefilled-entity-registrant?reg1=complete"
+        }) }}                
+        
+        {% else %}
+        {{ govukButton({
+            text: "Save agreement",
+            href: "../registrations?reg1=complete"
+        }) }}                
+        {% endif %}
 
 
 

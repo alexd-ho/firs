@@ -17,11 +17,13 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v3/link-registrant' method='post'>
     
-                <span class='govuk-caption-l'>Link to a registrant</span>
-    
-                <h1 class="govuk-heading-l">Registrant not added</h1>
 
-                <p>You have declined to be linked to [Registrant Name].</p>
+
+                <span class='govuk-caption-l'>Connect to a registrant</span>
+    
+                <h1 class="govuk-heading-l">Connection declined</h1>
+
+                <p> You have declined to be connected to {{data['orgName']}}.</p>
 
     
                 {{ govukButton({

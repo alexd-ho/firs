@@ -286,6 +286,10 @@
 			</div>
  -->
 
+			<h2 class="govuk-heading-m">
+				Agreements
+			</h2>
+
 
 			{% if (data['entity-details'] == 'Completed') and (data['tier'] == 'enhanced') %}
 
@@ -458,7 +462,7 @@
 			<div class="govuk-summary-card">
 				<div class="govuk-summary-card__title-wrapper">
 					<h2 class="govuk-summary-card__title">
-						{% if (data['r2'] == "Foreign power-controlled entity") %}{{data['r3a']}}{% elseif (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
+						{% if (data['r2'] == "Foreign power-controlled organisation") %}{{data['r3a']}}{% elseif (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
 							<!-- {{data['r1-tier']}} -->
 					</h2>
 					<ul class="govuk-summary-card__actions">
@@ -610,7 +614,7 @@
 			{% endif %}
 
 
-			<a class="govuk-button " href="../registrations/r1">Add a new agreement</a>
+			<a class="govuk-button " href="../registrations/r1?orgName={{data['prefill']}}">Add a new agreement</a>
 
 
 		</div>
