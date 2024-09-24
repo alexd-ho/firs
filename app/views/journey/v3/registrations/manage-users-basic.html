@@ -93,10 +93,10 @@
 							</dd>
 						</div>
 
-                        {% if (data['rep-name']) %}
+                        {% if (data['rep-email']) %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								{{data['rep-name']}}
+								{{data['rep-email']}}
 							</dt>
 							<dd class="govuk-summary-list__value">
 								{{data['rep-account']}}
@@ -110,10 +110,10 @@
 
                         {% else %}
                             
-                        {% if (data['rep-name']) %}
+                        {% if (data['rep-email']) %}
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
-								{{data['rep-name']}}
+								{{data['rep-email']}}
 							</dt>
 							<dd class="govuk-summary-list__value">
 								{{data['rep-account']}}
@@ -132,7 +132,6 @@
 			</div>
 
 
-			<a class="govuk-button " href="../account/rep-1">Add a new user</a>
 
 
 		</div>
