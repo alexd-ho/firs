@@ -49,16 +49,9 @@ visuallyHiddenTitle: "Footer links"
                     </h2>
                 </div>
                 <div class="govuk-notification-banner__content">
-                    <p class="govuk-body-m">If you need to register yourself or your organisation for the first time, <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1">start a new registration</a>.</p>
-                    <p class="govuk-body-m">If you have received a 16-digit code, use it to <a class="govuk-notification-banner__link" href="account/link-registrant">connect to an existing registration</a>.</p>
+                    <p class="govuk-body-m">If you need to register yourself or your organisation for the first time, <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1" style="display:inline-block">start a new registration</a>.</p>
+                    <p class="govuk-body-m">If you have received a 16-digit code, use it to <a class="govuk-notification-banner__link" href="account/link-registrant"  style="display:inline-block">connect to an existing registration</a>.</p>
 
-					{% from 'govuk/components/details/macro.njk' import govukDetails %}
-						
-					{{ govukDetails({
-						summaryText: 'What is a registrant?',
-						text: 'A registrant is the person or organisation in an agreement with a foreign power.'
-					}) }}
-					
                 </div>
             </div>
         {% endif %}
