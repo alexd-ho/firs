@@ -15,9 +15,9 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='contact-start-3' method='post'>
+            <form action='contact-start-check' method='post'>
     
-                <span class='govuk-caption-l'>Add your contact details</span>
+                <span class='govuk-caption-l'>Setup your Foreign Influence Registration Scheme account</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -25,7 +25,7 @@
                     name: 'contact-email',
                     value: data['contact-email'],
                     label: {
-                        text: 'What is your contact email address?',
+                        text: 'What is your email address?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     }
