@@ -17,7 +17,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v3/link-registrant-1' method='post'>
     
-                <span class='govuk-caption-l'>Connect to a registrant</span>
+                <span class='govuk-caption-l'>Connect to an existing registration</span>
     
                 <h1 class="govuk-heading-l">Registrant details</h1>
 
@@ -25,35 +25,105 @@
 
                 {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
                     
+                {% if (data['prefill'] == 'Citi') %}
+                    
                 {{ govukInsetText({
-                  html: '<h3 class="govuk-heading-m">'+data['orgName']+'</h3>
-                  <p>3 Union Street, Sheffield, S1 3SD, UK<br>
-                    [Contact Number]</p>'
-                }) }}
+                    html: '<h3 class="govuk-heading-m">Citi</h3>
+                    <p>Citigroup Centre, 33 Canada Square, London E14 5LB<br>
+                        020 7500 5000</p>'
+                  }) }}
+  
+                  {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                  {{ govukRadios({
+                      id: 'link-registrant-1',
+                      name: 'link-registrant-1',
+                      value: data['link-registrant-1'],
+                      fieldset: {
+                          legend: {
+                              text: 'Do you want to be linked to Citi?',
+                              classes: 'govuk-fieldset__legend--m',
+                              isPageHeading: true
+                          }
+                      },
+                      items: [
+                      {
+                         value: 'Yes',
+                          text: 'Yes'
+                      },
+                      {
+                         value: 'No',
+                          text: 'No'
+                      }
+                      ]
+                  }) }}
 
-                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
-                {{ govukRadios({
-                    id: 'link-registrant-1',
-                    name: 'link-registrant-1',
-                    value: data['link-registrant-1'],
-                    fieldset: {
-                        legend: {
-                            text: 'Do you want to be linked to '+data['orgName']+'?',
-                            classes: 'govuk-fieldset__legend--m',
-                            isPageHeading: true
-                        }
-                    },
-                    items: [
-                    {
-                       value: 'Yes',
-                        text: 'Yes'
-                    },
-                    {
-                       value: 'No',
-                        text: 'No'
-                    }
-                    ]
-                }) }}
+                  {% elseif (data['prefill'] == 'HSBC') %}
+                    
+                  {{ govukInsetText({
+                    html: '<h3 class="govuk-heading-m">HSBC</h3>
+                    <p>1 Centenary Square, Birmingham, B1 1HQ<br>
+                        0345 740 4404</p>'
+                  }) }}
+  
+                  {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                  {{ govukRadios({
+                      id: 'link-registrant-1',
+                      name: 'link-registrant-1',
+                      value: data['link-registrant-1'],
+                      fieldset: {
+                          legend: {
+                              text: 'Do you want to be linked to HSBC?',
+                              classes: 'govuk-fieldset__legend--m',
+                              isPageHeading: true
+                          }
+                      },
+                      items: [
+                      {
+                         value: 'Yes',
+                          text: 'Yes'
+                      },
+                      {
+                         value: 'No',
+                          text: 'No'
+                      }
+                      ]
+                  }) }}
+
+                  {% else %}
+                    
+                  {{ govukInsetText({
+                    html: '<h3 class="govuk-heading-m">'+data['orgName']+'</h3>
+                    <p>3 Union Street, Sheffield, S1 3SD, UK<br>
+                      [Contact Number]</p>'
+                  }) }}
+  
+                  {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                  {{ govukRadios({
+                      id: 'link-registrant-1',
+                      name: 'link-registrant-1',
+                      value: data['link-registrant-1'],
+                      fieldset: {
+                          legend: {
+                              text: 'Do you want to be linked to '+data['orgName']+'?',
+                              classes: 'govuk-fieldset__legend--m',
+                              isPageHeading: true
+                          }
+                      },
+                      items: [
+                      {
+                         value: 'Yes',
+                          text: 'Yes'
+                      },
+                      {
+                         value: 'No',
+                          text: 'No'
+                      }
+                      ]
+                  }) }}
+  
+                
+                {% endif %}
+
               
     
                 {{ govukButton({
