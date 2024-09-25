@@ -2329,7 +2329,9 @@ router.post('/route-v3/exception-check', function(request, response) {
 
 router.post('/route-v3/link-registrant', function(request, response) {
     var value = request.session.data['link-reg-firs-code']
-    if (value == '1234567890'){ 
+    if (value == '1234567890123456'){ 
+        response.redirect(account_v3+'/link-registrant-1?return=success')
+    } else if (value == '1234-5678-9012-3456'){ 
         response.redirect(account_v3+'/link-registrant-1?return=success')
     } else {
         response.redirect(account_v3+'/link-registrant-fail?return=fail')
