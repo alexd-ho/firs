@@ -88,9 +88,9 @@
                       }
                       ]
                   }) }}
+                  
+                  {% elseif (data['orgName']) %}
 
-                  {% else %}
-                    
                   {{ govukInsetText({
                     html: '<h3 class="govuk-heading-m">'+data['orgName']+'</h3>
                     <p>3 Union Street, Sheffield, S1 3SD, UK<br>
@@ -105,6 +105,40 @@
                       fieldset: {
                           legend: {
                               text: 'Do you want to be linked to '+data['orgName']+'?',
+                              classes: 'govuk-fieldset__legend--m',
+                              isPageHeading: true
+                          }
+                      },
+                      items: [
+                      {
+                         value: 'Yes',
+                          text: 'Yes'
+                      },
+                      {
+                         value: 'No',
+                          text: 'No'
+                      }
+                      ]
+                  }) }}
+  
+
+
+                  {% else %}
+                    
+                  {{ govukInsetText({
+                    html: '<h3 class="govuk-heading-m">[Regsitrant Name]</h3>
+                    <p>3 Union Street, Sheffield, S1 3SD, UK<br>
+                      [Contact Number]</p>'
+                  }) }}
+  
+                  {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                  {{ govukRadios({
+                      id: 'link-registrant-1',
+                      name: 'link-registrant-1',
+                      value: data['link-registrant-1'],
+                      fieldset: {
+                          legend: {
+                              text: 'Do you want to be linked to [Regsitrant Name]?',
                               classes: 'govuk-fieldset__legend--m',
                               isPageHeading: true
                           }
