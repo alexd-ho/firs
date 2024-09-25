@@ -62,6 +62,46 @@
                         autocomplete: "address-level2"
                       }) }}
         
+                      {% if (data['e4-1'] == 'United States') %}
+                        
+                      {{ govukInput({
+                        label: {
+                          text: "State"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "e4-5-state",
+                        name: "e4-5-state",
+                        value: data["e4-5-state"],
+                        autocomplete: "state"
+                      }) }}
+
+                      {{ govukInput({
+                        label: {
+                          text: "Zipcode"
+                        },
+                        classes: "govuk-input--width-10",
+                        id: "e4-5-postcode",
+                        name: "e4-5-postcode",
+                        value: data["e4-5-postcode"],
+                        autocomplete: "postal-code"
+                      }) }}
+
+                      {% elseif (data['e4-1'] == 'Ireland') %}
+
+                      {{ govukInput({
+                        label: {
+                          text: "Eircode"
+                        },
+                        classes: "govuk-input--width-10",
+                        id: "e4-5-postcode",
+                        name: "e4-5-postcode",
+                        value: data["e4-5-postcode"],
+                        autocomplete: "postal-code"
+                      }) }}
+
+
+                      {% else %}                        
+
                       {{ govukInput({
                         label: {
                           text: "Postcode"
@@ -72,7 +112,9 @@
                         value: data["e4-5-postcode"],
                         autocomplete: "postal-code"
                       }) }}
-                    
+
+                      {% endif %}
+
                       {{ govukInput({
                         label: {
                           text: "Country"
