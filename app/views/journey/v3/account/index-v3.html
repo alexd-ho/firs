@@ -60,7 +60,7 @@ visuallyHiddenTitle: "Footer links"
 
 		{% elseif (data['acc-type'] == "Entity") %}
 
-		<span class="govuk-caption-l">Non-individual entity account</span>
+		<span class="govuk-caption-l">Non-individual organisation account</span>
 		<h1 class="govuk-heading-l">
 			{% if (data['e1']) %}{{data['e1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
 		</h1>
@@ -116,14 +116,14 @@ visuallyHiddenTitle: "Footer links"
 <!--	
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
-							Identity Verification
+							Idorganisation Verification
 						</dt>
 						<dd class="govuk-summary-list__value">
-							{% if (data['identity-verification'] == 'Completed') %}
+							{% if (data['idorganisation-verification'] == 'Completed') %}
 							<strong class='govuk-tag govuk-tag--green'>Completed</strong>
-							{% elseif (data['identity-verification'] == 'Pending') %}
+							{% elseif (data['idorganisation-verification'] == 'Pending') %}
 							<strong class='govuk-tag govuk-tag--blue'>Pending</strong>
-							{% elseif (data['identity-verification'] == 'Rejected') %}
+							{% elseif (data['idorganisation-verification'] == 'Rejected') %}
 							<strong class='govuk-tag govuk-tag--red'>Rejected</strong>
 							{% else %}
 							<strong class='govuk-tag govuk-tag--light-blue'>Incomplete</strong>
@@ -131,8 +131,8 @@ visuallyHiddenTitle: "Footer links"
 						</dd>
 
 						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="account/identity-verification?return=update">Update<span
-									class="govuk-visually-hidden"> Identity Verification (Account
+							<a class="govuk-link" href="account/idorganisation-verification?return=update">Update<span
+									class="govuk-visually-hidden"> Idorganisation Verification (Account
 									information)</span></a>
 
 						</dd>
@@ -207,14 +207,14 @@ visuallyHiddenTitle: "Footer links"
 
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
-							Officer identity verification
+							Officer idorganisation verification
 						</dt>
 						<dd class="govuk-summary-list__value">
-							{% if (data['identity-verification'] == 'Completed') %}
+							{% if (data['idorganisation-verification'] == 'Completed') %}
 							<strong class='govuk-tag govuk-tag--green'>Completed</strong>
-							{% elseif (data['identity-verification'] == 'Pending') %}
+							{% elseif (data['idorganisation-verification'] == 'Pending') %}
 							<strong class='govuk-tag govuk-tag--blue'>Pending</strong>
-							{% elseif (data['identity-verification'] == 'Rejected') %}
+							{% elseif (data['idorganisation-verification'] == 'Rejected') %}
 							<strong class='govuk-tag govuk-tag--red'>Rejected</strong>
 							{% else %}
 							<strong class='govuk-tag govuk-tag--light-blue'>Incomplete</strong>
@@ -222,8 +222,8 @@ visuallyHiddenTitle: "Footer links"
 						</dd>
 
 						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="account/identity-verification?return=update">Update<span
-									class="govuk-visually-hidden"> Identity Verification (Account
+							<a class="govuk-link" href="account/idorganisation-verification?return=update">Update<span
+									class="govuk-visually-hidden"> Idorganisation Verification (Account
 									information)</span></a>
 
 						</dd>
@@ -258,24 +258,24 @@ visuallyHiddenTitle: "Footer links"
 			</div>
 
 			<div class="firs-home-containers__panel">
-				<a href="account/identity-verification?return=update">
-					<h3 class="govuk-heading-m">Identity verification</h3>
-					{% if (data['identity-verification'] == 'Incomplete') %}
+				<a href="account/idorganisation-verification?return=update">
+					<h3 class="govuk-heading-m">Idorganisation verification</h3>
+					{% if (data['idorganisation-verification'] == 'Incomplete') %}
 					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has not been completed.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
+					<p>Idorganisation verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has not been completed.<br>
+						You will be unable to submit registrations until idorganisation verification is complete.</p>
 					{% else %}
-					{% if (data['identity-verification'] == 'Completed') %}
+					{% if (data['idorganisation-verification'] == 'Completed') %}
 					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Identity verification has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %}.</p>
-					{% elseif (data['identity-verification'] == 'Pending') %}
+					<p>Idorganisation verification has been confirmed {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %}.</p>
+					{% elseif (data['idorganisation-verification'] == 'Pending') %}
 					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
-					{% elseif (data['identity-verification'] == 'Rejected') %}
+					<p>Idorganisation verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been submitted and is pending verification.<br>
+						You will be unable to submit registrations until idorganisation verification is complete.</p>
+					{% elseif (data['idorganisation-verification'] == 'Rejected') %}
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Identity verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been rejected.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
+					<p>Idorganisation verification {% if (data['v3-1-1']) %}for <strong>{{data['v3-1-1']}}</strong>{% elseif (data['userName']) %}for <strong>{{data['userName']}}</strong>{% endif %} has been rejected.<br>
+						You will be unable to submit registrations until idorganisation verification is complete.</p>
 					{% endif %}
 
 					{% endif %}
@@ -291,7 +291,7 @@ visuallyHiddenTitle: "Footer links"
 			{% if (data['acc-type'] == "Entity") %}
 			<div class="firs-home-containers__panel">
 				<a href="account/e-view">
-					<h3 class="govuk-heading-m">Your entity</h3>
+					<h3 class="govuk-heading-m">Your organisation</h3>
 					<p>Update details about {{data['accName']}} such as email, telephone numbers, and registered addresses.</p>
 						<a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</a>
@@ -299,23 +299,23 @@ visuallyHiddenTitle: "Footer links"
 
 			<div class="firs-home-containers__panel">
 				<a href="account/officer-verification?return=update" class="">
-					<h3 class="govuk-heading-m">Officer identity verification</h3>
+					<h3 class="govuk-heading-m">Officer idorganisation verification</h3>
 					{% if (data['officer-verification'] == 'Incomplete') %}
 					<p><strong class='govuk-tag govuk-tag--yellow'>Incomplete</strong></p>
-					<p>Officer identity verification has not been completed.<br>
-						You will be unable to submit registrations until identity verification is complete.</p>
+					<p>Officer idorganisation verification has not been completed.<br>
+						You will be unable to submit registrations until idorganisation verification is complete.</p>
 					{% else %}
 					{% if (data['officer-verification'] == 'Completed') %}
 					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
-					<p>Officer identity verification has been confirmed.</p>
+					<p>Officer idorganisation verification has been confirmed.</p>
 					{% elseif (data['officer-verification'] == 'Pending') %}
 					<p><strong class='govuk-tag govuk-tag--blue'>Pending</strong></p>
-					<p>Officer identity verification has been submitted and is pending verification.<br>
-						You will be unable to submit registrations until their identity verification is complete.</p>
+					<p>Officer idorganisation verification has been submitted and is pending verification.<br>
+						You will be unable to submit registrations until their idorganisation verification is complete.</p>
 					{% elseif (data['officer-verification'] == 'Rejected') %}
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
-					<p>Officer identity verification has been rejected.<br>
-						You will be unable to submit registrations until their identity verification is complete.</p>
+					<p>Officer idorganisation verification has been rejected.<br>
+						You will be unable to submit registrations until their idorganisation verification is complete.</p>
 					{% endif %}
 
 					{% endif %}
