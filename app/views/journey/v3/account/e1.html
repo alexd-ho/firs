@@ -16,14 +16,14 @@
             <form action="e-view?return=complete&orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-                <span class='govuk-caption-l'>Add your entity details</span>
+                <span class='govuk-caption-l'>Add your organisation details</span>
 
                 {{ govukInput({
                     id: "e1",
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your entity?",
+                        text: "What is the name of your organisation?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }
@@ -37,14 +37,14 @@
             {% elseif (data['return'] == 'check') %}
             <form action="e-check?return=complete&orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
-                <span class='govuk-caption-l'>Add your entity details</span>
+                <span class='govuk-caption-l'>Add your organisation details</span>
                 
                 {{ govukInput({
                     id: "e1",
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your entity?",
+                        text: "What is the name of your organisation?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }
@@ -60,9 +60,9 @@
             <form action="e2?orgName={{data['e1']}}" method="post">
                 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-                <span class='govuk-caption-l'>Add your entity details</span>
+                <span class='govuk-caption-l'>Add your organisation details</span>
 
-                {% if (data['acc-type'] == 'Entity') %}
+                {% if (data['acc-type'] == 'organisation') %}
                 {% if (data['tier'] == 'enhanced') %}
 
                 {{ govukRadios({
@@ -72,51 +72,51 @@
                     classes: "govuk-radios govuk-radios--small",
                     fieldset: {
                         legend: {
-                            text: "Which specified foreign power-controlled entity are you registering as?",
+                            text: "Which specified foreign power-controlled organisation are you registering as?",
                             isPageHeading: true,
                             classes: "govuk-fieldset__legend--l"
                         }
                     },
                     items: [
                     {
-                        value: "Entity 1",
-                        text: "Entity 1"
+                        value: "organisation 1",
+                        text: "organisation 1"
                     },
                     {
-                        value: "Entity 2",
-                        text: "Entity 2"
+                        value: "organisation 2",
+                        text: "organisation 2"
                     },
                     {
-                        value: "Entity 3",
-                        text: "Entity 3"
+                        value: "organisation 3",
+                        text: "organisation 3"
                     },
                     {
-                        value: "Entity 4",
-                        text: "Entity 4"
+                        value: "organisation 4",
+                        text: "organisation 4"
                     },
                     {
-                        value: "Entity 5",
-                        text: "Entity 5"
+                        value: "Organisation 5",
+                        text: "Organisation 5"
                     },
                     {
-                        value: "Entity 6",
-                        text: "Entity 6"
+                        value: "Organisation 6",
+                        text: "Organisation 6"
                     },
                     {
-                        value: "Entity 7",
-                        text: "Entity 7"
+                        value: "Organisation 7",
+                        text: "Organisation 7"
                     },
                     {
-                        value: "Entity 8",
-                        text: "Entity 8"
+                        value: "Organisation 8",
+                        text: "Organisation 8"
                     },
                     {
-                        value: "Entity 9",
-                        text: "Entity 9"
+                        value: "Organisation 9",
+                        text: "Organisation 9"
                     },
                     {
-                        value: "Entity 10",
-                        text: "Entity 10"
+                        value: "Organisation 10",
+                        text: "Organisation 10"
                     }
                     ]
                 }) }}
@@ -129,7 +129,7 @@
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your entity?",
+                        text: "What is the name of your organisation?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }
@@ -144,7 +144,7 @@
                     name: "e1",
                     value: data['e1'],
                     label: {
-                        text: "What is the name of your entity?",
+                        text: "What is the name of your organisation?",
                         classes: "govuk-label--l",
                         isPageHeading: true
                     }

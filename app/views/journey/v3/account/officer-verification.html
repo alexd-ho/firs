@@ -22,9 +22,9 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 		<form action="../account?return=complete" method="post">
 		{% else %}
 			{% if (data['setup'] == 'incomplete') %}
-			<form action="../account?setup=complete" method="post">
+			<form action="../registrations?setup=complete" method="post">
 			{% else %}
-			<form action="../account" method="post">
+			<form action="../registrations" method="post">
 			{% endif %}
 		{% endif %}
 
