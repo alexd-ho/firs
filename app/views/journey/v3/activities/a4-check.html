@@ -295,9 +295,16 @@
                 }) }}
     
                 {{ govukButton({
-                  text: "Submit activity"
+                    text: "Submit activity",
+                    href: "activity-submitted"
                 }) }}
-                
+    
+                {{ govukButton({
+                    href: '../registrations/prefilled-entity-registrant',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and close'
+                }) }}
+
             </form>
 
             {% else %}
@@ -307,6 +314,12 @@
                 href: "activity-submitted"
             }) }}
 
+            {{ govukButton({
+                href: '../registrations/prefilled-entity-registrant',
+                classes: 'govuk-button--secondary',
+                text: 'Save and close'
+            }) }}
+
             {% endif %}
 
         {% else %}
@@ -314,8 +327,14 @@
         {{ govukButton({
             text: "Submit activity",
             href: "activity-submitted"
-        }) }}            
-            
+        }) }}
+
+        {{ govukButton({
+            href: '../registrations/prefilled-entity-registrant',
+            classes: 'govuk-button--secondary',
+            text: 'Save and close'
+        }) }}
+    
         {% endif %}
 
 

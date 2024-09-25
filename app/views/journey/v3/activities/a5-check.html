@@ -256,9 +256,10 @@
             }) }}
 
             {{ govukButton({
-              text: "Submit activity"
+                text: "Submit activity",
+                href: "activity-submitted"
             }) }}
-            
+              
         </form>
 
         {% elseif (data['registration-tier'] == 'enhanced') %}
@@ -292,8 +293,17 @@
                 }) }}
     
                 {{ govukButton({
-                  text: "Submit activity"
-                }) }}
+                    text: "Submit activity",
+                    href: "activity-submitted"
+                    }) }}
+
+                    {% from 'govuk/components/button/macro.njk' import govukButton %}
+                        
+                    {{ govukButton({
+                        href: '../registrations/prefilled-entity-registrant',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and close'
+                    }) }}
                 
             </form>
             
@@ -302,6 +312,12 @@
             {{ govukButton({
                 text: "Submit activity",
                 href: "activity-submitted"
+            }) }}
+
+            {{ govukButton({
+                href: '../registrations/prefilled-entity-registrant',
+                classes: 'govuk-button--secondary',
+                text: 'Save and close'
             }) }}
 
             {% endif %}
@@ -313,6 +329,13 @@
             href: "activity-submitted"
         }) }}            
             
+
+        {{ govukButton({
+            href: '../registrations/prefilled-entity-registrant',
+            classes: 'govuk-button--secondary',
+            text: 'Save and close'
+        }) }}
+
         {% endif %}
 
 
