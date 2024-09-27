@@ -229,7 +229,13 @@
 
         {{ govukButton({
             text: "Return to registrations",
-            href: "../registrations"
+            href: "javascript:window.history.back()"
+          }) }}
+
+          {{ govukButton({
+            text: "View as Public regsiter entry",
+            href: "a4-register",
+            classes: "govuk-button govuk-button--secondary "
           }) }}
 
   

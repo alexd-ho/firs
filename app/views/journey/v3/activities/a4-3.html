@@ -5,15 +5,9 @@
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-    {% set activityDoer %}
-    {% if (data['acc-type'] == 'Entity') %}is {{data['e1']}}{% else %}are you{% endif %}
-    {% endset -%}
-    {% set activityDoer2 %}
-    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}} is{% else %}I am{% endif %}
-    {% endset -%}
-    {% set activityDoer3 %}
-    {% if (data['acc-type'] == 'Entity') %}itself{% else %}myself{% endif %}
-    {% endset -%}
+    {% set activityDoer %}{% if (data['acc-type'] == 'Entity') %}is {{data['e1']}}{% else %}are you{% endif %}{% endset -%}
+    {% set activityDoer2 %}{% if (data['acc-type'] == 'Entity') %}{{data['e1']}} is{% else %}I am{% endif %}{% endset -%}
+    {% set activityDoer3 %}{% if (data['acc-type'] == 'Entity') %}itself{% else %}myself{% endif %}{% endset -%}
 
     {% block content %}
     <div class='govuk-grid-row'>

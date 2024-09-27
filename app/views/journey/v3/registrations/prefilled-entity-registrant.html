@@ -48,7 +48,7 @@
 					</h2>
 					<ul class="govuk-summary-card__actions">
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="registrations/m-check">View registrant details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+							<a class="govuk-link" href="#">View registrant details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
 						</li>
 					</ul>
 				</div>
@@ -63,7 +63,7 @@
                                 <p>Identity verification is completed </p>
 							</dd>
 							<dd class="govuk-summary-list__actions">
-								<a href="">View details</a>
+								<a href="../account/officer-verification">View details</a>
 							</dd>
 						</div>
 						<div class="govuk-summary-list__row">
@@ -120,7 +120,7 @@
 					</h2>
 					<ul class="govuk-summary-card__actions">
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="registrations/m-check">View registrant details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+							<a class="govuk-link" href="#">View registrant details<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
 						</li>
 					</ul>
 				</div>
@@ -467,7 +467,7 @@
 					</h2>
 					<ul class="govuk-summary-card__actions">
 						<li class="govuk-summary-card__action">
-							<a class="govuk-link" href="registrations/r-view">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
+							<a class="govuk-link" href="r-view">View agreement<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
 						</li>
 						<li class="govuk-summary-card__action">
 							<a class="govuk-link" href="../activities/a1?assigned-registration=reg1&registration-tier={{data['r1-tier']}}&act1=started&acc-type={{data['registrant-type']}}">Add an activity<span class="govuk-visually-hidden"> for the {% if (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}}{% endif %}	agreement</span></a>
@@ -480,19 +480,19 @@
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
 								{% if (data['activity-type'] == 'private') %}
-								<a class="govuk-link" href="activities/a4-view">
+								<a class="govuk-link" href="../activities/a4-view">
 									Private communication
 								</a>
 								{% elseif (data['activity-type'] == 'public') %}
-								<a class="govuk-link" href="activities/a5-view">
+								<a class="govuk-link" href="../activities/a5-view">
 									Public communication
 								</a>
 								{% elseif (data['activity-type'] == 'money') %}
-								<a class="govuk-link" href="activities/a6-view">
+								<a class="govuk-link" href="../activities/a6-view">
 									Offer
 								</a>
 								{% elseif (data['activity-type'] == 'other') %}
-								<a class="govuk-link" href="activities/a7-view">
+								<a class="govuk-link" href="../activities/a7-view">
 									Non-political activity
 								</a>
 								{% endif %}
@@ -519,19 +519,19 @@
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
 								{% if (data['activity-type'] == 'private') %}
-								<a class="govuk-link" href="activities/a4-check">
+								<a class="govuk-link" href="../activities/a4-check">
 									Private communication
 								</a>
 								{% elseif (data['activity-type'] == 'public') %}
-								<a class="govuk-link" href="activities/a5-check">
+								<a class="govuk-link" href="../activities/a5-check">
 									Public communication
 								</a>
 								{% elseif (data['activity-type'] == 'money') %}
-								<a class="govuk-link" href="activities/a6-check">
+								<a class="govuk-link" href="../activities/a6-check">
 									Offer
 								</a>
 								{% elseif (data['activity-type'] == 'other') %}
-								<a class="govuk-link" href="activities/a7-check">
+								<a class="govuk-link" href="../activities/a7-check">
 									Non-political activity
 								</a>
 								{% endif %}
@@ -558,19 +558,19 @@
 						<div class="govuk-summary-list__row">
 							<dt class="govuk-summary-list__key">
 								{% if (data['activity-type'] == 'private') %}
-								<a class="govuk-link" href="activities/a4-view">
+								<a class="govuk-link" href="../activities/a4-view">
 									Private communication
 								</a>
 								{% elseif (data['activity-type'] == 'public') %}
-								<a class="govuk-link" href="activities/a5-view">
+								<a class="govuk-link" href="../activities/a5-view">
 									Public communication
 								</a>
 								{% elseif (data['activity-type'] == 'money') %}
-								<a class="govuk-link" href="activities/a6-view">
+								<a class="govuk-link" href="../activities/a6-view">
 									Offer
 								</a>
 								{% elseif (data['activity-type'] == 'other') %}
-								<a class="govuk-link" href="activities/a7-view">
+								<a class="govuk-link" href="../activities/a7-view">
 									Non-political activity
 								</a>
 								{% endif %}

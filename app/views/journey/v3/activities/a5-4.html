@@ -4,9 +4,7 @@
     {% block pageTitle %}
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
-    {% set activityDoer %}
-    {% if (data['acc-type'] == 'Entity') %}{{data['e1']}}{% else %}you{% endif %}
-    {% endset -%}    
+    {% set activityDoer %}{% if (data['acc-type'] == 'Entity') %}{{data['e1']}}{% else %}you{% endif %}{% endset -%}    
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -15,9 +13,7 @@
     
                 <span class='govuk-caption-l'>Add an activity</span>
 
-                <h1 class="govuk-heading-l">Who is involved in doing 
-                    the public 
-                    communication?</h1>
+                <h1 class="govuk-heading-l">Who is involved in doing the public communication?</h1>
 
                     <div class="govuk-hint">
                         <p>Include any individuals or groups who have a significant role in doing the public communication.</p>
