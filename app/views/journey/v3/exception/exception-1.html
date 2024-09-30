@@ -279,7 +279,7 @@
 
                             <dd class="govuk-summary-list__actions ">
                                 <label class="exception-checkbox">
-                                    <input class="" name="organisation-v1" type="checkbox" value="ABC">
+                                    <input class="" name="organisation-v1" type="checkbox" value="HSBC">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -297,7 +297,7 @@
 
                             <dd class="govuk-summary-list__actions ">
                                 <label class="exception-checkbox">
-                                    <input class="" name="organisation-v2" type="checkbox" value="ABC Ltd">
+                                    <input class="" name="organisation-v2" type="checkbox" value="HSBC UK">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -352,7 +352,7 @@
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="organisation-v5" type="checkbox"
-                                        value="Address Line 1, City, PO5T C0D3">
+                                        value="1 Centenary Square, Birmingham, B1 1HQ">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -393,7 +393,7 @@
 
                             <dd class="govuk-summary-list__actions ">
                                 <label class="exception-checkbox">
-                                    <input class="" name="organisation-v1" type="checkbox" value="ABC">
+                                    <input class="" name="organisation-v1" type="checkbox" value="Citi">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -411,7 +411,7 @@
 
                             <dd class="govuk-summary-list__actions ">
                                 <label class="exception-checkbox">
-                                    <input class="" name="organisation-v2" type="checkbox" value="ABC Ltd">
+                                    <input class="" name="organisation-v2" type="checkbox" value="Citibank UK">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -466,7 +466,7 @@
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="organisation-v5" type="checkbox"
-                                        value="Address Line 1, City, PO5T C0D3">
+                                        value="Citigroup Centre, 33 Canada Square, London E14 5LB">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
                             </dd>
@@ -643,9 +643,7 @@
 
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
-                                How will the private 
-communication be 
-made?
+                                How will the private communication be made?
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 {{data['a4-1']}}
@@ -683,19 +681,19 @@ made?
                         </div>
                         {% else %}
 
-                        {% if (data['v4-G1-3--t2--name-1']) %}
+                        {% if (data['a4-4--name-1']) %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Others involved in this activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-G1-3--t2--name-1']}} ( {{data['v4-G1-3--t2--role-1']}})
+                                {{data['a4-4--name-1']}} ( {{data['a4-4--role-1']}})
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var4" type="checkbox"
-                                        value=" {{data['v4-G1-3--t2--name-1']}} ( {{data['v4-G1-3--t2--role-1']}})">
+                                        value=" {{data['a4-4--name-1']}} ( {{data['a4-4--role-1']}})">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -704,19 +702,19 @@ made?
                         </div>
                         {% endif %}
 
-                        {% if (data['v4-G1-3--t2--name-2']) %}
+                        {% if (data['a4-4--name-2']) %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Others involved in this activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-G1-3--t2--name-2']}} ( {{data['v4-G1-3--t2--role-2']}})
+                                {{data['a4-4--name-2']}} ( {{data['a4-4--role-2']}})
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var4" type="checkbox"
-                                        value=" {{data['v4-G1-3--t2--name-2']}} ( {{data['v4-G1-3--t2--role-2']}})">
+                                        value=" {{data['a4-4--name-2']}} ( {{data['a4-4--role-2']}})">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -727,23 +725,27 @@ made?
                         {% endif %}
 
 
-                        {% if (data['v4-2-1--name-1']) %}
+                        {% if (data['a4-5--name-1']) %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Intended recipient
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-2-1--name-1']}}{% if (data['v4-2-1--name-2']) %},
-                                {{data['v4-2-1--name-2']}}{% endif %}{% if (data['v4-2-1--name-3']) %},
-                                {{data['v4-2-1--name-3']}}{% endif %}{% if (data['v4-2-1--name-4']) %},
-                                {{data['v4-2-1--name-4']}}{% endif %}{% if (data['v4-2-1--name-5']) %},
-                                {{data['v4-2-1--name-5']}}{% endif %}
+                                {{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %},
+                                {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %},
+                                {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %},
+                                {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %},
+                                {{data['a4-5--name-5']}}{% endif %}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var6" type="checkbox"
-                                        value="{{data['v4-2-1--name-1']}}{% if (data['v4-2-1--name-2']) %}, {{data['v4-2-1--name-2']}}{% endif %}{% if (data['v4-2-1--name-3']) %}, {{data['v4-2-1--name-3']}}{% endif %}{% if (data['v4-2-1--name-4']) %}, {{data['v4-2-1--name-4']}}{% endif %}{% if (data['v4-2-1--name-5']) %}, {{data['v4-2-1--name-5']}}{% endif %}">
+                                        value="{{data['a4-5--name-1']}}{% if (data['a4-5--name-2']) %},
+                                        {{data['a4-5--name-2']}}{% endif %}{% if (data['a4-5--name-3']) %},
+                                        {{data['a4-5--name-3']}}{% endif %}{% if (data['a4-5--name-4']) %},
+                                        {{data['a4-5--name-4']}}{% endif %}{% if (data['a4-5--name-5']) %},
+                                        {{data['a4-5--name-5']}}{% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -758,8 +760,8 @@ made?
                                 Activity start date
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['v4-G2-1--t2']) == "yes" %}
-                                {{data['v4-G2-1--t2-day']}}/{{data['v4-G2-1--t2-month']}}/{{data['v4-G2-1--t2-year']}}
+                                {% if (data['a4-6']) == "yes" %}
+                                {{data['a4-6-date-day']}}/{{data['a4-6-date-month']}}/{{data['a4-6-date-year']}}
                                 {% else %}
                                 None stated
                                 {% endif %}
@@ -767,11 +769,8 @@ made?
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['v4-G2-1--t2']) == 'yes' %}
-                {{data['v4-G2-1--t2-day']}}/{{data['v4-G2-1--t2-month']}}/{{data['v4-G2-1--t2-year']}}
-                {% else %}
-                None stated
-                {% endif %}">
+                                    <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['a4-6']) == 'yes' %}
+                                    {{data['a4-6-date-day']}}/{{data['a4-6-date-month']}}/{{data['a4-6-date-year']}}{% else %}None stated{% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -786,8 +785,8 @@ made?
                                 Activity end date
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['v4-G2-2--t2']) == "yes" %}
-                                {{data['v4-G2-2--t2-day']}}/{{data['v4-G2-2--t2-month']}}/{{data['v4-G2-2--t2-year']}}
+                                {% if (data['a4-7']) == "yes" %}
+                                {{data['a4-7-date-day']}}/{{data['a4-7-date-month']}}/{{data['a4-7-date-year']}}
                                 {% else %}
                                 None stated
                                 {% endif %}
@@ -795,11 +794,8 @@ made?
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['v4-G2-2--t2']) == 'yes' %}
-                {{data['v4-G2-2--t2-day']}}/{{data['v4-G2-2--t2-month']}}/{{data['v4-G2-2--t2-year']}}
-                {% else %}
-                None stated
-                {% endif %}">
+                                    <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['a4-7']) == 'yes' %}
+                                    {{data['a4-7-date-day']}}/{{data['a4-7-date-month']}}/{{data['a4-7-date-year']}}{% else %}None stated{% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -814,13 +810,13 @@ made?
                                 Frequency of activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-G2-3--t2']}}
+                                {{data['a4-8']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var9" type="checkbox"
-                                        value="{{data['v4-G2-3--t2']}}">
+                                        value="{{data['a4-8']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -835,12 +831,12 @@ made?
                                 Expected outcome
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-2-2']}}
+                                {{data['a4-9']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var10" type="checkbox" value="{{data['v4-2-2']}}">
+                                    <input class="" name="activity-v2-var10" type="checkbox" value="{{data['a4-9']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -889,7 +885,7 @@ made?
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var1" type="checkbox" value="{{data['v4-0a']}}">
+                                    <input class="" name="activity-v2-var1" type="checkbox" value="{% if (data['r1-tier'] == 'political') %}{{data['a2-p']}}{% elseif (data['r1-tier'] == 'enhanced') %}{{data['a2-e']}}{% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -904,12 +900,12 @@ made?
                                 Types of public communication
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-3']}}
+                                {{data['a5-1']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var2" type="checkbox" value=" {{data['v4-2']}}">
+                                    <input class="" name="activity-v2-var2" type="checkbox" value=" {{data['a5-1']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -918,19 +914,19 @@ made?
                         </div>
 
 
-                        {% if (data['v4-G1-1--t3'] == "yes") %}
+                        {% if (data['a5-3'] != "I am organising for others to do the public communication") %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 People involved in this activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                Andy Marshall (Registrant)
+                                {{data['contact-name']}} (Registrant)
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var3" type="checkbox"
-                                        value="Andy Marshall (Registrant)">
+                                        value="{{data['contact-name']}} (Registrant)">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -939,19 +935,19 @@ made?
                         </div>
                         {% endif %}
 
-                        {% if (data['v4-G1-3--t3--name-1']) %}
+                        {% if (data['a5-4--name-1']) %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Others involved in this activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-G1-3--t3--name-1']}} ({{data['v4-G1-3--t3--role-1']}})
+                                {{data['a5-4--name-1']}} ({{data['a5-4--role-1']}})
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var4" type="checkbox"
-                                        value=" {{data['v4-G1-3--t3--name-1']}} ( {{data['v4-G1-3--t3--role-1']}})">
+                                        value=" {{data['a5-4--name-1']}} ({{data['a5-4--role-1']}})">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -960,19 +956,19 @@ made?
                         </div>
                         {% endif %}
 
-                        {% if (data['v4-G1-3--t3--name-2']) %}
+                        {% if (data['a5-4--name-2']) %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Others involved in this activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-G1-3--t3--name-2']}} ( {{data['v4-G1-3--t3--role-2']}})
+                                {{data['a5-4--name-2']}} ({{data['a5-4--role-2']}})
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var4" type="checkbox"
-                                        value=" {{data['v4-G1-3--t3--name-2']}} ( {{data['v4-G1-3--t3--role-2']}})">
+                                        value=" {{data['a5-4--name-2']}} ({{data['a5-4--role-2']}})">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -982,13 +978,16 @@ made?
                         {% endif %}
 
 
-                        {% if (data['v4-2-1--name-1']) %}
+                        {% if (data['a5-5--name-1']) %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Intended audience
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['v4-3-1']) %}{{data['v4-3-1']}}
+                                {% if (data['a5-5--name-1']) %}
+                                {{data['a5-5--name-1']}} ({{data['a5-5--type-1']}})
+                                {% if (data['a5-5--name-2']) %}{{data['a5-5--name-2']}} ({{data['a5-5--type-2']}}){% endif %}
+                                {% if (data['a5-5--name-3']) %}{{data['a5-5--name-3']}} ({{data['a5-5--type-3']}}){% endif %}
                                 {% else %}
                                 None Stated
                                 {% endif %}
@@ -996,10 +995,13 @@ made?
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var6" type="checkbox" value="{% if (data['v4-3-1']) %}{{data['v4-3-1']}}
-                {% else %}
-                None Stated
-                {% endif %}">
+                                    <input class="" name="activity-v2-var6" type="checkbox" value="{% if (data['a5-5--name-1']) %}
+                                    {{data['a5-5--name-1']}} ({{data['a5-5--type-1']}})
+                                    {% if (data['a5-5--name-2']) %}{{data['a5-5--name-2']}} ({{data['a5-5--type-2']}}){% endif %}
+                                    {% if (data['a5-5--name-3']) %}{{data['a5-5--name-3']}} ({{data['a5-5--type-3']}}){% endif %}
+                                    {% else %}
+                                    None Stated
+                                    {% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -1014,20 +1016,12 @@ made?
                                 Activity start date
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['v4-G2-1--t3']) == "yes" %}
-                                {{data['v4-G2-1--t3-day']}}/{{data['v4-G2-1--t3-month']}}/{{data['v4-G2-1--t3-year']}}
-                                {% else %}
-                                None stated
-                                {% endif %}
+                                {% if (data['a5-6']) == 'Yes' %}{{data['a5-6-date-day']}}/{{data['a5-6-date-month']}}/{{data['a5-6-date-year']}}{% else %}None stated{% endif %}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['v4-G2-1--t3']) == 'yes' %}
-                {{data['v4-G2-1--t3-day']}}/{{data['v4-G2-1--t3-month']}}/{{data['v4-G2-1--t3-year']}}
-                {% else %}
-                None stated
-                {% endif %}">
+                                    <input class="" name="activity-v2-var7" type="checkbox" value="{% if (data['a5-6']) == 'Yes' %}{{data['a5-6-date-day']}}/{{data['a5-6-date-month']}}/{{data['a5-6-date-year']}}{% else %}None stated{% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -1042,20 +1036,12 @@ made?
                                 Activity end date
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['v4-G2-2--t3']) == "yes" %}
-                                {{data['v4-G2-2--t3-day']}}/{{data['v4-G2-2--t3-month']}}/{{data['v4-G2-2--t3-year']}}
-                                {% else %}
-                                None stated
-                                {% endif %}
+                                {% if (data['a5-7']) == 'Yes' %}{{data['a5-7-date-day']}}/{{data['a5-7-date-month']}}/{{data['a5-7-date-year']}}{% else %}None stated{% endif %}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['v4-G2-2--t3']) == 'yes' %}
-                {{data['v4-G2-2--t3-day']}}/{{data['v4-G2-2--t3-month']}}/{{data['v4-G2-2--t3-year']}}
-                {% else %}
-                None stated
-                {% endif %}">
+                                    <input class="" name="activity-v2-var8" type="checkbox" value="{% if (data['a5-7']) == 'Yes' %}{{data['a5-7-date-day']}}/{{data['a5-7-date-month']}}/{{data['a5-7-date-year']}}{% else %}None stated{% endif %}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -1070,13 +1056,13 @@ made?
                                 Frequency of activity
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-G2-3--t3']}}
+                                {{data['a5-8']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
                                     <input class="" name="activity-v2-var9" type="checkbox"
-                                        value="{{data['v4-G2-3--t3']}}">
+                                        value="{{data['a5-8']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
@@ -1091,12 +1077,12 @@ made?
                                 Expected outcome
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['v4-3-3']}}
+                                {{data['a5-9']}}
                             </dd>
 
                             <dd class="govuk-summary-list__actions">
                                 <label class="exception-checkbox">
-                                    <input class="" name="activity-v2-var10" type="checkbox" value="{{data['v4-2-2']}}">
+                                    <input class="" name="activity-v2-var10" type="checkbox" value="{{data['a5-9']}}">
                                     <span class="govuk-visually-hidden">Select data for exception</span>
                                 </label>
 
