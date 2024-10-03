@@ -155,6 +155,35 @@
                 {{ govukButton({
                     text: "Continue"
                 }) }}
+
+                {% from 'govuk/components/details/macro.njk' import govukDetails %}
+                    
+                <div class="govuk-warning-text govuk-warning-text--public-register">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">PR</span>
+                    <span class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      <p>This information will appear on the on the <strong class="govuk-tag govuk-tag--orange">Public regsiter</strong></p>
+
+                      <details class="govuk-details govuk-details--public-regsiter">
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            What does this mean?
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                          <p>This will appear on the public regsiter, if it forms part of an activity that will go on the public regsiter.<br>
+                            It will be displayed as: "ACME Ltd".</p>
+                            <p>More information about the public register and exceptions can be <a href="#">found here</a></p>
+                        </div>
+                      </details>
+                      
+                    </span>
+                </div>
+
+
+
+                  {% from 'govuk/components/warning-text/macro.njk' import govukWarningText %}
+                    
     
             </form>
     

@@ -102,6 +102,8 @@
 }
 
 
+// EXCEPTIONS & PUBLIC REGISTER
+
 .exception-checkbox {
     // top: 10px;
     position: relative;
@@ -130,6 +132,34 @@
 
 }
 
+.public-register-info {
+    padding: 2px 20px 2px;
+    // border: 1px solid #491644;
+    border-left: 5px solid #efdfed;
+    border-left: 5px solid #491644;
+    // background: #efdfed;
+
+    .govuk-details[open] > .govuk-details__summary::before,
+    .govuk-details__summary::before {
+        border-left-color: #491644;
+        border-top-color: #491644;
+        // color: #491644;
+    }
+}
+
+.govuk-warning-text--public-register {
+    .govuk-warning-text__icon {
+        background-color: #491644;
+        color: #efdfed;
+        font-size: 20px;
+        border-color: #491644;
+
+        color: #6e3619;
+        background-color: #fcd6c3;
+        border-color: #fcd6c3;
+
+    }
+}
 
 /// FORM CONTROLS
 /// 
