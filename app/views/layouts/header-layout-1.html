@@ -1,0 +1,60 @@
+{% extends "di-govuk-one-login-service-header/layouts/service-header.html" %}
+
+{% set serviceName = "Foreign Influence Registration Scheme" %}
+
+
+{% if (data['m1'] == 'read') %}
+    {% if (data['m2'] == 'read') %}
+        {% set bodyClasses = "m1 m2" %}
+    {% else %}
+        {% set bodyClasses = "m1" %}
+    {% endif %}
+{% else %}
+    {% if (data['m2'] == 'read') %}
+        {% set bodyClasses = "m2" %}
+    {% endif %}
+{% endif %}
+
+
+{% set navigationItems = [
+  {
+    href: "/journey/v3/account",
+    text: 'Account',
+    id: 'account'
+  },{
+    href: "/journey/v3/registrations",
+    text: 'Registrations',
+    id: 'registrations'
+  },{
+    href: "/journey/v3/messages",
+    text: 'Messages',
+    id: 'messages',
+    classes: 'contaaaact'
+  }]
+%} 
+
+{% block beforeContent %}
+
+
+{{ govukPhaseBanner({
+  classes: "app-phase-banner–no-border govuk-width-container",
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service – your <a href="#">feedback</a> will help us to improve it.'
+}) }}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+
