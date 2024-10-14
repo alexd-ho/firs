@@ -59,6 +59,28 @@
     }
 }
 
+.govuk-form-group--add-another-block {
+    &__fields {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        &__col1 {
+            width: 100%;
+        }
+        &__col2 {
+            min-width: 75px;
+            text-align: right;
+            margin-bottom: 0px;
+        }
+    }
+    &.delete-row {
+        display: none !important;
+        visibility: hidden;
+    }
+}
+
 .person-module {
     margin-bottom: 20px;
     .min-label {

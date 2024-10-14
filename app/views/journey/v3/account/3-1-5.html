@@ -52,13 +52,21 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 					<div id="js-activity-wrapper">
 
-						<div class="govuk-form-group">
+						<div class="govuk-form-group govuk-form-group--add-another-block">
 							<label class="govuk-label hidden" for="v3-1-5--1">
 								Nationality 1
 							</label>
 							 <!-- id="v3-1-5--1" name="v3-1-5--1" -->
 
-                            <div class="autocomplete-wrapper" id="v3-1-5--1"></div>
+							<div class="govuk-form-group--add-another-block__fields">
+
+								<div class="govuk-form-group--add-another-block__fields__col1 autocomplete-wrapper" id="v3-1-5--1"></div>
+
+								<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+									<a class="govuk-link row-remove hidden" data-row="v3-1-5--1">Remove</a>
+								</div>
+
+							</div>
 
 						</div>
 						
@@ -344,6 +352,20 @@ function dynamicTitle () {
     })
 }
 
+function manageRows () {
+
+$('.row-remove').on('click', function() {
+	// console.log('CLICK');
+	var thisRow = $(this).data('row');
+	console.log(thisRow);
+	$(this).closest(".govuk-form-group--add-another-block").addClass('delete-row');
+	$('input#'+thisRow).val('');
+	// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+	return false;
+})
+
+}
+
 function addNew() {
 
     var newNameId = 2;
@@ -362,41 +384,26 @@ function addNew() {
 
       var s = stringToHTML(`
       
-		<div class="govuk-form-group">
+		<div class="govuk-form-group govuk-form-group--add-another-block">
 			<label class="govuk-label hidden" for="v3-1-5--${newNameId}">
 				Nationality ${newNameId}
 			</label>
-            <div class="autocomplete-wrapper" id="v3-1-5--${newNameId}"></div>
+			<div class="govuk-form-group--add-another-block__fields">
+
+				<div class="govuk-form-group--add-another-block__fields__col1 autocomplete-wrapper" id="v3-1-5--${newNameId}"></div>
+
+				<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+					<a class="govuk-link row-remove" data-row="v3-1-5--${newNameId}">Remove</a>
+				</div>
+
+			</div>
+
 		</div>
 
 
       `);
 
 
-    $('.button--update').on('click', function() {
-        $(this).closest(".person-module").removeClass('person-module--hidden');
-        $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
-        return false;
-    })
-    $('.button--save').on('click', function() {
-        $(this).closest(".person-module").addClass('person-module--hidden');
-        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
-        return false;
-    })
-    $('.button--delete').on('click', function() {
-        $(this).closest(".person-module").addClass('person-module--hidden');
-        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
-        $(this).closest(".person-module").addClass('person-module--delete')
-        return false;
-    })
-    $('.button--undo').on('click', function() {
-        $(this).closest(".person-module").removeClass('person-module--delete')
-        return false;
-    })
-    $('.button--confirm').on('click', function() {
-        $(this).closest(".person-module").addClass('person-module--deleted')
-        return false;
-    })
 
 
     names.appendChild(s);
@@ -411,7 +418,8 @@ function addNew() {
 		source: nationalities
 	});
 	// document.getElementById("industry"+newNameId).focus();
-    
+	manageRows();
+
 	newNameId++;
     return false;
     console.log(newNameId);
@@ -421,9 +429,12 @@ function addNew() {
 };
 
 
+
+
 window.onload = function() {
     dynamicTitle();
     addNew();
+	manageRows();
 };
 
 </script>
