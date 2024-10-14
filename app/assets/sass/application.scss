@@ -5,6 +5,47 @@
 
 // Add extra styles here
 
+// Step by step navigation
+
+.app-step-nav__step-- {
+
+    .app-step-nav__circle {
+        &--s1 {
+            background-color: lighten(govuk-colour("blue"), 50%);
+        }
+        &--s2 {
+            background-color: lighten(govuk-colour("yellow"), 50%);
+        }
+        &--s3 {
+            background-color: lighten(govuk-colour("green"), 50%);
+        }
+        &--s4 {
+            background-color: lighten(govuk-colour("orange"), 50%);
+        }
+    }
+
+    &--active {
+
+        .app-step-nav__circle {
+            &--s2 {
+                
+            }
+            &--s2 {
+                
+            }
+            &--s2 {
+                
+            }
+            &--s2 {
+                
+            }
+        }
+    }
+
+}
+
+// Add Another Pattern
+
 #js-activity-wrapper  {
     > .govuk-fieldset {
         padding: 20px;

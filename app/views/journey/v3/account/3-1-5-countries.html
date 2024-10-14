@@ -391,7 +391,7 @@ function addNew() {
       
 
 		<div class="govuk-form-group">
-			<label class="govuk-label hidden-" for="v3-1-5--${newNameId}">
+			<label class="govuk-label hidden" for="v3-1-5--${newNameId}">
 				Nationality ${newNameId}
 			</label>
             <div class="autocomplete-wrapper" id="autocomplete-${newNameId}"></div>
@@ -399,14 +399,6 @@ function addNew() {
 		</div>
 
       `);
-
-        var element = document.querySelector('#autocomplete-'+${newNameId})
-        var id = 'autocomplete-'+${newNameId}
-        accessibleAutocomplete({
-        element: element,
-        id: id,
-        source: countries
-        })
 
 
 
@@ -437,12 +429,23 @@ function addNew() {
 
 
 
-      names.appendChild(s);
-      // document.getElementById("industry"+newNameId).focus();
-      newNameId++;
-      return false;
-      console.log(newNameId);
-    };
+    names.appendChild(s);
+
+
+	var element = document.querySelector('#autocomplete-'+newNameId);
+	var id = 'autocomplete-'+newNameId;
+	accessibleAutocomplete({
+		element: element,
+		id: id,
+		source: countries
+	});
+	// document.getElementById("industry"+newNameId).focus();
+    
+	newNameId++;
+    return false;
+    console.log(newNameId);
+    
+	};
     
 };
 

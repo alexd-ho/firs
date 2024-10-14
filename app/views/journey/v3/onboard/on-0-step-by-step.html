@@ -1,0 +1,289 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+meta: {
+items: [
+{
+href: "../registrations/prefilled-entity-registrant?prefill=HSBC&prefilled=true&setup=complete",
+text: "Prefilled Reg 1"
+},
+{
+href: "../registrations/prefilled-entity-registrant?prefill=Citi&prefilled=true&setup=complete",
+text: "Prefilled Reg 2"
+},
+{
+href: "/manage-prototype",
+text: "Manage your prototype"
+},
+{
+href: "/manage-prototype/clear-data",
+text: "Clear data"
+}
+],
+visuallyHiddenTitle: "Footer links"
+}
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+
+		<form action="on-1" method="post">
+
+			{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+			<h1 class="govuk-heading-l">Check what you need to register as</h1>
+
+			<p>You either need to register as an individual or an organisation.</p>
+			<!-- <p>There are two types of individual:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Individual in an agreement with a foreign power or foreign power-controlled entity</li>
+				<li>Individual directly employed by a foreign power</li>
+			</ul>
+
+			<p>There are two types of organisation:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Organisation in an agreement with a foreign power or foreign power-controlled entity</li>
+				<li>Foreign power-controlled organisation</li>
+			</ul> -->
+
+			{{ govukWarningText({
+			text: "If you do not finish now, you will need to start again later.",
+			iconFallbackText: "Important"
+			}) }}
+
+
+			{{ govukButton({
+			text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+
+
+	<div class="govuk-grid-column-one-third">
+
+		<div class="app-step-nav-related app-step-nav-related--singular">
+			<h2 class="app-step-nav-related__heading">
+				<span class="app-step-nav-related__pretitle">Part of</span>
+				<a href="#">
+					Adding a registration
+				</a>
+			</h2>
+		</div>
+
+		<div data-module="appstepnav" id="step-by-step-navigation"
+			class="app-step-nav govuk-!-display-none-print js-hidden" data-show-text="Show" data-hide-text="Hide"
+			data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+			<ol class="app-step-nav__steps">
+				<li class="app-step-nav__step js-step app-step-nav__step--active" aria-current="step"
+					id="check-you-re-allowed-to-drive">
+					<div class="app-step-nav__header js-toggle-panel" data-position="1">
+						<h3 class="app-step-nav__title">
+							<span class="app-step-nav__circle app-step-nav__circle--number app-step-nav__circle--s1">
+								<span class="app-step-nav__circle-inner">
+									<span class="app-step-nav__circle-background">
+										<span class="govuk-visually-hidden govuk-!-display-none-print">Step</span>
+										1<span class="govuk-visually-hidden govuk-!-display-none-print"
+											aria-hidden="true">:</span>
+									</span>
+								</span>
+							</span>
+
+							<span class="js-step-title">
+								Add a registrant
+							</span>
+						</h3>
+					</div>
+
+					<div class="app-step-nav__panel js-panel" id="step-panel-check-you-re-allowed-to-drive-1">
+						<p class="app-step-nav__paragraph">This is the <strong>person</strong> or <strong>organisation</strong> that is in an agreement with a foreign power.</p>
+
+						<ol class="app-step-nav__list " data-length="3">
+							<li class="app-step-nav__list-item js-list-item app-step-nav__list-item--active">
+								<a data-position="1.1" class="app-step-nav__link js-link" href="#">
+									<span class="app-step-nav__link-active-context govuk-visually-hidden">You are
+										currently viewing: </span>What are you registering as?</a>
+							</li>
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="1.2" class="app-step-nav__link js-link" href="#">Personal or organsiation details</a>
+							</li>
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="1.3" class="app-step-nav__link js-link" href="#">Manage users </a>
+							</li>
+						</ol>
+
+					</div>
+
+				</li>
+				<li class="app-step-nav__step js-step" id="get-a-provisional-licence">
+					<div class="app-step-nav__header js-toggle-panel" data-position="2">
+						<h3 class="app-step-nav__title">
+							<span class="app-step-nav__circle app-step-nav__circle--number app-step-nav__circle--s2">
+								<span class="app-step-nav__circle-inner">
+									<span class="app-step-nav__circle-background">
+										<span class="govuk-visually-hidden govuk-!-display-none-print">Step</span>
+										2<span class="govuk-visually-hidden govuk-!-display-none-print"
+											aria-hidden="true">:</span>
+									</span>
+								</span>
+							</span>
+
+							<span class="js-step-title">
+								Add an agreement
+							</span>
+						</h3>
+					</div>
+
+					<div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
+						<p class="app-step-nav__paragraph">This is the <strong>foreign power</strong> or <strong>foreign power controlled entity</strong> that the registrant is in an agreement with.</p>
+
+						<ol class="app-step-nav__list " data-length="1">
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="2.1" class="app-step-nav__link js-link" href="#">Who are you in an agreement with?</a>
+							</li>
+						</ol>
+
+					</div>
+
+				</li>
+				<li class="app-step-nav__step js-step" id="driving-lessons-and-practice">
+					<div class="app-step-nav__header js-toggle-panel" data-position="3">
+						<h3 class="app-step-nav__title">
+							<span class="app-step-nav__circle app-step-nav__circle--number app-step-nav__circle--s3">
+								<span class="app-step-nav__circle-inner">
+									<span class="app-step-nav__circle-background">
+										<span class="govuk-visually-hidden govuk-!-display-none-print">Step</span>
+										3<span class="govuk-visually-hidden govuk-!-display-none-print"
+											aria-hidden="true">:</span>
+									</span>
+								</span>
+							</span>
+
+							<span class="js-step-title">
+								Add an activity
+							</span>
+						</h3>
+					</div>
+
+					<div class="app-step-nav__panel js-panel" id="step-panel-driving-lessons-and-practice-3">
+						<p class="app-step-nav__paragraph">These are the <strong>activities</strong> that are being carried out by the regsitrant as part of the agreement with the foreign power.</p>
+
+						<ol class="app-step-nav__list " data-length="4">
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="3.1" class="app-step-nav__link js-link" href="#">What type of activity do you want to regsiter? </a>
+							</li>
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="3.2" class="app-step-nav__link js-link" href="#">Who is involved in the activity?</a>
+							</li>
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="3.3" class="app-step-nav__link js-link" href="#">Who is the intended target of the activity? </a>
+							</li>
+						</ol>
+
+					</div>
+
+				</li>
+				
+				<li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test">
+					<div class="app-step-nav__header js-toggle-panel" data-position="5">
+						<h3 class="app-step-nav__title">
+							<span class="app-step-nav__circle app-step-nav__circle--number app-step-nav__circle--s4">
+								<span class="app-step-nav__circle-inner">
+									<span class="app-step-nav__circle-background">
+										<span class="govuk-visually-hidden govuk-!-display-none-print">Step</span>
+										4<span class="govuk-visually-hidden govuk-!-display-none-print"
+											aria-hidden="true">:</span>
+									</span>
+								</span>
+							</span>
+
+							<span class="js-step-title">
+								Request an exception (optional)
+							</span>
+						</h3>
+					</div>
+
+					<div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-theory-test-5">
+						<p class="app-step-nav__paragraph">If the activitiy would go on the <strong class="govuk-tag---govuk-tag--orange">public register</strong>, you can request some of the information <strong>remains private</strong>.</p>
+
+						<ol class="app-step-nav__list " data-length="5">
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="5.1" class="app-step-nav__link js-link" href="#">Select the information you wish to remain private</a>
+							</li>
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="5.2" class="app-step-nav__link js-link" href="#">Provide information to support your request</a>
+							</li>
+						</ol>
+
+					</div>
+
+				</li>
+		
+				<!-- <li class="app-step-nav__step js-step" id="prepare-for-your-theory-test">
+					<div class="app-step-nav__header js-toggle-panel" data-position="4">
+						<h3 class="app-step-nav__title">
+							<span class="app-step-nav__circle app-step-nav__circle--logic">
+								<span class="app-step-nav__circle-inner">
+									<span class="app-step-nav__circle-background">
+										and
+									</span>
+								</span>
+							</span>
+
+							<span class="js-step-title">
+								Prepare for your theory test
+							</span>
+						</h3>
+					</div>
+
+					<div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
+						<ol class="app-step-nav__list " data-length="3">
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="4.1" class="app-step-nav__link js-link" href="#">Theory test revision
+									and practice </a>
+							</li>
+							<li class="app-step-nav__list-item js-list-item ">
+								<a data-position="4.2" class="app-step-nav__link js-link" href="#">Take a practice
+									theory test </a>
+							</li>
+							<li class="app-step-nav__list-item js-list-item ">
+								<a rel="external" data-position="4.3" class="app-step-nav__link js-link" href="#">Theory
+									and hazard perception test app </a>
+							</li>
+						</ol>
+					</div>
+
+				</li> -->
+			</ol>
+		</div>
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
