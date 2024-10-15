@@ -60,7 +60,12 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
 							<div class="govuk-form-group--add-another-block__fields">
 
-								<div class="govuk-form-group--add-another-block__fields__col1 autocomplete-wrapper" id="v3-1-5--1"></div>
+								<div class="govuk-form-group--add-another-block__fields__col1">
+									<div class="autocomplete-wrapper" id="v3-1-5--1"></div>
+									<div class="govuk-body other-nationality-field">
+										<p><a class="govuk-link cannot-find-nationality" data-field="v3-1-5--1">I cannot find my nationality in the list</a></p>
+									</div>
+								</div>
 
 								<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
 									<a class="govuk-link row-remove hidden" data-row="v3-1-5--1">Remove</a>
@@ -354,15 +359,26 @@ function dynamicTitle () {
 
 function manageRows () {
 
-$('.row-remove').on('click', function() {
+	$('.row-remove').on('click', function() {
 	// console.log('CLICK');
-	var thisRow = $(this).data('row');
-	console.log(thisRow);
-	$(this).closest(".govuk-form-group--add-another-block").addClass('delete-row');
-	$('input#'+thisRow).val('');
-	// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
-	return false;
-})
+		var thisRow = $(this).data('row');
+		console.log(thisRow);
+		$(this).closest(".govuk-form-group--add-another-block").addClass('delete-row');
+		$('input#'+thisRow).val('');
+		// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+		return false;
+	})
+
+	$('.cannot-find-nationality').on('click', function() {
+		console.log('cannot-find-nationality');
+		var thisField = $(this).data('field');
+		console.log(thisField);
+		$(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper').addClass('hidden');
+		$(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper input.autocomplete__input').attr("name","none");
+		$(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus>');
+		// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+		return false;
+	})
 
 }
 
@@ -390,7 +406,12 @@ function addNew() {
 			</label>
 			<div class="govuk-form-group--add-another-block__fields">
 
-				<div class="govuk-form-group--add-another-block__fields__col1 autocomplete-wrapper" id="v3-1-5--${newNameId}"></div>
+				<div class="govuk-form-group--add-another-block__fields__col1">
+					<div class="autocomplete-wrapper" id="v3-1-5--${newNameId}"></div>
+					<div class="govuk-body other-nationality-field">
+						<p><a class="govuk-link cannot-find-nationality" data-field="v3-1-5--${newNameId}">I cannot find my nationality in the list</a></p>
+					</div>
+				</div>
 
 				<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
 					<a class="govuk-link row-remove" data-row="v3-1-5--${newNameId}">Remove</a>
