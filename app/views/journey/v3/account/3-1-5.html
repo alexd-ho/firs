@@ -357,7 +357,7 @@ function dynamicTitle () {
     })
 }
 
-function manageRows () {
+function manageRows (fieldId) {
 
 	$('.row-remove').on('click', function() {
 	// console.log('CLICK');
@@ -375,10 +375,14 @@ function manageRows () {
 		console.log(thisField);
 		$(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper').addClass('hidden');
 		$(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper input.autocomplete__input').attr("name","none");
-		$(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus>');
+		$(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus> <p>Describe your nationality in this field</p>');
 		// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
 		return false;
 	})
+
+	console.log('focus: input#'+fieldId);
+	$('input#'+fieldId).focus();
+
 
 }
 
@@ -439,7 +443,7 @@ function addNew() {
 		source: nationalities
 	});
 	// document.getElementById("industry"+newNameId).focus();
-	manageRows();
+	manageRows(id);
 
 	newNameId++;
     return false;
