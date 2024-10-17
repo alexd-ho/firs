@@ -1,4 +1,4 @@
-{% extends 'layouts/v3-header-one-1.html' %}
+{% extends "layouts/v4-header-1.html" %}
 {% set activeLinkId = 'registrations' %}
 {% block pageTitle %}
 Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
@@ -21,7 +21,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     <dl class="govuk-summary-list">
 
 
-      {% if (data['registration-tier'] == 'enhanced') %}
+      {% if (data['tier'] == 'enhanced') %}
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
@@ -247,7 +247,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
 
-        {% if (data['registration-tier'] == 'political') %}
+        {% if (data['tier'] == 'political') %}
         <form action="/route-v4/exception-check" method="post">
             
             {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
@@ -275,12 +275,19 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
             }) }}
 
             {{ govukButton({
-            text: "Submit activity"
-            }) }}
+              text: "Submit activity",
+              href: "activity-submitted"
+          }) }}
+
+          {{ govukButton({
+            href: '../registrations/new?activity-progress=in-progress',
+            classes: 'govuk-button--secondary',
+              text: 'Save and close'
+          }) }}
             
         </form>
 
-        {% elseif (data['registration-tier'] == 'enhanced') %}
+        {% elseif (data['tier'] == 'enhanced') %}
 
             {% if (data['a2-e'] != 'The activity has a non-political objective') %}
 
@@ -315,8 +322,8 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
               }) }}
   
               {{ govukButton({
-                  href: '../registrations/prefilled-entity-registrant',
-                  classes: 'govuk-button--secondary',
+                href: '../registrations/new?activity-progress=in-progress',
+                classes: 'govuk-button--secondary',
                   text: 'Save and close'
               }) }}
               
@@ -330,8 +337,8 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
           }) }}
 
           {{ govukButton({
-              href: '../registrations/prefilled-entity-registrant',
-              classes: 'govuk-button--secondary',
+            href: '../registrations/new?activity-progress=in-progress',
+            classes: 'govuk-button--secondary',
               text: 'Save and close'
           }) }}
 
@@ -345,8 +352,8 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
       }) }}
 
       {{ govukButton({
-          href: '../registrations/prefilled-entity-registrant',
-          classes: 'govuk-button--secondary',
+        href: '../registrations/new?activity-progress=in-progress',
+        classes: 'govuk-button--secondary',
           text: 'Save and close'
       }) }}
   

@@ -1,4 +1,4 @@
-{% extends "layouts/v3-header-one-1.html" %}
+{% extends "layouts/v4-header-1.html" %}
 {% set activeLinkId = "registrations" %}
 
 {% block pageTitle %}
@@ -20,7 +20,7 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 		} -->
 
 
-		<form action="3-1-check?registrant-name={{data['v3-1-1']}}" method="post">
+		<form action="3-1-check" method="post">
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
 			{{ govukInput({

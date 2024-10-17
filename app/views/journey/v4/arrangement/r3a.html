@@ -1,4 +1,4 @@
-{% extends "layouts/v3-header-one-1.html" %}
+{% extends "layouts/v4-header-1.html" %}
 {% set activeLinkId = "registrations" %}
 
 {% block pageTitle %}
@@ -15,9 +15,9 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
         <div class='govuk-grid-column-two-thirds-from-desktop'>
 
             {% if (data['return'] == 'check') %}
-            <form action="r-check?return=complete&?registration-tier=enhanced" method="post">
+            <form action="r-check?return=complete&?tier=enhanced" method="post">
             {% else %}
-            <form action="r6?registration-tier=enhanced" method="post">						
+            <form action="r6?tier=enhanced" method="post">						
             {% endif %}
     
             <span class="govuk-caption-l">Add an agreement</span>

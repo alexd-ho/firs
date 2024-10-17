@@ -1,4 +1,4 @@
-{% extends 'layouts/v3-header-one-1.html' %}
+{% extends "layouts/v4-header-1.html" %}
 {% set activeLinkId = 'registrations' %}
 
     {% block pageTitle %}
@@ -22,7 +22,7 @@
         <dl class="govuk-summary-list">
 
 
-            {% if (data['registration-tier'] == 'enhanced') %}
+            {% if (data['tier'] == 'enhanced') %}
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -228,7 +228,7 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
 
-        {% if (data['registration-tier'] == 'political') %}
+        {% if (data['tier'] == 'political') %}
         <form action="/route-v4/exception-check" method="post">
             
             {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
@@ -256,12 +256,19 @@
             }) }}
 
             {{ govukButton({
-                text: "Submit activity"
+                text: "Submit activity",
+                href: "activity-submitted"
             }) }}
-              
+  
+            {{ govukButton({
+              href: '../registrations/new?activity-progress=in-progress',
+              classes: 'govuk-button--secondary',
+                text: 'Save and close'
+            }) }}
+                
         </form>
 
-        {% elseif (data['registration-tier'] == 'enhanced') %}
+        {% elseif (data['tier'] == 'enhanced') %}
 
             {% if (data['a2-e'] != 'The activity has a non-political objective') %}
 
@@ -298,7 +305,7 @@
                 {% from 'govuk/components/button/macro.njk' import govukButton %}
                         
                 {{ govukButton({
-                    href: '../registrations/prefilled-entity-registrant',
+                    href: '../registrations/new?activity-progress=in-progress',
                     classes: 'govuk-button--secondary',
                     text: 'Save and close'
                 }) }}
@@ -312,7 +319,7 @@
             }) }}
 
             {{ govukButton({
-                href: '../registrations/prefilled-entity-registrant',
+                href: '../registrations/new?activity-progress=in-progress',
                 classes: 'govuk-button--secondary',
                 text: 'Save and close'
             }) }}
@@ -328,7 +335,7 @@
             
 
         {{ govukButton({
-            href: '../registrations/prefilled-entity-registrant',
+            href: '../registrations/new?activity-progress=in-progress',
             classes: 'govuk-button--secondary',
             text: 'Save and close'
         }) }}

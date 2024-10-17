@@ -1,4 +1,4 @@
-{% extends "layouts/v3-header-one-1.html" %}
+{% extends "layouts/v4-header-1.html" %}
 {% set activeLinkId = "registrations" %}
 
 {% block pageTitle %}
@@ -323,12 +323,12 @@ Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
 
     {{ govukButton({
         text: "Save and continue",
-        href: "../arrangement/select-arrangement?registrant-progress=complete"
+        href: "../arrangement/select-arrangement?registrant-progress=complete&registrant-name="+data['v3-1-1']
     }) }}
 
     {{ govukButton({
         text: "Save and close",
-        href: "../registrations/new?registrant-progress=complete",
+        href: "../registrations/new?registrant-progress=complete&registrant-name="+data['v3-1-1'],
         classes: "govuk-button govuk-button--secondary"
     }) }}
 
