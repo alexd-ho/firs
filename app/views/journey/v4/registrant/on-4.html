@@ -1,0 +1,92 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="on-check?acc-type=Entity&misrep=false&tier=enhanced" method="post">
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v-on-4",
+			    id: "v-on-4",
+			    value: data['v-on-4'],
+				classes: "govuk-radios govuk-radios--small",
+			    fieldset: {
+				    legend: {
+				        text: "Which specified foreign power-controlled entity are you registering as?",
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    items: [
+			    {
+			        value: "Entity 1",
+			        text: "Entity 1"
+			    },
+			    {
+			        value: "Entity 2",
+			        text: "Entity 2"
+			    },
+			    {
+			        value: "Entity 3",
+			        text: "Entity 3"
+			    },
+			    {
+			        value: "Entity 4",
+			        text: "Entity 4"
+			    },
+			    {
+			        value: "Entity 5",
+			        text: "Entity 5"
+			    },
+			    {
+			        value: "Entity 6",
+			        text: "Entity 6"
+			    },
+			    {
+			        value: "Entity 7",
+			        text: "Entity 7"
+			    },
+			    {
+			        value: "Entity 8",
+			        text: "Entity 8"
+			    },
+			    {
+			        value: "Entity 9",
+			        text: "Entity 9"
+			    },
+			    {
+			        value: "Entity 10",
+			        text: "Entity 10"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

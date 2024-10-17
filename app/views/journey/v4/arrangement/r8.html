@@ -1,0 +1,46 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+
+            {% if (data['return'] == 'check') %}
+            <form action="r-check?return=complete" method="post">
+            {% elseif (data['return'] == 'update') %}
+            <form action="r-view?return=complete" method="post">
+            {% else %}
+            <form action="r-check" method="post">						
+            {% endif %}
+
+            <span class="govuk-caption-l">Add an agreement</span>
+
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+                {{ govukDateInput({
+                    namePrefix: 'r8',
+                    id: 'r8',
+                    value: data['r8'],
+                    fieldset: {
+                        legend: {
+                            text: 'When was the agreement made?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2007'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

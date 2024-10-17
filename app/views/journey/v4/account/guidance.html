@@ -1,0 +1,32 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/' method='post'>
+    
+                <span class='govuk-caption-l'>Help with FIRS</span>
+    
+                <h1 class="govuk-heading-l">Guidance and resources</h1>
+    
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores ea laborum sit. Consectetur corrupti consequuntur dolorem est sit exercitationem. Distinctio saepe aliquam sint repudiandae dolorum possimus quia odit, consectetur sunt.</p>
+                
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

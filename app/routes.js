@@ -2383,5 +2383,157 @@ router.post('/route-v3/i2', function(request, response) {
 
 
 
+/// V4
+
+// __     __            _               _  _   
+// \ \   / /__ _ __ ___(_) ___  _ __   | || |  
+//  \ \ / / _ \ '__/ __| |/ _ \| '_ \  | || |_ 
+//   \ V /  __/ |  \__ \ | (_) | | | | |__   _|
+//    \_/ \___|_|  |___/_|\___/|_| |_|    |_|  
+
+//   https://www.asciiart.eu/text-to-ascii-art
+
+/// JOURNEY 
+
+var root_v4 = '/journey/v4/';
+var eligibility_v4 = '/journey/v4/eligibility/';
+var login_v4 = '/journey/v4/login/';
+var onboard_v4 = '/journey/v4/onboard';
+var tier_v4 = '/journey/v4/tier/';
+var account_v4 = '/journey/v4/account';
+
+var registration_v4 = '/journey/v4/registration';
+var registrant_v4 = '/journey/v4/registrant';
+var arrangement_v4 = '/journey/v4/arrangement';
+var agreement_v4 = '/journey/v4/agreement';
+var activity_v4 = '/journey/v4/activity';
+var exception_v4 = '/journey/v4/exception';
+var cmt_v4 = '/journey/v4/cmt';
 
 
+
+
+// ONBOARDING SCREENS
+router.post('/route-v4/on-1', function(request, response) {
+    var value = request.session.data['v-on-1'];
+    if (value == "Individual"){ 
+        response.redirect(registrant_v4+"/on-check?registrant-type=Individual&misrep=false&tier=default") // swapped from on-2 to on-check
+    } else { 
+        response.redirect(registrant_v4+"/on-3")
+    }
+})
+
+router.post('/route-v4/on-2', function(request, response) {
+    var value = request.session.data['v-on-2'];
+    if (value == "No"){ 
+        response.redirect(registrant_v4+"/on-check?registrant-type=Individual&misrep=false&tier=default")
+    } else { 
+        response.redirect(registrant_v4+"/on-check?registrant-type=Individual&misrep=true&tier=enhanced")
+    }
+})
+
+router.post('/route-v4/on-3', function(request, response) {
+    var value = request.session.data['v-on-3'];
+    if (value == "No"){ 
+        response.redirect(registrant_v4+"/on-check?registrant-type=Entity&misrep=false&tier=default") // swapped path from on-5 to on-check
+    } else { 
+        response.redirect(registrant_v4+"/on-check?registrant-type=Entity&misrep=false&tier=enhanced")
+    }
+})
+
+router.post('/route-v4/on-4', function(request, response) {
+    var value = request.session.data['v-on-4'];
+    // var accName = request.session.data['v-on-4'];
+    response.redirect(account_v4+"/?acc-type=Entity&misrep=false&tier=enhanced&accName="+value)
+})
+
+router.post('/route-v4/on-5', function(request, response) {
+    var value = request.session.data['v-on-5'];
+    if (value == "No"){ 
+        response.redirect(registrant_v4+"/on-check?registrant-type=Entity&misrep=false&tier=default")
+    } else { 
+        response.redirect(registrant_v4+"/on-6")
+    }
+})
+
+router.post('/route-v4/on-6', function(request, response) {
+    var value = request.session.data['v-on-6'];
+    if (value == "No"){ 
+        response.redirect(registrant_v4+"/on-0?registrant-type=None&v-on-1=None")
+    } else { 
+        response.redirect(registrant_v4+"/on-2?registrant-type=Individual")
+    }
+})
+
+
+/// ARRANGEMENTS
+
+router.post('/route-v4/r2', function(request, response) {
+    var value = request.session.data['r2'] //
+    if (value == "Foreign power") { // 
+        response.redirect(arrangement_v4+"/r3")
+    } else {
+        response.redirect(arrangement_v4+"/r3a")            
+    }
+})
+
+router.post('/route-v4/r3', function(request, response) {
+    var value = request.session.data['r3'] //
+    if (value == "No") { // 
+        response.redirect(arrangement_v4+"/r5")
+    } else {
+        response.redirect(arrangement_v4+"/r4")            
+    }
+})
+
+router.post('/route-v4/r6', function(request, response) {
+    var value = request.session.data['r6'] //
+    if (value == "Signed contract") { // 
+        response.redirect(arrangement_v4+"/r7")
+    } else {
+        response.redirect(arrangement_v4+"/r8")            
+    }
+})
+
+
+
+
+
+// ACTIVITIES
+
+router.post('/route-v4/a3-p', function(request, response) {
+    var value = request.session.data['a3-p'] //
+    if (value == "Private communication") { // 
+        response.redirect(activity_v4+'/a4-check?activity-type=private&activity-name=Private communication')
+    } else if (value == "Public communication") { // 
+        response.redirect(activity_v4+'/a5-check?activity-type=public&activity-name=Public communication')
+    } else if (value == "Offer of money, goods or services") { // 
+        response.redirect(activity_v4+'/a6-check?activity-type=money&activity-name=Offer of money, goods or services')
+    } else {
+        response.redirect(activity_v4+'/a7-check?activity-type=other&activity-name=Private communication')
+    }
+})
+
+router.post('/route-v4/a3-e', function(request, response) {
+    var value = request.session.data['a3-e'] //
+    if (value == "Private communication") { // 
+        response.redirect(activity_v4+'/a4-check?activity-type=private&activity-name=Private communication')
+    } else if (value == "Public communication") { // 
+        response.redirect(activity_v4+'/a5-check?activity-type=public&activity-name=Public communication')
+    } else if (value == "Offer of money, goods or services") { // 
+        response.redirect(activity_v4+'/a6-check?activity-type=money&activity-name=Offer of money, goods or services')
+    } else {
+        response.redirect(activity_v4+'/a7-check?activity-type=other&activity-name=Other')
+    }
+})
+
+
+// EXCEPTIONS 
+router.post('/route-v4/exception-check', function(request, response) {
+    var val = request.session.data['exception-request'];
+    if (val == "Yes") {
+        response.redirect(exception_v4+'/registration-complete?hold-activity=yes&activity-progress=complete&exception-progress=in-progress')
+    } else  {
+        response.redirect(exception_v4+'/registration-complete?hold-activity=no&activity-progress=complete&exception-progress=in-progress')
+    }
+})

@@ -1,0 +1,72 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e4-3' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+                {{ govukDateInput({
+                    namePrefix: 'e4-2',
+                    id: 'e4-2',
+                    value: data['e4-2'],
+                    fieldset: {
+                        legend: {
+                            text: 'On what date was '+registrant+' incorporated?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2007'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+
+                <div class="public-register-info">
+
+                    <h3 class='govuk-heading-s'><strong class="govuk-tag govuk-tag--purple">Public Register</strong></h3>
+                    <p>Information on this page might be shown on the public register.</p>
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            How will it appear on the Public Register?
+                        </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                        <p>If this forms part of an activity that appears on the public regsiter, it will be displayed as:<br>
+                            "Year of incorporation: 2007".</p>
+                            <p>More information about the public register can be <a href="#">found here</a></p>
+                        </div>
+                    </details>
+                    <details class="govuk-details">
+                        <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">
+                            Can I request it remains private?
+                        </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                        <p>You can request this information be kept private. You can request this at the point you submit your activity and complete the registration.</p>
+                        <p>More information about the public register and exceptions can be <a href="#">found here</a></p>
+                        </div>
+                    </details>
+        
+                </div>
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

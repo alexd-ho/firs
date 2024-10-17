@@ -1,0 +1,75 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v4/on-2" method="post">
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v-on-2",
+			    id: "v-on-2",
+			    value: data['v-on-2'],
+			    fieldset: {
+				    legend: {
+				        text: "Do you work for a foreign power?",
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    hint: {
+			    	html: "
+						<p class='govuk-hint-'>You work for a foreign power if you hold office in 
+							or under, or are an employee or other member of 
+							staff of a foreign power.</p>
+							<p>A foreign power is any governmental body, agency or authority, or governing political party operating outside the UK and Ireland.</p>
+							<p> A foreign power could be:</p>
+							<ul class='govuk-list govuk-list--bullet'>
+
+								<li>an office of the head of a foreign state </li>
+								<li>a foreign government or part of a foreign government</li>
+								<li>an agency or authority of a foreign government</li>
+								<li>an entity responsible for administering affairs in an area within a foreign country or territory</li>
+								<li>a political party that governs a foreign country</li>
+						</ul>"
+			    },
+			    items: [
+			    {
+			        value: "Yes",
+			        text: "Yes"
+			    },
+			    {
+			        value: "No",
+			        text: "No"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

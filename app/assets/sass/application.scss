@@ -350,7 +350,7 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
 .service-header__nav-list-item:last-of-type {
     .service-header__nav-list-item-link {
         &:after {
-            content: "2";
+            // content: "2";    /// Adds count for Messages tab
             display: inline-block;
             font-size: 16px;
             height: 24px;
@@ -467,6 +467,12 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
     }
 }
 
+
+//
+
+.govuk-summary-card__title-wrapper {
+    align-items: baseline;
+}
 
 // MANAGE USERS
 

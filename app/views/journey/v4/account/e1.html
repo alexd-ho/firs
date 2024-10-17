@@ -1,0 +1,148 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% set activeLinkId = 'account' %}
+    {% block pageTitle %}
+        Organisation Details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+
+
+            <form action="e-check" method="post">
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+
+                <span class='govuk-caption-l'>Add your organisation details</span>
+
+                {% if (data['registrant-type'] == 'organisation') %}
+                {% if (data['tier'] == 'enhanced') %}
+
+                {{ govukRadios({
+                    name: "e1",
+                    id: "e1",
+                    value: data['e1'],
+                    classes: "govuk-radios govuk-radios--small",
+                    fieldset: {
+                        legend: {
+                            text: "Which specified foreign power-controlled organisation are you registering as?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                        }
+                    },
+                    items: [
+                    {
+                        value: "organisation 1",
+                        text: "organisation 1"
+                    },
+                    {
+                        value: "organisation 2",
+                        text: "organisation 2"
+                    },
+                    {
+                        value: "organisation 3",
+                        text: "organisation 3"
+                    },
+                    {
+                        value: "organisation 4",
+                        text: "organisation 4"
+                    },
+                    {
+                        value: "Organisation 5",
+                        text: "Organisation 5"
+                    },
+                    {
+                        value: "Organisation 6",
+                        text: "Organisation 6"
+                    },
+                    {
+                        value: "Organisation 7",
+                        text: "Organisation 7"
+                    },
+                    {
+                        value: "Organisation 8",
+                        text: "Organisation 8"
+                    },
+                    {
+                        value: "Organisation 9",
+                        text: "Organisation 9"
+                    },
+                    {
+                        value: "Organisation 10",
+                        text: "Organisation 10"
+                    }
+                    ]
+                }) }}
+
+                
+                {% else %}
+                    
+                {{ govukInput({
+                    id: "e1",
+                    name: "e1",
+                    value: data['e1'],
+                    label: {
+                        text: "What is the name of your organisation?",
+                        classes: "govuk-label--l",
+                        isPageHeading: true
+                    }
+                }) }}
+                    
+                {% endif %}
+
+                {% else %}
+                    
+                {{ govukInput({
+                    id: "e1",
+                    name: "e1",
+                    value: data['e1'],
+                    label: {
+                        text: "What is the name of your organisation?",
+                        classes: "govuk-label--l",
+                        isPageHeading: true
+                    }
+                }) }}
+
+                {% endif %}
+    
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+                <!-- 
+                {% from 'govuk/components/details/macro.njk' import govukDetails %}
+                    
+                <div class="govuk-warning-text govuk-warning-text--public-register">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">PR</span>
+                    <span class="govuk-warning-text__text">
+                      <span class="govuk-visually-hidden">Warning</span>
+                      <p>This information will appear on the on the <strong class="govuk-tag govuk-tag--orange">Public regsiter</strong></p>
+
+                      <details class="govuk-details govuk-details--public-regsiter">
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            What does this mean?
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                          <p>This will appear on the public regsiter, if it forms part of an activity that will go on the public regsiter.<br>
+                            It will be displayed as: "ACME Ltd".</p>
+                            <p>More information about the public register and exceptions can be <a href="#">found here</a></p>
+                        </div>
+                      </details>
+                      
+                    </span>
+                </div>
+ -->
+
+
+                  {% from 'govuk/components/warning-text/macro.njk' import govukWarningText %}
+                    
+    
+            </form>
+    
+        </div>
+    </div>
+    {% endblock %}

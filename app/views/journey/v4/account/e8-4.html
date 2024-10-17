@@ -1,0 +1,45 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+{% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+{% set taxAuth %}{% if (data['e8-1'] == 'Yes') %}HM Revenue and 
+Customs {% else %}{{data['e8-3']}}{% endif %}{% endset -%} <!-- '+taxAuth+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e-check' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e8-4',
+                    name: 'e8-4',
+                    value: data['e8-4'],
+                    label: {
+                        text: 'What is the identifying reference or number associated with the registration of '+registrant+' on '+taxAuth+'?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'Check with the relevant government authority if you are unsure.'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

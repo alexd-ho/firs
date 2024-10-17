@@ -1,0 +1,37 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+    Link registrant – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v3/link-registrant-1' method='post'>
+    
+                <span class='govuk-caption-l'>Connect to an existing registration</span>
+    
+                <h1 class="govuk-heading-l">Registrant not found</h1>
+
+                <p>The FIRS code you have entered was not recognised. <a href="link-registrant">Please try again</a>.</p>
+                <p>If you need help, contact the FIRS support team.</p>
+                <p>[contact details]</p>
+
+              
+    
+                {{ govukButton({
+                    text: 'Continue',
+                    href: "/journey/v3/account/index"
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

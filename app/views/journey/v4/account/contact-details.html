@@ -1,0 +1,252 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
+{% extends "layouts/v3-header-one-1.html" %}
+{% endif %}
+{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <h1 class="govuk-heading-l">Contact details</h1>
+        <p>You can change these details here.</p>
+
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v3-1-1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-1?return=update">Change<span class="govuk-visually-hidden"> Your Name</span></a>
+                </dd>
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Telephone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v3-1-9']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-9?return=update">Change<span class="govuk-visually-hidden"> Telephone
+                            number</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v3-1-10']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
+                            address</span></a>
+                </dd>
+            </div>
+
+            <!--
+            {% if (data['misrep'] == 'true') %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Role
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v3-1-m1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
+                            address</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Employment responsibilties
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v3-1-m2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
+                            address</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Information that was omitted or mislead
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v3-1-m3']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
+                            address</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Reason for omission or misleading
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v3-1-m4']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="3-1-10?return=update">Change<span class="govuk-visually-hidden"> Email
+                            address</span></a>
+                </dd>
+            </div>
+
+
+            {% endif %}
+        -->
+
+            <!--    <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Intended audience
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-3-1']) %}{{data['v4-3-1']}}
+                {% else %}
+                None Stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-2-1">Change<span class="govuk-visually-hidden"> Intended audience</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity start date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-1--t5']) == "yes" %}
+                {{data['v4-G2-1--t5-day']}}/{{data['v4-G2-1--t5-month']}}/{{data['v4-G2-1--t5-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Activity start date</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Activity end date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {% if (data['v4-G2-2--t5']) == "yes" %}
+                {{data['v4-G2-2--t5-day']}}/{{data['v4-G2-2--t5-month']}}/{{data['v4-G2-2--t5-year']}}
+                {% else %}
+                None stated
+                {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Activity end date</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Frequency of activity
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-G2-3--t5']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-G1-2">Change<span class="govuk-visually-hidden"> Frequency of activity</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                Expected outcome
+                </dt>
+                <dd class="govuk-summary-list__value">
+                {{data['v4-5-1']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="4-5-1">Change<span class="govuk-visually-hidden"> Expected outcome</span></a>
+                </dd>
+            </div>
+
+            -->
+
+
+        </dl>
+
+        <!-- 
+        
+        <form action="/route-v2/exception-check" method="post">
+            
+            {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+            
+            {{ govukCheckboxes({
+              name: "exception-request",
+              id: "exception-request",
+              fieldset: {
+                legend: {
+                  text: "Do you want to request that the information remains private?",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                classes: "govuk-hint",
+                html: "<p>Some of the information about this activity will appear on a public register. You can make a request for this information to remain private if you have a legitimate reason.</p>"
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: "I would like to request that the information remains private."
+                }
+              ]
+            }) }}
+
+
+
+            {{ govukButton({
+              text: "Submit activity"
+            }) }}
+
+
+            
+        </form>
+ -->
+
+        {{ govukButton({
+        text: "Return to Account",
+        href: "../account"
+        }) }}
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

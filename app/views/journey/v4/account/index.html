@@ -1,0 +1,189 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block footer %}
+{{ govukFooter({
+meta: {
+items: [
+{
+href: "/journey/v3/account/contact-start",
+text: "Quick setup"
+},
+{
+href: "/manage-prototype",
+text: "Manage your prototype"
+},
+{
+href: "/manage-prototype/clear-data",
+text: "Clear data"
+}
+],
+visuallyHiddenTitle: "Footer links"
+}
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+
+        {% if (data['setup'] != 'complete') %}
+            
+            <!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
+                    Start here
+                    </h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                    <p class="govuk-body-m">If you need to register yourself or your organisation for the first time, <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1" style="display:inline-block">start a new registration</a>.</p>
+                    <p class="govuk-body-m">If you have received a 16-digit code, use it to <a class="govuk-notification-banner__link" href="account/link-registrant"  style="display:inline-block">connect to an existing registration</a>.</p>
+
+                </div>
+            </div> -->
+        {% endif %}
+
+
+
+
+		{% if (data['acc-type'] == "Individual--") %}
+
+		<span class="govuk-caption-l">Account home</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['contact-name']) %}{{data['contact-name']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Account Name{% endif %}
+
+        </h1>
+
+        
+        
+		{% elseif (data['acc-type'] == "Entity--") %}
+
+		<span class="govuk-caption-l">Account home</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['e1']) %}{{data['e1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
+		</h1>
+
+        {% else %}
+
+        {% endif %}
+			
+		<span class="govuk-caption-l">Account home</span>
+		<h1 class="govuk-heading-l">
+			{% if (data['contact-name']) %}{{data['contact-name']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Account Name{% endif %}
+        </h1>
+
+		
+
+
+		<!-- <p>This is your account home for the Foreign Influence Registration Scheme (FIRS).<br> You can return to this
+			account <strong>Home</strong> page at any time to find common actions and account wide statuses.</p> -->
+
+
+
+		{% if (data['acc-type'] == "Individual") %}
+
+		{% elseif (data['acc-type'] == "Entity") %}
+
+		{% else  %}
+
+		{% endif %}
+
+		<div class="firs-home-containers">
+
+
+            <div class="firs-home-containers__panel">
+				<a href="registrations/new">
+					<h3 class="govuk-heading-m">Start a new registration</h3>
+					<p>Register yourself or your organisation.</p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</a>
+			</div>
+
+<!-- 
+            <div class="firs-home-containers__panel">
+				<a href="account/link-registrant">
+					<h3 class="govuk-heading-m">Connect to an existing registration</h3>
+					<p>If you have received a 16-digit code, enter it here to connect an existing registration to your account.</p>
+				</a>
+			</div> -->
+
+            <div class="firs-home-containers__panel">
+				<a href="registrations">
+					<h3 class="govuk-heading-m">View existing registrations</h3>
+					<p>View, add, and edit agreements and activities for a registration, and manage which users have access to a registration.</p>
+				</a>
+			</div>
+
+			<div class="firs-home-containers__panel">
+				<a href="#">
+					<h3 class="govuk-heading-m">Tasks</h3>
+					<p>View and complete outstanding tasks.</p>
+					<p>You have <strong>0</strong> tasks.</p>
+				</a>
+			</div>
+
+            <div class="firs-home-containers__panel">
+				<a href="#">
+					<h3 class="govuk-heading-m">Guidance</h3>
+					<p>Find answers to your questions and access useful resources.</p>
+				</a>
+			</div>
+
+
+            <div class="firs-home-containers__panel">
+				<a href="account/contact-details">
+					<h3 class="govuk-heading-m">Manage account details</h3>
+					<p>Edit your contact details.</p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
+				</a>
+			</div>
+
+
+
+
+
+		<!-- 
+		{{ govukSummaryList({
+		  card: {
+		    title: {
+		      text: "Registrations"
+		    }
+		  },
+		  rows: [
+		    {
+		      key: {
+		        text: "None"
+		      },
+		      value: {
+		        html: "Complete Account information first"
+		      },
+		      actions: {
+		        items: [
+		          {
+		            href: "#",
+		            text: "Update",
+		            visuallyHiddenText: "age"
+		          }
+		        ]
+		      }
+		    }
+		  ]
+		}) }} -->
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

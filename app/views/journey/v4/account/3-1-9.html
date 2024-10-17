@@ -1,0 +1,73 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		{% if (data['return'] == 'update') %}
+		<form action="contact-details?return=complete" method="post">
+		{% elseif (data['return'] == 'check') %}
+		<form action="3-1-check?return=complete" method="post">
+		{% else %}
+		<form action="3-1-10" method="post">						
+		{% endif %}
+
+		<span class="govuk-caption-l">Add your personal details</span>
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{% if (data['mode'] == 'rep') %}
+			{{ govukInput({
+				id: "v3-1-9",
+				name: "v3-1-9",
+				value: data['v3-1-9'],
+				type: "tel",
+				label: {
+					text: "What is your contact telephone number?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+			{% else %}
+			{{ govukInput({
+				id: "v3-1-9",
+				name: "v3-1-9",
+				value: data['v3-1-9'],
+				type: "tel",
+				label: {
+					text: "What is your contact telephone number?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				},
+				hint: {
+					text: "This is the telephone number we will use if we need to speak with you."
+				}
+			}) }}
+			{% endif %}
+
+
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

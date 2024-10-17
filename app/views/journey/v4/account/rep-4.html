@@ -1,0 +1,87 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+{% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+{% set taxAuth %}{% if (data['e8-1'] == 'Yes') %}HM Revenue and 
+Customs {% else %}{{data['e8-3']}}{% endif %}{% endset -%} <!-- '+taxAuth+' -->
+    
+{% block pageTitle %}
+    Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-full">
+
+        <span class='govuk-caption-l'>Add a user</span>
+
+        <h1 class="govuk-heading-l">Check your answers</h1>
+        <!-- <p>You will be able to amend these details later.</p> -->
+
+        <!-- <h2 class="govuk-heading-m">Registration details</h2> -->
+
+        <dl class="govuk-summary-list">
+
+            <!-- <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['rep-name']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="rep-2?return=check">Change<span class="govuk-visually-hidden"> Your Name</span></a>
+                </dd>
+            </div> -->
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Email
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['rep-email']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="rep-3?return=check">Change<span class="govuk-visually-hidden"> Your Name</span></a>
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Account type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['rep-account']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="rep-1?return=check">Change<span class="govuk-visually-hidden"> Your Name</span></a>
+                </dd>
+            </div>
+
+
+        </dl>
+
+    {{ govukButton({
+        text: "Complete",
+        href: "rep-5"
+    }) }}
+
+
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "layouts/v3-header-one-0.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="on-check" method="post">
+
+            <span class="govuk-caption-l">Check what account you need</span>
+			
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+				<!-- hint: {
+					text: "This is be the name the organisation is typically known by. We will ask for other details such as registered names later."
+				}
+					hint: {
+					text: "This is be the name the individual is typically known by. We will ask for other details such as former names later."
+				} -->
+
+			{% if (data['acc-type'] == "Entity") %}
+			{{ govukInput({
+				id: "orgName",
+				name: "orgName",
+				value: data['userName'],
+				label: {
+					text: "What is the name of the entity?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+			{% else %}
+			{{ govukInput({
+				id: "userName",
+				name: "userName",
+				value: data['userName'],
+				label: {
+					text: "What is your name?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+			{% endif %}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

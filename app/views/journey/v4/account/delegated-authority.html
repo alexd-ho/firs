@@ -1,0 +1,72 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
+{% extends "layouts/v3-header-one-1.html" %}
+{% endif %}{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v3/delegated-authority" method="post">
+
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "delegated-authority",
+			    id: "delegated-authority",
+			    value: data['delegated-authority'],
+			    fieldset: {
+			    legend: {
+			        text: "Set representative status",
+			        isPageHeading: true,
+			        classes: "govuk-fieldset__legend--l"
+			    }
+			    },
+			    hint: {
+			    	text: "Shortcuts to set diff statuses"
+			    },
+			    items: [
+			    {
+			        value: "Completed",
+			        text: "Completed"
+			    },
+			    {
+			        value: "Pending",
+			        text: "Pending"
+			    },
+			    {
+			        value: "Rejected",
+			        text: "Rejected"
+			    },
+			    {
+			        value: "None",
+			        text: "None"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'registrations' %}
+
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/a3-p' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'a3-p',
+                    name: 'a3-p',
+                    value: data['a3-p'],
+                    fieldset: {
+                        legend: {
+                            text: 'What type of activity do you want to register?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'Select one activity type. You can add another activity after registering this activity.'
+                    },
+                    items: [
+                    {
+                        value: 'Private communication',
+                         text: 'Private communication',
+                         hint: {
+                             text: 'For example, sending an email or a letter, 
+                             or having a private conversation'
+                         }
+                     },
+                     {
+                        value: 'Public communication',
+                         text: 'Public communication',
+                         hint: {
+                             text: 'For example, a social media post, leaflet, 
+                             poster or newspaper article'
+                         }
+                     },
+                     {
+                        value: 'Offer of money, goods or services',
+                         text: 'Offer of money, goods or services',
+                         hint: {
+                             text: 'For example, the disbursement of physical 
+                             gifts, direct or indirect payments, travel and 
+                             accommodation, or consultancy'
+                         }
+                     }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Skip to the end'
+                }) }}
+
+                {% from 'govuk/components/warning-text/macro.njk' import govukWarningText %}
+                    
+                {{ govukWarningText({
+                    text: 'For the purpose of this prototype, this skips several questions about the activity details and goes straight to the "Check your answers" page.',
+                    iconFallbackText: 'Warning'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,70 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+
+
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                    User invite sent
+                </h1>
+                <div class="govuk-panel__body">
+                    To <strong>{{data['rep-email']}}</strong>
+                </div>
+            </div>
+
+            <p>We have also sent you a confirmation email.</p>
+
+            
+        </div>
+    </div>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h2 class="govuk-heading-m">
+                What happens next
+            </h2>
+            
+            <p>We have sent an email to {{data['rep-email']}} with a 16-digit FIRS code. They can use this code to connect their account to the registrant.</p>
+            <p>We will notify you by email of any registrations submitted by them.</p>
+                
+             
+
+                
+            <a href="javascript:window.history.go(-5)" class="govuk-button">Return to Registrations</a>
+
+
+
+        </div>
+
+        <div class="govuk-grid-column-one-third govuk-prototype-kit-common-templates-related-items--">
+            <h2 class="govuk-heading-m">More Information</h2>
+            <ul class="govuk-list">
+                <li>
+                    <a class="govuk-link" href="#">Requesting an exception</a>
+                </li>
+                <li>
+                    <a class="govuk-link" href="#">Tell us about a material change</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    {% endblock %}

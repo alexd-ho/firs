@@ -1,0 +1,62 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v3/3-1-6-a" method="post">
+
+			<span class="govuk-caption-l">Add your personal details</span>
+
+			{% from 'govuk/components/radios/macro.njk' import govukRadios %}
+			{{ govukRadios({
+				id: 'v3-1-6-a',
+				name: 'v3-1-6-a',
+				value: data['v3-1-6-a'],
+				fieldset: {
+					legend: {
+						text: 'Do you live in the UK?',
+						classes: 'govuk-fieldset__legend--l',
+						isPageHeading: true
+					}
+				},
+				hint: {
+					text: 'You are considered a resident if you live in the UK for more than 183 days in a tax year.'
+				},
+				items: [
+				{
+				   value: 'Yes',
+					text: 'Yes'
+				},
+				{
+				   value: 'No',
+					text: 'No'
+				}
+				]
+			}) }}
+
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

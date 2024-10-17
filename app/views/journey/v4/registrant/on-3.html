@@ -1,0 +1,75 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v4/on-3" method="post">
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v-on-3",
+			    id: "v-on-3",
+			    value: data['v-on-3'],
+			    fieldset: {
+				    legend: {
+				        text: "Is your organisation a specified foreign power-controlled organisation?",
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    hint: {
+			    	html: "
+					<p>There are [x number of] foreign power-controlled organisation specified under UK law:</p>
+					<ul class='govuk-list govuk-list--bullet'>
+			    		<li>Organisation 1</li>
+			    		<li>Organisation 2</li>
+			    		<li>Organisation 3</li>
+			    		<li>Organisation 4</li>
+			    		<li>Organisation 5</li>
+						<li>Organisation 6</li>
+			    		<li>Organisation 7</li>
+			    		<li>Organisation 8</li>
+			    		<li>Organisation 9</li>
+			    		<li>Organisation 10</li>
+			    	</ul>"
+			    },
+			    items: [
+			    {
+			        value: "Yes",
+			        text: "Yes"
+			    },
+			    {
+			        value: "No",
+			        text: "No"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

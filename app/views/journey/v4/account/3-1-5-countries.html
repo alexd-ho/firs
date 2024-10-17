@@ -1,0 +1,463 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+gds-pag
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		{% if (data['return'] == 'update') %}
+		<form action="contact-details?return=complete" method="post">
+		{% elseif (data['return'] == 'check') %}
+		<form action="3-1-check?return=complete" method="post">
+		{% else %}
+		<form action="3-1-6-a" method="post">						
+		{% endif %}
+
+		<!-- text: "What is your nationality or nationalities?", -->
+
+		<span class="govuk-caption-l">Add your personal details</span>
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+
+				<fieldset class="govuk-fieldset">
+					{% if (data['mode'] == 'rep') %}
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							What is the nationality of [NAME]?
+						</h1>
+					</legend>
+					<div id="v3-1-5-hint--1" class="govuk-hint">
+						If [NAME] has multiple nationalities, add each.
+					</div>
+					{% else %}
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							What is your nationality?
+						</h1>
+					</legend>
+					<div id="v3-1-5-hint--1" class="govuk-hint">
+						If you have multiple nationalities, add each on a new row.
+					</div>
+					{% endif %}
+
+					<div id="js-activity-wrapper">
+
+						<div class="govuk-form-group">
+							<label class="govuk-label hidden" for="v3-1-5--1">
+								Nationality 1
+							</label>
+							 <!-- id="v3-1-5--1" name="v3-1-5--1" -->
+
+                            <div class="autocomplete-wrapper" id="autocomplete-1"></div>
+
+						</div>
+
+						
+						
+					</div>
+
+
+				</fieldset>
+
+
+
+			<div id="add-another-button"  class="govuk-!-padding-top-5">
+				<a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another</a>
+			</div>
+	  
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+
+<script type="text/javascript">
+	var countries = [
+	  'Afghanistan',
+	  'Akrotiri',
+	  'Albania',
+	  'Algeria',
+	  'American Samoa',
+	  'Andorra',
+	  'Angola',
+	  'Anguilla',
+	  'Antarctica',
+	  'Antigua and Barbuda',
+	  'Argentina',
+	  'Armenia',
+	  'Aruba',
+	  'Ashmore and Cartier Islands',
+	  'Australia',
+	  'Austria',
+	  'Azerbaijan',
+	  'Bahamas, The',
+	  'Bahrain',
+	  'Bangladesh',
+	  'Barbados',
+	  'Bassas da India',
+	  'Belarus',
+	  'Belgium',
+	  'Belize',
+	  'Benin',
+	  'Bermuda',
+	  'Bhutan',
+	  'Bolivia',
+	  'Bosnia and Herzegovina',
+	  'Botswana',
+	  'Bouvet Island',
+	  'Brazil',
+	  'British Indian Ocean Territory',
+	  'British Virgin Islands',
+	  'Brunei',
+	  'Bulgaria',
+	  'Burkina Faso',
+	  'Burma',
+	  'Burundi',
+	  'Cambodia',
+	  'Cameroon',
+	  'Canada',
+	  'Cape Verde',
+	  'Cayman Islands',
+	  'Central African Republic',
+	  'Chad',
+	  'Chile',
+	  'China',
+	  'Christmas Island',
+	  'Clipperton Island',
+	  'Cocos (Keeling) Islands',
+	  'Colombia',
+	  'Comoros',
+	  'Congo',
+	  'Cook Islands',
+	  'Coral Sea Islands',
+	  'Costa Rica',
+	  'Cote d\'Ivoire',
+	  'Croatia',
+	  'Cuba',
+	  'Cyprus',
+	  'Czech Republic',
+	  'Denmark',
+	  'Dhekelia',
+	  'Djibouti',
+	  'Dominica',
+	  'Dominican Republic',
+	  'Ecuador',
+	  'Egypt',
+	  'El Salvador',
+	  'Equatorial Guinea',
+	  'Eritrea',
+	  'Estonia',
+	  'Ethiopia',
+	  'Europa Island',
+	  'Falkland Islands',
+	  'Faroe Islands',
+	  'Fiji',
+	  'Finland',
+	  'France',
+	  'French Guiana',
+	  'French Polynesia',
+	  'French Southern and Antarctic Lands',
+	  'Gabon',
+	  'Gambia,',
+	  'Gaza Strip',
+	  'Georgia',
+	  'Germany',
+	  'Ghana',
+	  'Gibraltar',
+	  'Glorioso Islands',
+	  'Greece',
+	  'Greenland',
+	  'Grenada',
+	  'Guadeloupe',
+	  'Guam',
+	  'Guatemala',
+	  'Guernsey',
+	  'Guinea',
+	  'Guinea-Bissau',
+	  'Guyana',
+	  'Haiti',
+	  'Heard Island and McDonald Islands',
+	  'Holy See (Vatican City)',
+	  'Honduras',
+	  'Hong Kong',
+	  'Hungary',
+	  'Iceland',
+	  'India',
+	  'Indonesia',
+	  'Iran',
+	  'Iraq',
+	  'Ireland',
+	  'Isle of Man',
+	  'Israel',
+	  'Italy',
+	  'Jamaica',
+	  'Jan Mayen',
+	  'Japan',
+	  'Jersey',
+	  'Jordan',
+	  'Juan de Nova Island',
+	  'Kazakhstan',
+	  'Kenya',
+	  'Kiribati',
+	  'Korea, North',
+	  'Korea, South',
+	  'Kuwait',
+	  'Kyrgyzstan',
+	  'Laos',
+	  'Latvia',
+	  'Lebanon',
+	  'Lesotho',
+	  'Liberia',
+	  'Libya',
+	  'Liechtenstein',
+	  'Lithuania',
+	  'Luxembourg',
+	  'Macau',
+	  'Macedonia',
+	  'Madagascar',
+	  'Malawi',
+	  'Malaysia',
+	  'Maldives',
+	  'Mali',
+	  'Malta',
+	  'Marshall Islands',
+	  'Martinique',
+	  'Mauritania',
+	  'Mauritius',
+	  'Mayotte',
+	  'Mexico',
+	  'Micronesia, Federated States of',
+	  'Moldova',
+	  'Monaco',
+	  'Mongolia',
+	  'Montserrat',
+	  'Morocco',
+	  'Mozambique',
+	  'Namibia',
+	  'Nauru',
+	  'Navassa Island',
+	  'Nepal',
+	  'Netherlands',
+	  'Netherlands Antilles',
+	  'New Caledonia',
+	  'New Zealand',
+	  'Nicaragua',
+	  'Niger',
+	  'Nigeria',
+	  'Niue',
+	  'Norfolk Island',
+	  'Northern Mariana Islands',
+	  'Norway',
+	  'Oman',
+	  'Pakistan',
+	  'Palau',
+	  'Panama',
+	  'Papua New Guinea',
+	  'Paracel Islands',
+	  'Paraguay',
+	  'Peru',
+	  'Philippines',
+	  'Pitcairn Islands',
+	  'Poland',
+	  'Portugal',
+	  'Puerto Rico',
+	  'Qatar',
+	  'Reunion',
+	  'Romania',
+	  'Russia',
+	  'Rwanda',
+	  'Saint Helena',
+	  'Saint Kitts and Nevis',
+	  'Saint Lucia',
+	  'Saint Pierre and Miquelon',
+	  'Saint Vincent and the Grenadines',
+	  'Samoa',
+	  'San Marino',
+	  'Sao Tome and Principe',
+	  'Saudi Arabia',
+	  'Senegal',
+	  'Serbia and Montenegro',
+	  'Seychelles',
+	  'Sierra Leone',
+	  'Singapore',
+	  'Slovakia',
+	  'Slovenia',
+	  'Solomon Islands',
+	  'Somalia',
+	  'South Africa',
+	  'South Georgia and the South Sandwich Islands',
+	  'Spain',
+	  'Spratly Islands',
+	  'Sri Lanka',
+	  'Sudan',
+	  'Suriname',
+	  'Svalbard',
+	  'Swaziland',
+	  'Sweden',
+	  'Switzerland',
+	  'Syria',
+	  'Taiwan',
+	  'Tajikistan',
+	  'Tanzania',
+	  'Thailand',
+	  'Timor-Leste',
+	  'Togo',
+	  'Tokelau',
+	  'Tonga',
+	  'Trinidad and Tobago',
+	  'Tromelin Island',
+	  'Tunisia',
+	  'Turkey',
+	  'Turkmenistan',
+	  'Turks and Caicos Islands',
+	  'Tuvalu',
+	  'Uganda',
+	  'Ukraine',
+	  'United Arab Emirates',
+	  'United Kingdom',
+	  'United States',
+	  'Uruguay',
+	  'Uzbekistan',
+	  'Vanuatu',
+	  'Venezuela',
+	  'Vietnam',
+	  'Virgin Islands',
+	  'Wake Island',
+	  'Wallis and Futuna',
+	  'West Bank',
+	  'Western Sahara',
+	  'Yemen',
+	  'Zambia',
+	  'Zimbabwe'
+	]
+  </script>
+
+
+<script type="text/javascript">
+    var element = document.querySelector('#autocomplete-1')
+    var id = 'autocomplete-1'
+    accessibleAutocomplete({
+      element: element,
+      id: id,
+      source: countries
+    })
+</script>
+
+<script>
+
+
+function addNew() {
+
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+
+      $('.person-module').addClass('person-module--hidden');
+
+      var s = stringToHTML(`
+      
+
+		<div class="govuk-form-group">
+			<label class="govuk-label hidden" for="v3-1-5--${newNameId}">
+				Nationality ${newNameId}
+			</label>
+            <div class="autocomplete-wrapper" id="autocomplete-${newNameId}"></div>
+
+		</div>
+
+      `);
+
+
+
+    $('.button--update').on('click', function() {
+        $(this).closest(".person-module").removeClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+        return false;
+    })
+    $('.button--save').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+        return false;
+    })
+    $('.button--delete').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--hidden');
+        $(this).closest(".person-module").find(".update-button-group").addClass('update-button-group--hidden');
+        $(this).closest(".person-module").addClass('person-module--delete')
+        return false;
+    })
+    $('.button--undo').on('click', function() {
+        $(this).closest(".person-module").removeClass('person-module--delete')
+        return false;
+    })
+    $('.button--confirm').on('click', function() {
+        $(this).closest(".person-module").addClass('person-module--deleted')
+        return false;
+    })
+
+
+
+    names.appendChild(s);
+
+
+	var element = document.querySelector('#autocomplete-'+newNameId);
+	var id = 'autocomplete-'+newNameId;
+	accessibleAutocomplete({
+		element: element,
+		id: id,
+		source: countries
+	});
+	// document.getElementById("industry"+newNameId).focus();
+    
+	newNameId++;
+    return false;
+    console.log(newNameId);
+    
+	};
+    
+};
+
+
+window.onload = function() {
+    addNew();
+};
+
+</script>
+
+
+
+{% endblock %}
+
+

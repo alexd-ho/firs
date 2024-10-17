@@ -1,0 +1,82 @@
+{% extends "layouts/v3-header-one-0.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v3/on-1" method="post">
+
+			<span class="govuk-caption-l">Setting up your account</span>
+
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v-on-1",
+			    id: "v-on-1",
+			    value: data['v-on-1'],
+			    fieldset: {
+				    legend: {
+				        text: "Are you registering an individual or organisation?",
+				        isPageHeading: true,
+				        classes: "govuk-fieldset__legend--l"
+				    }
+			    },
+			    items: [
+			    {
+			        value: "individual",
+			        text: "An individual"
+			    },
+			    {
+			        value: "body corporate",
+			        text: "A body corporate",
+			        hint: {
+			        	text: "A company that exists as its own legal 'person', separate from its owners"
+			        }
+			    },
+			    {
+			        value: "unincorporated association",
+			        text: "An unincorporated association",
+			        hint: {
+			        	text: "A group of people working together for a shared purpose, but without being a separate legal entity"
+			        }
+			    },
+			    {
+			        value: "foreign power",
+			        text: "A foreign power",
+			        hint: {
+			        	text: "Any government or official body from a country outside the UK or Ireland, including their leaders and political parties in control"
+			        }
+			    }
+				
+
+			    ]
+			}) }}
+
+			<p>Read the full guidance for expanded definitions of 
+				body corporate, unincorporated association and 
+				foreign power.</p>
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

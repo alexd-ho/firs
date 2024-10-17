@@ -1,0 +1,198 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+
+		<span class="govuk-caption-l">Account home</span>
+		<h1 class="govuk-heading-l">Start a new registration</h1>
+
+		<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis ex suscipit neque, dolores ipsa vel eius
+			ratione eveniet porro, tempora iste quam minus. Excepturi tempora distinctio vero deserunt totam repudiandae
+		</p>
+
+
+		<div class="govuk-grid-column-full-width">
+
+			<h2 class="govuk-heading-m">Check before you start</h2>
+
+			<ul class="govuk-task-list">
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="#"
+							aria-describedby="before-you-start-1-status">
+							Check your eligibility to register
+						</a>
+					</div>
+					<div class="govuk-task-list__status" id="before-you-start-1-status">
+						Optional
+					</div>
+				</li>
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="#"
+							aria-describedby="before-you-start-2-status">
+							Check what you need to register as
+						</a>
+					</div>
+					<div class="govuk-task-list__status" id="before-you-start-2-status">
+						Optional
+					</div>
+				</li>
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="#"
+							aria-describedby="before-you-start-2-status">
+							Read the guidance
+						</a>
+					</div>
+					<div class="govuk-task-list__status" id="before-you-start-2-status">
+						Optional
+					</div>
+				</li>
+			</ul>
+			<h2 class="govuk-heading-m govuk-!-margin-top-5">Regsiter your activity</h2>
+			<ul class="govuk-task-list">
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant"
+							aria-describedby="prepare-application-1-status">
+							1. Add a registrant
+						</a>
+						{% if (data['registrant-name']) %}
+						<div id="application-details-3-hint" class="govuk-task-list__hint-">
+							<strong>{{data['registrant-name']}}</strong>
+						</div>
+						{% endif %}
+					</div>
+					<div class="govuk-task-list__status" id="prepare-application-1-status">
+						{% if (data['registrant-progress'] == 'complete') %}
+						Complete
+						{% elseif (data['registrant-progress'] == 'in-progress') %}
+						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% endif %}
+					</div>
+				</li>
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					{% if (data['registrant-progress']) %}
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-arrangement"
+							aria-describedby="prepare-application-2-status">
+							2. Add an arrangement with a foreign power
+						</a>
+						<div id="application-details-3-hint" class="govuk-task-list__hint-">
+							<strong>{{data['arrangement-name']}}</strong>
+						</div>
+					</div>
+					<div class="govuk-task-list__status" id="prepare-application-2-status">
+						{% if (data['arrangement-progress'] == 'complete') %}
+						Complete
+						{% elseif (data['arrangement-progress'] == 'in-progress') %}
+						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% endif %}
+					</div>
+					{% else %}
+					<div class="govuk-task-list__name-and-hint">
+						<div>
+							2. Add an arrangement with a foreign power
+						</div>
+					</div>
+					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
+						Cannot start yet
+					</div>
+					{% endif %}
+				</li>
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					{% if (data['arrangement-progress']) %}
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="../activity/a-start"
+							aria-describedby="prepare-application-3-status">
+							3. Add an activity
+						</a>
+						<div id="application-details-3-hint" class="govuk-task-list__hint-">
+							<strong>{{data['activity-name']}}</strong>
+						</div>
+					</div>
+					<div class="govuk-task-list__status" id="prepare-application-1-status">
+						{% if (data['activity-progress'] == 'complete') %}
+						<strong class="govuk-tag govuk-tag--green">Submitted</strong>
+						{% elseif (data['activity-progress'] == 'in-progress') %}
+						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% endif %}
+					</div>
+					{% else %}
+					<div class="govuk-task-list__name-and-hint">
+						<div>
+							3. Add an activity
+						</div>
+					</div>
+					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
+						Cannot start yet
+					</div>
+					{% endif %}
+				</li>
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					{% if (data['activity-progress'] == 'complete') %}
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="#"
+							aria-describedby="prepare-application-4-status">
+							4. Request an exception
+						</a>
+						<div id="application-details-3-hint" class="govuk-task-list__hint">
+							If applicable
+						</div>
+					</div>
+					<div class="govuk-task-list__status" id="prepare-application-1-status">
+						{% if (data['exception-progress'] == 'complete') %}
+						Pending
+						{% elseif (data['exception-progress'] == 'in-progress') %}
+						<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% endif %}
+					</div>
+					{% else %}
+					<div class="govuk-task-list__name-and-hint">
+						<div>
+							4. Request an exception
+						</div>
+						<div id="application-details-3-hint" class="govuk-task-list__hint">
+							If applicable
+						</div>
+					</div>
+					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
+						Cannot start yet
+					</div>
+					{% endif %}
+				</li>
+			</ul>
+			<div class="govuk-button-group">
+				<button type="submit" class="govuk-button" data-module="govuk-button">
+					Apply
+				</button>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+
+	{% endblock %}

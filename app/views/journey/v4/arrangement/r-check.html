@@ -1,0 +1,176 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% set arrangementName %}
+{% if (data['r2'] == "Foreign power-controlled organisation") %}{{data['r3a']}}{% elseif (data['r3'] == "Yes") %}{{data['r4']}}{% else %}{{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}}){% endif %}
+{% endset -%}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+        <span class="govuk-caption-l">Add an agreement</span>
+
+        <h1 class="govuk-heading-l">Check your answers </h1>
+
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Type of organisation in the agreement
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r2']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r2?return=check">Change<span class="govuk-visually-hidden"> Your Name</span></a>
+                </dd>
+            </div>
+
+
+
+            {% if (data['r2'] == "Foreign power-controlled organisation") %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name of foreign power-controlled organisation in the agreement
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r3a']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r3a?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% elseif (data['r3'] == "Yes") %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name of foreign power in the agreement
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r4']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r3?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% else  %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Foreign power in the agreement
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r5-a']}} ({{data['r5-b']}} - {{data['r5-c']}})
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r5?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% endif %}
+
+
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    How was the agreement made?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r6']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r6?return=check">Change<span class="govuk-visually-hidden"> Former
+                        birth</span></a>
+                </dd>
+            </div>
+
+
+            {% if (data['r6'] == "Signed contract") %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    When was the contract signed?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r7-day']}}/{{data['r7-month']}}/{{data['r7-year']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r7?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% else %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    When was the agreement made?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['r8-day']}}/{{data['r8-month']}}/{{data['r8-year']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="r8?return=check">Change<span class="govuk-visually-hidden"> Former
+                            names</span></a>
+                </dd>
+            </div>
+
+            {% endif %}
+
+        </dl>
+
+
+        {% if (data['prefill'] == 'Citi') %}
+        {{ govukButton({
+            text: "Save agreement",
+            href: "../registrations/prefilled-entity-registrant?reg1=complete"
+        }) }}                
+        {% elseif (data['prefill'] == 'HSBC') %}
+        {{ govukButton({
+            text: "Save agreement",
+            href: "../registrations/prefilled-entity-registrant?reg1=complete"
+        }) }}                
+        
+        {% else %}
+
+
+
+        {{ govukButton({
+            text: "Save and continue",
+            href: "../activity/a-start?arrangement-progress=complete&arrangement-name="+arrangementName
+        }) }}
+
+        {{ govukButton({
+            text: "Save and close",
+            classes: "govuk-button govuk-button--secondary",
+            href: "../registrations/new?arrangement-progress=complete&arrangement-name="+arrangementName
+        }) }}
+        
+        
+
+        {% endif %}
+
+
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

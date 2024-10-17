@@ -1,0 +1,59 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='../account' method='post'>
+    
+                <span class='govuk-caption-l'>Setup your Foreign Influence Registration Scheme account</span>
+    
+                <h1 class="govuk-heading-l">Check your answers</h1>
+
+                <dl class="govuk-summary-list">
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                        Your name
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                        {{data['contact-name']}}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="a2-e">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                        Your email address
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{data['contact-email']}}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="a2-e">Change<span class="govuk-visually-hidden"> activity intended to influence</span></a>
+                        </dd>
+                    </div>
+            
+    
+                </dl>
+        
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

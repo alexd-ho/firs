@@ -1,0 +1,344 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<span class="govuk-caption-l">Add your personal details</span>
+
+		{% if (data['return'] == 'update') %}
+		<form action="contact-details?return=complete" method="post">
+		{% elseif (data['return'] == 'check') %}
+		<form action="3-1-check?return=complete" method="post">
+		{% else %}
+		<form action="3-1-9" method="post">						
+		{% endif %}
+
+		
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+			
+			{% if (data['v3-1-7'] == 'different-uk') %}
+
+			{% call govukFieldset({
+			  legend: {
+			    text: "What is your contact address?",
+			    classes: "govuk-fieldset__legend--l",
+			    isPageHeading: true
+			  }
+			}) %}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Address line 1"
+			    },
+			    id: "v3-1-8-line-1",
+			    name: "v3-1-8-line-1",
+			    value: data["v3-1-8-line-1"],
+			    autocomplete: "address-line1"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Address line 2 (optional)"
+			    },
+			    id: "v3-1-8-line-2",
+			    name: "v3-1-8-line-2",
+			    value: data["v3-1-8-line-2"],
+			    autocomplete: "address-line2"
+			  }) }}
+			
+			  {{ govukInput({
+			    label: {
+			      text: "Town or city"
+			    },
+			    classes: "govuk-!-width-two-thirds",
+			    id: "v3-1-8-town",
+			    name: "v3-1-8-town",
+			    value: data["v3-1-8-town"],
+			    autocomplete: "address-level2"
+			  }) }}
+
+			  {{ govukInput({
+			    label: {
+			      text: "Postcode"
+			    },
+			    classes: "govuk-input--width-10",
+			    id: "v3-1-8-postcode",
+			    name: "v3-1-8-postcode",
+			    value: data["v3-1-8-postcode"],
+			    autocomplete: "postal-code"
+			  }) }}
+
+			  {{ govukInput({
+			    label: {
+			      text: "Country"
+			    },
+			    classes: "govuk-!-width-two-thirds",
+			    id: "v3-1-8-country",
+			    name: "v3-1-8-country",
+			    value: "UK",
+			    autocomplete: "country",
+				disabled: true
+			  }) }}
+
+			  <p style="top: -20px; position: relative;"><a href="3-1-6-a" class=""govuk-link>Change country</a></p>
+
+			  <div class="hidden">
+			  {{ govukInput({
+				  label: {
+				  text: "Country"
+				  },
+				  id: "v3-1-8-country",
+				  name: "v3-1-8-country",
+				  value: "UK",
+				  hidden: "hidden"
+			  }) }}
+			  </div>
+
+
+
+			{% endcall %}
+
+
+
+			{% else %}
+
+
+				<!-- Not UK based -->
+
+				{% if (data['v3-1-7-alt'] == 'not-found') %}
+
+				<!-- country not found in list -->
+	
+				  {% call govukFieldset({
+					legend: {
+						text: "What is your contact address?",
+						classes: "govuk-fieldset__legend--l",
+						isPageHeading: true
+					}
+					}) %}
+					
+					{{ govukInput({
+						label: {
+						text: "Address line 1"
+						},
+						id: "v3-1-8-line-1",
+						name: "v3-1-8-line-1",
+						value: data["v3-1-8-line-1"],
+						autocomplete: "address-line1"
+					}) }}
+					
+					{{ govukInput({
+						label: {
+						text: "Address line 2 (optional)"
+						},
+						id: "v3-1-8-line-2",
+						name: "v3-1-8-line-2",
+						value: data["v3-1-8-line-2"],
+						autocomplete: "address-line2"
+					}) }}
+					
+					{{ govukInput({
+						label: {
+						text: "Town or city"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "v3-1-8-town",
+						name: "v3-1-8-town",
+						value: data["v3-1-8-town"],
+						autocomplete: "address-level2"
+					}) }}
+	
+					{{ govukInput({
+						label: {
+						text: "County, region or state (optional)"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "v3-1-8-state",
+						name: "v3-1-8-state",
+						value: data["v3-1-8-state"],
+						autocomplete: "state"
+					}) }}
+	
+	
+					{{ govukInput({
+						label: {
+						text: "Postcode or zipcode"
+						},
+						classes: "govuk-input--width-10",
+						id: "v3-1-8-postcode",
+						name: "v3-1-8-postcode",
+						value: data["v3-1-8-postcode"],
+						autocomplete: "postal-code"
+					}) }}
+	
+					
+					{{ govukInput({
+						label: {
+						text: "Country"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "v3-1-8-country",
+						name: "v3-1-8-country",
+						value: data["v3-1-8-country"],
+						autocomplete: "country"
+					}) }}
+	
+				  {% endcall %}
+	
+	
+				{% else %}
+				
+
+					{% call govukFieldset({
+					legend: {
+						text: "What is your contact address in "+data['v3-1-7-alt']+"?",
+						classes: "govuk-fieldset__legend--l",
+						isPageHeading: true
+					}
+					}) %}
+					
+					{{ govukInput({
+						label: {
+						text: "Address line 1"
+						},
+						id: "v3-1-8-line-1",
+						name: "v3-1-8-line-1",
+						value: data["v3-1-8-line-1"],
+						autocomplete: "address-line1"
+					}) }}
+					
+					{{ govukInput({
+						label: {
+						text: "Address line 2 (optional)"
+						},
+						id: "v3-1-8-line-2",
+						name: "v3-1-8-line-2",
+						value: data["v3-1-8-line-2"],
+						autocomplete: "address-line2"
+					}) }}
+					
+					{{ govukInput({
+						label: {
+						text: "Town or city"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "v3-1-8-town",
+						name: "v3-1-8-town",
+						value: data["v3-1-8-town"],
+						autocomplete: "address-level2"
+					}) }}
+
+					{% if (data['v3-1-7-alt'] == 'United States') %}
+					{{ govukInput({
+						label: {
+						text: "State"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "v3-1-8-state",
+						name: "v3-1-8-state",
+						value: data["v3-1-8-state"],
+						autocomplete: "state"
+					}) }}
+						
+					{% endif %}
+
+
+					{% if (data['v3-1-7-alt'] == 'Ireland') %}
+					{{ govukInput({
+						label: {
+						text: "Eircode"
+						},
+						classes: "govuk-input--width-10",
+						id: "v3-1-8-postcode",
+						name: "v3-1-8-postcode",
+						value: data["v3-1-8-postcode"],
+						autocomplete: "postal-code"
+					}) }}
+						
+					{% elseif (data['v3-1-7-alt'] == 'United States') %}
+					{{ govukInput({
+						label: {
+						text: "Zipcode"
+						},
+						classes: "govuk-input--width-10",
+						id: "v3-1-8-postcode",
+						name: "v3-1-8-postcode",
+						value: data["v3-1-8-postcode"],
+						autocomplete: "postal-code"
+					}) }}
+						
+					{% else %}
+
+					{{ govukInput({
+						label: {
+						text: "Postcode"
+						},
+						classes: "govuk-input--width-10",
+						id: "v3-1-8-postcode",
+						name: "v3-1-8-postcode",
+						value: data["v3-1-8-postcode"],
+						autocomplete: "postal-code"
+					}) }}
+
+					
+					{% endif %}
+
+					{{ govukInput({
+						label: {
+						text: "Country"
+						},
+						classes: "govuk-!-width-two-thirds",
+						id: "v3-1-8-country",
+						name: "v3-1-8-country",
+						value: data["v3-1-7-alt"],
+						disabled: "disabled"
+					}) }}
+
+					<p style="top: -20px; position: relative;"><a href="3-1-6-a" class=""govuk-link>Change country</a></p>
+
+					<div class="hidden">
+					{{ govukInput({
+						label: {
+						text: "Country"
+						},
+						id: "v3-1-8-country",
+						name: "v3-1-8-country",
+						value: data["v3-1-7-alt"],
+						hidden: "hidden"
+					}) }}
+					</div>
+
+					{% endcall %}
+
+				{% endif %}
+
+			{% endif %}
+
+
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

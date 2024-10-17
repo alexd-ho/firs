@@ -1,0 +1,108 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends 'layouts/v3-header-one-0.html' %}
+{% else %}
+{% extends 'layouts/v3-header-one-1.html' %}
+{% endif %}
+{% set activeLinkId = 'account' %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+    {% set incCountry %}{{data['incorpCountry']}}{% endset -%} <!-- '+registrant+' -->
+    
+    {% block pageTitle %}
+        Add your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    {% set registrant %}{{data['orgName']}}{% endset -%} <!-- '+registrant+' -->
+        
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e6-3' method='post'>
+    
+                <span class='govuk-caption-l'>Add your organisation details</span>
+    
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+                    
+        
+                    <!-- INCORP COUNTRY BASED -->
+        
+                    {% call govukFieldset({
+                      legend: {
+                        text: 'What is the contact address for '+registrant+'?',
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                      }
+                    }) %}
+                    
+                    <p class="govuk-hint">This is the address we will use if we need to send 
+                        any physical documents.</p>
+                      
+                      {{ govukInput({
+                        label: {
+                          text: "Address line 1"
+                        },
+                        id: "e6-2-line-1",
+                        name: "e6-2-line-1",
+                        value: data["e6-2-line-1"],
+                        autocomplete: "address-line1"
+                      }) }}
+                    
+                      {{ govukInput({
+                        label: {
+                          text: "Address line 2 (optional)"
+                        },
+                        id: "e6-2-line-2",
+                        name: "e6-2-line-2",
+                        value: data["e6-2-line-2"],
+                        autocomplete: "address-line2"
+                      }) }}
+                    
+                      {{ govukInput({
+                        label: {
+                          text: "Town or city"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "e6-2-town",
+                        name: "e6-2-town",
+                        value: data["e6-2-town"],
+                        autocomplete: "address-level2"
+                      }) }}
+        
+                      {{ govukInput({
+                        label: {
+                          text: "Postcode"
+                        },
+                        classes: "govuk-input--width-10",
+                        id: "e6-2-postcode",
+                        name: "e6-2-postcode",
+                        value: data["e6-2-postcode"],
+                        autocomplete: "postal-code"
+                      }) }}
+                    
+                      {{ govukInput({
+                        label: {
+                          text: "Country"
+                        },
+                        classes: "govuk-!-width-two-thirds",
+                        id: "e6-2-country",
+                        name: "e6-2-country",
+                        value: data['e6-2-country'],
+                        autocomplete: "country"
+                      }) }}
+        
+                      
+        
+                    {% endcall %}
+        
+        
+        
+        
+            
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

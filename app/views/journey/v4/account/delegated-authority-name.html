@@ -1,0 +1,57 @@
+{% if (data['setup'] == 'incomplete') %}
+{% extends "layouts/v3-header-one-0.html" %}
+{% else %}
+{% extends "layouts/v3-header-one-1.html" %}
+{% endif %}{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		{% if (data['return'] == 'update') %}
+		<form action="../account?return=complete" method="post">
+		{% else %}
+		<form action="../account" method="post">
+		{% endif %}
+
+
+			
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "delegated-authority-name",
+				name: "delegated-authority-name",
+				value: data['delegated-authority-name'],
+				label: {
+					text: "Set representative name",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

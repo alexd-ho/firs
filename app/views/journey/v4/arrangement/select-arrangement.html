@@ -1,0 +1,77 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = "account" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
+
+		<span class="govuk-caption-l">Add an arrangement</span>
+		<h1 class="govuk-heading-l">Who is {{data['registrant-name']}} in an arrangement with?</h1>
+
+		<p>Details about what an arrangement is - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis ex suscipit neque, dolores ipsa vel eius ratione eveniet porro, tempora iste quam minus.</p>
+
+		{% if (data['arrangement-name']) %}
+
+		<h2 class="govuk-heading-m">Select an existing arrangement:</h2>
+
+		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+		{{ govukSummaryList({
+		card: {
+			title: {
+				text: data['arrangement-name']
+			},
+			actions: {
+				items: [
+				  {
+					href: "../activity/a-start?registration-tier=political&arrangement-name="+data['arrangement-name']+"&arrangement-progress=complete",
+					text: "Select this arrangement",
+					visuallyHiddenText: "of University of Gloucestershire",
+					classes: "govuk-button govuk-!-margin-bottom-1"
+				  }
+				]
+			}
+		},
+		rows: [
+			{
+			key: {
+				text: "Agreement date"
+			},
+			value: {
+				html: "23 Aug 2023"
+			},
+			actions: {
+				items: [
+				{
+				}
+				]
+			}
+			}
+		]
+		}) }}
+
+		{% endif %}
+
+		{% from 'govuk/components/button/macro.njk' import govukButton %}
+			
+		{{ govukButton({
+			href: 'arrangement-start',
+			classes: '',
+			text: 'Add a new arrangement'
+		}) }}
+
+
+</div>
+
+
+
+
+{% endblock %}

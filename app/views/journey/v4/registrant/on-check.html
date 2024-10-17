@@ -1,0 +1,271 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set activeLinkId = 'account' %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds-from-desktop'>
+
+
+        {% if (data['registrant-type'] == 'Entity') %}
+
+            {% if (data['tier'] == 'enhanced') %}
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+
+            <h1 class="govuk-heading-l">You need to register as 
+                a specified foreign 
+                power-controlled organisation</h1>
+    
+                <p><strong>What this means</strong></p>
+                <p>You can register activities your organisation is doing or organising for others to do in the UK.</p>
+                
+
+                <p><strong>Managing your account</strong></p>
+
+                <!-- <ul class="govuk-list govuk-list--bullet"> -->
+                    <!-- <li>You cannot change your account type after 
+                        this point</li> -->
+                        <p>You can manage which users have access to your registration after you have finished setting up.</p>
+                    <!-- </ul> -->
+
+
+            {% else %}
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+
+            <h1 class="govuk-heading-l">You need to register as 
+                an organisation</h1>
+    
+                <p><strong>What this means</strong></p>
+                <p>You can register your organisation's agreements with 
+                    foreign powers and specified foreign power-controlled organisations, and any activities your organisation is 
+                    doing or organising others to do in the UK as part of these agreements.
+                    </p>
+                
+
+                    <p><strong>Managing your account</strong></p>
+
+                    <!-- <ul class="govuk-list govuk-list--bullet"> -->
+                        <!-- <li>You cannot change your account type after 
+                            this point</li> -->
+                            <p>You can manage which users have access to your registration after you have finished setting up.</p>
+                    <!-- </ul> -->
+    
+
+
+
+            {% endif %}
+
+            {{ govukButton({
+                text: 'Accept and continue',
+                href: '../account/e0?setup=incomplete'
+            }) }}
+    
+
+        {% elseif (data['registrant-type'] == 'Individual') %}
+
+            {% if (data['misrep'] == 'true') %}
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+
+
+            <h1 class="govuk-heading-l">You need to register as 
+                an individual who works 
+                for a foreign power</h1>
+
+                <p><strong>What this means</strong></p>
+                <p>You can register activities you are doing or 
+                    organising for others to do in the UK as part of 
+                    your work for a foreign power.</p>
+                    <p>You only need to register activities if they involve 
+                        you being intentionally untruthful or misleading in 
+                        some way.</p>
+
+                <p><strong>Managing your account</strong></p>
+
+                <!-- <ul class="govuk-list govuk-list--bullet"> -->
+                    <!-- <li>You cannot change your account type after 
+                        this point</li> -->
+                        <p>You can manage which users have access to your registration after you have finished setting up.</p>
+                    <!-- </ul> -->
+
+
+
+            {% else %}
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+
+            <h1 class="govuk-heading-l">You need to register as
+                an individual</h1>
+
+                <p><strong>What this means</strong></p>
+                <p>You can register agreements with foreign powers 
+                    and specified foreign power-controlled organisations, 
+                    and any activities you are doing or organising 
+                    others to do in the UK as part of these 
+                    agreements.
+                    </p>
+                
+
+                    <p><strong>Managing your account</strong></p>
+
+                    <!-- <ul class="govuk-list govuk-list--bullet"> -->
+                        <!-- <li>You cannot change your account type after 
+                            this point</li> -->
+                            <p>You can manage which users have access to your registration after you have finished setting up.</p>
+                    <!-- </ul> -->
+    
+
+
+            {% endif %}
+
+            {{ govukButton({
+                text: 'Accept and continue',
+                href: '../account/3-1-0?setup=incomplete'
+            }) }}
+    
+
+        {% endif %}
+
+
+
+        <h2 class='govuk-heading-m'>Your answers</h2>
+
+        {% if (data['registrant-type'] == 'Entity') %}
+        
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What are you registering as?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Organisation
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div>
+
+
+            {% if (data['v-on-3'] == 'Yes') %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Is your organisation a specified foreign power-controlled organisation?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div>
+
+            {% else %}
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Is your organisation a specified foreign power-controlled organisation?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    No
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div>
+
+
+<!-- 
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Is your organisation a foreign power?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['v-on-5']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-5">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div> -->
+
+            {% endif %}
+        
+        </dl>
+
+
+        {% elseif (data['registrant-type'] == 'Individual') %}
+    
+        <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    What are you registering as?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Individual
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div>
+
+
+            <!-- <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{data['userName']}}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-name">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div> -->
+
+            {% if (data['v-on-2'] == 'Yes') %}
+
+            <!-- <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Do you work for a foreign power?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Yes
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div> -->
+
+            {% else %}
+                
+            <!-- <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Do you work for a foreign power?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    None
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="on-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+            </div> -->
+
+            {% endif %}
+        
+        </dl>
+
+        {% endif %}
+        
+    </div>
+</div>
+
+
+{% endblock %}

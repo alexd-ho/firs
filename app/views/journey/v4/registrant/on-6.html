@@ -1,0 +1,65 @@
+{% extends 'layouts/v3-header-one-1.html' %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="/route-v4/on-6" method="post">
+
+            <span class="govuk-caption-l">Check what you need to register as</span>
+
+			<h1 class="govuk-heading-l">You have indicated that you are registering as a foreign power</h1>
+			<p>Only individuals who work for a foreign power have to register under certain circumstances.</p>
+			<p>An individual must be doing or organising for others to do activities in the UK as part of their work. These activities must also involve the 
+				individual being intentionally untruthful or misleading in someway.</p>
+
+
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "v-on-6",
+			    id: "v-on-6",
+			    value: data['v-on-6'],
+			    fieldset: {
+				    legend: {
+				        text: "Do you want to register as an individual?",
+				        isPageHeading: false,
+				        classes: "govuk-fieldset__legend--m"
+				    }
+			    },
+			    items: [
+			    {
+			        value: "Yes",
+			        text: "Yes"
+			    },
+			    {
+			        value: "No",
+			        text: "No, take me back to the guidance"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

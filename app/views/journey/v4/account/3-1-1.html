@@ -1,0 +1,51 @@
+{% extends "layouts/v3-header-one-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Account - Contact Details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+		
+		<span class="govuk-caption-l">Add your personal details</span>
+		<!-- hint: {
+			text: 'This is based on the name you told us earlier on. You can update it here.'
+		} -->
+
+
+		<form action="3-1-check?registrant-name={{data['v3-1-1']}}" method="post">
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "v3-1-1",
+				name: "v3-1-1",
+				value: data['v3-1-1'],
+				label: {
+					text: "What is your name?",
+					classes: "govuk-label--l",
+					isPageHeading: true
+				}
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+		</form>
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
