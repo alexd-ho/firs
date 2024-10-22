@@ -1,0 +1,96 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+    {% set currentSub %}a-sub-address-{{data['sub']}}{% endset -%}
+    {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
+    
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-sub-5' method='post'>
+    
+                <span class='govuk-caption-l'>Register an activity - sub {{data['sub']}}</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+                    
+                {% call govukFieldset({
+                    legend: {
+                        text: 'What is the address of the '+currentType+' doing the activity?',
+                        classes: 'govuk-fieldset__legend--l',
+                        isPageHeading: true
+                    }
+                }) %}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Address line 1'
+                   },
+                   id: currentSub+'--line-1',
+                   name: currentSub+'--line-1',
+                   autocomplete: 'address-line1'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Address line 2 (optional)'
+                    },
+                    id: currentSub+'--line-2',
+                    name: currentSub+'--line-2',
+                    autocomplete: 'address-line2'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Town or city'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: currentSub+'--town',
+                    name: currentSub+'--town',
+                    autocomplete: 'address-level2'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Postcode'
+                    },
+                    classes: 'govuk-input--width-10',
+                    id: currentSub+'--postcode',
+                    name: currentSub+'--postcode',
+                    autocomplete: 'postal-code'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Country'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: currentSub+'--country',
+                    name: currentSub+'--country',
+                    autocomplete: 'country'
+                }) }}
+                    
+                {% endcall %}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

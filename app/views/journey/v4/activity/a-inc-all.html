@@ -1,0 +1,41 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+    {% set currentInc %}inc-name-{{data['inc']}}{% endset -%}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/restart-inc' method='post'>
+    
+                <span class='govuk-caption-l'>Add your details - {{currentInc}}</span>
+
+                <p><strong>Check all Names</strong></p>
+    
+                {% if (data['inc-name-1']) %}<p>Name 1 - {{ data['inc-name-1'] }}</p>{% endif %}
+                {% if (data['inc-name-2']) %}<p>Name 2 - {{ data['inc-name-2'] }}</p>{% endif %}
+                {% if (data['inc-name-3']) %}<p>Name 3 - {{ data['inc-name-3'] }}</p>{% endif %}
+                {% if (data['inc-name-4']) %}<p>Name 4 - {{ data['inc-name-4'] }}</p>{% endif %}
+                {% if (data['inc-name-5']) %}<p>Name 5 - {{ data['inc-name-5'] }}</p>{% endif %}
+                {% if (data['inc-name-6']) %}<p>Name 6 - {{ data['inc-name-6'] }}</p>{% endif %}
+    
+                {{ govukButton({
+                    href: 'a-inc-all',
+                    text: 'Continue'
+                }) }}
+                    
+                {{ govukButton({
+                    classes: 'govuk-button--secondary',
+                    text: 'Add another'
+                }) }}
+
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-sub-1?sub=1' method='post'>
+    
+                <span class='govuk-caption-l'>Register an activity</span>
+                <h1 class='govuk-heading-l'>Tell us about who is involved in doing the activity</h1> 
+                
+                <div class="govuk-body">
+                    <p>Add any individual or entity that is doing the activity that has been directed as part of the agreement with the foreign power or foreign power-controlled entity.</p>
+                </div>
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

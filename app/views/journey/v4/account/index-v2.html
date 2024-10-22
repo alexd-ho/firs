@@ -168,7 +168,7 @@ visuallyHiddenTitle: "Footer links"
 				<div>
 					<h3 class="govuk-heading-m">Manage representative access</h3>
 					{% if (data['delegated-authority'] == 'None') %}
-					<p>Allow third parties to manage regsitrations on your behalf.</p>
+					<p>Allow third parties to manage registrations on your behalf.</p>
 					{% elseif (data['delegated-authority'] == 'Completed') %}
 					<p><strong class='govuk-tag govuk-tag--green'>Completed</strong></p>
 					<p>Delegated authority has been granted to <strong>{{data['delegated-authority-name']}}</strong>.</p>
@@ -179,7 +179,7 @@ visuallyHiddenTitle: "Footer links"
 					<p><strong class='govuk-tag govuk-tag--red'>Rejected</strong></p>
 					<p>Delegated authority for <strong>{{data['delegated-authority-name']}}</strong> has been rejected.</p>
 					{% else %}
-					<p>Allow third parties to manage regsitrations on your behalf.</p>
+					<p>Allow third parties to manage registrations on your behalf.</p>
 					{% endif %}
 					<p><a href="../account/delegated-authority?return=update" class="govuk-link">Manage representatives</a></p>
 				</div>

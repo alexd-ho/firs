@@ -2527,6 +2527,21 @@ router.post('/route-v4/a3-e', function(request, response) {
     }
 })
 
+router.post('/route-v4/a-sub-type', function(request, response) {
+    var curInc = request.session.data['sub'];
+    var value = request.session.data['a-sub-type']
+    if (value == 'Entity'){ 
+        response.redirect(activity_v4+'/a-sub-entity?a-sub-type-'+curInc+'='+value)
+    } else {
+        response.redirect(activity_v4+'/a-sub-individual?a-sub-type-'+curInc+'='+value)
+    }
+})
+router.post('/route-v4/a-restart-sub', function(request, response) {
+    var curInc = request.session.data['sub'];
+    curInc++;
+    response.redirect(activity_v4+'/a-sub-1?sub='+curInc)
+})
+
 
 // EXCEPTIONS 
 router.post('/route-v4/exception-check', function(request, response) {
@@ -2536,4 +2551,11 @@ router.post('/route-v4/exception-check', function(request, response) {
     } else  {
         response.redirect(exception_v4+'/registration-complete?hold-activity=no&activity-progress=complete&exception-progress=in-progress')
     }
+})
+
+
+router.post('/route-v4/restart-inc', function(request, response) {
+    var curInc = request.session.data['inc'];
+    curInc++;
+    response.redirect(activity_v4+'/a-inc-1?inc='+curInc)
 })

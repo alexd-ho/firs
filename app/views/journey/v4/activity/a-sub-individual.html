@@ -1,0 +1,66 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+    {% set currentSub %}a-sub-fname-{{data['sub']}}{% endset -%}
+    {% set currentSub2 %}a-sub-lname-{{data['sub']}}{% endset -%}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-sub-2' method='post'>
+    
+                <span class='govuk-caption-l'>Register an activity - sub {{data['sub']}}</span>
+    
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+                {% call govukFieldset({
+                legend: {
+                    text: "What is the full name of the individual doing the activity?",
+                    classes: "govuk-fieldset__legend--l",
+                    isPageHeading: true
+                }
+                }) %}
+
+                {{ govukInput({
+                    id: currentSub,
+                    name: currentSub,
+                    value: data[currentSub],
+                    label: {
+                        text: 'Given Name'
+                    }
+                }) }}
+
+                {{ govukInput({
+                    id: currentSub2,
+                    name: currentSub2,
+                    value: data[currentSub2],
+                    label: {
+                        text: 'Family name'
+                    }
+                }) }}
+
+                {% endcall %}
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                            
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+    {% set currentSub %}a-sub-role-{{data['sub']}}{% endset -%}
+    {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
+    
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-sub-check' method='post'>
+    
+                <span class='govuk-caption-l'>Register an activity - sub {{data['sub']}}</span>
+
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                    
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: currentSub,
+                    name: currentSub,
+                    value: data[currentSub],
+                    label: {
+                        text: 'What role does the '+currentType+' have in the activity?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: ''
+                    }
+                }) }} 
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+
+    {% set currentSub %}a-sub-type-{{data['sub']}}{% endset -%}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/a-sub-type' method='post'>
+    
+                <span class='govuk-caption-l'>Register an activity - sub {{data['sub']}}</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'a-sub-type',
+                    name: 'a-sub-type',
+                    value: data['a-sub-type'],
+                    fieldset: {
+                        legend: {
+                            text: 'Is an individual or entity doing the activity?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Individual',
+                        text: 'Individual'
+                    },
+                    {
+                       value: 'Entity',
+                       text: 'Entity',
+                       hint: {
+                        text: "Any entity such as a company, charity or club"
+                       }
+                    }
+                    ]
+                }) }}
+
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}
