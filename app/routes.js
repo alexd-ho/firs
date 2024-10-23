@@ -2547,9 +2547,9 @@ router.post('/route-v4/a-restart-sub', function(request, response) {
 router.post('/route-v4/exception-check', function(request, response) {
     var val = request.session.data['exception-request'];
     if (val == "Yes") {
-        response.redirect(exception_v4+'/registration-complete?hold-activity=yes&activity-progress=complete&exception-progress=in-progress')
+        response.redirect(exception_v4+'/registration-complete?hold-activity=yes&activity-progress=complete&exception-progress=in-progress&registration-progress=complete')
     } else  {
-        response.redirect(exception_v4+'/registration-complete?hold-activity=no&activity-progress=complete&exception-progress=in-progress')
+        response.redirect(exception_v4+'/registration-complete?hold-activity=no&activity-progress=complete&exception-progress=in-progress&registration-progress=complete')
     }
 })
 

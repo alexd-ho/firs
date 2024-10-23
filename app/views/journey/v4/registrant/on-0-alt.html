@@ -1,0 +1,146 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Account – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+meta: {
+items: [
+{
+href: "../registrations/prefilled-entity-registrant?prefill=HSBC&prefilled=true&setup=complete",
+text: "Prefilled Reg 1"
+},
+{
+href: "../registrations/prefilled-entity-registrant?prefill=Citi&prefilled=true&setup=complete",
+text: "Prefilled Reg 2"
+},
+{
+href: "/manage-prototype",
+text: "Manage your prototype"
+},
+{
+href: "/manage-prototype/clear-data",
+text: "Clear data"
+}
+],
+visuallyHiddenTitle: "Footer links"
+}
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+
+		<form action="on-1" method="post">
+
+			{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+			{% from 'govuk/components/radios/macro.njk' import govukRadios %}
+			{{ govukRadios({
+				id: 'registrant-type',
+				name: 'registrant-type',
+				value: data['registrant-type'],
+				fieldset: {
+					legend: {
+						text: 'What type of registrant are you registering as?',
+						classes: 'govuk-fieldset__legend--l',
+						isPageHeading: true
+					}
+				},
+
+				items: [
+				{
+                    value: 'Individual',
+                     text: 'Individual',
+                     hint: {
+                         text: 'An individual in an agreement with a foreign power or foreign power-controlled entity'
+                     }
+                },
+                {
+                    value: 'Individual employed by a foreign power',
+                     text: 'Individual employed by a foreign power',
+                     hint: {
+                         text: 'An individual directly employed by a foreign power and making a misrepresentation'
+                     }
+                },
+                {
+				   value: 'Entity',
+					text: 'Entity',
+                    hint: {
+                        text: 'An entity in an agreement with a foreign power or foreign power-controlled entity'
+                    }
+				},
+                {
+				   value: 'Foreign power-controlled entity',
+					text: 'Foreign power-controlled entity'
+				}
+				]
+			}) }}
+
+            {% set detailsHtml %}
+            <p>You either need to register as an individual or an entity.</p>
+            <p>There are two types of individual:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Individual in an agreement with a foreign power or foreign power-controlled entity</li>
+                <li>Individual directly employed by a foreign power</li>
+            </ul>
+
+            <p>There are two types of entity:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>Entity in an agreement with a foreign power or foreign power-controlled entity</li>
+                <li>Foreign power-controlled entity</li>
+            </ul>
+            <p>You can read more information on <a href="#">"Check what you need to register as"</a>.</p> 
+            {% endset %}
+
+            {% from 'govuk/components/details/macro.njk' import govukDetails %}
+                
+            {{ govukDetails({
+                summaryText: 'What am I registering as?',
+                html: detailsHtml
+            }) }}
+
+			<!-- {{ govukWarningText({
+			text: "If you do not finish now, you will need to start again later.",
+			iconFallbackText: "Important"
+			}) }}
+ -->
+
+			{{ govukButton({
+			text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+
+
+	<div class="govuk-grid-column-one-third">
+
+	
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}
