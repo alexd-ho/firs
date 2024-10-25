@@ -18,18 +18,22 @@
 
                 {% call govukFieldset({
                 legend: {
-                    text: "What is the full name of the individual doing the activity?",
+                    text: "What is your full name?",
                     classes: "govuk-fieldset__legend--l",
                     isPageHeading: true
                 }
                 }) %}
+
+                <div class="govuk-hint">
+                    <p>Enter your full name as it appears on official documents, such as your passport.</p>
+                </div>
 
                 {{ govukInput({
                     id: 'i2-first',
                     name: 'i2-first',
                     value: data['i2-first'],
                     label: {
-                        text: 'Given Name'
+                        text: 'Given Names'
                     }
                 }) }}
 
