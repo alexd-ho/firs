@@ -11,7 +11,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v4/e16' method='post'>
     
-                <span class='govuk-caption-l'>Regsiter your entity</span>
+                <span class='govuk-caption-l'>Add your entity details</span>
 
                 {% set registeredAddress %}
                     {% if (data['e5'] == 'Yes') %}
@@ -25,7 +25,7 @@
 
                     {% else %}
                     {{data['e15-line-1']}}, {% if (data['e15-line-2']) %}{{data['e15-line-2']}}, {% endif %}{% if (data['e15-town']) %}{{data['e15-town']}}, {% endif %}{% if (data['e15-postcode']) %}{{data['e15-postcode']}}, {% endif %}{% if (data['e15-country']) %}{{data['e15-country']}}{% endif %}
-                    
+
                     {% endif %}
                 {% endset %}
 

@@ -11,8 +11,8 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds">
-		<span class="govuk-caption-l">Register as an individual</span>
-		<h1 class='govuk-heading-l'>What you need to complete this section</h1> 
+		<!-- <span class="govuk-caption-l">Register as an individual</span> -->
+		<h1 class='govuk-heading-l'>Add your personal details</h1> 
 			 
 
 	</div>
@@ -26,6 +26,8 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 		<form action="i2" method="post">
 
 			{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+			
+			<h2 class='govuk-heading-m'>What you need to complete this section</h2> 
 
 			<p>In this section, we are asking for information about you as a registrant.</p>
 			<p>You need your: </p>
@@ -36,14 +38,14 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 				<li>address</li>
 			</ul>
 			
-            <h2 class='govuk-heading-m'>Why do we need this information?</h2>
-			<p>We need this information to add you as a registrant.</p>
+            <h2 class='govuk-heading-m'>Why we need this information</h2>
+			<p>We need this information to add you as a registrant. </p>
 
 
-			<h2 class='govuk-heading-m'>Public Register</h2> 
+			<h2 class='govuk-heading-m'>The public register</h2> 
   
        		<p>If you add any activities that are considered political in nature, some of the information you provide may appear on the Foreign Influence Registration Scheme public register.</p>
-			<p>You can request for any information that would appear on the public register to remain private.</p>
+			<p>You can request for any information that would appear on the public register to remain private.     </p>
 			<p>Read the:</p>
 			<ul class='govuk-list govuk-list--bullet'>
 				<li><a href="#">guidance on what information appears on the public register.</a></li>
