@@ -230,6 +230,14 @@
     }
 }
 
+.pr-col {
+    display: none;
+    padding-right: 20px;
+    &.na {
+        color: #505a5f;
+    }
+}
+
 /// FORM CONTROLS
 /// 
 .govuk-input {

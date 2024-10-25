@@ -1,0 +1,92 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Regsiter yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/e16' method='post'>
+    
+                <span class='govuk-caption-l'>Regsiter your entity</span>
+
+                {% set registeredAddress %}
+                    {% if (data['e5'] == 'Yes') %}
+                    {{data['e-ch2-line-1']}}, {% if (data['e-ch2-line-2']) %}{{data['e-ch2-line-2']}}, {% endif %}{% if (data['e-ch2-town']) %}{{data['e-ch2-town']}}, {% endif %}{% if (data['e-ch2-postcode']) %}{{data['e-ch2-postcode']}}, {% endif %}{% if (data['e-ch2-country']) %}{{data['e-ch2-country']}}{% endif %}
+
+                    {% elseif (data['e7'] == 'Yes') %}
+                    {{data['e10-line-1']}}, {% if (data['e10-line-2']) %}{{data['e10-line-2']}}, {% endif %}{% if (data['e10-town']) %}{{data['e10-town']}}, {% endif %}{% if (data['e10-postcode']) %}{{data['e10-postcode']}}, {% endif %}{% if (data['e10-country']) %}{{data['e10-country']}}{% endif %}
+                        
+                    {% elseif (data['e13'] == 'Yes') %}
+                    {{data['e14-line-1']}}, {% if (data['e14-line-2']) %}{{data['e14-line-2']}}, {% endif %}{% if (data['e14-town']) %}{{data['e14-town']}}, {% endif %}{% if (data['e14-postcode']) %}{{data['e14-postcode']}}, {% endif %}{% if (data['e14-country']) %}{{data['e14-country']}}{% endif %}
+
+                    {% else %}
+                    {{data['e15-line-1']}}, {% if (data['e15-line-2']) %}{{data['e15-line-2']}}, {% endif %}{% if (data['e15-town']) %}{{data['e15-town']}}, {% endif %}{% if (data['e15-postcode']) %}{{data['e15-postcode']}}, {% endif %}{% if (data['e15-country']) %}{{data['e15-country']}}{% endif %}
+                    
+                    {% endif %}
+                {% endset %}
+
+                {% set otherCountry %}
+                {{ govukInput({
+                    id: 'e16-other',
+                    name: 'e16-other',
+                    value: data['e16-other'],
+                    classes: 'govuk-!-width-two-thirds',
+                    label: {
+                        text: 'Country'
+                    }
+                }) }}
+                {% endset -%} 
+
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+
+                {{ govukRadios({
+                    id: 'e16',
+                    name: 'e16',
+                    value: data['e16'],
+                    fieldset: {
+                        legend: {
+                            text: 'Which address should we use to contact '+data['registrant-name']+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'This is the address we will use if we need to send any physical documents.'
+                    },
+                    items: [
+                    {
+                       value: registeredAddress,
+                        text: registeredAddress
+                    },
+                    {
+                       value: 'A different address in the UK',
+                        text: 'A different address in the UK'
+                    },
+                    {
+                       value: 'A different address outside the UK',
+                        text: 'A different address outside the UK',
+                        conditional: {
+                            html: otherCountry
+                        }
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Regsiter yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='i3' method='post'>
+    
+                <span class='govuk-caption-l'>Regsiter yourself</span>
+    
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+
+                {% call govukFieldset({
+                legend: {
+                    text: "What is the full name of the individual doing the activity?",
+                    classes: "govuk-fieldset__legend--l",
+                    isPageHeading: true
+                }
+                }) %}
+
+                {{ govukInput({
+                    id: 'i2-first',
+                    name: 'i2-first',
+                    value: data['i2-first'],
+                    label: {
+                        text: 'Given Name'
+                    }
+                }) }}
+
+                {{ govukInput({
+                    id: 'i2-last',
+                    name: 'i2-last',
+                    value: data['i2-last'],
+                    label: {
+                        text: 'Family name'
+                    }
+                }) }}
+
+                {% endcall %}
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                            
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

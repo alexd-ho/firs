@@ -1,0 +1,187 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="e5" method="post">						
+
+		<!-- text: "What is your nationality or nationalities?", -->
+
+		<span class="govuk-caption-l">Regsiter yourself</span>
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+
+				<fieldset class="govuk-fieldset">
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							What other names is {{data['registrant-name']}} known by?
+						</h1>
+					</legend>
+
+					<div id="js-activity-wrapper">
+
+						<div class="govuk-form-group govuk-form-group--add-another-block">
+							<label class="govuk-label hidden" for="e4--1">
+								Name 1
+							</label>
+							 <!-- id="e4--1" name="e4--1" -->
+
+							<div class="govuk-form-group--add-another-block__fields">
+
+								<div class="govuk-form-group--add-another-block__fields__col1">
+                                    <input class="govuk-input" id="e4--1" name="e4--1" type="text">									
+								</div>
+
+								<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+									<a href="#" class="govuk-link row-remove hidden" data-row="e4--1">Remove</a>
+								</div>
+
+							</div>
+
+						</div>
+						
+					</div>
+
+				</fieldset>
+
+
+
+			<div id="add-another-button"  class="govuk-!-padding-top-5">
+				<a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another</a>
+			</div>
+	  
+
+            {{ govukButton({
+                text: 'Save and continue'
+            }) }}
+            {{ govukButton({
+                href: '../registrations/new',
+                classes: 'govuk-button--secondary',
+                text: 'Save and exit'
+            }) }}
+
+        </form>
+
+	</div>
+
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+
+<script>
+
+function dynamicTitle () {
+    $('#js-activity-wrapper').on("keyup", ".name-field", function( event ) {
+      let thisName = $(this).val();
+      $(this).closest(".person-module").find(".min-label__name").html(thisName);
+    })
+}
+
+function manageRows (fieldId) {
+
+	$('.row-remove').on('click', function() {
+	// console.log('CLICK');
+		var thisRow = $(this).data('row');
+		console.log(thisRow);
+		$(this).closest(".govuk-form-group--add-another-block").addClass('delete-row');
+		$('input#'+thisRow).val('');
+		// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+		return false;
+	})
+
+
+
+}
+
+function addNew() {
+
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+
+      $('.person-module').addClass('person-module--hidden');
+
+      var s = stringToHTML(`
+      
+		<div class="govuk-form-group govuk-form-group--add-another-block">
+			<label class="govuk-label hidden" for="e4--${newNameId}">
+				Name ${newNameId}
+			</label>
+			<div class="govuk-form-group--add-another-block__fields">
+
+                <div class="govuk-form-group--add-another-block__fields__col1">
+                    <input class="govuk-input" id="e4--${newNameId}" name="e4--${newNameId}" type="text">									
+                </div>
+
+				<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+					<a href="#" class="govuk-link row-remove" data-row="e4--${newNameId}">Remove</a>
+				</div>
+
+			</div>
+
+		</div>
+
+
+      `);
+
+
+
+
+    names.appendChild(s);
+
+
+	var element = document.querySelector('#e4--'+newNameId);
+	var id = 'e4--'+newNameId;
+	// document.getElementById("industry"+newNameId).focus();
+	manageRows(id);
+
+	newNameId++;
+    return false;
+    console.log(newNameId);
+    
+	};
+    
+};
+
+
+
+
+window.onload = function() {
+    addNew();
+	manageRows('e4--1');
+};
+
+</script>
+
+
+
+{% endblock %}
+
+

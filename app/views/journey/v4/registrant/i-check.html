@@ -1,0 +1,161 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+
+{% block pageTitle %}
+Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-full-width'>
+        <form action="../arrangement/select-arrangement?registrant-progress=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'>
+
+            <span class='govuk-caption-l'>Register yourself</span>
+
+            <h1 class='govuk-heading-l'>Check your answers</h1>
+
+            {% set homeAddress %}
+            {% if (data['i7'] == 'Yes') %}
+            {{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
+            {% else %}
+            {{data['i9-line-1']}}, {% if (data['i9-line-2']) %}{{data['i9-line-2']}}, {% endif %}{% if (data['i9-town']) %}{{data['i9-town']}}, {% endif %}{% if (data['i9-postcode']) %}{{data['i9-postcode']}}, {% endif %}{% if (data['i9-country']) %}{{data['i9-country']}}{% endif %}
+            {% endif %}
+            {% endset %}
+
+            {% set homeAddressPR %}
+            {% if (data['i7'] == 'Yes') %}
+            {% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
+            {% else %}
+            {% if (data['i9-town']) %}{{data['i9-town']}}, {% endif %}{% if (data['i9-country']) %}{{data['i9-country']}}{% endif %}
+            {% endif %}
+            {% endset %}
+
+            {% set contactAddress %}
+            {% if (data['i11'] == 'A different address in the UK' or data['i11'] == 'A different address outside the UK') %}
+            {{data['i12-line-1']}}, {% if (data['i12-line-2']) %}{{data['i12-line-2']}}, {% endif %}{% if (data['i12-town']) %}{{data['i12-town']}}, {% endif %}{% if (data['i12-postcode']) %}{{data['i12-postcode']}}, {% endif %}{% if (data['i12-country']) %}{{data['i12-country']}}{% endif %}
+            {% else %}
+            {{homeAddress}}
+            {% endif %}
+            {% endset %}
+
+            {% set contactAddressPR %}
+            {% if (data['i11'] == 'A different address in the UK' or data['i11'] == 'A different address outside the UK') %}
+            {% if (data['i12-town']) %}{{data['i12-town']}}, {% endif %}{% if (data['i12-country']) %}{{data['i12-country']}}{% endif %}
+            {% else %}
+            {{homeAddressPR}}
+            {% endif %}
+            {% endset %}
+
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                    </dd>
+                    <dd class="govuk-summary-list__value pr-col">
+                        <strong class="govuk-tag govuk-tag--purple">Public Register</strong>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Full name
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['i2-first']}} {{data['i2-last']}}
+                    </dd>
+                    <dd class="govuk-summary-list__value pr-col">
+                        <strong class=""govuk-tag govuk-tag--purple"">{{data['i2-first']}} {{data['i2-last']}}</strong>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="i2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Other names
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['i3'] == "No") %}None {% else %}{{data['i4--1']}}{% if (data['i4--2']) %}, {{data['i4--2']}}{% endif %}{% if (data['i4--3']) %}, {{data['i4--3']}}{% endif %}{% if (data['i4--4']) %}, {{data['i4--4']}}{% endif %} {% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__value pr-col na">
+                        Not applicable
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="i3">Change<span class="govuk-visually-hidden"> Other names</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['i5-day']}} {{data['i5-month'] | monthName("truncate")}} {{data['i5-year']}}
+                    </dd>
+                    <dd class="govuk-summary-list__value pr-col">
+                        <strong class="govuk-tag govuk-tag--purple">{{data['i5-year']}}</strong>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="i5">Change<span class="govuk-visually-hidden"> date of
+                                birth</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Nationality
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['i6--1']}}{% if (data['i6--2']) %}, {{data['i6--2']}}{% endif %}{% if (data['i6--3']) %}, {{data['i6--3']}}{% endif %}{% if (data['i6--4']) %}, {{data['i6--4']}}{% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__value pr-col na">
+                        Not applicable
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="i6">Change<span class="govuk-visually-hidden"> Nationality</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Home address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                       {{homeAddress}}
+                    </dd>
+                    <dd class="govuk-summary-list__value pr-col na">
+                        Not applicable
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="i7">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Contact address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{contactAddress}}
+                    </dd>
+                    <dd class="govuk-summary-list__value pr-col">
+                        <strong class="govuk-tag govuk-tag--purple">{{contactAddressPR}}</strong>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="i11">Change<span class="govuk-visually-hidden"> Contact Address</span></a>
+                    </dd>
+                </div>
+            </dl>
+
+            {{ govukButton({
+                text: 'Save and continue'
+            }) }}
+            {{ govukButton({
+                href: '../registrations/new',
+                classes: 'govuk-button--secondary',
+                text: 'Save and exit'
+            }) }}
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register your entity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/e7' method='post'>
+    
+                <span class='govuk-caption-l'>Register your entity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'e7',
+                    name: 'e7',
+                    value: data['e7'],
+                    fieldset: {
+                        legend: {
+                            text: 'Is '+data['registrant-name']+' incorporated outside the UK?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'An incorporated entity is a legal entity that is separate from its owners. This means that the entity has its own rights and responsibitlies.'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

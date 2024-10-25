@@ -1,0 +1,109 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+		<span class="govuk-caption-l">Register as an individual</span>
+		<h1 class='govuk-heading-l'>What you need to complete this section</h1> 
+			 
+
+	</div>
+
+</div>
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds">
+
+		<form action="i2" method="post">
+
+			{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+			<p>In this section, we are asking for information about you as a registrant.</p>
+			<p>You need your: </p>
+			<ul class='govuk-list govuk-list--bullet'>
+				<li>full name and any previous names</li>
+				<li>date of birth</li>
+				<li>nationality</li>
+				<li>address</li>
+			</ul>
+			
+            <h2 class='govuk-heading-m'>Why do we need this information?</h2>
+			<p>We need this information to add you as a registrant.</p>
+
+
+			<h2 class='govuk-heading-m'>Public Register</h2> 
+  
+       		<p>If you add any activities that are considered political in nature, some of the information you provide may appear on the Foreign Influence Registration Scheme public register.</p>
+			<p>You can request for any information that would appear on the public register to remain private.</p>
+			<p>Read the:</p>
+			<ul class='govuk-list govuk-list--bullet'>
+				<li><a href="#">guidance on what information appears on the public register.</a></li>
+				<li><a href="#">guidance on requesting information to remain private.</a></li>
+			</ul>
+			<!-- <p>There are two types of individual:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Individual in an agreement with a foreign power or foreign power-controlled entity</li>
+				<li>Individual directly employed by a foreign power</li>
+			</ul>
+
+			<p>There are two types of organisation:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Organisation in an agreement with a foreign power or foreign power-controlled entity</li>
+				<li>Foreign power-controlled organisation</li>
+			</ul> -->
+
+			<!-- {{ govukWarningText({
+			text: "If you do not finish now, you will need to start again later.",
+			iconFallbackText: "Important"
+			}) }} -->
+
+
+			{{ govukButton({
+			text: "Continue"
+			}) }}
+
+		</form>
+
+	</div>
+
+
+
+	<div class="govuk-grid-column-one-third">
+
+		<aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
+		  <h2 class="govuk-heading-m" id="subsection-title">
+			Related content
+		  </h2>
+		  <nav role="navigation" aria-labelledby="subsection-title">
+			<ul class="govuk-list govuk-!-font-size-16" data-module="edge">
+			  <li>
+				<a href="#">
+				  Draft guidance on the Foreign Influence Registration Scheme 
+				</a>
+			  </li>
+			  <li>
+				<a href="#">
+				  Foreign Influence Registration Scheme factsheet
+				</a>
+			  </li>
+			  
+			</ul>
+		  </nav>
+		</aside>
+	
+	  </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='i6' method='post'>
+    
+                <span class='govuk-caption-l'>Register yourself</span>
+    
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+                {{ govukDateInput({
+                    namePrefix: 'i5',
+                    id: 'i5',
+                    value: data['i5'],
+                    fieldset: {
+                        legend: {
+                            text: 'What is your date of birth?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2017'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

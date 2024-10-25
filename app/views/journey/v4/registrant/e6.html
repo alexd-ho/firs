@@ -1,0 +1,42 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register your entity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e-ch1' method='post'>
+    
+                <span class='govuk-caption-l'>Register your entity</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'e6',
+                    name: 'e6',
+                    value: data['e6'],
+                    label: {
+                        text: 'What is the company registration number for '+data['registrant-name']+' in the UK?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'A company registration number is a unique identifier assigned to your entity by Companies House in the UK. It is 8 characters long.'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

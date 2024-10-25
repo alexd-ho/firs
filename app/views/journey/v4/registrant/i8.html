@@ -1,0 +1,115 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Regsiter yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='i9' method='post'>
+    
+                <span class='govuk-caption-l'>Regsiter yourself</span>
+    
+                <fieldset class="govuk-fieldset">
+					{% if (data['mode'] == 'rep') %}
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							What country does [NAME] live in?
+						</h1>
+					</legend>
+					{% else %}
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							What country do you live in?
+						</h1>
+					</legend>
+					{% endif %}
+
+
+						<div class="govuk-form-group govuk-form-group--add-another-block">
+							<label class="govuk-label hidden" for="i8">
+								Country
+							</label>
+							 <!-- id="i6--1" name="i6--1" -->
+
+							<div class="govuk-form-group--add-another-block__fields">
+
+								<div class="govuk-form-group--add-another-block__fields__col1">
+									<div class="autocomplete-wrapper" id="i8"></div>
+									<div class="govuk-body other-nationality-field">
+										<p><a href="#" class="govuk-link cannot-find-country" data-field="i8">I cannot find my country in the list</a></p>
+									</div>
+								</div>
+
+								<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+									<a href="#" class="govuk-link row-remove hidden" data-row="i8">Remove</a>
+								</div>
+
+							</div>
+
+						</div>
+						
+
+				</fieldset>
+
+
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript" src="/public/javascripts/countries.js"></script>
+
+
+    <script type="text/javascript">
+        var element = document.querySelector('#i8')
+        var id = 'i8'
+        accessibleAutocomplete({
+            element: element,
+            id: id,
+            name: id,
+            source: countries
+        })
+
+        function manageRows (fieldId) {
+
+
+            $('.cannot-find-country').on('click', function() {
+                console.log('cannot-find-nationality');
+                var thisField = $(this).data('field');
+                console.log(thisField);
+                $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper').addClass('hidden');
+                $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper input.autocomplete__input').attr("name","none");
+                $(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus> <p>Describe your nationality in this field</p>');
+                // $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+                return false;
+            })
+
+            console.log('focus: input#'+fieldId);
+            $('input#'+fieldId).focus();
+
+        }
+
+        window.onload = function() {
+            manageRows('i8');
+        };
+
+    </script>
+
+
+    {% endblock %}

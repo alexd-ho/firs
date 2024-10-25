@@ -1,0 +1,99 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register your entity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e-check' method='post'>
+    
+                <span class='govuk-caption-l'>Register your entity</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+                
+                {% set thisCountry %}{% if (data['e16'] == 'A different address in the UK') %}United Kingdom{% else %}{{data['e16-other']}}{% endif %}{% endset %}
+                    
+                {% call govukFieldset({
+                    legend: {
+                        text: 'What address should we use to contact '+data['registrant-name']+'?',
+                        classes: 'govuk-fieldset__legend--l',
+                        isPageHeading: true
+                    }
+                }) %}
+
+                <div class="govuk-hint">
+                    <p>This is the address we will use if we need to send any physical documents.</p>
+                </div>
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Address line 1'
+                   },
+                   id: 'e17-line-1',
+                   name: 'e17-line-1',
+                   autocomplete: 'address-line1',
+                   value: data['e17-line-1']
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Address line 2 (optional)'
+                    },
+                    id: 'e17-line-2',
+                    name: 'e17-line-2',
+                    autocomplete: 'address-line2',
+                    value: data['e17-line-2']
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Town or city'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'e17-town',
+                    name: 'e17-town',
+                    autocomplete: 'address-level2',
+                    value: data['e17-town']
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Postcode'
+                    },
+                    classes: 'govuk-input--width-10',
+                    id: 'e17-postcode',
+                    name: 'e17-postcode',
+                    autocomplete: 'postal-code',
+                    value: data['e17-postcode']
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Country'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'e17-country',
+                    name: 'e17-country',
+                    autocomplete: 'country',
+                    value: thisCountry
+                }) }}
+                    
+                {% endcall %}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

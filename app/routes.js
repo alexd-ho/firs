@@ -2466,6 +2466,104 @@ router.post('/route-v4/on-6', function(request, response) {
 })
 
 
+/// REGISTRANT
+
+router.post('/route-v4/reg-type', function(request, response) {
+    var value = request.session.data['reg-type']
+    if (value == 'Individual'){ 
+        response.redirect(registrant_v4+'/i1?tier=political&misrep=false&reg-type=individual')
+    } else if (value == "Misrepresentative foreign power employee") { // 
+        response.redirect(registrant_v4+'/i1?tier=enhanced&misrep=true&reg-type=individual')
+    } else if (value == "Entity") { // 
+        response.redirect(registrant_v4+'/e1a?tier=political&misrep=false&reg-type=entity')
+    } else {
+        response.redirect(registrant_v4+'/e1b?tier=enhanced&misrep=false&reg-type=entity')
+    }
+})
+
+/// REGISTRANT / Individual
+
+router.post('/route-v4/i3', function(request, response) {
+    var value = request.session.data['i3']
+    if (value == 'Yes'){ 
+        response.redirect(registrant_v4+'/i4')
+    } else {
+        response.redirect(registrant_v4+'/i5')
+    }
+})
+
+router.post('/route-v4/i7', function(request, response) {
+    var value = request.session.data['i7']
+    if (value == 'Yes'){ 
+        response.redirect(registrant_v4+'/i10')
+    } else {
+        response.redirect(registrant_v4+'/i8')
+    }
+})
+
+router.post('/route-v4/i11', function(request, response) {
+    var value = request.session.data['i11']
+    if (value == 'A different address in the UK'){ 
+        response.redirect(registrant_v4+'/i12')
+    } else if (value == "A different address outside the UK") { // 
+        response.redirect(registrant_v4+'/i12')
+    } else {
+        response.redirect(registrant_v4+'/i-check')
+    }
+})
+
+/// REGISTRANT / Entity
+
+router.post('/route-v4/e3', function(request, response) {
+    var value = request.session.data['e3']
+    if (value == 'Yes'){ 
+        response.redirect(registrant_v4+'/e4')
+    } else {
+        response.redirect(registrant_v4+'/e5')
+    }
+})
+
+router.post('/route-v4/e5', function(request, response) {
+    var value = request.session.data['e5']
+    if (value == 'Yes'){ 
+        response.redirect(registrant_v4+'/e6')
+    } else {
+        response.redirect(registrant_v4+'/e7')
+    }
+})
+
+router.post('/route-v4/e7', function(request, response) {
+    var value = request.session.data['e7']
+    if (value == 'Yes'){ 
+        response.redirect(registrant_v4+'/e8')
+    } else {
+        response.redirect(registrant_v4+'/e11')
+    }
+})
+
+router.post('/route-v4/e13', function(request, response) {
+    var value = request.session.data['e13']
+    if (value == 'Yes'){ 
+        response.redirect(registrant_v4+'/e14')
+    } else {
+        response.redirect(registrant_v4+'/e15')
+    }
+})
+
+router.post('/route-v4/e16', function(request, response) {
+    var value = request.session.data['e16']
+    if (value == 'A different address in the UK'){ 
+        response.redirect(registrant_v4+'/e17')
+    } else if (value == "A different address outside the UK") { // 
+        response.redirect(registrant_v4+'/e17')
+    } else {
+        response.redirect(registrant_v4+'/e-check')
+    }
+})
+
+
+
+
 /// ARRANGEMENTS
 
 router.post('/route-v4/r2', function(request, response) {

@@ -1,0 +1,53 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register your entity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='e2b' method='post'>
+    
+                <span class='govuk-caption-l'>Register your entity</span>
+    
+                <h1 class="govuk-heading-l">What you need to complete this section</h1>
+
+                <p>In this section, we are asking for information about your entity as a registrant.      </p>
+                <p>You need to know:<br></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>the name of your  entity, and any other names used by it</li>
+                    <li>where your entity was incorporated</li>
+                    <li>the date your entity was incorporated</li>
+                    <li>the address of your entity</li>
+                </ul>
+                <p dir="ltr">Because you are registering your entity, you are the primary point of contact.      </p>
+                <p>If you add people to this registration, they also become a point of contact.<br></p>
+                <h2 class="govuk-heading-m">Why we need this information</h2>
+                <p>We need this information to add your entity as a registrant.<br></p>
+                <h2 class="govuk-heading-m">The public register</h2>
+                <p>If you add any activities that are considered political in nature, some of the information you provide may appear on the Foreign Influence Registration Scheme public register.<br></p>
+                <p>You can request for any information that would appear on the public register to remain private.<br></p>
+                <p>Read the:<br></p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li><a href="#">guidance on what information appears on the public register.</a></li>
+                    <li><a href="#">guidance on requesting information to remain private.</a></li>
+                </ul>
+
+              
+    
+      
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

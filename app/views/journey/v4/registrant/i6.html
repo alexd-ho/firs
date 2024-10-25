@@ -1,0 +1,244 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<form action="i7" method="post">						
+
+		<!-- text: "What is your nationality or nationalities?", -->
+
+		<span class="govuk-caption-l">Regsiter yourself</span>
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+
+				<fieldset class="govuk-fieldset">
+					{% if (data['mode'] == 'rep') %}
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							What is the nationality of [NAME]?
+						</h1>
+					</legend>
+					<div id="i6-hint--1" class="govuk-hint">
+						If [NAME] has multiple nationalities, you can add more by selecting 'Add another'. 
+					</div>
+					{% else %}
+					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+						<h1 class="govuk-fieldset__heading">
+							What is your nationality?
+						</h1>
+					</legend>
+					<div id="i6-hint--1" class="govuk-hint">
+						If you have multiple nationalities, you can add more by selecting 'Add another'. 
+					</div>
+					{% endif %}
+
+					<div id="js-activity-wrapper">
+
+						<div class="govuk-form-group govuk-form-group--add-another-block">
+							<label class="govuk-label hidden" for="i6--1">
+								Nationality 1
+							</label>
+							 <!-- id="i6--1" name="i6--1" -->
+
+							<div class="govuk-form-group--add-another-block__fields">
+
+								<div class="govuk-form-group--add-another-block__fields__col1">
+									<div class="autocomplete-wrapper" id="i6--1"></div>
+									<div class="govuk-body other-nationality-field">
+										<p><a href="#" class="govuk-link cannot-find-nationality" data-field="i6--1">I cannot find my nationality in the list</a></p>
+									</div>
+								</div>
+
+								<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+									<a href="#" class="govuk-link row-remove hidden" data-row="i6--1">Remove</a>
+								</div>
+
+							</div>
+
+						</div>
+						
+					</div>
+
+				</fieldset>
+
+
+
+			<div id="add-another-button"  class="govuk-!-padding-top-5">
+				<a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another</a>
+			</div>
+	  
+
+            {{ govukButton({
+                text: 'Save and continue'
+            }) }}
+            {{ govukButton({
+                href: '../registrations/new',
+                classes: 'govuk-button--secondary',
+                text: 'Save and exit'
+            }) }}
+
+        </form>
+
+	</div>
+
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+<script type="text/javascript" src="/public/javascripts/nationalities.js"></script>
+
+
+
+
+
+
+<script type="text/javascript">
+    var element = document.querySelector('#i6--1')
+    var id = 'i6--1'
+    accessibleAutocomplete({
+      element: element,
+      id: id,
+	  name: id,
+      source: nationalities
+    })
+</script>
+
+<script>
+
+function dynamicTitle () {
+    $('#js-activity-wrapper').on("keyup", ".name-field", function( event ) {
+      let thisName = $(this).val();
+      $(this).closest(".person-module").find(".min-label__name").html(thisName);
+    })
+}
+
+function manageRows (fieldId) {
+
+	$('.row-remove').on('click', function() {
+	// console.log('CLICK');
+		var thisRow = $(this).data('row');
+		console.log(thisRow);
+		$(this).closest(".govuk-form-group--add-another-block").addClass('delete-row');
+		$('input#'+thisRow).val('');
+		// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+		return false;
+	})
+
+	$('.cannot-find-nationality').on('click', function() {
+		console.log('cannot-find-nationality');
+		var thisField = $(this).data('field');
+		console.log(thisField);
+		$(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper').addClass('hidden');
+		$(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper input.autocomplete__input').attr("name","none");
+		$(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus> <p>Describe your nationality in this field</p>');
+		// $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+		return false;
+	})
+
+	console.log('focus: input#'+fieldId);
+	$('input#'+fieldId).focus();
+
+
+}
+
+function addNew() {
+
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById('js-activity-wrapper');
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+
+      $('.person-module').addClass('person-module--hidden');
+
+      var s = stringToHTML(`
+      
+		<div class="govuk-form-group govuk-form-group--add-another-block">
+			<label class="govuk-label hidden" for="i6--${newNameId}">
+				Nationality ${newNameId}
+			</label>
+			<div class="govuk-form-group--add-another-block__fields">
+
+				<div class="govuk-form-group--add-another-block__fields__col1">
+					<div class="autocomplete-wrapper" id="i6--${newNameId}"></div>
+					<div class="govuk-body other-nationality-field">
+						<p><a href="#" class="govuk-link cannot-find-nationality" data-field="i6--${newNameId}">I cannot find my nationality in the list</a></p>
+					</div>
+				</div>
+
+				<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+					<a href="#" class="govuk-link row-remove" data-row="i6--${newNameId}">Remove</a>
+				</div>
+
+			</div>
+
+		</div>
+
+
+      `);
+
+
+
+
+    names.appendChild(s);
+
+
+	var element = document.querySelector('#i6--'+newNameId);
+	var id = 'i6--'+newNameId;
+	accessibleAutocomplete({
+		element: element,
+		id: id,
+		name: id,
+		source: nationalities
+	});
+	// document.getElementById("industry"+newNameId).focus();
+	manageRows(id);
+
+	newNameId++;
+    return false;
+    console.log(newNameId);
+    
+	};
+    
+};
+
+
+
+
+window.onload = function() {
+    dynamicTitle();
+    addNew();
+	manageRows('i6--1');
+};
+
+</script>
+
+
+
+{% endblock %}
+
+

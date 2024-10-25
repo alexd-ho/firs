@@ -1,0 +1,66 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add a registrant – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/reg-type' method='post'>
+    
+                <span class='govuk-caption-l'>Add a registrant</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'reg-type',
+                    name: 'reg-type',
+                    value: data['reg-type'],
+                    fieldset: {
+                        legend: {
+                            text: 'What are you registering as?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                        value: 'Individual',
+                        text: 'Individual',
+                        hint: {
+                            text: 'An individual in an agreement with a foreign power or foreign power-controlled entity'
+                        }
+                    },
+                    {
+                        value: 'Misrepresentative foreign power employee',
+                        text: 'Misrepresentative foreign power employee',
+                        hint: {
+                            text: 'An individual employed by a foreign power who does not accurately describe their activities or role in the UK'
+                        }
+                    },
+                    {
+                        value: 'Entity',
+                        text: 'Entity',
+                        hint: {
+                            text: 'An organisation, company, charity, club or similar, in an agreement with a foreign power or foreign power-controlled entity'
+                        }
+                    },
+                    {
+                        value: 'Foreign power-controlled entity',
+                        text: 'Foreign power-controlled entity',
+                        hint: {
+                            text: 'A foreign power-controlled entity specified under UK law'
+                        }
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Continue'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

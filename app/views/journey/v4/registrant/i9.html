@@ -1,0 +1,104 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='i11' method='post'>
+    
+                <span class='govuk-caption-l'>Register yourself</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+                    
+                {% call govukFieldset({
+                    legend: {
+                        text: 'What is your home address in '+data['i8']+'?',
+                        classes: 'govuk-fieldset__legend--l',
+                        isPageHeading: true
+                    }
+                }) %}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Address line 1'
+                   },
+                   id: 'i9-line-1',
+                   name: 'i9-line-1',
+                   autocomplete: 'address-line1'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Address line 2 (optional)'
+                    },
+                    id: 'i9-line-2',
+                    name: 'i9-line-2',
+                    autocomplete: 'address-line2'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Town or city'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i9-town',
+                    name: 'i9-town',
+                    autocomplete: 'address-level2'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Postcode'
+                    },
+                    classes: 'govuk-input--width-10',
+                    id: 'i9-postcode',
+                    name: 'i9-postcode',
+                    autocomplete: 'postal-code'
+                }) }}
+                    
+                
+                {{ govukInput({
+                    label: {
+                        text: 'Country'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i9-country-disabled',
+                    name: 'i9-country-disabled',
+                    autocomplete: 'country',
+                    value: data['i8'],
+                    disabled: true
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: 'Country',
+                        classes: "hidden"
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i9-country',
+                    name: 'i9-country',
+                    autocomplete: 'country',
+                    value: data['i8'],
+                    classes: "hidden"
+                }) }}
+                    
+                {% endcall %}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}
