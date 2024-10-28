@@ -5,8 +5,9 @@
         Add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
 
-    {% set currentSub %}a-sub-email-{{data['sub']}}{% endset -%}
+    {% set currentSub %}a-sub-relationship-{{data['sub']}}{% endset -%}
     {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
+    
     
     
     {% block content %}
@@ -22,7 +23,7 @@
                     name: currentSub,
                     value: data[currentSub],
                     label: {
-                        text: 'What is the email address of the '+currentType+' doing the activity?',
+                        text: 'What is the relationship between the '+currentType+' doing the activity and the registrant?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     }

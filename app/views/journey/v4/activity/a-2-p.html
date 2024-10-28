@@ -1,0 +1,69 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'registrations' %}
+
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-3-p' method='post'>
+
+            {% set thisRegistrant %}
+                {% if (data['reg-type'] == 'individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
+            {% endset %}
+
+
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'a-2-p',
+                    name: 'a-2-p',
+                    values: data['a-2-p'],
+                    fieldset: {
+                        legend: {
+                            text: 'What '+thisRegistrant+' intending to influence with the activity?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'Select all that apply.'
+                    },
+                    items: [
+                    {
+                       value: 'An election or referendum in the UK',
+                        text: 'An election or referendum in the UK'
+                    },
+                    {
+                        value: 'A decision of Minister or Government department in the UK, including Wales, Scotland and Northern Ireland',
+                         text: 'A decision of Minister or Government department in the UK, including Wales, Scotland and Northern Ireland'
+                     },
+                     {
+                        value: 'The proceedings of a UK registered political party',
+                         text: 'The proceedings of a UK registered political party'
+                     },
+                     {
+                        value: 'A Member of the House of Commons, House of Lords, Northern Ireland Assembly, Scottish Parliament or Senedd Cymru',
+                         text: 'A Member of the House of Commons, House of Lords, Northern Ireland Assembly, Scottish Parliament or Senedd Cymru'
+                     }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+    
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

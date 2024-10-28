@@ -1,0 +1,55 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/a-5' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'a-5',
+                    name: 'a-5',
+                    value: data['a-5'],
+                    fieldset: {
+                        legend: {
+                            text: 'How are you involved in the activity?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                        value: 'I am doing the activity myself',
+                         text: 'I am doing the activity myself'
+                    },
+                    {
+                        value: 'I am organising for others to do the activity',
+                        text: 'I am organising for others to do the activity'
+                    },
+                    {
+                        value: 'I am both doing the activity myself and organising for others to do it',
+                        text: 'I am both doing the activity myself and organising for others to do it'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

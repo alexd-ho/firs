@@ -2614,16 +2614,12 @@ router.post('/route-v4/fp-4', function(request, response) {
 
 // ACTIVITIES
 
-router.post('/route-v4/a3-p', function(request, response) {
-    var value = request.session.data['a3-p'] //
-    if (value == "Private communication") { // 
-        response.redirect(activity_v4+'/a4-check?activity-type=private&activity-name=Private communication')
-    } else if (value == "Public communication") { // 
-        response.redirect(activity_v4+'/a5-check?activity-type=public&activity-name=Public communication')
-    } else if (value == "Offer of money, goods or services") { // 
-        response.redirect(activity_v4+'/a6-check?activity-type=money&activity-name=Offer of money, goods or services')
+router.post('/route-v4/a-2-e', function(request, response) {
+    var value = request.session.data['a-2-e'] //
+    if (value == "The activity does not intend to influence anything listed above") { // 
+        response.redirect(activity_v4+'/a-4')
     } else {
-        response.redirect(activity_v4+'/a7-check?activity-type=other&activity-name=Private communication')
+        response.redirect(activity_v4+'/a-3-e')
     }
 })
 

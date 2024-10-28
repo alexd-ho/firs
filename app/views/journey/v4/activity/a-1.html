@@ -1,0 +1,56 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+
+{% block pageTitle %}
+Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds-from-desktop'>
+        
+        {% if (data['arrangement-tier'] == 'enhanced') %}
+        <form action='a-2-e' method='post'>
+        {% else %}
+        <form action='a-2-p' method='post'>        
+        {% endif %}
+
+            <h1 class='govuk-heading-l'>Add an activity</h1>
+
+            <h2 class='govuk-heading-m'>What you need to complete this section</h2>
+
+            <p>In this section, we are asking for information about a single activity that happens as part of the
+                <em>[insert arrangement name]</em> arrangement. </p>
+            <p>You need to know:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>what the activity is intended to influence</li>
+                <li>the actions involved in the activity</li>
+                <li>how often the activity happens</li>
+                <li>what you want the activity to achieve</li>
+                <li>who is involved the activity </li>
+            </ul>
+
+            <h2  class='govuk-heading-m'>The public register</h2>
+            <p>If this activity is considered political in nature, some of the information you provide may appear on the
+                Foreign Influence Registration Scheme public register.</p>
+            <p>You can request for any information that would appear on the public register to remain private.</p>
+            <p>Read the:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li><a href="#">guidance on what information appears on the public register</a></li>
+                <li><a href="#">guidance on requesting information to remain private</a></li>
+            </ul>
+
+            {{ govukButton({
+                text: 'Save and continue'
+            }) }}
+
+            {{ govukButton({
+                href: '/route-v4/registration-overview',
+                classes: 'govuk-button--secondary',
+                text: 'Save and exit'
+            }) }}
+        </form>
+    </div>
+</div>
+{% endblock %}

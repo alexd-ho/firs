@@ -11,28 +11,8 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v4/' method='post'>
 
-                {% set foreignPower %}
-                    {% if (data['fp-2'] == 'Yes') %}
-                        {% if (data['fp-4'] == 'Yes') %}
-                            {{data['fp-5']}}
-                        {% else %}
-                            {{data['fp-6-name']}}
-                        {% endif %}
-                    {% else %}
-                        {{data['fp-7-name']}}
-                    {% endif %}
-                {% endset %}
-                {% set fpCountry %}
-                    {% if (data['fp-2'] == 'Yes') %}
-                        {% if (data['fp-4'] == 'Yes') %}
-                            {{data['fp-3']}}
-                        {% else %}
-                            {{data['fp-6-country']}} - {{data['fp-6-type']}}
-                        {% endif %}
-                    {% else %}
-                        {{data['fp-7-country']}} - {{data['fp-7-type']}}
-                    {% endif %}
-                {% endset %}
+                {% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
+                {% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
     
                 <span class='govuk-caption-l'>Add an arrangement</span>
     
@@ -85,7 +65,7 @@
     
     
                 {{ govukButton({
-                    href: '../activity/add-new?arrangement-progress=complete&foreign-power-name='+foreignPower,
+                    href: '../activity/a-1?arrangement-progress=complete&foreign-power-name='+foreignPower,
                     text: 'Save and continue'
                 }) }}
 

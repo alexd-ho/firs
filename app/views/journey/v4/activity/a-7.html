@@ -1,0 +1,81 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-8' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+
+                {% set endDate %}
+                {{ govukDateInput({
+                    namePrefix: 'a-7-date',
+                    id: 'a-7-date',
+                    value: data['a-7-date'],
+                    fieldset: {
+                        legend: {
+                            text: 'End date',
+                            classes: 'govuk-fieldset__legend--s',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'For example, 27 3 2007'
+                    }
+                }) }}
+                {% endset -%} 
+
+                {{ govukRadios({
+                    id: 'a-7',
+                    name: 'a-7',
+                    value: data['a-7'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you know the end date of the activity?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'This is the date the last action of the activity happens'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes, I know the end date',
+                        conditional : {
+                            html: endDate
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No, I do not know the end date'
+                    },
+                    {
+                       value: 'The activity does not have an end date',
+                        text: 'The activity does not have an end date'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

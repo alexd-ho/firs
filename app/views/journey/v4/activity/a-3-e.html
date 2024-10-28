@@ -1,0 +1,79 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = 'registrations' %}
+
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-4' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'a-3-e',
+                    name: 'a-3-e',
+                    values: data['a-3-e'],
+                    fieldset: {
+                        legend: {
+                            text: 'What type of activity do you want to register?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        html: '
+                        <p>Select all the actions that apply if they are involved in the same activity. </p>
+                        <p>Add your activities separately if they do not relate to one another, or you are unsure.</p>
+                        '
+                    },
+                    items: [
+                    {
+                        value: 'Private communication to a senior public official or politician in the UK',
+                         text: 'Private communication to a senior public official or politician in the UK',
+                         hint: {
+                             text: 'For example, sending emails or letters, or having meetings'
+                         }
+                     },
+                     {
+                        value: 'Public communication in the UK',
+                         text: 'Public communication in the UK',
+                         hint: {
+                             text: 'For example, social media posts, leaflets, posters or newspaper articles'
+                         }
+                     },
+                     {
+                        value: 'Supply of money, goods or services to an individual or entity in the UK',
+                         text: 'Supply of money, goods or services to an individual or entity in the UK',
+                         hint: {
+                             text: 'For example, supplying physical gifts, direct or indirect payments, travel and accommodation, or consultancy'
+                         }
+                     },
+                     {
+                        divider: 'or'
+                     },
+                     {
+                        value: 'Other type of activity in the UK',
+                        text:'Other type of activity in the UK',
+                        hint: {
+                            text: 'For example, commissioning academic research, or conducting research with members of the public'
+                        },
+                        behaviour: 'exclusive'
+                     }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Skip to the end'
+                }) }}
+
+                {% from 'govuk/components/warning-text/macro.njk' import govukWarningText %}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

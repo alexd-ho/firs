@@ -9,15 +9,15 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a3-e' method='post'>
+            <form action='/route-v4/a-2-e' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
     
                 {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
                 {{ govukCheckboxes({
-                    id: 'a2-e',
-                    name: 'a2-e',
-                    values: data['a2-e'],
+                    id: 'a-2-e',
+                    name: 'a-2-e',
+                    values: data['a-2-e'],
                     fieldset: {
                         legend: {
                             text: 'What is the activity intended to influence?',
@@ -30,33 +30,27 @@
                     },
                     items: [
                     {
-                       value: 'UK elections or referendums',
-                        text: 'UK elections or referendums'
-                    },
-                    {
-                        value: 'Decisions of the government of the UK, 
-                        Northern Ireland, Scotland or Wales  ',
-                         text: 'Decisions of the government of the UK, 
-                         Northern Ireland, Scotland or Wales  '
+                        value: 'An election or referendum in the UK',
+                         text: 'An election or referendum in the UK'
                      },
                      {
-                        value: 'UK political parties',
-                         text: 'UK political parties'
-                     },
-                     {
-                        value: 'Members of either of the Houses of 
-                        Parliament, the Northern Ireland Assembly, 
-                        the Scottish Parliament or Senedd Cymru  ',
-                         text: 'Members of either of the Houses of 
-                         Parliament, the Northern Ireland Assembly, 
-                         the Scottish Parliament or Senedd Cymru  '
-                     },
-                     {
+                         value: 'A decision of Minister or Government department in the UK, including Wales, Scotland and Northern Ireland',
+                          text: 'A decision of Minister or Government department in the UK, including Wales, Scotland and Northern Ireland'
+                      },
+                      {
+                         value: 'The proceedings of a UK registered political party',
+                          text: 'The proceedings of a UK registered political party'
+                      },
+                      {
+                         value: 'A Member of the House of Commons, House of Lords, Northern Ireland Assembly, Scottish Parliament or Senedd Cymru',
+                          text: 'A Member of the House of Commons, House of Lords, Northern Ireland Assembly, Scottish Parliament or Senedd Cymru'
+                      },
+                      {
                         divider: 'or'
                      },
                      {
-                        value: 'The activity has a non-political objective',
-                         text: 'The activity has a non-political objective',
+                        value: 'The activity does not intend to influence anything listed above',
+                         text: 'The activity does not intend to influence anything listed above',
                          behaviour: 'exclusive'
                      }
                     ]
