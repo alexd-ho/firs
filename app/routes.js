@@ -2589,32 +2589,24 @@ router.post('/route-v4/e16', function(request, response) {
 
 /// ARRANGEMENTS
 
-router.post('/route-v4/r2', function(request, response) {
-    var value = request.session.data['r2'] //
-    if (value == "Foreign power") { // 
-        response.redirect(arrangement_v4+"/r3")
+router.post('/route-v4/fp-2', function(request, response) {
+    var value = request.session.data['fp-2'] //
+    if (value == "Yes") { // 
+        response.redirect(arrangement_v4+"/fp-3")
     } else {
-        response.redirect(arrangement_v4+"/r3a")            
+        response.redirect(arrangement_v4+"/fp-7")            
     }
 })
 
-router.post('/route-v4/r3', function(request, response) {
-    var value = request.session.data['r3'] //
-    if (value == "No") { // 
-        response.redirect(arrangement_v4+"/r5")
+router.post('/route-v4/fp-4', function(request, response) {
+    var value = request.session.data['fp-4'] //
+    if (value == "Yes") { // 
+        response.redirect(arrangement_v4+"/fp-5")
     } else {
-        response.redirect(arrangement_v4+"/r4")            
+        response.redirect(arrangement_v4+"/fp-6")            
     }
 })
 
-router.post('/route-v4/r6', function(request, response) {
-    var value = request.session.data['r6'] //
-    if (value == "Signed contract") { // 
-        response.redirect(arrangement_v4+"/r7")
-    } else {
-        response.redirect(arrangement_v4+"/r8")            
-    }
-})
 
 
 

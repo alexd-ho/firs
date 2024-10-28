@@ -1,0 +1,86 @@
+{% extends "layouts/v4-header-1.html" %}
+{% set activeLinkId = "registrations" %}
+
+{% block pageTitle %}
+Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+
+		<h1 class="govuk-heading-l">Add an arrangement</h1>
+
+			<p>In this section, we are asking about an agreement with a foreign power or specified foreign power-controlled organisation. The agreement only needs to be registered if it involves activities you are doing or organising others to do in the UK.</p>
+
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+			summaryText: "What is an agreement?",
+			text: "An agreement is an understanding between two or more parties to conduct  
+			activities. The agreement can be anything from a legally enforceable contract 
+				to an informal, but clear, written or verbal understanding.
+			"
+			}) }}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+			summaryText: "What is an activity?",
+			text: "  An activity is any action that works towards the desired outcome of an 
+			agreement, or any action taken under a direction from a foreign power or 
+			foreign power-controlled organisation. "
+			}) }}
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power?",
+				html: "
+				<p>A foreign power is:</p>
+				<ul class='govuk-list govuk-list--bullet'>
+					<li>the sovereign of other head of a foreign state,</li>
+					<li>a foreign government, or part of a foreign government (for example, a ministry or department of a foreign government)</li>
+					<li>an agency or authority of a foreign government, or of part of a foreign government</li>
+					<li>an authority responsible for administering the affairs of an area within a foreign country or territory (for example, a local government authority in a foreign country)</li>
+					<li>a political party which is a governing political party of a foreign government</li>
+				</ul>"
+			}) }}
+
+			{{ govukDetails({
+				summaryText: "What is a foreign power-controlled organisation?",
+				text: "A list of organisations defined by the government in legislation."
+			}) }}
+
+			<p>You need to know:</p>
+			<ul class="govuk-list govuk-list--bullet">
+				<li>Who you have an agreement with </li>
+				<li>How the agreement was made</li>
+				<li>When the agreement was made</li>
+			</ul>
+
+
+			<p>Some of the information you provide may appear on the Foreign Influence Registration Scheme public register if you register any activities that are considered political in nature.</p>
+
+			<p>You must register agreements one at a time. </p>
+
+				<p>You can register or amend an agreement at any time, but you must comply with the <a href="#">timescales set out in the Foreign Influence Registration Scheme legislation</a>.</p>
+
+			{{ govukButton({
+				text: "Continue",
+                href: "fp-2"
+			}) }}
+
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

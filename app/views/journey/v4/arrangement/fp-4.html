@@ -1,0 +1,72 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an arrangement – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/fp-4' method='post'>
+
+            {% set thisRegistrant %}
+                {% if (data['reg-type'] == 'individual') %}Do you {% else %} Does {{data['registrant-name]']}}{% endif %}
+            {% endset %}
+
+                <span class='govuk-caption-l'>Add an arrangement</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'fp-4',
+                    name: 'fp-4',
+                    value: data['fp-4'],
+                    fieldset: {
+                        legend: {
+                            text: thisRegistrant+' have an arrangement with any of the following foreign powers or foreign power-controlled entities from '+data['fp-3']+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        html: '
+                            <p>The UK government has specified these powers and entities under the National Security Act 2023.</p>
+                            <p><strong>Foreign power</strong></p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Foreign power X</li>
+                                <li>Foreign power Y</li>
+                                <li>Foreign power Z</li>
+                            </ul>
+                            <p><strong>Foreign power-controlled entity</strong></p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Foreign power-controlled entity X</li>
+                                <li>Foreign power-controlled entity Y</li>
+                                <li>Foreign power-controlled entity Z</li>
+                            </ul>                        
+                        '
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

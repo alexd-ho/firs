@@ -1,0 +1,62 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an arrangement – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/fp-2' method='post'>
+    
+                <span class='govuk-caption-l'>Add an arrangement</span>
+
+                {% set thisRegistrant %}
+                    {% if (data['reg-type'] == 'individual') %}Do you {% else %} Does {{data['registrant-name]']}}{% endif %}
+                {% endset %}
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'fp-2',
+                    name: 'fp-2',
+                    value: data['fp-2'],
+                    fieldset: {
+                        legend: {
+                            text: thisRegistrant+' have an arrangement with a foreign power or foreign power-controlled entity from any of the following countries?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        html: '<ul class="govuk-list govuk-list--bullet">
+                            <li>Country X</li>
+                            <li>Country Y</li>
+                            <li>Country Z</li>
+                            </ul>'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

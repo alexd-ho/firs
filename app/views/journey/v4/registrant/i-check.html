@@ -5,8 +5,8 @@
 Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-
 {% block content %}
+
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-full-width'>
         <form action="../arrangement/select-arrangement?registrant-progress=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'>
@@ -93,7 +93,7 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
                         Date of birth
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['i5-day']}} {{data['i5-month'] | monthName("truncate")}} {{data['i5-year']}}
+                        {% if (data['i5-day']) %}{{data['i5-day']}} {{data['i5-month'] | monthName("truncate")}} {{data['i5-year']}} {% endif %}
                     </dd>
                     <dd class="govuk-summary-list__value pr-col">
                         <strong class="govuk-tag govuk-tag--purple">{{data['i5-year']}}</strong>
@@ -155,6 +155,7 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
                 classes: 'govuk-button--secondary',
                 text: 'Save and exit'
             }) }}
+            
         </form>
     </div>
 </div>

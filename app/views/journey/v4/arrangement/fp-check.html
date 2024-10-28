@@ -1,0 +1,99 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an arrangement – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/' method='post'>
+
+                {% set foreignPower %}
+                    {% if (data['fp-2'] == 'Yes') %}
+                        {% if (data['fp-4'] == 'Yes') %}
+                            {{data['fp-5']}}
+                        {% else %}
+                            {{data['fp-6-name']}}
+                        {% endif %}
+                    {% else %}
+                        {{data['fp-7-name']}}
+                    {% endif %}
+                {% endset %}
+                {% set fpCountry %}
+                    {% if (data['fp-2'] == 'Yes') %}
+                        {{data['fp-3']}}
+                    {% else %}
+                        {{data['fp-7-country']}} - {{data['fp-7-type']}}
+                    {% endif %}
+                {% endset %}
+    
+                <span class='govuk-caption-l'>Add an arrangement</span>
+    
+                <h1 class='govuk-heading-l'>Check your answers</h1> 
+
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Foreign Power (Country)
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {% if (data['fp-2'] == 'Yes') %}
+                                {% if (data['fp-4'] == 'Yes') %}
+                                    {{foreignPower}} ({{fpCountry}})
+                                {% else %}
+                                    {{foreignPower}} ({{fpCountry}})
+                                {% endif %}
+                            {% else %}
+                                {{foreignPower}} ({{fpCountry}})
+                            {% endif %}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="fp-2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            What is in the arrangement?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{data['fp-8']}}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="fp-8">Change<span class="govuk-visually-hidden"> Other names</span></a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            When was the arrangement made?
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {% if (data['fp-9-day']) %}{{data['fp-9-day']}} {{data['fp-9-month'] | monthName("truncate")}} {{data['fp-9-year']}} {% endif %}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> date of
+                                    birth</span></a>
+                        </dd>
+                    </div>
+                </dl>
+    
+    
+                {{ govukButton({
+                    href: '../activity/add-new?arrangement-progress=complete&foreign-power-name='+foreignPower,
+                    text: 'Save and continue'
+                }) }}
+
+                {{ govukButton({
+                    href: '../registrations/new',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+
+                
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

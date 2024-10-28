@@ -1,0 +1,95 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an arrangement – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action="fp-8?arrangement-tier=enhanced" method="post">						
+    
+            {% set thisRegistrant %}
+                {% if (data['reg-type'] == 'individual') %}you have{% else %}{{data['registrant-name]']}} has{% endif %}
+            {% endset %}
+
+
+                <span class='govuk-caption-l'>Add an arrangement</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'fp-5',
+                    name: 'fp-5',
+                    value: data['fp-5'],
+                    fieldset: {
+                        legend: {
+                            text: 'Select the the foreign power or foreign power-controlled entity from '+data['fp-3']+' with which '+thisRegistrant+' an arrangement',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        html: '<p>If you have arrangements with multiple powers or entities, you will need to register each agreement separately.</p>
+                        <p><strong>Foreign power</strong></p>'
+                    },
+                    items: [
+                    {
+                        value: 'Foreign Power X',
+                        text: 'Foreign Power X'
+                    },
+                    {
+                        value: 'Foreign Power Y',
+                        text: 'Foreign Power Y'
+                    },
+                    {
+                        value: 'Foreign Power Z',
+                        text: 'Foreign Power Z'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukRadios({
+                    id: 'fp-5-a',
+                    name: 'fp-5',
+                    value: data['fp-5'],
+                    fieldset: {
+                        legend: {
+                            text: 'Select the the foreign power or foreign power-controlled entity from '+data['fp-3']+' with which '+thisRegistrant+' an arrangement',
+                            classes: 'govuk-fieldset__legend--l hidden',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        html: '
+                        <p><strong>Foreign power-controlled entity</strong></p>'
+                    },
+                    items: [
+                    {
+                        value: 'Foreign power-controlled entity X',
+                        text: 'Foreign power-controlled entity X'
+                    },
+                    {
+                        value: 'Foreign power-controlled entity Y',
+                        text: 'Foreign power-controlled entity Y'
+                    },
+                    {
+                        value: 'Foreign power-controlled entity Z',
+                        text: 'Foreign power-controlled entity Z'
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}
