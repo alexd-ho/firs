@@ -24,7 +24,11 @@
                 {% endset %}
                 {% set fpCountry %}
                     {% if (data['fp-2'] == 'Yes') %}
-                        {{data['fp-3']}}
+                        {% if (data['fp-4'] == 'Yes') %}
+                            {{data['fp-3']}}
+                        {% else %}
+                            {{data['fp-6-country']}} - {{data['fp-6-type']}}
+                        {% endif %}
                     {% else %}
                         {{data['fp-7-country']}} - {{data['fp-7-type']}}
                     {% endif %}
