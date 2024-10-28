@@ -1,0 +1,39 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'registrations' %}
+    
+    {% block pageTitle %}
+        Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='co-check' method='post'>
+    
+                <span class='govuk-caption-l'>Add your contact details</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'co-4',
+                    name: 'co-4',
+                    value: data['co-4'],
+                    label: {
+                        text: 'What is your telephone number?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        html: '<p>We will only use this telephone number if we cannot contact you by email.</p>
+                        <p>For international numbers include + and the country code. For example, +39 1 33 45 70 90 </p>'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

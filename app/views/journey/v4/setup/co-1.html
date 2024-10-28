@@ -1,0 +1,52 @@
+{% extends "layouts/v3-min.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<h1 class="govuk-heading-l">Add your contact details</h1>
+
+        <p>You must provide your contact information to use this service.</p>
+
+        <p>We need your: </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>name</li>
+            <li>email address</li>
+            <li>telephone number</li>
+        </ul>
+        <p>These should be your contact details, not those of an entity or anyone else.</p>
+        <h3 class="govuk-heading-m">How we will use your information</h3>
+        <p>We will only use this information to contact you.</p>
+        <p>We will usually contact you by email. We will only use your telephone number if we cannot contact you by email.</p>
+        <p>Your contact information will not be shared outside of this service nor be made public.</p>
+        <h3 class="govuk-heading-m">If you are registering an entity</h3>
+        <p>You still need to provide your contact details.</p>
+        <p>You can provide entity details and add other users later.</p>
+
+        {% from 'govuk/components/button/macro.njk' import govukButton %}
+            
+        {{ govukButton({
+            href: 'co-2',
+            isStartButton: false,
+            classes: 'govuk-button',
+            text: 'Start'
+        }) }}
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

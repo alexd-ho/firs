@@ -1,0 +1,107 @@
+{% extends "layouts/v3-min.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<h1 class="govuk-heading-l">Enter your mobile number</h1>
+
+		<form action="ol-6" method="post">
+
+			{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+			
+			<p>We will send you a 6 digit security code to the number you give us.</p>
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "ol-5",
+				name: "ol-5",
+				value: data['ol-5'],
+				classes: "govuk-!-width-two-thirds",
+				label: {
+					text: "UK mobile phone number",
+					classes: "govuk-label--s",
+					isPageHeading: false
+				}
+			}) }}
+
+
+			{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+			{% set nonUKTel %}
+			{{ govukInput({
+			  id: "non-uk-tel",
+			  name: "non-uk-tel",
+			  type: "non-uk-tel",
+			  autocomplete: "tel",
+			  spellcheck: false,
+			  classes: "govuk-!-width-two-thirds",
+			  label: {
+			    text: "Mobile phone number"
+			  },
+			  hint: {
+			  	text: "Include the country code, for example +33 for France"
+			  }
+			}) }}
+			{% endset -%}			
+			
+			{{ govukCheckboxes({
+			  name: "ol-5-alt",
+			  id: "ol-5-alt",
+			  values: data['ol-5-alt'],
+			  fieldset: {
+			    legend: {
+			      text: "I do not have a UK mobile number",
+			      isPageHeading: false,
+			      classes: "govuk-fieldset__legend--l hidden"
+			    }
+			  },
+			  items: [
+			    {
+			      value: "I do not have a UK mobile number",
+			      text: "I do not have a UK mobile number",
+				  conditional: {
+				    html: nonUKTel
+				  }
+			    }
+			  ]
+			}) }}
+			
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			
+			{{ govukDetails({
+			  summaryText: "What is an authenticator app?",
+			  text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			  proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,5 +1,5 @@
 {% extends "layouts/v4-header-1.html" %}
-{% set activeLinkId = "account" %}
+{% set activeLinkId = "registrations" %}
 
 {% block pageTitle %}
 Account – {{ serviceName }} – GOV.UK Prototype Kit
@@ -65,10 +65,17 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			<ul class="govuk-task-list">
 				<li class="govuk-task-list__item govuk-task-list__item--with-link">
 					<div class="govuk-task-list__name-and-hint">
+						{% if (data['first-registration'] == 'not-started') %}
+						<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress"
+							aria-describedby="prepare-application-1-status">
+							1. Add a registrant
+						</a>
+						{% else %}
 						<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant"
 							aria-describedby="prepare-application-1-status">
 							1. Add a registrant
 						</a>
+						{% endif %}
 						{% if (data['registrant-name']) %}
 						<div id="application-details-3-hint" class="govuk-task-list__hint-">
 							<strong>{{data['registrant-name']}}</strong>

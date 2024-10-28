@@ -1,5 +1,5 @@
 {% extends "layouts/v4-header-1.html" %}
-{% set activeLinkId = "account" %}
+{% set activeLinkId = "home" %}
 
 {% block pageTitle %}
 Account – {{ serviceName }} – GOV.UK Prototype Kit
@@ -34,25 +34,44 @@ visuallyHiddenTitle: "Footer links"
 
 <div class="govuk-grid-row">
 
-	<div class="govuk-grid-column-full">
+	<div class="govuk-grid-column-two-thirds">
 
-        {% if (data['setup'] != 'complete') %}
+        {% if (data['first-registration'] == 'not-started') %}
             
-            <!-- <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
                 <div class="govuk-notification-banner__header">
                     <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
                     Start here
                     </h2>
                 </div>
                 <div class="govuk-notification-banner__content">
-                    <p class="govuk-body-m">If you need to register yourself or your organisation for the first time, <a class="govuk-notification-banner__link" href="/journey/v3/onboard/on-1" style="display:inline-block">start a new registration</a>.</p>
-                    <p class="govuk-body-m">If you have received a 16-digit code, use it to <a class="govuk-notification-banner__link" href="account/link-registrant"  style="display:inline-block">connect to an existing registration</a>.</p>
+                    <p class="govuk-body-m">If you need to register yourself or your organisation for the first time, <a class="govuk-notification-banner__link" href="registrations/new" style="display:inline-block">start a new registration</a>.</p>
 
                 </div>
-            </div> -->
+            </div>
         {% endif %}
 
+        {% if (data['first-registration'] == 'in-progress') %}
+            
+            <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title govuk-heading-l" id="govuk-notification-banner-title">
+                    In progress
+                    </h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                    <p class="govuk-body-m">If you need to carry on with your first regsitration, <a class="govuk-notification-banner__link" href="registrations/new" style="display:inline-block">click here</a>.</p>
 
+                </div>
+            </div>
+        {% endif %}
+
+	</div>
+</div>
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-full">
 
 
 		{% if (data['acc-type'] == "Individual--") %}
@@ -78,7 +97,7 @@ visuallyHiddenTitle: "Footer links"
 			
 		<span class="govuk-caption-l">Account home</span>
 		<h1 class="govuk-heading-l">
-			{% if (data['contact-name']) %}{{data['contact-name']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Account Name{% endif %}
+			{% if (data['contact-name']) %}{{data['contact-name']}}{% else %}Account Name{% endif %}
         </h1>
 
 		
@@ -100,13 +119,12 @@ visuallyHiddenTitle: "Footer links"
 		<div class="firs-home-containers">
 
 
-            <div class="firs-home-containers__panel">
+            <!-- <div class="firs-home-containers__panel">
 				<a href="registrations/new">
 					<h3 class="govuk-heading-m">Start a new registration</h3>
 					<p>Register yourself or your organisation.</p>
-						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</a>
-			</div>
+			</div> -->
 
 <!-- 
             <div class="firs-home-containers__panel">
@@ -118,34 +136,35 @@ visuallyHiddenTitle: "Footer links"
 
             <div class="firs-home-containers__panel">
 				<a href="registrations">
-					<h3 class="govuk-heading-m">View existing registrations</h3>
-					<p>View, add, and edit agreements and activities for a registration, and manage which users have access to a registration.</p>
+					<h3 class="govuk-heading-m">Your registrations</h3>
+					<p>Manage and start new registrations</p>
 				</a>
 			</div>
 
-			<div class="firs-home-containers__panel">
+			<!-- <div class="firs-home-containers__panel">
 				<a href="#">
 					<h3 class="govuk-heading-m">Tasks</h3>
 					<p>View and complete outstanding tasks.</p>
 					<p>You have <strong>0</strong> tasks.</p>
+				</a>
+			</div> -->
+
+			<div class="firs-home-containers__panel">
+				<a href="account/contact-details">
+					<h3 class="govuk-heading-m">Your contact details</h3>
+					<p>Update your name, email address and telephone number</p>
+						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</a>
 			</div>
 
             <div class="firs-home-containers__panel">
 				<a href="#">
 					<h3 class="govuk-heading-m">Guidance</h3>
-					<p>Find answers to your questions and access useful resources.</p>
+					<p>Find answers to common questions and access useful resources</p>
 				</a>
 			</div>
 
 
-            <div class="firs-home-containers__panel">
-				<a href="account/contact-details">
-					<h3 class="govuk-heading-m">Manage account details</h3>
-					<p>Edit your contact details.</p>
-						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
-				</a>
-			</div>
 
 
 

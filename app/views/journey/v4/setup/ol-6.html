@@ -1,0 +1,73 @@
+{% extends "layouts/v3-min.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<h1 class="govuk-heading-l">Check your phone</h1>
+
+		{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+		
+		{{ govukInsetText({
+		  html: "We have sent a code to <strong>********8273</strong>"
+		}) }}
+
+		<form action="ol-end" method="post">
+
+			{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+			
+			<p>It might take a few minutes to arrive. The code will expire after 2 hours.</p>
+
+			{% from "govuk/components/input/macro.njk" import govukInput %}
+			
+			{{ govukInput({
+				id: "ol-6",
+				name: "ol-6",
+				value: data['ol-6'],
+				classes: "govuk-!-width-one-third",
+				label: {
+					text: "Enter the 6 digit security code",
+					classes: "govuk-label--s",
+					isPageHeading: false
+				}
+			}) }}
+
+
+
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			
+			{{ govukDetails({
+			  summaryText: "Problems with the code?",
+			  text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			  proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

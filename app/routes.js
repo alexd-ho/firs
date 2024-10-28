@@ -2397,6 +2397,7 @@ router.post('/route-v3/i2', function(request, response) {
 
 var root_v4 = '/journey/v4/';
 var eligibility_v4 = '/journey/v4/eligibility/';
+var setup_v4 = '/journey/v4/setup/';
 var login_v4 = '/journey/v4/login/';
 var onboard_v4 = '/journey/v4/onboard';
 var tier_v4 = '/journey/v4/tier/';
@@ -2414,6 +2415,28 @@ var cmt_v4 = '/journey/v4/cmt';
 
 
 // ONBOARDING SCREENS
+
+router.post('/route-v4/ol-4', function(request, response) {
+    var value = request.session.data['ol-4'];
+    if (value == "Text message"){ 
+        response.redirect(setup_v4+"ol-5")
+    } else { 
+        response.redirect(setup_v4+"ol-7")
+    }
+})
+
+router.post('/route-v4/ol-end', function(request, response) {
+    var value = request.session.data['acc-type'];
+    if (value == "registrant"){ 
+        response.redirect(setup_v4+"on-1")
+    } else { 
+        response.redirect(setup_v4+"on-2")
+    }
+})
+
+
+
+
 router.post('/route-v4/on-1', function(request, response) {
     var value = request.session.data['v-on-1'];
     if (value == "Individual"){ 

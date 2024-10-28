@@ -1,0 +1,76 @@
+{% extends "layouts/v3-min.html" %}
+{% set bodyClasses = "registration" %}
+
+{% block pageTitle %}
+  Request an exception – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+	<div class="govuk-grid-column-two-thirds-from-desktop">
+
+		<h1 class="govuk-heading-l">Choose how to get security codes</h1>
+
+		<form action="/route-v4/ol-4" method="post">
+
+			{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+			
+			<p>To finish creating your account, choose a way to prove it's you when you sign in.</p>
+
+
+			{% from "govuk/components/radios/macro.njk" import govukRadios %}
+			
+			{{ govukRadios({
+			    name: "ol-4",
+			    id: "ol-4",
+			    value: data['ol-4'],
+			    fieldset: {
+			    legend: {
+			        text: "Codes type",
+			        isPageHeading: false,
+			        classes: "govuk-fieldset__legend--l hidden"
+			    }
+			    },
+			    items: [
+			    {
+			        value: "Text message",
+			        text: "Text message"
+			    },
+			    {
+			        value: "Authenticator app for smartphone, tablet or computer",
+			        text: "Authenticator app for smartphone, tablet or computer"
+			    }
+			    ]
+			}) }}
+
+			{{ govukButton({
+				text: "Continue"
+			}) }}
+
+			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			
+			{{ govukDetails({
+			  summaryText: "What is an authenticator app?",
+			  text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			  proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			}) }}
+
+		</form>
+
+	</div>
+
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'registrations' %}
+    
+    {% block pageTitle %}
+        Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='co-3' method='post'>
+    
+                <span class='govuk-caption-l'>Add your contact details</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'co-2',
+                    name: 'co-2',
+                    value: data['co-2'],
+                    label: {
+                        text: 'What is your name?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'Enter the name you would like us to use when we contact you. This name will also appear on your account. You may be asked for your full legal name later if you register certain activities.'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}
