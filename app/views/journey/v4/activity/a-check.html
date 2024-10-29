@@ -120,9 +120,159 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                     </dd>
                 </div>
 
-
-
             </dl>
+
+            {% if (data['a-pri-1']) %}
+            <h2 class='govuk-heading-m'>Private communication</h1>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        What does the private communication involve?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['a-pri-1']}} {% if (data['a-pri-1-other']) %}({{data['a-pri-1-other']}}){% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-pri-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                {% if (data['a-pri-3--name-1']) %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Individuals being targeted by the private communication
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['a-pri-3--name-1']) %}{{data['a-pri-3--name-1']}} ({{data['a-pri-3--type-1']}}){% endif %}
+                        {% if (data['a-pri-3--name-2']) %}, {{data['a-pri-3--name-2']}} ({{data['a-pri-3--type-2']}}){% endif %}
+                        {% if (data['a-pri-3--name-3']) %}, {{data['a-pri-3--name-3']}} ({{data['a-pri-3--type-3']}}){% endif %}
+                        {% if (data['a-pri-3--name-4']) %}, {{data['a-pri-3--name-4']}} ({{data['a-pri-3--type-4']}}){% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-pri-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                {% endif %}
+
+                {% if (data['a-pri-4--type-1']) %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Groups or categories being targeted by the private communication
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['a-pri-4--type-1']) %}{{data['a-pri-4--type-1']}}{% endif %}
+                        {% if (data['a-pri-4--type-2']) %}<br>{{data['a-pri-4--type-2']}}{% endif %}
+                        {% if (data['a-pri-4--type-3']) %}<br>{{data['a-pri-4--type-3']}}{% endif %}
+                        {% if (data['a-pri-4--type-4']) %}<br>{{data['a-pri-4--type-4']}}{% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-pri-4">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                {% endif %}
+
+            </dl>     
+            {% endif %}
+
+            {% if (data['a-pub-1']) %}
+            <h2 class='govuk-heading-m'>Public communication</h1>
+
+            <dl class="govuk-summary-list">
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        What does the public communication involve?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['a-pub-1']}} {% if (data['a-pub-1-other']) %}({{data['a-pub-1-other']}}){% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-pub-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                {% if (data['a-pub-2']) %}
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Intended target audience of the public communication
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['a-pub-2']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-pub-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                {% endif %}
+
+            </dl>     
+            {% endif %}
+
+            {% if (data['a-mon-1']) %}
+            <h2 class='govuk-heading-m'>Supply of money, goods or services</h1>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        What is being supplied?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['a-mon-1']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-mon-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Total value being supplied
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        £{{data['a-mon-2']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-mon-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Individuals or entities you are supplying
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['a-mon-3--name-1']) %}{{data['a-mon-3--name-1']}} ({{data['a-mon-3--type-1']}}){% endif %}
+                        {% if (data['a-mon-3--name-2']) %}, {{data['a-mon-3--name-2']}} ({{data['a-mon-3--type-2']}}){% endif %}
+                        {% if (data['a-mon-3--name-3']) %}, {{data['a-mon-3--name-3']}} ({{data['a-mon-3--type-3']}}){% endif %}
+                        {% if (data['a-mon-3--name-4']) %}, {{data['a-mon-3--name-4']}} ({{data['a-mon-3--type-4']}}){% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+            </dl>     
+            {% endif %}
+
+            {% if (data['a-oth-1']) %}
+            <h2 class='govuk-heading-m'>Other type of activity</h1>
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        What does the other type of activity involve?
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['a-oth-1']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-oth-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+
+            </dl>     
+            {% endif %}
+
 
             {{ govukButton({
             text: 'Save and continue'
