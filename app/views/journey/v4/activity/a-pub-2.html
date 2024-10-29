@@ -1,51 +1,43 @@
 {% extends 'layouts/v4-header-1.html' %}
-{% set activeLinkId = 'registrations' %}
+{% set activeLinkId = 'account' %}
     
     {% block pageTitle %}
-        Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
-
-    {% set currentSub %}a-sub-role-{{data['sub']}}{% endset -%}
-    {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
-    
     
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a-sub-4' method='post'>
+            <form action='/route-v4/activity-router-3' method='post'>
     
-                <span class='govuk-caption-l'>Individual or entity involved | Add an activity</span>
-
+                <span class='govuk-caption-l'>Add an activity</span>
+    
                 {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
                     
                 {{ govukTextarea({
                 name: 'moreDetail',
-                    id: currentSub,
-                    name: currentSub,
-                    value: data[currentSub],
+                    id: 'a-pub-2',
+                    name: 'a-pub-2',
+                    value: data['a-pub-2'],
                     label: {
-                        text: 'What role does the '+currentType+' have in the activity?',
+                        text: 'Tell us about the intended audience of the public communication',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },
                     hint: {
-                        text: ''
+                        text: 'Describe the groups as much as you can, such as specific entities, demographics, or the general public.'
                     }
                 }) }} 
     
                 {{ govukButton({
                     text: 'Save and continue'
                 }) }}
-
-                {% from 'govuk/components/button/macro.njk' import govukButton %}
-                    
                 {{ govukButton({
-                    href: '../registrations/new',
+                    href: '/route-v4/registration-overview',
                     classes: 'govuk-button--secondary',
                     text: 'Save and exit'
                 }) }}
-
             </form>
         </div>
     </div>

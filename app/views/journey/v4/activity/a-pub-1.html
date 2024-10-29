@@ -1,0 +1,111 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-pub-2' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+
+                {% set publicOther %}
+                    {% from 'govuk/components/input/macro.njk' import govukInput %}
+                    {{ govukInput({
+                        id: 'a-pub-1-other',
+                        name: 'a-pub-1-other',
+                        value: data['a-pub-1-other'],
+                        label: {
+                            text: 'Describe the public communication',
+                            classes: 'govuk-label',
+                            isPageHeading: false
+                        }
+                    }) }}
+                {% endset %}
+    
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'a-pub-1',
+                    name: 'a-pub-1',
+                    values: data['a-pub-1'],
+                    fieldset: {
+                        legend: {
+                            text: 'What does the public communication involve?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'Select all that apply'
+                    },
+                    items: [
+                    {
+                        value: 'Newspaper or magazine publication',
+                         text: 'Newspaper or magazine publication',
+                         hint: {
+                            text: 'Including online content'
+                        }
+                     },
+                     {
+                        value: 'Letter',
+                         text: 'Letter',
+                         hint: {
+                            text: 'Including an open letter'
+                        }
+                     },
+                     {
+                        value: 'Public speaking event',
+                         text: 'Public speaking event',
+                         hint: {
+                            text: 'Including a conference, seminar, or interview'
+                        }
+                     },
+                     {
+                        value: 'Radio',
+                         text: 'Radio',
+                         hint: {
+                            text: 'Including an advertisement, programme, or interview'
+                        }
+                     },
+                     {
+                        value: 'Social media post',
+                         text: 'Social media post'
+                     },
+                     {
+                        value: 'Television',
+                         text: 'Television',
+                         hint: {
+                            text: 'Including an advertisement, programme or interview'
+                        }
+                     },
+                     {
+                        value: 'Website',
+                         text: 'Website'
+                     },
+
+                    {
+                       value: 'Other',
+                        text: 'Other',
+                        conditional: {
+                            html: publicOther
+                        }
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

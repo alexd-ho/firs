@@ -1,0 +1,93 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-pri-2' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+
+                {% set privateOther %}
+                    {% from 'govuk/components/input/macro.njk' import govukInput %}
+                    {{ govukInput({
+                        id: 'a-pri-1-other',
+                        name: 'a-pri-1-other',
+                        value: data['a-pri-1-other'],
+                        label: {
+                            text: 'Describe the private communication',
+                            classes: 'govuk-label',
+                            isPageHeading: false
+                        }
+                    }) }}
+                {% endset %}
+    
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'a-pri-1',
+                    name: 'a-pri-1',
+                    values: data['a-pri-1'],
+                    fieldset: {
+                        legend: {
+                            text: 'What does the private communication involve?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'Select all that apply'
+                    },
+                    items: [
+                    {
+                        value: 'Email',
+                         text: 'Email'
+                     },
+                     {
+                        value: 'Telephone call',
+                         text: 'Telephone call'
+                     },
+                     {
+                        value: 'Text message',
+                         text: 'Text message',
+                         hint: {
+                            text: 'Including WhatsApp, Messenger, Signal, Telegram and other messaging services'
+                         }
+                     },
+                       {
+                       value: 'Meeting',
+                        text: 'Meeting',
+                        hint: {
+                            text: 'Including in-person or remote technology'
+                        }
+                    },
+                    {
+                       value: 'Letter',
+                        text: 'Letter'
+                    },
+                    {
+                       value: 'Other',
+                        text: 'Other',
+                        conditional: {
+                            html: privateOther
+                        }
+                    }
+                    ]
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

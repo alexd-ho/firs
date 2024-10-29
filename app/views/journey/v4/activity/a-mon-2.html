@@ -1,0 +1,46 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-mon-3' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'a-mon-2',
+                    name: 'a-mon-2',
+                    value: data['a-mon-2'],
+                    label: {
+                        text: 'What is the total value of the '+data['a-mon-1']+' being supplied?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    prefix: {
+                        text: "£"
+                    },
+                    classes: "govuk-input--width-5",
+                    hint: {
+                        text: 'Convert any value in foreign currency to pounds sterling. Provide an estimate if you do not know the exact amount.'
+                    }
+                }) }}
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

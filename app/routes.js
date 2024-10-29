@@ -2636,6 +2636,15 @@ router.post('/route-v4/a3-e', function(request, response) {
     }
 })
 
+router.post('/route-v4/a-5', function(request, response) {
+    var value = request.session.data['a-5']
+    if (value == 'I am doing the activity myself'){ 
+        response.redirect(activity_v4+'/a-6')
+    } else {
+        response.redirect(activity_v4+'/a-sub-0')
+    }
+})
+
 router.post('/route-v4/a-sub-type', function(request, response) {
     var curInc = request.session.data['sub'];
     var value = request.session.data['a-sub-type']
@@ -2651,6 +2660,85 @@ router.post('/route-v4/a-restart-sub', function(request, response) {
     response.redirect(activity_v4+'/a-sub-1?sub='+curInc)
 })
 
+router.post('/route-v4/activity-router-1', function(request, response) {
+    var value = request.session.data['activity-types'] //
+    if (value.includes("Private communication to a senior public official or politician in the UK")){
+        response.redirect(activity_v4+'/a-pri-1')
+    } else  if (value.includes("Public communication in the UK")){
+        response.redirect(activity_v4+'/a-pub-1')
+    } else  if (value.includes("Supply of money, goods or services to an individual or entity in the UK")){
+        response.redirect(activity_v4+'/a-mon-1')
+    } else  if (value.includes("Other type of activity in the UK")){
+        response.redirect(activity_v4+'/a-oth-1')
+    } else {
+        response.redirect(activity_v4+'/a-check')
+    }
+})
+
+router.post('/route-v4/activity-router-2', function(request, response) {
+    var value = request.session.data['activity-types'] //
+    if (value.includes("Public communication in the UK")){
+        response.redirect(activity_v4+'/a-pub-1')
+    } else  if (value.includes("Supply of money, goods or services to an individual or entity in the UK")){
+        response.redirect(activity_v4+'/a-mon-1')
+    } else  if (value.includes("Other type of activity in the UK")){
+        response.redirect(activity_v4+'/a-oth-1')
+    } else {
+        response.redirect(activity_v4+'/a-check')
+    }
+})
+
+router.post('/route-v4/activity-router-3', function(request, response) {
+    var value = request.session.data['activity-types'] //
+    if (value.includes("Supply of money, goods or services to an individual or entity in the UK")){
+        response.redirect(activity_v4+'/a-mon-1')
+    } else  if (value.includes("Other type of activity in the UK")){
+        response.redirect(activity_v4+'/a-oth-1')
+    } else {
+        response.redirect(activity_v4+'/a-check')
+    }
+})
+
+router.post('/route-v4/activity-router-4', function(request, response) {
+    var value = request.session.data['activity-types'] //
+    if (value.includes("Other type of activity in the UK")){
+        response.redirect(activity_v4+'/a-oth-1')
+    } else {
+        response.redirect(activity_v4+'/a-check')
+    }
+})
+// and final screen of Other always goes straight to a-check
+
+router.post('/route-v4/a-pri-2', function(request, response) {
+    var value = request.session.data['a-pri-2']
+    if (value.includes("Specific individuals")){
+        response.redirect(activity_v4+'/a-pri-3')
+    } else if (value.includes("Groups or categories of people")){
+        response.redirect(activity_v4+'/a-pri-4')
+    } else {
+        response.redirect(activity_v4+'/a-check')
+    }
+})
+
+router.post('/route-v4/a-pri-3', function(request, response) {
+    var value = request.session.data['a-pri-2']
+    var type = request.session.data['activity-types'] //
+    if (value.includes("Groups or categories of people")){
+        response.redirect(activity_v4+'/a-pri-4')
+    } else {
+        // pulled from /route-v4/activity-router-2
+        if (type.includes("Public communication in the UK")){
+            response.redirect(activity_v4+'/a-pub-1')
+        } else  if (value.includes("Supply of money, goods or services to an individual or entity in the UK")){
+            response.redirect(activity_v4+'/a-mon-1')
+        } else  if (value.includes("Other type of activity in the UK")){
+            response.redirect(activity_v4+'/a-oth-1')
+        } else {
+            response.redirect(activity_v4+'/a-check')
+        }
+
+    }
+})
 
 // EXCEPTIONS 
 router.post('/route-v4/exception-check', function(request, response) {

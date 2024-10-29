@@ -9,39 +9,43 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v4/activity-router-1' method='post'>
+            <form action='a-mon-2' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
     
-                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
-                {{ govukRadios({
-                    id: 'a-8',
-                    name: 'a-8',
-                    value: data['a-8'],
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'a-mon-1',
+                    name: 'a-mon-1',
+                    values: data['a-mon-1'],
                     fieldset: {
                         legend: {
-                            text: 'Will the activity happen more than once?',
+                            text: 'What is being supplied?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     hint: {
-                        html: "
-                        <p>Select 'No' if all parts of the activity will happen as one coordinated event. Select 'Yes' if the activity will be repeated at different times.</p>
-                        <p>For example:</p>
-                        <ul class='govuk-list govuk-list--bullet'>
-                            <li>select 'No' if you are running a 3-day conference that includes meetings and published materials</li>
-                            <li>select 'Yes' if you plan to hold similar meetings every month</li>
-                        </ul>"
+                        text: 'Select all that apply'
                     },
                     items: [
                     {
-                       value: 'Yes',
-                        text: 'Yes'
+                        value: 'Money',
+                        text: 'Money'
+                     },
+                     {
+                        value: 'Goods',
+                        text: 'Goods',
+                        hint: {
+                            text: 'For example, a physical or digital item'
+                        }
                     },
                     {
-                       value: 'No',
-                        text: 'No'
+                    value: 'Services',
+                        text: 'Services',
+                        hint: {
+                            text: 'For example, doing work for someone'
+                        }
                     }
                     ]
                 }) }}
