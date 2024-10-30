@@ -68,10 +68,14 @@
                 }) }}
     
                 {{ govukButton({
-                    text: 'Skip to the end'
+                    text: 'Save and continue'
                 }) }}
-
-                {% from 'govuk/components/warning-text/macro.njk' import govukWarningText %}
+    
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
 
             </form>
         </div>

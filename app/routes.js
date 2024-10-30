@@ -2403,7 +2403,7 @@ var onboard_v4 = '/journey/v4/onboard';
 var tier_v4 = '/journey/v4/tier/';
 var account_v4 = '/journey/v4/account';
 
-var registration_v4 = '/journey/v4/registration';
+var registration_v4 = '/journey/v4/registrations';
 var registrant_v4 = '/journey/v4/registrant';
 var arrangement_v4 = '/journey/v4/arrangement';
 var agreement_v4 = '/journey/v4/agreement';
@@ -2737,6 +2737,17 @@ router.post('/route-v4/a-pri-3', function(request, response) {
             response.redirect(activity_v4+'/a-check')
         }
 
+    }
+})
+
+// REGISTRATION
+
+router.post('/route-v4/regsitration-complete', function(request, response) {
+    var value = request.session.data['exception-request']
+    if (value == 'Yes'){ 
+        response.redirect(registration_v4+'/registration-complete?hold-registration=yes')
+    } else {
+        response.redirect(registration_v4+'/registration-complete?hold-registration=no')
     }
 })
 

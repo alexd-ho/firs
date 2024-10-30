@@ -2,11 +2,10 @@
 {% set activeLinkId = 'registrations' %}
 
 {% block pageTitle %}
-Add your details – {{ serviceName }} – GOV.UK Prototype Kit
+Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set currentSub %}{{data['sub']}}{% endset -%}
-{% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
+
 
 
 
@@ -14,114 +13,48 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-full-width'>
-        <form action='../registrations/r-check?activity-progress=complete' method='post'>
+        <form action='/route-v4/regsitration-complete' method='post'>
 
-            <span class='govuk-caption-l'>Add an activity</span>
 
-            <h1 class='govuk-heading-l'>Check your answers</h1>
+            <h1 class='govuk-heading-l'>Submit your registration</h1>
 
             <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Intended influence
+                        Regsitrant
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['a-2-p']}}
+                        {{data['registrant-name']}}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-2-p">Change<span class="govuk-visually-hidden"> name</span></a>
+                        <a class="govuk-link" href="../registrant/reg-type">View<span class="govuk-visually-hidden"> name</span></a>
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        What do you want the activity to achieve?
+                        Arrangement
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['a-4']}}
+                        {{data['foreign-power-name']}}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-4">Change<span class="govuk-visually-hidden"> name</span></a>
+                        <a class="govuk-link" href="../arrangement/fp-1">View<span class="govuk-visually-hidden"> name</span></a>
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Are you involved in the activity?
+                        Activity
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if (data['a-5'] == 'I am organising for others to do the activity') %}
-                        No
-                        {% else %}
-                        Yes
-                        {% endif %}
+                        {{data['activity-types']}}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-5">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Who else is involved in the activity?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['a-5'] != 'I am organising for others to do the activity') %}
-                        {% if (data['a-sub-1']) %}{{data['a-sub-fname-1']}} {{data['a-sub-lname-1']}}{{data['a-sub-orgname-1']}}{% endif %}{% if (data['a-sub-2']) %}, {{data['a-sub-fname-2']}} {{data['a-sub-lname-2']}}{{data['a-sub-orgname-2']}}{% endif %}
-                        {% if (data['a-sub-3']) %}, {{data['a-sub-fname-3']}} {{data['a-sub-lname-3']}}{{data['a-sub-orgname-3']}}{% endif %}
-                        {% if (data['a-sub-4']) %}, {{data['a-sub-fname-4']}} {{data['a-sub-lname-4']}}{{data['a-sub-orgname-4']}}{% endif %}
-                        {% if (data['a-sub-5']) %}, {{data['a-sub-fname-5']}} {{data['a-sub-lname-5']}}{{data['a-sub-orgname-5']}}{% endif %}
-                        {% else %}
-                        No one
-                        {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-5">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Activity start date
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['a-6'] == 'Yes') %}
-                        {{data['a-6-date-day']}} {{data['a-6-date-month'] | monthName('truncate') }} {{data['a-6-date-year']}}
-                        {% else %}
-                        Not known
-                        {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-6">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Activity end date
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['a-7'] == 'Yes') %}
-                        {{data['a-7-date-day']}} {{data['a-7-date-month'] | monthName('truncate') }} {{data['a-7-date-year']}}
-                        {% elseif (data['a-7'] == 'No') %}
-                        Not known
-                        {% else %}
-                        The activity does not have an end date
-                        {% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-7">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Will the activity happen more than once?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['a-8']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-6">Change<span class="govuk-visually-hidden"> name</span></a>
+                        <a class="govuk-link" href="../activity/a-1">View<span class="govuk-visually-hidden"> name</span></a>
                     </dd>
                 </div>
 
             </dl>
-
+<!-- 
             {% if (data['a-pri-1']) %}
             <h2 class='govuk-heading-m'>Private communication</h1>
 
@@ -271,6 +204,159 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                 </div>
 
             </dl>     
+            {% endif %} -->
+
+
+            {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+            {{ govukCheckboxes({
+                id: 'registration-declaration',
+                name: 'registration-declaration',
+                values: data['registration-declaration'],
+                fieldset: {
+                    legend: {
+                        text: 'Declaration',
+                        classes: 'govuk-fieldset__legend--m',
+                        isPageHeading: true
+                    }
+                },
+                hint: {
+                    text: 'Information about the declaration ...'
+                },
+                items: [
+                {
+                   value: 'I confirm the above is correct',
+                    text: 'I confirm the above is correct'
+                }
+                ]
+            }) }}
+
+
+            {% set exceptionOptions %}
+                {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
+                {{ govukCheckboxes({
+                    id: 'exception-options',
+                    name: 'exception-options',
+                    values: data['exception-options'],
+                    classes: "govuk-checkboxes--small",
+                    fieldset: {
+                        legend: {
+                            text: 'What are your reasons for the information to remain private?',
+                            classes: 'govuk-fieldset__legend--s',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'There are four criteria by which information can be made private from the public regsiter. Which of the following do you believe applies to your situation?'
+                    },
+                    items: [
+                    {
+                    value: "Safety to the UK",
+                    text: "Safety to the UK",
+                    hint: {
+                        text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
+                    }
+                    },
+                    {
+                    value: "Risk to the safety of an individual",
+                    text: "Risk to the safety of an individual",
+                    hint: {
+                        text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
+                    }
+                    },
+                    {
+                    value: "Prejudicial to criminal investigation",
+                    text: "Prejudicial to criminal investigation",
+                    hint: {
+                        text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
+                    }
+                    },
+                    {
+                    value: "Commercially sensitive",
+                    text: "Commercially sensitive",
+                    hint: {
+                        text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
+                    }
+                    }
+                ]
+                }) }}
+            {% endset %}
+
+
+            {% set exceptionCheck %}            
+
+            {% endset %}
+
+
+            {% if (data['arrangement-tier'] == 'political') %}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'exception-request',
+                    name: 'exception-request',
+                    value: data['exception-request'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you want to request that the information remains private?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'You will be asked to supply detailed reasoning and documentation to support your request in later pages.'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional: {
+                            html: exceptionOptions
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+            {% elseif (data['arrangement-tier'] == 'enhanced') %}
+
+                {% if (data['activity-types'] == 'Other type of activity in the UK') %}
+
+                {% else %}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'exception-request',
+                    name: 'exception-request',
+                    value: data['exception-request'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you want to request that the information remains private?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        text: 'You will be asked to supply detailed reasoning and documentation to support your request in later pages.'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional: {
+                            html: exceptionOptions
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+                {% endif %}
+
             {% endif %}
 
 
@@ -281,7 +367,7 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
             {% from 'govuk/components/button/macro.njk' import govukButton %}
 
             {{ govukButton({
-            href: '../registrations',
+            href: '../registrations/new',
             classes: 'govuk-button--secondary',
             text: 'Save and exit'
             }) }}
