@@ -180,6 +180,34 @@ a.govuk-link--disabled {
 }
 
 
+.govuk-summary-card {
+
+    &__content__collapsable {
+        display: none;
+    }
+
+    &.show-content {
+        .govuk-summary-card__content__collapsable {
+            display: block;
+
+            &-preview {
+                display: none;
+            }
+        }
+    }
+}
+.govuk-summary-card__title {
+    &__element {
+        &:after {
+            content: ", ";
+        }
+        &:last-of-type:after {
+            content: "";
+        }
+    }
+}
+
+
 // EXCEPTIONS & PUBLIC REGISTER
 
 .exception-checkbox {
