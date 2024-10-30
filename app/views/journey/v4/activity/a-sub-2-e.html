@@ -5,34 +5,31 @@
         Add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
 
-    {% set currentSub %}a-sub-role-{{data['sub']}}{% endset -%}
+    {% set currentSub %}a-sub-relationship-{{data['sub']}}{% endset -%}
     {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
-    {% set subcontractor %}subcontractor-name-{{data['sub']}}{% endset -%}
-    
+    {% set entityName %}a-sub-orgname-{{data['sub']}}{% endset -%}
+    {% set registrantName %}{% endset -%}
+
+
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a-sub-4' method='post'>
+            <form action='a-sub-3?subcontractor-name-{{data["sub"]}}={{data[entityName]}}' method='post'>
     
                 <span class='govuk-caption-l'>Individual or entity involved | Add an activity</span>
-
-                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
-                    
-                {{ govukTextarea({
-                name: 'moreDetail',
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
                     id: currentSub,
                     name: currentSub,
                     value: data[currentSub],
                     label: {
-                        text: 'What role does '+data[subcontractor]+' have in the activity?',
+                        text: 'What is the relationship between '+data[entityName]+' and '+data['registrant-name']+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
-                    },
-                    hint: {
-                        text: ''
                     }
-                }) }} 
+                }) }}
     
                 {{ govukButton({
                     text: 'Save and continue'

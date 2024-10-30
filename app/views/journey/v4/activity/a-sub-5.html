@@ -7,7 +7,8 @@
 
     {% set currentSub %}a-sub-tel-{{data['sub']}}{% endset -%}
     {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
-    
+    {% set subcontractor %}subcontractor-name-{{data['sub']}}{% endset -%}
+
     
     
     {% block content %}

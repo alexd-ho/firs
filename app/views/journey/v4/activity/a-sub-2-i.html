@@ -8,12 +8,14 @@
     {% set currentSub %}a-sub-relationship-{{data['sub']}}{% endset -%}
     {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
     
-    
+    {% set indName1 %}a-sub-fname-{{data['sub']}}{% endset -%}
+    {% set indName2 %}a-sub-lname-{{data['sub']}}{% endset -%}
+
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a-sub-3' method='post'>
+            <form action='a-sub-3?subcontractor-name-{{data["sub"]}}={{data[indName1]}} {{data[indName2]}}' method='post'>
     
                 <span class='govuk-caption-l'>Individual or entity involved | Add an activity</span>
     
@@ -23,7 +25,7 @@
                     name: currentSub,
                     value: data[currentSub],
                     label: {
-                        text: 'What is the relationship between the '+currentType+' doing the activity and the registrant?',
+                        text: 'What is the relationship between '+data[indName1]+' '+data[indName2]+' and '+data['registrant-name']+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     }

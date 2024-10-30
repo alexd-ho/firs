@@ -7,7 +7,8 @@
 
     {% set currentSub %}a-sub-email-{{data['sub']}}{% endset -%}
     {% set currentType %}{% if (data['a-sub-type'] == "Entity") %}entity{% else %}individual{% endif %} {% endset -%}
-    
+    {% set subcontractor %}subcontractor-name-{{data['sub']}}{% endset -%}
+
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -16,16 +17,46 @@
     
                 <span class='govuk-caption-l'>Individual or entity involved | Add an activity</span>
     
+                {% set subcontractorEmail %}
+                    
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
+                    id: currentSub+'-email-address',
+                    name: currentSub+'-email-address',
+                    value: data[currentSub+'-email-address'],
+                    label: {
+                        text: 'Email address',
+                        classes: 'govuk-label',
+                        isPageHeading: false
+                    }
+                }) }}
+                {% endset %}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
                     id: currentSub,
                     name: currentSub,
                     value: data[currentSub],
-                    label: {
-                        text: 'What is the email address of the '+currentType+' doing the activity?',
-                        classes: 'govuk-label--l',
-                        isPageHeading: true
+                    fieldset: {
+                        legend: {
+                            text: 'Do you know the email address of '+data[subcontractor]+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional: {
+                            html: subcontractorEmail
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
                     }
+                    ]
                 }) }}
     
                 {{ govukButton({
