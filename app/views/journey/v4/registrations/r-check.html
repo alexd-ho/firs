@@ -18,42 +18,120 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
             <h1 class='govuk-heading-l'>Submit your registration</h1>
 
-            <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Regsitrant
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['registrant-name']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="../registrant/reg-type">View<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Arrangement
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['foreign-power-name']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="../arrangement/fp-1">View<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Activity
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['activity-types']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="../activity/a-1">View<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
+            
 
-            </dl>
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+
+                        Registrant
+                    </h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="#">View details<span class="govuk-visually-hidden"> of University of
+                                    Gloucestershire (University of Gloucestershire)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Name
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{data['registrant-name']}}
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                        Arrangement
+                    </h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="#">View details<span class="govuk-visually-hidden"> of University of
+                                    Gloucestershire (University of Gloucestershire)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Foreign Power name
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{data['foreign-power-name']}}
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                        Activity
+                    </h2>
+                    <ul class="govuk-summary-card__actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link" href="#">View details<span class="govuk-visually-hidden"> of University of
+                                    Gloucestershire (University of Gloucestershire)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                        {% if (data['a-pri-1']) %}
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Private communication
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{data['a-pri-1']}} {% if (data['a-pri-1-other']) %}({{data['a-pri-1-other']}}){% endif %}
+                            </dd>
+                        </div>
+                        {% endif %}
+                        {% if (data['a-pub-1']) %}
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Public communication
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{data['a-pub-1']}} {% if (data['a-pub-1-other']) %}({{data['a-pub-1-other']}}){% endif %}
+                            </dd>
+                        </div>
+                        {% endif %}
+                        {% if (data['a-mon-1']) %}
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Supply of money, goods or services
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                £{{data['a-mon-2']}}
+                            </dd>
+                        </div>
+                        {% endif %}
+                        {% if (data['a-oth-1']) %}
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Other type of activity
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{data['foreign-power-name']}}
+                            </dd>
+                        </div>
+                        {% endif %}
+
+                    </dl>
+                </div>
+            </div>
+
+
 <!-- 
             {% if (data['a-pri-1']) %}
             <h2 class='govuk-heading-m'>Private communication</h1>

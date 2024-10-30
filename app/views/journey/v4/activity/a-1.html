@@ -9,48 +9,50 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-two-thirds-from-desktop'>
-        
+
         {% if (data['arrangement-tier'] == 'enhanced') %}
         <form action='a-2-e?activity-progress=in-progress' method='post'>
-        {% else %}
-        <form action='a-2-p?activity-progress=in-progress' method='post'>        
-        {% endif %}
+            {% else %}
+            <form action='a-2-p?activity-progress=in-progress' method='post'>
+                {% endif %}
 
-            <h1 class='govuk-heading-l'>Add an activity</h1>
+                <h1 class='govuk-heading-l'>Add an activity</h1>
 
-            <h2 class='govuk-heading-m'>What you need to complete this section</h2>
+                <h2 class='govuk-heading-m'>What you need to complete this section</h2>
 
-            <p>In this section, we are asking for information about a single activity that happens as part of the
-                <em>[insert arrangement name]</em> arrangement. </p>
-            <p>You need to know:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li>what the activity is intended to influence</li>
-                <li>the actions involved in the activity</li>
-                <li>how often the activity happens</li>
-                <li>what you want the activity to achieve</li>
-                <li>who is involved the activity </li>
-            </ul>
+                <p>In this section, we are asking for information about a single activity that happens as part of the
+                    <em>[insert arrangement name]</em> arrangement.
+                </p>
+                <p>You need to know:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>what the activity is intended to influence</li>
+                    <li>the actions involved in the activity</li>
+                    <li>how often the activity happens</li>
+                    <li>what you want the activity to achieve</li>
+                    <li>who is involved the activity </li>
+                </ul>
 
-            <h2  class='govuk-heading-m'>The public register</h2>
-            <p>If this activity is considered political in nature, some of the information you provide may appear on the
-                Foreign Influence Registration Scheme public register.</p>
-            <p>You can request for any information that would appear on the public register to remain private.</p>
-            <p>Read the:</p>
-            <ul class="govuk-list govuk-list--bullet">
-                <li><a href="#">guidance on what information appears on the public register</a></li>
-                <li><a href="#">guidance on requesting information to remain private</a></li>
-            </ul>
+                <h2 class='govuk-heading-m'>The public register</h2>
+                <p>If this activity is considered political in nature, some of the information you provide may appear on
+                    the
+                    Foreign Influence Registration Scheme public register.</p>
+                <p>You can request for any information that would appear on the public register to remain private.</p>
+                <p>Read the:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="#">guidance on what information appears on the public register</a></li>
+                    <li><a href="#">guidance on requesting information to remain private</a></li>
+                </ul>
 
-            {{ govukButton({
+                {{ govukButton({
                 text: 'Save and continue'
-            }) }}
+                }) }}
 
-            {{ govukButton({
+                {{ govukButton({
                 href: '/route-v4/registration-overview',
                 classes: 'govuk-button--secondary',
                 text: 'Save and exit'
-            }) }}
-        </form>
+                }) }}
+            </form>
     </div>
 </div>
 {% endblock %}
