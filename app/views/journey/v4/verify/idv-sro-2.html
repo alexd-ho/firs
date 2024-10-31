@@ -1,0 +1,40 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'registrations' %}
+
+{% block pageTitle %}
+Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+{% block content %}
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds-from-desktop'>
+        <form action='idv-sro-3?idenity-verification=with-sro' method='post'>
+
+            <span class='govuk-caption-l'>Verify the identity of a senior responsible officer</span>
+
+            <h1 class='govuk-heading-l'>Check your answers</h1> 
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Email address of the senior responsible officer
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {{data['idv-sro-1']}}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="idv-sro-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+            </dl>
+
+            {{ govukButton({
+                text: 'Save and continue'
+            }) }}
+
+            
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -9,7 +9,10 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-full-width'>
-        <form action="../arrangement/select-arrangement?registrant-progress=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'>
+        <!-- <form action="../arrangement/select-arrangement?registrant-progress=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'> -->
+
+
+            <form action="../verify/idv-3?registrant-progress=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'>
 
             <span class='govuk-caption-l'>Add your personal details</span>
 

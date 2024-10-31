@@ -1,0 +1,65 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Verify your identity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='idv-ol?idenity-verification=in-progress' method='post'>
+    
+    
+                <h1 class='govuk-heading-l'>Verify your identity</h1>   
+
+                <p>We need to verify your identity (ID) to:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>prevent fraudulent registrations from being made in your name </li>
+                    <li>add other people to manage your registrations</li>
+                </ul>
+
+                <h2 class="govuk-heading-m">What you need to complete this section</h2>
+
+                <p>There are two stages to verifying your ID:</p>
+
+                <ul class="govuk-list govuk-list--number">
+                    <li>verify your ID on GOV.UK One Login</li>
+                    <li>upload your ID to the Foreign Influence Registration Scheme (FIRS) team</li>
+                </ul>
+
+                <p>If you've already verified your ID using the GOV.UK One Login verification on this service or another service, you will go straight to stage 2 to upload your ID to the FIRS team.</p>
+
+                <p>You’ll need a form of  ID. </p>
+
+                <p>The GOV.UK One Login service will explain what you need and what you need to do.</p>
+
+                <p>When you have finished verifying your ID on GOV.UK One Login, you will be redirected back here to your upload your ID to the FIRS team.</p>
+
+                <p>Click ‘Go to the GOV.UK One Login’. </p>
+
+                <h2 class="govuk-heading-m">The public register</h2>
+
+                <p>Your ID documents will never appear on the public register. </p>
+
+                <p>Read the:</p>
+
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="#">guidance on what information appears on the public register</a></li>
+                    <li><a href="#">guidance on requesting information to remain private</a></li>
+                </ul>
+    
+                {{ govukButton({
+                    text: 'Go to GOV.UK One Login'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Verify the identity of a senior responsible officer – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='../registrations' method='post'>
+    
+                <span class='govuk-caption-l'>Verify the identity of a senior responsible officer</span>
+    
+                <h1 class='govuk-heading-l'>Completion screen</h1> 
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam possimus praesentium doloribus, explicabo eum, perspiciatis totam minus asperiores recusandae cupiditate sint omnis incidunt illo laboriosam animi nisi, a quas eveniet?</p>
+    
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

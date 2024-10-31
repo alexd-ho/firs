@@ -1,0 +1,44 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Verify your identity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='idv-m-2' method='post'>
+    
+                <h1 class='govuk-heading-l'>Verify your identity</h1> 
+
+                <p>You must upload a form of ID to the Foreign Influence Registration Scheme (FIRS) team.</p>
+
+                <h2 class='govuk-heading-m'>What you need to complete this section</h2>
+
+                <p>You’ll need a form of ID. Ideally a passport or driver's licence.</p>
+
+                <h2 class='govuk-heading-m'>The public register</h2>
+
+                <p>Your ID documents will never appear on the public register. </p>
+
+                <p>Read the:</p>
+                
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="#">guidance on what information appears on the public register</a></li>
+                    <li><a href="#">guidance on requesting information to remain private</a></li>
+                </ul>
+                
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+                {{ govukButton({
+                    href: '/route-v4/registration-overview',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </form>
+        </div>
+    </div>
+    {% endblock %}

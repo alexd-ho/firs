@@ -2405,6 +2405,7 @@ var account_v4 = '/journey/v4/account';
 
 var registration_v4 = '/journey/v4/registrations';
 var registrant_v4 = '/journey/v4/registrant';
+var verify_v4 = '/journey/v4/verify';
 var arrangement_v4 = '/journey/v4/arrangement';
 var agreement_v4 = '/journey/v4/agreement';
 var activity_v4 = '/journey/v4/activity';
@@ -2583,6 +2584,95 @@ router.post('/route-v4/e16', function(request, response) {
         response.redirect(registrant_v4+'/e-check')
     }
 })
+
+
+/// REGISTRANT / Verify
+
+router.post('/route-v4/idv-2', function(request, response) {
+    var value = request.session.data['idv-2']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-3')
+    } else {
+        response.redirect(verify_v4+'/idv-sro-1')
+    }
+})
+
+router.post('/route-v4/idv-ol', function(request, response) {
+    var value = request.session.data['idv-ol']
+    if (value == 'Pass'){ 
+        response.redirect(verify_v4+'/idv-m-1?idv-check=pass')
+    } else if (value == 'Fail'){ 
+        response.redirect(verify_v4+'/idv-m-1?idv-check=fail')
+    } else {
+        response.redirect(verify_v4+'/idv-m-1?idv-check=other')
+    }
+})
+
+router.post('/route-v4/idv-m-2', function(request, response) {
+    var value = request.session.data['idv-m-2']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-2-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-3')
+    }
+})
+
+router.post('/route-v4/idv-m-3', function(request, response) {
+    var value = request.session.data['idv-m-3']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-3-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-4')
+    }
+})
+
+router.post('/route-v4/idv-m-4', function(request, response) {
+    var value = request.session.data['idv-m-4']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-4-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-5')
+    }
+})
+
+
+router.post('/route-v4/idv-m-5', function(request, response) {
+    var value = request.session.data['idv-m-5']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-5-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-6')
+    }
+})
+
+
+router.post('/route-v4/idv-m-6', function(request, response) {
+    var value = request.session.data['idv-m-6']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-6-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-7')
+    }
+})
+
+router.post('/route-v4/idv-m-7', function(request, response) {
+    var value = request.session.data['idv-m-7']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-7-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-8')
+    }
+})
+
+router.post('/route-v4/idv-m-8', function(request, response) {
+    var value = request.session.data['idv-m-8']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-8-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-end-1')
+    }
+})
+
 
 
 
