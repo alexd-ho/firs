@@ -5,7 +5,27 @@
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-    
+    {% block footer %}
+    {{ govukFooter({
+    meta: {
+    items: [
+    {
+    href: "/journey/v4/activity/a-8",
+    text: "Skip"
+    },
+    {
+    href: "/manage-prototype",
+    text: "Manage your prototype"
+    },
+    {
+    href: "/manage-prototype/clear-data",
+    text: "Clear data"
+    }
+    ],
+    visuallyHiddenTitle: "Footer links"
+    }
+    }) }}
+    {% endblock %}
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>

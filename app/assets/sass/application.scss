@@ -512,6 +512,16 @@ body.messages li.li-messages {border-bottom: 4px solid #1d70b8;}
     }
 }
 
+.govuk-task-list__item--subtask {
+    .govuk-task-list__name-and-hint {
+        padding-left: 40px;
+        &:before {
+            content: "-";
+            margin-right: 5px;
+        }
+    }
+}
+
 
 //
 

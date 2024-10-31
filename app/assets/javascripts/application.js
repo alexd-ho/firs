@@ -31,4 +31,19 @@ window.GOVUKPrototypeKit.documentReady(() => {
     //   newNameId++;
     // };
 
+
+
+    function manageCard() {
+        $('.show-collapsed-content').on('click', function() {
+            console.log('aaa');
+            $(this).closest('.govuk-summary-card').toggleClass('show-content');
+            return false;
+        })
+    };
+
+    window.onload = function() {
+        manageCard();
+    };
+
+
 })

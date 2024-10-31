@@ -9,190 +9,314 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 
 
+{% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
+{% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
+
+
+
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-full">
 
-		<span class="govuk-caption-l">Account home</span>
-		<h1 class="govuk-heading-l">Start a new registration</h1>
+		<span class="govuk-caption-l">{% if (data['contact-name']) %}{{data['contact-name']}}{% else %}Account Name{%
+			endif %}</span>
+		<h1 class="govuk-heading-l">Your registrations {{data['registration-progress']}}</h1>
 
-		<!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis ex suscipit neque, dolores ipsa vel eius
-			ratione eveniet porro, tempora iste quam minus. Excepturi tempora distinctio vero deserunt totam repudiandae
-		</p> -->
+		<p>Start a new registration or manage your existing registrations.</p>
+		<p>Read the <a href="#">guidance on completing the FIRS registration form</a>.</p>
 
+		{% from 'govuk/components/button/macro.njk' import govukButton %}
+
+		{{ govukButton({
+		href: 'registrations/new',
+		classes: '',
+		text: 'Start a new registration'
+		}) }}
 
 		<div class="govuk-grid-column-full-width">
 
-			<h2 class="govuk-heading-m">Check before you start</h2>
+			<div class="govuk-tabs" data-module="govuk-tabs">
+				<h2 class="govuk-tabs__title">
+					Contents
+				</h2>
+				<ul class="govuk-tabs__list">
+					<li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+						<a class="govuk-tabs__tab" href="#in-progress">
+							In progress
+						</a>
+					</li>
+					<li class="govuk-tabs__list-item">
+						<a class="govuk-tabs__tab" href="#submitted">
+							Submitted
+						</a>
+					</li>
+				</ul>
+				<div class="govuk-tabs__panel" id="in-progress">
+					<h2 class="govuk-heading-m">In progress</h2>
 
-			<ul class="govuk-task-list">
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
-							aria-describedby="before-you-start-1-status">
-							Check your eligibility to register
-						</a>
-					</div>
-					<div class="govuk-task-list__status" id="before-you-start-1-status">
-						Optional
-					</div>
-				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
-							aria-describedby="before-you-start-2-status">
-							Check what you need to register as
-						</a>
-					</div>
-					<div class="govuk-task-list__status" id="before-you-start-2-status">
-						Optional
-					</div>
-				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
-							aria-describedby="before-you-start-2-status">
-							Read the guidance
-						</a>
-					</div>
-					<div class="govuk-task-list__status" id="before-you-start-2-status">
-						Optional
-					</div>
-				</li>
-			</ul>
+					{% if (data['registration-progress'] == 'in-progress'  or data['registration-progress'] == 'submitted') %}
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-5">Register your activity</h2>
-			<ul class="govuk-task-list">
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					<div class="govuk-task-list__name-and-hint">
-						{% if (data['first-registration'] == 'not-started') %}
-						<a class="govuk-link govuk-task-list__link" href="registrant/select-registrant?first-registration=in-progress"
-							aria-describedby="prepare-application-1-status">
-							1. Add a registrant
-						</a>
-						{% else %}
-						<a class="govuk-link govuk-task-list__link" href="registrant/select-registrant"
-							aria-describedby="prepare-application-1-status">
-							1. Add a registrant
-						</a>
-						{% endif %}
-						{% if (data['registrant-name']) %}
-						<div id="application-details-3-hint" class="govuk-task-list__hint-">
-							<strong>{{data['registrant-name']}}</strong>
+					<div class="govuk-summary-card">
+						<div class="govuk-summary-card__title-wrapper">
+							<h2 class="govuk-summary-card__title">
+								<span class="govuk-caption-m">Ref: 1349-6425-3168 </span>
+								Started 12 Oct 2024								
+							</h2>
+							<ul class="govuk-summary-card__actions">
+								<li class="govuk-summary-card__action">
+									<a class="govuk-link" href="registrations/registration-task-list">Continue<span class="govuk-visually-hidden"> of University of
+											Gloucestershire (University of Gloucestershire)</span></a>
+								</li>
+							</ul>
 						</div>
-						{% endif %}
-					</div>
-					<div class="govuk-task-list__status" id="prepare-application-1-status">
-						{% if (data['registrant-progress'] == 'complete') %}
-						Complete
-						{% elseif (data['registrant-progress'] == 'in-progress') %}
-						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
-						{% else %}
-						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
-						{% endif %}
-					</div>
-				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					{% if (data['registrant-progress']) %}
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="arrangement/select-arrangement"
-							aria-describedby="prepare-application-2-status">
-							2. Add a foreign influence
-						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint-">
-							<strong>{{data['arrangement-name']}}</strong>
+						<div class="govuk-summary-card__content">
+							<dl class="govuk-summary-list">
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Registrant
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{{data['registrant-name']}}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['registrant-progress'] == 'complete') %}
+										Complete
+										{% elseif (data['registrant-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+										{% else %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% endif %}
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Arrangement
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{% if (data['fp-2'] == 'Yes') %}
+											{% if (data['fp-4'] == 'Yes') %}
+												{{foreignPower}} ({{fpCountry}})
+											{% else %}
+												{{foreignPower}} ({{fpCountry}})
+											{% endif %}
+										{% else %}
+											{{foreignPower}} ({{fpCountry}})
+										{% endif %}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['arrangement-progress'] == 'complete') %}
+										Complete
+										{% elseif (data['arrangement-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+										{% else %}
+										{% if (data['registrant-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% else %}
+										Cannot start yet
+										{% endif %}
+										{% endif %}
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Activity
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{% if (data['a-pri-1']) %}<span class="govuk-summary-card__title__element">Private communication</span>{% endif %}
+										{% if (data['a-pub-1']) %}<span class="govuk-summary-card__title__element">Public communication</span>{% endif %}
+										{% if (data['a-mon-1']) %}<span class="govuk-summary-card__title__element">Supply of money, goods or services</span>{% endif %}
+										{% if (data['a-oth-1']) %}<span class="govuk-summary-card__title__element">Other type of activity</span>{% endif %}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['activity-progress'] == 'complete') %}
+										Complete
+										{% elseif (data['activity-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+										{% else %}
+										{% if (data['arrangement-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% else %}
+										Cannot start yet
+										{% endif %}
+										{% endif %}
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Complete registration
+									</dt>
+									<dd class="govuk-summary-list__value">
+										Submitted: 12 Oct 2024
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['registration-progress'] == 'submitted') %}
+										<strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+										{% elseif (data['registration-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+										{% elseif (data['registration-progress'] == 'in-progress') %}
+										{% if (data['activity-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--turquoise">Review and submit</strong>
+										{% else %}
+										Cannot start yet
+										{% endif %}
+										{% endif %}
+									</dd>
+								</div>
+
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Exception
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{{data['exception-options']}}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['exception-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
+										{% elseif (data['exception-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+										{% else %}
+										{% if (data['registration-progress'] == 'submitted') %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% elseif (data['registration-progress'] == 'complete') %}
+										None requested
+										{% else %}
+										Cannot start yet
+										{% endif %}
+										{% endif %}
+									</dd>
+								</div>
+							</dl>
 						</div>
 					</div>
-					<div class="govuk-task-list__status" id="prepare-application-2-status">
-						{% if (data['arrangement-progress'] == 'complete') %}
-						Complete
-						{% elseif (data['arrangement-progress'] == 'in-progress') %}
-						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
-						{% else %}
-						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
-						{% endif %}
-					</div>
+		
 					{% else %}
-					<div class="govuk-task-list__name-and-hint">
-						<div>
-							2. Add a foreign influence
-						</div>
-					</div>
-					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
-						Cannot start yet
-					</div>
+						
+					No registrations in progress
+
 					{% endif %}
-				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					{% if (data['arrangement-progress']) %}
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="activity/a-start"
-							aria-describedby="prepare-application-3-status">
-							3. Add an activity
-						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint-">
-							<strong>{{data['activity-name']}}</strong>
+		
+				</div>
+				<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="submitted">
+					<h2 class="govuk-heading-m">Submitted</h2>
+
+					{% if (data['registration-progress'] == 'complete') %}
+
+					<div class="govuk-summary-card">
+						<div class="govuk-summary-card__title-wrapper">
+							<h2 class="govuk-summary-card__title">
+								<span class="govuk-caption-m">Ref: 6425-3168-1349 </span>
+								Submitted 12 Oct 2024								
+							</h2>
+							<ul class="govuk-summary-card__actions">
+								<li class="govuk-summary-card__action">
+									<a class="govuk-link show-collapsed-content" href="#">View summary<span class="govuk-visually-hidden"> of University of
+											Gloucestershire (University of Gloucestershire)</span></a>
+								</li>
+								<li class="govuk-summary-card__action">
+									<a class="govuk-link" href="#">Open<span class="govuk-visually-hidden"> of University of
+											Gloucestershire (University of Gloucestershire)</span></a>
+								</li>
+							</ul>
+						</div>
+						<div class="govuk-summary-card__content govuk-summary-card__content__collapsable">
+							<dl class="govuk-summary-list">
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Registrant
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{{data['registrant-name']}}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['registrant-progress'] == 'complete') %}
+										Complete
+										{% elseif (data['registrant-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+										{% else %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% endif %}
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Arrangement
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{% if (data['fp-2'] == 'Yes') %}
+											{% if (data['fp-4'] == 'Yes') %}
+												{{foreignPower}} ({{fpCountry}})
+											{% else %}
+												{{foreignPower}} ({{fpCountry}})
+											{% endif %}
+										{% else %}
+											{{foreignPower}} ({{fpCountry}})
+										{% endif %}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['arrangement-progress'] == 'complete') %}
+										Complete
+										{% elseif (data['arrangement-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+										{% else %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% endif %}
+									</dd>
+								</div>
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Activity
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{% if (data['a-pri-1']) %}<span class="govuk-summary-card__title__element">Private communication</span>{% endif %}
+										{% if (data['a-pub-1']) %}<span class="govuk-summary-card__title__element">Public communication</span>{% endif %}
+										{% if (data['a-mon-1']) %}<span class="govuk-summary-card__title__element">Supply of money, goods or services</span>{% endif %}
+										{% if (data['a-oth-1']) %}<span class="govuk-summary-card__title__element">Other type of activity</span>{% endif %}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['activity-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--green">Submitted</strong>
+										{% elseif (data['activity-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+										{% else %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% endif %}
+									</dd>
+								</div>
+			
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Exception
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{{data['exception-options']}}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['exception-progress'] == 'complete') %}
+										Pending
+										{% elseif (data['exception-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
+										{% else %}
+										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% endif %}
+									</dd>
+								</div>
+							</dl>
 						</div>
 					</div>
-					<div class="govuk-task-list__status" id="prepare-application-1-status">
-						{% if (data['activity-progress'] == 'complete') %}
-						<strong class="govuk-tag govuk-tag--green">Submitted</strong>
-						{% elseif (data['activity-progress'] == 'in-progress') %}
-						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
-						{% else %}
-						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
-						{% endif %}
-					</div>
+
+					
 					{% else %}
-					<div class="govuk-task-list__name-and-hint">
-						<div>
-							3. Add an activity
-						</div>
-					</div>
-					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
-						Cannot start yet
-					</div>
+						
+					No registrations in progress
+
 					{% endif %}
-				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					{% if (data['activity-progress'] == 'complete') %}
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
-							aria-describedby="prepare-application-4-status">
-							4. Request an exception
-						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint">
-						{% if (data['exception-progress'] == 'complete') %}
-						{% elseif (data['exception-progress'] == 'in-progress') %}
-						{% else %}
-						If applicable
-						{% endif %}
-						</div>
-					</div>
-					<div class="govuk-task-list__status" id="prepare-application-1-status">
-						{% if (data['exception-progress'] == 'complete') %}
-						Pending
-						{% elseif (data['exception-progress'] == 'in-progress') %}
-						<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
-						{% else %}
-						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
-						{% endif %}
-					</div>
-					{% else %}
-					<div class="govuk-task-list__name-and-hint">
-						<div>
-							4. Request an exception
-						</div>
-						<div id="application-details-3-hint" class="govuk-task-list__hint">
-							If applicable
-						</div>
-					</div>
-					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
-						Cannot start yet
-					</div>
-					{% endif %}
-				</li>
-			</ul>
+
+
+				</div>
+			</div>
+
+
 		</div>
 
 

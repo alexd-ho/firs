@@ -2742,12 +2742,21 @@ router.post('/route-v4/a-pri-3', function(request, response) {
 
 // REGISTRATION
 
-router.post('/route-v4/regsitration-complete', function(request, response) {
+router.post('/route-v4/registration-complete', function(request, response) {
     var value = request.session.data['exception-request']
     if (value == 'Yes'){ 
-        response.redirect(registration_v4+'/registration-complete?hold-registration=yes')
+        response.redirect(registration_v4+'/registration-complete?registration-progress=submitted&hold-registration=yes')
     } else {
-        response.redirect(registration_v4+'/registration-complete?hold-registration=no')
+        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=no')
+    }
+})
+
+router.post('/route-v4/registration-overview', function(request, response) {
+    var value = request.session.data['registration-overview']
+    if (value == 'Yes'){ 
+        response.redirect(registration_v4+'/')
+    } else {
+        response.redirect(registration_v4+'/')
     }
 })
 

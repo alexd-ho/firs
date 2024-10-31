@@ -33,7 +33,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			actions: {
 				items: [
 				  {
-					href: "../arrangement/select-arrangement?registrant-name="+data['registrant-name']+"&registrant-progress=complete",
+					href: "../arrangement/select-arrangement?registrant-name="+data['registrant-name']+"&registrant-progress=complete&registration-progress=in-progress",
 					text: "Select this registrant",
 					visuallyHiddenText: "of University of Gloucestershire",
 					classes: "govuk-button govuk-!-margin-bottom-1"
@@ -66,7 +66,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		{% from 'govuk/components/button/macro.njk' import govukButton %}
 			
 		{{ govukButton({
-			href: 'reg-type?registrant-progress=in-progress',
+			href: 'reg-type?registrant-progress=in-progress&registration-progress=in-progress',
 			classes: '',
 			text: 'Add a new registrant'
 		}) }}

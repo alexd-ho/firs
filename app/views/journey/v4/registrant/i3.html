@@ -5,6 +5,27 @@
         Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
+{% block footer %}
+{{ govukFooter({
+meta: {
+items: [
+{
+href: "/journey/v4/registrant/i-check",
+text: "Skip"
+},
+{
+href: "/manage-prototype",
+text: "Manage your prototype"
+},
+{
+href: "/manage-prototype/clear-data",
+text: "Clear data"
+}
+],
+visuallyHiddenTitle: "Footer links"
+}
+}) }}
+{% endblock %}
     
     {% block content %}
     <div class='govuk-grid-row'>

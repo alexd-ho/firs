@@ -88,10 +88,35 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						{% endif %}
 					</div>
 				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					{% if (data['registrant-progress']) %}
+				<!-- <li class="govuk-task-list__item govuk-task-list__item--with-link govuk-task-list__item--subtask">
 					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-arrangement"
+						{% if (data['first-registration'] == 'not-started') %}
+						<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress"
+							aria-describedby="prepare-application-1-status">
+							Verify identity
+						</a>
+						{% else %}
+						<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant"
+							aria-describedby="prepare-application-1-status">
+							Verify identity
+						</a>
+						{% endif %}
+
+					</div>
+					<div class="govuk-task-list__status" id="prepare-application-1-status">
+						{% if (data['registrant-progress'] == 'complete') %}
+						Complete
+						{% elseif (data['registrant-progress'] == 'in-progress') %}
+						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% endif %}
+					</div>
+				</li> -->
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					{% if (data['arrangement-progress'] == 'complete') %}
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="../arrangement/fp-check"
 							aria-describedby="prepare-application-2-status">
 							2. Add a foreign influence
 						</a>
@@ -100,13 +125,31 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						</div>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-2-status">
-						{% if (data['arrangement-progress'] == 'complete') %}
 						Complete
-						{% elseif (data['arrangement-progress'] == 'in-progress') %}
+					</div>
+					{% elseif (data['arrangement-progress'] == 'in-progress') %}
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="../arrangement/fp-check"
+							aria-describedby="prepare-application-2-status">
+							2. Add a foreign influence
+						</a>
+						<div id="application-details-3-hint" class="govuk-task-list__hint-">
+							<strong>{{data['arrangement-name']}}</strong>
+						</div>
+					</div>
+					<div class="govuk-task-list__status" id="prepare-application-2-status">
 						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
-						{% else %}
+					</div>
+					{% else %}
+					{% if (data['registrant-progress'] == 'complete') %}
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-arrangement"
+							aria-describedby="prepare-application-2-status">
+							2. Add a foreign influence
+						</a>
+					</div>
+					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
 						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
-						{% endif %}
 					</div>
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
@@ -118,6 +161,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						Cannot start yet
 					</div>
 					{% endif %}
+				{% endif %}
 				</li>
 				<li class="govuk-task-list__item govuk-task-list__item--with-link">
 					{% if (data['arrangement-progress']) %}
@@ -132,13 +176,17 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-1-status">
 						{% if (data['activity-progress'] == 'complete') %}
-						<strong class="govuk-tag govuk-tag--green">Submitted</strong>
+						Complete
 						{% elseif (data['activity-progress'] == 'in-progress') %}
 						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 						{% else %}
+						{% if (data['arrangement-progress'] == 'complete') %}
 						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% else %}
+						Cannot start yet
 						{% endif %}
-					</div>
+						{% endif %}
+	</div>
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
@@ -155,7 +203,41 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						<a class="govuk-link govuk-task-list__link" href="#"
 							aria-describedby="prepare-application-4-status">
-							4. Request an exception
+							4. Submit registration
+						</a>
+						<div id="application-details-3-hint" class="govuk-task-list__hint">
+							Request Exception
+						</div>
+					</div>
+					<div class="govuk-task-list__status" id="prepare-application-1-status">
+						{% if (data['exception-progress'] == 'complete') %}
+						Pending
+						{% elseif (data['exception-progress'] == 'in-progress') %}
+						<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
+						{% else %}
+						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% endif %}
+					</div>
+					{% else %}
+					<div class="govuk-task-list__name-and-hint">
+						<div>
+							4. Submit registration
+						</div>
+						<div id="application-details-3-hint" class="govuk-task-list__hint">
+							Including request exception
+						</div>
+					</div>
+					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
+						Cannot start yet
+					</div>
+					{% endif %}
+				</li>
+				<li class="govuk-task-list__item govuk-task-list__item--with-link">
+					{% if (data['activity-progress'] == 'complete') %}
+					<div class="govuk-task-list__name-and-hint">
+						<a class="govuk-link govuk-task-list__link" href="#"
+							aria-describedby="prepare-application-4-status">
+							5. Request an exception
 						</a>
 						<div id="application-details-3-hint" class="govuk-task-list__hint">
 						{% if (data['exception-progress'] == 'complete') %}
@@ -177,7 +259,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
-							4. Request an exception
+							5. Request an exception
 						</div>
 						<div id="application-details-3-hint" class="govuk-task-list__hint">
 							If applicable

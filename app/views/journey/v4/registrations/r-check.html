@@ -13,7 +13,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-full-width'>
-        <form action='/route-v4/regsitration-complete' method='post'>
+        <form action='/route-v4/registration-complete' method='post'>
 
             {% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
             {% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}

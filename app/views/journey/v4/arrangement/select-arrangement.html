@@ -8,6 +8,8 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+{% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
+{% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
 
 <div class="govuk-grid-row">
 
@@ -18,45 +20,77 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<p>Details about what an arrangement is - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis ex suscipit neque, dolores ipsa vel eius ratione eveniet porro, tempora iste quam minus.</p>
 
-		{% if (data['arrangement-name']) %}
+		{% if (data['arrangement-progress'] == 'complete') %}
 
 		<h2 class="govuk-heading-m">Select an existing arrangement:</h2>
 
-		{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
-		{{ govukSummaryList({
-		card: {
-			title: {
-				text: data['arrangement-name']
-			},
-			actions: {
-				items: [
-				  {
-					href: "../activity/a-start?registration-tier=political&arrangement-name="+data['arrangement-name']+"&arrangement-progress=complete",
-					text: "Select this arrangement",
-					visuallyHiddenText: "of University of Gloucestershire",
-					classes: "govuk-button govuk-!-margin-bottom-1"
-				  }
-				]
-			}
-		},
-		rows: [
-			{
-			key: {
-				text: "Agreement date"
-			},
-			value: {
-				html: "23 Aug 2023"
-			},
-			actions: {
-				items: [
-				{
-				}
-				]
-			}
-			}
-		]
-		}) }}
+		<div class="govuk-summary-card">
+			<div class="govuk-summary-card__title-wrapper">
+				<h2 class="govuk-summary-card__title">
+					<span class="govuk-caption-m">Arrangement </span>
+					{{data['foreign-power-name']}} ({{fpCountry}})
+					
+				</h2>
+				<ul class="govuk-summary-card__actions">
+					<li class="govuk-summary-card__action">
+						<a class="govuk-link show-collapsed-content" href="#">View details<span class="govuk-visually-hidden"> of University of
+								Gloucestershire (University of Gloucestershire)</span></a>
+					</li>
+					<li class="govuk-summary-card__action">
+						<a class="govuk-link " href="../activity/a-start?registration-tier=political&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Select<span class="govuk-visually-hidden"> of University of
+								Gloucestershire (University of Gloucestershire)</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="govuk-summary-card__content govuk-summary-card__content__collapsable">
+				<dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Foreign Power (Country)
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{% if (data['fp-2'] == 'Yes') %}
+								{% if (data['fp-4'] == 'Yes') %}
+									{{foreignPower}} ({{fpCountry}})
+								{% else %}
+									{{foreignPower}} ({{fpCountry}})
+								{% endif %}
+							{% else %}
+								{{foreignPower}} ({{fpCountry}})
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="fp-2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							What is in the arrangement?
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{data['fp-8']}}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="fp-8">Change<span class="govuk-visually-hidden"> Other names</span></a>
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							When was the arrangement made?
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{% if (data['fp-9-day']) %}{{data['fp-9-day']}} {{data['fp-9-month'] | monthName("truncate")}} {{data['fp-9-year']}} {% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> date of
+									birth</span></a>
+						</dd>
+					</div>
+				</dl>
+			</div>
+		</div>
+
 
 		{% endif %}
 
