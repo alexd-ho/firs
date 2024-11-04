@@ -5,13 +5,25 @@
         Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-    
+    {% set answer %}
+        {% if (data['a-mon-1'] == 'Money') %}
+
+        {% endif %}
+    {% endset %}
+
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='a-mon-3' method='post'>
-    
-                <span class='govuk-caption-l'>Add an activity</span>
+
+
+                {% set answer %}
+                <span class="list-maker">
+                    {% for item in data['a-mon-1'] %}<span>{{item  | lower}}</span>{% endfor %}
+                </span>
+                {% endset %}
+
+                <span class='govuk-caption-l'>Add an activity </span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -19,7 +31,7 @@
                     name: 'a-mon-2',
                     value: data['a-mon-2'],
                     label: {
-                        text: 'What is the total value of the '+data['a-mon-1']+' being supplied?',
+                        html: 'What is the total value of the '+answer+' being supplied?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },

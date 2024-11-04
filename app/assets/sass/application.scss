@@ -5,6 +5,22 @@
 
 // Add extra styles here
 
+// GENERAL
+
+.list-maker {
+    > * {
+        &:before {
+            content: ", ";
+        }
+        &:last-of-type:before {
+            content: " and ";
+        }
+        &:first-of-type:before {
+            content: "";
+        }
+    }
+}
+
 // Step by step navigation
 
 .app-step-nav__step-- {

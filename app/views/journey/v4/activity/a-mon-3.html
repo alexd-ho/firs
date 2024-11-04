@@ -7,13 +7,15 @@
 
 {% block content %}
 
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
     
       <span class="govuk-caption-l">Add an activity</span>
 
-      <h1 class="govuk-heading-l">Who is intended to receive the private communication?</h1>
-      <div class="govuk-hint">If multiple individuals or entities are being supplied, you can add more by selecting 'Add another'.</div>
+      <h1 class="govuk-heading-l">Tell us about the individuals or entities you are supplying <span class="list-maker">{% for item in data['a-mon-1'] %}<span>{{item  | lower}}</span>{% endfor %}</span> to</h1>
+      <div class="govuk-hint"><p>If multiple individuals or entities are being supplied, you can add more by selecting 'Add another'.</p></div>
       
       <form action="/route-v4/activity-router-4" method="post">                
 
