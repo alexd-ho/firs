@@ -21,11 +21,13 @@
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
                     
+                {% set subcontractorAddress %}
+
                 {% call govukFieldset({
                     legend: {
                         text: 'What is the address of the '+currentType+' doing the activity?',
-                        classes: 'govuk-fieldset__legend--l',
-                        isPageHeading: true
+                        classes: 'govuk-fieldset__legend hidden',
+                        isPageHeading: false
                     }
                 }) %}
                     
@@ -315,6 +317,40 @@
                 </div>
                     
                 {% endcall %}
+
+
+                {% endset %}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: currentSub,
+                    name: currentSub,
+                    value: data[currentSub],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you know the address of '+data[subcontractor]+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'This information may be used to contact '+data[subcontractor]+', and verify their identity'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional: {
+                            html: subcontractorAddress
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
     
                 {{ govukButton({
                     text: 'Save and continue'

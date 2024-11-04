@@ -18,18 +18,54 @@
     
                 <span class='govuk-caption-l'>Individual or entity involved | Add an activity</span>
     
+
+                {% set subcontractorTel %}
+                    
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
+                    id: currentSub+'-telephone',
+                    name: currentSub+'-telephone',
+                    value: data[currentSub+'-telephone'],
+                    label: {
+                        text: 'Telephone number',
+                        classes: 'govuk-label',
+                        isPageHeading: false
+                    }
+                }) }}
+                {% endset %}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
                     id: currentSub,
                     name: currentSub,
                     value: data[currentSub],
-                    label: {
-                        text: 'What is the telephone number of the '+currentType+' doing the activity?',
-                        classes: 'govuk-label--l',
-                        isPageHeading: true
+                    fieldset: {
+                        legend: {
+                            text: 'Do you know the telephone number of '+data[subcontractor]+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        text: 'This information may be used to contact '+data[subcontractor]+', and verify their identity'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional: {
+                            html: subcontractorTel
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
                     }
+                    ]
                 }) }}
-    
+
+
+
                 {{ govukButton({
                     text: 'Save and continue'
                 }) }}

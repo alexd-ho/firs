@@ -11,6 +11,8 @@
     {% set indName1 %}a-sub-fname-{{data['sub']}}{% endset -%}
     {% set indName2 %}a-sub-lname-{{data['sub']}}{% endset -%}
 
+    {% set reg %}{% if (data['reg-type'] == 'Individual') %}you{% else %}{{data['registrant-name']}}{% endif %}{% endset %}
+
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -25,9 +27,12 @@
                     name: currentSub,
                     value: data[currentSub],
                     label: {
-                        text: 'What is the relationship between '+data[indName1]+' '+data[indName2]+' and '+data['registrant-name']+'?',
+                        text: 'What is the relationship between '+data[indName1]+' '+data[indName2]+' and '+reg+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
+                    },
+                    hint: {
+                        text: 'For example, business partner, contractor, or friend'
                     }
                 }) }}
     

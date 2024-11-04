@@ -22,7 +22,7 @@
                     value: data['a-sub-type'],
                     fieldset: {
                         legend: {
-                            text: 'Is an individual or entity doing the activity?',
+                            text: 'Are you adding an individual or entity?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
@@ -30,13 +30,16 @@
                     items: [
                     {
                        value: 'Individual',
-                        text: 'Individual'
+                        text: 'Individual',
+                        hint: {
+                            text: 'A single person'
+                        }
                     },
                     {
                        value: 'Entity',
                        text: 'Entity',
                        hint: {
-                        text: "Any entity such as a company, charity or club"
+                        text: "An organisation such as a company, charity, or club"
                        }
                     }
                     ]

@@ -10,6 +10,7 @@
     {% set entityName %}a-sub-orgname-{{data['sub']}}{% endset -%}
     {% set registrantName %}{% endset -%}
 
+    {% set reg %}{% if (data['reg-type'] == 'Individual') %}you{% else %}{{data['registrant-name']}}{% endif %}{% endset %}
 
     
     {% block content %}
@@ -25,9 +26,12 @@
                     name: currentSub,
                     value: data[currentSub],
                     label: {
-                        text: 'What is the relationship between '+data[entityName]+' and '+data['registrant-name']+'?',
+                        text: 'What is the relationship between '+data[entityName]+' and '+reg+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
+                    },
+                    hint: {
+                        text: 'For example, business partner, contractor, or friend'
                     }
                 }) }}
     
