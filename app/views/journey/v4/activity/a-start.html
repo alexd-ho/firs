@@ -1,94 +1,65 @@
-{% extends "layouts/v4-header-1.html" %}
-{% set activeLinkId = 'registrations' %}
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
 
-    {% block pageTitle %}
-        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
-    {% endblock %}
+{% block pageTitle %}
+Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
 
 
 {% block content %}
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds-from-desktop'>
 
+        {% if (data['arrangement-tier'] == 'enhanced') %}
+        <form action='a-2-e?activity-progress=in-progress' method='post'>
+        {% else %}
+        <form action='a-2-p?activity-progress=in-progress' method='post'>
+        {% endif %}
 
-<div class="govuk-grid-row">
+                <h1 class='govuk-heading-l'>Add an activity</h1>
 
-	<div class="govuk-grid-column-two-thirds-from-desktop">
+                <p>We need the details of all the activities in the arrangement. You must add the activities individually. </p>
 
+                <h2 class='govuk-heading-m'>What you need to complete this section</h2>
 
-			<span class="govuk-caption-l">Add an activity</span>
-			<h1 class="govuk-heading-l">What you need to complete this section</h1>
+                <p>In this section, we are asking for information about a single activity that happens as a direct result of the arrangement.</p>
 
-			{% from "govuk/components/details/macro.njk" import govukDetails %}
+                <p>You need to know:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>what the activity is intended to influence</li>
+                    <li>the actions involved in the activity</li>
+                    <li>how often the activity happens</li>
+                    <li>what you want the activity to achieve</li>
+                    <li>who is involved in the activity </li>
+                </ul>
 
-			{{ govukDetails({
-				summaryText: "What is an activity?",
-				text: "An activity is any action that works towards the desired outcome of an 
-				agreement, or any action taken under a direction from a foreign power or 
-				foreign power-controlled organisation. "
-				}) }}
+                <h2 class='govuk-heading-m'>The public register</h2>
+                <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register.</p>
+                <p>Parts of the registration information may stay private and not appear on the public register if they meet any of these criteria:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>there is a significant risk that publication would put any individual’s safety at risk.</li>
+                    <li>publication would involve the disclosure of commercially sensitive information.</li>
+                    <li>where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime.</li>
+                    <li>there is a risk that publication would prejudice the national security of the UK.</li>
+                </ul>
+                <p>At the check and submit stage, you can tell us if any of the registration information meets one or more of the criteria and should stay private. If you do, you will have 5 days to provide your evidence.</p>
 
-				{{ govukDetails({
-					summaryText: "What is an agreement?",
-					text: "An agreement is an understanding between two or more parties to conduct  
-					activities. The agreement can be anything from a legally enforceable contract to 
-					an informal, but clear, written or verbal understanding."
-				}) }}
-							
-				{{ govukDetails({
-					summaryText: "What is a foreign power?",
-					html: "
-					<p>A foreign power is:</p>
-					<ul class='govuk-list govuk-list--bullet'>
-						<li>the sovereign of other head of a foreign state,</li>
-						<li>a foreign government, or part of a foreign government (for example, a ministry or department of a foreign government)</li>
-						<li>an agency or authority of a foreign government, or of part of a foreign government</li>
-						<li>an authority responsible for administering the affairs of an area within a foreign country or territory (for example, a local government authority in a foreign country)</li>
-						<li>a political party which is a governing political party of a foreign government</li>
-					</ul>"
-				}) }}
-	
-				{{ govukDetails({
-					summaryText: "What is a foreign power-controlled organisation?",
-					text: "A list of organisations defined by the government in legislation."
-				}) }}
+                <p>Read the:</p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="#">guidance on what information appears on the public register</a></li>
+                    <li><a href="#">guidance on requesting information to remain private</a></li>
+                </ul>
 
-							
-			<p>You need to know:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>The type of activity</li>
-				<li>The names of people, or the names of the groups, conducting the activity</li>
-				<li>The frequency of the activity</li>
-				<li>The intended outcome of the activity</li>
-			</ul>
+                {{ govukButton({
+                text: 'Save and continue'
+                }) }}
 
-
-			<p>You must register activities one at a time. </p>
-			<p>You can register or amend an activity at any time, but you must comply with the <a href="#">timescales set out in the Foreign Influence Registration Scheme legislation</a>.</p>
-
-			{{ govukInsetText({
-				html: "<p>Some of the information you provide may appear on the Foreign Influence Registration Scheme public register if you register any activities that are considered political in nature. </p>
-				<p>You can make a request for any information that would appear on the public register to remain private.</p>
-				<p>You can request for the information to remain private when you register your activity.</p>"
-				}) }}
-
-
-			{% if (data['tier'] == 'political') %}
-			{{ govukButton({
-				text: "Continue",
-                href: "a-2-p?activity-progress=in-progress"
-			}) }}
-			{% else  %}
-			{{ govukButton({
-				text: "Continue",
-                href: "a-2-e?activity-progress=in-progress"
-			}) }}								
-			{% endif %}
-
-
-	</div>
-
+                {{ govukButton({
+                href: '/route-v4/registration-overview',
+                classes: 'govuk-button--secondary',
+                text: 'Save and exit'
+                }) }}
+            </form>
+    </div>
 </div>
-
-
-
-
 {% endblock %}
