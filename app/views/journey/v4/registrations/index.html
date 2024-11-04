@@ -46,12 +46,14 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						</a>
 					</li>
 					<li class="govuk-tabs__list-item">
-						<a class="govuk-tabs__tab" href="#submitted">
-							Submitted
+						<a class="govuk-tabs__tab" href="#completed">
+							Completed
 						</a>
 					</li>
 				</ul>
+
 				<div class="govuk-tabs__panel" id="in-progress">
+
 					<h2 class="govuk-heading-m">In progress</h2>
 
 					{% if (data['registration-progress'] == 'in-progress'  or data['registration-progress'] == 'submitted') %}
@@ -197,8 +199,10 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					{% endif %}
 		
 				</div>
-				<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="submitted">
-					<h2 class="govuk-heading-m">Submitted</h2>
+
+				<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="completed">
+
+					<h2 class="govuk-heading-m">Completed</h2>
 
 					{% if (data['registration-progress'] == 'complete') %}
 
