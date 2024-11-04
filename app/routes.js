@@ -2411,6 +2411,8 @@ var agreement_v4 = '/journey/v4/agreement';
 var activity_v4 = '/journey/v4/activity';
 var exception_v4 = '/journey/v4/exception';
 var cmt_v4 = '/journey/v4/cmt';
+var guidance_v4 = '/journey/v4/guidance';
+
 
 
 
@@ -2495,13 +2497,13 @@ router.post('/route-v4/on-6', function(request, response) {
 router.post('/route-v4/reg-type', function(request, response) {
     var value = request.session.data['reg-type']
     if (value == 'Individual'){ 
-        response.redirect(registrant_v4+'/i1?tier=political&misrep=false&reg-type=individual')
+        response.redirect(registrant_v4+'/i1?tier=political&misrep=false&reg-type=Individual')
     } else if (value == "Misrepresentative foreign power employee") { // 
-        response.redirect(registrant_v4+'/i1?tier=enhanced&misrep=true&reg-type=individual')
+        response.redirect(registrant_v4+'/i1?tier=enhanced&misrep=true&reg-type=Individual')
     } else if (value == "Entity") { // 
-        response.redirect(registrant_v4+'/e1a?tier=political&misrep=false&reg-type=entity')
+        response.redirect(registrant_v4+'/e1a?tier=political&misrep=false&reg-type=Entity')
     } else {
-        response.redirect(registrant_v4+'/e1b?tier=enhanced&misrep=false&reg-type=entity')
+        response.redirect(registrant_v4+'/e1b?tier=enhanced&misrep=false&reg-type=Entity')
     }
 })
 
@@ -2865,4 +2867,15 @@ router.post('/route-v4/restart-inc', function(request, response) {
     var curInc = request.session.data['inc'];
     curInc++;
     response.redirect(activity_v4+'/a-inc-1?inc='+curInc)
+})
+
+/// GUIDANCE
+
+router.post('/route-v4/guidance/registrant-types', function(request, response) {
+    var val = request.session.data['reg-type'];
+    if (val == "Yes") {
+        response.redirect(guidance_v4+'/')
+    } else {
+        response.redirect(guidance_v4+'/')
+    }
 })

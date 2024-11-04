@@ -25,37 +25,42 @@
                             isPageHeading: true
                         }
                     },
+                    hint: {
+                        text: 'Select one'
+                    },
                     items: [
                     {
                         value: 'Individual',
-                        text: 'Individual',
+                        text: 'Myself',
                         hint: {
-                            text: 'An individual in an agreement with a foreign power or foreign power-controlled entity'
-                        }
-                    },
-                    {
-                        value: 'Misrepresentative foreign power employee',
-                        text: 'Misrepresentative foreign power employee',
-                        hint: {
-                            text: 'An individual employed by a foreign power who does not accurately describe their activities or role in the UK'
+                            text: 'A single person in an agreement with a foreign power or foreign power-controlled entity'
                         }
                     },
                     {
                         value: 'Entity',
-                        text: 'Entity',
+                        text: 'An entity',
                         hint: {
-                            text: 'An organisation, company, charity, club or similar, in an agreement with a foreign power or foreign power-controlled entity'
+                            text: 'An organisation such as a company, charity, club or similar, in an agreement with a foreign power or foreign power-controlled entity'
                         }
                     },
                     {
                         value: 'Foreign power-controlled entity',
-                        text: 'Foreign power-controlled entity',
+                        text: 'A foreign power-controlled entity',
                         hint: {
                             text: 'A foreign power-controlled entity specified under UK law'
+                        }
+                    },
+                    {
+                        value: 'Misrepresentative foreign power employee',
+                        text: 'A misrepresenting foreign power employee',
+                        hint: {
+                            text: 'A single person employed by a foreign power who does not accurately describe their activities or role in the UK'
                         }
                     }
                     ]
                 }) }}
+
+                <p><a href="/route-v4/guidance/registrant-types">Check what you need to register as (opens new tab)</a></p>
     
                 {{ govukButton({
                     text: 'Continue'

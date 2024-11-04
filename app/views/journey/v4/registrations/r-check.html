@@ -1108,20 +1108,8 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
     </div>
 </div>
 
-<script>
 
-function manageCard() {
-    $('.show-collapsed-content').on('click', function() {
-        console.log('aaa');
-        $(this).closest('.govuk-summary-card').toggleClass('show-content');
-        return false;
-    })
-};
+<script type="text/javascript" src="/public/javascripts/manage-card.js"></script>
 
-window.onload = function() {
-    manageCard();
-};
-
-</script>
 
 {% endblock %}
