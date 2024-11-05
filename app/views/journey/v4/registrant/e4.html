@@ -29,7 +29,11 @@
 						<h1 class="govuk-fieldset__heading">
 							What other names is {{data['registrant-name']}} known by?
 						</h1>
+
 					</legend>
+					<div class="govuk-hint">
+						<p>If your entity has multiple other names, you can add more by selecting 'Add another'. </p>
+					</div>
 
 					<div id="js-activity-wrapper">
 
@@ -63,15 +67,19 @@
 				<a href="#" class="govuk-button govuk-button--secondary"  id="add-another-button">Add another</a>
 			</div>
 	  
+			<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+				{{ govukButton({
+					text: 'Save and continue'
+				}) }}
+	
+				{{ govukButton({
+					href: '/route-v4/registration-overview',
+					classes: 'govuk-button--secondary',
+					text: 'Save and exit'
+				}) }}
 
-            {{ govukButton({
-                text: 'Save and continue'
-            }) }}
-            {{ govukButton({
-                href: '../registrations/new',
-                classes: 'govuk-button--secondary',
-                text: 'Save and exit'
-            }) }}
+			</div>
 
         </form>
 

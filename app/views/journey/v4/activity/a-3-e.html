@@ -71,15 +71,21 @@
                     ]
                 }) }}
     
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
-    
-                {{ govukButton({
-                    href: '/route-v4/registration-overview',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+        
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
 
             </form>
         </div>
