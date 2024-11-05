@@ -2615,7 +2615,8 @@ router.post('/route-v4/idv-m-2', function(request, response) {
     if (value == 'Yes'){ 
         response.redirect(verify_v4+'/idv-m-2-a')
     } else {
-        response.redirect(verify_v4+'/idv-m-3')
+        // response.redirect(verify_v4+'/idv-m-3')
+        response.redirect(verify_v4+'/idv-m-end-1')
     }
 })
 
