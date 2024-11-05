@@ -88,7 +88,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['registrant-progress'] == 'complete') %}
-										Complete
+										Completed
 										{% elseif (data['registrant-progress'] == 'in-progress') %}
 										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 										{% else %}
@@ -113,7 +113,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['arrangement-progress'] == 'complete') %}
-										Complete
+										Completed
 										{% elseif (data['arrangement-progress'] == 'in-progress') %}
 										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 										{% else %}
@@ -137,7 +137,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['activity-progress'] == 'complete') %}
-										Complete
+										Completed
 										{% elseif (data['activity-progress'] == 'in-progress') %}
 										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 										{% else %}
@@ -154,7 +154,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										Registration submitted
 									</dt>
 									<dd class="govuk-summary-list__value">
-										{% if (data['registration-progress'] == 'submitted') %}Submitted: 12 Oct 2024{% endif %}
+										{% if (data['registration-progress'] == 'submitted' or data['registration-progress'] == 'complete') %}Submitted: 12 Oct 2024{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['registration-progress'] == 'submitted') %}
@@ -184,9 +184,9 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										{% elseif (data['exception-progress'] == 'in-progress') %}
 										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 										{% else %}
-										{% if (data['registration-progress'] == 'submitted') %}
+										{% if (data['hold-registration'] == 'yes') %}
 										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
-										{% elseif (data['registration-progress'] == 'complete') %}
+										{% elseif (data['hold-registration'] == 'no') %}
 										None requested
 										{% else %}
 										<span class="govuk-task-list__status--cannot-start-yet">Complete previous sections to determine applicability</span>
@@ -265,11 +265,15 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['arrangement-progress'] == 'complete') %}
-										Complete
+										Completed
 										{% elseif (data['arrangement-progress'] == 'in-progress') %}
 										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 										{% else %}
+										{% if (data['registrant-progress'] == 'complete') %}
 										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% else %}
+										Cannot start yet
+										{% endif %}
 										{% endif %}
 									</dd>
 								</div>
@@ -285,29 +289,60 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['activity-progress'] == 'complete') %}
-										<strong class="govuk-tag govuk-tag--green">Submitted</strong>
+										Completed
 										{% elseif (data['activity-progress'] == 'in-progress') %}
 										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 										{% else %}
+										{% if (data['arrangement-progress'] == 'complete') %}
 										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% else %}
+										<span class="govuk-task-list__status--cannot-start-yet">Cannot start yet</span>
+										{% endif %}
 										{% endif %}
 									</dd>
 								</div>
-			
 								<div class="govuk-summary-list__row">
 									<dt class="govuk-summary-list__key">
-										Exception
+										Registration submitted
 									</dt>
 									<dd class="govuk-summary-list__value">
-										{{data['exception-options']}}
+										{% if (data['registration-progress'] == 'submitted' or data['registration-progress'] == 'complete') %}Submitted: 12 Oct 2024{% endif %}
+									</dd>
+									<dd class="govuk-summary-list__actions">
+										{% if (data['registration-progress'] == 'submitted') %}
+										<strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+										{% elseif (data['registration-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+										{% elseif (data['registration-progress'] == 'in-progress') %}
+										{% if (data['activity-progress'] == 'complete') %}
+										<strong class="govuk-tag govuk-tag--turquoise">Review and submit</strong>
+										{% else %}
+										<span class="govuk-task-list__status--cannot-start-yet">Cannot start yet</span>
+										{% endif %}
+										{% endif %}
+									</dd>
+								</div>
+
+								<div class="govuk-summary-list__row">
+									<dt class="govuk-summary-list__key">
+										Public register exception evidence
+									</dt>
+									<dd class="govuk-summary-list__value">
+										{% if (data['exception-progress'] == 'submitted') %}Submitted: 12 Oct 2024{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['exception-progress'] == 'complete') %}
-										Pending
-										{% elseif (data['exception-progress'] == 'in-progress') %}
 										<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
+										{% elseif (data['exception-progress'] == 'in-progress') %}
+										<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 										{% else %}
+										{% if (data['hold-registration'] == 'yes') %}
 										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+										{% elseif (data['hold-registration'] == 'no') %}
+										None requested
+										{% else %}
+										<span class="govuk-task-list__status--cannot-start-yet">Complete previous sections to determine applicability</span>
+										{% endif %}
 										{% endif %}
 									</dd>
 								</div>
@@ -333,6 +368,8 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 	</div>
 
+
+	<script type="text/javascript" src="/public/javascripts/manage-card.js"></script>
 
 
 

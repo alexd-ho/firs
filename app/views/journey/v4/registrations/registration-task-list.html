@@ -8,17 +8,17 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+{% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
+{% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
 
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-full">
 
 		<span class="govuk-caption-l">Account home</span>
-		<h1 class="govuk-heading-l">Start a new registration</h1>
+		<h1 class="govuk-heading-l">Complete your registration</h1>
 
-		<!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis ex suscipit neque, dolores ipsa vel eius
-			ratione eveniet porro, tempora iste quam minus. Excepturi tempora distinctio vero deserunt totam repudiandae
-		</p> -->
+		<p>You must complete your registration within the specified time limit. Read the guidance about timings.</p>
 
 
 		<div class="govuk-grid-column-full-width">
@@ -61,20 +61,28 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 				</li>
 			</ul>
 
-			<h2 class="govuk-heading-m govuk-!-margin-top-5">Register your activity</h2>
+			<h2 class="govuk-heading-m govuk-!-margin-top-5">Prepare your registration</h2>
+
 			<ul class="govuk-task-list">
 				<li class="govuk-task-list__item govuk-task-list__item--with-link">
 					<div class="govuk-task-list__name-and-hint">
 						{% if (data['first-registration'] == 'not-started') %}
-						<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress"
-							aria-describedby="prepare-application-1-status">
-							1. Add a registrant
-						</a>
+
+							<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress"
+								aria-describedby="prepare-application-1-status">
+								Add a registrant
+							</a>
+							<div id="application-details-3-hint" class="govuk-task-list__hint-">
+								{{data['registrant-name']}}
+							</div>
 						{% else %}
-						<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant"
-							aria-describedby="prepare-application-1-status">
-							1. Add a registrant
-						</a>
+							<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress"
+								aria-describedby="prepare-application-1-status">
+								Add a registrant
+							</a>
+							<div id="application-details-3-hint" class="govuk-task-list__hint-">
+								{{data['registrant-name']}}
+							</div>													
 						{% endif %}
 
 					</div>
@@ -118,10 +126,18 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						<a class="govuk-link govuk-task-list__link" href="../arrangement/fp-check"
 							aria-describedby="prepare-application-2-status">
-							2. Add a foreign influence
+							Add an arrangement
 						</a>
 						<div id="application-details-3-hint" class="govuk-task-list__hint-">
-							<strong>{{data['arrangement-name']}}</strong>
+							{% if (data['fp-2'] == 'Yes') %}
+								{% if (data['fp-4'] == 'Yes') %}
+									{{foreignPower}} ({{fpCountry}})
+								{% else %}
+									{{foreignPower}} ({{fpCountry}})
+								{% endif %}
+							{% else %}
+								{{foreignPower}} ({{fpCountry}})
+							{% endif %}
 						</div>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-2-status">
@@ -131,10 +147,18 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						<a class="govuk-link govuk-task-list__link" href="../arrangement/fp-check"
 							aria-describedby="prepare-application-2-status">
-							2. Add a foreign influence
+							Add an arrangement
 						</a>
 						<div id="application-details-3-hint" class="govuk-task-list__hint-">
-							<strong>{{data['arrangement-name']}}</strong>
+							{% if (data['fp-2'] == 'Yes') %}
+								{% if (data['fp-4'] == 'Yes') %}
+									{{foreignPower}} ({{fpCountry}})
+								{% else %}
+									{{foreignPower}} ({{fpCountry}})
+								{% endif %}
+							{% else %}
+								{{foreignPower}} ({{fpCountry}})
+							{% endif %}
 						</div>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-2-status">
@@ -145,7 +169,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-arrangement"
 							aria-describedby="prepare-application-2-status">
-							2. Add a foreign influence
+							Add an arrangement
 						</a>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
@@ -154,7 +178,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
-							2. Add a foreign influence
+							Add an arrangement
 						</div>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
@@ -168,10 +192,13 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						<a class="govuk-link govuk-task-list__link" href="../activity/a-start"
 							aria-describedby="prepare-application-3-status">
-							3. Add an activity
+							Add an activity
 						</a>
 						<div id="application-details-3-hint" class="govuk-task-list__hint-">
-							<strong>{{data['activity-name']}}</strong>
+							{% if (data['a-pri-1']) %}<span class="govuk-summary-card__title__element">Private communication</span>{% endif %}
+							{% if (data['a-pub-1']) %}<span class="govuk-summary-card__title__element">Public communication</span>{% endif %}
+							{% if (data['a-mon-1']) %}<span class="govuk-summary-card__title__element">Supply of money, goods or services</span>{% endif %}
+							{% if (data['a-oth-1']) %}<span class="govuk-summary-card__title__element">Other type of activity</span>{% endif %}
 						</div>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-1-status">
@@ -190,7 +217,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
-							3. Add an activity
+							Add an activity
 						</div>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
@@ -198,33 +225,36 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					</div>
 					{% endif %}
 				</li>
+			</ul>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-5">Check and submit your registration</h2>
+
+			<ul class="govuk-task-list">
 				<li class="govuk-task-list__item govuk-task-list__item--with-link">
 					{% if (data['activity-progress'] == 'complete') %}
 					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
+						<a class="govuk-link govuk-task-list__link" href="../registrations/r-check"
 							aria-describedby="prepare-application-4-status">
-							4. Submit registration
+							Check a summary of your registration and submit it to the FIRS team
 						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint">
-							Request Exception
-						</div>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-1-status">
-						{% if (data['exception-progress'] == 'complete') %}
-						Pending
-						{% elseif (data['exception-progress'] == 'in-progress') %}
-						<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
+						{% if (data['registration-progress'] == 'submitted') %}
+						<strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+						{% elseif (data['registration-progress'] == 'complete') %}
+						<strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+						{% elseif (data['registration-progress'] == 'in-progress') %}
+						{% if (data['activity-progress'] == 'complete') %}
+						<strong class="govuk-tag govuk-tag--turquoise">Review and submit</strong>
 						{% else %}
-						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						<span class="govuk-task-list__status--cannot-start-yet">Cannot start yet</span>
+						{% endif %}
 						{% endif %}
 					</div>
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
-							4. Submit registration
-						</div>
-						<div id="application-details-3-hint" class="govuk-task-list__hint">
-							Including request exception
+							Check a summary of your registration and submit it to the FIRS team
 						</div>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
@@ -232,37 +262,38 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					</div>
 					{% endif %}
 				</li>
+			</ul>
+
+			<h2 class="govuk-heading-m govuk-!-margin-top-5">Public register</h2>
+
+			<ul class="govuk-task-list">
 				<li class="govuk-task-list__item govuk-task-list__item--with-link">
 					{% if (data['activity-progress'] == 'complete') %}
 					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
+						<a class="govuk-link govuk-task-list__link" href="../exception/ex-1"
 							aria-describedby="prepare-application-4-status">
-							5. Request an exception
+							You may need to provide evidence that shows why your information should remain private and not appear on the public register
 						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint">
-						{% if (data['exception-progress'] == 'complete') %}
-						{% elseif (data['exception-progress'] == 'in-progress') %}
-						{% else %}
-						If applicable
-						{% endif %}
-						</div>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-1-status">
 						{% if (data['exception-progress'] == 'complete') %}
-						Pending
-						{% elseif (data['exception-progress'] == 'in-progress') %}
 						<strong class="govuk-tag govuk-tag--blue">Pending review</strong>
+						{% elseif (data['exception-progress'] == 'in-progress') %}
+						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 						{% else %}
+						{% if (data['hold-registration'] == 'yes') %}
 						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+						{% elseif (data['hold-registration'] == 'no') %}
+						None requested
+						{% else %}
+						<span class="govuk-task-list__status--cannot-start-yet">Complete previous sections to determine applicability</span>
+						{% endif %}
 						{% endif %}
 					</div>
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
-							5. Request an exception
-						</div>
-						<div id="application-details-3-hint" class="govuk-task-list__hint">
-							If applicable
+							You may need to provide evidence that shows why your information should remain private and not appear on the public register
 						</div>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
