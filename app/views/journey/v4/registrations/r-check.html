@@ -12,8 +12,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 <div class='govuk-grid-row'>
-    <div class='govuk-grid-column-full-width'>
-        <form action='/route-v4/registration-complete' method='post'>
+    <div class='govuk-grid-column-two-thirds'>
 
             {% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
             {% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
@@ -87,7 +86,14 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
             <p>You must submit your registration within the specified time limit. Read the <a href="#">guidance about timings</a>.</p>
             <p>You cannot make any changes after you submit your registration. </p>
             <p>After you submit this form, you must send any changes to your registration details to [FIRS email address].  </p>
-            
+
+    </div>
+</div>
+
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-full'>
+
+
 
             <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
@@ -943,8 +949,14 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
+        </div>
+    </div>
+    
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds'>
+    
 
-
+            <form action='/route-v4/registration-complete' method='post'>
 
 
             {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
@@ -1125,6 +1137,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
             }) }}
 
         </form>
+
     </div>
 </div>
 
