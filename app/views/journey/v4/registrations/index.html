@@ -144,17 +144,17 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										{% if (data['arrangement-progress'] == 'complete') %}
 										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
 										{% else %}
-										Cannot start yet
+										<span class="govuk-task-list__status--cannot-start-yet">Cannot start yet</span>
 										{% endif %}
 										{% endif %}
 									</dd>
 								</div>
 								<div class="govuk-summary-list__row">
 									<dt class="govuk-summary-list__key">
-										Complete registration
+										Registration submitted
 									</dt>
 									<dd class="govuk-summary-list__value">
-										Submitted: 12 Oct 2024
+										{% if (data['registration-progress'] == 'submitted') %}Submitted: 12 Oct 2024{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['registration-progress'] == 'submitted') %}
@@ -165,7 +165,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										{% if (data['activity-progress'] == 'complete') %}
 										<strong class="govuk-tag govuk-tag--turquoise">Review and submit</strong>
 										{% else %}
-										Cannot start yet
+										<span class="govuk-task-list__status--cannot-start-yet">Cannot start yet</span>
 										{% endif %}
 										{% endif %}
 									</dd>
@@ -173,10 +173,10 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 								<div class="govuk-summary-list__row">
 									<dt class="govuk-summary-list__key">
-										Exception
+										Public register exception evidence
 									</dt>
 									<dd class="govuk-summary-list__value">
-										{{data['exception-options']}}
+										{% if (data['exception-progress'] == 'submitted') %}Submitted: 12 Oct 2024{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['exception-progress'] == 'complete') %}
@@ -189,7 +189,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										{% elseif (data['registration-progress'] == 'complete') %}
 										None requested
 										{% else %}
-										Cannot start yet
+										<span class="govuk-task-list__status--cannot-start-yet">Complete previous sections to determine applicability</span>
 										{% endif %}
 										{% endif %}
 									</dd>

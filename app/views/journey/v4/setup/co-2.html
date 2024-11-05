@@ -9,7 +9,11 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
+            {% if (data['return'] == 'update') %}
+            <form action='../account/contact-details' method='post'>
+            {% else %}                                
             <form action='co-3' method='post'>
+            {% endif %}
     
                 <span class='govuk-caption-l'>Add your contact details</span>
     
