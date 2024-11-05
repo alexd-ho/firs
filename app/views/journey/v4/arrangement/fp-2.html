@@ -14,7 +14,7 @@
                 <span class='govuk-caption-l'>Add an arrangement</span>
 
                 {% set thisRegistrant %}
-                    {% if (data['reg-type'] == 'individual') %}Do you {% else %} Does {{data['registrant-name]']}}{% endif %}
+                    {% if (data['reg-type'] == 'Individual') %}Do you {% else %} Does {{data['registrant-name]']}}{% endif %}
                 {% endset %}
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}

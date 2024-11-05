@@ -9,7 +9,9 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-
+{% set thisRegistrant %}
+{% if (data['reg-type'] == 'individual') %}you have{% else %}your entity has{% endif %}
+{% endset %}
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
@@ -21,11 +23,11 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 			<h2 class='govuk-heading-m'>What you need to complete this section     </h2> 
 
-			<p>In this section, we are asking for information about the arrangement you/your entity have/has with a foreign power or foreign power-controlled entity.</p>
+			<p>In this section, we are asking for information about the arrangement {{ thisRegistrant }} with a foreign power or foreign power-controlled entity.</p>
 
 			<p>You need to know: </p>
 			<ul class='govuk-list govuk-list--bullet'>
-				<li>the foreign power or foreign power-controlled entity you/your entity has an arrangement with</li>
+				<li>the foreign power or foreign power-controlled entity that {{ thisRegistrant }} an arrangement with</li>
 				<li>the details of the arrangement</li>
 				<li>when the arrangement was made</li>
 			</ul>
