@@ -12,7 +12,7 @@
             <form action='a-3-p' method='post'>
 
             {% set thisRegistrant %}
-                {% if (data['reg-type'] == 'individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
+                {% if (data['reg-type'] == 'Individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
             {% endset %}
 
 
@@ -31,7 +31,7 @@
                         }
                     },
                     hint: {
-                        text: 'Select all that apply.'
+                        text: 'Select all that apply'
                     },
                     items: [
                     {

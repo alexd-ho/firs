@@ -12,7 +12,11 @@
             <form action='a-4' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
-    
+
+                {% set thisRegistrant %}
+                {% if (data['reg-type'] == 'Individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
+            {% endset %}
+
                 {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
                 {{ govukCheckboxes({
                     id: 'activity-types',
@@ -20,7 +24,7 @@
                     values: data['activity-types'],
                     fieldset: {
                         legend: {
-                            text: 'What type of activity do you want to register?',
+                            text: 'What does the activity involve?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }

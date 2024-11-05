@@ -11,6 +11,10 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='a-4' method='post'>
     
+                {% set thisRegistrant %}
+                {% if (data['reg-type'] == 'Individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
+            {% endset %}
+            
                 <span class='govuk-caption-l'>Add an activity</span>
     
                 {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}

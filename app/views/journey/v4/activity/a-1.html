@@ -36,11 +36,11 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                 <h2 class='govuk-heading-m'>The public register</h2>
                 <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register.</p>
                 <p>Parts of the registration information may stay private and not appear on the public register if they meet any of these criteria:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>there is a significant risk that publication would put any individual’s safety at risk.</li>
-                    <li>publication would involve the disclosure of commercially sensitive information.</li>
-                    <li>where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime.</li>
-                    <li>there is a risk that publication would prejudice the national security of the UK.</li>
+                <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                    <li>there is a significant risk that publication would put any individual’s safety at risk</li>
+                    <li>publication would involve the disclosure of commercially sensitive information</li>
+                    <li>where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime</li>
+                    <li>there is a risk that publication would prejudice the national security of the UK</li>
                 </ul>
                 <p>At the check and submit stage, you can tell us if any of the registration information meets one or more of the criteria and should stay private. If you do, you will have 5 days to provide your evidence.</p>
 
@@ -50,15 +50,16 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                     <li><a href="#">guidance on requesting information to remain private</a></li>
                 </ul>
 
-                {{ govukButton({
-                text: 'Save and continue'
-                }) }}
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+                    {{ govukButton({
+                    text: 'Continue'
+                    }) }}
 
-                {{ govukButton({
-                href: '/route-v4/registration-overview',
-                classes: 'govuk-button--secondary',
-                text: 'Save and exit'
-                }) }}
+                </div>
+
             </form>
     </div>
 </div>
