@@ -58,7 +58,7 @@
                     </div> -->
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            Entity name
+                            Name
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{data['registrant-name']}}
@@ -82,6 +82,22 @@
                         </dd>
                         <dd class="govuk-summary-list__actions">
                             <a class="govuk-link" href="e3">Change<span class="govuk-visually-hidden"> Other names</span></a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        
+                        <dt class="govuk-summary-list__key">
+                            Incorporated
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {% if (data['e5'] == "Yes") %}Yes{% elseif (data['e7'] == "Yes") %}Yes{% else %}No{% endif %}
+                        </dd>
+                        <dd class="govuk-summary-list__value pr-col">
+                            <strong class="govuk-tag govuk-tag--purple">{{data['i5-year']}}</strong>
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="e5">Change<span class="govuk-visually-hidden"> date of
+                                    birth</span></a>
                         </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -166,7 +182,7 @@
                     <div class="govuk-summary-list__row">
                         {% if (data['e5'] == "Yes") %}
                         <dt class="govuk-summary-list__key">
-                            Regiestered address
+                            Registered address
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{registeredAddress}}
@@ -176,7 +192,7 @@
                         </dd>
                         {% elseif (data['e7'] == "Yes") %}
                         <dt class="govuk-summary-list__key">
-                            Regiestered address
+                            Registered address
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{registeredAddress}}

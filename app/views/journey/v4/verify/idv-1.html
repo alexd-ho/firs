@@ -15,7 +15,18 @@
     
                 <h1 class='govuk-heading-l'>Verify the identity of a senior responsible officer</h1> 
 
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit illo doloremque ducimus nisi itaque similique necessitatibus quidem. Inventore delectus itaque, commodi laborum labore cumque aperiam doloribus accusantium, similique voluptates non?</p>
+                <p>We need to verify the identity (ID) of a Senior Responsible Officer to:</p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>prevent fraudulent registrations from being made on behalf of your entity </li>
+                    <li>add other people to manage the registrations for {{ data['registrant-name'] }}</li>
+                </ul>
+
+                {% from 'govuk/components/details/macro.njk' import govukDetails %}
+                    
+                {{ govukDetails({
+                    summaryText: 'What is a Senior Responsible Officer?',
+                    text: 'A Senior Responsible Officer (SRO) is a person who is responsible for ensuring compliance with the Foreign Influence Registration Scheme (FIRS) within an entity. The SRO is typically a senior executive within the entity who has the authority to make decisions about FIRS and is the single point of contact for the FIRS team.      '
+                }) }}
     
                 {{ govukButton({
                     text: 'Save and continue'
