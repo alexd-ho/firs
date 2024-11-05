@@ -21,7 +21,7 @@
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            Foreign Power (Country)
+                            Arrangement with (Country)
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {% if (data['fp-2'] == 'Yes') %}
@@ -40,7 +40,7 @@
                     </div>
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            What is in the arrangement?
+                            Arrangement description
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {{data['fp-8']}}
@@ -51,7 +51,7 @@
                     </div>
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            When was the arrangement made?
+                            Arrangement date
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {% if (data['fp-9-day']) %}{{data['fp-9-day']}} {{data['fp-9-month'] | monthName("truncate")}} {{data['fp-9-year']}} {% endif %}
