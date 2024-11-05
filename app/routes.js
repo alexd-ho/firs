@@ -2839,8 +2839,10 @@ router.post('/route-v4/registration-complete', function(request, response) {
     var value = request.session.data['exception-request']
     if (value == 'Yes'){ 
         response.redirect(registration_v4+'/registration-complete?registration-progress=submitted&hold-registration=yes')
-    } else {
+    } else  if (value == 'No'){ 
         response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=no')
+    } else {
+        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=not-applicable')
     }
 })
 

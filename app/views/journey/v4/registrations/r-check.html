@@ -973,7 +973,6 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-
             {% set exceptionOptions %}
                 {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
                 {{ govukCheckboxes({
@@ -1063,6 +1062,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
                 {% if (data['activity-types'] == 'Other type of activity in the UK') %}
 
+
                 {% else %}
 
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
@@ -1072,25 +1072,37 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     value: data['exception-request'],
                     fieldset: {
                         legend: {
-                            text: 'Do you want to request that the information remains private?',
+                            text: 'Public register',
                             classes: 'govuk-fieldset__legend--m',
                             isPageHeading: false
                         }
                     },
                     hint: {
-                        text: 'You will be asked to supply detailed reasoning and documentation to support your request in later pages.'
+                        html: "
+                        <p>If some or all of the information in the 'Public register' column meets one or more of the following criteria, it will remain private and not be appear the public register. </p>
+                        <ul class='govuk-list govuk-list--bullet'>
+                            <li><strong>Risk to personal safety</strong><br>
+                                There is a significant risk publication would put the safety of any individual in this activity at risk of serious harm.</li>
+                            <li><strong>Risk to investigation of crime</strong><br>
+                                    There is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime.</li>
+                            <li><strong>Risk to the safety of the UK</strong><br>
+                                        There is a risk publication would be prejudicial to the safety or interests of the UK.</li>
+                            <li><strong>Risk to commercial interests</strong><br>
+                                            There is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity.</li>
+                        </ul>
+                        "
                     },
                     items: [
                     {
                        value: 'Yes',
-                        text: 'Yes',
+                        text: 'Yes, the information meets the criteria to remain private and not appear on the public register.',
                         conditional: {
                             html: exceptionOptions
                         }
                     },
                     {
                        value: 'No',
-                        text: 'No'
+                        text: 'No, the information does not meet the criteria to remain private and will appear on the public register.'
                     }
                     ]
                 }) }}
