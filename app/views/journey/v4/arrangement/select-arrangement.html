@@ -15,10 +15,25 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-full">
 
-		<span class="govuk-caption-l">Add an arrangement</span>
-		<h1 class="govuk-heading-l">Who is {{data['registrant-name']}} in an arrangement with?</h1>
+		<h1 class="govuk-heading-l">Add an arrangement</h1>
 
-		<p>Details about what an arrangement is - Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis ex suscipit neque, dolores ipsa vel eius ratione eveniet porro, tempora iste quam minus.</p>
+		<p>You can add a new arrangement or select one previously added to a registration associated with the same registrant.
+
+
+		<h2 class='govuk-heading-m'>Add a new arrangement</h2>
+
+		<p>If registering as an individual or entity, you must provide your arrangement details.</p>
+
+		{% from 'govuk/components/button/macro.njk' import govukButton %}
+			
+		<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+			{{ govukButton({
+				href: 'fp-1',
+				classes: '',
+				text: 'Add a new arrangement'
+			}) }}
+	
+		</div>
 
 		{% if (data['arrangement-progress'] == 'complete') %}
 
@@ -96,11 +111,6 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 		{% from 'govuk/components/button/macro.njk' import govukButton %}
 			
-		{{ govukButton({
-			href: 'fp-1',
-			classes: '',
-			text: 'Add a new arrangement'
-		}) }}
 
 
 </div>

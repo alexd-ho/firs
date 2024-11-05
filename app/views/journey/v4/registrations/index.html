@@ -26,12 +26,18 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		<p>Read the <a href="#">guidance on completing the FIRS registration form</a>.</p>
 
 		{% from 'govuk/components/button/macro.njk' import govukButton %}
-
+		
+		{% from 'govuk/components/button/macro.njk' import govukButton %}
+			
+		<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+			
 		{{ govukButton({
 		href: 'registrations/new',
 		classes: '',
 		text: 'Start a new registration'
 		}) }}
+		</div>
+
 
 		<div class="govuk-grid-column-full-width">
 
@@ -54,7 +60,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 				<div class="govuk-tabs__panel" id="in-progress">
 
-					<h2 class="govuk-heading-m">In progress</h2>
+					<h2 class="govuk-heading-m govuk-!-padding-bottom-4">In progress</h2>
 
 					{% if (data['registration-progress'] == 'in-progress'  or data['registration-progress'] == 'submitted') %}
 
@@ -194,7 +200,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		
 					{% else %}
 						
-					No registrations in progress
+					No registrations in progress.
 
 					{% endif %}
 		
@@ -202,7 +208,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 				<div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="completed">
 
-					<h2 class="govuk-heading-m">Completed</h2>
+					<h2 class="govuk-heading-m govuk-!-padding-bottom-4">Completed</h2>
 
 					{% if (data['registration-progress'] == 'complete') %}
 
@@ -312,7 +318,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					
 					{% else %}
 						
-					No registrations in progress
+					No registrations completed.
 
 					{% endif %}
 

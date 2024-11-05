@@ -27,11 +27,16 @@
 
                 <ul class="govuk-list govuk-list--number">
                     <li>Verify your ID on GOV.UK One Login.</li>
-                    <li>Upload a photo of a valid ID document to the Foreign Influence Registration Scheme (FIRS) team.<br>
-                        If you've already verified your ID using the GOV.UK One Login verification on this service or another service, you will go straight to stage 2 to upload a photo of a valid identity document the FIRS team.</li>
+                    <li>Upload a photo of a valid ID document to the Foreign Influence Registration Scheme (FIRS) team.</li>
                 </ul>
 
-                <p>You’ll need a form of ID. </p>
+                {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
+                    
+                {{ govukInsetText({
+                  text: 'If you have already verified your ID using the GOV.UK One Login verification on this service or another service, you will go straight to stage 2 to upload a photo of a valid identity document the FIRS team.'
+                }) }}
+
+                <p>You will need a form of ID. </p>
 
                 <p>The GOV.UK One Login service will explain what you need and what you need to do.</p>
 
