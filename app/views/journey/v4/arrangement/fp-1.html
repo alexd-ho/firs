@@ -17,58 +17,39 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<h1 class="govuk-heading-l">Add an arrangement</h1>
 
-			<p>In this section, we are asking about an agreement with a foreign power or specified foreign power-controlled organisation. The agreement only needs to be registered if it involves activities you are doing or organising others to do in the UK.</p>
+			<p>We need the details of the arrangement with the foreign power or foreign power-controlled entity.</p>
 
-			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			<h2 class='govuk-heading-m'>What you need to complete this section     </h2> 
 
-			{{ govukDetails({
-			summaryText: "What is an agreement?",
-			text: "An agreement is an understanding between two or more parties to conduct  
-			activities. The agreement can be anything from a legally enforceable contract 
-				to an informal, but clear, written or verbal understanding.
-			"
-			}) }}
-			{% from "govuk/components/details/macro.njk" import govukDetails %}
+			<p>In this section, we are asking for information about the arrangement you/your entity have/has with a foreign power or foreign power-controlled entity.</p>
 
-			{{ govukDetails({
-			summaryText: "What is an activity?",
-			text: "  An activity is any action that works towards the desired outcome of an 
-			agreement, or any action taken under a direction from a foreign power or 
-			foreign power-controlled organisation. "
-			}) }}
-			{% from "govuk/components/details/macro.njk" import govukDetails %}
-
-			{{ govukDetails({
-				summaryText: "What is a foreign power?",
-				html: "
-				<p>A foreign power is:</p>
-				<ul class='govuk-list govuk-list--bullet'>
-					<li>the sovereign of other head of a foreign state,</li>
-					<li>a foreign government, or part of a foreign government (for example, a ministry or department of a foreign government)</li>
-					<li>an agency or authority of a foreign government, or of part of a foreign government</li>
-					<li>an authority responsible for administering the affairs of an area within a foreign country or territory (for example, a local government authority in a foreign country)</li>
-					<li>a political party which is a governing political party of a foreign government</li>
-				</ul>"
-			}) }}
-
-			{{ govukDetails({
-				summaryText: "What is a foreign power-controlled organisation?",
-				text: "A list of organisations defined by the government in legislation."
-			}) }}
-
-			<p>You need to know:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>Who you have an agreement with </li>
-				<li>How the agreement was made</li>
-				<li>When the agreement was made</li>
+			<p>You need to know: </p>
+			<ul class='govuk-list govuk-list--bullet'>
+				<li>the foreign power or foreign power-controlled entity you/your entity has an arrangement with</li>
+				<li>the details of the arrangement</li>
+				<li>when the arrangement was made</li>
 			</ul>
 
+			<h2 class='govuk-heading-m'>The public register</h2> 
 
-			<p>Some of the information you provide may appear on the Foreign Influence Registration Scheme public register if you register any activities that are considered political in nature.</p>
+			<p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register. </p>
+			<p>Parts of the registration information may stay private and not appear on the public register if they meet any of these criteria:</p>
+			<ul class='govuk-list govuk-list--bullet'>
+				<li>there is a significant risk that publication would put any individual’s safety at risk.</li>
+				<li>publication would involve the disclosure of commercially sensitive information.</li>
+				<li>where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime.</li>
+				<li>there is a risk that publication would prejudice the national security of the UK.</li>
+			</ul>
 
-			<p>You must register agreements one at a time. </p>
+			<p>At the 'Check and submit your registration' stage, you can tell us if any of the registration information meets one or more of the criteria and should stay private. If you do, you will have 5 days to provide your evidence.        </p>
 
-				<p>You can register or amend an agreement at any time, but you must comply with the <a href="#">timescales set out in the Foreign Influence Registration Scheme legislation</a>.</p>
+			<p>Read the:</p>
+
+			<ul class="govuk-list govuk-list--bullet">
+				<li><a href="#">guidance on what information appears on the public register</a></li>
+				<li><a href="#">guidance on requesting information to remain private</a></li>
+			</ul>
+
 
 			{{ govukButton({
 				text: "Continue",
