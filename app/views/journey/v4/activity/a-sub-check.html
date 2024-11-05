@@ -23,6 +23,21 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
             <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
+                        Type
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['sub'] == 1)%}{{data['a-sub-type-1']}}{% endif %}
+                        {% if (data['sub'] == 2)%}{{data['a-sub-type-2']}}{% endif %}
+                        {% if (data['sub'] == 3)%}{{data['a-sub-type-3']}}{% endif %}
+                        {% if (data['sub'] == 4)%}{{data['a-sub-type-4']}}{% endif %}
+                            
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-sub-individual">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
                         Name
                     </dt>
                     <dd class="govuk-summary-list__value">
@@ -41,51 +56,6 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="a-sub-individual">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Email address
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['sub'] == 1)%}{% if (data['a-sub-email-1'] == 'Yes') %}{{data['a-sub-email-1-email-address']}} {% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 2)%}{% if (data['a-sub-email-2'] == 'Yes') %}{{data['a-sub-email-2-email-address']}} {% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 3)%}{% if (data['a-sub-email-3'] == 'Yes') %}{{data['a-sub-email-3-email-address']}} {% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 4)%}{% if (data['a-sub-email-4'] == 'Yes') %}{{data['a-sub-email-4-email-address']}} {% else %}Not known {% endif %}{% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-sub-4">Change<span class="govuk-visually-hidden"> date of
-                                birth</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Telephone Number
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['sub'] == 1)%}{% if (data['a-sub-tel-1'] == 'Yes') %}{{data['a-sub-tel-1-telephone']}} {% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 2)%}{% if (data['a-sub-tel-2'] == 'Yes') %}{{data['a-sub-tel-2-telephone']}} {% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 3)%}{% if (data['a-sub-tel-3'] == 'Yes') %}{{data['a-sub-tel-3-telephone']}} {% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 4)%}{% if (data['a-sub-tel-4'] == 'Yes') %}{{data['a-sub-tel-4-telephone']}} {% else %}Not known {% endif %}{% endif %}
-
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-sub-5">Change<span class="govuk-visually-hidden"> date of
-                                birth</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Address
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['sub'] == 1)%}{% if (data['a-sub-address-1'] == 'Yes') %}{{data['a-sub-address-1--line-1']}}, {{data['a-sub-address-1--town']}}, {{data['a-sub-address-1--postcode']}}{% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 2)%}{% if (data['a-sub-address-2'] == 'Yes') %}{{data['a-sub-address-2--line-1']}}, {{data['a-sub-address-2--town']}}, {{data['a-sub-address-2--postcode']}}{% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 3)%}{% if (data['a-sub-address-3'] == 'Yes') %}{{data['a-sub-address-3--line-1']}}, {{data['a-sub-address-3--town']}}, {{data['a-sub-address-3--postcode']}}{% else %}Not known {% endif %}{% endif %}
-                        {% if (data['sub'] == 4)%}{% if (data['a-sub-address-4'] == 'Yes') %}{{data['a-sub-address-4--line-1']}}, {{data['a-sub-address-4--town']}}, {{data['a-sub-address-4--postcode']}}{% else %}Not known {% endif %}{% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-sub-6">Change<span class="govuk-visually-hidden"> address</span></a>
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -116,6 +86,51 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="a-sub-3">Change<span class="govuk-visually-hidden"> date of
                                 birth</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Email address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['sub'] == 1)%}{% if (data['a-sub-email-1'] == 'Yes') %}{{data['a-sub-email-1-email-address']}} {% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 2)%}{% if (data['a-sub-email-2'] == 'Yes') %}{{data['a-sub-email-2-email-address']}} {% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 3)%}{% if (data['a-sub-email-3'] == 'Yes') %}{{data['a-sub-email-3-email-address']}} {% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 4)%}{% if (data['a-sub-email-4'] == 'Yes') %}{{data['a-sub-email-4-email-address']}} {% else %}Not known {% endif %}{% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-sub-4">Change<span class="govuk-visually-hidden"> date of
+                                birth</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Telephone number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['sub'] == 1)%}{% if (data['a-sub-tel-1'] == 'Yes') %}{{data['a-sub-tel-1-telephone']}} {% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 2)%}{% if (data['a-sub-tel-2'] == 'Yes') %}{{data['a-sub-tel-2-telephone']}} {% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 3)%}{% if (data['a-sub-tel-3'] == 'Yes') %}{{data['a-sub-tel-3-telephone']}} {% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 4)%}{% if (data['a-sub-tel-4'] == 'Yes') %}{{data['a-sub-tel-4-telephone']}} {% else %}Not known {% endif %}{% endif %}
+
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-sub-5">Change<span class="govuk-visually-hidden"> date of
+                                birth</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Address
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['sub'] == 1)%}{% if (data['a-sub-address-1'] == 'Yes') %}{{data['a-sub-address-1--line-1']}}, {{data['a-sub-address-1--town']}}, {{data['a-sub-address-1--postcode']}}{% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 2)%}{% if (data['a-sub-address-2'] == 'Yes') %}{{data['a-sub-address-2--line-1']}}, {{data['a-sub-address-2--town']}}, {{data['a-sub-address-2--postcode']}}{% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 3)%}{% if (data['a-sub-address-3'] == 'Yes') %}{{data['a-sub-address-3--line-1']}}, {{data['a-sub-address-3--town']}}, {{data['a-sub-address-3--postcode']}}{% else %}Not known {% endif %}{% endif %}
+                        {% if (data['sub'] == 4)%}{% if (data['a-sub-address-4'] == 'Yes') %}{{data['a-sub-address-4--line-1']}}, {{data['a-sub-address-4--town']}}, {{data['a-sub-address-4--postcode']}}{% else %}Not known {% endif %}{% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-sub-6">Change<span class="govuk-visually-hidden"> address</span></a>
                     </dd>
                 </div>
 
