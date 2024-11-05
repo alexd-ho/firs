@@ -12,7 +12,7 @@
             <form action='/route-v4/fp-4' method='post'>
 
             {% set thisRegistrant %}
-                {% if (data['reg-type'] == 'individual') %}Do you {% else %} Does {{data['registrant-name]']}}{% endif %}
+                {% if (data['reg-type'] == 'Individual') %}Do you {% else %} Does {{data['registrant-name]']}}{% endif %}
             {% endset %}
 
                 <span class='govuk-caption-l'>Add an arrangement</span>
