@@ -6,10 +6,12 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% set registrant %}
-{% if (data['acc-type'] == 'Organisation') %}{{data['accName']}} has{% else %}you have{% endif %}
+{% if (data['acc-type'] == 'Entity') %}{{data['accName']}} has{% else %}you have{% endif %}
 {% endset -%}
 
-
+{% set thisRegistrant %}
+{% if (data['reg-type'] == 'Individual') %}you have {% else %} {{data['registrant-name]']}} has{% endif %}
+{% endset %}
 
 {% block content %}
 <div class='govuk-grid-row'>
@@ -22,11 +24,11 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                    Tell us about the foreign power with which {{thisRegistrant}} an arrangement.
+                    Tell us about the foreign power with which {{thisRegistrant}} an arrangement
                 </h1>
             </legend>
             <div class="govuk-hint">
-                <p>You only need to register an arrangement with a foreign power if you are being directed to do, or organise for others to do, a political influence activity. An activity is considered a political influence activity if It meets the criteria set out in section 70 of the National Security Act 2023.</p>
+                <p>You only need to register an arrangement with a foreign power if you are being directed to do, or organise for others to do, a political influence activity. An activity is considered a political influence activity if it meets the criteria set out in section 70 of the National Security Act 2023.</p>
                 <p>You do not need to register an arrangement with a foreign power-controlled entity that has not been specified by the UK government.</p>
             </div>
             {% from "govuk/components/select/macro.njk" import govukSelect %}
@@ -44,32 +46,24 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     text: "Select an option"
                 },
                 {
-                    value: "Office of the head of state",
-                    text: "Office of the head of state"
+                    value: "Sovereign or other head of a foreign state",
+                    text: "Sovereign or other head of a foreign state"
                 },
                 {
-                    value: "National government",
-                    text: "National government"
+                    value: "Foreign government, or part of a foreign government",
+                    text: "Foreign government, or part of a foreign government"
                 },
                 {
-                    value: "Local government",
-                    text: "Local government"
+                    value: "Agency or authority of a foreign government, or of part of a foreign government",
+                    text: "Agency or authority of a foreign government, or of part of a foreign government"
                 },
                 {
-                    value: "Government agency or authority",
-                    text: "Government agency or authority"
+                    value: "Authority responsible for administering the affairs of an area within a foreign country or territory",
+                    text: "Authority responsible for administering the affairs of an area within a foreign country or territory"
                 },
                 {
-                    value: "Authority administering affairs in an area",
-                    text: "Authority administering affairs in an area"
-                },
-                {
-                    value: "Governing political party",
-                    text: "Governing political party"
-                },
-                {
-                    value: "Other",
-                    text: "Other"
+                    value: "Political party which is a governing political party of a foreign government",
+                    text: "Political party which is a governing political party of a foreign government"
                 }
 
                 ]
