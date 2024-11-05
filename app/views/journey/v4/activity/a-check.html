@@ -26,7 +26,8 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                         Targets of influence
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['a-2-p']}}
+                        {% if (data['a-2-p']) %}{{data['a-2-p']}} {% else %}{{data['a-2-e']}} {% endif %}
+                            
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="a-2-p">Change<span class="govuk-visually-hidden"> name</span></a>
