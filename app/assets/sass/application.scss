@@ -198,8 +198,18 @@ a.govuk-link--disabled {
 
 .govuk-summary-card {
 
+    &__title-wrapper {
+        align-items: center !important;
+    }
     &__content__collapsable {
         display: none;
+    }
+
+    &__actions {
+        align-items: center;
+        .govuk-button {
+            margin-bottom: 0;
+        }
     }
 
     &.show-content {

@@ -13,7 +13,7 @@
       <span class="govuk-caption-l">Add an activity</span>
 
       <h1 class="govuk-heading-l">Who is intended to receive the private communication?</h1>
-      <div class="govuk-hint">You can add multiple recipients if you need to.</div>
+      <div class="govuk-hint"><p>If multiple specific individuals are being targeted, you can add more by selecting 'Add another'.</p></div>
       
       {% if (data['a-pri-2'] == 'Groups or categories of people') %}
       <form action="a-pri-4" method="post">
@@ -50,36 +50,40 @@
                 text: "Select"
               },
               {
-                value: "Civil servant",
-                text: "Civil servant"
+                value: "Minister",
+                text: "Minister"
               },
               {
-                value: "Election candidate",
-                text: "Election candidate"
+                value: "Member of Parliament",
+                text: "Member of Parliament"
               },
               {
-                value: "Government Minister",
-                text: "Government Minister"
+                value: "Employee of Member of Parliament",
+                text: "Employee of Member of Parliament"
               },
               {
                 value: "Mayor of local government",
                 text: "Mayor of local government"
               },
               {
-                value: "Member of Parliament or employee of",
-                text: "Member of Parliament or employee of"
+                value: "Senior political party official",
+                text: "Senior political party official"
               },
               {
-                value: "Political party leadership",
-                text: "Political party leadership"
+                value: "Election candidate",
+                text: "Election candidate"
               },
               {
-                value: "Senior military officer",
-                text: "Senior military officer"
+                value: "Senior civil servant",
+                text: "Senior civil servant"
               },
               {
-                value: "Senior police officer",
-                text: "Senior police officer"
+                value: "Senior military officer or staff",
+                text: "Senior military officer or staff"
+              },
+              {
+                value: "Senior police officer or staff",
+                text: "Senior police officer or staff"
               }
             ]
           }) }}
@@ -168,7 +172,7 @@
 <details class="govuk-details">
   <summary class="govuk-details__summary">
     <span class="govuk-details__summary-text">
-      Roles for the types of recipient
+      Roles within each category
     </span>
   </summary>
   <div class="govuk-details__text">
