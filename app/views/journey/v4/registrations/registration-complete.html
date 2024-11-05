@@ -16,10 +16,9 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
         {% from "govuk/components/panel/macro.njk" import govukPanel %}
 
         {{ govukPanel({
-          titleText: "Registration submitted",
-          html: "Your reference number<br><strong>HDJ2123F</strong>"
+          titleText: "Activity submitted",
+          html: "Activity reference number<br><strong>123456789</strong>"
         }) }}
-        <p>We have sent you a confirmation email.</p>
 
     </div>
 </div>
@@ -27,33 +26,50 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <h2 class="govuk-heading-l">
-            What happens next
-        </h2>
-        
-        <p>The details of your registration will be reviewed. We will contact you to accept your registration or to ask you for more information.</p>
-
 
 
 
         {% if (data['hold-registration'] == "yes") %}
 
-        <h2 class="govuk-heading-m">
-            Request for your information to remain private
-        </h2>
 
-        <p>You have requested that some of your information remains private. You must submit this request within 5 working days of submitting your activity.</p>
+        <p>This activity has been submitted.    </p>
+        
+        <h2 class='govuk-heading-m'>Next steps </h2> 
 
+        <ol class='govuk-list govuk-list--number'>
+            <li>Select the information that meets the criteria to remain private.</li>
+            <li>Provide evidence showing how your information meets the criteria to remain private.</li>
+            <li>Submit your evidence.</li>
+        </ol>
+
+        <p>If you need to update the details of any part of this registration, contact [FIRS email address] and put your activity reference number in the subject line.      </p>
+
+
+        <!--
         {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
         {{ govukWarningText({
           text: "You have 5 working days to submit a request for your information to remain private. If you do not complete your request in that time, your information may be published on the Foreign Influence Registration Scheme public register.",
           iconFallbackText: "Warning"
         }) }}
+    -->
 
         <a href="../exception/ex-1" class="govuk-button">Start request</a>
 
+        {% elseif (data['hold-registration'] == "no") %}
 
+        <p>This activity has been submitted.   </p>
+        
+        <p>The details of your registration will appear on the public register in no less than 5 working days.     </p>
+        <p>If you need to update the details of any part of this registration, contact [FIRS email address] and put your activity reference number in the subject line.        </p>
+
+
+        {% else %}
+            
+        <p> This activity has been submitted.  </p>
+        
+        <p>If you need to update the details of any part of this registration, contact [FIRS email address] and put your activity reference number in the subject line.      </p>
+        
         {% endif %}
 
         <p><a href="../registrations">Return to registrations</a></p>

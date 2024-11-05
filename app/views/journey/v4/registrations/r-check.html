@@ -82,8 +82,11 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 
             
-            <h1 class='govuk-heading-l'>Submit your registration</h1>
+            <h1 class='govuk-heading-l'>Check and submit your registration</h1>
 
+            <p>You must submit your registration within the specified time limit. Read the <a href="#">guidance about timings</a>.</p>
+            <p>You cannot make any changes after you submit your registration. </p>
+            <p>After you submit this form, you must send any changes to your registration details to [FIRS email address].  </p>
             
 
             <div class="govuk-summary-card">
@@ -939,6 +942,11 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
             {% endif %} -->
 
 
+
+
+
+
+
             {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
             {{ govukCheckboxes({
                 id: 'registration-declaration',
@@ -960,6 +968,12 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
             }) }}
 
 
+
+
+
+
+
+
             {% set exceptionOptions %}
                 {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
                 {{ govukCheckboxes({
@@ -970,41 +984,26 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     fieldset: {
                         legend: {
                             text: 'What are your reasons for the information to remain private?',
-                            classes: 'govuk-fieldset__legend--s',
+                            classes: 'govuk-fieldset__legend--s hidden',
                             isPageHeading: false
                         }
                     },
-                    hint: {
-                        text: 'There are four criteria by which information can be made private from the public regsiter. Which of the following do you believe applies to your situation?'
-                    },
                     items: [
                     {
-                    value: "Safety to the UK",
-                    text: "Safety to the UK",
-                    hint: {
-                        text: "Where there is a risk publication would be prejudicial to the safety or interests of the UK"
-                    }
+                    value: "Risk to personal safety",
+                    text: "Risk to personal safety"
                     },
                     {
-                    value: "Risk to the safety of an individual",
-                    text: "Risk to the safety of an individual",
-                    hint: {
-                        text: "Where there is a significant risk publication would put the safety of any individual in this activity at risk of serious harm"
-                    }
+                    value: "Risk to investigation of crime",
+                    text: "Risk to investigation of crime"
                     },
                     {
-                    value: "Prejudicial to criminal investigation",
-                    text: "Prejudicial to criminal investigation",
-                    hint: {
-                        text: "Where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime"
-                    }
+                    value: "Risk to the safety of the UK",
+                    text: "Risk to the safety of the UK"
                     },
                     {
-                    value: "Commercially sensitive",
-                    text: "Commercially sensitive",
-                    hint: {
-                        text: "Where there is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity"
-                    }
+                    value: "Risk to commercial interests",
+                    text: "Risk to commercial interests"
                     }
                 ]
                 }) }}
@@ -1025,25 +1024,37 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     value: data['exception-request'],
                     fieldset: {
                         legend: {
-                            text: 'Do you want to request that the information remains private?',
+                            text: 'Public register',
                             classes: 'govuk-fieldset__legend--m',
                             isPageHeading: false
                         }
                     },
                     hint: {
-                        text: 'You will be asked to supply detailed reasoning and documentation to support your request in later pages.'
+                        html: "
+                        <p>If some or all of the information in the 'Public register' column meets one or more of the following criteria, it will remain private and not be appear the public register. </p>
+                        <ul class='govuk-list govuk-list--bullet'>
+                            <li><strong>Risk to personal safety</strong><br>
+                                There is a significant risk publication would put the safety of any individual in this activity at risk of serious harm.</li>
+                            <li><strong>Risk to investigation of crime</strong><br>
+                                    There is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime.</li>
+                            <li><strong>Risk to the safety of the UK</strong><br>
+                                        There is a risk publication would be prejudicial to the safety or interests of the UK.</li>
+                            <li><strong>Risk to commercial interests</strong><br>
+                                            There is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity.</li>
+                        </ul>
+                        "
                     },
                     items: [
                     {
                        value: 'Yes',
-                        text: 'Yes',
+                        text: 'Yes, the information meets the criteria to remain private and not appear on the public register.',
                         conditional: {
                             html: exceptionOptions
                         }
                     },
                     {
                        value: 'No',
-                        text: 'No'
+                        text: 'No, the information does not meet the criteria to remain private and will appear on the public register.'
                     }
                     ]
                 }) }}
