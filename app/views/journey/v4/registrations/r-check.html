@@ -121,7 +121,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                             <dd class="govuk-summary-list__actions">
                             </dd>
                         </div> -->
-                        {% if (data['i2-first']) %}
+                        {% if (data['reg-type'] == 'Individual') %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Full name
@@ -133,7 +133,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 <strong class=""govuk-tag govuk-tag--purple"">{{data['i2-first']}} {{data['i2-last']}}</strong>
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="i2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+                                <a class="govuk-link" href="../registrant/i2">Change<span class="govuk-visually-hidden"> Full name</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -147,7 +147,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 Not applicable
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="i3">Change<span class="govuk-visually-hidden"> Other names</span></a>
+                                <a class="govuk-link" href="../registrant/i3">Change<span class="govuk-visually-hidden"> Other names</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -161,7 +161,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 <strong class="govuk-tag govuk-tag--purple">{{data['i5-year']}}</strong>
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="i5">Change<span class="govuk-visually-hidden"> date of
+                                <a class="govuk-link" href="../registrant/i5">Change<span class="govuk-visually-hidden"> date of
                                         birth</span></a>
                             </dd>
                         </div>
@@ -176,7 +176,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 Not applicable
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="i6">Change<span class="govuk-visually-hidden"> Nationality</span></a>
+                                <a class="govuk-link" href="../registrant/i6">Change<span class="govuk-visually-hidden"> Nationality</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -190,7 +190,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 Not applicable
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="i7">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/i7">Change<span class="govuk-visually-hidden"> Home Address</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -204,12 +204,11 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 <strong class="govuk-tag govuk-tag--purple">{{contactAddressPR}}</strong>
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="i11">Change<span class="govuk-visually-hidden"> Contact Address</span></a>
+                                <a class="govuk-link" href="../registrant/i11">Change<span class="govuk-visually-hidden"> Contact Address</span></a>
                             </dd>
                         </div>
                     </dl>
-                    {% endif %}
-                    {% if (data['e2']) %}
+                    {% elseif (data['reg-type'] == 'Entity') %}
                     <dl class="govuk-summary-list">
                         <!-- <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
@@ -233,7 +232,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 <strong class=""govuk-tag govuk-tag--purple"">{{data['i2-first']}} {{data['i2-last']}}</strong>
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+                                <a class="govuk-link" href="../registrant/e2">Change<span class="govuk-visually-hidden"> Full name</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -247,7 +246,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 Not applicable
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e3">Change<span class="govuk-visually-hidden"> Other names</span></a>
+                                <a class="govuk-link" href="../registrant/e3">Change<span class="govuk-visually-hidden"> Other names</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -277,7 +276,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 <strong class="govuk-tag govuk-tag--purple">{{data['i5-year']}}</strong>
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e5">Change<span class="govuk-visually-hidden"> date of
+                                <a class="govuk-link" href="../registrant/e5">Change<span class="govuk-visually-hidden"> date of
                                         birth</span></a>
                             </dd>
                         </div>
@@ -290,7 +289,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['e6']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e6">Change<span class="govuk-visually-hidden"> date of
+                                <a class="govuk-link" href="../registrant/e6">Change<span class="govuk-visually-hidden"> date of
                                         birth</span></a>
                             </dd>
                         </div>
@@ -305,7 +304,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['e-ch1-day']}} {{data['e-ch1-month'] | monthName('truncate')}} {{data['e-ch1-year']}} 
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e-ch1">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e-ch1">Change<span class="govuk-visually-hidden"> Home Address</span></a>
                             </dd>
                             {% elseif (data['e7'] == "Yes") %}
                             <dt class="govuk-summary-list__key">
@@ -315,7 +314,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['e9-day']) %} {{data['e9-day']}} {{data['e9-month'] | monthName('truncate')}} {{data['e9-year']}}{% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e9">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e9">Change<span class="govuk-visually-hidden"> Home Address</span></a>
                             </dd>
                             {% else %}
                             <dt class="govuk-summary-list__key">
@@ -325,7 +324,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['e12-day']) %}{{data['e12-day']}} {{data['e12-month'] | monthName('truncate')}} {{data['e12-year']}}{% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e12">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e12">Change<span class="govuk-visually-hidden"> Home Address</span></a>
                             </dd>
                             {% endif %}
                         </div>
@@ -338,7 +337,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{registeredAddress}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e-ch2">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e-ch2">Change<span class="govuk-visually-hidden"> Home Address</span></a>
                             </dd>
                             {% elseif (data['e7'] == "Yes") %}
                             <dt class="govuk-summary-list__key">
@@ -348,7 +347,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{registeredAddress}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e10">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e10">Change<span class="govuk-visually-hidden"> Home Address</span></a>
                             </dd>
                             {% else %}
                             <dt class="govuk-summary-list__key">
@@ -358,7 +357,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{registeredAddress}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e13">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e13">Change<span class="govuk-visually-hidden"> Home Address</span></a>
                             </dd>
                             {% endif %}
                         </div>
@@ -373,7 +372,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 <strong class="govuk-tag govuk-tag--purple">{{contactAddressPR}}</strong>
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="e16">Change<span class="govuk-visually-hidden"> Contact Address</span></a>
+                                <a class="govuk-link" href="../registrant/e16">Change<span class="govuk-visually-hidden"> Contact Address</span></a>
                             </dd>
                         </div>
                     </dl>
