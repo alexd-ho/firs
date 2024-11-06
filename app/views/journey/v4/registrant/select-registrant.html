@@ -37,13 +37,15 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% endset %}
 
+{% set timestamp %}{{ 'today' | govukDate }} at {{ 'now' | govukTime }}{% endset %}
+
 <div class="govuk-grid-row">
 
 	<div class="govuk-grid-column-full">
 
 
 		<!-- <span class="govuk-caption-l">Add a registrant</span> -->
-		<h1 class="govuk-heading-l">Add a registrant?</h1>
+		<h1 class="govuk-heading-l">Add a registrant</h1>
 
 		<p>To start a new registration, you must add a new registrant or select one you have already added or have access to.</p>
 
@@ -88,7 +90,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		{% from 'govuk/components/button/macro.njk' import govukButton %}
 			
 		{{ govukButton({
-			href: 'reg-type?registrant-progress=in-progress&registration-progress=in-progress',
+			href: 'reg-type?registrant-progress=in-progress&registration-progress=in-progress&registration-start-date='+timestamp,
 			classes: '',
 			text: 'Add a new registrant'
 		}) }}
@@ -108,7 +110,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						<a class="govuk-link show-collapsed-content" href="#">View details</a>
 					</li>
 					<li class="govuk-summary-card__action">
-						<a class="govuk-button " href="../arrangement/select-arrangement?&registrant-progress=complete&registration-progress=in-progress">Select<span class="govuk-visually-hidden"> {{data['registrant-name']}} </span></a>
+						<a class="govuk-button " href="../arrangement/select-arrangement?&registrant-progress=complete&registration-progress=in-progress&registration-start-date={{ timestamp }}">Select<span class="govuk-visually-hidden"> {{data['registrant-name']}} </span></a>
 					</li>
 				</ul>
 			</div>

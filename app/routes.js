@@ -2838,11 +2838,11 @@ router.post('/route-v4/a-pri-3', function(request, response) {
 router.post('/route-v4/registration-complete', function(request, response) {
     var value = request.session.data['exception-request']
     if (value == 'Yes'){ 
-        response.redirect(registration_v4+'/registration-complete?registration-progress=submitted&hold-registration=yes')
+        response.redirect(registration_v4+'/registration-complete?registration-progress=submitted&hold-registration=yes&first-registration=complete')
     } else  if (value == 'No'){ 
-        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=no')
+        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=no&first-registration=complete')
     } else {
-        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=not-applicable')
+        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=not-applicable&first-registration=complete')
     }
 })
 

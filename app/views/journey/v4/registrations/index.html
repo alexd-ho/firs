@@ -68,7 +68,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						<div class="govuk-summary-card__title-wrapper">
 							<h2 class="govuk-summary-card__title">
 								<span class="govuk-caption-m">Ref: 1349-6425-3168 </span>
-								Started 12 Oct 2024 at 13:41						
+								Started {{ data['registration-start-date']}}						
 							</h2>
 							<ul class="govuk-summary-card__actions">
 								<li class="govuk-summary-card__action">
@@ -84,7 +84,11 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										Registrant
 									</dt>
 									<dd class="govuk-summary-list__value">
+										{% if (data['registrant-name']) %}
 										{{data['registrant-name']}}
+										{% else %}
+										Not set
+										{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['registrant-progress'] == 'complete') %}
@@ -107,8 +111,10 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 											{% else %}
 												{{foreignPower}} ({{fpCountry}})
 											{% endif %}
-										{% else %}
+										{% elseif (data['fp-2'] == 'No') %}
 											{{foreignPower}} ({{fpCountry}})
+										{% else %}
+										Not set
 										{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
@@ -120,7 +126,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										{% if (data['registrant-progress'] == 'complete') %}
 										<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
 										{% else %}
-										Cannot start yet
+										<span class="govuk-task-list__status--cannot-start-yet">Cannot start yet</span>
 										{% endif %}
 										{% endif %}
 									</dd>
@@ -130,10 +136,15 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										Activity
 									</dt>
 									<dd class="govuk-summary-list__value">
+										{% if (data['activity-types']) %}
 										{% if (data['a-pri-1']) %}<span class="govuk-summary-card__title__element">Private communication</span>{% endif %}
 										{% if (data['a-pub-1']) %}<span class="govuk-summary-card__title__element">Public communication</span>{% endif %}
 										{% if (data['a-mon-1']) %}<span class="govuk-summary-card__title__element">Supply of money, goods or services</span>{% endif %}
 										{% if (data['a-oth-1']) %}<span class="govuk-summary-card__title__element">Other type of activity</span>{% endif %}
+										{% else %}
+										Not set
+										{% endif %}
+
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['activity-progress'] == 'complete') %}
@@ -154,7 +165,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										Registration submitted
 									</dt>
 									<dd class="govuk-summary-list__value">
-										{% if (data['registration-progress'] == 'submitted' or data['registration-progress'] == 'complete') %}Submitted: 12 Oct 2024{% endif %}
+										{% if (data['registration-progress'] == 'submitted' or data['registration-progress'] == 'complete') %}Submitted {{data['registration-submit-date']}}{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['registration-progress'] == 'submitted') %}

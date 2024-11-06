@@ -103,8 +103,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#">Expand<span class="govuk-visually-hidden"> of University of
-                                Gloucestershire (University of Gloucestershire)</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-close"></span><span class="govuk-visually-hidden"> Expand registrant details</span></a>
                         </li>
                     </ul>
                 </div>
@@ -289,8 +288,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['e6']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="../registrant/e6">Change<span class="govuk-visually-hidden"> date of
-                                        birth</span></a>
+                                <a class="govuk-link" href="../registrant/e6">Change<span class="govuk-visually-hidden"> Companies House registration number</span></a>
                             </dd>
                         </div>
                         {% endif %}
@@ -304,7 +302,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['e-ch1-day']}} {{data['e-ch1-month'] | monthName('truncate')}} {{data['e-ch1-year']}} 
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="../registrant/e-ch1">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e-ch1">Change<span class="govuk-visually-hidden"> Date of incorporation</span></a>
                             </dd>
                             {% elseif (data['e7'] == "Yes") %}
                             <dt class="govuk-summary-list__key">
@@ -314,7 +312,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['e9-day']) %} {{data['e9-day']}} {{data['e9-month'] | monthName('truncate')}} {{data['e9-year']}}{% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="../registrant/e9">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e9">Change<span class="govuk-visually-hidden"> Date of incorporation</span></a>
                             </dd>
                             {% else %}
                             <dt class="govuk-summary-list__key">
@@ -324,30 +322,30 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['e12-day']) %}{{data['e12-day']}} {{data['e12-month'] | monthName('truncate')}} {{data['e12-year']}}{% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="../registrant/e12">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e12">Change<span class="govuk-visually-hidden"> Date of formation</span></a>
                             </dd>
                             {% endif %}
                         </div>
                         <div class="govuk-summary-list__row">
                             {% if (data['e5'] == "Yes") %}
                             <dt class="govuk-summary-list__key">
-                                Regiestered address
+                                Registered address
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 {{registeredAddress}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="../registrant/e-ch2">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e-ch2">Change<span class="govuk-visually-hidden"> Registered Address</span></a>
                             </dd>
                             {% elseif (data['e7'] == "Yes") %}
                             <dt class="govuk-summary-list__key">
-                                Regiestered address
+                                Registered address
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 {{registeredAddress}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="../registrant/e10">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e10">Change<span class="govuk-visually-hidden"> Registered Address</span></a>
                             </dd>
                             {% else %}
                             <dt class="govuk-summary-list__key">
@@ -357,7 +355,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{registeredAddress}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="../registrant/e13">Change<span class="govuk-visually-hidden"> Home Address</span></a>
+                                <a class="govuk-link" href="../registrant/e13">Change<span class="govuk-visually-hidden"> Main Address</span></a>
                             </dd>
                             {% endif %}
                         </div>
@@ -389,8 +387,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#">Expand<span class="govuk-visually-hidden"> of University of
-                                    Gloucestershire (University of Gloucestershire)</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-close"></span><span class="govuk-visually-hidden"> Expand arrangement details</span></a>
                         </li>
                     </ul>
                 </div>
@@ -454,8 +451,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#">Expand<span class="govuk-visually-hidden"> of University of
-                                    Gloucestershire (University of Gloucestershire)</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-close"></span><span class="govuk-visually-hidden"> Expand activity details</span></a>
                         </li>
                     </ul>
                 </div>
@@ -951,6 +947,21 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
     
 
             <form action='/route-v4/registration-complete' method='post'>
+
+                {% set timestamp %}{{ 'today' | govukDate }} at {{ 'now' | govukTime }}{% endset %}
+
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'registration-submit-date',
+                    name: 'registration-submit-date',
+                    value: timestamp,
+                    label: {
+                        text: 'Which country does this registration involve?',
+                        classes: 'govuk-label',
+                        isPageHeading: false
+                    }
+                }) }}
 
 
             {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
