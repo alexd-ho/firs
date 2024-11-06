@@ -21,7 +21,15 @@
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            Arrangement with (Country)
+                            {% if (data['fp-2'] == 'Yes') %}
+                                {% if (data['fp-4'] == 'Yes') %}
+                                Arrangement with (Country)
+                                {% else %}
+                                Arrangement with (Country - Type)
+                                {% endif %}
+                            {% else %}
+                            Arrangement with (Country - Type)
+                            {% endif %}
                         </dt>
                         <dd class="govuk-summary-list__value">
                             {% if (data['fp-2'] == 'Yes') %}

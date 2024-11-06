@@ -10,7 +10,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endset -%}
 
 {% set thisRegistrant %}
-{% if (data['reg-type'] == 'Individual') %}you have {% else %} {{data['registrant-name]']}} has{% endif %}
+{% if (data['reg-type'] == 'Individual') %}you have {% else %} {{data['registrant-name']}} has{% endif %}
 {% endset %}
 
 {% block content %}

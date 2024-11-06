@@ -11,10 +11,10 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v4/fp-2' method='post'>
     
-                <span class='govuk-caption-l'>Add an arrangement</span>
+                <span class='govuk-caption-l'>Add an arrangement - {{data['reg-type]']}}</span>
 
                 {% set thisRegistrant %}
-                    {% if (data['reg-type'] == 'Individual') %}Do you {% else %} Does {{data['registrant-name]']}}{% endif %}
+                    {% if (data['reg-type'] == 'Individual') %}Do you {% else %} Does {{data['registrant-name']}}{% endif %}
                 {% endset %}
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
