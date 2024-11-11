@@ -5,9 +5,7 @@
         Add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
 
-{% set thisRegistrant %}
-    {% if (data['reg-type'] == 'Individual') %}you have{% else %}{{data['registrant-name]']}} has{% endif %}
-{% endset %}
+    {% set currentReg %}{% if (data['reg-type'] == "Entity") %}{{data['registrant-name']}} has{% else %}you have{% endif %} {% endset -%}
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -17,7 +15,7 @@
                 <h1 class='govuk-heading-l'>Tell us about who is doing the activity</h1> 
                 
                 <div class="govuk-hint">
-                    <p>Only add individuals or entities who are directly involved in the activity that {{ thisRegistrant }} been directed to do by a foreign power or foreign power-controlled entity.</p>
+                    <p>Only add individuals or entities who are directly involved in the activity that {{ currentReg }} been directed to do by a foreign power or foreign power-controlled entity.</p>
                     <p>If the activity involves different actions, such as a private communication and a public communication, you should tell us which actions each individual or entity is involved in.</p>
                 </div>
     

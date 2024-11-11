@@ -164,7 +164,7 @@ a.govuk-link--disabled {
     &.person-module--delete {
        .person-texts .govuk-heading-m {
             &:before {
-                content: "Delete: ";
+                content: "Remove: ";
             }
         }
         .govuk-summary-card__actions {
