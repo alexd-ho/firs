@@ -5,6 +5,11 @@
         Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
+    {% set postcodeLabel %}
+        {% if (data['i8'] == 'Ireland') %}Eircode
+        {% elseif (data['i8'] == 'United States') %}Zipcode
+        {% else %}Postcode{% endif %}
+    {% endset %}
     
     {% block content %}
     <div class='govuk-grid-row'>
@@ -42,7 +47,7 @@
                     autocomplete: 'address-line2'
                 }) }}
                     
-                    {{ govukInput({
+                {{ govukInput({
                     label: {
                         text: 'Town or city'
                     },
@@ -51,17 +56,28 @@
                     name: 'i9-town',
                     autocomplete: 'address-level2'
                 }) }}
-                    
+
+                {% if (data['i8'] == 'United States') %}
                 {{ govukInput({
                     label: {
-                        text: 'Postcode'
+                        text: 'State'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i9-state',
+                    name: 'i9-state',
+                    autocomplete: 'address-state'
+                }) }}
+                {% endif %}
+                
+                {{ govukInput({
+                    label: {
+                        text: postcodeLabel
                     },
                     classes: 'govuk-input--width-10',
                     id: 'i9-postcode',
                     name: 'i9-postcode',
                     autocomplete: 'postal-code'
                 }) }}
-                    
                 
                 {{ govukInput({
                     label: {

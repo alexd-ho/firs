@@ -103,7 +103,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-close"></span><span class="govuk-visually-hidden"> Expand registrant details</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand registrant details</span></a>
                         </li>
                     </ul>
                 </div>
@@ -387,7 +387,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-close"></span><span class="govuk-visually-hidden"> Expand arrangement details</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand arrangement details</span></a>
                         </li>
                     </ul>
                 </div>
@@ -451,7 +451,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-close"></span><span class="govuk-visually-hidden"> Expand activity details</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand activity details</span></a>
                         </li>
                     </ul>
                 </div>
@@ -950,18 +950,19 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
                 {% set timestamp %}{{ 'today' | govukDate }} at {{ 'now' | govukTime }}{% endset %}
 
-
+                <div class="govuk-visually-hidden">
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
                     id: 'registration-submit-date',
                     name: 'registration-submit-date',
                     value: timestamp,
                     label: {
-                        text: 'Which country does this registration involve?',
+                        text: 'Timestamp of submission',
                         classes: 'govuk-label',
                         isPageHeading: false
                     }
                 }) }}
+                </div>
 
 
             {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}

@@ -5,7 +5,12 @@
         Regsiter your address – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-    
+    {% set postcodeLabel %}
+        {% if (data['e11'] == 'Ireland') %}Eircode
+        {% elseif (data['e11'] == 'United States') %}Zipcode
+        {% else %}Postcode{% endif %}
+    {% endset %}
+
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
@@ -54,10 +59,23 @@
                     autocomplete: 'address-level2',
                     value: data['e15-town']
                 }) }}
-                    
+
+                {% if (data['e11'] == 'United States') %}
                 {{ govukInput({
                     label: {
-                        text: 'Postcode'
+                        text: 'State'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i9-state',
+                    name: 'i9-state',
+                    autocomplete: 'address-state'
+                }) }}
+                {% endif %}
+
+
+                {{ govukInput({
+                    label: {
+                        text: postcodeLabel
                     },
                     classes: 'govuk-input--width-10',
                     id: 'e15-postcode',

@@ -48,12 +48,12 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 				<ul class="govuk-tabs__list">
 					<li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
 						<a class="govuk-tabs__tab" href="#in-progress">
-							In progress
+							In progress {% if (data['registration-progress'] == 'in-progress'  or data['registration-progress'] == 'submitted') %}(1){% endif %}
 						</a>
 					</li>
 					<li class="govuk-tabs__list-item">
 						<a class="govuk-tabs__tab" href="#completed">
-							Completed
+							Completed {% if (data['registration-progress'] == 'complete') %}(1){% endif %}
 						</a>
 					</li>
 				</ul>
@@ -227,16 +227,14 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						<div class="govuk-summary-card__title-wrapper">
 							<h2 class="govuk-summary-card__title">
 								<span class="govuk-caption-m">Ref: 6425-3168-1349 </span>
-								Submitted 12 Oct 2024								
+								Submitted {{data['registration-submit-date']}}								
 							</h2>
 							<ul class="govuk-summary-card__actions">
 								<li class="govuk-summary-card__action">
-									<a class="govuk-link show-collapsed-content" href="#">View summary<span class="govuk-visually-hidden"> of University of
-											Gloucestershire (University of Gloucestershire)</span></a>
+									<a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden">Expand / Collapse</span></a>
 								</li>
 								<li class="govuk-summary-card__action">
-									<a class="govuk-link" href="#">Open<span class="govuk-visually-hidden"> of University of
-											Gloucestershire (University of Gloucestershire)</span></a>
+									<a class="govuk-link" href="#">View full registration</a>
 								</li>
 							</ul>
 						</div>
@@ -317,7 +315,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 										Registration submitted
 									</dt>
 									<dd class="govuk-summary-list__value">
-										{% if (data['registration-progress'] == 'submitted' or data['registration-progress'] == 'complete') %}Submitted: 12 Oct 2024{% endif %}
+										{% if (data['registration-progress'] == 'submitted' or data['registration-progress'] == 'complete') %}Submitted: {{data['registration-submit-date']}}{% endif %}
 									</dd>
 									<dd class="govuk-summary-list__actions">
 										{% if (data['registration-progress'] == 'submitted') %}

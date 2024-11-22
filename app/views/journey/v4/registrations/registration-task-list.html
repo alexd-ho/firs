@@ -16,7 +16,11 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 	<div class="govuk-grid-column-full">
 
 		<span class="govuk-caption-l">Account home</span>
+		{% if (data['first-registration'] == 'not-started') %}
+		<h1 class="govuk-heading-l">Start your registration</h1>
+		{% else %}
 		<h1 class="govuk-heading-l">Complete your registration</h1>
+		{% endif %}
 
 		<p>You must complete your registration within the specified time limit. Read the <a href="#">guidance about timings</a>.</p>
 

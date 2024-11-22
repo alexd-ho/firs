@@ -20,7 +20,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {{ govukHeader({
   homepageUrl: "/",
-  serviceName: "Foreign Influence Registration Scheme",
+  serviceName: "",
   serviceUrl: "/",
   classes: "app-header--full-width-border"
 }) }}
@@ -38,7 +38,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     },
   breadcrumbs: {
     items: [{
-      href: "overview",
+      href: "gov--overview",
       text: "Home"
     }]
   },
@@ -48,5 +48,14 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 }) }}
 {% endblock %}
 
+
+<!--
+,
+  description: {
+
+    text: "Use this design system to make your service consistent with GOV.UK. Learn from the research and experience of other service teams and avoid repeating work that’s already been done."
+    
+    }
+    -->
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}

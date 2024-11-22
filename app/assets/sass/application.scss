@@ -204,6 +204,9 @@ a.govuk-link--disabled {
     &__title-wrapper {
         align-items: center !important;
     }
+    .expand-collapse-label:before {
+        content: "Expand";
+    }
     &__content__collapsable {
         display: none;
     }
@@ -216,6 +219,9 @@ a.govuk-link--disabled {
     }
 
     &.show-content {
+        .expand-collapse-label:before {
+            content: "Collapse";
+        }
         .govuk-summary-card__content__collapsable {
             display: block;
 
