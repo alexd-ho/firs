@@ -265,13 +265,27 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Targets of supply
+                        Individual targets of supply
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if (data['a-mon-3--name-1']) %}{{data['a-mon-3--name-1']}} ({{data['a-mon-3--type-1']}}){% endif %}
-                        {% if (data['a-mon-3--name-2']) %}, {{data['a-mon-3--name-2']}} ({{data['a-mon-3--type-2']}}){% endif %}
-                        {% if (data['a-mon-3--name-3']) %}, {{data['a-mon-3--name-3']}} ({{data['a-mon-3--type-3']}}){% endif %}
-                        {% if (data['a-mon-3--name-4']) %}, {{data['a-mon-3--name-4']}} ({{data['a-mon-3--type-4']}}){% endif %}
+                        {% if (data['a-mon-4--name-1']) %}{{data['a-mon-4--name-1']}} ({{data['a-mon-4--role-1']}}){% endif %}
+                        {% if (data['a-mon-4--name-2']) %}, {{data['a-mon-4--name-2']}} ({{data['a-mon-4--role-2']}}){% endif %}
+                        {% if (data['a-mon-4--name-3']) %}, {{data['a-mon-4--name-3']}} ({{data['a-mon-4--role-3']}}){% endif %}
+                        {% if (data['a-mon-4--name-4']) %}, {{data['a-mon-4--name-4']}} ({{data['a-mon-4--role-4']}}){% endif %}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Group or category targets of supply
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        {% if (data['a-mon-5--type-1']) %}{{data['a-mon-5--type-1']}}{% endif %}
+                        {% if (data['a-mon-5--type-2']) %}, {{data['a-mon-5--type-2']}}{% endif %}
+                        {% if (data['a-mon-5--type-3']) %}, {{data['a-mon-5--type-3']}}{% endif %}
+                        {% if (data['a-mon-5--type-4']) %}, {{data['a-mon-5--type-4']}}{% endif %}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
