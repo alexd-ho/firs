@@ -90,164 +90,18 @@
 
           {% from 'govuk/components/select/macro.njk' import govukSelect %}
             
-          {{ govukSelect({
+          {% from 'govuk/components/input/macro.njk' import govukInput %}
+          {{ govukInput({
             id: 'a-pri-3--role-1',
             name: 'a-pri-3--role-1',
-            classes: "govuk-!-width-full",
+            value: data['a-pri-3--role-1'],
             label: {
-                text: 'Role'
-            },
-            items: [
-            {
-              value: "default",
-              text: "Select"
-            },
-            {
-              value: "A Minister of the Crown",
-              text: "	A Minister of the Crown"
-            },
-            {
-              value: "A Northern Ireland Minister",
-              text: "	A Northern Ireland Minister"
-            },
-            {
-              value: "A Scottish Minister",
-              text: "	A Scottish Minister"
-            },
-            {
-              value: "A Welsh Minister",
-              text: "	A Welsh Minister"
-            },
-            {
-              value: "A Member of either House of Parliament.",
-              text: "	A Member of either House of Parliament."
-            },
-            {
-              value: "A Member of the Northern Ireland Assembly",
-              text: "	A Member of the Northern Ireland Assembly"
-            },
-            {
-              value: "A Member of the Scottish Parliament",
-              text: "	A Member of the Scottish Parliament"
-            },
-            {
-              value: "A Member of Senedd Cymru",
-              text: "	A Member of Senedd Cymru"
-            },
-            {
-              value: "An employee or other member of staff of a Member of either House of Parliament",
-              text: "	An employee or other member of staff of a Member of either House of Parliament"
-            },
-            {
-              value: "An employee or other member of staff of a Member of the Northern Ireland Assembly",
-              text: "	An employee or other member of staff of a Member of the Northern Ireland Assembly"
-            },
-            {
-              value: "An employee or other member of staff of a Member of the Scottish Parliament",
-              text: "	An employee or other member of staff of a Member of the Scottish Parliament"
-            },
-            {
-              value: "An employee or other member of staff of a Member of Senedd Cymru",
-              text: "	An employee or other member of staff of a Member of Senedd Cymru"
-            },
-            {
-              value: "The Mayor of London",
-              text: "	The Mayor of London"
-            },
-            {
-              value: "A Mayor for the area of a combined authority",
-              text: "	A Mayor for the area of a combined authority"
-            },
-            {
-              value: "An officer, trustee or agent of a UK registered political party",
-              text: "	An officer, trustee or agent of a UK registered political party"
-            },
-            {
-              value: "A Member of a UK registered political party who exercises executive functions on behalf of the party",
-              text: "	A Member of a UK registered political party who exercises executive functions on behalf of the party"
-            },
-            {
-              value: "A candidate at an election for a relevant elective office",
-              text: "	A candidate at an election for a relevant elective office"
-            },
-            {
-              value: "A candidate at an election for a relevant Scottish elective office",
-              text: "	A candidate at an election for a relevant Scottish elective office"
-            },
-            {
-              value: "A member of the Senior Civil Service (for example, a Permanent Secretary, Director General or Deputy Director of a UK government department)",
-              text: "	A member of the Senior Civil Service (for example, a Permanent Secretary, Director General or Deputy Director of a UK government department)"
-            },
-            {
-              value: "A member of the Northern Ireland Senior Civil Service",
-              text: "	A member of the Northern Ireland Senior Civil Service"
-            },
-            {
-              value: "A member of the Senior Management Structure of His Majesty’s Diplomatic Service",
-              text: "	A member of the Senior Management Structure of His Majesty’s Diplomatic Service"
-            },
-            {
-              value: "A special adviser within the UK Civil Service",
-              text: "	A special adviser within the UK Civil Service"
-            },
-            {
-              value: "A special adviser within the Northern Ireland Civil Service",
-              text: "	A special adviser within the Northern Ireland Civil Service"
-            },
-            {
-              value: "An armed forces officer who is of or above the rank of commodore, brigadier or air commodore",
-              text: "	An armed forces officer who is of or above the rank of commodore, brigadier or air commodore"
-            },
-            {
-              value: "An armed forces member of staff who is of or above the rank equivalent to commodore, brigadier or air commodore",
-              text: "	An armed forces member of staff who is of or above the rank equivalent to commodore, brigadier or air commodore"
-            },
-            {
-              value: "The chief constable or deputy chief constable of a police force",
-              text: "	The chief constable or deputy chief constable of a police force"
-            },
-            {
-              value: "A police and crime commissioner",
-              text: "	A police and crime commissioner"
-            },
-            {
-              value: "The Commissioner, Deputy Commissioner, Assistant Commissioner or Deputy Assistant Commission of Police of the Metropolis",
-              text: "	The Commissioner, Deputy Commissioner, Assistant Commissioner or Deputy Assistant Commission of Police of the Metropolis"
-            },
-            {
-              value: "The Commissioner or Assistant Commissioner of Police for the City of London",
-              text: "	The Commissioner or Assistant Commissioner of Police for the City of London"
-            },
-            {
-              value: "The chief constable or deputy chief constable of the Police Service of Northern Ireland",
-              text: "	The chief constable or deputy chief constable of the Police Service of Northern Ireland"
-            },
-            {
-              value: "The chief constable or a deputy chief constable of the Police Service of Scotland",
-              text: "	The chief constable or a deputy chief constable of the Police Service of Scotland"
-            },
-            {
-              value: "The chief constable or a deputy chief constable of the Ministry of Defence Police",
-              text: "	The chief constable or a deputy chief constable of the Ministry of Defence Police"
-            },
-            {
-              value: "The chief constable or deputy chief constable of the British Transport Police Force",
-              text: "	The chief constable or deputy chief constable of the British Transport Police Force"
-            },
-            {
-              value: "The chief constable or deputy chief constable of the Civil Nuclear Constabulary",
-              text: "	The chief constable or deputy chief constable of the Civil Nuclear Constabulary"
-            },
-            {
-              value: "A Director General, Director or Deputy Director of the National Crime Agency",
-              text: "	A Director General, Director or Deputy Director of the National Crime Agency"
-            },
-            {
-              value: "Other",
-              text: "	Other"
+              text: 'Role',
+              classes: 'govuk-label',
+              isPageHeading: false
             }
-          ]
           }) }}
+
 
           {{ govukInput({
             label: {
@@ -467,166 +321,18 @@ function addNew() {
             ]
           }) }}
 
-          {% from 'govuk/components/select/macro.njk' import govukSelect %}
-            
-          {{ govukSelect({
+          {% from 'govuk/components/input/macro.njk' import govukInput %}
+          {{ govukInput({
             id: 'a-pri-3--role-${newNameId}',
             name: 'a-pri-3--role-${newNameId}',
-            classes: "govuk-!-width-full",
+            value: data['a-pri-3--role-${newNameId}'],
             label: {
-                text: 'Role'
-            },
-            items: [
-              {
-                value: "default",
-                text: "Select"
-              },
-              {
-                value: "A Minister of the Crown",
-                text: "	A Minister of the Crown"
-              },
-              {
-                value: "A Northern Ireland Minister",
-                text: "	A Northern Ireland Minister"
-              },
-              {
-                value: "A Scottish Minister",
-                text: "	A Scottish Minister"
-              },
-              {
-                value: "A Welsh Minister",
-                text: "	A Welsh Minister"
-              },
-              {
-                value: "A Member of either House of Parliament.",
-                text: "	A Member of either House of Parliament."
-              },
-              {
-                value: "A Member of the Northern Ireland Assembly",
-                text: "	A Member of the Northern Ireland Assembly"
-              },
-              {
-                value: "A Member of the Scottish Parliament",
-                text: "	A Member of the Scottish Parliament"
-              },
-              {
-                value: "A Member of Senedd Cymru",
-                text: "	A Member of Senedd Cymru"
-              },
-              {
-                value: "An employee or other member of staff of a Member of either House of Parliament",
-                text: "	An employee or other member of staff of a Member of either House of Parliament"
-              },
-              {
-                value: "An employee or other member of staff of a Member of the Northern Ireland Assembly",
-                text: "	An employee or other member of staff of a Member of the Northern Ireland Assembly"
-              },
-              {
-                value: "An employee or other member of staff of a Member of the Scottish Parliament",
-                text: "	An employee or other member of staff of a Member of the Scottish Parliament"
-              },
-              {
-                value: "An employee or other member of staff of a Member of Senedd Cymru",
-                text: "	An employee or other member of staff of a Member of Senedd Cymru"
-              },
-              {
-                value: "The Mayor of London",
-                text: "	The Mayor of London"
-              },
-              {
-                value: "A Mayor for the area of a combined authority",
-                text: "	A Mayor for the area of a combined authority"
-              },
-              {
-                value: "An officer, trustee or agent of a UK registered political party",
-                text: "	An officer, trustee or agent of a UK registered political party"
-              },
-              {
-                value: "A Member of a UK registered political party who exercises executive functions on behalf of the party",
-                text: "	A Member of a UK registered political party who exercises executive functions on behalf of the party"
-              },
-              {
-                value: "A candidate at an election for a relevant elective office",
-                text: "	A candidate at an election for a relevant elective office"
-              },
-              {
-                value: "A candidate at an election for a relevant Scottish elective office",
-                text: "	A candidate at an election for a relevant Scottish elective office"
-              },
-              {
-                value: "A member of the Senior Civil Service (for example, a Permanent Secretary, Director General or Deputy Director of a UK government department)",
-                text: "	A member of the Senior Civil Service (for example, a Permanent Secretary, Director General or Deputy Director of a UK government department)"
-              },
-              {
-                value: "A member of the Northern Ireland Senior Civil Service",
-                text: "	A member of the Northern Ireland Senior Civil Service"
-              },
-              {
-                value: "A member of the Senior Management Structure of His Majesty’s Diplomatic Service",
-                text: "	A member of the Senior Management Structure of His Majesty’s Diplomatic Service"
-              },
-              {
-                value: "A special adviser within the UK Civil Service",
-                text: "	A special adviser within the UK Civil Service"
-              },
-              {
-                value: "A special adviser within the Northern Ireland Civil Service",
-                text: "	A special adviser within the Northern Ireland Civil Service"
-              },
-              {
-                value: "An armed forces officer who is of or above the rank of commodore, brigadier or air commodore",
-                text: "	An armed forces officer who is of or above the rank of commodore, brigadier or air commodore"
-              },
-              {
-                value: "An armed forces member of staff who is of or above the rank equivalent to commodore, brigadier or air commodore",
-                text: "	An armed forces member of staff who is of or above the rank equivalent to commodore, brigadier or air commodore"
-              },
-              {
-                value: "The chief constable or deputy chief constable of a police force",
-                text: "	The chief constable or deputy chief constable of a police force"
-              },
-              {
-                value: "A police and crime commissioner",
-                text: "	A police and crime commissioner"
-              },
-              {
-                value: "The Commissioner, Deputy Commissioner, Assistant Commissioner or Deputy Assistant Commission of Police of the Metropolis",
-                text: "	The Commissioner, Deputy Commissioner, Assistant Commissioner or Deputy Assistant Commission of Police of the Metropolis"
-              },
-              {
-                value: "The Commissioner or Assistant Commissioner of Police for the City of London",
-                text: "	The Commissioner or Assistant Commissioner of Police for the City of London"
-              },
-              {
-                value: "The chief constable or deputy chief constable of the Police Service of Northern Ireland",
-                text: "	The chief constable or deputy chief constable of the Police Service of Northern Ireland"
-              },
-              {
-                value: "The chief constable or a deputy chief constable of the Police Service of Scotland",
-                text: "	The chief constable or a deputy chief constable of the Police Service of Scotland"
-              },
-              {
-                value: "The chief constable or a deputy chief constable of the Ministry of Defence Police",
-                text: "	The chief constable or a deputy chief constable of the Ministry of Defence Police"
-              },
-              {
-                value: "The chief constable or deputy chief constable of the British Transport Police Force",
-                text: "	The chief constable or deputy chief constable of the British Transport Police Force"
-              },
-              {
-                value: "The chief constable or deputy chief constable of the Civil Nuclear Constabulary",
-                text: "	The chief constable or deputy chief constable of the Civil Nuclear Constabulary"
-              },
-              {
-                value: "A Director General, Director or Deputy Director of the National Crime Agency",
-                text: "	A Director General, Director or Deputy Director of the National Crime Agency"
-              },
-              {
-                value: "Other",
-                text: "	Other"
-              }
-            ]
+              text: 'Role',
+              classes: 'govuk-label',
+              isPageHeading: false
+            }
           }) }}
+
 
           {{ govukInput({
             label: {

@@ -263,6 +263,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                     </dd>
                 </div>
 
+                {% if (data['a-mon-4--name-1']) %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Individual targets of supply
@@ -277,6 +278,9 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                         <a class="govuk-link" href="a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
                     </dd>
                 </div>
+                {% endif %}
+
+                {% if (data['a-mon-5--type-1']) %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Group or category targets of supply
@@ -291,6 +295,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                         <a class="govuk-link" href="a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
                     </dd>
                 </div>
+                {% endif %}
 
             </dl>     
             {% endif %}
