@@ -1,0 +1,54 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+    Verify your identity and add your details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='../registrant/i2' method='post'>
+    
+                <span class='govuk-caption-l'>Verify your identity and add your details</span>
+    
+                <h1 class='govuk-heading-l'>Is this your full name, date of birth and address?</h1> 
+
+                <p>This information is taken from GOV.UK One Login.</p>
+                {{ govukInsetText({
+                    html: '
+                    <p><strong>Name</strong><br>
+                        John Smith</p>
+                    <p><strong>Date of birth</strong><br>
+                        1 January 1980</p>
+                    <p><strong>Current address</strong><br>
+                        2 Marsham Street<br>
+                        London<br>
+                        United Kingdom<br>
+                        SW1P 4DF</p>
+                    ',
+                      classes: 'prefilled'
+                  }) }}
+    
+                <p><em>Explain that the user will have a chance to supply other/previous names, and an alternative address.</em></p>
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    {% endblock %}

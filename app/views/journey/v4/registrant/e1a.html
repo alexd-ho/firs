@@ -15,54 +15,59 @@
     
                 <h1 class="govuk-heading-l">Add your entity details</h1>
 
-                <p>We need the details of your entity to add them as  registrant. </p>
+                <p>You must provide the details of your entity.</p>
 
                 <h2 class='govuk-heading-m'>What you need to complete this section</h2> 
 
-                <p>In this section, we are asking for information about your entity as a registrant.      </p>
-                <p>You need to know:</p>
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>the name of your  entity, and any other names used by it</li>
-                    <li>where your entity was incorporated</li>
-                    <li>the date your entity was incorporated</li>
+                <p>You need to provide:</p>
+
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>the name of your entity, and any other names used by it</li>
+                    <li>where your entity was incorporated or formed</li>
+                    <li>the date your entity was incorporated or formed</li>
                     <li>the address of your entity</li>
                 </ul>
 
-                <p>Because you are registering your entity, you are the primary point of contact.</p>
-                <p>If you add people to this registration, they also become a point of contact.</p>
+                <p>You will be the primary contact for your entity. You cannot reassign this role until you have submitted your first registration.</p>
 
-                <h2 class="govuk-heading-m">Why we need this information</h2>
-                <p>We need this information to add your entity as a registrant.</p>
+                <p>After submission, if we are able to verify the identity of your entity, you will be given permission to add other users and reassign roles.</p>
 
                 <h2 class='govuk-heading-m'>The public register</h2> 
-  
-                <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register.</p>
-                <p>Parts of the registration information may stay private and not appear on the public register if they meet any of these criteria:</p>
-                <ul class='govuk-list govuk-list--bullet govuk-list--spaced'>
-                    <li>there is a significant risk that publication would put any individual’s safety at risk</li>
-                    <li>publication would involve the disclosure of commercially sensitive information</li>
-                    <li>where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime</li>
-                    <li>there is a risk that publication would prejudice the national security of the UK</li>
+
+                <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register. </p>
+
+                <p>Information set to appear on the public register may remain private if:</p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>publication could cause serious harm to any individual involved in this activity</li>
+                    <li>publication could harm a criminal investigation or proceedings, or prevent the detection of crime</li>
+                    <li>publication could harm the safety or interests of the UK</li>
+                    <li>publication could harm the commercial interests of any individual or entity in this activity</li>
                 </ul>
-                <p>At the 'Check and submit your registration' stage, you can tell us if any of the registration information meets one or more of the criteria and should stay private. If you do, you will have 5 days to provide your evidence.</p>
-                
-                <p>Read the:<br></p>
+
+                <p>At the 'Check and submit your registration' stage, you can tell us if you believe any of the registration information creates one or more of these risks and should stay private. If you do, you will have 5 days to present your case.</p>
+
+                <p>Read the:</p>
                 <ul class='govuk-list govuk-list--bullet'>
                     <li><a href="#">guidance on what information appears on the public register</a></li>
                     <li><a href="#">guidance on requesting information to remain private</a></li>
                 </ul>
 
 
-    
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+                    {{ govukButton({
+                        text: 'Continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '../registrations/new',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
       
-                {{ govukButton({
-                    text: 'Continue'
-                }) }}
-                {{ govukButton({
-                    href: '../registrations/new',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
             </form>
         </div>
     </div>

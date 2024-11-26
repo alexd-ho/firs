@@ -2497,9 +2497,9 @@ router.post('/route-v4/on-6', function(request, response) {
 router.post('/route-v4/reg-type', function(request, response) {
     var value = request.session.data['reg-type']
     if (value == 'Individual'){ 
-        response.redirect(registrant_v4+'/i1?tier=political&misrep=false&reg-type=Individual')
+        response.redirect(verify_v4+'/idv-3?tier=political&misrep=false&reg-type=Individual')
     } else if (value == "Misrepresentative foreign power employee") { // 
-        response.redirect(registrant_v4+'/i1?tier=enhanced&misrep=true&reg-type=Individual')
+        response.redirect(verify_v4+'/idv-3?tier=enhanced&misrep=true&reg-type=Individual')
     } else if (value == "Entity") { // 
         response.redirect(registrant_v4+'/e1a?tier=political&misrep=false&reg-type=Entity')
     } else {
@@ -2601,14 +2601,35 @@ router.post('/route-v4/idv-2', function(request, response) {
 
 router.post('/route-v4/idv-ol', function(request, response) {
     var value = request.session.data['idv-ol']
-    if (value == 'Pass'){ 
-        response.redirect(verify_v4+'/idv-m-1?idv-check=pass')
+    if (value == 'Pass (UK Passport)'){ 
+        response.redirect(verify_v4+'/idv-m-1-a?idv-check=pass')
+    } else if (value == 'Pass (UK driving license)'){ 
+        response.redirect(verify_v4+'/idv-m-1-b?idv-check=pass')
     } else if (value == 'Fail'){ 
-        response.redirect(verify_v4+'/idv-m-1?idv-check=fail')
+        response.redirect(verify_v4+'/idv-m-2?idv-check=fail')
     } else {
-        response.redirect(verify_v4+'/idv-m-1?idv-check=other')
+        response.redirect(verify_v4+'/idv-m-2?idv-check=other')
     }
 })
+
+router.post('/route-v4/idv-m-2', function(request, response) {
+    var value = request.session.data['idv-m-2']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-2-a')
+    } else {
+        response.redirect(verify_v4+'/idv-m-3')
+    }
+})
+
+router.post('/route-v4/idv-m-3', function(request, response) {
+    var value = request.session.data['idv-m-3']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-m-3-a')
+    } else {
+        response.redirect(registrant_v4+'/i2')
+    }
+})
+
 
 router.post('/route-v4/idv-m-2', function(request, response) {
     var value = request.session.data['idv-m-2']

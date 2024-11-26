@@ -9,15 +9,15 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='../registrant/i2?manual-upload-type=passport' method='post'>
+            <form action='../registrant/i2?manual-upload-type=driving license' method='post'>
     
                 <span class='govuk-caption-l'>Verify your identity and add your details</span>
 
-                <h1 class='govuk-heading-l'>Upload a photo of your UK passport</h1> 
+                <h1 class='govuk-heading-l'>Upload photos of your UK driving licence</h1> 
 
-                <p>You must upload a photo or scan of the passport you used to prove your identity with GOV.UK One Login.</p>
+                <p>You must upload photos or scans of the driving licence you used to prove your identity with GOV.UK One Login.</p>
 
-                <p>Your photo or scan must be:</p>
+                <p>Your photos or scans must be:</p>
                 <ul class='govuk-list govuk-list--bullet'>
                     <li>clear and in focus</li>
                     <li>in colour</li>
@@ -25,16 +25,28 @@
                     <li>without flare or reflections</li>
                 </ul>
 
+                <h3 class='govuk-heading-m'>Front of licence</h3>
+
                 {% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
 
                 {{ govukFileUpload({
-                    id: "idv-m-upload-p",
-                    name: "idv-m-upload-p",
+                    id: "idv-m-upload-dl-1",
+                    name: "idv-m-upload-dl-1",
                     label: {
                         text: "Upload photo or scan"
                     }
                 }) }}
-        
+
+                <h3 class='govuk-heading-m'>Back of licence</h3>
+
+                {{ govukFileUpload({
+                    id: "idv-m-upload-dl-2",
+                    name: "idv-m-upload-dl-2",
+                    label: {
+                        text: "Upload photo or scan"
+                    }
+                }) }}
+
     
                 {% from 'govuk/components/button/macro.njk' import govukButton %}
                     

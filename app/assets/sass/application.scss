@@ -69,6 +69,12 @@ a.govuk-link--disabled {
     cursor: not-allowed;
 }
 
+.govuk-inset-text {
+    &.prefilled {
+        background-color: govuk-colour("light-grey");
+    }
+}
+
 // Add Another Pattern
 
 #js-activity-wrapper  {

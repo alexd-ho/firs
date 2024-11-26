@@ -9,13 +9,23 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='../registrant/i2?manual-upload-type=passport' method='post'>
+            <form action='idv-ol-check?manual-upload-type=passport' method='post'>
     
                 <span class='govuk-caption-l'>Verify your identity and add your details</span>
 
                 <h1 class='govuk-heading-l'>Upload a photo of your UK passport</h1> 
 
                 <p>You must upload a photo or scan of the passport you used to prove your identity with GOV.UK One Login.</p>
+
+                {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
+                    
+                {{ govukInsetText({
+                  html: '<p><strong>Passport number</strong><br>
+                    123456789</p>',
+                    classes: 'prefilled'
+                }) }}
+
+                <h2 class='govuk-heading-m'>Upload your passport photo or scan</h2>
 
                 <p>Your photo or scan must be:</p>
                 <ul class='govuk-list govuk-list--bullet'>

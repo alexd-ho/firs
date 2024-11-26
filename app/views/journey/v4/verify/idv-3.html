@@ -14,55 +14,64 @@
     
                 <h1 class='govuk-heading-l'>Verify your identity</h1>   
 
-                <p>We need to verify your identity (ID) to:</p>
-
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>prevent fraudulent registrations from being made in your name </li>
-                    <li>add other people to manage your registrations</li>
-                </ul>
+                <p>You must provide proof of your identity, and your personal details</p>
 
                 <h2 class="govuk-heading-m">What you need to complete this section</h2>
 
-                <p>There are two stages to verifying your ID:</p>
+                <p>To prove your identity, you need to:</p>
 
-                <ul class="govuk-list govuk-list--number">
-                    <li>Verify your ID on GOV.UK One Login.</li>
-                    <li>Upload a photo of a valid ID document to the Foreign Influence Registration Scheme (FIRS) team.</li>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>verify your identity (ID) using GOV.UK One Login</li>
+                    <li>upload a scan or photo of an ID document for our own records</li>
                 </ul>
 
-                {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
-                    
-                {{ govukInsetText({
-                  text: 'If you have already verified your ID using the GOV.UK One Login verification on this service or another service, you will go straight to stage 2 to upload a photo of a valid identity document the FIRS team.'
-                }) }}
+                <p>You also need to provide your:</p>
 
-                <p>You will need a form of ID. </p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>full name and any previous names</li>
+                    <li>date of birth</li>
+                    <li>nationality</li>
+                    <li>address</li>
+                </ul>
 
-                <p>The GOV.UK One Login service will explain what you need and what you need to do.</p>
+                <h2 class="govuk-heading-m">The public register</h2>
 
-                <p>When you have finished verifying your ID on GOV.UK One Login, you will be redirected back here to your upload your ID to the FIRS team.</p>
-
-                <p>Click ‘Go to GOV.UK One Login’. </p>
-
-                <h2 class="govuk-heading-m">The public register <!--<strong class="govuk-tag govuk-tag--orange">PR</strong>--></h2>
+                <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register.</p>
 
                 <p>Your ID documents will never appear on the public register. </p>
 
-                <p>Read the:</p>
+                <p>Information set to appear on the public register may remain private if:</p>
 
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>publication could cause serious harm to any individual involved in this activity</li>
+                    <li>publication could harm a criminal investigation or proceedings, or prevent the detection of crime</li>
+                    <li>publication could harm the safety or interests of the UK</li>
+                    <li>publication could harm the commercial interests of any individual or entity in this activity</li>
+                </ul>
+
+                <p>At the 'Check and submit your registration' stage, you can tell us if you believe any of the registration information creates one or more of these risks and should stay private. If you do, you will have 5 days to present your case.</p>
+
+                <p>Read the:</p>
                 <ul class="govuk-list govuk-list--bullet">
                     <li><a href="#">guidance on what information appears on the public register</a></li>
-                    <li><a href="#">guidance on requesting information to remain private</a></li>
+                    <li><a href="#">guidance on your information remaining private</a></li>
                 </ul>
-    
-                {{ govukButton({
-                    text: 'Go to GOV.UK One Login'
-                }) }}
-                {{ govukButton({
-                    href: '/route-v4/registration-overview',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+                    {{ govukButton({
+                        text: 'Go to GOV.UK One Login'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
+            
             </form>
         </div>
     </div>

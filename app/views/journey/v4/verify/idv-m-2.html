@@ -2,7 +2,7 @@
 {% set activeLinkId = 'registrations' %}
     
     {% block pageTitle %}
-        Verify your identity – {{ serviceName }} – GOV.UK Prototype Kit
+    Verify your identity and add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
     
@@ -11,7 +11,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v4/idv-m-2' method='post'>
     
-                <span class='govuk-caption-l'>Verify your identity</span>
+                <span class='govuk-caption-l'>Verify your identity and add your details</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({

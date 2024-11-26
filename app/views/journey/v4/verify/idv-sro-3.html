@@ -9,14 +9,14 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='../arrangement/select-arrangement??idenity-verification=incomplete' method='post'>
+            <form action='../arrangement/select-arrangement?idenity-verification=incomplete' method='post'>
     
-                <span class='govuk-caption-l'>Verify the identity of a Senior Responsible Officer</span>
+                <span class='govuk-caption-l'>Assign a Senior Responsible Officer</span>
     
-                <h1 class='govuk-heading-l'>Completion screen</h1> 
+                <h1 class='govuk-heading-l'>Email sent</h1> 
 
-                <p>We have emailed the Senior Responsible Officer to invite them to this service and verify their identity.</p>
-                <p>They must verify their identity before  the registration can be submitted.</p>
+                <p>We sent an email invitation to {{data['idv-sro-1']}}.</p>
+                <p>As the nominated Senior Responsible Officer, they must verify their identity and provide their personal details before your entity can submit a registration.</p>
     
                 {{ govukButton({
                     text: 'Save and continue'

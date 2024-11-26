@@ -2,7 +2,7 @@
 {% set activeLinkId = 'registrations' %}
     
     {% block pageTitle %}
-        Regsiter yourself – {{ serviceName }} – GOV.UK Prototype Kit
+    Verify your identity and add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
     
@@ -11,56 +11,41 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='i3' method='post'>
     
-                <span class='govuk-caption-l'>Add your personal details</span>
+                <span class='govuk-caption-l'>Verify your identity and add your details</span>
     
                 {% from "govuk/components/input/macro.njk" import govukInput %}
-                {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
-
-                {% call govukFieldset({
-                legend: {
-                    text: "What is your full name?",
-                    classes: "govuk-fieldset__legend--l",
-                    isPageHeading: true
-                }
-                }) %}
-
-                <div>
-                    <p  class="govuk-hint">Enter your full name as it appears on official documents, such as your passport</p>
-                </div>
+  
 
                 {{ govukInput({
-                    id: 'i2-first',
-                    name: 'i2-first',
-                    value: data['i2-first'],
+                    id: 'i2',
+                    name: 'i2',
+                    value: data['i2'],
                     label: {
-                        text: 'Given names'
+                        text: "What is your full name?",
+                        classes: "govuk-fieldset__legend--l",
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'Enter your full name as it appears on official documents, such as your passport'
                     }
                 }) }}
 
-                {{ govukInput({
-                    id: 'i2-last',
-                    name: 'i2-last',
-                    value: data['i2-last'],
-                    label: {
-                        text: 'Family name'
-                    }
-                }) }}
-
-                {% endcall %}
-
+           
                 {% from 'govuk/components/button/macro.njk' import govukButton %}
-                            
-    
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
+                     
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
 
-                {{ govukButton({
-                    href: '/route-v4/registration-overview',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
 
+                </div>
 
             </form>
         </div>
