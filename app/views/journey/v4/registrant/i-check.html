@@ -9,10 +9,10 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-full-width'>
-        <!-- <form action="../arrangement/select-arrangement?registrant-progress=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'> -->
+        <!-- <form action="../arrangement/select-arrangement?registrant-status=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'> -->
 
 
-        <!-- <form action="../verify/idv-3?registrant-progress=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'> -->
+        <!-- <form action="../verify/idv-3?registrant-status=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'> -->
             
             reg-type: {{ data['reg-type']}}
             tier: {{ data['tier']}}
@@ -20,13 +20,13 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
             reg-subtype: {{ data['reg-subtype']}}
 
         {% if (data['reg-type'] == 'Individual' and data['reg-subtype'] == 'default') %}<!-- Individual -->
-        <form action="../registrations/registration-task-list?registrant-progress=complete&registrant-name={{data['i2']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{data['i2']}}" method='post'>
         {% elseif (data['reg-type'] == 'Individual' and data['reg-subtype'] == 'misrep') %}<!-- misrep -->
-        <form action="../registrations/registration-task-list?registrant-progress=complete&registrant-name={{data['i2']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{data['i2']}}" method='post'>
         {% elseif (data['reg-type'] == 'Entity' and data['reg-subtype'] == 'default') %}<!-- Entity -->
-        <form action="../registrations/registration-task-list?registrant-progress=complete&registrant-name={{data['e2a']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{data['entity-name']}}" method='post'>
         {% elseif (data['reg-type'] == 'Entity' and data['reg-subtype'] == 'fpce') %}<!-- fpce -->
-        <form action="../registrations/registration-task-list?registrant-progress=complete&arrangement-progress=complete&registrant-name={{data['e2b']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&arrangement-status=complete&registrant-name={{data['entity-name']}}" method='post'>
         {% endif %}
 
             <span class='govuk-caption-l'>Verify your identity and add your details</span>

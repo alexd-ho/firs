@@ -11,9 +11,9 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
     <div class='govuk-grid-column-two-thirds-from-desktop'>
 
         {% if (data['arrangement-tier'] == 'enhanced') %}
-        <form action='a-2-e?activity-progress=in-progress' method='post'>
+        <form action='a-2-e?activity-status=in-progress' method='post'>
         {% else %}
-        <form action='a-2-p?activity-progress=in-progress' method='post'>
+        <form action='a-2-p?activity-status=in-progress' method='post'>
         {% endif %}
 
                 <h1 class='govuk-heading-l'>Add an activity</h1>
@@ -55,7 +55,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
                 }) }}
 
                 {{ govukButton({
-                href: '/route-v4/registration-overview',
+                href: '/registrations',
                 classes: 'govuk-button--secondary',
                 text: 'Save and exit'
                 }) }}
