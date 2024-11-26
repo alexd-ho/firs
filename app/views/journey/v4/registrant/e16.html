@@ -18,27 +18,38 @@
                     {{data['e-ch2-line-1']}}, {% if (data['e-ch2-line-2']) %}{{data['e-ch2-line-2']}}, {% endif %}{% if (data['e-ch2-town']) %}{{data['e-ch2-town']}}, {% endif %}{% if (data['e-ch2-postcode']) %}{{data['e-ch2-postcode']}}, {% endif %}{% if (data['e-ch2-country']) %}{{data['e-ch2-country']}}{% endif %}
 
                     {% elseif (data['e7'] == 'Yes') %}
-                    {{data['e10-line-1']}}, {% if (data['e10-line-2']) %}{{data['e10-line-2']}}, {% endif %}{% if (data['e10-town']) %}{{data['e10-town']}}, {% endif %}{% if (data['e10-postcode']) %}{{data['e10-postcode']}}, {% endif %}{% if (data['e10-country']) %}{{data['e10-country']}}{% endif %}
+                    {{data['e10']}}
                         
                     {% elseif (data['e13'] == 'Yes') %}
                     {{data['e14-line-1']}}, {% if (data['e14-line-2']) %}{{data['e14-line-2']}}, {% endif %}{% if (data['e14-town']) %}{{data['e14-town']}}, {% endif %}{% if (data['e14-postcode']) %}{{data['e14-postcode']}}, {% endif %}{% if (data['e14-country']) %}{{data['e14-country']}}{% endif %}
 
                     {% else %}
-                    {{data['e15-line-1']}}, {% if (data['e15-line-2']) %}{{data['e15-line-2']}}, {% endif %}{% if (data['e15-town']) %}{{data['e15-town']}}, {% endif %}{% if (data['e15-postcode']) %}{{data['e15-postcode']}}, {% endif %}{% if (data['e15-country']) %}{{data['e15-country']}}{% endif %}
+                    {{data['e15']}}
 
                     {% endif %}
                 {% endset %}
 
                 {% set otherCountry %}
-                {{ govukInput({
-                    id: 'e16-other',
-                    name: 'e16-other',
-                    value: data['e16-other'],
-                    classes: 'govuk-!-width-two-thirds',
-                    label: {
-                        text: 'Country'
-                    }
-                }) }}
+                <div class="govuk-form-group--add-another-block__fields">
+
+                    <div class="govuk-form-group--add-another-block__fields__col1">
+
+                        <label class="govuk-label" for="e11">
+                            Country of territory
+                        </label>
+
+                        <div class="autocomplete-wrapper" id="e16-other"></div>
+                        <div class="govuk-body other-nationality-field">
+                            <p><a href="#" class="govuk-link cannot-find-country" data-field="e16-other">I cannot find my country in the list</a></p>
+                        </div>
+
+                    </div>
+
+                    <div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+                        <a href="#" class="govuk-link row-remove hidden" data-row="e16-other">Remove</a>
+                    </div>
+
+                </div>
                 {% endset -%} 
 
 
@@ -51,7 +62,7 @@
                     value: data['e16'],
                     fieldset: {
                         legend: {
-                            text: 'Which address should we use to contact '+data['registrant-name']+'?',
+                            text: 'Which address should we use to contact '+data['entity-name']+'?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
@@ -89,4 +100,48 @@
             </form>
         </div>
     </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript" src="/public/javascripts/countries.js"></script>
+
+
+    <script type="text/javascript">
+        var element = document.querySelector('#e16-other')
+        var id = 'e16-other'
+        accessibleAutocomplete({
+            element: element,
+            id: id,
+            name: id,
+            source: countries
+        })
+
+        function manageRows (fieldId) {
+
+
+            $('.cannot-find-country').on('click', function() {
+                console.log('cannot-find-nationality');
+                var thisField = $(this).data('field');
+                console.log(thisField);
+                $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper').addClass('hidden');
+                $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper input.autocomplete__input').attr("name","none");
+                $(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus> <p>Describe your nationality in this field</p>');
+                // $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+                return false;
+            })
+
+            // console.log('focus: input#'+fieldId);
+            // $('input#'+fieldId).focus();
+
+        }
+
+        window.onload = function() {
+            manageRows('e16-other');
+        };
+
+    </script>
+
+
     {% endblock %}

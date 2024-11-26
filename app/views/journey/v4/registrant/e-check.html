@@ -17,25 +17,28 @@
                 <h1 class='govuk-heading-l'>Check your answers</h1>
     
                 {% set registeredAddress %}
-                    {% if (data['e5'] == 'Yes') %}
+                    {% if (data['e5'] == 'Yes') %}1
                     {{data['e-ch2-line-1']}}, {% if (data['e-ch2-line-2']) %}{{data['e-ch2-line-2']}}, {% endif %}{% if (data['e-ch2-town']) %}{{data['e-ch2-town']}}, {% endif %}{% if (data['e-ch2-postcode']) %}{{data['e-ch2-postcode']}}, {% endif %}{% if (data['e-ch2-country']) %}{{data['e-ch2-country']}}{% endif %}
 
                     {% elseif (data['e7'] == 'Yes') %}
-                    {{data['e10-line-1']}}, {% if (data['e10-line-2']) %}{{data['e10-line-2']}}, {% endif %}{% if (data['e10-town']) %}{{data['e10-town']}}, {% endif %}{% if (data['e10-postcode']) %}{{data['e10-postcode']}}, {% endif %}{% if (data['e10-country']) %}{{data['e10-country']}}{% endif %}
+                    {{data['e10']}}
                         
                     {% elseif (data['e13'] == 'Yes') %}
                     {{data['e14-line-1']}}, {% if (data['e14-line-2']) %}{{data['e14-line-2']}}, {% endif %}{% if (data['e14-town']) %}{{data['e14-town']}}, {% endif %}{% if (data['e14-postcode']) %}{{data['e14-postcode']}}, {% endif %}{% if (data['e14-country']) %}{{data['e14-country']}}{% endif %}
 
                     {% else %}
-                    {{data['e15-line-1']}}, {% if (data['e15-line-2']) %}{{data['e15-line-2']}}, {% endif %}{% if (data['e15-town']) %}{{data['e15-town']}}, {% endif %}{% if (data['e15-postcode']) %}{{data['e15-postcode']}}, {% endif %}{% if (data['e15-country']) %}{{data['e15-country']}}{% endif %}
+                    {{data['e15']}}
+
                     {% endif %}
                 {% endset %}
 
     
     
                 {% set contactAddress %}
-                {% if (data['e16'] == 'A different address in the UK' or data['e16'] == 'A different address outside the UK') %}
+                {% if (data['e16'] == 'A different address in the UK') %}
                 {{data['e17-line-1']}}, {% if (data['e17-line-2']) %}{{data['e17-line-2']}}, {% endif %}{% if (data['e17-town']) %}{{data['e17-town']}}, {% endif %}{% if (data['e17-postcode']) %}{{data['e17-postcode']}}, {% endif %}{% if (data['e17-country']) %}{{data['e17-country']}}{% endif %}
+                {% elseif (data['e16'] == 'A different address outside the UK') %}
+                {{data['e18']}}
                 {% else %}
                 {{registeredAddress}}
                 {% endif %}
@@ -61,13 +64,13 @@
                             Name
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {{data['registrant-name']}}
+                            {{data['entity-name']}}
                         </dd>
                         <dd class="govuk-summary-list__value pr-col">
-                            <strong class=""govuk-tag govuk-tag--purple"">{{data['i2-first']}} {{data['i2-last']}}</strong>
+                            <strong class="govuk-tag govuk-tag--purple">{{data['entity-name']}}</strong>
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="e2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+                            <a class="govuk-link" href="reg-type">Change<span class="govuk-visually-hidden"> Full name</span></a>
                         </dd>
                     </div>
                     <div class="govuk-summary-list__row">

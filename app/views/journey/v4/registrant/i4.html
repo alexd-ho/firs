@@ -32,8 +32,8 @@
 						</h1>
 					</legend>
 					<div id="i4-hint--1" class="govuk-hint">
-						<p>You should provide your previous names as they appear on your official change of name documents. For example, a marriage certificate.</p>
-                        <p>If you have multiple previous names, you can add more by selecting 'Add another'. </p>
+						<p>You should provide your other names as they appear on your official change of name documents. For example, a marriage certificate.</p>
+						<p>If you have multiple other names, you can add more by selecting 'Add another'. </p>
 					</div>
 					{% else %}
 					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -42,8 +42,8 @@
 						</h1>
 					</legend>
 					<div id="i4-hint--1" class="govuk-hint">
-						<p>You should provide your previous names as they appear on your official change of name documents. For example, a marriage certificate.</p>
-                        <p>If you have multiple previous names, you can add more by selecting 'Add another'. </p>
+						<p>You should provide your other names as they appear on your official change of name documents. For example, a marriage certificate.</p>
+						<p>If you have multiple other names, you can add more by selecting 'Add another'. </p>
 					</div>
 					{% endif %}
 
@@ -147,8 +147,8 @@ function addNew() {
       var s = stringToHTML(`
       
 		<div class="govuk-form-group govuk-form-group--add-another-block">
-			<label class="govuk-label hidden" for="i4--${newNameId}">
-				Name ${newNameId}
+			<label class="govuk-label" for="i4--${newNameId}">
+				Other Name
 			</label>
 			<div class="govuk-form-group--add-another-block__fields">
 

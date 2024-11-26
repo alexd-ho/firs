@@ -201,8 +201,13 @@ a.govuk-link--disabled {
     }
 }
 
-.govuk-task-list__status {
-    min-width: 150px;
+.govuk-task-list {
+    &__status {
+        min-width: 150px;
+    }
+    &__label {
+        margin-top: 5px;
+    }
 }
 
 .govuk-summary-card {

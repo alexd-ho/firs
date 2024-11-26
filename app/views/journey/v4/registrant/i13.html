@@ -14,7 +14,7 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='i11' method='post'>
+            <form action='i-check' method='post'>
     
                 <span class='govuk-caption-l'>Verify your identity and add your details</span>
     
@@ -22,13 +22,16 @@
                     
                 {{ govukTextarea({
                 name: 'moreDetail',
-                    id: 'i9',
-                    name: 'i9',
-                    value: data['i9'],
+                    id: 'i13',
+                    name: 'i13',
+                    value: data['i13'],
                     label: {
-                        text: 'What is your home address in '+data['i8']+'?',
+                        text: 'What is your home address in '+data['otherCountry']+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
+                    },
+                    hint: {
+                        html: '<p>This is the address we will use if we need to send any documents.</p>'
                     }
                 }) }} 
 

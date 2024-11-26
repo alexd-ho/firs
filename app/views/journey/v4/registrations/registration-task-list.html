@@ -76,7 +76,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 								aria-describedby="prepare-application-1-status">
 								Add a registrant
 							</a>
-							<div id="application-details-3-hint" class="govuk-task-list__hint-">
+							<div id="application-details-3-hint" class="govuk-task-list__label">
 								{{data['registrant-name']}}
 							</div>
 						{% else %}
@@ -84,7 +84,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 								aria-describedby="prepare-application-1-status">
 								Add a registrant
 							</a>
-							<div id="application-details-3-hint" class="govuk-task-list__hint-">
+							<div id="application-details-3-hint" class="govuk-task-list__label">
 								{{data['registrant-name']}}
 							</div>													
 						{% endif %}
@@ -132,7 +132,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 							aria-describedby="prepare-application-2-status">
 							Add an arrangement
 						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint-">
+						<div id="application-details-3-hint" class="govuk-task-list__label">
 							{% if (data['fp-2'] == 'Yes') %}
 								{% if (data['fp-4'] == 'Yes') %}
 									{{foreignPower}} ({{fpCountry}})
@@ -153,7 +153,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 							aria-describedby="prepare-application-2-status">
 							Add an arrangement
 						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint-">
+						<div id="application-details-3-hint" class="govuk-task-list__label">
 							{% if (data['fp-2'] == 'Yes') %}
 								{% if (data['fp-4'] == 'Yes') %}
 									{{foreignPower}} ({{fpCountry}})
@@ -198,7 +198,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 							aria-describedby="prepare-application-3-status">
 							Add an activity
 						</a>
-						<div id="application-details-3-hint" class="govuk-task-list__hint-">
+						<div id="application-details-3-hint" class="govuk-task-list__label">
 							{% if (data['a-pri-1']) %}<span class="govuk-summary-card__title__element">Private communication</span>{% endif %}
 							{% if (data['a-pub-1']) %}<span class="govuk-summary-card__title__element">Public communication</span>{% endif %}
 							{% if (data['a-mon-1']) %}<span class="govuk-summary-card__title__element">Supply of money, goods or services</span>{% endif %}

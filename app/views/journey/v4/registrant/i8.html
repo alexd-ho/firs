@@ -14,43 +14,36 @@
                 <span class='govuk-caption-l'>Verify your identity and add your details</span>
     
                 <fieldset class="govuk-fieldset">
-					{% if (data['mode'] == 'rep') %}
+
 					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 						<h1 class="govuk-fieldset__heading">
-							What country does [NAME] live in?
+							What country or territory do you live in?
 						</h1>
 					</legend>
-					{% else %}
-					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-						<h1 class="govuk-fieldset__heading">
-							What country do you live in?
-						</h1>
-					</legend>
-					{% endif %}
 
 
-						<div class="govuk-form-group govuk-form-group--add-another-block">
-							<label class="govuk-label hidden" for="i8">
-								Country
-							</label>
-							 <!-- id="i6--1" name="i6--1" -->
+                    <div class="govuk-form-group govuk-form-group--add-another-block">
+                        <label class="govuk-label hidden" for="i8">
+                            Country
+                        </label>
+                            <!-- id="i6--1" name="i6--1" -->
 
-							<div class="govuk-form-group--add-another-block__fields">
+                        <div class="govuk-form-group--add-another-block__fields">
 
-								<div class="govuk-form-group--add-another-block__fields__col1">
-									<div class="autocomplete-wrapper" id="i8"></div>
-									<div class="govuk-body other-nationality-field">
-										<p><a href="#" class="govuk-link cannot-find-country" data-field="i8">I cannot find my country in the list</a></p>
-									</div>
-								</div>
+                            <div class="govuk-form-group--add-another-block__fields__col1">
+                                <div class="autocomplete-wrapper" id="i8"></div>
+                                <div class="govuk-body other-nationality-field">
+                                    <p><a href="#" class="govuk-link cannot-find-country" data-field="i8">I cannot find my country in the list</a></p>
+                                </div>
+                            </div>
 
-								<div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
-									<a href="#" class="govuk-link row-remove hidden" data-row="i8">Remove</a>
-								</div>
+                            <div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+                                <a href="#" class="govuk-link row-remove hidden" data-row="i8">Remove</a>
+                            </div>
 
-							</div>
+                        </div>
 
-						</div>
+                    </div>
 						
 
 				</fieldset>
@@ -95,7 +88,7 @@
                 console.log(thisField);
                 $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper').addClass('hidden');
                 $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper input.autocomplete__input').attr("name","none");
-                $(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus> <p>Describe your nationality in this field</p>');
+                $(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus> <p>Country or territory name</p>');
                 // $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
                 return false;
             })

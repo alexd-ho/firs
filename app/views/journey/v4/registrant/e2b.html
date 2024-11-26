@@ -15,9 +15,9 @@
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'registrant-name',
-                    name: 'registrant-name',
-                    value: data['registrant-name'],
+                    id: 'entity-name',
+                    name: 'entity-name',
+                    value: data['entity-name'],
                     fieldset: {
                         legend: {
                             text: 'Select your foreign power-controlled entity.',

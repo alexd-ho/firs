@@ -2497,13 +2497,13 @@ router.post('/route-v4/on-6', function(request, response) {
 router.post('/route-v4/reg-type', function(request, response) {
     var value = request.session.data['reg-type']
     if (value == 'Individual'){ 
-        response.redirect(verify_v4+'/idv-3?tier=political&misrep=false&reg-type=Individual')
+        response.redirect(verify_v4+'/idv-3?tier=political&misrep=false&reg-type=Individual&reg-subtype=default')
     } else if (value == "Misrepresentative foreign power employee") { // 
-        response.redirect(verify_v4+'/idv-3?tier=enhanced&misrep=true&reg-type=Individual')
+        response.redirect(verify_v4+'/idv-3?tier=enhanced&misrep=true&reg-type=Individual&reg-subtype=misrep')
     } else if (value == "Entity") { // 
-        response.redirect(registrant_v4+'/e1a?tier=political&misrep=false&reg-type=Entity')
+        response.redirect(registrant_v4+'/e1a?tier=political&misrep=false&reg-type=Entity&reg-subtype=default')
     } else {
-        response.redirect(registrant_v4+'/e1b?tier=enhanced&misrep=false&reg-type=Entity')
+        response.redirect(registrant_v4+'/e1b?tier=enhanced&misrep=false&reg-type=Entity&reg-subtype=fpce')
     }
 })
 
@@ -2532,7 +2532,7 @@ router.post('/route-v4/i11', function(request, response) {
     if (value == 'A different address in the UK'){ 
         response.redirect(registrant_v4+'/i12')
     } else if (value == "A different address outside the UK") { // 
-        response.redirect(registrant_v4+'/i12')
+        response.redirect(registrant_v4+'/i13')
     } else {
         response.redirect(registrant_v4+'/i-check')
     }
@@ -2581,7 +2581,7 @@ router.post('/route-v4/e16', function(request, response) {
     if (value == 'A different address in the UK'){ 
         response.redirect(registrant_v4+'/e17')
     } else if (value == "A different address outside the UK") { // 
-        response.redirect(registrant_v4+'/e17')
+        response.redirect(registrant_v4+'/e18')
     } else {
         response.redirect(registrant_v4+'/e-check')
     }

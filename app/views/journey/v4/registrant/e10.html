@@ -18,93 +18,35 @@
     
                 <span class='govuk-caption-l'>Add your entity details</span>
     
-                {% from 'govuk/components/input/macro.njk' import govukInput %}
-                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+           
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
                     
-                {% call govukFieldset({
-                    legend: {
-                        text: 'What is the registered address of '+data['registrant-name']+' in '+data['e8']+'?',
-                        classes: 'govuk-fieldset__legend--l',
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'e10',
+                    name: 'e10',
+                    value: data['e10'],
+                    label: {
+                        text: 'What is the registered address of '+data['entity-name']+' in '+data['e8']+'?',
+                        classes: 'govuk-label--l',
                         isPageHeading: true
                     }
-                }) %}
-                    
-                {{ govukInput({
-                    label: {
-                        text: 'Address line 1'
-                   },
-                   id: 'e10-line-1',
-                   name: 'e10-line-1',
-                   autocomplete: 'address-line1',
-                   value: data['e10-line-1']
-                }) }}
-                    
-                    {{ govukInput({
-                    label: {
-                        text: 'Address line 2 (optional)'
-                    },
-                    id: 'e10-line-2',
-                    name: 'e10-line-2',
-                    autocomplete: 'address-line2',
-                    value: data['e10-line-1']
-                }) }}
-                    
-                    {{ govukInput({
-                    label: {
-                        text: 'Town or city'
-                    },
-                    classes: 'govuk-!-width-two-thirds',
-                    id: 'e10-town',
-                    name: 'e10-town',
-                    autocomplete: 'address-level2',
-                    value: data['e10-line-1']
-                }) }}
-
-                {% if (data['e8'] == 'United States') %}
-                {{ govukInput({
-                    label: {
-                        text: 'State'
-                    },
-                    classes: 'govuk-!-width-two-thirds',
-                    id: 'i9-state',
-                    name: 'i9-state',
-                    autocomplete: 'address-state'
-                }) }}
-                {% endif %}
-
-
-                {{ govukInput({
-                    label: {
-                        text: postcodeLabel
-                    },
-                    classes: 'govuk-input--width-10',
-                    id: 'e10-postcode',
-                    name: 'e10-postcode',
-                    autocomplete: 'postal-code',
-                    value: data['e10-line-1']
-                }) }}
-                    
-                {{ govukInput({
-                    label: {
-                        text: 'Country'
-                    },
-                    classes: 'govuk-!-width-two-thirds',
-                    id: 'e10-country',
-                    name: 'e10-country',
-                    autocomplete: 'country',
-                    value: data['e8']
-                }) }}
-                    
-                {% endcall %}
+                }) }} 
     
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
-                {{ govukButton({
-                    href: '/route-v4/registration-overview',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+                </div>
+
             </form>
         </div>
     </div>

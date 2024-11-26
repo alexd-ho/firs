@@ -17,20 +17,33 @@
                     {% if (data['i7'] == 'Yes') %}
                     {{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
                     {% else %}
-                    {{data['i9-line-1']}}, {% if (data['i9-line-2']) %}{{data['i9-line-2']}}, {% endif %}{% if (data['i9-town']) %}{{data['i9-town']}}, {% endif %}{% if (data['i9-postcode']) %}{{data['i9-postcode']}}, {% endif %}{% if (data['i9-country']) %}{{data['i9-country']}}{% endif %}
+                    {{data['i9']}}
                     {% endif %}
                 {% endset %}
 
                 {% set otherCountry %}
-                {{ govukInput({
-                    id: 'i11-other',
-                    name: 'i11-other',
-                    value: data['i11-other'],
-                    classes: 'govuk-!-width-two-thirds',
-                    label: {
-                        text: 'Country'
-                    }
-                }) }}
+                <div class="govuk-form-group govuk-form-group--add-another-block">
+                    <label class="govuk-label hidden" for="i8">
+                        Country
+                    </label>
+                        <!-- id="i6--1" name="i6--1" -->
+
+                    <div class="govuk-form-group--add-another-block__fields">
+
+                        <div class="govuk-form-group--add-another-block__fields__col1">
+                            <div class="autocomplete-wrapper" id="otherCountry"></div>
+                            <div class="govuk-body other-nationality-field">
+                                <p><a href="#" class="govuk-link cannot-find-country" data-field="otherCountry">I cannot find my country in the list</a></p>
+                            </div>
+                        </div>
+
+                        <div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
+                            <a href="#" class="govuk-link row-remove hidden" data-row="otherCountry">Remove</a>
+                        </div>
+
+                    </div>
+
+                </div>
                 {% endset -%} 
 
 
@@ -81,4 +94,46 @@
             </form>
         </div>
     </div>
+
+
+    <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+    <script type="text/javascript" src="/public/javascripts/countries.js"></script>
+
+
+    <script type="text/javascript">
+        var element = document.querySelector('#otherCountry')
+        var id = 'otherCountry'
+        accessibleAutocomplete({
+            element: element,
+            id: id,
+            name: id,
+            source: countries
+        })
+
+        function manageRows (fieldId) {
+
+
+            $('.cannot-find-country').on('click', function() {
+                console.log('cannot-find-nationality');
+                var thisField = $(this).data('field');
+                console.log(thisField);
+                $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper').addClass('hidden');
+                $(this).closest('.govuk-form-group--add-another-block__fields').find('.autocomplete-wrapper input.autocomplete__input').attr("name","none");
+                $(this).closest('.other-nationality-field').html('<input name="'+thisField+'" id="'+thisField+'" type="text" class="govuk-input" autofocus> <p>Country or territory name</p>');
+                // $(this).closest(".person-module").find(".update-button-group").removeClass('update-button-group--hidden');
+                return false;
+            })
+
+            console.log('focus: input#'+fieldId);
+            $('input#'+fieldId).focus();
+
+        }
+
+        window.onload = function() {
+            manageRows('i8');
+        };
+
+    </script>
+
+
     {% endblock %}

@@ -1,20 +1,15 @@
 {% extends 'layouts/v4-header-1.html' %}
-{% set activeLinkId = 'registrations' %}
+{% set activeLinkId = 'account' %}
     
     {% block pageTitle %}
-        Regsiter your address – {{ serviceName }} – GOV.UK Prototype Kit
+        Add your entity details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-    {% set postcodeLabel %}
-        {% if (data['e11'] == 'Ireland') %}Eircode
-        {% elseif (data['e11'] == 'United States') %}Zipcode
-        {% else %}Postcode{% endif %}
-    {% endset %}
-
+    
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='e16' method='post'>
+            <form action='e-check' method='post'>
     
                 <span class='govuk-caption-l'>Add your entity details</span>
     
@@ -22,17 +17,19 @@
                     
                 {{ govukTextarea({
                 name: 'moreDetail',
-                    id: 'e15',
-                    name: 'e15',
-                    value: data['e15'],
+                    id: 'e18',
+                    name: 'e18',
+                    value: data['e18'],
                     label: {
-                        text: 'What is the registered address of '+data['entity-name']+' in '+data['e11']+'?',
+                        text: 'What address should we use to contact '+data['entity-name']+' in '+data['e16-other']+'?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
+                    },
+                    hint: {
+                        text: ''
                     }
                 }) }} 
-                
-                
+    
                 {{ govukButton({
                     text: 'Save and continue'
                 }) }}
