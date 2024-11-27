@@ -9,13 +9,13 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a-4' method='post'>
+            <form action='/route-v4/a-3-e' method='post'>
     
                 <span class='govuk-caption-l'>Add an activity</span>
 
                 {% set thisRegistrant %}
-                {% if (data['reg-type'] == 'Individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
-            {% endset %}
+                    {% if (data['reg-type'] == 'Individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
+                {% endset %}
 
                 {% from 'govuk/components/checkboxes/macro.njk' import govukCheckboxes %}
                 {{ govukCheckboxes({

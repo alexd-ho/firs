@@ -500,6 +500,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
                     </dl>
                 </div> -->
+
                 <div class="govuk-summary-card__content govuk-summary-card__content__collapsable">
                     <dl class="govuk-summary-list">
                         <div class="govuk-summary-list__row">
@@ -510,7 +511,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['a-2-p']) %}{{data['a-2-p']}} {% else %}{{data['a-2-e']}} {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-2-p">Change<span class="govuk-visually-hidden"> name</span></a>
+                                {% if (data['a-2-p']) %}<a class="govuk-link" href="../activity/a-2-p">Change<span class="govuk-visually-hidden"> Targets of influence</span></a>{% else %}<a class="govuk-link" href="../activity/a-2-e">Change<span class="govuk-visually-hidden"> Targets of influence</span></a>{% endif %}
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -518,10 +519,13 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 Actions involved
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['activity-types']}}
+                                {% if (data['a-pri-1']) %}<span class="govuk-summary-card__title__element">Private communication</span>{% endif %}
+                                {% if (data['a-pub-1']) %}<span class="govuk-summary-card__title__element">Public communication</span>{% endif %}
+                                {% if (data['a-mon-1']) %}<span class="govuk-summary-card__title__element">Supply of money, goods or services</span>{% endif %}
+                                {% if (data['a-oth-1']) %}<span class="govuk-summary-card__title__element">Other type of activity</span>{% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-3-p">Change<span class="govuk-visually-hidden"> name</span></a>
+                                {% if (data['a-2-p']) %}<a class="govuk-link" href="../activity/a-3-p">Change<span class="govuk-visually-hidden"> Actions involved</span></a>{% else %}<a class="govuk-link" href="../activity/a-3-e">Change<span class="govuk-visually-hidden"> name</span></a>{% endif %}
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -532,7 +536,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['a-4']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-4">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-4">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -547,7 +551,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-5">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-5">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -562,7 +566,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-5">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-5">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         {% if (data['a-5'] != 'I am doing the activity myself') %}
@@ -579,7 +583,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-5">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-5">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         {% endif %}
@@ -595,7 +599,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-6">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-6">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -612,7 +616,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-7">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-7">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -623,7 +627,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['a-8']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-6">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-8">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
         
@@ -641,7 +645,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['a-pri-1']}} {% if (data['a-pri-1-other']) %}({{data['a-pri-1-other']}}){% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-pri-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-pri-1">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
         
@@ -657,7 +661,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['a-pri-3--name-4']) %}, {{data['a-pri-3--name-4']}} ({{data['a-pri-3--type-4']}}){% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-pri-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-pri-3">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         {% endif %}
@@ -674,7 +678,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['a-pri-4--type-4']) %}<br>{{data['a-pri-4--type-4']}}{% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-pri-4">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-pri-4">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         {% endif %}
@@ -695,7 +699,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['a-pub-1']}} {% if (data['a-pub-1-other']) %}({{data['a-pub-1-other']}}){% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-pub-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-pub-1">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         {% if (data['a-pub-2']) %}
@@ -707,7 +711,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['a-pub-2']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-pub-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-pub-2">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
                         {% endif %}
@@ -727,7 +731,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['a-mon-1']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-mon-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-mon-1">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
         
@@ -739,7 +743,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 £{{data['a-mon-2']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-mon-2">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-mon-2">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
         
@@ -754,7 +758,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['a-mon-3--name-4']) %}, {{data['a-mon-3--name-4']}} ({{data['a-mon-3--type-4']}}){% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
         
@@ -773,7 +777,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['a-oth-1']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="a-oth-1">Change<span class="govuk-visually-hidden"> name</span></a>
+                                <a class="govuk-link" href="../activity/a-oth-1">Change<span class="govuk-visually-hidden"> name</span></a>
                             </dd>
                         </div>
         
@@ -783,159 +787,6 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     
                 </div>
             </div>
-
-
-<!-- 
-            {% if (data['a-pri-1']) %}
-            <h2 class='govuk-heading-m'>Private communication</h1>
-
-            <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        What does the private communication involve?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['a-pri-1']}} {% if (data['a-pri-1-other']) %}({{data['a-pri-1-other']}}){% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-pri-1">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-
-                {% if (data['a-pri-3--name-1']) %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Individuals being targeted by the private communication
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['a-pri-3--name-1']) %}{{data['a-pri-3--name-1']}} ({{data['a-pri-3--type-1']}}){% endif %}
-                        {% if (data['a-pri-3--name-2']) %}, {{data['a-pri-3--name-2']}} ({{data['a-pri-3--type-2']}}){% endif %}
-                        {% if (data['a-pri-3--name-3']) %}, {{data['a-pri-3--name-3']}} ({{data['a-pri-3--type-3']}}){% endif %}
-                        {% if (data['a-pri-3--name-4']) %}, {{data['a-pri-3--name-4']}} ({{data['a-pri-3--type-4']}}){% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-pri-3">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                {% endif %}
-
-                {% if (data['a-pri-4--type-1']) %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Groups or categories being targeted by the private communication
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['a-pri-4--type-1']) %}{{data['a-pri-4--type-1']}}{% endif %}
-                        {% if (data['a-pri-4--type-2']) %}<br>{{data['a-pri-4--type-2']}}{% endif %}
-                        {% if (data['a-pri-4--type-3']) %}<br>{{data['a-pri-4--type-3']}}{% endif %}
-                        {% if (data['a-pri-4--type-4']) %}<br>{{data['a-pri-4--type-4']}}{% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-pri-4">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                {% endif %}
-
-            </dl>     
-            {% endif %}
-
-            {% if (data['a-pub-1']) %}
-            <h2 class='govuk-heading-m'>Public communication</h1>
-
-            <dl class="govuk-summary-list">
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        What does the public communication involve?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['a-pub-1']}} {% if (data['a-pub-1-other']) %}({{data['a-pub-1-other']}}){% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-pub-1">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                {% if (data['a-pub-2']) %}
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Intended target audience of the public communication
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['a-pub-2']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-pub-2">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-                {% endif %}
-
-            </dl>     
-            {% endif %}
-
-            {% if (data['a-mon-1']) %}
-            <h2 class='govuk-heading-m'>Supply of money, goods or services</h1>
-
-            <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        What is being supplied?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['a-mon-1']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-mon-1">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Total value being supplied
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        £{{data['a-mon-2']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-mon-2">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Individuals or entities you are supplying
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {% if (data['a-mon-3--name-1']) %}{{data['a-mon-3--name-1']}} ({{data['a-mon-3--type-1']}}){% endif %}
-                        {% if (data['a-mon-3--name-2']) %}, {{data['a-mon-3--name-2']}} ({{data['a-mon-3--type-2']}}){% endif %}
-                        {% if (data['a-mon-3--name-3']) %}, {{data['a-mon-3--name-3']}} ({{data['a-mon-3--type-3']}}){% endif %}
-                        {% if (data['a-mon-3--name-4']) %}, {{data['a-mon-3--name-4']}} ({{data['a-mon-3--type-4']}}){% endif %}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-mon-3">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-
-            </dl>     
-            {% endif %}
-
-            {% if (data['a-oth-1']) %}
-            <h2 class='govuk-heading-m'>Other type of activity</h1>
-
-            <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        What does the other type of activity involve?
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['a-oth-1']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="a-oth-1">Change<span class="govuk-visually-hidden"> name</span></a>
-                    </dd>
-                </div>
-
-            </dl>     
-            {% endif %} -->
 
 
 
@@ -1032,7 +883,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
             {% endset %}
 
 
-            {% if (data['arrangement-tier'] == 'political') %}
+            {% if (data['registration-tier'] == 'political') %}
 
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -1075,57 +926,6 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     }
                     ]
                 }) }}
-
-            {% elseif (data['arrangement-tier'] == 'enhanced') %}
-
-                {% if (data['activity-types'] == 'Other type of activity in the UK') %}
-
-
-                {% else %}
-
-                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
-                {{ govukRadios({
-                    id: 'exception-request',
-                    name: 'exception-request',
-                    value: data['exception-request'],
-                    fieldset: {
-                        legend: {
-                            text: 'Public register',
-                            classes: 'govuk-fieldset__legend--m',
-                            isPageHeading: false
-                        }
-                    },
-                    hint: {
-                        html: "
-                        <p>If some or all of the information meets one or more of the following criteria, it will remain private and not appear the public register.  </p>
-                        <ul class='govuk-list govuk-list--bullet'>
-                            <li><strong>Risk to personal safety</strong><br>
-                                There is a significant risk publication would put the safety of any individual in this activity at risk of serious harm.</li>
-                            <li><strong>Risk to investigation of crime</strong><br>
-                                    There is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime.</li>
-                            <li><strong>Risk to the safety of the UK</strong><br>
-                                        There is a risk publication would be prejudicial to the safety or interests of the UK.</li>
-                            <li><strong>Risk to commercial interests</strong><br>
-                                            There is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity.</li>
-                        </ul>
-                        "
-                    },
-                    items: [
-                    {
-                       value: 'Yes',
-                        text: 'Yes, the information meets the criteria to remain private and not appear on the public register.',
-                        conditional: {
-                            html: exceptionOptions
-                        }
-                    },
-                    {
-                       value: 'No',
-                        text: 'No, the information does not meet the criteria to remain private and will appear on the public register.'
-                    }
-                    ]
-                }) }}
-
-                {% endif %}
 
             {% endif %}
 

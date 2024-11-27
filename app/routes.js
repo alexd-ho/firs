@@ -2731,11 +2731,32 @@ router.post('/route-v4/fp-4', function(request, response) {
 router.post('/route-v4/a-2-e', function(request, response) {
     var value = request.session.data['a-2-e'] //
     if (value == "The activity does not intend to influence anything listed above") { // 
-        response.redirect(activity_v4+'/a-4?activity-types=not-applicable')
+        response.redirect(activity_v4+'/a-3-e?registration-tier=enhanced')
     } else {
-        response.redirect(activity_v4+'/a-3-e')
+        response.redirect(activity_v4+'/a-3-e?registration-tier=political')
     }
 })
+
+router.post('/route-v4/a-3-e', function(request, response) {
+    var value1 = request.session.data['a-2-e'] //
+    var value2 = request.session.data['activity-types'] //
+    if (value1 == "The activity does not intend to influence anything listed above") { // 
+        if (value2.includes("Other type of activity in the UK")) { // 
+            response.redirect(activity_v4+'/a-4?registration-tier=enhanced') // other - other
+        } else {
+            response.redirect(activity_v4+'/a-4?registration-tier=enhanced') // other - political
+        }
+    } else {
+        if (value2.includes("Other type of activity in the UK")) { // 
+            response.redirect(activity_v4+'/a-4?registration-tier=enhanced') // political - other
+        } else {
+            response.redirect(activity_v4+'/a-4?registration-tier=political') // political - political
+        }
+    }
+})
+// if (value.includes("Specific individuals")){
+
+
 
 router.post('/route-v4/a3-e', function(request, response) {
     var value = request.session.data['a3-e'] //

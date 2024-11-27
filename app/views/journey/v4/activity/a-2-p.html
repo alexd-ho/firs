@@ -9,7 +9,7 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='a-3-p' method='post'>
+            <form action='a-3-p?registration-tier=political' method='post'>
 
             {% set thisRegistrant %}
                 {% if (data['reg-type'] == 'Individual') %}are you {% else %} is {{data['registrant-name]']}}{% endif %}
