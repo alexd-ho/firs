@@ -2731,7 +2731,7 @@ router.post('/route-v4/fp-4', function(request, response) {
 router.post('/route-v4/a-2-e', function(request, response) {
     var value = request.session.data['a-2-e'] //
     if (value == "The activity does not intend to influence anything listed above") { // 
-        response.redirect(activity_v4+'/a-4')
+        response.redirect(activity_v4+'/a-4?activity-types=not-applicable')
     } else {
         response.redirect(activity_v4+'/a-3-e')
     }
@@ -2886,11 +2886,11 @@ router.post('/route-v4/a-mon-4', function(request, response) {
 router.post('/route-v4/registration-complete', function(request, response) {
     var value = request.session.data['exception-request']
     if (value == 'Yes'){ 
-        response.redirect(registration_v4+'/registration-complete?registration-progress=submitted&hold-registration=yes&first-registration=complete')
+        response.redirect(registration_v4+'/registration-complete?registration-status=submitted&hold-registration=yes&first-registration=complete')
     } else  if (value == 'No'){ 
-        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=no&first-registration=complete')
+        response.redirect(registration_v4+'/registration-complete?registration-status=complete&hold-registration=no&first-registration=complete')
     } else {
-        response.redirect(registration_v4+'/registration-complete?registration-progress=complete&hold-registration=not-applicable&first-registration=complete')
+        response.redirect(registration_v4+'/registration-complete?registration-status=complete&hold-registration=not-applicable&first-registration=complete')
     }
 })
 

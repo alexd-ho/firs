@@ -10,7 +10,7 @@ Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-two-thirds-from-desktop'>
 
-        {% if (data['arrangement-tier'] == 'enhanced') %}
+        {% if (data['arrangement-tier'] == 'enhanced' or data['tier'] == 'enhanced') %}
         <form action='a-2-e?activity-status=in-progress' method='post'>
         {% else %}
         <form action='a-2-p?activity-status=in-progress' method='post'>
