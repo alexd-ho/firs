@@ -15,23 +15,22 @@
             <form action='co-check' method='post'>
             {% endif %}
     
-                <span class='govuk-caption-l'>Add your contact details</span>
-    
-                {% from 'govuk/components/input/macro.njk' import govukInput %}
-                {{ govukInput({
-                    id: 'co-4',
-                    name: 'co-4',
-                    value: data['co-4'],
-                    label: {
-                        text: 'What is your telephone number?',
-                        classes: 'govuk-label--l',
-                        isPageHeading: true
-                    },
-                    hint: {
-                        html: '<p>We will only use this telephone number if we cannot contact you by email.</p>
-                        <p>For international numbers include + and the country code. For example, +39 1 33 45 70 90 </p>'
-                    }
+                <span class='govuk-caption-l'>Confirm your contact details</span>
+
+                <h1 class='govuk-heading-l'>Your email address</h1> 
+
+                <p>The email address shown below comes from your GOV.UK One Login account.</p>
+
+                <p>To change your email address, you need to update it in GOV.UK One Login.</p>
+
+                {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
+                    
+                {{ govukInsetText({
+                  html: '<p><strong>Email</strong><br>
+                    '+data["ol-1"]+'</p>',
+                    classes: 'prefilled'
                 }) }}
+    
     
                 {{ govukButton({
                     text: 'Save and continue'

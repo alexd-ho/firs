@@ -14,10 +14,10 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 
         <!-- <form action="../verify/idv-3?registrant-status=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'> -->
             
-            reg-type: {{ data['reg-type']}}
+            <!-- reg-type: {{ data['reg-type']}}
             tier: {{ data['tier']}}
             misrep: {{ data['misrep']}}
-            reg-subtype: {{ data['reg-subtype']}}
+            reg-subtype: {{ data['reg-subtype']}} -->
 
         {% if (data['reg-type'] == 'Individual' and data['reg-subtype'] == 'default') %}<!-- Individual -->
         <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{data['i2']}}" method='post'>

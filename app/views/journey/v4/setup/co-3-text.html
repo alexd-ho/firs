@@ -1,0 +1,89 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'registrations' %}
+    
+    {% block pageTitle %}
+        Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+
+            {% if (data['return'] == 'contact') %}
+            <form action='../account/contact-details' method='post'>
+
+            {% else %}
+
+            <form action='co-4' method='post'>
+
+            {% endif %}
+
+                <span class='govuk-caption-l'>Confirm your contact details</span>
+    
+                {% set contactNumberAlternate %}
+                    {% from 'govuk/components/input/macro.njk' import govukInput %}
+                    {{ govukInput({
+                        id: 'co-3-alternate',
+                        name: 'co-3-alternate',
+                        value: data['co-3-alternate'],
+                        classes: "govuk-!-width-two-thirds",
+                        label: {
+                            text: 'Telephone number',
+                            classes: 'govuk-label',
+                            isPageHeading: false
+                        },
+                        hint: {
+                            text: 'Include your country code, for example +44 for the UK.'
+                        }
+                    }) }}    
+                {% endset %}
+
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'co-3-text',
+                    name: 'co-3-text',
+                    value: data['co-3-text'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you want to use this telephone number?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        html: '
+                        <p>The telephone number shown below comes from your GOV.UK One Login account.</p>
+                        <p>We will only call you if we cannot contact you by email.</p>
+                        <div class="govuk-inset-text prefilled">
+                            <p><strong>Telephone number</strong><br>
+                                '+data['ol-5']+'</p>
+                          </div>
+                        '
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes, use this number'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No, I want to use a different number',
+                        conditional: {
+                            html: contactNumberAlternate
+                        }
+                    }
+                    ]
+                }) }}
+
+                
+
+                {{ govukButton({
+                    text: 'Save and continue'
+                }) }}
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

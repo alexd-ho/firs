@@ -11,7 +11,7 @@ Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
     <div class='govuk-grid-column-two-thirds-from-desktop'>
         <form action='../account?contact-name={{data["co-2"]}}&first-registration=not-started' method='post'>
 
-            <span class='govuk-caption-l'>Add your contact details</span>
+            <span class='govuk-caption-l'>Confirm your contact details</span>
 
             <h1 class='govuk-heading-l'>Check your answers</h1> 
 
@@ -29,25 +29,37 @@ Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Email address
+                        Telephone number
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['co-3']}}
+                        {% if (data['ol-4'] == 'Text message') %}
+                            {% if (data['co-3-text'] == 'Yes') %}
+                                {{data['ol-5']}}
+                                {% else %}
+                                {{data['co-3-alternate']}}
+                            {% endif %}
+                        {% else %}                                
+                            {{data['co-3-app']}}
+                        {% endif %}
+
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="co-3">Change<span class="govuk-visually-hidden"> date of
-                                birth</span></a>
+                        {% if (data['ol-4'] == 'Text message') %}
+                        <a class="govuk-link" href="co-3-text">Change<span class="govuk-visually-hidden"> Telephone number</span></a>
+                        {% else %}                                
+                        <a class="govuk-link" href="co-3-app">Change<span class="govuk-visually-hidden"> Telephone number</span></a>
+                        {% endif %}
                     </dd>
                 </div>
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Telephone number
+                        Email address
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['co-4']}}
+                        {{data['ol-1']}}
                     </dd>
                     <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="co-4">Change<span class="govuk-visually-hidden"> address</span></a>
+                        
                     </dd>
                 </div>
             </dl>

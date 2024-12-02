@@ -16,11 +16,11 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-full">
 
-		<span class="govuk-caption-l">Account home</span>
+		<!-- <span class="govuk-caption-l">Account home</span> -->
 		{% if (data['first-registration'] == 'not-started') %}
-		<h1 class="govuk-heading-l">Start your registration</h1>
+		<h1 class="govuk-heading-xl">Start your registration</h1>
 		{% else %}
-		<h1 class="govuk-heading-l">Complete your registration</h1>
+		<h1 class="govuk-heading-xl">Complete your registration</h1>
 		{% endif %}
 
 		<p>You must complete your registration within the specified time limit. Read the <a href="#">guidance about timings</a>.</p>
@@ -30,41 +30,13 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 			<h2 class="govuk-heading-m">Check before you start</h2>
 
-			<ul class="govuk-task-list">
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
-							aria-describedby="before-you-start-1-status">
-							Check your eligibility to register
-						</a>
-					</div>
-					<div class="govuk-task-list__status" id="before-you-start-1-status">
-						Optional
-					</div>
-				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
-							aria-describedby="before-you-start-2-status">
-							Check what you need to register as
-						</a>
-					</div>
-					<div class="govuk-task-list__status" id="before-you-start-2-status">
-						Optional
-					</div>
-				</li>
-				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="#"
-							aria-describedby="before-you-start-2-status">
-							Read the guidance
-						</a>
-					</div>
-					<div class="govuk-task-list__status" id="before-you-start-2-status">
-						Optional
-					</div>
-				</li>
+			<p>Before you start your registration, you should:</p>
+
+			<ul class='govuk-list govuk-list--bullet'>
+				<li><a href="#">check if you are required to register</a></li>
+				<li><a href="#">read the guidance</a></li>
 			</ul>
+
 
 			<h2 class="govuk-heading-m govuk-!-margin-top-5">Prepare your registration</h2>
 
@@ -241,7 +213,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						<a class="govuk-link govuk-task-list__link" href="../registrations/r-check"
 							aria-describedby="prepare-application-4-status">
-							Check a summary of your registration and submit it to the FIRS team
+							Check a summary of your registration and submit it to the Foreign Influence Registration Scheme (FIRS) team
 						</a>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-1-status">
@@ -260,7 +232,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
-							Check a summary of your registration and submit it to the FIRS team
+							Check a summary of your registration and submit it to the Foreign Influence Registration Scheme (FIRS) team
 						</div>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
@@ -278,7 +250,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						<a class="govuk-link govuk-task-list__link" href="../exception/ex-1"
 							aria-describedby="prepare-application-4-status">
-							You may need to provide evidence that shows why your information should remain private and not appear on the public register
+							Complete this section if your information is set to be published on the FIRS public register and you want any of it to remain private
 						</a>
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-1-status">
@@ -299,7 +271,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					{% else %}
 					<div class="govuk-task-list__name-and-hint">
 						<div>
-							You may need to provide evidence that shows why your information should remain private and not appear on the public register
+							Complete this section if your information is set to be published on the FIRS public register and you want any of it to remain private
 						</div>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">

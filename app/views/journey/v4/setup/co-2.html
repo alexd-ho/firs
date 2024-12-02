@@ -9,13 +9,21 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            {% if (data['return'] == 'update') %}
+
+            {% if (data['return'] == 'contact') %}
             <form action='../account/contact-details' method='post'>
+
+            {% else %}
+                
+            {% if (data['ol-4'] == 'Text message') %}
+            <form action='co-3-text' method='post'>
             {% else %}                                
-            <form action='co-3' method='post'>
+            <form action='co-3-app' method='post'>
             {% endif %}
-    
-                <span class='govuk-caption-l'>Add your contact details</span>
+
+            {% endif %}
+
+                <span class='govuk-caption-l'>Confirm your contact details</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -28,8 +36,7 @@
                         isPageHeading: true
                     },
                     hint: {
-                        html: '<p>Enter the name you would like us to use when we contact you. This name will also appear on your account.</p>
-                        <p>You may be asked for your full legal name later if you register certain activities.</p>'
+                        html: '<p>This is the name we will use to contact you. You may be asked for your legal name later.</p>'
                     }
                 }) }}
     

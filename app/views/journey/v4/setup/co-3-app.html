@@ -9,29 +9,34 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            {% if (data['return'] == 'update') %}
+
+            {% if (data['return'] == 'contact') %}
             <form action='../account/contact-details' method='post'>
-            {% else %}                                
+
+            {% else %}
+
             <form action='co-4' method='post'>
+
             {% endif %}
-    
-                <span class='govuk-caption-l'>Add your contact details</span>
+                
+                <span class='govuk-caption-l'>Confirm your contact details</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
-                    id: 'co-3',
-                    name: 'co-3',
-                    value: data['co-3'],
+                    id: 'co-3-app',
+                    name: 'co-3-app',
+                    value: data['co-3-app'],
                     label: {
-                        text: 'What is your email address?',
+                        text: 'What is your telephone number?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },
                     hint: {
-                        html: '<p>This is our primary way of contacting you. You can manage your contact preferences later.</p>'
+                        html: '<p>Include your country code, for example +44 for the UK. We will only call you if we cannot contact you by email.</p>'
                     }
-                }) }}
-    
+                }) }}    
+                
+
                 {{ govukButton({
                     text: 'Save and continue'
                 }) }}

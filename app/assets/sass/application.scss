@@ -215,8 +215,27 @@ a.govuk-link--disabled {
     &__title-wrapper {
         align-items: center !important;
     }
-    .expand-collapse-label:before {
-        content: "Expand";
+    .expand-collapse-label{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        min-width: 69px;
+
+        &:before {
+            content: "Show";
+        }
+        &:after {
+            display: inline-block;
+            content: "";
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 13.9px 8px 0 8px;
+            border-color: #1d70b8 transparent transparent transparent;
+            transform: rotate(0deg);
+            margin-left: 5px;
+        }
     }
     &__content__collapsable {
         display: none;
@@ -230,9 +249,16 @@ a.govuk-link--disabled {
     }
 
     &.show-content {
-        .expand-collapse-label:before {
-            content: "Collapse";
+        .expand-collapse-label{
+            &:before {
+                content: "Hide";
+            }
+            &:after {
+                content: "";
+                transform: rotate(180deg);
+            }
         }
+
         .govuk-summary-card__content__collapsable {
             display: block;
 

@@ -93,7 +93,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-full'>
 
-
+            <!-- REGISTRANT -->
 
             <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
@@ -378,6 +378,9 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
                 </div>
             </div>
+
+            <!-- ARRANGEMENT -->
+
             <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">
@@ -409,7 +412,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="fp-2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+                                <a class="govuk-link" href="../arrangement/fp-2">Change<span class="govuk-visually-hidden"> Full name</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -420,7 +423,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {{data['fp-8']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="fp-8">Change<span class="govuk-visually-hidden"> Other names</span></a>
+                                <a class="govuk-link" href="../arrangement/fp-8">Change<span class="govuk-visually-hidden"> Other names</span></a>
                             </dd>
                         </div>
                         <div class="govuk-summary-list__row">
@@ -431,13 +434,15 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 {% if (data['fp-9-day']) %}{{data['fp-9-day']}} {{data['fp-9-month'] | monthName("truncate")}} {{data['fp-9-year']}} {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
-                                <a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> date of
+                                <a class="govuk-link" href="../arrangement/fp-9">Change<span class="govuk-visually-hidden"> date of
                                         birth</span></a>
                             </dd>
                         </div>
                     </dl>
                 </div>
             </div>
+
+            <!-- ACTIVITY -->
 
             <div class="govuk-summary-card">
                 <div class="govuk-summary-card__title-wrapper">

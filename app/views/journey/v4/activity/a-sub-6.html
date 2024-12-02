@@ -23,6 +23,21 @@
                     
                 {% set subcontractorAddress %}
 
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                    
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: currentSub+'-address',
+                    name: currentSub+'-address',
+                    value: data[currentSub+'-address'],
+                    label: {
+                        text: 'Address',
+                        classes: 'govuk-label ',
+                        isPageHeading: false
+                    }
+                }) }} 
+
+                <!--
                 {% call govukFieldset({
                     legend: {
                         text: 'What is the address of the '+currentType+' doing the activity?',
@@ -69,7 +84,6 @@
                     autocomplete: 'postal-code'
                 }) }}
               
-                <!-- https://x-govuk.github.io/govuk-prototype-components/autocomplete/#autocomplete-nunjucks -->
                 <div class='govuk-form-group'>
                     <label class='govuk-label' for='sort'>Country</label>
                     <select class='govuk-select govuk-!-width-two-thirds' id='{{currentSub}}--country' name='{{currentSub}}--country' data-module='autocomplete' data-autoselect='' data-display-menu='' data-min-length='' data-show-all-values='' data-show-no-options-found='true'>
@@ -317,6 +331,8 @@
                 </div>
                     
                 {% endcall %}
+
+            -->
 
 
                 {% endset %}
