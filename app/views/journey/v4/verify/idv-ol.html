@@ -12,6 +12,31 @@
             <form action='/route-v4/idv-ol' method='post'>
     
                 <span class='govuk-caption-l'>Verify your identity</span>
+
+                {% set passport %}
+                <p>For this prototype, the following will be used for the document data:<br>
+                <div class="govuk-inset-text prefilled">
+                    <p><strong>Name:</strong><br> {{data["co-2"]}}</p>
+                    <p><strong>Date of birth:</strong><br> 1 January 1990</p>
+                    <p><strong>Passport number:</strong><br> 123456789</p>
+                </div>
+                {% endset %}
+
+                {% set drivingLicense %}
+                <p>For this prototype, the following will be used for the document data:<br>
+
+                <div class="govuk-inset-text prefilled">
+                    <p><strong>Name:</strong><br> {{data["co-2"]}}</p>
+                    <p><strong>Date of birth:</strong><br> 1 January 1990<br>
+                    <p><strong>Current address:</strong><br>
+                    2 Marsham Street<br>
+                    London<br>
+                    United Kingdom<br>
+                    SW1P 4DF<br>
+                    <p><strong>Driving licence number:</strong><br>SMITH061254J99AB
+                    </p>
+                    </div>
+                {% endset %}
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -31,11 +56,17 @@
                     items: [
                     {
                         value: 'Pass (UK Passport)',
-                         text: 'Pass (UK Passport)'
+                         text: 'Pass (UK passport)',
+                         conditional: {
+                            html: passport
+                         }
                      },
                      {
                         value: 'Pass (UK driving license)',
-                         text: 'Pass (UK driving license)'
+                         text: 'Pass (UK driving license)',
+                         conditional: {
+                            html: drivingLicense
+                         }
                      },
                       {
                        value: 'Fail',

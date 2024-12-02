@@ -12,82 +12,86 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-two-thirds">
 		<!-- <span class="govuk-caption-l">Register as an individual</span> -->
-		<h1 class='govuk-heading-l'>Verify your identity and add your details</h1> 
 
+		<h1 class='govuk-heading-l'>Add your personal details</h1> 
 
-	</div>
+		<p>You must provide your personal details.</p>
 
-</div>
+		<h2 class='govuk-heading-m'>What you need to complete this section     </h2> 
 
-<div class="govuk-grid-row">
+		<p>You must provide your: </p>
+		<ul class='govuk-list govuk-list--bullet'>
+			<li>full name and any previous names </li>
+			<li>date of birth  </li>
+			<li>nationality </li>
+			<li>address       </li>
+		</ul>
 
-	<div class="govuk-grid-column-two-thirds">
+		<p>We may use some details from your GOV.UK One Login account.</p>
 
-		<form action="i2" method="post">
+		<h2 class='govuk-heading-m'>The public register</h2> 
 
-			{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+		<p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register. </p>
+		<p>Information set to appear on the public register may remain private if:</p>
+		<ul class='govuk-list govuk-list--bullet'>
+			<li>publication could cause serious harm to any individual involved in this activity</li>
+			<li>publication could harm a criminal investigation or proceedings, or prevent the detection of crime</li>
+			<li>publication could harm the safety or interests of the UK</li>
+			<li>publication could harm the commercial interests of any individual or entity in this activity</li>
+		</ul>
 
-			<p>We need your personal information to add you as  registrant. </p>
-			
-			<h2 class='govuk-heading-m'>What you need to complete this section</h2> 
+		<p>At the 'Check and submit your registration' stage, you can tell us if any of the registration information creates one or more of these risks and should stay private. If you do, you will have 5 days to submit your evidence.</p>
+		
+		
+		<p>Read the guidance on:</p>
+		<ul class='govuk-list govuk-list--bullet'>
+			<li><a href="#">what information appears on the public register</a></li>
+			<li><a href="#">your information remaining private</a></li>
+		</ul>
 
-			<p>In this section, we are asking for information about you as a registrant.</p>
-			<p>You need your: </p>
-			<ul class='govuk-list govuk-list--bullet'>
-				<li>full name and any previous names</li>
-				<li>date of birth</li>
-				<li>nationality</li>
-				<li>address</li>
-			</ul>
+		
 
-			<h2 class='govuk-heading-m'>The public register</h2> 
-  
-       		<p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register.</p>
-			<p>Parts of the registration information may stay private and not appear on the public register if they meet any of these criteria:</p>
-			<ul class='govuk-list govuk-list--bullet govuk-list--spaced'>
-				<li>there is a significant risk that publication would put any individual’s safety at risk</li>
-				<li>publication would involve the disclosure of commercially sensitive information</li>
-				<li>where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime</li>
-				<li>there is a risk that publication would prejudice the national security of the UK</li>
-			</ul>
-			<p>At the 'Check and submit your registration' stage, you can tell us if any of the registration information meets one or more of the criteria and should stay private. If you do, you will have 5 days to provide your evidence.</p>
-
-			<p>Read the:</p>
-			<ul class='govuk-list govuk-list--bullet'>
-				<li><a href="#">guidance on what information appears on the public register</a></li>
-				<li><a href="#">guidance on requesting information to remain private</a></li>
-			</ul>
-			<!-- <p>There are two types of individual:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>Individual in an agreement with a foreign power or foreign power-controlled entity</li>
-				<li>Individual directly employed by a foreign power</li>
-			</ul>
-
-			<p>There are two types of organisation:</p>
-			<ul class="govuk-list govuk-list--bullet">
-				<li>Organisation in an agreement with a foreign power or foreign power-controlled entity</li>
-				<li>Foreign power-controlled organisation</li>
-			</ul> -->
-
-			<!-- {{ govukWarningText({
-			text: "If you do not finish now, you will need to start again later.",
-			iconFallbackText: "Important"
-			}) }} -->
-
-			<div class="govuk-!-padding-top-4">
 				
-			{{ govukButton({
-			text: "Continue"
-			}) }}
+			{% if (data['idv-ol'] == 'Pass (UK Passport)' or data['idv-ol'] == 'Pass (UK driving license)' ) %}
+
+			<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+				{{ govukButton({
+					text: 'Save and continue',
+					href: 'i-ol'
+				}) }}
+				{{ govukButton({
+					href: '../registrations/registration-task-list',
+					classes: 'govuk-button--secondary',
+					text: 'Save and exit'
+				}) }}
 
 			</div>
+				
+			{% else %}
+
+			<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+				{{ govukButton({
+					text: 'Save and continue',
+					href: 'i2'
+				}) }}
+				{{ govukButton({
+					href: '../registrations/registration-task-list',
+					classes: 'govuk-button--secondary',
+					text: 'Save and exit'
+				}) }}
+
+			</div>
+				
+			{% endif %}
 
 		</form>
 
 	</div>
 
 
-
+<!-- 
 	<div class="govuk-grid-column-one-third">
 
 		<aside class="govuk-prototype-kit-common-templates-related-items" role="complementary">
@@ -111,7 +115,9 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 		  </nav>
 		</aside>
 	
-	  </div>
+	  </div> -->
+
+
 </div>
 
 

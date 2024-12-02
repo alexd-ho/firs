@@ -15,11 +15,19 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
-		<form action="i7" method="post">						
+		{% if (data['idv-ol'] == 'Pass (UK driving license)' ) %}
+			
+		<form action="i11" method="post">						
+			
+		{% else %}
+			
+		<form action="i8" method="post">						
+			
+		{% endif %}
 
 		<!-- text: "What is your nationality or nationalities?", -->
 
-        <span class='govuk-caption-l'>Verify your identity and add your details</span>
+        <span class='govuk-caption-l'>Add your personal details</span>
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
@@ -28,11 +36,11 @@
 					{% if (data['mode'] == 'rep') %}
 					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 						<h1 class="govuk-fieldset__heading">
-							What is the nationality of [NAME]?
+							What is their nationality?
 						</h1>
 					</legend>
 					<div id="i6-hint--1" class="govuk-hint">
-						<p>If [NAME] has multiple nationalities, you can add more by selecting 'Add another'. </p>
+						<p>If they have multiple nationalities, you can add more by selecting 'Add another'. </p>
 					</div>
 					{% else %}
 					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -81,14 +89,19 @@
 			</div>
 	  
 
-            {{ govukButton({
-                text: 'Save and continue'
-            }) }}
-            {{ govukButton({
-                href: '../registrations/new',
-                classes: 'govuk-button--secondary',
-                text: 'Save and exit'
-            }) }}
+			<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+				{{ govukButton({
+					text: 'Save and continue'
+				}) }}
+				{{ govukButton({
+					href: '../registrations/registration-task-list',
+					classes: 'govuk-button--secondary',
+					text: 'Save and exit'
+				}) }}
+
+			</div>
+
 
         </form>
 

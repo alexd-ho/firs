@@ -16,8 +16,89 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='i11' method='post'>
     
-                <span class='govuk-caption-l'>Verify your identity and add your details</span>
-    
+                <span class='govuk-caption-l'>Add your personal details</span>
+
+                {% if (data['i8'] == 'United Kingdom') %}
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
+                    
+                {% call govukFieldset({
+                    legend: {
+                        text: 'What is your home address in the UK?',
+                        classes: 'govuk-fieldset__legend--l',
+                        isPageHeading: true
+                    }
+                }) %}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Address line 1'
+                   },
+                   id: 'i10-line-1',
+                   name: 'i10-line-1',
+                   autocomplete: 'address-line1'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Address line 2 (optional)'
+                    },
+                    id: 'i10-line-2',
+                    name: 'i10-line-2',
+                    autocomplete: 'address-line2'
+                }) }}
+                    
+                    {{ govukInput({
+                    label: {
+                        text: 'Town or city'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i10-town',
+                    name: 'i10-town',
+                    autocomplete: 'address-level2'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Postcode'
+                    },
+                    classes: 'govuk-input--width-10',
+                    id: 'i10-postcode',
+                    name: 'i10-postcode',
+                    autocomplete: 'postal-code'
+                }) }}
+                    
+                {{ govukInput({
+                    label: {
+                        text: 'Country'
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i10-country-disabled',
+                    name: 'i10-country-disabled',
+                    autocomplete: 'country',
+                    value: 'United Kingdom',
+                    disabled: true
+                }) }}
+
+                {{ govukInput({
+                    label: {
+                        text: 'Country',
+                        classes: "hidden"
+                    },
+                    classes: 'govuk-!-width-two-thirds',
+                    id: 'i10-country',
+                    name: 'i10-country',
+                    autocomplete: 'country',
+                    value: 'United Kingdom',
+                    classes: "hidden"
+                }) }}
+
+                {% endcall %}
+
+                {% else %}
+
+
                 {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
                     
                 {{ govukTextarea({
@@ -31,6 +112,10 @@
                         isPageHeading: true
                     }
                 }) }} 
+
+
+
+                {% endif %}
 
                 {% from 'govuk/components/button/macro.njk' import govukButton %}
                     

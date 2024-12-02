@@ -15,27 +15,25 @@
 
 	<div class="govuk-grid-column-two-thirds-from-desktop">
 
+		{% if (data['idv-ol'] == 'Pass (UK Passport)' or data['idv-ol'] == 'Pass (UK driving license)' ) %}
+			
+		<form action="i6" method="post">						
+			
+		{% else %}
+			
 		<form action="i5" method="post">						
+			
+		{% endif %}
+
 
 		<!-- text: "What is your nationality or nationalities?", -->
 
-        <span class='govuk-caption-l'>Verify your identity and add your details</span>
+        <span class='govuk-caption-l'>Add your personal details</span>
 
 			{% from "govuk/components/input/macro.njk" import govukInput %}
 			
 
 				<fieldset class="govuk-fieldset">
-					{% if (data['mode'] == 'rep') %}
-					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-						<h1 class="govuk-fieldset__heading">
-							What other names ha [NAME] been known by?
-						</h1>
-					</legend>
-					<div id="i4-hint--1" class="govuk-hint">
-						<p>You should provide your other names as they appear on your official change of name documents. For example, a marriage certificate.</p>
-						<p>If you have multiple other names, you can add more by selecting 'Add another'. </p>
-					</div>
-					{% else %}
 					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 						<h1 class="govuk-fieldset__heading">
 							What other names have you been known by?
@@ -45,13 +43,12 @@
 						<p>You should provide your other names as they appear on your official change of name documents. For example, a marriage certificate.</p>
 						<p>If you have multiple other names, you can add more by selecting 'Add another'. </p>
 					</div>
-					{% endif %}
 
 					<div id="js-activity-wrapper">
 
 						<div class="govuk-form-group govuk-form-group--add-another-block">
 							<label class="govuk-label hidden" for="i4--1">
-								Name 1
+								Name
 							</label>
 							 <!-- id="i4--1" name="i4--1" -->
 
@@ -80,14 +77,19 @@
 			</div>
 	  
 
-            {{ govukButton({
-                text: 'Save and continue'
-            }) }}
-            {{ govukButton({
-                href: '../registrations/new',
-                classes: 'govuk-button--secondary',
-                text: 'Save and exit'
-            }) }}
+			<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+				{{ govukButton({
+					text: 'Save and continue'
+				}) }}
+				{{ govukButton({
+					href: '../registrations/registration-task-list',
+					classes: 'govuk-button--secondary',
+					text: 'Save and exit'
+				}) }}
+
+			</div>
+
 
         </form>
 
@@ -148,7 +150,7 @@ function addNew() {
       
 		<div class="govuk-form-group govuk-form-group--add-another-block">
 			<label class="govuk-label" for="i4--${newNameId}">
-				Other Name
+				Name
 			</label>
 			<div class="govuk-form-group--add-another-block__fields">
 

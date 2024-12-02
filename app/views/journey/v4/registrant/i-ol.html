@@ -9,17 +9,33 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='../registrant/i2' method='post'>
+            <form action='i3' method='post'>
     
                 <span class='govuk-caption-l'>Add your personal details</span>
     
-                <h1 class='govuk-heading-l'>Is this your full name, date of birth and address?</h1> 
+                <h1 class='govuk-heading-l'>Your name, date of birth and address</h1> 
 
-                <p>This information is taken from GOV.UK One Login.</p>
+                <p>The details shown below come from your GOV.UK One Login account and cannot be changed.</p>
+                <p>You can add other names and a different contact address later.</p>
+
+                {% if (data['idv-ol'] == 'Pass (UK Passport)') %}
+			
                 {{ govukInsetText({
                     html: '
                     <p><strong>Name</strong><br>
-                        John Smith</p>
+                        '+data["co-2"]+'</p>
+                    <p><strong>Date of birth</strong><br>
+                        1 January 1980</p>
+                   ',
+                      classes: 'prefilled'
+                  }) }}
+                    
+                {% else %}
+                    
+                {{ govukInsetText({
+                    html: '
+                    <p><strong>Name</strong><br>
+                        '+data["co-2"]+'</p>
                     <p><strong>Date of birth</strong><br>
                         1 January 1980</p>
                     <p><strong>Current address</strong><br>
@@ -30,8 +46,10 @@
                     ',
                       classes: 'prefilled'
                   }) }}
+                    
+                {% endif %}
+
     
-                <p><em>Explain that the user will have a chance to supply other/previous names, and an alternative address.</em></p>
 
                 {% from 'govuk/components/button/macro.njk' import govukButton %}
                     
@@ -41,7 +59,7 @@
                         text: 'Save and continue'
                     }) }}
                     {{ govukButton({
-                        href: '/route-v4/registration-overview',
+                        href: '../registrations/registration-task-list',
                         classes: 'govuk-button--secondary',
                         text: 'Save and exit'
                     }) }}

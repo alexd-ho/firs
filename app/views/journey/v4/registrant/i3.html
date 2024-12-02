@@ -5,34 +5,14 @@
         Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-{% block footer %}
-{{ govukFooter({
-meta: {
-items: [
-{
-href: "/journey/v4/registrant/i-check",
-text: "Skip"
-},
-{
-href: "/manage-prototype",
-text: "Manage your prototype"
-},
-{
-href: "/manage-prototype/clear-data",
-text: "Clear data"
-}
-],
-visuallyHiddenTitle: "Footer links"
-}
-}) }}
-{% endblock %}
+
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v4/i3' method='post'>
     
-                <span class='govuk-caption-l'>Verify your identity and add your details</span>
+                <span class='govuk-caption-l'>Add your personal details</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -61,14 +41,19 @@ visuallyHiddenTitle: "Footer links"
                     ]
                 }) }}
     
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
-                {{ govukButton({
-                    href: '../registrations/new',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '../registrations/registration-task-list',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
+
             </form>
         </div>
     </div>

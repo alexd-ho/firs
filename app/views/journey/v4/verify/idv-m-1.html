@@ -11,33 +11,36 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='idv-m-2' method='post'>
     
-                <h1 class='govuk-heading-l'>Verify your identity</h1> 
+                <span class='govuk-caption-l'>Add your personal details</span>
 
-                <p>You must upload a form of ID to the Foreign Influence Registration Scheme team.</p>
+                <h1 class='govuk-heading-l'>Upload a scan or photo of your ID document</h1> 
 
-                <h2 class='govuk-heading-m'>What you need to complete this section</h2>
+                <p>You must upload a photo or scan of an ID document for our records.</p>
 
-                <p>You will need a form of ID. Ideally a passport or driver's licence.</p>
+                <h2 class='govuk-heading-m'>What you need to complete this section</h2> 
 
-                <h2 class='govuk-heading-m'>The public register</h2>
+                <p>You must have a photo or scan of an ID document that has not expired.</p>
+                <p>If you do not upload a valid photo or scan, the Foreign Influence Registration Scheme (FIRS) team will contact you for more information.</p>
 
-                <p>Your ID documents will never appear on the public register. </p>
+                <h2 class='govuk-heading-m'>The public register</h2> 
 
-                <p>Read the:</p>
+                <p>The photo or scan of your ID document will never appear on the Foreign Influence Registration Scheme (FIRS) public register. </p>
+
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
                 
-                <ul class="govuk-list govuk-list--bullet">
-                    <li><a href="#">guidance on what information appears on the public register</a></li>
-                    <li><a href="#">guidance on requesting information to remain private</a></li>
-                </ul>
-                
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
-                {{ govukButton({
-                    href: '/route-v4/registration-overview',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
             </form>
         </div>
     </div>

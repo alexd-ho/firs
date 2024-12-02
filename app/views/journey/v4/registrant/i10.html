@@ -11,7 +11,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='i11' method='post'>
     
-                <span class='govuk-caption-l'>Verify your identity and add your details</span>
+                <span class='govuk-caption-l'>Add your personal details</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {% from 'govuk/components/fieldset/macro.njk' import govukFieldset %}
@@ -89,14 +89,19 @@
 
                 {% endcall %}
     
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
-                {{ govukButton({
-                    href: '../registrations/new',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '../registrations/registration-task-list',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
+
             </form>
         </div>
     </div>

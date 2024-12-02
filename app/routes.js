@@ -2511,10 +2511,22 @@ router.post('/route-v4/reg-type', function(request, response) {
 
 router.post('/route-v4/i3', function(request, response) {
     var value = request.session.data['i3']
+    var value2 = request.session.data['idv-ol']
+
+
+
     if (value == 'Yes'){ 
         response.redirect(registrant_v4+'/i4')
     } else {
-        response.redirect(registrant_v4+'/i5')
+        if (value2 == 'Pass (UK Passport)'){ 
+            response.redirect(registrant_v4+'/i6')
+        } else if (value == 'Pass (UK driving license)'){ 
+            response.redirect(registrant_v4+'/i6')
+        } else if (value == 'Fail'){ 
+            response.redirect(registrant_v4+'/i5')
+        } else {
+            response.redirect(registrant_v4+'/i5')
+        }
     }
 })
 
@@ -2527,12 +2539,24 @@ router.post('/route-v4/i7', function(request, response) {
     }
 })
 
+router.post('/route-v4/i8', function(request, response) {
+    var value = request.session.data['i8']
+    if (value == 'United Kingdom'){ 
+        response.redirect(registrant_v4+'/i10')
+    } else {
+        response.redirect(registrant_v4+'/i9')
+    }
+})
+
 router.post('/route-v4/i11', function(request, response) {
     var value = request.session.data['i11']
-    if (value == 'A different address in the UK'){ 
-        response.redirect(registrant_v4+'/i12')
-    } else if (value == "A different address outside the UK") { // 
-        response.redirect(registrant_v4+'/i13')
+    var value2 = request.session.data['otherCountry']
+    if (value == 'A different address'){ 
+        if (value2 == 'United Kingdom'){ 
+            response.redirect(registrant_v4+'/i12')
+        } else {
+            response.redirect(registrant_v4+'/i13')
+        }
     } else {
         response.redirect(registrant_v4+'/i-check')
     }
@@ -2606,9 +2630,9 @@ router.post('/route-v4/idv-ol', function(request, response) {
     } else if (value == 'Pass (UK driving license)'){ 
         response.redirect(verify_v4+'/idv-m-1-b?idv-check=pass')
     } else if (value == 'Fail'){ 
-        response.redirect(verify_v4+'/idv-m-2?idv-check=fail')
+        response.redirect(verify_v4+'/idv-m-1?idv-check=fail')
     } else {
-        response.redirect(verify_v4+'/idv-m-2?idv-check=other')
+        response.redirect(verify_v4+'/idv-m-1?idv-check=other')
     }
 })
 
@@ -2626,29 +2650,11 @@ router.post('/route-v4/idv-m-3', function(request, response) {
     if (value == 'Yes'){ 
         response.redirect(verify_v4+'/idv-m-3-a')
     } else {
-        response.redirect(registrant_v4+'/i2')
+        response.redirect(registrant_v4+'/i1?manual-upload-type=unknown')
     }
 })
 
 
-router.post('/route-v4/idv-m-2', function(request, response) {
-    var value = request.session.data['idv-m-2']
-    if (value == 'Yes'){ 
-        response.redirect(verify_v4+'/idv-m-2-a')
-    } else {
-        // response.redirect(verify_v4+'/idv-m-3')
-        response.redirect(verify_v4+'/idv-m-end-1')
-    }
-})
-
-router.post('/route-v4/idv-m-3', function(request, response) {
-    var value = request.session.data['idv-m-3']
-    if (value == 'Yes'){ 
-        response.redirect(verify_v4+'/idv-m-3-a')
-    } else {
-        response.redirect(verify_v4+'/idv-m-4')
-    }
-})
 
 router.post('/route-v4/idv-m-4', function(request, response) {
     var value = request.session.data['idv-m-4']

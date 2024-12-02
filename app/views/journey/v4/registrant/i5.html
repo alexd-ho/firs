@@ -11,7 +11,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='i6' method='post'>
     
-                <span class='govuk-caption-l'>Verify your identity and add your details</span>
+                <span class='govuk-caption-l'>Add your personal details</span>
     
                 {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
                 {{ govukDateInput({
@@ -26,18 +26,26 @@
                         }
                     },
                     hint: {
-                        text: 'For example, 27 3 2017'
+                        text: 'For example, 27 3 1984'
                     }
                 }) }}
-    
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
-                {{ govukButton({
-                    href: '../registrations/new',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '../registrations/registration-task-list',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
+
+
             </form>
         </div>
     </div>
