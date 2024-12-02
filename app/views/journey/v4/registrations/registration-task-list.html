@@ -109,7 +109,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 								{% else %}
 									{{foreignPower}} ({{fpCountry}})
 								{% endif %}
-							{% else %}
+							{% elseif (data['fp-2'] == 'No') %}
 								{{foreignPower}} ({{fpCountry}})
 							{% endif %}
 						</div>

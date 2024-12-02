@@ -1,37 +1,40 @@
 {% extends 'layouts/v4-header-1.html' %}
 {% set activeLinkId = 'registrations' %}
-    
-    {% block pageTitle %}
-        Verify the identity of a senior responsible officer – {{ serviceName }} – GOV.UK Prototype Kit
-    {% endblock %}
-    
-    
-    {% block content %}
-    <div class='govuk-grid-row'>
-        <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='../arrangement/select-arrangement?idenity-verification=incomplete' method='post'>
-    
-                <span class='govuk-caption-l'>Assign a Senior Responsible Officer</span>
-    
-                <h1 class='govuk-heading-l'>Email sent</h1> 
 
-                <p>We sent an email invitation to {{data['idv-sro-1']}}.</p>
-                <p>As the nominated Senior Responsible Officer, they must verify their identity and provide their personal details before your entity can submit a registration.</p>
-    
-                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
-                            
-                    {{ govukButton({
-                        text: 'Save and continue'
-                    }) }}
-                    {{ govukButton({
-                        href: '../registrations/registration-task-list',
-                        classes: 'govuk-button--secondary',
-                        text: 'Save and exit'
-                    }) }}
+{% block pageTitle %}
+Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
 
+
+{% block content %}
+<div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds-from-desktop'>
+        <form action='idv-sro-end?idenity-verification=with-sro' method='post'>
+
+            <span class='govuk-caption-l'>Assign the Senior Responsible Officer</span>
+
+            <h1 class='govuk-heading-l'>Check your answers</h1> 
+
+            <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                        Senior Responsible Officer
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                        [user name]
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="idv-sro-1">Change<span class="govuk-visually-hidden"> Your entity role</span></a>
+                    </dd>
                 </div>
+            </dl>
 
-            </form>
-        </div>
+            {{ govukButton({
+                text: 'Save and continue'
+            }) }}
+
+            
+        </form>
     </div>
-    {% endblock %}
+</div>
+{% endblock %}

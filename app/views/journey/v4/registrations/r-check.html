@@ -20,36 +20,33 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 
             {% set homeAddress %}
-            {% if (data['i7'] == 'Yes') %}
-            {{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
+
+            {% if (data['idv-ol'] == 'Pass (UK driving license)' ) %}
+                2 Marsham Street, London, United Kingdom, SW1P 4DF
             {% else %}
-            {{data['i9-line-1']}}, {% if (data['i9-line-2']) %}{{data['i9-line-2']}}, {% endif %}{% if (data['i9-town']) %}{{data['i9-town']}}, {% endif %}{% if (data['i9-postcode']) %}{{data['i9-postcode']}}, {% endif %}{% if (data['i9-country']) %}{{data['i9-country']}}{% endif %}
+                {% if (data['i8'] == 'United Kingdom') %}
+                    {{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
+                {% else %}
+                    {{data['i9']}}
+                {% endif %}
             {% endif %}
+
+            
             {% endset %}
 
-            {% set homeAddressPR %}
-            {% if (data['i7'] == 'Yes') %}
-            {% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
-            {% else %}
-            {% if (data['i9-town']) %}{{data['i9-town']}}, {% endif %}{% if (data['i9-country']) %}{{data['i9-country']}}{% endif %}
-            {% endif %}
-            {% endset %}
 
             {% set contactAddress %}
-            {% if (data['i11'] == 'A different address in the UK' or data['i11'] == 'A different address outside the UK') %}
+            {% if (data['i11'] == 'A different address') %}
+            {% if (data['otherCountry'] == 'United Kingdom') %}
             {{data['i12-line-1']}}, {% if (data['i12-line-2']) %}{{data['i12-line-2']}}, {% endif %}{% if (data['i12-town']) %}{{data['i12-town']}}, {% endif %}{% if (data['i12-postcode']) %}{{data['i12-postcode']}}, {% endif %}{% if (data['i12-country']) %}{{data['i12-country']}}{% endif %}
+            {% else %}
+            {{data['i13']}}
+            {% endif %}
             {% else %}
             {{homeAddress}}
             {% endif %}
             {% endset %}
 
-            {% set contactAddressPR %}
-            {% if (data['i11'] == 'A different address in the UK' or data['i11'] == 'A different address outside the UK') %}
-            {% if (data['i12-town']) %}{{data['i12-town']}}, {% endif %}{% if (data['i12-country']) %}{{data['i12-country']}}{% endif %}
-            {% else %}
-            {{homeAddressPR}}
-            {% endif %}
-            {% endset %}
 
 
 

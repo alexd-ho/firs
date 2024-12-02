@@ -95,10 +95,11 @@ visuallyHiddenTitle: "Footer links"
 
         {% endif %}
 			
-		<span class="govuk-caption-l">Account ref: 123-456-7890</span>
+		<span class="govuk-caption-l">Your account</span>
 		<h1 class="govuk-heading-l">
 			{% if (data['contact-name']) %}{{data['contact-name']}}{% else %}Account Name{% endif %}
         </h1>
+		<p>Foreign Influence Registration Scheme (FIRS) account number: <strong>1012-123430</strong></p>
 
 
 		
@@ -138,10 +139,7 @@ visuallyHiddenTitle: "Footer links"
             <div class="firs-home-containers__panel">
 				<a href="registrations">
 					<h3 class="govuk-heading-m">Your registrations</h3>
-					<ul class='govuk-list govuk-list--bullet'>
-						<li>Submit a new registration</li>
-						<li>View and manage existing registrations for registrants you have access to</li>
-					</ul>
+					<p>Start, complete, and view registrations.</p>
 				</a>
 			</div>
 
@@ -155,34 +153,25 @@ visuallyHiddenTitle: "Footer links"
 
 			<div class="firs-home-containers__panel">
 				<a href="account/contact-details">
-					<h3 class="govuk-heading-m">Your contact details</h3>
-					<ul class='govuk-list govuk-list--bullet'>
-						<li>View and update your name, email address, and telephone number</li>
-					</ul>
+					<h3 class="govuk-heading-m">Contact details</h3>
+					<p>View and update your name and telephone number.</p>
 						<!-- <br><a href="account/contact-details" class="govuk-link">Transfer ownership</a></p> -->
 				</a>
 			</div>
 
             <div class="firs-home-containers__panel">
-				<a href="#">
-					<h3 class="govuk-heading-m">Guidance</h3>
-					<ul class='govuk-list govuk-list--bullet'>
-						<li>Find answers to common questions</li>
-						<li>Access useful resources</li>
-					</ul>
+				<a href="account/guidance">
+					<h3 class="govuk-heading-m">Read the guidance</h3>
+					<p>Find answers to questions and access resources.</p>
 				</a>
 			</div>
 
-			<!-- <div class="firs-home-containers__panel">
-				<a href="#">
-					<h3 class="govuk-heading-m">Your registrants</h3>
-					<ul class='govuk-list govuk-list--bullet'>
-						<li>View and manage registrants you have access to</li>
-						<li>See which registrations your registrants are associated with</li>
-						<li>Manage who can access your registrants</li>
-					</ul>
+			<div class="firs-home-containers__panel">
+				<a href="registrants">
+					<h3 class="govuk-heading-m">Manage registrants</h3>
+					<p>View registrants you have access to, and manage users who can access your registrants.</p>
 				</a>
-			</div> -->
+			</div>
 
 
 			

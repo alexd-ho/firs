@@ -12,9 +12,15 @@
             <form action='idv-2' method='post'>
     
     
-                <h1 class='govuk-heading-l'>Assign a Senior Responsible Officer</h1> 
+                <h1 class='govuk-heading-l'>Assign the Senior Responsible Officer</h1> 
+                
 
-                <p>You must assign a Senior Responsible Officer (SRO) for your entity.</p>
+                <p>Before you start, check if:</p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>you are the Senior Responsible Officer (SRO)</li>
+                    <li>someone else is the SRO</li>
+                </ul>
+
 
                 {% from 'govuk/components/details/macro.njk' import govukDetails %}
                     
@@ -23,27 +29,22 @@
                     text: 'A Senior Responsible Officer (SRO) is a person who is responsible for ensuring compliance with the Foreign Influence Registration Scheme (FIRS) within an entity. The SRO is typically a senior executive within the entity who has the authority to make decisions about FIRS and is the single point of contact for the FIRS team.      '
                 }) }}
 
-                <p>You need to either provide your details if your are the SRO, or nominate someone else by entering their email address.</p>
+                <h2 class='govuk-heading-m'>If you are the SRO</h2>
 
-                <p>They must use the same email address that received the nominate link.</p>
+                <p>You must verify your identity and provide your person details.</p>
 
-                <p>The SRO will need to:</p>
+                <h2 class='govuk-heading-m'>If someone else is the SRO</h2>
 
-                    
-                <ul class='govuk-list govuk-list--bullet'>
-                    <li>verify their identity (ID) using GOV.UK One Login</li>
-                    <li>upload a scan or photo of an ID document for our own records</li>
-                </ul>
+                <ol class='govuk-list govuk-list--number'>
+                    <li>Ask them to create their own Foreign Influence Registration Scheme (FIRS) account.</li>
+                    <li>Ask them for their Foreign Influence Registration Scheme account number. They can find this on their account page when they sign in.</li>
+                    <li>Continue this section and enter their FIRS account number.</li>
+                    <li>You must review the account information they have provided and confirm you want to assign them as the SRO.</li>
+                    <li>We will send them an email asking them to confirm they are the SRO for your entity.
+                    They will need to verify their identity and provide their personal details.</li>
+                </ol>
 
-                <p>They also need to provide their:</p>
 
-                <ul class='govuk-list govuk-list--bullet'>
-                    <li>full name and any previous names</li>
-                    <li>date of birth</li>
-                    <li>nationality</li>
-                    <li>address</li>
-                </ul>                    
-    
                 {% from 'govuk/components/button/macro.njk' import govukButton %}
                     
                 <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>

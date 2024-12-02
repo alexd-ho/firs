@@ -2,7 +2,7 @@
 {% set activeLinkId = 'registrations' %}
     
     {% block pageTitle %}
-        Register your entity – {{ serviceName }} – GOV.UK Prototype Kit
+    Add your entity details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
     
@@ -10,7 +10,7 @@
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-width-full'>
             <!-- <form action="../arrangement/select-arrangement?registrant-progress=complete" method='post'> -->
-                <form action="../verify/idv-1?registrant-progress=complete&registrant-name={{data['registrant-name']}}" method='post'>
+                <form action="../verify/idv-1?registrant-progress=complete&registrant-name={{data['entity-name']}}" method='post'>
     
                 <span class='govuk-caption-l'>Add your entity details</span>
     

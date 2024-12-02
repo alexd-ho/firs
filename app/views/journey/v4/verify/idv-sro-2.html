@@ -9,36 +9,49 @@ Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-two-thirds-from-desktop'>
-        <form action='idv-sro-3?idenity-verification=with-sro' method='post'>
+        <form action='/route-v4/idv-sro-2' method='post'>
 
-            <span class='govuk-caption-l'>Assign a Senior Responsible Officer</span>
+            <span class='govuk-caption-l'>Assign the Senior Responsible Officer</span>
 
-            <h1 class='govuk-heading-l'>Check your answers</h1> 
+            <h1 class='govuk-heading-l'>Do you want to assign this user as the Senior Responsible Officer?</h1> 
 
-            <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Your entity role
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        Not a Senior Responsible Officer
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="idv-2">Change<span class="govuk-visually-hidden"> Your entity role</span></a>
-                    </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Email address of Senior Responsible Officer
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                        {{data['idv-sro-1']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="idv-sro-1">Change<span class="govuk-visually-hidden"> Email address of Senior Responsible Officer</span></a>
-                    </dd>
-                </div>
-            </dl>
+            <p>We will send an email notification to the user if you choose to assign them as the Senior Responsible Officer.</p>
+
+            {% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
+                
+            {{ govukInsetText({
+              html: '
+                <p><strong>Name (provided by user)</strong><br>
+                John Smith</p>
+                <p><strong>Email (authenticated by GOV.UK One Login)</strong><br>
+                john.smith@email.com</p>
+              ',
+              classes: 'prefilled'
+            }) }}
+
+            {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+            {{ govukRadios({
+                id: 'idv-sro-2',
+                name: 'idv-sro-2',
+                value: data['idv-sro-2'],
+                fieldset: {
+                    legend: {
+                        text: 'Do you want to assign this user as the Senior Responsible Officer?',
+                        classes: 'govuk-fieldset__legend hidden',
+                        isPageHeading: false
+                    }
+                },
+                items: [
+                {
+                   value: 'Yes',
+                    text: 'Yes'
+                },
+                {
+                   value: 'No',
+                    text: 'No'
+                }
+                ]
+            }) }}
 
             {{ govukButton({
                 text: 'Save and continue'

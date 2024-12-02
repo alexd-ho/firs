@@ -9,9 +9,9 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='idv-sro-2' method='post'>
+            <form action='/route-v4/idv-sro-1' method='post'>
     
-                <span class='govuk-caption-l'>Assign a Senior Responsible Officer</span>
+                <span class='govuk-caption-l'>Assign the Senior Responsible Officer</span>
     
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
@@ -19,12 +19,12 @@
                     name: 'idv-sro-1',
                     value: data['idv-sro-1'],
                     label: {
-                        text: 'What is the email address of a Senior Responsible Officer for '+data['registrant-name']+'?',
+                        text: 'What is the Foreign Influence Registration Scheme account number of the user you want to assign?',
                         classes: 'govuk-label--l',
                         isPageHeading: true
                     },
                     hint: {
-                        html: '<p>We will use this email address to contact the Senior Responsible Officer.</p>'
+                        html: '<p>You can review the user details associated with the Foreign Influence Registration Scheme (FIRS) account number before confirming you want to assign them them as the Senior Responsible Officer.</p>'
                     }
                 }) }}
     

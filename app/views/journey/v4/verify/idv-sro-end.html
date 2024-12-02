@@ -1,0 +1,36 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'registrations' %}
+    
+    {% block pageTitle %}
+        Verify the identity of a senior responsible officer – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='../arrangement/select-arrangement' method='post'>
+    
+                <span class='govuk-caption-l'>Assign the Senior Responsible Officer</span>
+    
+                <h1 class='govuk-heading-l'>Email notification sent to ["user email address"]</h1> 
+
+                <p>As the nominated Senior Responsible Officer, they must verify their identity and provide their personal details before your entity can submit a registration.</p>
+    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                            
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '../registrations/registration-task-list',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

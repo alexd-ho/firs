@@ -11,7 +11,7 @@
         <div class='govuk-grid-column-two-thirds-from-desktop'>
             <form action='/route-v4/idv-2' method='post'>
     
-                <span class='govuk-caption-l'>Assign a Senior Responsible Officer</span>
+                <span class='govuk-caption-l'>Assign the Senior Responsible Officer</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
@@ -20,7 +20,7 @@
                     value: data['idv-2'],
                     fieldset: {
                         legend: {
-                            text: 'Are you a Senior Responsible Officer for '+data['registrant-name']+'?',
+                            text: 'Are you the Senior Responsible Officer for '+data['registrant-name']+'?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }

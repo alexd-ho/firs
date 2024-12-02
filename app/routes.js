@@ -2632,6 +2632,23 @@ router.post('/route-v4/idv-2', function(request, response) {
     }
 })
 
+router.post('/route-v4/idv-sro-1', function(request, response) {
+    var value = request.session.data['idv-sro-1']
+    if (value == '123456'){ 
+        response.redirect(verify_v4+'/idv-sro-2')
+    } else {
+        response.redirect(verify_v4+'/idv-sro-fail')
+    }
+})
+router.post('/route-v4/idv-sro-2', function(request, response) {
+    var value = request.session.data['idv-sro-2']
+    if (value == 'Yes'){ 
+        response.redirect(verify_v4+'/idv-sro-3')
+    } else {
+        response.redirect(verify_v4+'/idv-sro-1')
+    }
+})
+
 router.post('/route-v4/idv-ol', function(request, response) {
     var value = request.session.data['idv-ol']
     if (value == 'Pass (UK Passport)'){ 

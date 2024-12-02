@@ -8,34 +8,41 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-
 {% set registeredAddress %}
-{% if (data['reg-type'] == 'Entity') %}
 
-	{% if (data['e5'] == 'Yes') %}
-	{{data['e-ch2-line-1']}}, {% if (data['e-ch2-line-2']) %}{{data['e-ch2-line-2']}}, {% endif %}{% if (data['e-ch2-town']) %}{{data['e-ch2-town']}}, {% endif %}{% if (data['e-ch2-postcode']) %}{{data['e-ch2-postcode']}}, {% endif %}{% if (data['e-ch2-country']) %}{{data['e-ch2-country']}}{% endif %}
+	{% if (data['reg-type'] == 'Entity' or data['reg-type'] == 'Foreign power-controlled entity') %}
 
-	{% elseif (data['e7'] == 'Yes') %}
-	{{data['e10-line-1']}}, {% if (data['e10-line-2']) %}{{data['e10-line-2']}}, {% endif %}{% if (data['e10-town']) %}{{data['e10-town']}}, {% endif %}{% if (data['e10-postcode']) %}{{data['e10-postcode']}}, {% endif %}{% if (data['e10-country']) %}{{data['e10-country']}}{% endif %}
+		{% if (data['e5'] == 'Yes') %}1
+		{{data['e-ch2-line-1']}}, {% if (data['e-ch2-line-2']) %}{{data['e-ch2-line-2']}}, {% endif %}{% if (data['e-ch2-town']) %}{{data['e-ch2-town']}}, {% endif %}{% if (data['e-ch2-postcode']) %}{{data['e-ch2-postcode']}}, {% endif %}{% if (data['e-ch2-country']) %}{{data['e-ch2-country']}}{% endif %}
+
+		{% elseif (data['e7'] == 'Yes') %}
+		{{data['e10']}}
+			
+		{% elseif (data['e13'] == 'Yes') %}
+		{{data['e14-line-1']}}, {% if (data['e14-line-2']) %}{{data['e14-line-2']}}, {% endif %}{% if (data['e14-town']) %}{{data['e14-town']}}, {% endif %}{% if (data['e14-postcode']) %}{{data['e14-postcode']}}, {% endif %}{% if (data['e14-country']) %}{{data['e14-country']}}{% endif %}
+
+		{% else %}
+		{{data['e15']}}
+
+		{% endif %}
+
+	{% else %}
 		
-	{% elseif (data['e13'] == 'Yes') %}
-	{{data['e14-line-1']}}, {% if (data['e14-line-2']) %}{{data['e14-line-2']}}, {% endif %}{% if (data['e14-town']) %}{{data['e14-town']}}, {% endif %}{% if (data['e14-postcode']) %}{{data['e14-postcode']}}, {% endif %}{% if (data['e14-country']) %}{{data['e14-country']}}{% endif %}
+		{% if (data['idv-ol'] == 'Pass (UK driving license)' ) %}
+			2 Marsham Street, London, United Kingdom, SW1P 4DF
+		{% else %}
+			{% if (data['i8'] == 'United Kingdom') %}
+				{{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
+			{% else %}
+				{{data['i9']}}
+			{% endif %}
 
-	{% else %}
-	{{data['e15-line-1']}}, {% if (data['e15-line-2']) %}{{data['e15-line-2']}}, {% endif %}{% if (data['e15-town']) %}{{data['e15-town']}}, {% endif %}{% if (data['e15-postcode']) %}{{data['e15-postcode']}}, {% endif %}{% if (data['e15-country']) %}{{data['e15-country']}}{% endif %}
+		{% endif %}
+
 	{% endif %}
-
-{% else %}
-	
-	{% if (data['i7'] == 'Yes') %}
-	{{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
-	{% else %}
-	{{data['i9-line-1']}}, {% if (data['i9-line-2']) %}{{data['i9-line-2']}}, {% endif %}{% if (data['i9-town']) %}{{data['i9-town']}}, {% endif %}{% if (data['i9-postcode']) %}{{data['i9-postcode']}}, {% endif %}{% if (data['i9-country']) %}{{data['i9-country']}}{% endif %}
-	{% endif %}
-
-{% endif %}
 
 {% endset %}
+
 
 {% set timestamp %}{{ 'today' | govukDate }} at {{ 'now' | govukTime }}{% endset %}
 
@@ -101,16 +108,15 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		<div class="govuk-summary-card">
 			<div class="govuk-summary-card__title-wrapper">
 				<h2 class="govuk-summary-card__title">
-					<span class="govuk-caption-m">Registrant ({{data['reg-type']}})</span>
+					<span class="govuk-caption-m">{{data['reg-type']}} registrant</span>
 					{{data['registrant-name']}} 
-					
 				</h2>
 				<ul class="govuk-summary-card__actions">
 					<li class="govuk-summary-card__action">
-						<a class="govuk-link show-collapsed-content" href="#">View details</a>
+						<a class="govuk-link " href="../arrangement/select-arrangement?registrant-progress=complete&registration-progress=in-progress&registration-start-date={{ timestamp }}">Select registrant<span class="govuk-visually-hidden"> {{data['registrant-name']}} </span></a>
 					</li>
 					<li class="govuk-summary-card__action">
-						<a class="govuk-button " href="../arrangement/select-arrangement?&registrant-progress=complete&registration-progress=in-progress&registration-start-date={{ timestamp }}">Select<span class="govuk-visually-hidden"> {{data['registrant-name']}} </span></a>
+						<a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand registrant details</span></a>
 					</li>
 				</ul>
 			</div>
@@ -118,9 +124,64 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 				<dl class="govuk-summary-list">
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
-							Registered Address
+							Registrant name
 						</dt>
 						<dd class="govuk-summary-list__value">
+							
+							{{data['registrant-name']}}
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Registrant type
+						</dt>
+						<dd class="govuk-summary-list__value">
+							
+							{{ data['reg-type']}}
+						</dd>
+					</div>
+					{% if (data['reg-type'] == 'Entity' or data['reg-type'] == 'Foreign power-controlled entity') %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Senior Responsible Officer
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{% if (data['idv-2'] == 'Yes') %}
+							{{data['co-2']}}
+							{% else %}
+							{{data['idv-sro-1']}}
+							{% endif %}								
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Primary contact
+						</dt>
+						<dd class="govuk-summary-list__value">
+							
+							{{data['co-1']}}<br>
+							{{data['contact-email']}}
+
+						</dd>
+					</div>
+					{% else %}
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Contact details
+						</dt>
+						<dd class="govuk-summary-list__value">
+							
+							{{data['contact-email']}}
+						</dd>
+					</div>
+					{% endif %}						
+
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Current address
+						</dt>
+						<dd class="govuk-summary-list__value">
+							
 							{{registeredAddress}}
 						</dd>
 					</div>
