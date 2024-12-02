@@ -2626,7 +2626,7 @@ router.post('/route-v4/e16', function(request, response) {
 router.post('/route-v4/idv-2', function(request, response) {
     var value = request.session.data['idv-2']
     if (value == 'Yes'){ 
-        response.redirect(verify_v4+'/idv-3')
+        response.redirect(verify_v4+'/idv-sro-self')
     } else {
         response.redirect(verify_v4+'/idv-sro-1')
     }
@@ -2634,10 +2634,10 @@ router.post('/route-v4/idv-2', function(request, response) {
 
 router.post('/route-v4/idv-sro-1', function(request, response) {
     var value = request.session.data['idv-sro-1']
-    if (value == '123456'){ 
-        response.redirect(verify_v4+'/idv-sro-2')
-    } else {
+    if (value == '0000'){ 
         response.redirect(verify_v4+'/idv-sro-fail')
+    } else {
+        response.redirect(verify_v4+'/idv-sro-2')
     }
 })
 router.post('/route-v4/idv-sro-2', function(request, response) {

@@ -9,7 +9,7 @@ Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-two-thirds-from-desktop'>
-        <form action='idv-sro-end?idenity-verification=with-sro' method='post'>
+        <form action='idv-3?idenity-verification=with-self' method='post'>
 
             <span class='govuk-caption-l'>Assign the Senior Responsible Officer</span>
 
@@ -21,7 +21,7 @@ Add your contact details – {{ serviceName }} – GOV.UK Prototype Kit
                         Senior Responsible Officer
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        [user name]
+                        {{data['co-2']}}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="idv-2">Change<span class="govuk-visually-hidden"> Your entity role</span></a>
