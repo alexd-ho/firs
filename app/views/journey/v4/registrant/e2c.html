@@ -1,62 +1,47 @@
-{% extends "layouts/v4-header-1.html" %}
+{% extends 'layouts/v4-header-1.html' %}
 {% set activeLinkId = 'registrations' %}
     
     {% block pageTitle %}
-        Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
+        Register your entity – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
-{% block footer %}
-{{ govukFooter({
-meta: {
-items: [
-{
-href: "/journey/v4/registrant/e-check",
-text: "Skip"
-},
-{
-href: "/manage-prototype",
-text: "Manage your prototype"
-},
-{
-href: "/manage-prototype/clear-data",
-text: "Clear data"
-}
-],
-visuallyHiddenTitle: "Footer links"
-}
-}) }}
-{% endblock %}
-
+    
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v4/e3' method='post'>
+            <form action='e3' method='post'>
     
                 <span class='govuk-caption-l'>Add your entity details</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'e3',
-                    name: 'e3',
-                    value: data['e3'],
+                    id: 'entity-name',
+                    name: 'entity-name',
+                    value: data['entity-name'],
                     fieldset: {
                         legend: {
-                            text: 'Is '+data['entity-name']+' known by any other names?',
+                            text: 'Select your foreign power-controlled entity.',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     hint: {
-                        html: '<p>This could include another trading name or a previous name still in use for the entity that you are registering.</p>'
+                        html: '
+                        <p>These foreign power-controlled entities have been specified by the UK government.</p>  
+                        <p>If you cannot find your foreign-power controlled entity in this list, read the <a href="#">guidance on who needs to register</a>.</p>  '
                     },
                     items: [
                     {
-                       value: 'Yes',
-                        text: 'Yes'
+                       value: 'Foreign power controlled entity X',
+                        text: 'Foreign power controlled entity X'
                     },
                     {
-                       value: 'No',
-                        text: 'No'
+                       value: 'Foreign power controlled entity Y',
+                        text: 'Foreign power controlled entity Y'
+                    },
+                    {
+                       value: 'Foreign power controlled entity Z',
+                        text: 'Foreign power controlled entity Z'
                     }
                     ]
                 }) }}
@@ -73,7 +58,6 @@ visuallyHiddenTitle: "Footer links"
                     }) }}
 
                 </div>
-
 
             </form>
         </div>

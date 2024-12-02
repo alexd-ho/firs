@@ -2564,6 +2564,15 @@ router.post('/route-v4/i11', function(request, response) {
 
 /// REGISTRANT / Entity
 
+router.post('/route-v4/e1a', function(request, response) {
+    var value = request.session.data['reg-type']
+    if (value == 'Entity'){ 
+        response.redirect(registrant_v4+'/e2a')
+    } else {
+        response.redirect(registrant_v4+'/e2b')
+    }
+})
+
 router.post('/route-v4/e3', function(request, response) {
     var value = request.session.data['e3']
     if (value == 'Yes'){ 

@@ -126,12 +126,8 @@
                             {{data['e11']}}
                         </dd>
                         {% endif %}
-                        <dd class="govuk-summary-list__value pr-col">
-                            <strong class="govuk-tag govuk-tag--purple">{{data['i5-year']}}</strong>
-                        </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="e5">Change<span class="govuk-visually-hidden"> date of
-                                    birth</span></a>
+                            <a class="govuk-link" href="e5">Change<span class="govuk-visually-hidden"> Country of incorporation / formation</span></a>
                         </dd>
                     </div>
                     {% if (data['e5'] == "Yes") %}
@@ -232,7 +228,7 @@
                 </dl>
     
                 <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
-                        
+                            
                     {{ govukButton({
                         text: 'Save and continue'
                     }) }}
@@ -243,6 +239,7 @@
                     }) }}
 
                 </div>
+
 
             </form>
         </div>

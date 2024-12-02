@@ -9,46 +9,56 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='e3' method='post'>
+            <form action='e2c' method='post'>
     
                 <span class='govuk-caption-l'>Add your entity details</span>
     
                 {% from 'govuk/components/radios/macro.njk' import govukRadios %}
                 {{ govukRadios({
-                    id: 'entity-name',
-                    name: 'entity-name',
-                    value: data['entity-name'],
+                    id: 'entity-country',
+                    name: 'entity-country',
+                    value: data['entity-country'],
                     fieldset: {
                         legend: {
-                            text: 'Select your foreign power-controlled entity.',
+                            text: 'Which country is your foreign power-controlled entity from?.',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
+                    hint: {
+                        html: '
+                        <p>If you cannot find the country you are looking for in this list, read the <a href="#">guidance on who needs to register</a>.</p>                            
+                        '
+                    },
                     items: [
                     {
-                       value: 'Foreign power controlled entity X',
-                        text: 'Foreign power controlled entity X'
+                       value: 'Country X',
+                        text: 'Country X'
                     },
                     {
-                       value: 'Foreign power controlled entity Y',
-                        text: 'Foreign power controlled entity Y'
+                       value: 'Country Y',
+                        text: 'Country Y'
                     },
                     {
-                       value: 'Foreign power controlled entity Z',
-                        text: 'Foreign power controlled entity Z'
+                       value: 'Country Z',
+                        text: 'Country Z'
                     }
                     ]
                 }) }}
     
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
-                {{ govukButton({
-                    href: '/route-v4/registration-overview',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                            
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '../registrations/registration-task-list',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+
+                </div>
+
             </form>
         </div>
     </div>

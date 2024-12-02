@@ -9,7 +9,7 @@
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='e2a' method='post'>
+            <form action='/route-v4/e1a' method='post'>
     
                 <!-- <span class='govuk-caption-l'>Add your entity details</span> -->
     
@@ -19,7 +19,7 @@
 
                 <h2 class='govuk-heading-m'>What you need to complete this section</h2> 
 
-                <p>You need to provide:</p>
+                <p>You must provide:</p>
 
                 <ul class='govuk-list govuk-list--bullet'>
                     <li>the name of your entity, and any other names used by it</li>
@@ -28,13 +28,11 @@
                     <li>the address of your entity</li>
                 </ul>
 
-                <p>You will be the primary contact for your entity. You cannot reassign this role until you have submitted your first registration.</p>
-
-                <p>After submission, if we are able to verify the identity of your entity, you will be given permission to add other users and reassign roles.</p>
+                <p>You will be the primary contact for your entity. You can reassign this role later.</p>
 
                 <h2 class='govuk-heading-m'>The public register</h2> 
 
-                <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register. </p>
+                <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme (FIRS) public register.</p>
 
                 <p>Information set to appear on the public register may remain private if:</p>
                 <ul class='govuk-list govuk-list--bullet'>
@@ -44,30 +42,30 @@
                     <li>publication could harm the commercial interests of any individual or entity in this activity</li>
                 </ul>
 
-                <p>At the 'Check and submit your registration' stage, you can tell us if you believe any of the registration information creates one or more of these risks and should stay private. If you do, you will have 5 days to present your case.</p>
+                <p>At the 'Check and submit your registration' stage, you can tell us if any of the registration information creates one or more of these risks and should stay private. If you do, you will have 5 days to submit your evidence.</p>
 
-                <p>Read the:</p>
+                <p>Read the guidance on:</p>
                 <ul class='govuk-list govuk-list--bullet'>
-                    <li><a href="#">guidance on what information appears on the public register</a></li>
-                    <li><a href="#">guidance on requesting information to remain private</a></li>
+                    <li><a href="#">what information appears on the public register</a></li>
+                    <li><a href="#">requesting information to remain private</a></li>
                 </ul>
 
 
                 {% from 'govuk/components/button/macro.njk' import govukButton %}
                     
                 <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
-                    
+                        
                     {{ govukButton({
                         text: 'Continue'
                     }) }}
                     {{ govukButton({
-                        href: '../registrations/new',
+                        href: '../registrations/registration-task-list',
                         classes: 'govuk-button--secondary',
                         text: 'Save and exit'
                     }) }}
-
+    
                 </div>
-      
+          
             </form>
         </div>
     </div>
