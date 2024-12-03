@@ -2520,9 +2520,9 @@ router.post('/route-v4/i3', function(request, response) {
     } else {
         if (value2 == 'Pass (UK passport)'){ 
             response.redirect(registrant_v4+'/i6')
-        } else if (value == 'Pass (UK driving license)'){ 
+        } else if (value2 == 'Pass (UK driving license)'){ 
             response.redirect(registrant_v4+'/i6')
-        } else if (value == 'Fail'){ 
+        } else if (value2 == 'Fail'){ 
             response.redirect(registrant_v4+'/i5')
         } else {
             response.redirect(registrant_v4+'/i5')
@@ -2741,6 +2741,16 @@ router.post('/route-v4/fp-2', function(request, response) {
         response.redirect(arrangement_v4+"/fp-3")
     } else {
         response.redirect(arrangement_v4+"/fp-7")            
+    }
+})
+router.post('/route-v4/fp-c', function(request, response) {
+    var value = request.session.data['fp-c'] //
+    if (value == "Russia") { // 
+        response.redirect(arrangement_v4+"/fp-4?etc=true")
+    } else if (value == "Iran") { // 
+        response.redirect(arrangement_v4+"/fp-4?etc=true")
+    } else {
+        response.redirect(arrangement_v4+"/fp-6?etc=false")            
     }
 })
 

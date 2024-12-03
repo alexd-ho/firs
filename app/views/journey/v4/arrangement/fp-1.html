@@ -19,37 +19,41 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<h1 class="govuk-heading-l">Add an arrangement</h1>
 
-			<p>We need the details of the arrangement with the foreign power or foreign power-controlled entity.</p>
+			<p>You must provide details of the arrangement with the foreign power or foreign power-controlled entity.</p>
 
-			<h2 class='govuk-heading-m'>What you need to complete this section     </h2> 
+			{% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
+				
+			{{ govukInsetText({
+			  text: 'What is an arrangement?'
+			}) }}
 
-			<p>In this section, we are asking for information about the arrangement {{ thisRegistrant }} with a foreign power or foreign power-controlled entity.</p>
+			<h2 class='govuk-heading-m'>What you need to complete this section</h2> 
 
-			<p>You need to know: </p>
+			<p>You need to know:</p>
 			<ul class='govuk-list govuk-list--bullet'>
-				<li>the foreign power or foreign power-controlled entity that {{ thisRegistrant }} an arrangement with</li>
-				<li>the details of the arrangement</li>
+				<li>the name of the foreign power or foreign power-controlled entity that the registrant is in an arrangement with</li>
+				<li>a description of the arrangement</li>
 				<li>when the arrangement was made</li>
 			</ul>
 
 			<h2 class='govuk-heading-m'>The public register</h2> 
 
-			<p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme public register. </p>
-			<p>Parts of the registration information may stay private and not appear on the public register if they meet any of these criteria:</p>
+			<p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme (FIRS) public register. </p>
+			<p>Information set to appear on the public register may remain private if:</p>
 			<ul class='govuk-list govuk-list--bullet govuk-list--spaced'>
-				<li>there is a significant risk that publication would put any individual’s safety at risk</li>
-				<li>publication would involve the disclosure of commercially sensitive information</li>
-				<li>where there is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime</li>
-				<li>there is a risk that publication would prejudice the national security of the UK</li>
+				<li>publication could cause serious harm to any individual involved in this activity</li>
+				<li>publication could harm a criminal investigation or proceedings, or prevent the detection of crime</li>
+				<li>publication could harm the safety or interests of the UK</li>
+				<li>publication could harm the commercial interests of any individual or entity in this activity</li>
 			</ul>
 
-			<p>At the 'Check and submit your registration' stage, you can tell us if any of the registration information meets one or more of the criteria and should stay private. If you do, you will have 5 days to provide your evidence.        </p>
+			<p>At the 'Check and submit your registration' stage, you can tell us if any of the registration information creates one or more of these risks and should stay private. If you do, you will have 5 days to submit your evidence.   </p>
 
-			<p>Read the:</p>
+			<p>Read the guidance on:</p>
 
 			<ul class="govuk-list govuk-list--bullet">
-				<li><a href="#">guidance on what information appears on the public register</a></li>
-				<li><a href="#">guidance on requesting information to remain private</a></li>
+				<li><a href="#">what information appears on the public register</a></li>
+				<li><a href="#">requesting information to remain private</a></li>
 			</ul>
 
 			{% from 'govuk/components/button/macro.njk' import govukButton %}
@@ -58,7 +62,7 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 				
 				{{ govukButton({
 					text: "Continue",
-					href: "fp-2?arrangement-status=in-progress"
+					href: "fp-c?arrangement-status=in-progress"
 				}) }}
 
 			</div>

@@ -11,8 +11,8 @@
         <div class='govuk-grid-column-full-width'>
             <form action='/route-v4/' method='post'>
 
-                {% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
-                {% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
+                {% set foreignPower %}{% if (data['etc'] == 'true') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
+                {% set fpCountry %}{% if (data['etc'] == 'true') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-c']}}{% else %}{{data['fp-c']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-c']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
     
                 <span class='govuk-caption-l'>Add an arrangement</span>
     
@@ -21,7 +21,7 @@
                 <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                         <dt class="govuk-summary-list__key">
-                            {% if (data['fp-2'] == 'Yes') %}
+                            {% if (data['etc'] == 'true') %}
                                 {% if (data['fp-4'] == 'Yes') %}
                                 Arrangement with (Country)
                                 {% else %}
@@ -32,7 +32,7 @@
                             {% endif %}
                         </dt>
                         <dd class="govuk-summary-list__value">
-                            {% if (data['fp-2'] == 'Yes') %}
+                            {% if (data['etc'] == 'true') %}
                                 {% if (data['fp-4'] == 'Yes') %}
                                     {{foreignPower}} ({{fpCountry}})
                                 {% else %}

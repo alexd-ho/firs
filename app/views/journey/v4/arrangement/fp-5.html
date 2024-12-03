@@ -12,7 +12,7 @@
             <form action="fp-8?arrangement-tier=enhanced" method="post">						
     
             {% set thisRegistrant %}
-                {% if (data['reg-type'] == 'Individual') %}you have{% else %}{{data['registrant-name']}} has{% endif %}
+                {% if (data['reg-type'] == 'Individual') %}you have{% else %}{{data['entity-name']}} has{% endif %}
             {% endset %}
 
 
@@ -25,13 +25,13 @@
                     value: data['fp-5'],
                     fieldset: {
                         legend: {
-                            text: 'Select the the foreign power or foreign power-controlled entity from '+data['fp-3']+' with which '+thisRegistrant+' an arrangement',
+                            text: 'Select the the foreign power or foreign power-controlled entity from '+data['fp-c']+' that '+thisRegistrant+' an arrangement with',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     hint: {
-                        html: '<p>An arrangement with more than one specified power or entity must be added as separate arrangements.</p>
+                        html: '<p>If you have arrangements with multiple foreign powers or foreign power-controlled entities, you must register each arrangement separately.</p>
                         <p><strong>Foreign power</strong></p>'
                     },
                     items: [

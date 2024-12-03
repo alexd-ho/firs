@@ -48,7 +48,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					<div class="govuk-task-list__name-and-hint">
 						{% if (data['first-registration'] == 'not-started') %}
 
-							<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress"
+							<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress&registration-status=in-progress"
 								aria-describedby="prepare-application-1-status">
 								Add a registrant
 							</a>
@@ -56,7 +56,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 								{{data['registrant-name']}}
 							</div>
 						{% else %}
-							<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress"
+							<a class="govuk-link govuk-task-list__link" href="../registrant/select-registrant?first-registration=in-progress&registration-status=in-progress"
 								aria-describedby="prepare-application-1-status">
 								Add a registrant
 							</a>

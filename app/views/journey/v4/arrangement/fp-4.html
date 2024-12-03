@@ -12,7 +12,7 @@
             <form action='/route-v4/fp-4' method='post'>
 
             {% set thisRegistrant %}
-            {% if (data['reg-type'] == 'Individual') %}Do you {% else %} Does {{data['registrant-name']}}{% endif %}
+            {% if (data['reg-type'] == 'Individual') %}Do you {% else %} Does {{data['entity-name']}}{% endif %}
             {% endset %}
 
                 <span class='govuk-caption-l'>Add an arrangement</span>
@@ -24,14 +24,14 @@
                     value: data['fp-4'],
                     fieldset: {
                         legend: {
-                            text: thisRegistrant+' have an arrangement with any of the following foreign powers or foreign power-controlled entities from '+data['fp-3']+'?',
+                            text: thisRegistrant+' have an arrangement with any of the following foreign powers or foreign power-controlled entities from '+data['fp-c']+'?',
                             classes: 'govuk-fieldset__legend--l',
                             isPageHeading: true
                         }
                     },
                     hint: {
                         html: '
-                            <p>These foreign power and foreign power-controlled entities have been specified by the UK government.</p>
+                            <p>These foreign powers and foreign power-controlled entities have been specified by the UK government.</p>
                             <p><strong>Foreign power</strong></p>
                             <ul class="govuk-list govuk-list--bullet">
                                 <li>Foreign power X</li>
