@@ -2518,7 +2518,7 @@ router.post('/route-v4/i3', function(request, response) {
     if (value == 'Yes'){ 
         response.redirect(registrant_v4+'/i4')
     } else {
-        if (value2 == 'Pass (UK Passport)'){ 
+        if (value2 == 'Pass (UK passport)'){ 
             response.redirect(registrant_v4+'/i6')
         } else if (value == 'Pass (UK driving license)'){ 
             response.redirect(registrant_v4+'/i6')
@@ -2651,7 +2651,7 @@ router.post('/route-v4/idv-sro-2', function(request, response) {
 
 router.post('/route-v4/idv-ol', function(request, response) {
     var value = request.session.data['idv-ol']
-    if (value == 'Pass (UK Passport)'){ 
+    if (value == 'Pass (UK passport)'){ 
         response.redirect(verify_v4+'/idv-m-1-a?idv-check=pass')
     } else if (value == 'Pass (UK driving license)'){ 
         response.redirect(verify_v4+'/idv-m-1-b?idv-check=pass')

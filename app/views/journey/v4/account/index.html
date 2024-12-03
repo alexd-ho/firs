@@ -11,8 +11,12 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 meta: {
 items: [
 {
-href: "/journey/v4/setup/co-2",
-text: "Quick setup"
+href: "/journey/v4/account?ol-1=john.miller@gov.uk&co-2=John Miller&co-3-app=0794561230&contact-name=John Miller&contact-email=john.miller@gov.uk&first-registration=not-started",
+text: "Quick account setup"
+},
+{
+href: "/journey/v4/setup/gov--overview",
+text: "One Login start"
 },
 {
 href: "/manage-prototype",
@@ -60,7 +64,7 @@ visuallyHiddenTitle: "Footer links"
                     </h2>
                 </div>
                 <div class="govuk-notification-banner__content">
-                    <p class="govuk-body-m">If you need to carry on with your first regsitration, <a class="govuk-notification-banner__link" href="registrations/registration-task-list" style="display:inline-block">click here</a>.</p>
+                    <p class="govuk-body-m">If you need to carry on with your first registration, <a class="govuk-notification-banner__link" href="registrations/registration-task-list" style="display:inline-block">click here</a>.</p>
 
                 </div>
             </div>
@@ -74,26 +78,6 @@ visuallyHiddenTitle: "Footer links"
 	<div class="govuk-grid-column-full">
 
 
-		{% if (data['acc-type'] == "Individual--") %}
-
-		<span class="govuk-caption-l">Account home</span>
-		<h1 class="govuk-heading-l">
-			{% if (data['contact-name']) %}{{data['contact-name']}}{% elseif (data['userName']) %}{{data['userName']}}{% else %}Account Name{% endif %}
-
-        </h1>
-
-        
-        
-		{% elseif (data['acc-type'] == "Entity--") %}
-
-		<span class="govuk-caption-l">Account home</span>
-		<h1 class="govuk-heading-l">
-			{% if (data['e1']) %}{{data['e1']}}{% elseif (data['orgName']) %}{{data['orgName']}}{% else	%}Entity Name{% endif %}
-		</h1>
-
-        {% else %}
-
-        {% endif %}
 			
 		<span class="govuk-caption-l">Your account</span>
 		<h1 class="govuk-heading-l">

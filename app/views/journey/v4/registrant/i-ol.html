@@ -18,12 +18,12 @@
                 <p>The details shown below come from your GOV.UK One Login account and cannot be changed.</p>
                 <p>You can add other names and a different contact address later.</p>
 
-                {% if (data['idv-ol'] == 'Pass (UK Passport)') %}
+                {% if (data['idv-ol'] == 'Pass (UK passport)') %}
 			
                 {{ govukInsetText({
                     html: '
                     <p><strong>Name</strong><br>
-                        '+data["co-2"]+'</p>
+                        '+data["contact-name"]+'</p>
                     <p><strong>Date of birth</strong><br>
                         1 January 1980</p>
                    ',
@@ -35,7 +35,7 @@
                 {{ govukInsetText({
                     html: '
                     <p><strong>Name</strong><br>
-                        '+data["co-2"]+'</p>
+                        '+data["contact-name"]+'</p>
                     <p><strong>Date of birth</strong><br>
                         1 January 1980</p>
                     <p><strong>Current address</strong><br>

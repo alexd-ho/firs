@@ -80,7 +80,7 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
                         ID document upload
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {% if (data['idv-ol'] == 'Pass (UK Passport)') %}
+                        {% if (data['idv-ol'] == 'Pass (UK passport)') %}
                         UK passport
                         {% elseif (data['idv-ol'] == 'Pass (UK driving license)' )%}
                         UK driving license
@@ -99,13 +99,13 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
                     </dd>
                 </div>
 
-                {% if (data['idv-ol'] == 'Pass (UK Passport)' or data['idv-ol'] == 'Pass (UK driving license)' ) %}
+                {% if (data['idv-ol'] == 'Pass (UK passport)' or data['idv-ol'] == 'Pass (UK driving license)' ) %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Full name
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['co-2']}}
+                        {{data['contact-name']}}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         
@@ -140,7 +140,7 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
                     </dd>
                 </div>
 
-                {% if (data['idv-ol'] == 'Pass (UK Passport)' or data['idv-ol'] == 'Pass (UK driving license)' ) %}
+                {% if (data['idv-ol'] == 'Pass (UK passport)' or data['idv-ol'] == 'Pass (UK driving license)' ) %}
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                         Date of birth

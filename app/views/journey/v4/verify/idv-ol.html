@@ -16,7 +16,7 @@
                 {% set passport %}
                 <p>For this prototype, the following will be used for the document data:<br>
                 <div class="govuk-inset-text prefilled">
-                    <p><strong>Name:</strong><br> {{data["co-2"]}}</p>
+                    <p><strong>Name:</strong><br> {{data["contact-name"]}}</p>
                     <p><strong>Date of birth:</strong><br> 1 January 1990</p>
                     <p><strong>Passport number:</strong><br> 123456789</p>
                 </div>
@@ -26,7 +26,7 @@
                 <p>For this prototype, the following will be used for the document data:<br>
 
                 <div class="govuk-inset-text prefilled">
-                    <p><strong>Name:</strong><br> {{data["co-2"]}}</p>
+                    <p><strong>Name:</strong><br> {{data["contact-name"]}}</p>
                     <p><strong>Date of birth:</strong><br> 1 January 1990<br>
                     <p><strong>Current address:</strong><br>
                     2 Marsham Street<br>
@@ -55,11 +55,11 @@
                     },
                     items: [
                     {
-                        value: 'Pass (UK Passport)',
-                         text: 'Pass (UK passport)',
-                         conditional: {
+                        value: 'Pass (UK passport)',
+                        text: 'Pass (UK passport)',
+                        conditional: {
                             html: passport
-                         }
+                        }
                      },
                      {
                         value: 'Pass (UK driving license)',
