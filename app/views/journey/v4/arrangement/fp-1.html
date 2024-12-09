@@ -21,10 +21,12 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
 			<p>You must provide details of the arrangement with the foreign power or foreign power-controlled entity.</p>
 
-			{% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
+
+			{% from 'govuk/components/details/macro.njk' import govukDetails %}
 				
-			{{ govukInsetText({
-			  text: 'What is an arrangement?'
+			{{ govukDetails({
+				summaryText: 'What is an arrangement?',
+				text: ''
 			}) }}
 
 			<h2 class='govuk-heading-m'>What you need to complete this section</h2> 

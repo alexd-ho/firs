@@ -31,19 +31,16 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
         {% if (data['hold-registration'] == "yes") %}
 
+        <p>If you need to make any changes to your registration, contact [FIRS email address] and put your activity reference number in the subject line.</p>
 
-        <p>This activity has been submitted.    </p>
-        
-        <h2 class='govuk-heading-m'>Next steps </h2> 
+        <h2 class='govuk-heading-m'>Next steps</h2> 
 
         <ol class='govuk-list govuk-list--number'>
-            <li>Select the information that meets the criteria to remain private.</li>
-            <li>Provide evidence showing how your information meets the criteria to remain private.</li>
+            <li>Confirm the risks publishing your information would create.</li>
+            <li>Select the information that, if published, would create the risks.</li>
+            <li>Explain how publishing the information selected would create the risks you specified</li>
             <li>Submit your evidence.</li>
         </ol>
-
-        <p>If you need to update the details of any part of this registration, contact [FIRS email address] and put your activity reference number in the subject line.      </p>
-
 
         <!--
         {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
@@ -58,23 +55,19 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
 
         {% elseif (data['hold-registration'] == "no") %}
 
-        <p>This activity has been submitted.   </p>
+        <p>If you need to make any changes to your registration, contact [FIRS email address] and put your activity reference number in the subject line.</p>
         
-        <p>The details of your registration will appear on the public register in no less than 5 working days.     </p>
-        <p>If you need to update the details of any part of this registration, contact [FIRS email address] and put your activity reference number in the subject line.        </p>
-
 
         {% else %}
             
-        <p> This activity has been submitted.  </p>
+        <p>If you need to make any changes to your registration, contact [FIRS email address] and put your activity reference number in the subject line.</p>
         
-        <p>If you need to update the details of any part of this registration, contact [FIRS email address] and put your activity reference number in the subject line.      </p>
         
         {% endif %}
 
         <p><a href="../registrations">Return to registrations</a></p>
 
-        <p><A href="">What did you think of this service?</A> (takes 30 seconds)</p>
+        <p><a href="#">What did you think of this service?</a> (takes 30 seconds)</p>
 
 
     </div>

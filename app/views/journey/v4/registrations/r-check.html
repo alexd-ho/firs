@@ -80,9 +80,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
             
             <h1 class='govuk-heading-l'>Check and submit your registration</h1>
 
-            <p>You must submit your registration within the specified time limit. Read the <a href="#">guidance about timings</a>.</p>
-            <p>You cannot make any changes after you submit your registration. </p>
-            <p>After you submit this form, you must send any changes to your registration details to [FIRS email address].  </p>
+            <p>You must submit your registration within the specified time limit. Read the <a href="#">guidance about timings</a>. </p>
 
     </div>
 </div>
@@ -117,16 +115,13 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                             <dd class="govuk-summary-list__actions">
                             </dd>
                         </div> -->
-                        {% if (data['reg-type'] == 'Individual') %}
+                        {% if (data['reg-type'] == 'Individual' or data['reg-type'] == 'Misrepresentative foreign power employee') %}
                         <div class="govuk-summary-list__row">
                             <dt class="govuk-summary-list__key">
                                 Full name
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['i2-first']}} {{data['i2-last']}}
-                            </dd>
-                            <dd class="govuk-summary-list__value pr-col">
-                                <strong class=""govuk-tag govuk-tag--purple"">{{data['i2-first']}} {{data['i2-last']}}</strong>
+                                {{data['registrant-name']}}
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="../registrant/i2">Change<span class="govuk-visually-hidden"> Full name</span></a>
@@ -222,7 +217,7 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                                 Entity name
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {{data['registrant-name']}}
+                                {{data['entity-name']}}
                             </dd>
                             <dd class="govuk-summary-list__value pr-col">
                                 <strong class=""govuk-tag govuk-tag--purple"">{{data['i2-first']}} {{data['i2-last']}}</strong>
@@ -578,10 +573,10 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                             </dt>
                             <dd class="govuk-summary-list__value">
                                 
-                                {% if (data['a-sub-1']) %}{{data['a-sub-fname-1']}} {{data['a-sub-lname-1']}}{{data['a-sub-orgname-1']}}{% endif %}{% if (data['a-sub-2']) %}, {{data['a-sub-fname-2']}} {{data['a-sub-lname-2']}}{{data['a-sub-orgname-2']}}{% endif %}
-                                {% if (data['a-sub-3']) %}, {{data['a-sub-fname-3']}} {{data['a-sub-lname-3']}}{{data['a-sub-orgname-3']}}{% endif %}
-                                {% if (data['a-sub-4']) %}, {{data['a-sub-fname-4']}} {{data['a-sub-lname-4']}}{{data['a-sub-orgname-4']}}{% endif %}
-                                {% if (data['a-sub-5']) %}, {{data['a-sub-fname-5']}} {{data['a-sub-lname-5']}}{{data['a-sub-orgname-5']}}{% endif %}
+                                {% if (data['a-sub-1']) %}{{data['a-sub-name-1']}}{{data['a-sub-orgname-1']}}{% endif %}{% if (data['a-sub-2']) %}, {{data['a-sub-name-2']}}{{data['a-sub-orgname-2']}}{% endif %}
+                                {% if (data['a-sub-3']) %}, {{data['a-sub-name-3']}}{{data['a-sub-orgname-3']}}{% endif %}
+                                {% if (data['a-sub-4']) %}, {{data['a-sub-name-4']}}{{data['a-sub-orgname-4']}}{% endif %}
+                                {% if (data['a-sub-5']) %}, {{data['a-sub-name-5']}}{{data['a-sub-orgname-5']}}{% endif %}
                                 
                             </dd>
                             <dd class="govuk-summary-list__actions">
@@ -832,8 +827,8 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                 },
                 items: [
                 {
-                   value: 'I confirm that the information on this page is complete and accurate.',
-                    text: 'I confirm that the information on this page is complete and accurate.'
+                   value: 'I confirm that this information is complete and accurate.',
+                    text: 'I confirm that this information is complete and accurate.'
                 }
                 ]
             }) }}
@@ -850,13 +845,16 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     id: 'exception-options',
                     name: 'exception-options',
                     values: data['exception-options'],
-                    classes: "govuk-checkboxes--small",
+                    classes: "govuk-checkboxes--small-",
                     fieldset: {
                         legend: {
                             text: 'What are your reasons for the information to remain private?',
                             classes: 'govuk-fieldset__legend--s hidden',
                             isPageHeading: false
                         }
+                    },
+                    hint: {
+                        text: 'Select all that apply'
                     },
                     items: [
                     {
@@ -868,8 +866,8 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     text: "Risk to investigation of crime"
                     },
                     {
-                    value: "Risk to the safety of the UK",
-                    text: "Risk to the safety of the UK"
+                    value: "Risk to safety or interests of the UK",
+                    text: "Risk to safety or interests of the UK"
                     },
                     {
                     value: "Risk to commercial interests",
@@ -901,48 +899,52 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     },
                     hint: {
                         html: "
-                        <p>If some or all of the information meets one or more of the following criteria, it will remain private and not appear the public register.  </p>
-                        <ul class='govuk-list govuk-list--bullet'>
+                        <p>If publishing some or all of the information creates one or more of the following risks, it will remain private and not appear the  Foreign Influence Registration Scheme (FIRS) public register. </p>
+                        <ul class='govuk-list govuk-list--spaced'>
                             <li><strong>Risk to personal safety</strong><br>
-                                There is a significant risk publication would put the safety of any individual in this activity at risk of serious harm.</li>
-                            <li><strong>Risk to investigation of crime</strong><br>
-                                    There is a risk publication would be prejudicial to a criminal investigation or proceedings, or to the prevention or detection of crime.</li>
-                            <li><strong>Risk to the safety of the UK</strong><br>
-                                        There is a risk publication would be prejudicial to the safety or interests of the UK.</li>
+                                Publication could cause serious harm to any individual involved in this activity.</li>
+                            <li><strong>Risk to investigation of crime </strong><br>
+                                Publication could harm a criminal investigation or proceedings, or prevent the detection of crime.</li>
+                            <li><strong>Risk to safety or interests of the UK</strong><br>
+                                Publication could harm the safety or interests of the UK.</li>
                             <li><strong>Risk to commercial interests</strong><br>
-                                            There is a high likelihood to seriously prejudice the commercial interests of any individual or organisation in this activity.</li>
+                                Publication could harm the commercial interests of any individual or entity in this activity.</li>
                         </ul>
                         "
                     },
                     items: [
                     {
                        value: 'Yes',
-                        text: 'Yes, the information meets the criteria to remain private and not appear on the public register.',
+                        text: 'Yes, publishing the information could create a risk and should not appear on the FIRS public register.',
                         conditional: {
                             html: exceptionOptions
                         }
                     },
                     {
                        value: 'No',
-                        text: 'No, the information does not meet the criteria to remain private and will appear on the public register.'
+                        text: 'No, publishing the information would not create a risk, and the information will appear on the FIRS public register.'
                     }
                     ]
                 }) }}
 
             {% endif %}
 
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+            <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    
+                {{ govukButton({
+                text: 'Save and continue'
+                }) }}
 
-            {{ govukButton({
-            text: 'Save and continue'
-            }) }}
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
 
-            {% from 'govuk/components/button/macro.njk' import govukButton %}
-
-            {{ govukButton({
-            href: '../registrations/new',
-            classes: 'govuk-button--secondary',
-            text: 'Save and exit'
-            }) }}
+                {{ govukButton({
+                    href: '../registrations/registration-task-list',
+                    classes: 'govuk-button--secondary',
+                    text: 'Save and exit'
+                }) }}
+            </div>
 
         </form>
 

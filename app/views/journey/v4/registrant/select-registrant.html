@@ -54,45 +54,35 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 		<!-- <span class="govuk-caption-l">Add a registrant</span> -->
 		<h1 class="govuk-heading-l">Add a registrant</h1>
 
-		<p>To start a new registration, you must add a new registrant or select one you have already added or have access to.</p>
+		<p>A registrant can be either an individual or an entity.</p>
 
-		<h2 class='govuk-heading-m'>Add a new registrant</h2> 
+		<h2 class='govuk-heading-m'>Individual registrants</h2> 
 
-		<p>If you are the registrant, you must:</p>
-		<ul class="govuk-list govuk-list--bullet">
-			<li>provide your personal details</li>
-			<li>verify your identity using our verification service</li>
-		</ul>
+		<p>If you are an individual registrant, you must verify your identity and provide your personal details.</p>
+		<p>You can only add an individual registrant if you are the individual.</p>
 
-		<p>You cannot register another individual. </p>
+		<h2 class='govuk-heading-m'>Entity registrants</h2> 
+
 		<p>If an entity, such as a company, is the registrant, you must:</p>
-
-		<ul class="govuk-list govuk-list--bullet">
+		<ul class='govuk-list govuk-list--bullet'>
 			<li>provide details about the entity</li>
-			<li>nominate a senior responsible officer to verify their identity  </li>
+			<li>nominate a Senior Responsible Officer to verify their identity and provide their personal details</li>
 		</ul>
-
-		<p>You can only register an entity if you are either:</p>
-		<ul class="govuk-list govuk-list--bullet">
-			<li>a Senior Responsible Officer for the entity</li>
-			<li>someone who is formally part of the entity, such as an employee, member or volunteer, and has been given permission to register it</li>
-		</ul>
-
-		<p>You can save your progress at any point and return later.</p>
-
-		{% from 'govuk/components/details/macro.njk' import govukDetails %}
 			
-		{{ govukDetails({
-			summaryText: 'What is a registrant?',
-			text: 'A registrant is the person or entity in an arrangement with a foreign power or foreign power-controlled entity. A registrant can also be an individual employed by a foreign power.'
-		}) }}
-
-		{% from 'govuk/components/details/macro.njk' import govukDetails %}
+		<p>You can only add an entity if you are either:</p>
+		<ul class='govuk-list govuk-list--bullet'>
+			<li>the Senior Responsible Officer for the entity</li>
+			<li>someone who is formally part of the entity, such as an employee, member or volunteer, and has been given permission to add the entity</li>
+		</ul>
 			
 		{{ govukDetails({
 			summaryText: 'What is a Senior Responsible Officer?',
 			text: 'A Senior Responsible Officer (SRO) is a person who is responsible for ensuring compliance with the Foreign Influence Registration Scheme (FIRS) within an entity. The SRO is typically a senior executive within the entity who has the authority to make decisions about FIRS and is the single point of contact for the FIRS team.'
 		}) }}
+
+		<p>You can save your progress at any point and return later.</p>
+
+
 
 		{% from 'govuk/components/button/macro.njk' import govukButton %}
 			
@@ -102,14 +92,14 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			text: 'Add a new registrant'
 		}) }}
 
-		{% if (data['registrant-name']) %}
+		{% if (data['registrant-status']) %}
 		<h2 class="govuk-heading-m">Select a registrant</h2>
 
 		<div class="govuk-summary-card">
 			<div class="govuk-summary-card__title-wrapper">
 				<h2 class="govuk-summary-card__title">
 					<span class="govuk-caption-m">{{data['reg-type']}} registrant</span>
-					{{data['registrant-name']}} 
+					{{data['contact-name']}} 
 				</h2>
 				<ul class="govuk-summary-card__actions">
 					<li class="govuk-summary-card__action">

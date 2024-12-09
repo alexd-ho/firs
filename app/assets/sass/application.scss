@@ -243,8 +243,13 @@ a.govuk-link--disabled {
 
     &__actions {
         align-items: center;
+        flex-shrink: 0;
+    
         .govuk-button {
             margin-bottom: 0;
+        }
+        &--undo-actions {
+            display: none;
         }
     }
 

@@ -5,8 +5,7 @@
         Add your details – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
 
-    {% set currentSub %}a-sub-fname-{{data['sub']}}{% endset -%}
-    {% set currentSub2 %}a-sub-lname-{{data['sub']}}{% endset -%}
+    {% set currentSub %}a-sub-name-{{data['sub']}}{% endset -%}
     
     
     {% block content %}
@@ -15,55 +14,38 @@
             <form action='a-sub-2-i' method='post'>
     
                 <span class='govuk-caption-l'>Individual or entity involved | Add an activity</span>
-    
-                {% from "govuk/components/input/macro.njk" import govukInput %}
-                {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
-                {% call govukFieldset({
-                legend: {
-                    text: "What is the full name of the individual doing the activity?",
-                    classes: "govuk-fieldset__legend--l",
-                    isPageHeading: true
-                }
-                }) %}
-
-                <div class="govuk-hint">
-                    Enter their full name as it appears on official documents, for example their passport
-                </div>
-
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
                     id: currentSub,
                     name: currentSub,
                     value: data[currentSub],
                     label: {
-                        text: 'Given name'
+                        text: 'What is the full name of the individual?',
+                        classes: 'govuk-label--l',
+                        isPageHeading: true
+                    },
+                    hint: {
+                        text: 'Enter their full name as it appears on official documents, for example their passport'
                     }
                 }) }}
-
-                {{ govukInput({
-                    id: currentSub2,
-                    name: currentSub2,
-                    value: data[currentSub2],
-                    label: {
-                        text: 'Family name'
-                    }
-                }) }}
-
-                {% endcall %}
-
-                {% from 'govuk/components/button/macro.njk' import govukButton %}
-                            
     
-                {{ govukButton({
-                    text: 'Save and continue'
-                }) }}
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                        
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
 
-                {{ govukButton({
-                    href: '../registrations/new',
-                    classes: 'govuk-button--secondary',
-                    text: 'Save and exit'
-                }) }}
+                    {{ govukButton({
+                        href: '../registrations/new',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
 
+                </div>
+    
             </form>
         </div>
     </div>

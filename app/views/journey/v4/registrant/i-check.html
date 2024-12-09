@@ -7,6 +7,38 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+
+{% set homeAddress %}
+{% if (data['idv-ol'] == 'Pass (UK driving license)' ) %}
+    2 Marsham Street, London, United Kingdom, SW1P 4DF
+{% else %}
+    {% if (data['i8'] == 'United Kingdom') %}
+        {{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
+    {% else %}
+        {{data['i9']}}
+    {% endif %}
+{% endif %}
+{% endset %}
+
+
+
+
+{% set contactAddress %}
+{% if (data['i11'] == 'A different address') %}
+{% if (data['otherCountry'] == 'United Kingdom') %}
+{{data['i12-line-1']}}, {% if (data['i12-line-2']) %}{{data['i12-line-2']}}, {% endif %}{% if (data['i12-town']) %}{{data['i12-town']}}, {% endif %}{% if (data['i12-postcode']) %}{{data['i12-postcode']}}, {% endif %}{% if (data['i12-country']) %}{{data['i12-country']}}{% endif %}
+{% else %}
+{{data['i13']}}
+{% endif %}
+{% else %}
+{{homeAddress}}
+{% endif %}
+{% endset %}
+
+{% set registrantName %}
+{% if (data['idv-ol'] == 'Pass (UK passport)' or data['idv-ol'] == 'Pass (UK driving license)' ) %}{{data['contact-name']}}{% else %}{{data['i2']}}{% endif %}
+{% endset %}
+
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-full-width'>
         <!-- <form action="../arrangement/select-arrangement?registrant-status=complete&registrant-name={{data['i2-first']}} {{data['i2-last']}}" method='post'> -->
@@ -20,46 +52,18 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
             reg-subtype: {{ data['reg-subtype']}} -->
 
         {% if (data['reg-type'] == 'Individual' and data['reg-subtype'] == 'default') %}<!-- Individual -->
-        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{data['i2']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{registrantName}}" method='post'>
         {% elseif (data['reg-type'] == 'Individual' and data['reg-subtype'] == 'misrep') %}<!-- misrep -->
-        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{data['i2']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{registrantName}}" method='post'>
         {% elseif (data['reg-type'] == 'Entity' and data['reg-subtype'] == 'default') %}<!-- Entity -->
-        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{data['entity-name']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&registrant-name={{registrantName}}" method='post'>
         {% elseif (data['reg-type'] == 'Entity' and data['reg-subtype'] == 'fpce') %}<!-- fpce -->
-        <form action="../registrations/registration-task-list?registrant-status=complete&arrangement-status=complete&registrant-name={{data['entity-name']}}" method='post'>
+        <form action="../registrations/registration-task-list?registrant-status=complete&arrangement-status=complete&registrant-name={{registrantName}}" method='post'>
         {% endif %}
 
             <span class='govuk-caption-l'>Add your personal details</span>
 
             <h1 class='govuk-heading-l'>Check your answers</h1>
-
-            {% set homeAddress %}
-                {% if (data['idv-ol'] == 'Pass (UK driving license)' ) %}
-                    2 Marsham Street, London, United Kingdom, SW1P 4DF
-                {% else %}
-                    {% if (data['i8'] == 'United Kingdom') %}
-                        {{data['i10-line-1']}}, {% if (data['i10-line-2']) %}{{data['i10-line-2']}}, {% endif %}{% if (data['i10-town']) %}{{data['i10-town']}}, {% endif %}{% if (data['i10-postcode']) %}{{data['i10-postcode']}}, {% endif %}{% if (data['i10-country']) %}{{data['i10-country']}}{% endif %}
-                    {% else %}
-                        {{data['i9']}}
-                    {% endif %}
-                {% endif %}
-            {% endset %}
-
-
-  
-
-            {% set contactAddress %}
-            {% if (data['i11'] == 'A different address') %}
-            {% if (data['otherCountry'] == 'United Kingdom') %}
-            {{data['i12-line-1']}}, {% if (data['i12-line-2']) %}{{data['i12-line-2']}}, {% endif %}{% if (data['i12-town']) %}{{data['i12-town']}}, {% endif %}{% if (data['i12-postcode']) %}{{data['i12-postcode']}}, {% endif %}{% if (data['i12-country']) %}{{data['i12-country']}}{% endif %}
-            {% else %}
-            {{data['i13']}}
-            {% endif %}
-            {% else %}
-            {{homeAddress}}
-            {% endif %}
-            {% endset %}
-
 
 
             <dl class="govuk-summary-list">
@@ -105,7 +109,7 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
                         Full name
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['contact-name']}}
+                        {{ registrantName }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         
@@ -117,7 +121,7 @@ Register yourself – {{ serviceName }} – GOV.UK Prototype Kit
                         Full name
                     </dt>
                     <dd class="govuk-summary-list__value">
-                        {{data['i2']}}
+                        {{ registrantName }}
                     </dd>
                     <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="i2">Change<span class="govuk-visually-hidden"> Full name</span></a>

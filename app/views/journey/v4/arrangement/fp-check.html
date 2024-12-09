@@ -11,8 +11,8 @@
         <div class='govuk-grid-column-full-width'>
             <form action='/route-v4/' method='post'>
 
-                {% set foreignPower %}{% if (data['etc'] == 'true') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
-                {% set fpCountry %}{% if (data['etc'] == 'true') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-c']}}{% else %}{{data['fp-c']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-c']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
+                {% set foreignPower %}{% if (data['etc'] == 'true') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-6-name']}}{% endif %}{% endset %}
+                {% set fpCountry %}{% if (data['etc'] == 'true') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-c']}}{% else %}{{data['fp-c']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-c']}} - {{data['fp-6-type']}}{% endif %}{% endset %}
     
                 <span class='govuk-caption-l'>Add an arrangement</span>
     
@@ -43,7 +43,7 @@
                             {% endif %}
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="fp-2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+                            <a class="govuk-link" href="fp-c">Change<span class="govuk-visually-hidden"> Full name</span></a>
                         </dd>
                     </div>
                     <div class="govuk-summary-list__row">

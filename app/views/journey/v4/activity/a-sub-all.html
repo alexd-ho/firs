@@ -43,11 +43,11 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                     </ul>
                     <ul class="govuk-summary-card__actions--undo-actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link js-remove-card" href="#">Remove<span class="govuk-visually-hidden"> of University of
+                            <a class="govuk-link js-remove-card" href="#">Cancel<span class="govuk-visually-hidden"> of University of
                                 Gloucestershire (University of Gloucestershire)</span></a>
                         </li>
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand or collapse card</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Confirm</span></a>
                         </li>
                     </ul>
                 </div>
@@ -94,7 +94,7 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                                 Address
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['a-sub-address-1'] == 'Yes') %}{{data['a-sub-address-1--line-1']}}, {{data['a-sub-address-1--town']}}, {{data['a-sub-address-1--postcode']}}{% else %}Not known {% endif %}
+                                {% if (data['a-sub-address-1'] == 'Yes') %}{{data['a-sub-address-1-address']}}{% else %}Not known {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="a-sub-4">Change<span class="govuk-visually-hidden"> address</span></a>
@@ -139,11 +139,20 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand or collapse card</span></a>
+                            <a class="govuk-link js-remove-card" href="#">Remove<span class="govuk-visually-hidden"> of University of
+                                Gloucestershire (University of Gloucestershire)</span></a>
                         </li>
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link js-remove-card" href="../activity/a-start?registration-tier=political&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Remove<span class="govuk-visually-hidden"> of University of
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand or collapse card</span></a>
+                        </li>
+                    </ul>
+                    <ul class="govuk-summary-card__actions--undo-actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link js-remove-card" href="#">Cancel<span class="govuk-visually-hidden"> of University of
                                 Gloucestershire (University of Gloucestershire)</span></a>
+                        </li>
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Confirm</span></a>
                         </li>
                     </ul>
                 </div>
@@ -190,7 +199,7 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                                 Address
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['a-sub-address-2'] == 'Yes') %}{{data['a-sub-address-2--line-1']}}, {{data['a-sub-address-2--town']}}, {{data['a-sub-address-2--postcode']}}{% else %}Not known {% endif %}
+                                {% if (data['a-sub-address-2'] == 'Yes') %}{{data['a-sub-address-2-address']}}{% else %}Not known {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="a-sub-4">Change<span class="govuk-visually-hidden"> address</span></a>
@@ -235,11 +244,20 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand or collapse card</span></a>
+                            <a class="govuk-link js-remove-card" href="#">Remove<span class="govuk-visually-hidden"> of University of
+                                Gloucestershire (University of Gloucestershire)</span></a>
                         </li>
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link js-remove-card" href="../activity/a-start?registration-tier=political&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Remove<span class="govuk-visually-hidden"> of University of
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand or collapse card</span></a>
+                        </li>
+                    </ul>
+                    <ul class="govuk-summary-card__actions--undo-actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link js-remove-card" href="#">Cancel<span class="govuk-visually-hidden"> of University of
                                 Gloucestershire (University of Gloucestershire)</span></a>
+                        </li>
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Confirm</span></a>
                         </li>
                     </ul>
                 </div>
@@ -286,7 +304,7 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                                 Address
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['a-sub-address-3'] == 'Yes') %}{{data['a-sub-address-3--line-1']}}, {{data['a-sub-address-3--town']}}, {{data['a-sub-address-3--postcode']}}{% else %}Not known {% endif %}
+                                {% if (data['a-sub-address-3'] == 'Yes') %}{{data['a-sub-address-3-address']}}{% else %}Not known {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="a-sub-4">Change<span class="govuk-visually-hidden"> address</span></a>
@@ -332,11 +350,20 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                     </h2>
                     <ul class="govuk-summary-card__actions">
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand or collapse card</span></a>
+                            <a class="govuk-link js-remove-card" href="#">Remove<span class="govuk-visually-hidden"> of University of
+                                Gloucestershire (University of Gloucestershire)</span></a>
                         </li>
                         <li class="govuk-summary-card__action">
-                            <a class="govuk-link js-remove-card" href="../activity/a-start?registration-tier=political&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Remove<span class="govuk-visually-hidden"> of University of
-                                    Gloucestershire (University of Gloucestershire)</span></a>
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand or collapse card</span></a>
+                        </li>
+                    </ul>
+                    <ul class="govuk-summary-card__actions--undo-actions">
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link js-remove-card" href="#">Cancel<span class="govuk-visually-hidden"> of University of
+                                Gloucestershire (University of Gloucestershire)</span></a>
+                        </li>
+                        <li class="govuk-summary-card__action">
+                            <a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Confirm</span></a>
                         </li>
                     </ul>
                 </div>
@@ -383,7 +410,7 @@ Add your details – {{ serviceName }} – GOV.UK Prototype Kit
                                 Address
                             </dt>
                             <dd class="govuk-summary-list__value">
-                                {% if (data['a-sub-address-4'] == 'Yes') %}{{data['a-sub-address-4--line-1']}}, {{data['a-sub-address-4--town']}}, {{data['a-sub-address-4--postcode']}}{% else %}Not known {% endif %}
+                                {% if (data['a-sub-address-4'] == 'Yes') %}{{data['a-sub-address-4-address']}}{% else %}Not known {% endif %}
                             </dd>
                             <dd class="govuk-summary-list__actions">
                                 <a class="govuk-link" href="a-sub-4">Change<span class="govuk-visually-hidden"> address</span></a>

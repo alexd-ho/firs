@@ -246,12 +246,18 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 			<ul class="govuk-task-list">
 				<li class="govuk-task-list__item govuk-task-list__item--with-link">
-					{% if (data['activity-progress'] == 'complete') %}
+					{% if (data['registration-status'] == 'complete' or data['registration-status'] == 'submitted') %}
 					<div class="govuk-task-list__name-and-hint">
+						{% if (data['hold-registration'] == 'yes' or data['exception-progress'] == 'in-progress') %}
 						<a class="govuk-link govuk-task-list__link" href="../exception/ex-1"
 							aria-describedby="prepare-application-4-status">
 							Complete this section if your information is set to be published on the FIRS public register and you want any of it to remain private
 						</a>
+						{% else %}
+						<div>
+							Complete this section if your information is set to be published on the FIRS public register and you want any of it to remain private
+						</div>
+						{% endif %}
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-1-status">
 						{% if (data['exception-progress'] == 'complete') %}
@@ -259,13 +265,13 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						{% elseif (data['exception-progress'] == 'in-progress') %}
 						<strong class="govuk-tag govuk-tag--light-blue">In progress</strong>
 						{% else %}
-						{% if (data['hold-registration'] == 'yes') %}
-						<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
-						{% elseif (data['hold-registration'] == 'no') %}
-						None requested
-						{% else %}
-						<span class="govuk-task-list__status--cannot-start-yet">Complete previous sections to determine applicability</span>
-						{% endif %}
+							{% if (data['hold-registration'] == 'yes') %}
+							<strong class="govuk-tag govuk-tag--turquoise">Start</strong>
+							{% elseif (data['hold-registration'] == 'no') %}
+							Not applicable
+							{% else %}
+							<span class="govuk-task-list__status--cannot-start-yet">If applicable</span>
+							{% endif %}
 						{% endif %}
 					</div>
 					{% else %}
@@ -275,7 +281,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						</div>
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
-						Cannot start yet
+						If applicable
 					</div>
 					{% endif %}
 				</li>

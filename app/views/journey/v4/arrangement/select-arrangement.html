@@ -8,8 +8,9 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-{% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-7-name']}}{% endif %}{% endset %}
-{% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-3']}}{% else %}{{data['fp-6-country']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-7-country']}} - {{data['fp-7-type']}}{% endif %}{% endset %}
+{% set foreignPower %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-5']}}{% else %}{{data['fp-6-name']}}{% endif %}{% else %}{{data['fp-6-name']}}{% endif %}{% endset %}
+{% set fpCountry %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}{{data['fp-c']}}{% else %}{{data['fp-c']}} - {{data['fp-6-type']}}{% endif %}{% else %}{{data['fp-c']}} - {{data['fp-6-type']}}{% endif %}{% endset %}
+{% set arrTier %}{% if (data['fp-2'] == 'Yes') %}{% if (data['fp-4'] == 'Yes') %}enhanced{% else %}political{% endif %}{% else %}political{% endif %}{% endset %}
 
 <div class="govuk-grid-row">
 
@@ -37,25 +38,23 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 		<h2 class="govuk-heading-m">Select an existing arrangement</h2>
 
-		{% if (data['arrangement-progress'] == 'complete') %}
+		{% if (data['arrangement-status'] == 'complete') %}
 
 
 
 		<div class="govuk-summary-card">
 			<div class="govuk-summary-card__title-wrapper">
+
 				<h2 class="govuk-summary-card__title">
-					<span class="govuk-caption-m">Arrangement </span>
-					{{data['foreign-power-name']}} ({{fpCountry}})
-					
+					<span class="govuk-caption-m">Arrangement</span>
+					{{foreignPower}} ({{fpCountry}})
 				</h2>
 				<ul class="govuk-summary-card__actions">
 					<li class="govuk-summary-card__action">
-						<a class="govuk-link show-collapsed-content" href="#">View details<span class="govuk-visually-hidden"> of University of
-								Gloucestershire (University of Gloucestershire)</span></a>
+						<a class="govuk-link " href="../activity/a-start?registration-tier={{arrTier}}&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Select arrangement<span class="govuk-visually-hidden"> {{data['registrant-name']}} </span></a>
 					</li>
 					<li class="govuk-summary-card__action">
-						<a class="govuk-button " href="../activity/a-start?registration-tier=political&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Select<span class="govuk-visually-hidden"> of University of
-								Gloucestershire (University of Gloucestershire)</span></a>
+						<a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand arrangement details</span></a>
 					</li>
 				</ul>
 			</div>
