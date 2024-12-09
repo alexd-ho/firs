@@ -5,9 +5,6 @@
 Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% set registrant %}
-{% if (data['acc-type'] == 'Organisation') %}{{data['accName']}} has{% else %}you have{% endif %}
-{% endset -%}
 
 
 
@@ -15,29 +12,30 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 <div class='govuk-grid-row'>
     <div class='govuk-grid-column-two-thirds-from-desktop'>
 
-        <form action="fp-8?arrangement-tier=political" method="post">						
+        <form action="misrep-6?arrangement-tier=political" method="post">						
 
         {% set thisRegistrant %}
             {% if (data['reg-type'] == 'Individual') %}you have {% else %} {{data['registrant-name']}} has{% endif %}
         {% endset %}
 
-        <span class="govuk-caption-l">Add an agreement</span>
+        <span class="govuk-caption-l">Add a foreign power</span>
 
             <fieldset class="govuk-fieldset">
                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="govuk-fieldset__heading">
-                        Tell us about the foreign power with which {{thisRegistrant}} an arrangement
+                        Tell us about the foreign power you work for
                     </h1>
                 </legend>
                 <div class="govuk-hint">
-                    <p>You only need to register an arrangement with a foreign power if you are being directed to do, or organise for others to do, a political influence activity. An activity is considered a political influence activity if it meets the criteria set out in section 70 of the National Security Act 2023.</p>
+                    <p>You only need to register if, as part of your work, you are being directed to do, or organise for others to do, a political influence activity. An activity is considered a political influence activity if It meets the criteria set out in section 70 of the National Security Act 2023.</p>
                     <p>You do not need to register an arrangement with a foreign power-controlled entity that has not been specified by the UK government.</p>
+                    <p>Read the <a href="#">guidance about who needs to register</a>.</p>
                 </div>
             {% from "govuk/components/select/macro.njk" import govukSelect %}
 
                 {{ govukSelect({
-                id: "fp-6-type",
-                name: "fp-6-type",
+                id: "misrep-5-type",
+                name: "misrep-5-type",
                 classes: "govuk-!-width-full",
                 label: {
                     text: "Type of foreign power"
@@ -73,9 +71,9 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
 
                 {% from 'govuk/components/input/macro.njk' import govukInput %}
                 {{ govukInput({
-                    id: 'fp-6-country',
-                    name: 'fp-6-country',
-                    value: data['fp-c'],
+                    id: 'misrep-5-country',
+                    name: 'misrep-5-country',
+                    value: data['misrep-2'],
                     classes: 'hidden',
                     label: {
                         text: 'Country of foreign power',
@@ -85,20 +83,20 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                 }) }}
                 
                 <div class="govuk-form-group">
-                    <label class="govuk-label" for="fp-6-country-display">
+                    <label class="govuk-label" for="misrep-5-country-display">
                       Country of foreign power
                     </label>
                   
-                    <input class="govuk-input" id="fp-6-country-display" name="fp-6-country-display" type="text" value="{{data['fp-c']}}" disabled="">
-                    <p><a href="fp-c" class="govuk-link">Change country of foreign power</a></p>
+                    <input class="govuk-input" id="misrep-5-country-display" name="misrep-5-country-display" type="text" value="{{data['misrep-2']}}" disabled="">
+                    <p><a href="misrep-2" class="govuk-link">Change country of foreign power</a></p>
                   </div>
 
 
                 <div class="govuk-form-group">
-                    <label class="govuk-label" for="fp-6-name">
+                    <label class="govuk-label" for="misrep-5-name">
                         Name of foreign power
                     </label>
-                    <input class="govuk-input govuk-!-width-full" id="fp-6-name" name="fp-6-name" type="text" autocomplete="organization" value="{{data['fp-6-name']}}">
+                    <input class="govuk-input govuk-!-width-full" id="misrep-5-name" name="misrep-5-name" type="text" autocomplete="organization" value="{{data['misrep-5-name']}}">
                 </div>
                 
             </fieldset>
@@ -114,7 +112,6 @@ Adding a registration – {{ serviceName }} – GOV.UK Prototype Kit
                     text: 'Save and exit'
                 }) }}
             </div>
-    
         </form>
     </div>
 </div>

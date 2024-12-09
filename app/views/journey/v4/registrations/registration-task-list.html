@@ -125,10 +125,17 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					
 					{% if (data['registrant-status'] == 'complete') %}
 					<div class="govuk-task-list__name-and-hint">
-						<a class="govuk-link govuk-task-list__link" href="../arrangement/fp-1"
+						{% if (data['misrep'] == 'true') %}
+						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-fp"
 							aria-describedby="prepare-application-2-status">
 							Add an arrangement
 						</a>
+						{% else %}
+						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-arrangement"
+							aria-describedby="prepare-application-2-status">
+							Add an arrangement
+						</a>
+						{% endif %}
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="prepare-application-2-status">
 						<strong class="govuk-tag govuk-tag--green">Start</strong>

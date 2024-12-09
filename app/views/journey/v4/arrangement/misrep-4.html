@@ -1,0 +1,57 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add a foreign power – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='misrep-6?arrangement-tier=enhanced' method='post'>
+    
+                <span class='govuk-caption-l'>Add a foreign power</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'misrep-4',
+                    name: 'misrep-4',
+                    value: data['misrep-4'],
+                    fieldset: {
+                        legend: {
+                            text: 'Select the foreign power you work for',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                        value: 'Foreign power X',
+                         text: 'Foreign power X'
+                     },
+                     {
+                        value: 'Foreign power Y',
+                         text: 'Foreign power Y'
+                     },
+                     {
+                        value: 'Foreign power Z',
+                         text: 'Foreign power Z'
+                     }
+                    ]
+                }) }}
+    
+               <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}

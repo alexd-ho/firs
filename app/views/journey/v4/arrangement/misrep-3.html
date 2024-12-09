@@ -1,0 +1,63 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add a foreign power – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='/route-v4/misrep-3' method='post'>
+    
+                <span class='govuk-caption-l'>Add a foreign power</span>
+    
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'misrep-3',
+                    name: 'misrep-3',
+                    value: data['misrep-3'],
+                    fieldset: {
+                        legend: {
+                            text: 'Do you work for any of these foreign powers from '+data['misrep-2']+'?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    hint: {
+                        html: '
+                        <p>These foreign powers have been specified by the UK government.</p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>Foreign power X</li>
+                            <li>Foreign power Y</li>
+                            <li>Foreign power Z</li>
+                        </ul>
+                            '
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes'
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+    
+               <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -2492,6 +2492,15 @@ router.post('/route-v4/on-6', function(request, response) {
 })
 
 
+router.post('/route-v4/select-arrangement', function(request, response) {
+    var value = request.session.data['misrep']
+    if (value == 'true'){ 
+        response.redirect(arrangement_v4+'/select-fp')
+    } else {
+        response.redirect(arrangement_v4+'/select-arrangement')
+    }
+})
+
 /// REGISTRANT
 
 router.post('/route-v4/reg-type', function(request, response) {
@@ -2763,6 +2772,26 @@ router.post('/route-v4/fp-4', function(request, response) {
     }
 })
 
+router.post('/route-v4/misrep-2', function(request, response) {
+    var value = request.session.data['misrep-2'] //
+    if (value == "Russia") { // 
+        response.redirect(arrangement_v4+"/misrep-3?etc=true")
+    } else if (value == "Iran") { // 
+        response.redirect(arrangement_v4+"/misrep-3?etc=true")
+    } else {
+        response.redirect(arrangement_v4+"/misrep-5?etc=false")            
+    }
+})
+
+router.post('/route-v4/misrep-3', function(request, response) {
+    var value = request.session.data['misrep-3'] //
+    if (value == "Yes") { // 
+        response.redirect(arrangement_v4+"/misrep-4")
+    } else {
+        response.redirect(arrangement_v4+"/misrep-5")            
+    }
+})
+
 
 
 
@@ -2839,6 +2868,7 @@ router.post('/route-v4/a-restart-sub', function(request, response) {
 
 router.post('/route-v4/activity-router-1', function(request, response) {
     var value = request.session.data['activity-types'] //
+    var misrepJourney = request.session.data['misrep'] //
     if (value.includes("Private communication to a senior public official or politician in the UK")){
         response.redirect(activity_v4+'/a-pri-1')
     } else  if (value.includes("Public communication in the UK")){
@@ -2847,6 +2877,8 @@ router.post('/route-v4/activity-router-1', function(request, response) {
         response.redirect(activity_v4+'/a-mon-1')
     } else  if (value.includes("Other type of activity in the UK")){
         response.redirect(activity_v4+'/a-oth-1')
+    } else  if (misrepJourney == 'true'){ 
+        response.redirect(activity_v4+'/a-misrep-activity')
     } else {
         response.redirect(activity_v4+'/a-check')
     }
@@ -2854,12 +2886,15 @@ router.post('/route-v4/activity-router-1', function(request, response) {
 
 router.post('/route-v4/activity-router-2', function(request, response) {
     var value = request.session.data['activity-types'] //
+    var misrepJourney = request.session.data['misrep'] //
     if (value.includes("Public communication in the UK")){
         response.redirect(activity_v4+'/a-pub-1')
     } else  if (value.includes("Supply of money, goods or services to an individual or entity in the UK")){
         response.redirect(activity_v4+'/a-mon-1')
     } else  if (value.includes("Other type of activity in the UK")){
         response.redirect(activity_v4+'/a-oth-1')
+    } else  if (misrepJourney == 'true'){ 
+        response.redirect(activity_v4+'/a-misrep-activity')
     } else {
         response.redirect(activity_v4+'/a-check')
     }
@@ -2867,10 +2902,13 @@ router.post('/route-v4/activity-router-2', function(request, response) {
 
 router.post('/route-v4/activity-router-3', function(request, response) {
     var value = request.session.data['activity-types'] //
+    var misrepJourney = request.session.data['misrep'] //
     if (value.includes("Supply of money, goods or services to an individual or entity in the UK")){
         response.redirect(activity_v4+'/a-mon-1')
     } else  if (value.includes("Other type of activity in the UK")){
         response.redirect(activity_v4+'/a-oth-1')
+    } else  if (misrepJourney == 'true'){ 
+        response.redirect(activity_v4+'/a-misrep-activity')
     } else {
         response.redirect(activity_v4+'/a-check')
     }
@@ -2878,8 +2916,11 @@ router.post('/route-v4/activity-router-3', function(request, response) {
 
 router.post('/route-v4/activity-router-4', function(request, response) {
     var value = request.session.data['activity-types'] //
+    var misrepJourney = request.session.data['misrep'] //
     if (value.includes("Other type of activity in the UK")){
         response.redirect(activity_v4+'/a-oth-1')
+    } else  if (misrepJourney == 'true'){ 
+        response.redirect(activity_v4+'/a-misrep-activity')
     } else {
         response.redirect(activity_v4+'/a-check')
     }
@@ -2888,10 +2929,13 @@ router.post('/route-v4/activity-router-4', function(request, response) {
 
 router.post('/route-v4/a-pri-2', function(request, response) {
     var value = request.session.data['a-pri-2']
+    var misrepJourney = request.session.data['misrep'] //
     if (value.includes("Specific individuals")){
         response.redirect(activity_v4+'/a-pri-3')
     } else if (value.includes("Groups or categories of people")){
         response.redirect(activity_v4+'/a-pri-4')
+    } else  if (misrepJourney == 'true'){ 
+        response.redirect(activity_v4+'/a-misrep-activity')
     } else {
         response.redirect(activity_v4+'/a-check')
     }
@@ -2899,6 +2943,7 @@ router.post('/route-v4/a-pri-2', function(request, response) {
 
 router.post('/route-v4/a-pri-3', function(request, response) {
     var value = request.session.data['a-pri-2']
+    var misrepJourney = request.session.data['misrep'] //
     var type = request.session.data['activity-types'] //
     if (value.includes("Groups or categories of people")){
         response.redirect(activity_v4+'/a-pri-4')
@@ -2910,6 +2955,8 @@ router.post('/route-v4/a-pri-3', function(request, response) {
             response.redirect(activity_v4+'/a-mon-1')
         } else  if (type.includes("Other type of activity in the UK")){
             response.redirect(activity_v4+'/a-oth-1')
+        } else  if (misrepJourney == 'true'){ 
+            response.redirect(activity_v4+'/a-misrep-activity')
         } else {
             response.redirect(activity_v4+'/a-check')
         }
@@ -2919,10 +2966,13 @@ router.post('/route-v4/a-pri-3', function(request, response) {
 
 router.post('/route-v4/a-mon-3', function(request, response) {
     var value = request.session.data['a-mon-3']
+    var misrepJourney = request.session.data['misrep'] //
     if (value.includes("Specific individuals")){
         response.redirect(activity_v4+'/a-mon-4')
     } else if (value.includes("Groups or categories of people")){
         response.redirect(activity_v4+'/a-mon-5')
+    } else  if (misrepJourney == 'true'){ 
+        response.redirect(activity_v4+'/a-misrep-activity')
     } else {
         response.redirect(activity_v4+'/a-check')
     }
@@ -2930,12 +2980,15 @@ router.post('/route-v4/a-mon-3', function(request, response) {
 router.post('/route-v4/a-mon-4', function(request, response) {
     var value = request.session.data['a-mon-3']
     var type = request.session.data['activity-types'] //
+    var misrepJourney = request.session.data['misrep'] //
     if (value.includes("Groups or categories of people")){
         response.redirect(activity_v4+'/a-mon-5')
     } else {
         // pulled from /route-v4/activity-router-2
         if (type.includes("Other type of activity in the UK")){
             response.redirect(activity_v4+'/a-oth-1')
+        } else  if (misrepJourney == 'true'){ 
+            response.redirect(activity_v4+'/a-misrep-activity')
         } else {
             response.redirect(activity_v4+'/a-check')
         }

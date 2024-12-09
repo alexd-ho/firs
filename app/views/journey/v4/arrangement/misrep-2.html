@@ -2,16 +2,16 @@
 {% set activeLinkId = 'registrations' %}
     
     {% block pageTitle %}
-        Add an arrangement – {{ serviceName }} – GOV.UK Prototype Kit
+        Add a foreign power – {{ serviceName }} – GOV.UK Prototype Kit
     {% endblock %}
     
     
     {% block content %}
     <div class='govuk-grid-row'>
         <div class='govuk-grid-column-two-thirds-from-desktop'>
-            <form action='/route-v4/fp-c' method='post'>
+            <form action='/route-v4/misrep-2' method='post'>
     
-                <span class='govuk-caption-l'>Add an arrangement</span>
+                <span class='govuk-caption-l'>Add a foreign power</span>
 
                 {% set thisRegistrant %}
                     {% if (data['reg-type'] == 'Individual') %}you have {% else %} {{data['entity-name']}} has{% endif %}
@@ -21,13 +21,13 @@
 
 					<legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
 						<h1 class="govuk-fieldset__heading">
-							Which country is the foreign power or foreign power-controlled entity that {{ thisRegistrant }}  an arrangement with from?
+							Which country is the foreign power you work for from?
 						</h1>
 					</legend>
 
 
                     <div class="govuk-form-group govuk-form-group--add-another-block">
-                        <label class="govuk-label hidden" for="fp-c">
+                        <label class="govuk-label hidden" for="misrep-2">
                             Country
                         </label>
                             <!-- id="i6--1" name="i6--1" -->
@@ -35,14 +35,14 @@
                         <div class="govuk-form-group--add-another-block__fields">
 
                             <div class="govuk-form-group--add-another-block__fields__col1">
-                                <div class="autocomplete-wrapper" id="fp-c"></div>
+                                <div class="autocomplete-wrapper" id="misrep-2"></div>
                                 <div class="govuk-body other-nationality-field">
-                                    <p><a href="#" class="govuk-link cannot-find-country" data-field="fp-c">I cannot find my country in the list</a></p>
+                                    <p><a href="#" class="govuk-link cannot-find-country" data-field="misrep-2">I cannot find my country in the list</a></p>
                                 </div>
                             </div>
 
                             <div class="govuk-form-group--add-another-block__fields__col2 govuk-body">
-                                <a href="#" class="govuk-link row-remove hidden" data-row="fp-c">Remove</a>
+                                <a href="#" class="govuk-link row-remove hidden" data-row="misrep-2">Remove</a>
                             </div>
 
                         </div>
@@ -79,8 +79,8 @@
 
 
 <script type="text/javascript">
-    var element = document.querySelector('#fp-c')
-    var id = 'fp-c'
+    var element = document.querySelector('#misrep-2')
+    var id = 'misrep-2'
     accessibleAutocomplete({
         element: element,
         id: id,
@@ -108,7 +108,7 @@
     }
 
     window.onload = function() {
-        manageRows('fp-c');
+        manageRows('misrep-2');
     };
 
 </script>

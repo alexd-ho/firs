@@ -16,18 +16,18 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 	<div class="govuk-grid-column-full">
 
-		<h1 class="govuk-heading-l">Add an arrangement</h1>
+		<h1 class="govuk-heading-l">Add a foreign power</h1>
 
-		<p>You can add a new arrangement or select one previously added to a registration associated with the same registrant.</p>
+		<p>To continue this registration, you must add a new foreign power or select an existing foreign power associated with the registrant.</p>
 
 
 		{% from 'govuk/components/button/macro.njk' import govukButton %}
 			
 		<div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
 			{{ govukButton({
-				href: 'fp-1',
+				href: 'misrep-1',
 				classes: '',
-				text: 'Add a new arrangement'
+				text: 'Add a new foreign power'
 			}) }}
 	
 		</div>
@@ -42,12 +42,12 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 			<div class="govuk-summary-card__title-wrapper">
 
 				<h2 class="govuk-summary-card__title">
-					<span class="govuk-caption-m">Arrangement</span>
+					<span class="govuk-caption-m">Foreign power</span>
 					{{foreignPower}} ({{fpCountry}})
 				</h2>
 				<ul class="govuk-summary-card__actions">
 					<li class="govuk-summary-card__action">
-						<a class="govuk-link " href="../activity/a-start?registration-tier={{arrTier}}&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Select arrangement<span class="govuk-visually-hidden"> {{data['registrant-name']}} </span></a>
+						<a class="govuk-link " href="../activity/a-start?registration-tier={{arrTier}}&arrangement-name={{data['arrangement-name']}}&arrangement-progress=complete">Select foreign power<span class="govuk-visually-hidden"> {{data['registrant-name']}} </span></a>
 					</li>
 					<li class="govuk-summary-card__action">
 						<a class="govuk-link show-collapsed-content" href="#"><span class="expand-collapse-label"></span><span class="govuk-visually-hidden"> Expand arrangement details</span></a>
@@ -58,44 +58,55 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 				<dl class="govuk-summary-list">
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
-							Foreign Power (Country)
+							{% if (data['misrep-3'] == 'Yes') %}
+								Foreign Power (Country)
+							{% else %}
+								Foreign Power (Country - type)
+							{% endif %}
+
 						</dt>
 						<dd class="govuk-summary-list__value">
-							{% if (data['fp-2'] == 'Yes') %}
-								{% if (data['fp-4'] == 'Yes') %}
-									{{foreignPower}} ({{fpCountry}})
-								{% else %}
-									{{foreignPower}} ({{fpCountry}})
-								{% endif %}
+							{% if (data['misrep-3'] == 'Yes') %}
+								{{data['misrep-4']}} ({{data['misrep-2']}})
 							{% else %}
-								{{foreignPower}} ({{fpCountry}})
+								{{data['misrep-5-name']}} ({{data['misrep-2']}} - {{data['misrep-5-type']}})
 							{% endif %}
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="fp-2">Change<span class="govuk-visually-hidden"> Full name</span></a>
+							<a class="govuk-link" href="misrep-2">Change<span class="govuk-visually-hidden"> Foreign Power</span></a>
 						</dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
-							What is in the arrangement?
+							Email
 						</dt>
 						<dd class="govuk-summary-list__value">
-							{{data['fp-8']}}
+							{{data['misrep-6-email']}}
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="fp-8">Change<span class="govuk-visually-hidden"> Other names</span></a>
+							<a class="govuk-link" href="fp-8">Change<span class="govuk-visually-hidden"> Email</span></a>
 						</dd>
 					</div>
 					<div class="govuk-summary-list__row">
 						<dt class="govuk-summary-list__key">
-							When was the arrangement made?
+							Telephone number
 						</dt>
 						<dd class="govuk-summary-list__value">
-							{% if (data['fp-9-day']) %}{{data['fp-9-day']}} {{data['fp-9-month'] | monthName("truncate")}} {{data['fp-9-year']}} {% endif %}
+							{{data['misrep-6-telephone']}}
 						</dd>
 						<dd class="govuk-summary-list__actions">
-							<a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> date of
-									birth</span></a>
+							<a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> dTelephone number</span></a>
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Address
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{data['misrep-6-address']}}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> Address</span></a>
 						</dd>
 					</div>
 				</dl>

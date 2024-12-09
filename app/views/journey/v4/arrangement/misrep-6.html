@@ -1,0 +1,77 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add a foreign power – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='misrep-check' method='post'>
+    
+                <span class='govuk-caption-l'>Add a foreign power</span>
+    
+                {% if (data['misrep-3'] == 'Yes') %}
+                <h1 class='govuk-heading-l'>Provide contact details for {{data['misrep-4']}}</h1> 
+                {% else %}
+                <h1 class='govuk-heading-l'>Provide contact details for {{data['misrep-5-name']}}</h1> 
+                {% endif %}
+
+                <div class="govuk-hint">
+                    <p>You must provide contact details for the foreign power you work for.</p>
+                </div>
+
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'misrep-6-email',
+                    name: 'misrep-6-email',
+                    value: data['misrep-6-email'],
+                    label: {
+                        text: 'Email address',
+                        classes: 'govuk-label',
+                        isPageHeading: false
+                    }
+                }) }}
+    
+                {% from 'govuk/components/input/macro.njk' import govukInput %}
+                {{ govukInput({
+                    id: 'misrep-6-telephone',
+                    name: 'misrep-6-telephone',
+                    value: data['misrep-6-telephone'],
+                    label: {
+                        text: 'Telephone number',
+                        classes: 'govuk-label',
+                        isPageHeading: false
+                    }
+                }) }}
+
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                    
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'misrep-6-address',
+                    name: 'misrep-6-address',
+                    value: data['misrep-6-address'],
+                    label: {
+                        text: 'Address',
+                        classes: 'govuk-label',
+                        isPageHeading: false
+                    }
+                }) }} 
+    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}

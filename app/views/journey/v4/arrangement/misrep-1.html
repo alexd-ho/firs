@@ -1,0 +1,57 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add a foreign power – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='misrep-2' method='post'>
+        
+                <h1 class='govuk-heading-l'>Add a foreign power</h1> 
+
+                <p>You must provide details of the foreign power your work for.</p>
+
+                <h2 class='govuk-heading-m'>What you need to complete this section     </h2> 
+
+                <p>You need to know:</p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>the name of the foreign power you work for</li>
+                    <li>the email address, telephone number and address of the foreign power you work for</li>
+                </ul>
+
+                <h2 class='govuk-heading-m'>The public register</h2> 
+
+                <p>If you add a political influencing activity, some of the information related to this registration will appear on the Foreign Influence Registration Scheme (FIRS) public register. </p>
+
+                <p>Information set to appear on the public register may remain private if:</p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li>publication could cause serious harm to any individual involved in this activity</li>
+                    <li>publication could harm a criminal investigation or proceedings, or prevent the detection of crime</li>
+                    <li>publication could harm the safety or interests of the UK</li>
+                    <li>publication could harm the commercial interests of any individual or entity in this activity</li>
+                </ul>
+
+                <p>At the 'Check and submit your registration' stage, you can tell us if you believe any of the registration information creates one or more of these risks and should stay private. If you do, you will have 5 days to present your case. </p>
+
+                <p>Read the guidance on:</p>
+                <ul class='govuk-list govuk-list--bullet'>
+                    <li><a href="#">what information appears on the public register</a></li>
+                    <li><a href="#">your information remaining private</a></li>
+                </ul>
+    
+                {% from 'govuk/components/button/macro.njk' import govukButton %}
+                    
+                <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    {{ govukButton({
+                        text: 'Continue'
+                    }) }}
+                </div>
+
+            </form>
+        </div>
+    </div>
+    {% endblock %}

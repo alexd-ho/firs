@@ -1,0 +1,88 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add a foreign power – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='../registrations/registration-task-list?arrangement-status=complete' method='post'>
+    
+                <span class='govuk-caption-l'>Add a foreign power</span>
+    
+                <h1 class='govuk-heading-l'>Check your answers</h1> 
+
+                <dl class="govuk-summary-list">
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							{% if (data['misrep-3'] == 'Yes') %}
+								Foreign Power (Country)
+							{% else %}
+								Foreign Power (Country - type)
+							{% endif %}
+
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{% if (data['misrep-3'] == 'Yes') %}
+								{{data['misrep-4']}} ({{data['misrep-2']}})
+							{% else %}
+								{{data['misrep-5-name']}} ({{data['misrep-2']}} - {{data['misrep-5-type']}})
+							{% endif %}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="misrep-2">Change<span class="govuk-visually-hidden"> Foreign Power</span></a>
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Email
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{data['misrep-6-email']}}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="fp-8">Change<span class="govuk-visually-hidden"> Email</span></a>
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Telephone number
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{data['misrep-6-telephone']}}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> dTelephone number</span></a>
+						</dd>
+					</div>
+					<div class="govuk-summary-list__row">
+						<dt class="govuk-summary-list__key">
+							Address
+						</dt>
+						<dd class="govuk-summary-list__value">
+							{{data['misrep-6-address']}}
+						</dd>
+						<dd class="govuk-summary-list__actions">
+							<a class="govuk-link" href="fp-9">Change<span class="govuk-visually-hidden"> Address</span></a>
+						</dd>
+					</div>
+				</dl>
+
+    
+               <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'layouts/v4-header-1.html' %}
+{% set activeLinkId = 'account' %}
+    
+    {% block pageTitle %}
+        Add an activity – {{ serviceName }} – GOV.UK Prototype Kit
+    {% endblock %}
+    
+    
+    {% block content %}
+    <div class='govuk-grid-row'>
+        <div class='govuk-grid-column-two-thirds-from-desktop'>
+            <form action='a-check' method='post'>
+    
+                <span class='govuk-caption-l'>Add an activity</span>
+    
+                <h1 class='govuk-heading-l'>Tell us about how you will misrepresent yourself</h1> 
+                
+                <p>Read the guidance on working for a foreign power and misrepresenting.</p>
+
+                {% set misrepDetails1 %}
+                    {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                        
+                    {{ govukTextarea({
+                    name: 'moreDetail',
+                        id: 'a-misrep-activity-2-additional',
+                        name: 'a-misrep-activity-2-additional',
+                        value: data['a-misrep-activity-2-additional'],
+                        label: {
+                            text: 'False or different details you will use',
+                            classes: 'govuk-label',
+                            isPageHeading: false
+                        }
+                    }) }} 
+                {% endset %}
+
+                {% set misrepDetails2 %}
+
+                {% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
+
+                {{ govukDateInput({
+                    namePrefix: 'a-misrep-activity-3-start-date',
+                    id: 'a-misrep-activity-3-start-date',
+                    value: data['a-misrep-activity-3-start-date'],
+                    fieldset: {
+                        legend: {
+                            text: 'Start date',
+                            classes: 'govuk-fieldset__legend',
+                            isPageHeading: false
+                        }
+                    }
+                }) }}
+                {{ govukDateInput({
+                    namePrefix: 'a-misrep-activity-3-end-date',
+                    id: 'a-misrep-activity-3-end-date',
+                    value: data['a-misrep-activity-3-end-date'],
+                    fieldset: {
+                        legend: {
+                            text: 'End date',
+                            classes: 'govuk-fieldset__legend',
+                            isPageHeading: false
+                        }
+                    }
+                }) }}
+
+                {% endset %}
+
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                    
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'a-misrep-activity-1',
+                    name: 'a-misrep-activity-1',
+                    value: data['a-misrep-activity-1'],
+                    label: {
+                        text: 'What misleading information will you give about the activity?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    },
+                    hint: {
+                        html: '<p>Describe what false or misleading information you plan to give to others about the activity. Include any details you will intentionally hide or change.</p>'
+                    }
+                }) }} 
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'a-misrep-activity-2',
+                    name: 'a-misrep-activity-2',
+                    value: data['a-misrep-activity-2'],
+                    fieldset: {
+                        legend: {
+                            text: 'Will you use any false or different details about yourself?',
+                            classes: 'govuk-fieldset__legend--m',
+                            isPageHeading: false
+                        }
+                    },
+                    hint: {
+                        html: '<p>For example, giving a false name, using a different job title, or claiming to work for a different organisation.</p>'
+                    },
+                    items: [
+                    {
+                       value: 'Yes',
+                        text: 'Yes',
+                        conditional: {
+                            html: misrepDetails1
+                        }
+                    },
+                    {
+                       value: 'No',
+                        text: 'No'
+                    }
+                    ]
+                }) }}
+
+                {% from 'govuk/components/radios/macro.njk' import govukRadios %}
+                {{ govukRadios({
+                    id: 'a-misrep-activity-3',
+                    name: 'a-misrep-activity-3',
+                    value: data['a-misrep-activity-3'],
+                    fieldset: {
+                        legend: {
+                            text: 'Which country does this registration involve?',
+                            classes: 'govuk-fieldset__legend--l',
+                            isPageHeading: true
+                        }
+                    },
+                    items: [
+                    {
+                       value: 'Same dates as the activity',
+                        text: 'Same dates as the activity'
+                    },
+                    {
+                       value: 'Different dates',
+                        text: 'Different dates',
+                        conditional: {
+                            html: misrepDetails2
+                        }
+                    }
+                    ]
+                }) }}
+
+                {% from 'govuk/components/textarea/macro.njk' import govukTextarea %}
+                    
+                {{ govukTextarea({
+                name: 'moreDetail',
+                    id: 'a-misrep-activity-4',
+                    name: 'a-misrep-activity-4',
+                    value: data['a-misrep-activity-4'],
+                    label: {
+                        text: 'Why do you need to give misleading information?',
+                        classes: 'govuk-label--m',
+                        isPageHeading: false
+                    },
+                    hint: {
+                        html: '<p>Explain why you need to change or hide information about the activity.</p>'
+                    }
+                }) }} 
+    
+
+               <div class='govuk-button-group govuk-!-padding-top-3 govuk-!-padding-bottom-4'>
+                    {{ govukButton({
+                        text: 'Save and continue'
+                    }) }}
+                    {{ govukButton({
+                        href: '/route-v4/registration-overview',
+                        classes: 'govuk-button--secondary',
+                        text: 'Save and exit'
+                    }) }}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}

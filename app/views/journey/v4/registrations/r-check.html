@@ -781,6 +781,82 @@ Submit your registration – {{ serviceName }} – GOV.UK Prototype Kit
                     </dl>     
                     {% endif %}
 
+
+                    {% if (data['misrep'] == 'true') %}
+                    <h2 class='govuk-heading-m'>Misrepresentation details</h1>
+
+                    <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Description of mirepresentation
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{data['a-misrep-activity-1']}}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="../activity/a-misrep-activity">Change<span class="govuk-visually-hidden"> name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Identities used for misrepresentation
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {% if (data['a-misrep-activity-2'] == 'Yes') %}
+                                {{data['a-misrep-activity-2-additional']}}
+                                {% else %}
+                                None supplied
+                                {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="../activity/a-misrep-activity">Change<span class="govuk-visually-hidden"> name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Start date of misrepresentation
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {% if (data['a-misrep-activity-3'] == 'Different dates') %}
+                                {{data['a-misrep-activity-3-start-date-day']}} {{data['a-misrep-activity-3-start-date-month'] | monthName('truncate')}} {{data['a-misrep-activity-3-start-date-year']}}
+                                {% else %}
+                                Same dates as the activity
+                                {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="../activity/a-misrep-activity">Change<span class="govuk-visually-hidden"> name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                End date of misrepresentation
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {% if (data['a-misrep-activity-3'] == 'Different dates') %}
+                                {{data['a-misrep-activity-3-end-date-day']}} {{data['a-misrep-activity-3-end-date-month'] | monthName('truncate')}} {{data['a-misrep-activity-3-end-date-year']}}
+                                {% else %}
+                                Same dates as the activity
+                                {% endif %}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="../activity/a-misrep-activity">Change<span class="govuk-visually-hidden"> name</span></a>
+                            </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">
+                                Reason for misrepresentation
+                            </dt>
+                            <dd class="govuk-summary-list__value">
+                                {{data['a-misrep-activity-4']}}
+                            </dd>
+                            <dd class="govuk-summary-list__actions">
+                                <a class="govuk-link" href="../activity/a-misrep-activity">Change<span class="govuk-visually-hidden"> name</span></a>
+                            </dd>
+                        </div>
+                    </dl>     
+
+                    {% endif %}
+                    
                     
                 </div>
             </div>
