@@ -87,9 +87,15 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 
 					{% if (data['reg-type'] == 'Entity' and data['reg-subtype'] == 'fpce') %}<!-- FPCE only -->
 					<div class="govuk-task-list__name-and-hint">
+						{% if (data['misrep'] == 'true') %}
+						<div>
+							Add a foreign power
+						</div>
+						{% else %}
 						<div>
 							Add an arrangement
 						</div>
+						{% endif %}
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="prepare-application-2-status">
 						Not applicable
@@ -98,6 +104,19 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					{% else %}<!-- not fpce -->
 			
 					<div class="govuk-task-list__name-and-hint">
+						{% if (data['misrep'] == 'true') %}
+						<a class="govuk-link govuk-task-list__link" href="../arrangement/misrep-check"
+							aria-describedby="prepare-application-2-status">
+							Add a foreign power
+						</a>
+						<div id="application-details-3-hint" class="govuk-task-list__label">
+							{% if (data['misrep-3'] == 'Yes') %}
+								{{data['misrep-4']}} ({{data['misrep-2']}})
+							{% else %}
+								{{data['misrep-5-name']}} ({{data['misrep-2']}} - {{data['misrep-5-type']}})
+							{% endif %}
+						</div>
+						{% else %}
 						<a class="govuk-link govuk-task-list__link" href="../arrangement/fp-check"
 							aria-describedby="prepare-application-2-status">
 							Add an arrangement
@@ -113,6 +132,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 								{{foreignPower}} ({{fpCountry}})
 							{% endif %}
 						</div>
+						{% endif %}
 					</div>
 					<div class="govuk-task-list__status" id="prepare-application-2-status">
 						{% if (data['arrangement-status'] == 'complete') %}Complete						
@@ -128,7 +148,7 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 						{% if (data['misrep'] == 'true') %}
 						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-fp"
 							aria-describedby="prepare-application-2-status">
-							Add an arrangement
+							Add a foreign power
 						</a>
 						{% else %}
 						<a class="govuk-link govuk-task-list__link" href="../arrangement/select-arrangement"
@@ -142,9 +162,15 @@ Account – {{ serviceName }} – GOV.UK Prototype Kit
 					</div>
 					{% else %}						
 					<div class="govuk-task-list__name-and-hint">
+						{% if (data['misrep'] == 'true') %}
+						<div>
+							Add a foreign power
+						</div>
+						{% else %}
 						<div>
 							Add an arrangement
 						</div>
+						{% endif %}
 					</div>
 					<div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="prepare-application-2-status">
 						Cannot start yet
